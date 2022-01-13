@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeliveryOptimizationSettingsImpl: Sized {
-    fn DownloadMode(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadMode>;
-    fn DownloadModeSource(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadModeSource>;
+    fn DownloadMode(&mut self) -> ::windows::core::Result<DeliveryOptimizationDownloadMode>;
+    fn DownloadModeSource(&mut self) -> ::windows::core::Result<DeliveryOptimizationDownloadModeSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeliveryOptimizationSettings {
@@ -44,7 +44,7 @@ impl IDeliveryOptimizationSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeliveryOptimizationSettingsStaticsImpl: Sized {
-    fn GetCurrentSettings(&self) -> ::windows::core::Result<DeliveryOptimizationSettings>;
+    fn GetCurrentSettings(&mut self) -> ::windows::core::Result<DeliveryOptimizationSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeliveryOptimizationSettingsStatics {
@@ -75,12 +75,12 @@ impl IDeliveryOptimizationSettingsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStaticsImpl: Sized {
-    fn SetSystemConfiguration(&self, cataloghardwaremanufacturerid: &::windows::core::HSTRING, catalogstorecontentmodifierid: &::windows::core::HSTRING, systemconfigurationexpiration: &super::super::super::Foundation::DateTime, cataloghardwaredescriptor: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetMobileOperatorConfiguration(&self, mobileoperatorid: &::windows::core::HSTRING, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()>;
-    fn SetStoreWebAccountId(&self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsStoreWebAccountId(&self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn HardwareManufacturerInfo(&self) -> ::windows::core::Result<StoreHardwareManufacturerInfo>;
-    fn FilterUnsupportedSystemFeaturesAsync(&self, systemfeatures: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>;
+    fn SetSystemConfiguration(&mut self, cataloghardwaremanufacturerid: &::windows::core::HSTRING, catalogstorecontentmodifierid: &::windows::core::HSTRING, systemconfigurationexpiration: &super::super::super::Foundation::DateTime, cataloghardwaredescriptor: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetMobileOperatorConfiguration(&mut self, mobileoperatorid: &::windows::core::HSTRING, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()>;
+    fn SetStoreWebAccountId(&mut self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsStoreWebAccountId(&mut self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn HardwareManufacturerInfo(&mut self) -> ::windows::core::Result<StoreHardwareManufacturerInfo>;
+    fn FilterUnsupportedSystemFeaturesAsync(&mut self, systemfeatures: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics {
@@ -157,8 +157,8 @@ impl IStoreConfigurationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics2Impl: Sized {
-    fn PurchasePromptingPolicy(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
-    fn SetPurchasePromptingPolicy(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn PurchasePromptingPolicy(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
+    fn SetPurchasePromptingPolicy(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics2 {
@@ -194,13 +194,13 @@ impl IStoreConfigurationStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics3Impl: Sized {
-    fn HasStoreWebAccount(&self) -> ::windows::core::Result<bool>;
-    fn HasStoreWebAccountForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<bool>;
-    fn GetStoreLogDataAsync(&self, options: StoreLogOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>;
-    fn SetStoreWebAccountIdForUser(&self, user: &::core::option::Option<super::super::super::System::User>, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsStoreWebAccountIdForUser(&self, user: &::core::option::Option<super::super::super::System::User>, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn GetPurchasePromptingPolicyForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
-    fn SetPurchasePromptingPolicyForUser(&self, user: &::core::option::Option<super::super::super::System::User>, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn HasStoreWebAccount(&mut self) -> ::windows::core::Result<bool>;
+    fn HasStoreWebAccountForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<bool>;
+    fn GetStoreLogDataAsync(&mut self, options: StoreLogOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>;
+    fn SetStoreWebAccountIdForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsStoreWebAccountIdForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn GetPurchasePromptingPolicyForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
+    fn SetPurchasePromptingPolicyForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics3 {
@@ -289,14 +289,14 @@ impl IStoreConfigurationStatics3Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics4Impl: Sized {
-    fn GetStoreWebAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetStoreWebAccountIdForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetEnterpriseStoreWebAccountId(&self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetEnterpriseStoreWebAccountIdForUser(&self, user: &::core::option::Option<super::super::super::System::User>, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetEnterpriseStoreWebAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetEnterpriseStoreWebAccountIdForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ShouldRestrictToEnterpriseStoreOnly(&self) -> ::windows::core::Result<bool>;
-    fn ShouldRestrictToEnterpriseStoreOnlyForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<bool>;
+    fn GetStoreWebAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetStoreWebAccountIdForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetEnterpriseStoreWebAccountId(&mut self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetEnterpriseStoreWebAccountIdForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetEnterpriseStoreWebAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetEnterpriseStoreWebAccountIdForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ShouldRestrictToEnterpriseStoreOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn ShouldRestrictToEnterpriseStoreOnlyForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics4 {
@@ -397,11 +397,11 @@ impl IStoreConfigurationStatics4Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreConfigurationStatics5Impl: Sized {
-    fn IsPinToDesktopSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsPinToTaskbarSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsPinToStartSupported(&self) -> ::windows::core::Result<bool>;
-    fn PinToDesktop(&self, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PinToDesktopForUser(&self, user: &::core::option::Option<super::super::super::System::User>, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsPinToDesktopSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPinToTaskbarSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPinToStartSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn PinToDesktop(&mut self, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PinToDesktopForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreConfigurationStatics5 {
@@ -466,10 +466,10 @@ impl IStoreConfigurationStatics5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreHardwareManufacturerInfoImpl: Sized {
-    fn HardwareManufacturerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn StoreContentModifierId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ModelName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ManufacturerName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HardwareManufacturerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StoreContentModifierId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ModelName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ManufacturerName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreHardwareManufacturerInfo {
@@ -536,8 +536,8 @@ impl IStoreHardwareManufacturerInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorePreviewImpl: Sized {
-    fn RequestProductPurchaseByProductIdAndSkuIdAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>>;
-    fn LoadAddOnProductInfosAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>>;
+    fn RequestProductPurchaseByProductIdAndSkuIdAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>>;
+    fn LoadAddOnProductInfosAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePreview {
@@ -580,11 +580,11 @@ impl IStorePreviewVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorePreviewProductInfoImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProductType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SkuInfoList(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<StorePreviewSkuInfo>>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SkuInfoList(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<StorePreviewSkuInfo>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePreviewProductInfo {
@@ -663,7 +663,7 @@ impl IStorePreviewProductInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorePreviewPurchaseResultsImpl: Sized {
-    fn ProductPurchaseStatus(&self) -> ::windows::core::Result<StorePreviewProductPurchaseStatus>;
+    fn ProductPurchaseStatus(&mut self) -> ::windows::core::Result<StorePreviewProductPurchaseStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorePreviewPurchaseResults {
@@ -694,15 +694,15 @@ impl IStorePreviewPurchaseResultsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorePreviewSkuInfoImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SkuId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SkuType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CustomDeveloperData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CurrencyCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormattedListPrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ExtendedData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SkuId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SkuType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CustomDeveloperData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CurrencyCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormattedListPrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ExtendedData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorePreviewSkuInfo {
@@ -829,8 +829,8 @@ impl IStorePreviewSkuInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml", feature = "implement_exclusive"))]
 pub trait IWebAuthenticationCoreManagerHelperImpl: Sized {
-    fn RequestTokenWithUIElementHostingAsync(&self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
-    fn RequestTokenWithUIElementHostingAndWebAccountAsync(&self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, webaccount: &::core::option::Option<super::super::super::Security::Credentials::WebAccount>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
+    fn RequestTokenWithUIElementHostingAsync(&mut self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
+    fn RequestTokenWithUIElementHostingAndWebAccountAsync(&mut self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, webaccount: &::core::option::Option<super::super::super::Security::Credentials::WebAccount>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAuthenticationCoreManagerHelper {

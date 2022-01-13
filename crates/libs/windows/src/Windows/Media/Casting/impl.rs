@@ -1,15 +1,15 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICastingConnectionImpl: Sized + IClosableImpl {
-    fn State(&self) -> ::windows::core::Result<CastingConnectionState>;
-    fn Device(&self) -> ::windows::core::Result<CastingDevice>;
-    fn Source(&self) -> ::windows::core::Result<CastingSource>;
-    fn SetSource(&self, value: &::core::option::Option<CastingSource>) -> ::windows::core::Result<()>;
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingConnection, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ErrorOccurred(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveErrorOccurred(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RequestStartCastingAsync(&self, value: &::core::option::Option<CastingSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>;
-    fn DisconnectAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>;
+    fn State(&mut self) -> ::windows::core::Result<CastingConnectionState>;
+    fn Device(&mut self) -> ::windows::core::Result<CastingDevice>;
+    fn Source(&mut self) -> ::windows::core::Result<CastingSource>;
+    fn SetSource(&mut self, value: &::core::option::Option<CastingSource>) -> ::windows::core::Result<()>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingConnection, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ErrorOccurred(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveErrorOccurred(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RequestStartCastingAsync(&mut self, value: &::core::option::Option<CastingSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>;
+    fn DisconnectAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingConnection {
@@ -127,8 +127,8 @@ impl ICastingConnectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICastingConnectionErrorOccurredEventArgsImpl: Sized {
-    fn ErrorStatus(&self) -> ::windows::core::Result<CastingConnectionErrorStatus>;
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ErrorStatus(&mut self) -> ::windows::core::Result<CastingConnectionErrorStatus>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICastingConnectionErrorOccurredEventArgs {
@@ -171,11 +171,11 @@ impl ICastingConnectionErrorOccurredEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICastingDeviceImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Icon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
-    fn GetSupportedCastingPlaybackTypesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>>;
-    fn CreateCastingConnection(&self) -> ::windows::core::Result<CastingConnection>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Icon(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
+    fn GetSupportedCastingPlaybackTypesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>>;
+    fn CreateCastingConnection(&mut self) -> ::windows::core::Result<CastingConnection>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDevice {
@@ -254,15 +254,15 @@ impl ICastingDeviceVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ICastingDevicePickerImpl: Sized {
-    fn Filter(&self) -> ::windows::core::Result<CastingDevicePickerFilter>;
-    fn Appearance(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DevicePickerAppearance>;
-    fn CastingDeviceSelected(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCastingDeviceSelected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CastingDevicePickerDismissed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingDevicePicker, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCastingDevicePickerDismissed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Show(&self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn ShowWithPlacement(&self, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
-    fn Hide(&self) -> ::windows::core::Result<()>;
+    fn Filter(&mut self) -> ::windows::core::Result<CastingDevicePickerFilter>;
+    fn Appearance(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::DevicePickerAppearance>;
+    fn CastingDeviceSelected(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCastingDeviceSelected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CastingDevicePickerDismissed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CastingDevicePicker, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCastingDevicePickerDismissed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Show(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn ShowWithPlacement(&mut self, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
+    fn Hide(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDevicePicker {
@@ -354,13 +354,13 @@ impl ICastingDevicePickerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICastingDevicePickerFilterImpl: Sized {
-    fn SupportsAudio(&self) -> ::windows::core::Result<bool>;
-    fn SetSupportsAudio(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SupportsVideo(&self) -> ::windows::core::Result<bool>;
-    fn SetSupportsVideo(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SupportsPictures(&self) -> ::windows::core::Result<bool>;
-    fn SetSupportsPictures(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SupportedCastingSources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<CastingSource>>;
+    fn SupportsAudio(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSupportsAudio(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SupportsVideo(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSupportsVideo(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SupportsPictures(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSupportsPictures(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SupportedCastingSources(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<CastingSource>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDevicePickerFilter {
@@ -442,7 +442,7 @@ impl ICastingDevicePickerFilterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICastingDeviceSelectedEventArgsImpl: Sized {
-    fn SelectedCastingDevice(&self) -> ::windows::core::Result<CastingDevice>;
+    fn SelectedCastingDevice(&mut self) -> ::windows::core::Result<CastingDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICastingDeviceSelectedEventArgs {
@@ -473,10 +473,10 @@ impl ICastingDeviceSelectedEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICastingDeviceStaticsImpl: Sized {
-    fn GetDeviceSelector(&self, r#type: CastingPlaybackTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorFromCastingSourceAsync(&self, castingsource: &::core::option::Option<CastingSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn FromIdAsync(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingDevice>>;
-    fn DeviceInfoSupportsCastingAsync(&self, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetDeviceSelector(&mut self, r#type: CastingPlaybackTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorFromCastingSourceAsync(&mut self, castingsource: &::core::option::Option<CastingSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn FromIdAsync(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingDevice>>;
+    fn DeviceInfoSupportsCastingAsync(&mut self, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingDeviceStatics {
@@ -543,8 +543,8 @@ impl ICastingDeviceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICastingSourceImpl: Sized {
-    fn PreferredSourceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetPreferredSourceUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn PreferredSourceUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetPreferredSourceUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICastingSource {

@@ -15,7 +15,7 @@ impl IAccessKeyDisplayDismissedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccessKeyDisplayRequestedEventArgsImpl: Sized {
-    fn PressedKeys(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PressedKeys(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccessKeyDisplayRequestedEventArgs {
@@ -46,8 +46,8 @@ impl IAccessKeyDisplayRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccessKeyInvokedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccessKeyInvokedEventArgs {
@@ -98,10 +98,10 @@ impl IAccessKeyManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAccessKeyManagerStaticsImpl: Sized {
-    fn IsDisplayModeEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsDisplayModeEnabledChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIsDisplayModeEnabledChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ExitDisplayMode(&self) -> ::windows::core::Result<()>;
+    fn IsDisplayModeEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDisplayModeEnabledChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIsDisplayModeEnabledChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ExitDisplayMode(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccessKeyManagerStatics {
@@ -154,8 +154,8 @@ impl IAccessKeyManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccessKeyManagerStatics2Impl: Sized {
-    fn AreKeyTipsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAreKeyTipsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AreKeyTipsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAreKeyTipsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccessKeyManagerStatics2 {
@@ -191,9 +191,9 @@ impl IAccessKeyManagerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICanExecuteRequestedEventArgsImpl: Sized {
-    fn Parameter(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn CanExecute(&self) -> ::windows::core::Result<bool>;
-    fn SetCanExecute(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Parameter(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CanExecute(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanExecute(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICanExecuteRequestedEventArgs {
@@ -241,10 +241,10 @@ impl ICanExecuteRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait ICharacterReceivedRoutedEventArgsImpl: Sized {
-    fn Character(&self) -> ::windows::core::Result<u16>;
-    fn KeyStatus(&self) -> ::windows::core::Result<super::super::Core::CorePhysicalKeyStatus>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Character(&mut self) -> ::windows::core::Result<u16>;
+    fn KeyStatus(&mut self) -> ::windows::core::Result<super::super::Core::CorePhysicalKeyStatus>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICharacterReceivedRoutedEventArgs {
@@ -304,10 +304,10 @@ impl ICharacterReceivedRoutedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ICommandImpl: Sized {
-    fn CanExecuteChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCanExecuteChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CanExecute(&self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
-    fn Execute(&self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn CanExecuteChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCanExecuteChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CanExecute(&mut self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn Execute(&mut self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICommand {
@@ -360,9 +360,9 @@ impl ICommandVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContextRequestedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TryGetPosition(&self, relativeto: &::core::option::Option<super::UIElement>, point: &mut super::super::super::Foundation::Point) -> ::windows::core::Result<bool>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TryGetPosition(&mut self, relativeto: &::core::option::Option<super::UIElement>, point: &mut super::super::super::Foundation::Point) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContextRequestedEventArgs {
@@ -410,10 +410,10 @@ impl IContextRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDoubleTappedRoutedEventArgsImpl: Sized {
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetPosition(&self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetPosition(&mut self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDoubleTappedRoutedEventArgs {
@@ -473,7 +473,7 @@ impl IDoubleTappedRoutedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IExecuteRequestedEventArgsImpl: Sized {
-    fn Parameter(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Parameter(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExecuteRequestedEventArgs {
@@ -501,14 +501,14 @@ impl IExecuteRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFindNextElementOptionsImpl: Sized {
-    fn SearchRoot(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetSearchRoot(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ExclusionRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn SetExclusionRect(&self, value: &super::super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn HintRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn SetHintRect(&self, value: &super::super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn XYFocusNavigationStrategyOverride(&self) -> ::windows::core::Result<XYFocusNavigationStrategyOverride>;
-    fn SetXYFocusNavigationStrategyOverride(&self, value: XYFocusNavigationStrategyOverride) -> ::windows::core::Result<()>;
+    fn SearchRoot(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetSearchRoot(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ExclusionRect(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn SetExclusionRect(&mut self, value: &super::super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn HintRect(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn SetHintRect(&mut self, value: &super::super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn XYFocusNavigationStrategyOverride(&mut self) -> ::windows::core::Result<XYFocusNavigationStrategyOverride>;
+    fn SetXYFocusNavigationStrategyOverride(&mut self, value: XYFocusNavigationStrategyOverride) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFindNextElementOptions {
@@ -610,8 +610,8 @@ impl IFocusManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFocusManagerGotFocusEventArgsImpl: Sized {
-    fn NewFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn NewFocusedElement(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn CorrelationId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFocusManagerGotFocusEventArgs {
@@ -654,8 +654,8 @@ impl IFocusManagerGotFocusEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFocusManagerLostFocusEventArgsImpl: Sized {
-    fn OldFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn OldFocusedElement(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn CorrelationId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFocusManagerLostFocusEventArgs {
@@ -698,7 +698,7 @@ impl IFocusManagerLostFocusEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFocusManagerStaticsImpl: Sized {
-    fn GetFocusedElement(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetFocusedElement(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFocusManagerStatics {
@@ -729,7 +729,7 @@ impl IFocusManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFocusManagerStatics2Impl: Sized {
-    fn TryMoveFocus(&self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<bool>;
+    fn TryMoveFocus(&mut self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFocusManagerStatics2 {
@@ -757,8 +757,8 @@ impl IFocusManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFocusManagerStatics3Impl: Sized {
-    fn FindNextFocusableElement(&self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::UIElement>;
-    fn FindNextFocusableElementWithHint(&self, focusnavigationdirection: FocusNavigationDirection, hintrect: &super::super::super::Foundation::Rect) -> ::windows::core::Result<super::UIElement>;
+    fn FindNextFocusableElement(&mut self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::UIElement>;
+    fn FindNextFocusableElementWithHint(&mut self, focusnavigationdirection: FocusNavigationDirection, hintrect: &super::super::super::Foundation::Rect) -> ::windows::core::Result<super::UIElement>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFocusManagerStatics3 {
@@ -801,11 +801,11 @@ impl IFocusManagerStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFocusManagerStatics4Impl: Sized {
-    fn TryMoveFocusWithOptions(&self, focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: &::core::option::Option<FindNextElementOptions>) -> ::windows::core::Result<bool>;
-    fn FindNextElement(&self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::DependencyObject>;
-    fn FindFirstFocusableElement(&self, searchscope: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::DependencyObject>;
-    fn FindLastFocusableElement(&self, searchscope: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::DependencyObject>;
-    fn FindNextElementWithOptions(&self, focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: &::core::option::Option<FindNextElementOptions>) -> ::windows::core::Result<super::DependencyObject>;
+    fn TryMoveFocusWithOptions(&mut self, focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: &::core::option::Option<FindNextElementOptions>) -> ::windows::core::Result<bool>;
+    fn FindNextElement(&mut self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::DependencyObject>;
+    fn FindFirstFocusableElement(&mut self, searchscope: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::DependencyObject>;
+    fn FindLastFocusableElement(&mut self, searchscope: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::DependencyObject>;
+    fn FindNextElementWithOptions(&mut self, focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: &::core::option::Option<FindNextElementOptions>) -> ::windows::core::Result<super::DependencyObject>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFocusManagerStatics4 {
@@ -884,9 +884,9 @@ impl IFocusManagerStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFocusManagerStatics5Impl: Sized {
-    fn TryFocusAsync(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FocusState) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>;
-    fn TryMoveFocusAsync(&self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>;
-    fn TryMoveFocusWithOptionsAsync(&self, focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: &::core::option::Option<FindNextElementOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>;
+    fn TryFocusAsync(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FocusState) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>;
+    fn TryMoveFocusAsync(&mut self, focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>;
+    fn TryMoveFocusWithOptionsAsync(&mut self, focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: &::core::option::Option<FindNextElementOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFocusManagerStatics5 {
@@ -941,14 +941,14 @@ impl IFocusManagerStatics5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFocusManagerStatics6Impl: Sized {
-    fn GotFocus(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<FocusManagerGotFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGotFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LostFocus(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<FocusManagerLostFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLostFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GettingFocus(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<GettingFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGettingFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LosingFocus(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<LosingFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLosingFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GotFocus(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<FocusManagerGotFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGotFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LostFocus(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<FocusManagerLostFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLostFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GettingFocus(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<GettingFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGettingFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LosingFocus(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<LosingFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLosingFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFocusManagerStatics6 {
@@ -1035,7 +1035,7 @@ impl IFocusManagerStatics6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFocusManagerStatics7Impl: Sized {
-    fn GetFocusedElement(&self, xamlroot: &::core::option::Option<super::XamlRoot>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetFocusedElement(&mut self, xamlroot: &::core::option::Option<super::XamlRoot>) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFocusManagerStatics7 {
@@ -1066,7 +1066,7 @@ impl IFocusManagerStatics7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFocusMovementResultImpl: Sized {
-    fn Succeeded(&self) -> ::windows::core::Result<bool>;
+    fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFocusMovementResult {
@@ -1094,16 +1094,16 @@ impl IFocusMovementResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGettingFocusEventArgsImpl: Sized {
-    fn OldFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn NewFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetNewFocusedElement(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn FocusState(&self) -> ::windows::core::Result<super::FocusState>;
-    fn Direction(&self) -> ::windows::core::Result<FocusNavigationDirection>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn InputDevice(&self) -> ::windows::core::Result<FocusInputDeviceKind>;
-    fn Cancel(&self) -> ::windows::core::Result<bool>;
-    fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
+    fn OldFocusedElement(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn NewFocusedElement(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetNewFocusedElement(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn FocusState(&mut self) -> ::windows::core::Result<super::FocusState>;
+    fn Direction(&mut self) -> ::windows::core::Result<FocusNavigationDirection>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn InputDevice(&mut self) -> ::windows::core::Result<FocusInputDeviceKind>;
+    fn Cancel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCancel(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGettingFocusEventArgs {
@@ -1221,8 +1221,8 @@ impl IGettingFocusEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGettingFocusEventArgs2Impl: Sized {
-    fn TryCancel(&self) -> ::windows::core::Result<bool>;
-    fn TrySetNewFocusedElement(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn TryCancel(&mut self) -> ::windows::core::Result<bool>;
+    fn TrySetNewFocusedElement(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGettingFocusEventArgs2 {
@@ -1265,7 +1265,7 @@ impl IGettingFocusEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGettingFocusEventArgs3Impl: Sized {
-    fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CorrelationId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGettingFocusEventArgs3 {
@@ -1296,11 +1296,11 @@ impl IGettingFocusEventArgs3Vtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IHoldingRoutedEventArgsImpl: Sized {
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn HoldingState(&self) -> ::windows::core::Result<super::super::Input::HoldingState>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetPosition(&self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn HoldingState(&mut self) -> ::windows::core::Result<super::super::Input::HoldingState>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetPosition(&mut self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHoldingRoutedEventArgs {
@@ -1372,10 +1372,10 @@ impl IHoldingRoutedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInertiaExpansionBehaviorImpl: Sized {
-    fn DesiredDeceleration(&self) -> ::windows::core::Result<f64>;
-    fn SetDesiredDeceleration(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DesiredExpansion(&self) -> ::windows::core::Result<f64>;
-    fn SetDesiredExpansion(&self, value: f64) -> ::windows::core::Result<()>;
+    fn DesiredDeceleration(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDesiredDeceleration(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DesiredExpansion(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDesiredExpansion(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInertiaExpansionBehavior {
@@ -1428,10 +1428,10 @@ impl IInertiaExpansionBehaviorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInertiaRotationBehaviorImpl: Sized {
-    fn DesiredDeceleration(&self) -> ::windows::core::Result<f64>;
-    fn SetDesiredDeceleration(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DesiredRotation(&self) -> ::windows::core::Result<f64>;
-    fn SetDesiredRotation(&self, value: f64) -> ::windows::core::Result<()>;
+    fn DesiredDeceleration(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDesiredDeceleration(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DesiredRotation(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDesiredRotation(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInertiaRotationBehavior {
@@ -1484,10 +1484,10 @@ impl IInertiaRotationBehaviorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInertiaTranslationBehaviorImpl: Sized {
-    fn DesiredDeceleration(&self) -> ::windows::core::Result<f64>;
-    fn SetDesiredDeceleration(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DesiredDisplacement(&self) -> ::windows::core::Result<f64>;
-    fn SetDesiredDisplacement(&self, value: f64) -> ::windows::core::Result<()>;
+    fn DesiredDeceleration(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDesiredDeceleration(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DesiredDisplacement(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDesiredDisplacement(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInertiaTranslationBehavior {
@@ -1540,7 +1540,7 @@ impl IInertiaTranslationBehaviorVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInputScopeImpl: Sized {
-    fn Names(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<InputScopeName>>;
+    fn Names(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<InputScopeName>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInputScope {
@@ -1568,8 +1568,8 @@ impl IInputScopeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInputScopeNameImpl: Sized {
-    fn NameValue(&self) -> ::windows::core::Result<InputScopeNameValue>;
-    fn SetNameValue(&self, value: InputScopeNameValue) -> ::windows::core::Result<()>;
+    fn NameValue(&mut self) -> ::windows::core::Result<InputScopeNameValue>;
+    fn SetNameValue(&mut self, value: InputScopeNameValue) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInputScopeName {
@@ -1605,7 +1605,7 @@ impl IInputScopeNameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInputScopeNameFactoryImpl: Sized {
-    fn CreateInstance(&self, namevalue: InputScopeNameValue) -> ::windows::core::Result<InputScopeName>;
+    fn CreateInstance(&mut self, namevalue: InputScopeNameValue) -> ::windows::core::Result<InputScopeName>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInputScopeNameFactory {
@@ -1636,10 +1636,10 @@ impl IInputScopeNameFactoryVtbl {
 }
 #[cfg(all(feature = "System", feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait IKeyRoutedEventArgsImpl: Sized {
-    fn Key(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
-    fn KeyStatus(&self) -> ::windows::core::Result<super::super::Core::CorePhysicalKeyStatus>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Key(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
+    fn KeyStatus(&mut self) -> ::windows::core::Result<super::super::Core::CorePhysicalKeyStatus>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "System", feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyRoutedEventArgs {
@@ -1699,7 +1699,7 @@ impl IKeyRoutedEventArgsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IKeyRoutedEventArgs2Impl: Sized {
-    fn OriginalKey(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
+    fn OriginalKey(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyRoutedEventArgs2 {
@@ -1727,7 +1727,7 @@ impl IKeyRoutedEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyRoutedEventArgs3Impl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyRoutedEventArgs3 {
@@ -1755,16 +1755,16 @@ impl IKeyRoutedEventArgs3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IKeyboardAcceleratorImpl: Sized {
-    fn Key(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
-    fn SetKey(&self, value: super::super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn Modifiers(&self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers>;
-    fn SetModifiers(&self, value: super::super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetScopeOwner(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn Invoked(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<KeyboardAccelerator, KeyboardAcceleratorInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInvoked(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Key(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
+    fn SetKey(&mut self, value: super::super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn Modifiers(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers>;
+    fn SetModifiers(&mut self, value: super::super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ScopeOwner(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetScopeOwner(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn Invoked(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<KeyboardAccelerator, KeyboardAcceleratorInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInvoked(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyboardAccelerator {
@@ -1868,7 +1868,7 @@ impl IKeyboardAcceleratorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyboardAcceleratorFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<KeyboardAccelerator>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<KeyboardAccelerator>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyboardAcceleratorFactory {
@@ -1899,9 +1899,9 @@ impl IKeyboardAcceleratorFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyboardAcceleratorInvokedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Element(&self) -> ::windows::core::Result<super::DependencyObject>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Element(&mut self) -> ::windows::core::Result<super::DependencyObject>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyboardAcceleratorInvokedEventArgs {
@@ -1949,7 +1949,7 @@ impl IKeyboardAcceleratorInvokedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyboardAcceleratorInvokedEventArgs2Impl: Sized {
-    fn KeyboardAccelerator(&self) -> ::windows::core::Result<KeyboardAccelerator>;
+    fn KeyboardAccelerator(&mut self) -> ::windows::core::Result<KeyboardAccelerator>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyboardAcceleratorInvokedEventArgs2 {
@@ -1980,10 +1980,10 @@ impl IKeyboardAcceleratorInvokedEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyboardAcceleratorStaticsImpl: Sized {
-    fn KeyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ModifiersProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn IsEnabledProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ScopeOwnerProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn KeyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ModifiersProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IsEnabledProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ScopeOwnerProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyboardAcceleratorStatics {
@@ -2050,16 +2050,16 @@ impl IKeyboardAcceleratorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILosingFocusEventArgsImpl: Sized {
-    fn OldFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn NewFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetNewFocusedElement(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn FocusState(&self) -> ::windows::core::Result<super::FocusState>;
-    fn Direction(&self) -> ::windows::core::Result<FocusNavigationDirection>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn InputDevice(&self) -> ::windows::core::Result<FocusInputDeviceKind>;
-    fn Cancel(&self) -> ::windows::core::Result<bool>;
-    fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
+    fn OldFocusedElement(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn NewFocusedElement(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetNewFocusedElement(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn FocusState(&mut self) -> ::windows::core::Result<super::FocusState>;
+    fn Direction(&mut self) -> ::windows::core::Result<FocusNavigationDirection>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn InputDevice(&mut self) -> ::windows::core::Result<FocusInputDeviceKind>;
+    fn Cancel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCancel(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILosingFocusEventArgs {
@@ -2177,8 +2177,8 @@ impl ILosingFocusEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILosingFocusEventArgs2Impl: Sized {
-    fn TryCancel(&self) -> ::windows::core::Result<bool>;
-    fn TrySetNewFocusedElement(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn TryCancel(&mut self) -> ::windows::core::Result<bool>;
+    fn TrySetNewFocusedElement(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILosingFocusEventArgs2 {
@@ -2221,7 +2221,7 @@ impl ILosingFocusEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILosingFocusEventArgs3Impl: Sized {
-    fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CorrelationId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILosingFocusEventArgs3 {
@@ -2252,14 +2252,14 @@ impl ILosingFocusEventArgs3Vtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IManipulationCompletedRoutedEventArgsImpl: Sized {
-    fn Container(&self) -> ::windows::core::Result<super::UIElement>;
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
-    fn IsInertial(&self) -> ::windows::core::Result<bool>;
-    fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
-    fn Velocities(&self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn Container(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn IsInertial(&mut self) -> ::windows::core::Result<bool>;
+    fn Cumulative(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
+    fn Velocities(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationCompletedRoutedEventArgs {
@@ -2367,16 +2367,16 @@ impl IManipulationCompletedRoutedEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IManipulationDeltaRoutedEventArgsImpl: Sized {
-    fn Container(&self) -> ::windows::core::Result<super::UIElement>;
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
-    fn IsInertial(&self) -> ::windows::core::Result<bool>;
-    fn Delta(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
-    fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
-    fn Velocities(&self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Container(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn IsInertial(&mut self) -> ::windows::core::Result<bool>;
+    fn Delta(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
+    fn Cumulative(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
+    fn Velocities(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationDeltaRoutedEventArgs {
@@ -2501,19 +2501,19 @@ impl IManipulationDeltaRoutedEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IManipulationInertiaStartingRoutedEventArgsImpl: Sized {
-    fn Container(&self) -> ::windows::core::Result<super::UIElement>;
-    fn ExpansionBehavior(&self) -> ::windows::core::Result<InertiaExpansionBehavior>;
-    fn SetExpansionBehavior(&self, value: &::core::option::Option<InertiaExpansionBehavior>) -> ::windows::core::Result<()>;
-    fn RotationBehavior(&self) -> ::windows::core::Result<InertiaRotationBehavior>;
-    fn SetRotationBehavior(&self, value: &::core::option::Option<InertiaRotationBehavior>) -> ::windows::core::Result<()>;
-    fn TranslationBehavior(&self) -> ::windows::core::Result<InertiaTranslationBehavior>;
-    fn SetTranslationBehavior(&self, value: &::core::option::Option<InertiaTranslationBehavior>) -> ::windows::core::Result<()>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn Delta(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
-    fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
-    fn Velocities(&self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities>;
+    fn Container(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn ExpansionBehavior(&mut self) -> ::windows::core::Result<InertiaExpansionBehavior>;
+    fn SetExpansionBehavior(&mut self, value: &::core::option::Option<InertiaExpansionBehavior>) -> ::windows::core::Result<()>;
+    fn RotationBehavior(&mut self) -> ::windows::core::Result<InertiaRotationBehavior>;
+    fn SetRotationBehavior(&mut self, value: &::core::option::Option<InertiaRotationBehavior>) -> ::windows::core::Result<()>;
+    fn TranslationBehavior(&mut self) -> ::windows::core::Result<InertiaTranslationBehavior>;
+    fn SetTranslationBehavior(&mut self, value: &::core::option::Option<InertiaTranslationBehavior>) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn Delta(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
+    fn Cumulative(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
+    fn Velocities(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationInertiaStartingRoutedEventArgs {
@@ -2660,10 +2660,10 @@ impl IManipulationInertiaStartingRoutedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IManipulationPivotImpl: Sized {
-    fn Center(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
-    fn SetCenter(&self, value: &super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn Radius(&self) -> ::windows::core::Result<f64>;
-    fn SetRadius(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Center(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn SetCenter(&mut self, value: &super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn Radius(&mut self) -> ::windows::core::Result<f64>;
+    fn SetRadius(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationPivot {
@@ -2716,7 +2716,7 @@ impl IManipulationPivotVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IManipulationPivotFactoryImpl: Sized {
-    fn CreateInstanceWithCenterAndRadius(&self, center: &super::super::super::Foundation::Point, radius: f64) -> ::windows::core::Result<ManipulationPivot>;
+    fn CreateInstanceWithCenterAndRadius(&mut self, center: &super::super::super::Foundation::Point, radius: f64) -> ::windows::core::Result<ManipulationPivot>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationPivotFactory {
@@ -2747,13 +2747,13 @@ impl IManipulationPivotFactoryVtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IManipulationStartedRoutedEventArgsImpl: Sized {
-    fn Container(&self) -> ::windows::core::Result<super::UIElement>;
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Container(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn Cumulative(&mut self) -> ::windows::core::Result<super::super::Input::ManipulationDelta>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IManipulationStartedRoutedEventArgs {
@@ -2842,7 +2842,7 @@ impl IManipulationStartedRoutedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IManipulationStartedRoutedEventArgsFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ManipulationStartedRoutedEventArgs>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ManipulationStartedRoutedEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IManipulationStartedRoutedEventArgsFactory {
@@ -2873,14 +2873,14 @@ impl IManipulationStartedRoutedEventArgsFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IManipulationStartingRoutedEventArgsImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<ManipulationModes>;
-    fn SetMode(&self, value: ManipulationModes) -> ::windows::core::Result<()>;
-    fn Container(&self) -> ::windows::core::Result<super::UIElement>;
-    fn SetContainer(&self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn Pivot(&self) -> ::windows::core::Result<ManipulationPivot>;
-    fn SetPivot(&self, value: &::core::option::Option<ManipulationPivot>) -> ::windows::core::Result<()>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<ManipulationModes>;
+    fn SetMode(&mut self, value: ManipulationModes) -> ::windows::core::Result<()>;
+    fn Container(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn SetContainer(&mut self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn Pivot(&mut self) -> ::windows::core::Result<ManipulationPivot>;
+    fn SetPivot(&mut self, value: &::core::option::Option<ManipulationPivot>) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IManipulationStartingRoutedEventArgs {
@@ -2967,10 +2967,10 @@ impl IManipulationStartingRoutedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INoFocusCandidateFoundEventArgsImpl: Sized {
-    fn Direction(&self) -> ::windows::core::Result<FocusNavigationDirection>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn InputDevice(&self) -> ::windows::core::Result<FocusInputDeviceKind>;
+    fn Direction(&mut self) -> ::windows::core::Result<FocusNavigationDirection>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn InputDevice(&mut self) -> ::windows::core::Result<FocusInputDeviceKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INoFocusCandidateFoundEventArgs {
@@ -3030,10 +3030,10 @@ impl INoFocusCandidateFoundEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "implement_exclusive"))]
 pub trait IPointerImpl: Sized {
-    fn PointerId(&self) -> ::windows::core::Result<u32>;
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn IsInContact(&self) -> ::windows::core::Result<bool>;
-    fn IsInRange(&self) -> ::windows::core::Result<bool>;
+    fn PointerId(&mut self) -> ::windows::core::Result<u32>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn IsInContact(&mut self) -> ::windows::core::Result<bool>;
+    fn IsInRange(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointer {
@@ -3100,12 +3100,12 @@ impl IPointerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IPointerRoutedEventArgsImpl: Sized {
-    fn Pointer(&self) -> ::windows::core::Result<Pointer>;
-    fn KeyModifiers(&self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetCurrentPoint(&self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Input::PointerPoint>;
-    fn GetIntermediatePoints(&self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::super::Input::PointerPoint>>;
+    fn Pointer(&mut self) -> ::windows::core::Result<Pointer>;
+    fn KeyModifiers(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetCurrentPoint(&mut self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Input::PointerPoint>;
+    fn GetIntermediatePoints(&mut self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::super::Input::PointerPoint>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerRoutedEventArgs {
@@ -3189,7 +3189,7 @@ impl IPointerRoutedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointerRoutedEventArgs2Impl: Sized {
-    fn IsGenerated(&self) -> ::windows::core::Result<bool>;
+    fn IsGenerated(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointerRoutedEventArgs2 {
@@ -3217,10 +3217,10 @@ impl IPointerRoutedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IProcessKeyboardAcceleratorEventArgsImpl: Sized {
-    fn Key(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
-    fn Modifiers(&self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Key(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
+    fn Modifiers(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessKeyboardAcceleratorEventArgs {
@@ -3280,10 +3280,10 @@ impl IProcessKeyboardAcceleratorEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRightTappedRoutedEventArgsImpl: Sized {
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetPosition(&self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetPosition(&mut self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRightTappedRoutedEventArgs {
@@ -3343,7 +3343,7 @@ impl IRightTappedRoutedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStandardUICommandImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<StandardUICommandKind>;
+    fn Kind(&mut self) -> ::windows::core::Result<StandardUICommandKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStandardUICommand {
@@ -3371,7 +3371,7 @@ impl IStandardUICommandVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStandardUICommand2Impl: Sized {
-    fn SetKind(&self, value: StandardUICommandKind) -> ::windows::core::Result<()>;
+    fn SetKind(&mut self, value: StandardUICommandKind) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStandardUICommand2 {
@@ -3392,8 +3392,8 @@ impl IStandardUICommand2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStandardUICommandFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<StandardUICommand>;
-    fn CreateInstanceWithKind(&self, kind: StandardUICommandKind, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<StandardUICommand>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<StandardUICommand>;
+    fn CreateInstanceWithKind(&mut self, kind: StandardUICommandKind, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<StandardUICommand>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStandardUICommandFactory {
@@ -3436,7 +3436,7 @@ impl IStandardUICommandFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStandardUICommandStaticsImpl: Sized {
-    fn KindProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn KindProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStandardUICommandStatics {
@@ -3467,10 +3467,10 @@ impl IStandardUICommandStaticsVtbl {
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITappedRoutedEventArgsImpl: Sized {
-    fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetPosition(&self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetPosition(&mut self, relativeto: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::Point>;
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITappedRoutedEventArgs {
@@ -3530,22 +3530,22 @@ impl ITappedRoutedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IXamlUICommandImpl: Sized {
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IconSource(&self) -> ::windows::core::Result<super::Controls::IconSource>;
-    fn SetIconSource(&self, value: &::core::option::Option<super::Controls::IconSource>) -> ::windows::core::Result<()>;
-    fn KeyboardAccelerators(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>>;
-    fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAccessKey(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Command(&self) -> ::windows::core::Result<ICommand>;
-    fn SetCommand(&self, value: &::core::option::Option<ICommand>) -> ::windows::core::Result<()>;
-    fn ExecuteRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<XamlUICommand, ExecuteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveExecuteRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CanExecuteRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<XamlUICommand, CanExecuteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCanExecuteRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NotifyCanExecuteChanged(&self) -> ::windows::core::Result<()>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IconSource(&mut self) -> ::windows::core::Result<super::Controls::IconSource>;
+    fn SetIconSource(&mut self, value: &::core::option::Option<super::Controls::IconSource>) -> ::windows::core::Result<()>;
+    fn KeyboardAccelerators(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>>;
+    fn AccessKey(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAccessKey(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Command(&mut self) -> ::windows::core::Result<ICommand>;
+    fn SetCommand(&mut self, value: &::core::option::Option<ICommand>) -> ::windows::core::Result<()>;
+    fn ExecuteRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<XamlUICommand, ExecuteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveExecuteRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CanExecuteRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<XamlUICommand, CanExecuteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCanExecuteRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NotifyCanExecuteChanged(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXamlUICommand {
@@ -3700,7 +3700,7 @@ impl IXamlUICommandVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IXamlUICommandFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<XamlUICommand>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<XamlUICommand>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlUICommandFactory {
@@ -3731,12 +3731,12 @@ impl IXamlUICommandFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IXamlUICommandStaticsImpl: Sized {
-    fn LabelProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn IconSourceProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn KeyboardAcceleratorsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn AccessKeyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn DescriptionProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn CommandProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn LabelProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IconSourceProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn KeyboardAcceleratorsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn AccessKeyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn DescriptionProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn CommandProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlUICommandStatics {

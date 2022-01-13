@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVibrationDeviceImpl: Sized {
-    fn Vibrate(&self, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Vibrate(&mut self, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVibrationDevice {
@@ -30,7 +30,7 @@ impl IVibrationDeviceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVibrationDeviceStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<VibrationDevice>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<VibrationDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVibrationDeviceStatics {

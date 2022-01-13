@@ -1,11 +1,11 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAddAppointmentOperationImpl: Sized {
-    fn AppointmentInformation(&self) -> ::windows::core::Result<super::Appointment>;
-    fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompleted(&self, itemid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ReportCanceled(&self) -> ::windows::core::Result<()>;
-    fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DismissUI(&self) -> ::windows::core::Result<()>;
+    fn AppointmentInformation(&mut self) -> ::windows::core::Result<super::Appointment>;
+    fn SourcePackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompleted(&mut self, itemid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ReportCanceled(&mut self) -> ::windows::core::Result<()>;
+    fn ReportError(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DismissUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAddAppointmentOperation {
@@ -68,10 +68,10 @@ impl IAddAppointmentOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentsProviderLaunchActionVerbsStaticsImpl: Sized {
-    fn AddAppointment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReplaceAppointment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoveAppointment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ShowTimeFrame(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AddAppointment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReplaceAppointment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoveAppointment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ShowTimeFrame(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentsProviderLaunchActionVerbsStatics {
@@ -138,7 +138,7 @@ impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentsProviderLaunchActionVerbsStatics2Impl: Sized {
-    fn ShowAppointmentDetails(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ShowAppointmentDetails(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentsProviderLaunchActionVerbsStatics2 {
@@ -169,13 +169,13 @@ impl IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoveAppointmentOperationImpl: Sized {
-    fn AppointmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompleted(&self) -> ::windows::core::Result<()>;
-    fn ReportCanceled(&self) -> ::windows::core::Result<()>;
-    fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DismissUI(&self) -> ::windows::core::Result<()>;
+    fn AppointmentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InstanceStartDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SourcePackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompleted(&mut self) -> ::windows::core::Result<()>;
+    fn ReportCanceled(&mut self) -> ::windows::core::Result<()>;
+    fn ReportError(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DismissUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoveAppointmentOperation {
@@ -250,14 +250,14 @@ impl IRemoveAppointmentOperationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IReplaceAppointmentOperationImpl: Sized {
-    fn AppointmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentInformation(&self) -> ::windows::core::Result<super::Appointment>;
-    fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompleted(&self, itemid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ReportCanceled(&self) -> ::windows::core::Result<()>;
-    fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DismissUI(&self) -> ::windows::core::Result<()>;
+    fn AppointmentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentInformation(&mut self) -> ::windows::core::Result<super::Appointment>;
+    fn InstanceStartDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SourcePackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompleted(&mut self, itemid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ReportCanceled(&mut self) -> ::windows::core::Result<()>;
+    fn ReportError(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DismissUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IReplaceAppointmentOperation {

@@ -1,20 +1,20 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICertificateImpl: Sized {
-    fn BuildChainAsync(&self, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>;
-    fn BuildChainWithParametersAsync(&self, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>, parameters: &::core::option::Option<ChainBuildingParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>;
-    fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn GetHashValue(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn GetHashValueWithAlgorithm(&self, hashalgorithmname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn GetCertificateBlob(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Issuer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasPrivateKey(&self) -> ::windows::core::Result<bool>;
-    fn IsStronglyProtected(&self) -> ::windows::core::Result<bool>;
-    fn ValidFrom(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn ValidTo(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn EnhancedKeyUsages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SetFriendlyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BuildChainAsync(&mut self, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>;
+    fn BuildChainWithParametersAsync(&mut self, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>, parameters: &::core::option::Option<ChainBuildingParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>;
+    fn SerialNumber(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn GetHashValue(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn GetHashValueWithAlgorithm(&mut self, hashalgorithmname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn GetCertificateBlob(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Issuer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasPrivateKey(&mut self) -> ::windows::core::Result<bool>;
+    fn IsStronglyProtected(&mut self) -> ::windows::core::Result<bool>;
+    fn ValidFrom(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn ValidTo(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn EnhancedKeyUsages(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SetFriendlyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificate {
@@ -209,12 +209,12 @@ impl ICertificateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificate2Impl: Sized {
-    fn IsSecurityDeviceBound(&self) -> ::windows::core::Result<bool>;
-    fn KeyUsages(&self) -> ::windows::core::Result<CertificateKeyUsages>;
-    fn KeyAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SignatureAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SignatureHashAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SubjectAlternativeName(&self) -> ::windows::core::Result<SubjectAlternativeNameInfo>;
+    fn IsSecurityDeviceBound(&mut self) -> ::windows::core::Result<bool>;
+    fn KeyUsages(&mut self) -> ::windows::core::Result<CertificateKeyUsages>;
+    fn KeyAlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SignatureAlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SignatureHashAlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SubjectAlternativeName(&mut self) -> ::windows::core::Result<SubjectAlternativeNameInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificate2 {
@@ -305,9 +305,9 @@ impl ICertificate2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificate3Impl: Sized {
-    fn IsPerUser(&self) -> ::windows::core::Result<bool>;
-    fn StoreName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KeyStorageProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsPerUser(&mut self) -> ::windows::core::Result<bool>;
+    fn StoreName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KeyStorageProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificate3 {
@@ -362,9 +362,9 @@ impl ICertificate3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICertificateChainImpl: Sized {
-    fn Validate(&self) -> ::windows::core::Result<ChainValidationResult>;
-    fn ValidateWithParameters(&self, parameter: &::core::option::Option<ChainValidationParameters>) -> ::windows::core::Result<ChainValidationResult>;
-    fn GetCertificates(&self, includeroot: bool) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
+    fn Validate(&mut self) -> ::windows::core::Result<ChainValidationResult>;
+    fn ValidateWithParameters(&mut self, parameter: &::core::option::Option<ChainValidationParameters>) -> ::windows::core::Result<ChainValidationResult>;
+    fn GetCertificates(&mut self, includeroot: bool) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateChain {
@@ -419,9 +419,9 @@ impl ICertificateChainVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICertificateEnrollmentManagerStaticsImpl: Sized {
-    fn CreateRequestAsync(&self, request: &::core::option::Option<CertificateRequestProperties>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn InstallCertificateAsync(&self, certificate: &::windows::core::HSTRING, installoption: InstallOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ImportPfxDataAsync(&self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn CreateRequestAsync(&mut self, request: &::core::option::Option<CertificateRequestProperties>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn InstallCertificateAsync(&mut self, certificate: &::windows::core::HSTRING, installoption: InstallOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ImportPfxDataAsync(&mut self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateEnrollmentManagerStatics {
@@ -483,8 +483,8 @@ impl ICertificateEnrollmentManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICertificateEnrollmentManagerStatics2Impl: Sized {
-    fn UserCertificateEnrollmentManager(&self) -> ::windows::core::Result<UserCertificateEnrollmentManager>;
-    fn ImportPfxDataToKspAsync(&self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING, keystorageprovider: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn UserCertificateEnrollmentManager(&mut self) -> ::windows::core::Result<UserCertificateEnrollmentManager>;
+    fn ImportPfxDataToKspAsync(&mut self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING, keystorageprovider: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateEnrollmentManagerStatics2 {
@@ -535,7 +535,7 @@ impl ICertificateEnrollmentManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICertificateEnrollmentManagerStatics3Impl: Sized {
-    fn ImportPfxDataToKspWithParametersAsync(&self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, pfximportparameters: &::core::option::Option<PfxImportParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ImportPfxDataToKspWithParametersAsync(&mut self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, pfximportparameters: &::core::option::Option<PfxImportParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateEnrollmentManagerStatics3 {
@@ -570,13 +570,13 @@ impl ICertificateEnrollmentManagerStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateExtensionImpl: Sized {
-    fn ObjectId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetObjectId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsCritical(&self) -> ::windows::core::Result<bool>;
-    fn SetIsCritical(&self, value: bool) -> ::windows::core::Result<()>;
-    fn EncodeValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetValue(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn ObjectId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetObjectId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsCritical(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsCritical(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn EncodeValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SetValue(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateExtension {
@@ -652,7 +652,7 @@ impl ICertificateExtensionVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICertificateFactoryImpl: Sized {
-    fn CreateCertificate(&self, certblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<Certificate>;
+    fn CreateCertificate(&mut self, certblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<Certificate>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateFactory {
@@ -683,22 +683,22 @@ impl ICertificateFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateKeyUsagesImpl: Sized {
-    fn EncipherOnly(&self) -> ::windows::core::Result<bool>;
-    fn SetEncipherOnly(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CrlSign(&self) -> ::windows::core::Result<bool>;
-    fn SetCrlSign(&self, value: bool) -> ::windows::core::Result<()>;
-    fn KeyCertificateSign(&self) -> ::windows::core::Result<bool>;
-    fn SetKeyCertificateSign(&self, value: bool) -> ::windows::core::Result<()>;
-    fn KeyAgreement(&self) -> ::windows::core::Result<bool>;
-    fn SetKeyAgreement(&self, value: bool) -> ::windows::core::Result<()>;
-    fn DataEncipherment(&self) -> ::windows::core::Result<bool>;
-    fn SetDataEncipherment(&self, value: bool) -> ::windows::core::Result<()>;
-    fn KeyEncipherment(&self) -> ::windows::core::Result<bool>;
-    fn SetKeyEncipherment(&self, value: bool) -> ::windows::core::Result<()>;
-    fn NonRepudiation(&self) -> ::windows::core::Result<bool>;
-    fn SetNonRepudiation(&self, value: bool) -> ::windows::core::Result<()>;
-    fn DigitalSignature(&self) -> ::windows::core::Result<bool>;
-    fn SetDigitalSignature(&self, value: bool) -> ::windows::core::Result<()>;
+    fn EncipherOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEncipherOnly(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CrlSign(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCrlSign(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyCertificateSign(&mut self) -> ::windows::core::Result<bool>;
+    fn SetKeyCertificateSign(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyAgreement(&mut self) -> ::windows::core::Result<bool>;
+    fn SetKeyAgreement(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn DataEncipherment(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDataEncipherment(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyEncipherment(&mut self) -> ::windows::core::Result<bool>;
+    fn SetKeyEncipherment(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn NonRepudiation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetNonRepudiation(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn DigitalSignature(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDigitalSignature(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateKeyUsages {
@@ -853,15 +853,15 @@ impl ICertificateKeyUsagesVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICertificateQueryImpl: Sized {
-    fn EnhancedKeyUsages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn IssuerName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetIssuerName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFriendlyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Thumbprint(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetThumbprint(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn HardwareOnly(&self) -> ::windows::core::Result<bool>;
-    fn SetHardwareOnly(&self, value: bool) -> ::windows::core::Result<()>;
+    fn EnhancedKeyUsages(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn IssuerName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetIssuerName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFriendlyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Thumbprint(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SetThumbprint(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn HardwareOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHardwareOnly(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateQuery {
@@ -961,12 +961,12 @@ impl ICertificateQueryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateQuery2Impl: Sized {
-    fn IncludeDuplicates(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeDuplicates(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IncludeExpiredCertificates(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeExpiredCertificates(&self, value: bool) -> ::windows::core::Result<()>;
-    fn StoreName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetStoreName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IncludeDuplicates(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeDuplicates(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IncludeExpiredCertificates(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeExpiredCertificates(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn StoreName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetStoreName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateQuery2 {
@@ -1036,24 +1036,24 @@ impl ICertificateQuery2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateRequestPropertiesImpl: Sized {
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSubject(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn KeyAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetKeyAlgorithmName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn KeySize(&self) -> ::windows::core::Result<u32>;
-    fn SetKeySize(&self, value: u32) -> ::windows::core::Result<()>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFriendlyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn HashAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHashAlgorithmName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Exportable(&self) -> ::windows::core::Result<ExportOption>;
-    fn SetExportable(&self, value: ExportOption) -> ::windows::core::Result<()>;
-    fn KeyUsages(&self) -> ::windows::core::Result<EnrollKeyUsages>;
-    fn SetKeyUsages(&self, value: EnrollKeyUsages) -> ::windows::core::Result<()>;
-    fn KeyProtectionLevel(&self) -> ::windows::core::Result<KeyProtectionLevel>;
-    fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::core::Result<()>;
-    fn KeyStorageProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetKeyStorageProviderName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSubject(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn KeyAlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetKeyAlgorithmName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn KeySize(&mut self) -> ::windows::core::Result<u32>;
+    fn SetKeySize(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFriendlyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn HashAlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHashAlgorithmName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Exportable(&mut self) -> ::windows::core::Result<ExportOption>;
+    fn SetExportable(&mut self, value: ExportOption) -> ::windows::core::Result<()>;
+    fn KeyUsages(&mut self) -> ::windows::core::Result<EnrollKeyUsages>;
+    fn SetKeyUsages(&mut self, value: EnrollKeyUsages) -> ::windows::core::Result<()>;
+    fn KeyProtectionLevel(&mut self) -> ::windows::core::Result<KeyProtectionLevel>;
+    fn SetKeyProtectionLevel(&mut self, value: KeyProtectionLevel) -> ::windows::core::Result<()>;
+    fn KeyStorageProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetKeyStorageProviderName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateRequestProperties {
@@ -1225,12 +1225,12 @@ impl ICertificateRequestPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateRequestProperties2Impl: Sized {
-    fn SmartcardReaderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSmartcardReaderName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SigningCertificate(&self) -> ::windows::core::Result<Certificate>;
-    fn SetSigningCertificate(&self, value: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
-    fn AttestationCredentialCertificate(&self) -> ::windows::core::Result<Certificate>;
-    fn SetAttestationCredentialCertificate(&self, value: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
+    fn SmartcardReaderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSmartcardReaderName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SigningCertificate(&mut self) -> ::windows::core::Result<Certificate>;
+    fn SetSigningCertificate(&mut self, value: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
+    fn AttestationCredentialCertificate(&mut self) -> ::windows::core::Result<Certificate>;
+    fn SetAttestationCredentialCertificate(&mut self, value: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateRequestProperties2 {
@@ -1300,16 +1300,16 @@ impl ICertificateRequestProperties2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateRequestProperties3Impl: Sized {
-    fn CurveName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCurveName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CurveParameters(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetCurveParameters(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn ContainerNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContainerNamePrefix(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContainerName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContainerName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UseExistingKey(&self) -> ::windows::core::Result<bool>;
-    fn SetUseExistingKey(&self, value: bool) -> ::windows::core::Result<()>;
+    fn CurveName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCurveName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CurveParameters(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SetCurveParameters(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn ContainerNamePrefix(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContainerNamePrefix(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContainerName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContainerName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UseExistingKey(&mut self) -> ::windows::core::Result<bool>;
+    fn SetUseExistingKey(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateRequestProperties3 {
@@ -1414,9 +1414,9 @@ impl ICertificateRequestProperties3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICertificateRequestProperties4Impl: Sized {
-    fn SuppressedDefaults(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn SubjectAlternativeName(&self) -> ::windows::core::Result<SubjectAlternativeNameInfo>;
-    fn Extensions(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<CertificateExtension>>;
+    fn SuppressedDefaults(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn SubjectAlternativeName(&mut self) -> ::windows::core::Result<SubjectAlternativeNameInfo>;
+    fn Extensions(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<CertificateExtension>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateRequestProperties4 {
@@ -1471,8 +1471,8 @@ impl ICertificateRequestProperties4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateStoreImpl: Sized {
-    fn Add(&self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
-    fn Delete(&self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
+    fn Add(&mut self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
+    fn Delete(&mut self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateStore {
@@ -1501,7 +1501,7 @@ impl ICertificateStoreVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateStore2Impl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateStore2 {
@@ -1529,11 +1529,11 @@ impl ICertificateStore2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICertificateStoresStaticsImpl: Sized {
-    fn FindAllAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>;
-    fn FindAllWithQueryAsync(&self, query: &::core::option::Option<CertificateQuery>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>;
-    fn TrustedRootCertificationAuthorities(&self) -> ::windows::core::Result<CertificateStore>;
-    fn IntermediateCertificationAuthorities(&self) -> ::windows::core::Result<CertificateStore>;
-    fn GetStoreByName(&self, storename: &::windows::core::HSTRING) -> ::windows::core::Result<CertificateStore>;
+    fn FindAllAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>;
+    fn FindAllWithQueryAsync(&mut self, query: &::core::option::Option<CertificateQuery>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>;
+    fn TrustedRootCertificationAuthorities(&mut self) -> ::windows::core::Result<CertificateStore>;
+    fn IntermediateCertificationAuthorities(&mut self) -> ::windows::core::Result<CertificateStore>;
+    fn GetStoreByName(&mut self, storename: &::windows::core::HSTRING) -> ::windows::core::Result<CertificateStore>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICertificateStoresStatics {
@@ -1612,7 +1612,7 @@ impl ICertificateStoresStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICertificateStoresStatics2Impl: Sized {
-    fn GetUserStoreByName(&self, storename: &::windows::core::HSTRING) -> ::windows::core::Result<UserCertificateStore>;
+    fn GetUserStoreByName(&mut self, storename: &::windows::core::HSTRING) -> ::windows::core::Result<UserCertificateStore>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICertificateStoresStatics2 {
@@ -1643,18 +1643,18 @@ impl ICertificateStoresStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IChainBuildingParametersImpl: Sized {
-    fn EnhancedKeyUsages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn ValidationTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn SetValidationTimestamp(&self, value: &super::super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn RevocationCheckEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetRevocationCheckEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn NetworkRetrievalEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetNetworkRetrievalEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AuthorityInformationAccessEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAuthorityInformationAccessEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CurrentTimeValidationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetCurrentTimeValidationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ExclusiveTrustRoots(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<Certificate>>;
+    fn EnhancedKeyUsages(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn ValidationTimestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn SetValidationTimestamp(&mut self, value: &super::super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn RevocationCheckEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRevocationCheckEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn NetworkRetrievalEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetNetworkRetrievalEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AuthorityInformationAccessEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAuthorityInformationAccessEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CurrentTimeValidationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCurrentTimeValidationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ExclusiveTrustRoots(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<Certificate>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChainBuildingParameters {
@@ -1782,10 +1782,10 @@ impl IChainBuildingParametersVtbl {
 }
 #[cfg(all(feature = "Networking", feature = "implement_exclusive"))]
 pub trait IChainValidationParametersImpl: Sized {
-    fn CertificateChainPolicy(&self) -> ::windows::core::Result<CertificateChainPolicy>;
-    fn SetCertificateChainPolicy(&self, value: CertificateChainPolicy) -> ::windows::core::Result<()>;
-    fn ServerDnsName(&self) -> ::windows::core::Result<super::super::super::Networking::HostName>;
-    fn SetServerDnsName(&self, value: &::core::option::Option<super::super::super::Networking::HostName>) -> ::windows::core::Result<()>;
+    fn CertificateChainPolicy(&mut self) -> ::windows::core::Result<CertificateChainPolicy>;
+    fn SetCertificateChainPolicy(&mut self, value: CertificateChainPolicy) -> ::windows::core::Result<()>;
+    fn ServerDnsName(&mut self) -> ::windows::core::Result<super::super::super::Networking::HostName>;
+    fn SetServerDnsName(&mut self, value: &::core::option::Option<super::super::super::Networking::HostName>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChainValidationParameters {
@@ -1838,10 +1838,10 @@ impl IChainValidationParametersVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICmsAttachedSignatureImpl: Sized {
-    fn Certificates(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
-    fn Content(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn Signers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>;
-    fn VerifySignature(&self) -> ::windows::core::Result<SignatureValidationResult>;
+    fn Certificates(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
+    fn Content(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn Signers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>;
+    fn VerifySignature(&mut self) -> ::windows::core::Result<SignatureValidationResult>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICmsAttachedSignature {
@@ -1909,7 +1909,7 @@ impl ICmsAttachedSignatureVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICmsAttachedSignatureFactoryImpl: Sized {
-    fn CreateCmsAttachedSignature(&self, inputblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CmsAttachedSignature>;
+    fn CreateCmsAttachedSignature(&mut self, inputblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CmsAttachedSignature>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICmsAttachedSignatureFactory {
@@ -1940,7 +1940,7 @@ impl ICmsAttachedSignatureFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICmsAttachedSignatureStaticsImpl: Sized {
-    fn GenerateSignatureAsync(&self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
+    fn GenerateSignatureAsync(&mut self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICmsAttachedSignatureStatics {
@@ -1975,9 +1975,9 @@ impl ICmsAttachedSignatureStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICmsDetachedSignatureImpl: Sized {
-    fn Certificates(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
-    fn Signers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>;
-    fn VerifySignatureAsync(&self, data: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>;
+    fn Certificates(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
+    fn Signers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>;
+    fn VerifySignatureAsync(&mut self, data: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICmsDetachedSignature {
@@ -2032,7 +2032,7 @@ impl ICmsDetachedSignatureVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICmsDetachedSignatureFactoryImpl: Sized {
-    fn CreateCmsDetachedSignature(&self, inputblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CmsDetachedSignature>;
+    fn CreateCmsDetachedSignature(&mut self, inputblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CmsDetachedSignature>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICmsDetachedSignatureFactory {
@@ -2063,7 +2063,7 @@ impl ICmsDetachedSignatureFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICmsDetachedSignatureStaticsImpl: Sized {
-    fn GenerateSignatureAsync(&self, data: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>, signers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
+    fn GenerateSignatureAsync(&mut self, data: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>, signers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, certificates: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<Certificate>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICmsDetachedSignatureStatics {
@@ -2098,11 +2098,11 @@ impl ICmsDetachedSignatureStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICmsSignerInfoImpl: Sized {
-    fn Certificate(&self) -> ::windows::core::Result<Certificate>;
-    fn SetCertificate(&self, value: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
-    fn HashAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHashAlgorithmName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TimestampInfo(&self) -> ::windows::core::Result<CmsTimestampInfo>;
+    fn Certificate(&mut self) -> ::windows::core::Result<Certificate>;
+    fn SetCertificate(&mut self, value: &::core::option::Option<Certificate>) -> ::windows::core::Result<()>;
+    fn HashAlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHashAlgorithmName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TimestampInfo(&mut self) -> ::windows::core::Result<CmsTimestampInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICmsSignerInfo {
@@ -2167,9 +2167,9 @@ impl ICmsSignerInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICmsTimestampInfoImpl: Sized {
-    fn SigningCertificate(&self) -> ::windows::core::Result<Certificate>;
-    fn Certificates(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn SigningCertificate(&mut self) -> ::windows::core::Result<Certificate>;
+    fn Certificates(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICmsTimestampInfo {
@@ -2224,14 +2224,14 @@ impl ICmsTimestampInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyAlgorithmNamesStaticsImpl: Sized {
-    fn Rsa(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Dsa(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ecdh256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ecdh384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ecdh521(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ecdsa256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ecdsa384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ecdsa521(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rsa(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Dsa(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdh256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdh384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdh521(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdsa256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdsa384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdsa521(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyAlgorithmNamesStatics {
@@ -2346,8 +2346,8 @@ impl IKeyAlgorithmNamesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyAlgorithmNamesStatics2Impl: Sized {
-    fn Ecdsa(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ecdh(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdsa(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ecdh(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyAlgorithmNamesStatics2 {
@@ -2390,8 +2390,8 @@ impl IKeyAlgorithmNamesStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeyAttestationHelperStaticsImpl: Sized {
-    fn DecryptTpmAttestationCredentialAsync(&self, credential: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetTpmAttestationCredentialId(&self, credential: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DecryptTpmAttestationCredentialAsync(&mut self, credential: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetTpmAttestationCredentialId(&mut self, credential: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyAttestationHelperStatics {
@@ -2434,7 +2434,7 @@ impl IKeyAttestationHelperStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeyAttestationHelperStatics2Impl: Sized {
-    fn DecryptTpmAttestationCredentialWithContainerNameAsync(&self, credential: &::windows::core::HSTRING, containername: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn DecryptTpmAttestationCredentialWithContainerNameAsync(&mut self, credential: &::windows::core::HSTRING, containername: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyAttestationHelperStatics2 {
@@ -2465,9 +2465,9 @@ impl IKeyAttestationHelperStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyStorageProviderNamesStaticsImpl: Sized {
-    fn SoftwareKeyStorageProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SmartcardKeyStorageProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PlatformKeyStorageProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SoftwareKeyStorageProvider(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SmartcardKeyStorageProvider(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PlatformKeyStorageProvider(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyStorageProviderNamesStatics {
@@ -2522,7 +2522,7 @@ impl IKeyStorageProviderNamesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyStorageProviderNamesStatics2Impl: Sized {
-    fn PassportKeyStorageProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PassportKeyStorageProvider(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyStorageProviderNamesStatics2 {
@@ -2553,20 +2553,20 @@ impl IKeyStorageProviderNamesStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPfxImportParametersImpl: Sized {
-    fn Exportable(&self) -> ::windows::core::Result<ExportOption>;
-    fn SetExportable(&self, value: ExportOption) -> ::windows::core::Result<()>;
-    fn KeyProtectionLevel(&self) -> ::windows::core::Result<KeyProtectionLevel>;
-    fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::core::Result<()>;
-    fn InstallOptions(&self) -> ::windows::core::Result<InstallOptions>;
-    fn SetInstallOptions(&self, value: InstallOptions) -> ::windows::core::Result<()>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFriendlyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn KeyStorageProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetKeyStorageProviderName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContainerNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContainerNamePrefix(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ReaderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetReaderName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Exportable(&mut self) -> ::windows::core::Result<ExportOption>;
+    fn SetExportable(&mut self, value: ExportOption) -> ::windows::core::Result<()>;
+    fn KeyProtectionLevel(&mut self) -> ::windows::core::Result<KeyProtectionLevel>;
+    fn SetKeyProtectionLevel(&mut self, value: KeyProtectionLevel) -> ::windows::core::Result<()>;
+    fn InstallOptions(&mut self) -> ::windows::core::Result<InstallOptions>;
+    fn SetInstallOptions(&mut self, value: InstallOptions) -> ::windows::core::Result<()>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFriendlyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn KeyStorageProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetKeyStorageProviderName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContainerNamePrefix(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContainerNamePrefix(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ReaderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetReaderName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPfxImportParameters {
@@ -2704,9 +2704,9 @@ impl IPfxImportParametersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStandardCertificateStoreNamesStaticsImpl: Sized {
-    fn Personal(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TrustedRootCertificationAuthorities(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IntermediateCertificationAuthorities(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Personal(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TrustedRootCertificationAuthorities(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IntermediateCertificationAuthorities(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStandardCertificateStoreNamesStatics {
@@ -2761,12 +2761,12 @@ impl IStandardCertificateStoreNamesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISubjectAlternativeNameInfoImpl: Sized {
-    fn EmailName(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn IPAddress(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Url(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn DnsName(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn DistinguishedName(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn PrincipalName(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn EmailName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn IPAddress(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Url(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn DnsName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn DistinguishedName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn PrincipalName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISubjectAlternativeNameInfo {
@@ -2857,13 +2857,13 @@ impl ISubjectAlternativeNameInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISubjectAlternativeNameInfo2Impl: Sized {
-    fn EmailNames(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn IPAddresses(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn Urls(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn DnsNames(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn DistinguishedNames(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn PrincipalNames(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn Extension(&self) -> ::windows::core::Result<CertificateExtension>;
+    fn EmailNames(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn IPAddresses(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Urls(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn DnsNames(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn DistinguishedNames(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn PrincipalNames(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Extension(&mut self) -> ::windows::core::Result<CertificateExtension>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISubjectAlternativeNameInfo2 {
@@ -2966,10 +2966,10 @@ impl ISubjectAlternativeNameInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserCertificateEnrollmentManagerImpl: Sized {
-    fn CreateRequestAsync(&self, request: &::core::option::Option<CertificateRequestProperties>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn InstallCertificateAsync(&self, certificate: &::windows::core::HSTRING, installoption: InstallOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ImportPfxDataAsync(&self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ImportPfxDataToKspAsync(&self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING, keystorageprovider: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn CreateRequestAsync(&mut self, request: &::core::option::Option<CertificateRequestProperties>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn InstallCertificateAsync(&mut self, certificate: &::windows::core::HSTRING, installoption: InstallOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ImportPfxDataAsync(&mut self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ImportPfxDataToKspAsync(&mut self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: &::windows::core::HSTRING, keystorageprovider: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserCertificateEnrollmentManager {
@@ -3051,7 +3051,7 @@ impl IUserCertificateEnrollmentManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserCertificateEnrollmentManager2Impl: Sized {
-    fn ImportPfxDataToKspWithParametersAsync(&self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, pfximportparameters: &::core::option::Option<PfxImportParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ImportPfxDataToKspWithParametersAsync(&mut self, pfxdata: &::windows::core::HSTRING, password: &::windows::core::HSTRING, pfximportparameters: &::core::option::Option<PfxImportParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserCertificateEnrollmentManager2 {
@@ -3086,9 +3086,9 @@ impl IUserCertificateEnrollmentManager2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserCertificateStoreImpl: Sized {
-    fn RequestAddAsync(&self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestDeleteAsync(&self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RequestAddAsync(&mut self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestDeleteAsync(&mut self, certificate: &::core::option::Option<Certificate>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserCertificateStore {

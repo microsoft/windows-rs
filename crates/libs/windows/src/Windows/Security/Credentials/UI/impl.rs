@@ -1,25 +1,25 @@
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICredentialPickerOptionsImpl: Sized {
-    fn SetCaption(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetErrorCode(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ErrorCode(&self) -> ::windows::core::Result<u32>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAuthenticationProtocol(&self, value: AuthenticationProtocol) -> ::windows::core::Result<()>;
-    fn AuthenticationProtocol(&self) -> ::windows::core::Result<AuthenticationProtocol>;
-    fn SetCustomAuthenticationProtocol(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CustomAuthenticationProtocol(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPreviousCredential(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn PreviousCredential(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetAlwaysDisplayDialog(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AlwaysDisplayDialog(&self) -> ::windows::core::Result<bool>;
-    fn SetCallerSavesCredential(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CallerSavesCredential(&self) -> ::windows::core::Result<bool>;
-    fn SetCredentialSaveOption(&self, value: CredentialSaveOption) -> ::windows::core::Result<()>;
-    fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption>;
+    fn SetCaption(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Caption(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMessage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetErrorCode(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAuthenticationProtocol(&mut self, value: AuthenticationProtocol) -> ::windows::core::Result<()>;
+    fn AuthenticationProtocol(&mut self) -> ::windows::core::Result<AuthenticationProtocol>;
+    fn SetCustomAuthenticationProtocol(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CustomAuthenticationProtocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPreviousCredential(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn PreviousCredential(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetAlwaysDisplayDialog(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AlwaysDisplayDialog(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCallerSavesCredential(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CallerSavesCredential(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCredentialSaveOption(&mut self, value: CredentialSaveOption) -> ::windows::core::Result<()>;
+    fn CredentialSaveOption(&mut self) -> ::windows::core::Result<CredentialSaveOption>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialPickerOptions {
@@ -208,13 +208,13 @@ impl ICredentialPickerOptionsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICredentialPickerResultsImpl: Sized {
-    fn ErrorCode(&self) -> ::windows::core::Result<u32>;
-    fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption>;
-    fn CredentialSaved(&self) -> ::windows::core::Result<bool>;
-    fn Credential(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn CredentialDomainName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CredentialUserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CredentialPassword(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
+    fn CredentialSaveOption(&mut self) -> ::windows::core::Result<CredentialSaveOption>;
+    fn CredentialSaved(&mut self) -> ::windows::core::Result<bool>;
+    fn Credential(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn CredentialDomainName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CredentialUserName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CredentialPassword(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialPickerResults {
@@ -317,9 +317,9 @@ impl ICredentialPickerResultsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICredentialPickerStaticsImpl: Sized {
-    fn PickWithOptionsAsync(&self, options: &::core::option::Option<CredentialPickerOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
-    fn PickWithMessageAsync(&self, targetname: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
-    fn PickWithCaptionAsync(&self, targetname: &::windows::core::HSTRING, message: &::windows::core::HSTRING, caption: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
+    fn PickWithOptionsAsync(&mut self, options: &::core::option::Option<CredentialPickerOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
+    fn PickWithMessageAsync(&mut self, targetname: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
+    fn PickWithCaptionAsync(&mut self, targetname: &::windows::core::HSTRING, message: &::windows::core::HSTRING, caption: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialPickerStatics {
@@ -378,8 +378,8 @@ impl ICredentialPickerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserConsentVerifierStaticsImpl: Sized {
-    fn CheckAvailabilityAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>>;
-    fn RequestVerificationAsync(&self, message: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>>;
+    fn CheckAvailabilityAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>>;
+    fn RequestVerificationAsync(&mut self, message: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserConsentVerifierStatics {

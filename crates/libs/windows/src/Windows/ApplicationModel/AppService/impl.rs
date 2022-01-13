@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceCatalogStaticsImpl: Sized {
-    fn FindAppServiceProvidersAsync(&self, appservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>>;
+    fn FindAppServiceProvidersAsync(&mut self, appservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceCatalogStatics {
@@ -31,7 +31,7 @@ impl IAppServiceCatalogStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppServiceClosedEventArgsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AppServiceClosedStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<AppServiceClosedStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppServiceClosedEventArgs {
@@ -59,16 +59,16 @@ impl IAppServiceClosedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceConnectionImpl: Sized {
-    fn AppServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAppServiceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn OpenAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>;
-    fn SendMessageAsync(&self, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponse>>;
-    fn RequestReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRequestReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ServiceClosed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveServiceClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AppServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAppServiceName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPackageFamilyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn OpenAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>;
+    fn SendMessageAsync(&mut self, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponse>>;
+    fn RequestReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRequestReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ServiceClosed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveServiceClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceConnection {
@@ -179,9 +179,9 @@ impl IAppServiceConnectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 pub trait IAppServiceConnection2Impl: Sized {
-    fn OpenRemoteAsync(&self, remotesystemconnectionrequest: &::core::option::Option<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
-    fn SetUser(&self, value: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<()>;
+    fn OpenRemoteAsync(&mut self, remotesystemconnectionrequest: &::core::option::Option<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn SetUser(&mut self, value: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceConnection2 {
@@ -229,7 +229,7 @@ impl IAppServiceConnection2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 pub trait IAppServiceConnectionStaticsImpl: Sized {
-    fn SendStatelessMessageAsync(&self, connection: &::core::option::Option<AppServiceConnection>, connectionrequest: &::core::option::Option<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>;
+    fn SendStatelessMessageAsync(&mut self, connection: &::core::option::Option<AppServiceConnection>, connectionrequest: &::core::option::Option<super::super::System::RemoteSystems::RemoteSystemConnectionRequest>, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceConnectionStatics {
@@ -264,7 +264,7 @@ impl IAppServiceConnectionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppServiceDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppServiceDeferral {
@@ -285,8 +285,8 @@ impl IAppServiceDeferralVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceRequestImpl: Sized {
-    fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
-    fn SendResponseAsync(&self, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>;
+    fn Message(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn SendResponseAsync(&mut self, message: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceRequest {
@@ -329,8 +329,8 @@ impl IAppServiceRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppServiceRequestReceivedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<AppServiceRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<AppServiceDeferral>;
+    fn Request(&mut self) -> ::windows::core::Result<AppServiceRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<AppServiceDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppServiceRequestReceivedEventArgs {
@@ -373,8 +373,8 @@ impl IAppServiceRequestReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppServiceResponseImpl: Sized {
-    fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
-    fn Status(&self) -> ::windows::core::Result<AppServiceResponseStatus>;
+    fn Message(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Status(&mut self) -> ::windows::core::Result<AppServiceResponseStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceResponse {
@@ -417,9 +417,9 @@ impl IAppServiceResponseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppServiceTriggerDetailsImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppServiceConnection(&self) -> ::windows::core::Result<AppServiceConnection>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CallerPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppServiceConnection(&mut self) -> ::windows::core::Result<AppServiceConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppServiceTriggerDetails {
@@ -474,7 +474,7 @@ impl IAppServiceTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppServiceTriggerDetails2Impl: Sized {
-    fn IsRemoteSystemConnection(&self) -> ::windows::core::Result<bool>;
+    fn IsRemoteSystemConnection(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppServiceTriggerDetails2 {
@@ -505,7 +505,7 @@ impl IAppServiceTriggerDetails2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppServiceTriggerDetails3Impl: Sized {
-    fn CheckCallerForCapabilityAsync(&self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn CheckCallerForCapabilityAsync(&mut self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppServiceTriggerDetails3 {
@@ -536,7 +536,7 @@ impl IAppServiceTriggerDetails3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppServiceTriggerDetails4Impl: Sized {
-    fn CallerRemoteConnectionToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CallerRemoteConnectionToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppServiceTriggerDetails4 {
@@ -567,8 +567,8 @@ impl IAppServiceTriggerDetails4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStatelessAppServiceResponseImpl: Sized {
-    fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
-    fn Status(&self) -> ::windows::core::Result<StatelessAppServiceResponseStatus>;
+    fn Message(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Status(&mut self) -> ::windows::core::Result<StatelessAppServiceResponseStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStatelessAppServiceResponse {

@@ -1,17 +1,17 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppInstallItemImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InstallType(&self) -> ::windows::core::Result<AppInstallType>;
-    fn IsUserInitiated(&self) -> ::windows::core::Result<bool>;
-    fn GetCurrentStatus(&self) -> ::windows::core::Result<AppInstallStatus>;
-    fn Cancel(&self) -> ::windows::core::Result<()>;
-    fn Pause(&self) -> ::windows::core::Result<()>;
-    fn Restart(&self) -> ::windows::core::Result<()>;
-    fn Completed(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StatusChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStatusChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InstallType(&mut self) -> ::windows::core::Result<AppInstallType>;
+    fn IsUserInitiated(&mut self) -> ::windows::core::Result<bool>;
+    fn GetCurrentStatus(&mut self) -> ::windows::core::Result<AppInstallStatus>;
+    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn Pause(&mut self) -> ::windows::core::Result<()>;
+    fn Restart(&mut self) -> ::windows::core::Result<()>;
+    fn Completed(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StatusChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallItem {
@@ -139,9 +139,9 @@ impl IAppInstallItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallItem2Impl: Sized {
-    fn CancelWithTelemetry(&self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PauseWithTelemetry(&self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RestartWithTelemetry(&self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CancelWithTelemetry(&mut self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PauseWithTelemetry(&mut self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RestartWithTelemetry(&mut self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallItem2 {
@@ -175,8 +175,8 @@ impl IAppInstallItem2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallItem3Impl: Sized {
-    fn Children(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
-    fn ItemOperationsMightAffectOtherItems(&self) -> ::windows::core::Result<bool>;
+    fn Children(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+    fn ItemOperationsMightAffectOtherItems(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallItem3 {
@@ -219,8 +219,8 @@ impl IAppInstallItem3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallItem4Impl: Sized {
-    fn LaunchAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetLaunchAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
+    fn LaunchAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetLaunchAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallItem4 {
@@ -256,16 +256,16 @@ impl IAppInstallItem4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallItem5Impl: Sized {
-    fn PinToDesktopAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetPinToDesktopAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PinToStartAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetPinToStartAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PinToTaskbarAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetPinToTaskbarAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CompletedInstallToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
-    fn SetCompletedInstallToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
-    fn InstallInProgressToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
-    fn SetInstallInProgressToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
+    fn PinToDesktopAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPinToDesktopAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PinToStartAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPinToStartAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PinToTaskbarAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPinToTaskbarAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CompletedInstallToastNotificationMode(&mut self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
+    fn SetCompletedInstallToastNotificationMode(&mut self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
+    fn InstallInProgressToastNotificationMode(&mut self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
+    fn SetInstallInProgressToastNotificationMode(&mut self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallItem5 {
@@ -369,25 +369,25 @@ impl IAppInstallItem5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallManagerImpl: Sized {
-    fn AppInstallItems(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
-    fn Cancel(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Pause(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Restart(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ItemCompleted(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveItemCompleted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ItemStatusChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveItemStatusChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AutoUpdateSetting(&self) -> ::windows::core::Result<AutoUpdateSetting>;
-    fn SetAutoUpdateSetting(&self, value: AutoUpdateSetting) -> ::windows::core::Result<()>;
-    fn AcquisitionIdentity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAcquisitionIdentity(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetIsApplicableAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn StartAppInstallAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn UpdateAppByPackageFamilyNameAsync(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn SearchForUpdatesAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn SearchForAllUpdatesAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn IsStoreBlockedByPolicyAsync(&self, storeclientname: &::windows::core::HSTRING, storeclientpublisher: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn GetIsAppAllowedToInstallAsync(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn AppInstallItems(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+    fn Cancel(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Pause(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Restart(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ItemCompleted(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveItemCompleted(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ItemStatusChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveItemStatusChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AutoUpdateSetting(&mut self) -> ::windows::core::Result<AutoUpdateSetting>;
+    fn SetAutoUpdateSetting(&mut self, value: AutoUpdateSetting) -> ::windows::core::Result<()>;
+    fn AcquisitionIdentity(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAcquisitionIdentity(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetIsApplicableAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn StartAppInstallAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn UpdateAppByPackageFamilyNameAsync(&mut self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn SearchForUpdatesAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn SearchForAllUpdatesAsync(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn IsStoreBlockedByPolicyAsync(&mut self, storeclientname: &::windows::core::HSTRING, storeclientpublisher: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetIsAppAllowedToInstallAsync(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager {
@@ -585,14 +585,14 @@ impl IAppInstallManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppInstallManager2Impl: Sized {
-    fn StartAppInstallWithTelemetryAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, catalogid: &::windows::core::HSTRING, bundleid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn UpdateAppByPackageFamilyNameWithTelemetryAsync(&self, packagefamilyname: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn SearchForUpdatesWithTelemetryAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn SearchForAllUpdatesWithTelemetryAsync(&self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn GetIsAppAllowedToInstallWithTelemetryAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn CancelWithTelemetry(&self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PauseWithTelemetry(&self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RestartWithTelemetry(&self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StartAppInstallWithTelemetryAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, catalogid: &::windows::core::HSTRING, bundleid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn UpdateAppByPackageFamilyNameWithTelemetryAsync(&mut self, packagefamilyname: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn SearchForUpdatesWithTelemetryAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn SearchForAllUpdatesWithTelemetryAsync(&mut self, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn GetIsAppAllowedToInstallWithTelemetryAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn CancelWithTelemetry(&mut self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PauseWithTelemetry(&mut self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RestartWithTelemetry(&mut self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager2 {
@@ -704,14 +704,14 @@ impl IAppInstallManager2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallManager3Impl: Sized {
-    fn StartProductInstallAsync(&self, productid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows::core::HSTRING, targetvolume: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn StartProductInstallForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows::core::HSTRING, targetvolume: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn UpdateAppByPackageFamilyNameForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, packagefamilyname: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn SearchForUpdatesForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn SearchForAllUpdatesForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn GetIsAppAllowedToInstallForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn GetIsApplicableForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn MoveToFrontOfDownloadQueue(&self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StartProductInstallAsync(&mut self, productid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows::core::HSTRING, targetvolume: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn StartProductInstallForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &::windows::core::HSTRING, targetvolume: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn UpdateAppByPackageFamilyNameForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, packagefamilyname: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn SearchForUpdatesForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn SearchForAllUpdatesForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn GetIsAppAllowedToInstallForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, catalogid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetIsApplicableForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn MoveToFrontOfDownloadQueue(&mut self, productid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager3 {
@@ -858,9 +858,9 @@ impl IAppInstallManager3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallManager4Impl: Sized {
-    fn GetFreeUserEntitlementAsync(&self, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
-    fn GetFreeUserEntitlementForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
-    fn GetFreeDeviceEntitlementAsync(&self, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
+    fn GetFreeUserEntitlementAsync(&mut self, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
+    fn GetFreeUserEntitlementForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
+    fn GetFreeDeviceEntitlementAsync(&mut self, storeid: &::windows::core::HSTRING, campaignid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager4 {
@@ -928,7 +928,7 @@ impl IAppInstallManager4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallManager5Impl: Sized {
-    fn AppInstallItemsWithGroupSupport(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
+    fn AppInstallItemsWithGroupSupport(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager5 {
@@ -959,14 +959,14 @@ impl IAppInstallManager5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallManager6Impl: Sized {
-    fn SearchForAllUpdatesWithUpdateOptionsAsync(&self, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn SearchForAllUpdatesWithUpdateOptionsForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn SearchForUpdatesWithUpdateOptionsAsync(&self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn SearchForUpdatesWithUpdateOptionsForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
-    fn StartProductInstallWithOptionsAsync(&self, productid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, installoptions: &::core::option::Option<AppInstallOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn StartProductInstallWithOptionsForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, installoptions: &::core::option::Option<AppInstallOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
-    fn GetIsPackageIdentityAllowedToInstallAsync(&self, correlationvector: &::windows::core::HSTRING, packageidentityname: &::windows::core::HSTRING, publishercertificatename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn GetIsPackageIdentityAllowedToInstallForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING, packageidentityname: &::windows::core::HSTRING, publishercertificatename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn SearchForAllUpdatesWithUpdateOptionsAsync(&mut self, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn SearchForAllUpdatesWithUpdateOptionsForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn SearchForUpdatesWithUpdateOptionsAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn SearchForUpdatesWithUpdateOptionsForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, updateoptions: &::core::option::Option<AppUpdateOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>;
+    fn StartProductInstallWithOptionsAsync(&mut self, productid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, installoptions: &::core::option::Option<AppInstallOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn StartProductInstallWithOptionsForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, productid: &::windows::core::HSTRING, flightid: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, correlationvector: &::windows::core::HSTRING, installoptions: &::core::option::Option<AppInstallOptions>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>;
+    fn GetIsPackageIdentityAllowedToInstallAsync(&mut self, correlationvector: &::windows::core::HSTRING, packageidentityname: &::windows::core::HSTRING, publishercertificatename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetIsPackageIdentityAllowedToInstallForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, correlationvector: &::windows::core::HSTRING, packageidentityname: &::windows::core::HSTRING, publishercertificatename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallManager6 {
@@ -1125,7 +1125,7 @@ impl IAppInstallManager6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallManager7Impl: Sized {
-    fn CanInstallForAllUsers(&self) -> ::windows::core::Result<bool>;
+    fn CanInstallForAllUsers(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallManager7 {
@@ -1156,7 +1156,7 @@ impl IAppInstallManager7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallManagerItemEventArgsImpl: Sized {
-    fn Item(&self) -> ::windows::core::Result<AppInstallItem>;
+    fn Item(&mut self) -> ::windows::core::Result<AppInstallItem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallManagerItemEventArgs {
@@ -1184,18 +1184,18 @@ impl IAppInstallManagerItemEventArgsVtbl {
 }
 #[cfg(all(feature = "Management_Deployment", feature = "implement_exclusive"))]
 pub trait IAppInstallOptionsImpl: Sized {
-    fn CatalogId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCatalogId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ForceUseOfNonRemovableStorage(&self) -> ::windows::core::Result<bool>;
-    fn SetForceUseOfNonRemovableStorage(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AllowForcedAppRestart(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Repair(&self) -> ::windows::core::Result<bool>;
-    fn SetRepair(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TargetVolume(&self) -> ::windows::core::Result<super::super::super::super::Management::Deployment::PackageVolume>;
-    fn SetTargetVolume(&self, value: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<()>;
-    fn LaunchAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetLaunchAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
+    fn CatalogId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCatalogId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ForceUseOfNonRemovableStorage(&mut self) -> ::windows::core::Result<bool>;
+    fn SetForceUseOfNonRemovableStorage(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowForcedAppRestart(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowForcedAppRestart(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Repair(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRepair(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TargetVolume(&mut self) -> ::windows::core::Result<super::super::super::super::Management::Deployment::PackageVolume>;
+    fn SetTargetVolume(&mut self, value: &::core::option::Option<super::super::super::super::Management::Deployment::PackageVolume>) -> ::windows::core::Result<()>;
+    fn LaunchAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetLaunchAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Management_Deployment", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallOptions {
@@ -1316,24 +1316,24 @@ impl IAppInstallOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallOptions2Impl: Sized {
-    fn PinToDesktopAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetPinToDesktopAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PinToStartAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetPinToStartAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PinToTaskbarAfterInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetPinToTaskbarAfterInstall(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CompletedInstallToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
-    fn SetCompletedInstallToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
-    fn InstallInProgressToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
-    fn SetInstallInProgressToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
-    fn InstallForAllUsers(&self) -> ::windows::core::Result<bool>;
-    fn SetInstallForAllUsers(&self, value: bool) -> ::windows::core::Result<()>;
-    fn StageButDoNotInstall(&self) -> ::windows::core::Result<bool>;
-    fn SetStageButDoNotInstall(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CampaignId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCampaignId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ExtendedCampaignId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExtendedCampaignId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PinToDesktopAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPinToDesktopAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PinToStartAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPinToStartAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PinToTaskbarAfterInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPinToTaskbarAfterInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CompletedInstallToastNotificationMode(&mut self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
+    fn SetCompletedInstallToastNotificationMode(&mut self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
+    fn InstallInProgressToastNotificationMode(&mut self) -> ::windows::core::Result<AppInstallationToastNotificationMode>;
+    fn SetInstallInProgressToastNotificationMode(&mut self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()>;
+    fn InstallForAllUsers(&mut self) -> ::windows::core::Result<bool>;
+    fn SetInstallForAllUsers(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn StageButDoNotInstall(&mut self) -> ::windows::core::Result<bool>;
+    fn SetStageButDoNotInstall(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CampaignId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCampaignId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ExtendedCampaignId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetExtendedCampaignId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallOptions2 {
@@ -1505,11 +1505,11 @@ impl IAppInstallOptions2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallStatusImpl: Sized {
-    fn InstallState(&self) -> ::windows::core::Result<AppInstallState>;
-    fn DownloadSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn BytesDownloaded(&self) -> ::windows::core::Result<u64>;
-    fn PercentComplete(&self) -> ::windows::core::Result<f64>;
-    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn InstallState(&mut self) -> ::windows::core::Result<AppInstallState>;
+    fn DownloadSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn BytesDownloaded(&mut self) -> ::windows::core::Result<u64>;
+    fn PercentComplete(&mut self) -> ::windows::core::Result<f64>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallStatus {
@@ -1588,8 +1588,8 @@ impl IAppInstallStatusVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInstallStatus2Impl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::super::super::System::User>;
-    fn ReadyForLaunch(&self) -> ::windows::core::Result<bool>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::super::super::System::User>;
+    fn ReadyForLaunch(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallStatus2 {
@@ -1632,7 +1632,7 @@ impl IAppInstallStatus2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstallStatus3Impl: Sized {
-    fn IsStaged(&self) -> ::windows::core::Result<bool>;
+    fn IsStaged(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstallStatus3 {
@@ -1660,10 +1660,10 @@ impl IAppInstallStatus3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUpdateOptionsImpl: Sized {
-    fn CatalogId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCatalogId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AllowForcedAppRestart(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::core::Result<()>;
+    fn CatalogId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCatalogId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AllowForcedAppRestart(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowForcedAppRestart(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUpdateOptions {
@@ -1716,8 +1716,8 @@ impl IAppUpdateOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUpdateOptions2Impl: Sized {
-    fn AutomaticallyDownloadAndInstallUpdateIfFound(&self) -> ::windows::core::Result<bool>;
-    fn SetAutomaticallyDownloadAndInstallUpdateIfFound(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AutomaticallyDownloadAndInstallUpdateIfFound(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutomaticallyDownloadAndInstallUpdateIfFound(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUpdateOptions2 {
@@ -1753,7 +1753,7 @@ impl IAppUpdateOptions2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGetEntitlementResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GetEntitlementStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<GetEntitlementStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGetEntitlementResult {

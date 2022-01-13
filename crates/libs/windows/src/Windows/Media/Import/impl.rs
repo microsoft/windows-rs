@@ -1,18 +1,18 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportDeleteImportedItemsFromSourceResultImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
-    fn HasSucceeded(&self) -> ::windows::core::Result<bool>;
-    fn DeletedItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
-    fn PhotosCount(&self) -> ::windows::core::Result<u32>;
-    fn PhotosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn VideosCount(&self) -> ::windows::core::Result<u32>;
-    fn VideosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SidecarsCount(&self) -> ::windows::core::Result<u32>;
-    fn SidecarsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SiblingsCount(&self) -> ::windows::core::Result<u32>;
-    fn SiblingsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn TotalCount(&self) -> ::windows::core::Result<u32>;
-    fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64>;
+    fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
+    fn HasSucceeded(&mut self) -> ::windows::core::Result<bool>;
+    fn DeletedItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
+    fn PhotosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn PhotosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn VideosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn VideosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SidecarsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SidecarsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SiblingsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SiblingsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn TotalCount(&mut self) -> ::windows::core::Result<u32>;
+    fn TotalSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportDeleteImportedItemsFromSourceResult {
@@ -187,39 +187,39 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportFindItemsResultImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
-    fn HasSucceeded(&self) -> ::windows::core::Result<bool>;
-    fn FoundItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
-    fn PhotosCount(&self) -> ::windows::core::Result<u32>;
-    fn PhotosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn VideosCount(&self) -> ::windows::core::Result<u32>;
-    fn VideosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SidecarsCount(&self) -> ::windows::core::Result<u32>;
-    fn SidecarsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SiblingsCount(&self) -> ::windows::core::Result<u32>;
-    fn SiblingsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn TotalCount(&self) -> ::windows::core::Result<u32>;
-    fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SelectAll(&self) -> ::windows::core::Result<()>;
-    fn SelectNone(&self) -> ::windows::core::Result<()>;
-    fn SelectNewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetImportMode(&self, value: PhotoImportImportMode) -> ::windows::core::Result<()>;
-    fn ImportMode(&self) -> ::windows::core::Result<PhotoImportImportMode>;
-    fn SelectedPhotosCount(&self) -> ::windows::core::Result<u32>;
-    fn SelectedPhotosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SelectedVideosCount(&self) -> ::windows::core::Result<u32>;
-    fn SelectedVideosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SelectedSidecarsCount(&self) -> ::windows::core::Result<u32>;
-    fn SelectedSidecarsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SelectedSiblingsCount(&self) -> ::windows::core::Result<u32>;
-    fn SelectedSiblingsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SelectedTotalCount(&self) -> ::windows::core::Result<u32>;
-    fn SelectedTotalSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SelectionChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSelectionChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ImportItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>>;
-    fn ItemImported(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveItemImported(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
+    fn HasSucceeded(&mut self) -> ::windows::core::Result<bool>;
+    fn FoundItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
+    fn PhotosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn PhotosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn VideosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn VideosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SidecarsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SidecarsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SiblingsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SiblingsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn TotalCount(&mut self) -> ::windows::core::Result<u32>;
+    fn TotalSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SelectAll(&mut self) -> ::windows::core::Result<()>;
+    fn SelectNone(&mut self) -> ::windows::core::Result<()>;
+    fn SelectNewAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetImportMode(&mut self, value: PhotoImportImportMode) -> ::windows::core::Result<()>;
+    fn ImportMode(&mut self) -> ::windows::core::Result<PhotoImportImportMode>;
+    fn SelectedPhotosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SelectedPhotosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SelectedVideosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SelectedVideosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SelectedSidecarsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SelectedSidecarsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SelectedSiblingsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SelectedSiblingsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SelectedTotalCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SelectedTotalSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SelectionChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSelectionChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ImportItemsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>>;
+    fn ItemImported(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveItemImported(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportFindItemsResult {
@@ -599,7 +599,7 @@ impl IPhotoImportFindItemsResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoImportFindItemsResult2Impl: Sized {
-    fn AddItemsInDateRangeToSelection(&self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn AddItemsInDateRangeToSelection(&mut self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportFindItemsResult2 {
@@ -623,20 +623,20 @@ impl IPhotoImportFindItemsResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportImportItemsResultImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
-    fn HasSucceeded(&self) -> ::windows::core::Result<bool>;
-    fn ImportedItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
-    fn PhotosCount(&self) -> ::windows::core::Result<u32>;
-    fn PhotosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn VideosCount(&self) -> ::windows::core::Result<u32>;
-    fn VideosSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SidecarsCount(&self) -> ::windows::core::Result<u32>;
-    fn SidecarsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SiblingsCount(&self) -> ::windows::core::Result<u32>;
-    fn SiblingsSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn TotalCount(&self) -> ::windows::core::Result<u32>;
-    fn TotalSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn DeleteImportedItemsFromSourceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>>;
+    fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
+    fn HasSucceeded(&mut self) -> ::windows::core::Result<bool>;
+    fn ImportedItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
+    fn PhotosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn PhotosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn VideosCount(&mut self) -> ::windows::core::Result<u32>;
+    fn VideosSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SidecarsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SidecarsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SiblingsCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SiblingsSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn TotalCount(&mut self) -> ::windows::core::Result<u32>;
+    fn TotalSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn DeleteImportedItemsFromSourceAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportImportItemsResult {
@@ -823,19 +823,19 @@ impl IPhotoImportImportItemsResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPhotoImportItemImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ItemKey(&self) -> ::windows::core::Result<u64>;
-    fn ContentType(&self) -> ::windows::core::Result<PhotoImportContentType>;
-    fn SizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Sibling(&self) -> ::windows::core::Result<PhotoImportSidecar>;
-    fn Sidecars(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>>;
-    fn VideoSegments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportVideoSegment>>;
-    fn IsSelected(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSelected(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn ImportedFileNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn DeletedFileNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ItemKey(&mut self) -> ::windows::core::Result<u64>;
+    fn ContentType(&mut self) -> ::windows::core::Result<PhotoImportContentType>;
+    fn SizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn Date(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Sibling(&mut self) -> ::windows::core::Result<PhotoImportSidecar>;
+    fn Sidecars(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>>;
+    fn VideoSegments(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportVideoSegment>>;
+    fn IsSelected(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSelected(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn ImportedFileNames(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn DeletedFileNames(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportItem {
@@ -1003,7 +1003,7 @@ impl IPhotoImportItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhotoImportItem2Impl: Sized {
-    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhotoImportItem2 {
@@ -1031,7 +1031,7 @@ impl IPhotoImportItem2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhotoImportItemImportedEventArgsImpl: Sized {
-    fn ImportedItem(&self) -> ::windows::core::Result<PhotoImportItem>;
+    fn ImportedItem(&mut self) -> ::windows::core::Result<PhotoImportItem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhotoImportItemImportedEventArgs {
@@ -1062,9 +1062,9 @@ impl IPhotoImportItemImportedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportManagerStaticsImpl: Sized {
-    fn IsSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn FindAllSourcesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>>;
-    fn GetPendingOperations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportOperation>>;
+    fn IsSupportedAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn FindAllSourcesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>>;
+    fn GetPendingOperations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportOperation>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportManagerStatics {
@@ -1119,11 +1119,11 @@ impl IPhotoImportManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoImportOperationImpl: Sized {
-    fn Stage(&self) -> ::windows::core::Result<PhotoImportStage>;
-    fn Session(&self) -> ::windows::core::Result<PhotoImportSession>;
-    fn ContinueFindingItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>;
-    fn ContinueImportingItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>>;
-    fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>>;
+    fn Stage(&mut self) -> ::windows::core::Result<PhotoImportStage>;
+    fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
+    fn ContinueFindingItemsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>;
+    fn ContinueImportingItemsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>>;
+    fn ContinueDeletingImportedItemsFromSourceAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportOperation {
@@ -1202,7 +1202,7 @@ impl IPhotoImportOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhotoImportSelectionChangedEventArgsImpl: Sized {
-    fn IsSelectionEmpty(&self) -> ::windows::core::Result<bool>;
+    fn IsSelectionEmpty(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhotoImportSelectionChangedEventArgs {
@@ -1233,17 +1233,17 @@ impl IPhotoImportSelectionChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPhotoImportSessionImpl: Sized + IClosableImpl {
-    fn Source(&self) -> ::windows::core::Result<PhotoImportSource>;
-    fn SessionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetDestinationFolder(&self, value: &::core::option::Option<super::super::Storage::IStorageFolder>) -> ::windows::core::Result<()>;
-    fn DestinationFolder(&self) -> ::windows::core::Result<super::super::Storage::IStorageFolder>;
-    fn SetAppendSessionDateToDestinationFolder(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AppendSessionDateToDestinationFolder(&self) -> ::windows::core::Result<bool>;
-    fn SetSubfolderCreationMode(&self, value: PhotoImportSubfolderCreationMode) -> ::windows::core::Result<()>;
-    fn SubfolderCreationMode(&self) -> ::windows::core::Result<PhotoImportSubfolderCreationMode>;
-    fn SetDestinationFileNamePrefix(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DestinationFileNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>;
+    fn Source(&mut self) -> ::windows::core::Result<PhotoImportSource>;
+    fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetDestinationFolder(&mut self, value: &::core::option::Option<super::super::Storage::IStorageFolder>) -> ::windows::core::Result<()>;
+    fn DestinationFolder(&mut self) -> ::windows::core::Result<super::super::Storage::IStorageFolder>;
+    fn SetAppendSessionDateToDestinationFolder(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AppendSessionDateToDestinationFolder(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSubfolderCreationMode(&mut self, value: PhotoImportSubfolderCreationMode) -> ::windows::core::Result<()>;
+    fn SubfolderCreationMode(&mut self) -> ::windows::core::Result<PhotoImportSubfolderCreationMode>;
+    fn SetDestinationFileNamePrefix(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DestinationFileNamePrefix(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FindItemsAsync(&mut self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSession {
@@ -1366,10 +1366,10 @@ impl IPhotoImportSessionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhotoImportSession2Impl: Sized {
-    fn SetSubfolderDateFormat(&self, value: PhotoImportSubfolderDateFormat) -> ::windows::core::Result<()>;
-    fn SubfolderDateFormat(&self) -> ::windows::core::Result<PhotoImportSubfolderDateFormat>;
-    fn SetRememberDeselectedItems(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RememberDeselectedItems(&self) -> ::windows::core::Result<bool>;
+    fn SetSubfolderDateFormat(&mut self, value: PhotoImportSubfolderDateFormat) -> ::windows::core::Result<()>;
+    fn SubfolderDateFormat(&mut self) -> ::windows::core::Result<PhotoImportSubfolderDateFormat>;
+    fn SetRememberDeselectedItems(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RememberDeselectedItems(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhotoImportSession2 {
@@ -1422,9 +1422,9 @@ impl IPhotoImportSession2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoImportSidecarImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn Date(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSidecar {
@@ -1479,23 +1479,23 @@ impl IPhotoImportSidecarVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPhotoImportSourceImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Manufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Model(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ConnectionProtocol(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ConnectionTransport(&self) -> ::windows::core::Result<PhotoImportConnectionTransport>;
-    fn Type(&self) -> ::windows::core::Result<PhotoImportSourceType>;
-    fn PowerSource(&self) -> ::windows::core::Result<PhotoImportPowerSource>;
-    fn BatteryLevelPercent(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn DateTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn StorageMedia(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportStorageMedium>>;
-    fn IsLocked(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
-    fn IsMassStorage(&self) -> ::windows::core::Result<bool>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn CreateImportSession(&self) -> ::windows::core::Result<PhotoImportSession>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Manufacturer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Model(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SerialNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConnectionProtocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConnectionTransport(&mut self) -> ::windows::core::Result<PhotoImportConnectionTransport>;
+    fn Type(&mut self) -> ::windows::core::Result<PhotoImportSourceType>;
+    fn PowerSource(&mut self) -> ::windows::core::Result<PhotoImportPowerSource>;
+    fn BatteryLevelPercent(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn DateTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn StorageMedia(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportStorageMedium>>;
+    fn IsLocked(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
+    fn IsMassStorage(&mut self) -> ::windows::core::Result<bool>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn CreateImportSession(&mut self) -> ::windows::core::Result<PhotoImportSession>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSource {
@@ -1718,8 +1718,8 @@ impl IPhotoImportSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPhotoImportSourceStaticsImpl: Sized {
-    fn FromIdAsync(&self, sourceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
-    fn FromFolderAsync(&self, sourcerootfolder: &::core::option::Option<super::super::Storage::IStorageFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
+    fn FromIdAsync(&mut self, sourceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
+    fn FromFolderAsync(&mut self, sourcerootfolder: &::core::option::Option<super::super::Storage::IStorageFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportSourceStatics {
@@ -1762,14 +1762,14 @@ impl IPhotoImportSourceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhotoImportStorageMediumImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn StorageMediumType(&self) -> ::windows::core::Result<PhotoImportStorageMediumType>;
-    fn SupportedAccessMode(&self) -> ::windows::core::Result<PhotoImportAccessMode>;
-    fn CapacityInBytes(&self) -> ::windows::core::Result<u64>;
-    fn AvailableSpaceInBytes(&self) -> ::windows::core::Result<u64>;
-    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SerialNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StorageMediumType(&mut self) -> ::windows::core::Result<PhotoImportStorageMediumType>;
+    fn SupportedAccessMode(&mut self) -> ::windows::core::Result<PhotoImportAccessMode>;
+    fn CapacityInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn AvailableSpaceInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn Refresh(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhotoImportStorageMedium {
@@ -1877,11 +1877,11 @@ impl IPhotoImportStorageMediumVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhotoImportVideoSegmentImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Sibling(&self) -> ::windows::core::Result<PhotoImportSidecar>;
-    fn Sidecars(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn Date(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Sibling(&mut self) -> ::windows::core::Result<PhotoImportSidecar>;
+    fn Sidecars(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoImportVideoSegment {

@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDevicePortalConnectionImpl: Sized {
-    fn Closed(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RequestReceived(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRequestReceived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RequestReceived(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRequestReceived(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalConnection {
@@ -56,7 +56,7 @@ impl IDevicePortalConnectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDevicePortalConnectionClosedEventArgsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<DevicePortalConnectionClosedReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<DevicePortalConnectionClosedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDevicePortalConnectionClosedEventArgs {
@@ -87,8 +87,8 @@ impl IDevicePortalConnectionClosedEventArgsVtbl {
 }
 #[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IDevicePortalConnectionRequestReceivedEventArgsImpl: Sized {
-    fn RequestMessage(&self) -> ::windows::core::Result<super::super::super::Web::Http::HttpRequestMessage>;
-    fn ResponseMessage(&self) -> ::windows::core::Result<super::super::super::Web::Http::HttpResponseMessage>;
+    fn RequestMessage(&mut self) -> ::windows::core::Result<super::super::super::Web::Http::HttpRequestMessage>;
+    fn ResponseMessage(&mut self) -> ::windows::core::Result<super::super::super::Web::Http::HttpResponseMessage>;
 }
 #[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalConnectionRequestReceivedEventArgs {
@@ -131,7 +131,7 @@ impl IDevicePortalConnectionRequestReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 pub trait IDevicePortalConnectionStaticsImpl: Sized {
-    fn GetForAppServiceConnection(&self, appserviceconnection: &::core::option::Option<super::super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<DevicePortalConnection>;
+    fn GetForAppServiceConnection(&mut self, appserviceconnection: &::core::option::Option<super::super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<DevicePortalConnection>;
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalConnectionStatics {
@@ -162,11 +162,11 @@ impl IDevicePortalConnectionStaticsVtbl {
 }
 #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IDevicePortalWebSocketConnectionImpl: Sized {
-    fn GetServerMessageWebSocketForRequest(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
-    fn GetServerMessageWebSocketForRequest2(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
-    fn GetServerMessageWebSocketForRequest3(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
-    fn GetServerStreamWebSocketForRequest(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>;
-    fn GetServerStreamWebSocketForRequest2(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, nodelay: bool) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>;
+    fn GetServerMessageWebSocketForRequest(&mut self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
+    fn GetServerMessageWebSocketForRequest2(&mut self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
+    fn GetServerMessageWebSocketForRequest3(&mut self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>;
+    fn GetServerStreamWebSocketForRequest(&mut self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>;
+    fn GetServerStreamWebSocketForRequest2(&mut self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, nodelay: bool) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>;
 }
 #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalWebSocketConnection {
@@ -245,9 +245,9 @@ impl IDevicePortalWebSocketConnectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDevicePortalWebSocketConnectionRequestReceivedEventArgsImpl: Sized {
-    fn IsWebSocketUpgradeRequest(&self) -> ::windows::core::Result<bool>;
-    fn WebSocketProtocolsRequested(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn IsWebSocketUpgradeRequest(&mut self) -> ::windows::core::Result<bool>;
+    fn WebSocketProtocolsRequested(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {

@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeofenceImpl: Sized {
-    fn StartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn DwellTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MonitoredStates(&self) -> ::windows::core::Result<MonitoredGeofenceStates>;
-    fn Geoshape(&self) -> ::windows::core::Result<super::IGeoshape>;
-    fn SingleUse(&self) -> ::windows::core::Result<bool>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn DwellTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MonitoredStates(&mut self) -> ::windows::core::Result<MonitoredGeofenceStates>;
+    fn Geoshape(&mut self) -> ::windows::core::Result<super::IGeoshape>;
+    fn SingleUse(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeofence {
@@ -109,10 +109,10 @@ impl IGeofenceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeofenceFactoryImpl: Sized {
-    fn Create(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>) -> ::windows::core::Result<Geofence>;
-    fn CreateWithMonitorStates(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>;
-    fn CreateWithMonitorStatesAndDwellTime(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>;
-    fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration(&self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: &super::super::super::Foundation::TimeSpan, starttime: &super::super::super::Foundation::DateTime, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>;
+    fn Create(&mut self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>) -> ::windows::core::Result<Geofence>;
+    fn CreateWithMonitorStates(&mut self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>;
+    fn CreateWithMonitorStatesAndDwellTime(&mut self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>;
+    fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration(&mut self, id: &::windows::core::HSTRING, geoshape: &::core::option::Option<super::IGeoshape>, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: &super::super::super::Foundation::TimeSpan, starttime: &super::super::super::Foundation::DateTime, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeofenceFactory {
@@ -193,14 +193,14 @@ impl IGeofenceFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeofenceMonitorImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GeofenceMonitorStatus>;
-    fn Geofences(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<Geofence>>;
-    fn LastKnownGeoposition(&self) -> ::windows::core::Result<super::Geoposition>;
-    fn GeofenceStateChanged(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGeofenceStateChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ReadReports(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>>;
-    fn StatusChanged(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStatusChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<GeofenceMonitorStatus>;
+    fn Geofences(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<Geofence>>;
+    fn LastKnownGeoposition(&mut self) -> ::windows::core::Result<super::Geoposition>;
+    fn GeofenceStateChanged(&mut self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGeofenceStateChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ReadReports(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>>;
+    fn StatusChanged(&mut self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeofenceMonitor {
@@ -301,7 +301,7 @@ impl IGeofenceMonitorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeofenceMonitorStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<GeofenceMonitor>;
+    fn Current(&mut self) -> ::windows::core::Result<GeofenceMonitor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeofenceMonitorStatics {
@@ -329,10 +329,10 @@ impl IGeofenceMonitorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeofenceStateChangeReportImpl: Sized {
-    fn NewState(&self) -> ::windows::core::Result<GeofenceState>;
-    fn Geofence(&self) -> ::windows::core::Result<Geofence>;
-    fn Geoposition(&self) -> ::windows::core::Result<super::Geoposition>;
-    fn RemovalReason(&self) -> ::windows::core::Result<GeofenceRemovalReason>;
+    fn NewState(&mut self) -> ::windows::core::Result<GeofenceState>;
+    fn Geofence(&mut self) -> ::windows::core::Result<Geofence>;
+    fn Geoposition(&mut self) -> ::windows::core::Result<super::Geoposition>;
+    fn RemovalReason(&mut self) -> ::windows::core::Result<GeofenceRemovalReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeofenceStateChangeReport {

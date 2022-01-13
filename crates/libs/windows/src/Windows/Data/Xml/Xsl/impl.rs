@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IXsltProcessorImpl: Sized {
-    fn TransformToString(&self, inputnode: &::core::option::Option<super::Dom::IXmlNode>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TransformToString(&mut self, inputnode: &::core::option::Option<super::Dom::IXmlNode>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXsltProcessor {
@@ -31,7 +31,7 @@ impl IXsltProcessorVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IXsltProcessor2Impl: Sized {
-    fn TransformToDocument(&self, inputnode: &::core::option::Option<super::Dom::IXmlNode>) -> ::windows::core::Result<super::Dom::XmlDocument>;
+    fn TransformToDocument(&mut self, inputnode: &::core::option::Option<super::Dom::IXmlNode>) -> ::windows::core::Result<super::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXsltProcessor2 {
@@ -62,7 +62,7 @@ impl IXsltProcessor2Vtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IXsltProcessorFactoryImpl: Sized {
-    fn CreateInstance(&self, document: &::core::option::Option<super::Dom::XmlDocument>) -> ::windows::core::Result<XsltProcessor>;
+    fn CreateInstance(&mut self, document: &::core::option::Option<super::Dom::XmlDocument>) -> ::windows::core::Result<XsltProcessor>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXsltProcessorFactory {

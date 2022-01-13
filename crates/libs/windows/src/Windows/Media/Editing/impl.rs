@@ -1,19 +1,19 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IBackgroundAudioTrackImpl: Sized {
-    fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetTrimTimeFromStart(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn TrimTimeFromEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetTrimTimeFromEnd(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn OriginalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn TrimmedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn SetDelay(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetVolume(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Volume(&self) -> ::windows::core::Result<f64>;
-    fn Clone(&self) -> ::windows::core::Result<BackgroundAudioTrack>;
-    fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
-    fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
+    fn TrimTimeFromStart(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetTrimTimeFromStart(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn TrimTimeFromEnd(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetTrimTimeFromEnd(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn OriginalDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn TrimmedDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn UserData(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn SetDelay(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Delay(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetVolume(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Volume(&mut self) -> ::windows::core::Result<f64>;
+    fn Clone(&mut self) -> ::windows::core::Result<BackgroundAudioTrack>;
+    fn GetAudioEncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn AudioEffectDefinitions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundAudioTrack {
@@ -172,8 +172,8 @@ impl IBackgroundAudioTrackVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IBackgroundAudioTrackStaticsImpl: Sized {
-    fn CreateFromEmbeddedAudioTrack(&self, embeddedaudiotrack: &::core::option::Option<EmbeddedAudioTrack>) -> ::windows::core::Result<BackgroundAudioTrack>;
-    fn CreateFromFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>;
+    fn CreateFromEmbeddedAudioTrack(&mut self, embeddedaudiotrack: &::core::option::Option<EmbeddedAudioTrack>) -> ::windows::core::Result<BackgroundAudioTrack>;
+    fn CreateFromFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundAudioTrackStatics {
@@ -216,7 +216,7 @@ impl IBackgroundAudioTrackStaticsVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IEmbeddedAudioTrackImpl: Sized {
-    fn GetAudioEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn GetAudioEncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmbeddedAudioTrack {
@@ -247,24 +247,24 @@ impl IEmbeddedAudioTrackVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IMediaClipImpl: Sized {
-    fn TrimTimeFromStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetTrimTimeFromStart(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn TrimTimeFromEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetTrimTimeFromEnd(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn OriginalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn TrimmedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn Clone(&self) -> ::windows::core::Result<MediaClip>;
-    fn StartTimeInComposition(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn EndTimeInComposition(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn EmbeddedAudioTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmbeddedAudioTrack>>;
-    fn SelectedEmbeddedAudioTrackIndex(&self) -> ::windows::core::Result<u32>;
-    fn SetSelectedEmbeddedAudioTrackIndex(&self, value: u32) -> ::windows::core::Result<()>;
-    fn SetVolume(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Volume(&self) -> ::windows::core::Result<f64>;
-    fn GetVideoEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
-    fn AudioEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
-    fn VideoEffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IVideoEffectDefinition>>;
+    fn TrimTimeFromStart(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetTrimTimeFromStart(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn TrimTimeFromEnd(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetTrimTimeFromEnd(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn OriginalDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn TrimmedDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn UserData(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Clone(&mut self) -> ::windows::core::Result<MediaClip>;
+    fn StartTimeInComposition(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn EndTimeInComposition(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn EmbeddedAudioTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmbeddedAudioTrack>>;
+    fn SelectedEmbeddedAudioTrackIndex(&mut self) -> ::windows::core::Result<u32>;
+    fn SetSelectedEmbeddedAudioTrackIndex(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn SetVolume(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Volume(&mut self) -> ::windows::core::Result<f64>;
+    fn GetVideoEncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
+    fn AudioEffectDefinitions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
+    fn VideoEffectDefinitions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IVideoEffectDefinition>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaClip {
@@ -471,9 +471,9 @@ impl IMediaClipVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "UI", feature = "implement_exclusive"))]
 pub trait IMediaClipStaticsImpl: Sized {
-    fn CreateFromColor(&self, color: &super::super::UI::Color, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
-    fn CreateFromFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
-    fn CreateFromImageFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
+    fn CreateFromColor(&mut self, color: &super::super::UI::Color, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
+    fn CreateFromFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
+    fn CreateFromImageFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaClipStatics {
@@ -528,7 +528,7 @@ impl IMediaClipStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IMediaClipStatics2Impl: Sized {
-    fn CreateFromSurface(&self, surface: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
+    fn CreateFromSurface(&mut self, surface: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaClipStatics2 {
@@ -559,21 +559,21 @@ impl IMediaClipStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaCompositionImpl: Sized {
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Clips(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaClip>>;
-    fn BackgroundAudioTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundAudioTrack>>;
-    fn UserData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn Clone(&self) -> ::windows::core::Result<MediaComposition>;
-    fn SaveAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetThumbnailAsync(&self, timefromstart: &super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>;
-    fn GetThumbnailsAsync(&self, timesfromstart: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>;
-    fn RenderToFileAsync(&self, destination: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>;
-    fn RenderToFileWithTrimmingPreferenceAsync(&self, destination: &::core::option::Option<super::super::Storage::IStorageFile>, trimmingpreference: MediaTrimmingPreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>;
-    fn RenderToFileWithProfileAsync(&self, destination: &::core::option::Option<super::super::Storage::IStorageFile>, trimmingpreference: MediaTrimmingPreference, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>;
-    fn CreateDefaultEncodingProfile(&self) -> ::windows::core::Result<super::MediaProperties::MediaEncodingProfile>;
-    fn GenerateMediaStreamSource(&self) -> ::windows::core::Result<super::Core::MediaStreamSource>;
-    fn GenerateMediaStreamSourceWithProfile(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::Core::MediaStreamSource>;
-    fn GeneratePreviewMediaStreamSource(&self, scaledwidth: i32, scaledheight: i32) -> ::windows::core::Result<super::Core::MediaStreamSource>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Clips(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaClip>>;
+    fn BackgroundAudioTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundAudioTrack>>;
+    fn UserData(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Clone(&mut self) -> ::windows::core::Result<MediaComposition>;
+    fn SaveAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetThumbnailAsync(&mut self, timefromstart: &super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>;
+    fn GetThumbnailsAsync(&mut self, timesfromstart: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>;
+    fn RenderToFileAsync(&mut self, destination: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>;
+    fn RenderToFileWithTrimmingPreferenceAsync(&mut self, destination: &::core::option::Option<super::super::Storage::IStorageFile>, trimmingpreference: MediaTrimmingPreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>;
+    fn RenderToFileWithProfileAsync(&mut self, destination: &::core::option::Option<super::super::Storage::IStorageFile>, trimmingpreference: MediaTrimmingPreference, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>;
+    fn CreateDefaultEncodingProfile(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaEncodingProfile>;
+    fn GenerateMediaStreamSource(&mut self) -> ::windows::core::Result<super::Core::MediaStreamSource>;
+    fn GenerateMediaStreamSourceWithProfile(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::Core::MediaStreamSource>;
+    fn GeneratePreviewMediaStreamSource(&mut self, scaledwidth: i32, scaledheight: i32) -> ::windows::core::Result<super::Core::MediaStreamSource>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaComposition {
@@ -772,7 +772,7 @@ impl IMediaCompositionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaComposition2Impl: Sized {
-    fn OverlayLayers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlayLayer>>;
+    fn OverlayLayers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlayLayer>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaComposition2 {
@@ -800,7 +800,7 @@ impl IMediaComposition2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IMediaCompositionStaticsImpl: Sized {
-    fn LoadAsync(&self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>;
+    fn LoadAsync(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCompositionStatics {
@@ -828,16 +828,16 @@ impl IMediaCompositionStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaOverlayImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SetPosition(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn SetDelay(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Opacity(&self) -> ::windows::core::Result<f64>;
-    fn SetOpacity(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Clone(&self) -> ::windows::core::Result<MediaOverlay>;
-    fn Clip(&self) -> ::windows::core::Result<MediaClip>;
-    fn AudioEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAudioEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SetPosition(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn SetDelay(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Delay(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Opacity(&mut self) -> ::windows::core::Result<f64>;
+    fn SetOpacity(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<MediaOverlay>;
+    fn Clip(&mut self) -> ::windows::core::Result<MediaClip>;
+    fn AudioEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAudioEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlay {
@@ -948,8 +948,8 @@ impl IMediaOverlayVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaOverlayFactoryImpl: Sized {
-    fn Create(&self, clip: &::core::option::Option<MediaClip>) -> ::windows::core::Result<MediaOverlay>;
-    fn CreateWithPositionAndOpacity(&self, clip: &::core::option::Option<MediaClip>, position: &super::super::Foundation::Rect, opacity: f64) -> ::windows::core::Result<MediaOverlay>;
+    fn Create(&mut self, clip: &::core::option::Option<MediaClip>) -> ::windows::core::Result<MediaOverlay>;
+    fn CreateWithPositionAndOpacity(&mut self, clip: &::core::option::Option<MediaClip>, position: &super::super::Foundation::Rect, opacity: f64) -> ::windows::core::Result<MediaOverlay>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlayFactory {
@@ -992,9 +992,9 @@ impl IMediaOverlayFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IMediaOverlayLayerImpl: Sized {
-    fn Clone(&self) -> ::windows::core::Result<MediaOverlayLayer>;
-    fn Overlays(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlay>>;
-    fn CustomCompositorDefinition(&self) -> ::windows::core::Result<super::Effects::IVideoCompositorDefinition>;
+    fn Clone(&mut self) -> ::windows::core::Result<MediaOverlayLayer>;
+    fn Overlays(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlay>>;
+    fn CustomCompositorDefinition(&mut self) -> ::windows::core::Result<super::Effects::IVideoCompositorDefinition>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlayLayer {
@@ -1049,7 +1049,7 @@ impl IMediaOverlayLayerVtbl {
 }
 #[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IMediaOverlayLayerFactoryImpl: Sized {
-    fn CreateWithCompositorDefinition(&self, compositordefinition: &::core::option::Option<super::Effects::IVideoCompositorDefinition>) -> ::windows::core::Result<MediaOverlayLayer>;
+    fn CreateWithCompositorDefinition(&mut self, compositordefinition: &::core::option::Option<super::Effects::IVideoCompositorDefinition>) -> ::windows::core::Result<MediaOverlayLayer>;
 }
 #[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaOverlayLayerFactory {

@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceLockdownProfileInformationImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceLockdownProfileInformation {
@@ -28,10 +28,10 @@ impl IDeviceLockdownProfileInformationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDeviceLockdownProfileStaticsImpl: Sized {
-    fn GetSupportedLockdownProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>;
-    fn GetCurrentLockdownProfile(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ApplyLockdownProfileAsync(&self, profileid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetLockdownProfileInformation(&self, profileid: &::windows::core::GUID) -> ::windows::core::Result<DeviceLockdownProfileInformation>;
+    fn GetSupportedLockdownProfiles(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>;
+    fn GetCurrentLockdownProfile(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ApplyLockdownProfileAsync(&mut self, profileid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetLockdownProfileInformation(&mut self, profileid: &::windows::core::GUID) -> ::windows::core::Result<DeviceLockdownProfileInformation>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceLockdownProfileStatics {

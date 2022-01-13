@@ -1,7 +1,7 @@
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait IRadialControllerIndependentInputSourceImpl: Sized {
-    fn Controller(&self) -> ::windows::core::Result<super::RadialController>;
-    fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher>;
+    fn Controller(&mut self) -> ::windows::core::Result<super::RadialController>;
+    fn Dispatcher(&mut self) -> ::windows::core::Result<super::super::Core::CoreDispatcher>;
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSource {
@@ -44,7 +44,7 @@ impl IRadialControllerIndependentInputSourceVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IRadialControllerIndependentInputSource2Impl: Sized {
-    fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSource2 {
@@ -75,7 +75,7 @@ impl IRadialControllerIndependentInputSource2Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "implement_exclusive"))]
 pub trait IRadialControllerIndependentInputSourceStaticsImpl: Sized {
-    fn CreateForView(&self, view: &::core::option::Option<super::super::super::ApplicationModel::Core::CoreApplicationView>) -> ::windows::core::Result<RadialControllerIndependentInputSource>;
+    fn CreateForView(&mut self, view: &::core::option::Option<super::super::super::ApplicationModel::Core::CoreApplicationView>) -> ::windows::core::Result<RadialControllerIndependentInputSource>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSourceStatics {

@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRfcommDeviceServiceImpl: Sized {
-    fn ConnectionHostName(&self) -> ::windows::core::Result<super::super::super::Networking::HostName>;
-    fn ConnectionServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServiceId(&self) -> ::windows::core::Result<RfcommServiceId>;
-    fn ProtectionLevel(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel>;
-    fn MaxProtectionLevel(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel>;
-    fn GetSdpRawAttributesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>;
-    fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>;
+    fn ConnectionHostName(&mut self) -> ::windows::core::Result<super::super::super::Networking::HostName>;
+    fn ConnectionServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServiceId(&mut self) -> ::windows::core::Result<RfcommServiceId>;
+    fn ProtectionLevel(&mut self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel>;
+    fn MaxProtectionLevel(&mut self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel>;
+    fn GetSdpRawAttributesAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>;
+    fn GetSdpRawAttributesWithCacheModeAsync(&mut self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommDeviceService {
@@ -109,7 +109,7 @@ impl IRfcommDeviceServiceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRfcommDeviceService2Impl: Sized + IRfcommDeviceServiceImpl {
-    fn Device(&self) -> ::windows::core::Result<super::BluetoothDevice>;
+    fn Device(&mut self) -> ::windows::core::Result<super::BluetoothDevice>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommDeviceService2 {
@@ -137,8 +137,8 @@ impl IRfcommDeviceService2Vtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IRfcommDeviceService3Impl: Sized + IRfcommDeviceServiceImpl + IRfcommDeviceService2Impl {
-    fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation>;
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>;
+    fn DeviceAccessInformation(&mut self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommDeviceService3 {
@@ -181,8 +181,8 @@ impl IRfcommDeviceService3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRfcommDeviceServiceStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommDeviceService>>;
-    fn GetDeviceSelector(&self, serviceid: &::core::option::Option<RfcommServiceId>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommDeviceService>>;
+    fn GetDeviceSelector(&mut self, serviceid: &::core::option::Option<RfcommServiceId>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommDeviceServiceStatics {
@@ -225,10 +225,10 @@ impl IRfcommDeviceServiceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRfcommDeviceServiceStatics2Impl: Sized + IRfcommDeviceServiceStaticsImpl {
-    fn GetDeviceSelectorForBluetoothDevice(&self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorForBluetoothDeviceWithCacheMode(&self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorForBluetoothDeviceAndServiceId(&self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>, serviceid: &::core::option::Option<RfcommServiceId>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode(&self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>, serviceid: &::core::option::Option<RfcommServiceId>, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForBluetoothDevice(&mut self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForBluetoothDeviceWithCacheMode(&mut self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForBluetoothDeviceAndServiceId(&mut self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>, serviceid: &::core::option::Option<RfcommServiceId>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode(&mut self, bluetoothdevice: &::core::option::Option<super::BluetoothDevice>, serviceid: &::core::option::Option<RfcommServiceId>, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommDeviceServiceStatics2 {
@@ -295,8 +295,8 @@ impl IRfcommDeviceServiceStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRfcommDeviceServicesResultImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
-    fn Services(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<RfcommDeviceService>>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Services(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<RfcommDeviceService>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommDeviceServicesResult {
@@ -339,9 +339,9 @@ impl IRfcommDeviceServicesResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRfcommServiceIdImpl: Sized {
-    fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AsShortId(&self) -> ::windows::core::Result<u32>;
-    fn AsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AsShortId(&mut self) -> ::windows::core::Result<u32>;
+    fn AsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRfcommServiceId {
@@ -396,14 +396,14 @@ impl IRfcommServiceIdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRfcommServiceIdStaticsImpl: Sized {
-    fn FromUuid(&self, uuid: &::windows::core::GUID) -> ::windows::core::Result<RfcommServiceId>;
-    fn FromShortId(&self, shortid: u32) -> ::windows::core::Result<RfcommServiceId>;
-    fn SerialPort(&self) -> ::windows::core::Result<RfcommServiceId>;
-    fn ObexObjectPush(&self) -> ::windows::core::Result<RfcommServiceId>;
-    fn ObexFileTransfer(&self) -> ::windows::core::Result<RfcommServiceId>;
-    fn PhoneBookAccessPce(&self) -> ::windows::core::Result<RfcommServiceId>;
-    fn PhoneBookAccessPse(&self) -> ::windows::core::Result<RfcommServiceId>;
-    fn GenericFileTransfer(&self) -> ::windows::core::Result<RfcommServiceId>;
+    fn FromUuid(&mut self, uuid: &::windows::core::GUID) -> ::windows::core::Result<RfcommServiceId>;
+    fn FromShortId(&mut self, shortid: u32) -> ::windows::core::Result<RfcommServiceId>;
+    fn SerialPort(&mut self) -> ::windows::core::Result<RfcommServiceId>;
+    fn ObexObjectPush(&mut self) -> ::windows::core::Result<RfcommServiceId>;
+    fn ObexFileTransfer(&mut self) -> ::windows::core::Result<RfcommServiceId>;
+    fn PhoneBookAccessPce(&mut self) -> ::windows::core::Result<RfcommServiceId>;
+    fn PhoneBookAccessPse(&mut self) -> ::windows::core::Result<RfcommServiceId>;
+    fn GenericFileTransfer(&mut self) -> ::windows::core::Result<RfcommServiceId>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRfcommServiceIdStatics {
@@ -518,10 +518,10 @@ impl IRfcommServiceIdStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRfcommServiceProviderImpl: Sized {
-    fn ServiceId(&self) -> ::windows::core::Result<RfcommServiceId>;
-    fn SdpRawAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>>;
-    fn StartAdvertising(&self, listener: &::core::option::Option<super::super::super::Networking::Sockets::StreamSocketListener>) -> ::windows::core::Result<()>;
-    fn StopAdvertising(&self) -> ::windows::core::Result<()>;
+    fn ServiceId(&mut self) -> ::windows::core::Result<RfcommServiceId>;
+    fn SdpRawAttributes(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>>;
+    fn StartAdvertising(&mut self, listener: &::core::option::Option<super::super::super::Networking::Sockets::StreamSocketListener>) -> ::windows::core::Result<()>;
+    fn StopAdvertising(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommServiceProvider {
@@ -574,7 +574,7 @@ impl IRfcommServiceProviderVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRfcommServiceProvider2Impl: Sized + IRfcommServiceProviderImpl {
-    fn StartAdvertisingWithRadioDiscoverability(&self, listener: &::core::option::Option<super::super::super::Networking::Sockets::StreamSocketListener>, radiodiscoverable: bool) -> ::windows::core::Result<()>;
+    fn StartAdvertisingWithRadioDiscoverability(&mut self, listener: &::core::option::Option<super::super::super::Networking::Sockets::StreamSocketListener>, radiodiscoverable: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommServiceProvider2 {
@@ -598,7 +598,7 @@ impl IRfcommServiceProvider2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRfcommServiceProviderStaticsImpl: Sized {
-    fn CreateAsync(&self, serviceid: &::core::option::Option<RfcommServiceId>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>>;
+    fn CreateAsync(&mut self, serviceid: &::core::option::Option<RfcommServiceId>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommServiceProviderStatics {

@@ -1,5 +1,5 @@
 pub trait IAdaptiveCardImpl: Sized {
-    fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ToJson(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
@@ -24,7 +24,7 @@ impl IAdaptiveCardVtbl {
     }
 }
 pub trait IAdaptiveCardBuilderStaticsImpl: Sized {
-    fn CreateAdaptiveCardFromJson(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard>;
+    fn CreateAdaptiveCardFromJson(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard>;
 }
 impl ::windows::core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
@@ -53,9 +53,9 @@ impl IAdaptiveCardBuilderStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecurityAppManagerImpl: Sized {
-    fn Register(&self, kind: SecurityAppKind, displayname: &::windows::core::HSTRING, detailsuri: &::core::option::Option<super::super::Foundation::Uri>, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Unregister(&self, kind: SecurityAppKind, guidregistration: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UpdateState(&self, kind: SecurityAppKind, guidregistration: &::windows::core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Register(&mut self, kind: SecurityAppKind, displayname: &::windows::core::HSTRING, detailsuri: &::core::option::Option<super::super::Foundation::Uri>, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Unregister(&mut self, kind: SecurityAppKind, guidregistration: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UpdateState(&mut self, kind: SecurityAppKind, guidregistration: &::windows::core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecurityAppManager {
@@ -96,9 +96,9 @@ impl ISecurityAppManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IShareWindowCommandEventArgsImpl: Sized {
-    fn WindowId(&self) -> ::windows::core::Result<super::WindowId>;
-    fn Command(&self) -> ::windows::core::Result<ShareWindowCommand>;
-    fn SetCommand(&self, value: ShareWindowCommand) -> ::windows::core::Result<()>;
+    fn WindowId(&mut self) -> ::windows::core::Result<super::WindowId>;
+    fn Command(&mut self) -> ::windows::core::Result<ShareWindowCommand>;
+    fn SetCommand(&mut self, value: ShareWindowCommand) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IShareWindowCommandEventArgs {
@@ -146,13 +146,13 @@ impl IShareWindowCommandEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IShareWindowCommandSourceImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn ReportCommandChanged(&self) -> ::windows::core::Result<()>;
-    fn CommandRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCommandRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CommandInvoked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCommandInvoked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn ReportCommandChanged(&mut self) -> ::windows::core::Result<()>;
+    fn CommandRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCommandRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CommandInvoked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCommandInvoked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShareWindowCommandSource {
@@ -220,7 +220,7 @@ impl IShareWindowCommandSourceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IShareWindowCommandSourceStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<ShareWindowCommandSource>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<ShareWindowCommandSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IShareWindowCommandSourceStatics {
@@ -251,12 +251,12 @@ impl IShareWindowCommandSourceStaticsVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITaskbarManagerImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsPinningAllowed(&self) -> ::windows::core::Result<bool>;
-    fn IsCurrentAppPinnedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn IsAppListEntryPinnedAsync(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestPinCurrentAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestPinAppListEntryAsync(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPinningAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCurrentAppPinnedAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn IsAppListEntryPinnedAsync(&mut self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestPinCurrentAppAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestPinAppListEntryAsync(&mut self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITaskbarManager {
@@ -347,9 +347,9 @@ impl ITaskbarManagerVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "UI_StartScreen", feature = "implement_exclusive"))]
 pub trait ITaskbarManager2Impl: Sized + ITaskbarManagerImpl {
-    fn IsSecondaryTilePinnedAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestPinSecondaryTileAsync(&self, secondarytile: &::core::option::Option<super::StartScreen::SecondaryTile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryUnpinSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn IsSecondaryTilePinnedAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestPinSecondaryTileAsync(&mut self, secondarytile: &::core::option::Option<super::StartScreen::SecondaryTile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryUnpinSecondaryTileAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "UI_StartScreen", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITaskbarManager2 {
@@ -404,7 +404,7 @@ impl ITaskbarManager2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITaskbarManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<TaskbarManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<TaskbarManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITaskbarManagerStatics {

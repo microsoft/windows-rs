@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPreviewBuildsManagerImpl: Sized {
-    fn ArePreviewBuildsAllowed(&self) -> ::windows::core::Result<bool>;
-    fn SetArePreviewBuildsAllowed(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetCurrentState(&self) -> ::windows::core::Result<PreviewBuildsState>;
-    fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ArePreviewBuildsAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn SetArePreviewBuildsAllowed(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetCurrentState(&mut self) -> ::windows::core::Result<PreviewBuildsState>;
+    fn SyncAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPreviewBuildsManager {
@@ -63,8 +63,8 @@ impl IPreviewBuildsManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPreviewBuildsManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<PreviewBuildsManager>;
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<PreviewBuildsManager>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPreviewBuildsManagerStatics {
@@ -107,7 +107,7 @@ impl IPreviewBuildsManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPreviewBuildsStateImpl: Sized {
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPreviewBuildsState {

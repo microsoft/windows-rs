@@ -1,17 +1,17 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IESimImpl: Sized {
-    fn AvailableMemoryInBytes(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn Eid(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MobileBroadbandModemDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Policy(&self) -> ::windows::core::Result<ESimPolicy>;
-    fn State(&self) -> ::windows::core::Result<ESimState>;
-    fn GetProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimProfile>>;
-    fn DeleteProfileAsync(&self, profileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
-    fn DownloadProfileMetadataAsync(&self, activationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>;
-    fn ResetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
-    fn ProfileChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProfileChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AvailableMemoryInBytes(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn Eid(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirmwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MobileBroadbandModemDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Policy(&mut self) -> ::windows::core::Result<ESimPolicy>;
+    fn State(&mut self) -> ::windows::core::Result<ESimState>;
+    fn GetProfiles(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimProfile>>;
+    fn DeleteProfileAsync(&mut self, profileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
+    fn DownloadProfileMetadataAsync(&mut self, activationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>;
+    fn ResetAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
+    fn ProfileChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProfileChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IESim {
@@ -167,10 +167,10 @@ impl IESimVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IESim2Impl: Sized {
-    fn Discover(&self) -> ::windows::core::Result<ESimDiscoverResult>;
-    fn DiscoverWithServerAddressAndMatchingId(&self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<ESimDiscoverResult>;
-    fn DiscoverAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>;
-    fn DiscoverWithServerAddressAndMatchingIdAsync(&self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>;
+    fn Discover(&mut self) -> ::windows::core::Result<ESimDiscoverResult>;
+    fn DiscoverWithServerAddressAndMatchingId(&mut self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<ESimDiscoverResult>;
+    fn DiscoverAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>;
+    fn DiscoverWithServerAddressAndMatchingIdAsync(&mut self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IESim2 {
@@ -237,7 +237,7 @@ impl IESim2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimAddedEventArgsImpl: Sized {
-    fn ESim(&self) -> ::windows::core::Result<ESim>;
+    fn ESim(&mut self) -> ::windows::core::Result<ESim>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimAddedEventArgs {
@@ -265,8 +265,8 @@ impl IESimAddedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimDiscoverEventImpl: Sized {
-    fn MatchingId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RspServerAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MatchingId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RspServerAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimDiscoverEvent {
@@ -309,10 +309,10 @@ impl IESimDiscoverEventVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IESimDiscoverResultImpl: Sized {
-    fn Events(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>;
-    fn Kind(&self) -> ::windows::core::Result<ESimDiscoverResultKind>;
-    fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata>;
-    fn Result(&self) -> ::windows::core::Result<ESimOperationResult>;
+    fn Events(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>;
+    fn Kind(&mut self) -> ::windows::core::Result<ESimDiscoverResultKind>;
+    fn ProfileMetadata(&mut self) -> ::windows::core::Result<ESimProfileMetadata>;
+    fn Result(&mut self) -> ::windows::core::Result<ESimOperationResult>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IESimDiscoverResult {
@@ -379,8 +379,8 @@ impl IESimDiscoverResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimDownloadProfileMetadataResultImpl: Sized {
-    fn Result(&self) -> ::windows::core::Result<ESimOperationResult>;
-    fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata>;
+    fn Result(&mut self) -> ::windows::core::Result<ESimOperationResult>;
+    fn ProfileMetadata(&mut self) -> ::windows::core::Result<ESimProfileMetadata>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimDownloadProfileMetadataResult {
@@ -423,10 +423,10 @@ impl IESimDownloadProfileMetadataResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IESimManagerStaticsImpl: Sized {
-    fn ServiceInfo(&self) -> ::windows::core::Result<ESimServiceInfo>;
-    fn TryCreateESimWatcher(&self) -> ::windows::core::Result<ESimWatcher>;
-    fn ServiceInfoChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveServiceInfoChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ServiceInfo(&mut self) -> ::windows::core::Result<ESimServiceInfo>;
+    fn TryCreateESimWatcher(&mut self) -> ::windows::core::Result<ESimWatcher>;
+    fn ServiceInfoChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveServiceInfoChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IESimManagerStatics {
@@ -486,7 +486,7 @@ impl IESimManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimOperationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<ESimOperationStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<ESimOperationStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimOperationResult {
@@ -514,7 +514,7 @@ impl IESimOperationResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimPolicyImpl: Sized {
-    fn ShouldEnableManagingUi(&self) -> ::windows::core::Result<bool>;
+    fn ShouldEnableManagingUi(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimPolicy {
@@ -545,17 +545,17 @@ impl IESimPolicyVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IESimProfileImpl: Sized {
-    fn Class(&self) -> ::windows::core::Result<ESimProfileClass>;
-    fn Nickname(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProviderIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&self) -> ::windows::core::Result<ESimProfileState>;
-    fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
-    fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
-    fn SetNicknameAsync(&self, newnickname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
+    fn Class(&mut self) -> ::windows::core::Result<ESimProfileClass>;
+    fn Nickname(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Policy(&mut self) -> ::windows::core::Result<ESimProfilePolicy>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProviderIcon(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<ESimProfileState>;
+    fn DisableAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
+    fn EnableAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
+    fn SetNicknameAsync(&mut self, newnickname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IESimProfile {
@@ -706,19 +706,19 @@ impl IESimProfileVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IESimProfileMetadataImpl: Sized {
-    fn IsConfirmationCodeRequired(&self) -> ::windows::core::Result<bool>;
-    fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProviderIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&self) -> ::windows::core::Result<ESimProfileMetadataState>;
-    fn DenyInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
-    fn ConfirmInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>;
-    fn ConfirmInstallWithConfirmationCodeAsync(&self, confirmationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>;
-    fn PostponeInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsConfirmationCodeRequired(&mut self) -> ::windows::core::Result<bool>;
+    fn Policy(&mut self) -> ::windows::core::Result<ESimProfilePolicy>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProviderIcon(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<ESimProfileMetadataState>;
+    fn DenyInstallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
+    fn ConfirmInstallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>;
+    fn ConfirmInstallWithConfirmationCodeAsync(&mut self, confirmationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>;
+    fn PostponeInstallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IESimProfileMetadata {
@@ -886,9 +886,9 @@ impl IESimProfileMetadataVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimProfilePolicyImpl: Sized {
-    fn CanDelete(&self) -> ::windows::core::Result<bool>;
-    fn CanDisable(&self) -> ::windows::core::Result<bool>;
-    fn IsManagedByEnterprise(&self) -> ::windows::core::Result<bool>;
+    fn CanDelete(&mut self) -> ::windows::core::Result<bool>;
+    fn CanDisable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsManagedByEnterprise(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimProfilePolicy {
@@ -943,7 +943,7 @@ impl IESimProfilePolicyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimRemovedEventArgsImpl: Sized {
-    fn ESim(&self) -> ::windows::core::Result<ESim>;
+    fn ESim(&mut self) -> ::windows::core::Result<ESim>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimRemovedEventArgs {
@@ -971,8 +971,8 @@ impl IESimRemovedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimServiceInfoImpl: Sized {
-    fn AuthenticationPreference(&self) -> ::windows::core::Result<ESimAuthenticationPreference>;
-    fn IsESimUiEnabled(&self) -> ::windows::core::Result<bool>;
+    fn AuthenticationPreference(&mut self) -> ::windows::core::Result<ESimAuthenticationPreference>;
+    fn IsESimUiEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimServiceInfo {
@@ -1015,7 +1015,7 @@ impl IESimServiceInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IESimUpdatedEventArgsImpl: Sized {
-    fn ESim(&self) -> ::windows::core::Result<ESim>;
+    fn ESim(&mut self) -> ::windows::core::Result<ESim>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IESimUpdatedEventArgs {
@@ -1043,19 +1043,19 @@ impl IESimUpdatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IESimWatcherImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<ESimWatcherStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Added(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Removed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Updated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<ESimWatcherStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Added(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Removed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Updated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IESimWatcher {
@@ -1181,7 +1181,7 @@ impl IESimWatcherVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFdnAccessManagerStaticsImpl: Sized {
-    fn RequestUnlockAsync(&self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestUnlockAsync(&mut self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFdnAccessManagerStatics {
@@ -1212,15 +1212,15 @@ impl IFdnAccessManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IHotspotAuthenticationContextImpl: Sized {
-    fn WirelessNetworkId(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn NetworkAdapter(&self) -> ::windows::core::Result<super::Connectivity::NetworkAdapter>;
-    fn RedirectMessageUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn RedirectMessageXml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn AuthenticationUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn IssueCredentials(&self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()>;
-    fn AbortAuthentication(&self, markasmanual: bool) -> ::windows::core::Result<()>;
-    fn SkipAuthentication(&self) -> ::windows::core::Result<()>;
-    fn TriggerAttentionRequired(&self, packagerelativeapplicationid: &::windows::core::HSTRING, applicationparameters: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WirelessNetworkId(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn NetworkAdapter(&mut self) -> ::windows::core::Result<super::Connectivity::NetworkAdapter>;
+    fn RedirectMessageUrl(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn RedirectMessageXml(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn AuthenticationUrl(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn IssueCredentials(&mut self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()>;
+    fn AbortAuthentication(&mut self, markasmanual: bool) -> ::windows::core::Result<()>;
+    fn SkipAuthentication(&mut self) -> ::windows::core::Result<()>;
+    fn TriggerAttentionRequired(&mut self, packagerelativeapplicationid: &::windows::core::HSTRING, applicationparameters: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHotspotAuthenticationContext {
@@ -1327,7 +1327,7 @@ impl IHotspotAuthenticationContextVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHotspotAuthenticationContext2Impl: Sized {
-    fn IssueCredentialsAsync(&self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>;
+    fn IssueCredentialsAsync(&mut self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHotspotAuthenticationContext2 {
@@ -1363,7 +1363,7 @@ impl IHotspotAuthenticationContext2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHotspotAuthenticationContextStaticsImpl: Sized {
-    fn TryGetAuthenticationContext(&self, eventoken: &::windows::core::HSTRING, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool>;
+    fn TryGetAuthenticationContext(&mut self, eventoken: &::windows::core::HSTRING, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHotspotAuthenticationContextStatics {
@@ -1394,7 +1394,7 @@ impl IHotspotAuthenticationContextStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHotspotAuthenticationEventDetailsImpl: Sized {
-    fn EventToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EventToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHotspotAuthenticationEventDetails {
@@ -1425,10 +1425,10 @@ impl IHotspotAuthenticationEventDetailsVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHotspotCredentialsAuthenticationResultImpl: Sized {
-    fn HasNetworkErrorOccurred(&self) -> ::windows::core::Result<bool>;
-    fn ResponseCode(&self) -> ::windows::core::Result<HotspotAuthenticationResponseCode>;
-    fn LogoffUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn AuthenticationReplyXml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn HasNetworkErrorOccurred(&mut self) -> ::windows::core::Result<bool>;
+    fn ResponseCode(&mut self) -> ::windows::core::Result<HotspotAuthenticationResponseCode>;
+    fn LogoffUrl(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn AuthenticationReplyXml(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHotspotCredentialsAuthenticationResult {
@@ -1495,9 +1495,9 @@ impl IHotspotCredentialsAuthenticationResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IKnownCSimFilePathsStaticsImpl: Sized {
-    fn EFSpn(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid1(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid2(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn EFSpn(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid1(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid2(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownCSimFilePathsStatics {
@@ -1552,9 +1552,9 @@ impl IKnownCSimFilePathsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IKnownRuimFilePathsStaticsImpl: Sized {
-    fn EFSpn(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid1(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid2(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn EFSpn(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid1(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid2(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownRuimFilePathsStatics {
@@ -1609,10 +1609,10 @@ impl IKnownRuimFilePathsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IKnownSimFilePathsStaticsImpl: Sized {
-    fn EFOns(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn EFSpn(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid1(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid2(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn EFOns(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn EFSpn(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid1(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid2(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownSimFilePathsStatics {
@@ -1679,11 +1679,11 @@ impl IKnownSimFilePathsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IKnownUSimFilePathsStaticsImpl: Sized {
-    fn EFSpn(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn EFOpl(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn EFPnn(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid1(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn Gid2(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn EFSpn(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn EFOpl(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn EFPnn(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid1(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Gid2(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownUSimFilePathsStatics {
@@ -1762,11 +1762,11 @@ impl IKnownUSimFilePathsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandAccountImpl: Sized {
-    fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServiceProviderGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ServiceProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CurrentNetwork(&self) -> ::windows::core::Result<MobileBroadbandNetwork>;
-    fn CurrentDeviceInformation(&self) -> ::windows::core::Result<MobileBroadbandDeviceInformation>;
+    fn NetworkAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServiceProviderGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ServiceProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CurrentNetwork(&mut self) -> ::windows::core::Result<MobileBroadbandNetwork>;
+    fn CurrentDeviceInformation(&mut self) -> ::windows::core::Result<MobileBroadbandDeviceInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandAccount {
@@ -1845,7 +1845,7 @@ impl IMobileBroadbandAccountVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandAccount2Impl: Sized {
-    fn GetConnectionProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>>;
+    fn GetConnectionProfiles(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandAccount2 {
@@ -1876,7 +1876,7 @@ impl IMobileBroadbandAccount2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandAccount3Impl: Sized {
-    fn AccountExperienceUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn AccountExperienceUrl(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandAccount3 {
@@ -1907,7 +1907,7 @@ impl IMobileBroadbandAccount3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandAccountEventArgsImpl: Sized {
-    fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NetworkAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandAccountEventArgs {
@@ -1938,8 +1938,8 @@ impl IMobileBroadbandAccountEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandAccountStaticsImpl: Sized {
-    fn AvailableNetworkAccountIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn CreateFromNetworkAccountId(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandAccount>;
+    fn AvailableNetworkAccountIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn CreateFromNetworkAccountId(&mut self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandAccount>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandAccountStatics {
@@ -1982,9 +1982,9 @@ impl IMobileBroadbandAccountStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandAccountUpdatedEventArgsImpl: Sized {
-    fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasDeviceInformationChanged(&self) -> ::windows::core::Result<bool>;
-    fn HasNetworkChanged(&self) -> ::windows::core::Result<bool>;
+    fn NetworkAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasDeviceInformationChanged(&mut self) -> ::windows::core::Result<bool>;
+    fn HasNetworkChanged(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandAccountUpdatedEventArgs {
@@ -2039,19 +2039,19 @@ impl IMobileBroadbandAccountUpdatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandAccountWatcherImpl: Sized {
-    fn AccountAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccountAdded(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AccountUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccountUpdated(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AccountRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccountRemoved(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<MobileBroadbandAccountWatcherStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn AccountAdded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccountAdded(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AccountUpdated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccountUpdated(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AccountRemoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccountRemoved(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<MobileBroadbandAccountWatcherStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandAccountWatcher {
@@ -2177,8 +2177,8 @@ impl IMobileBroadbandAccountWatcherVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandAntennaSarImpl: Sized {
-    fn AntennaIndex(&self) -> ::windows::core::Result<i32>;
-    fn SarBackoffIndex(&self) -> ::windows::core::Result<i32>;
+    fn AntennaIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SarBackoffIndex(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandAntennaSar {
@@ -2221,7 +2221,7 @@ impl IMobileBroadbandAntennaSarVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandAntennaSarFactoryImpl: Sized {
-    fn CreateWithIndex(&self, antennaindex: i32, sarbackoffindex: i32) -> ::windows::core::Result<MobileBroadbandAntennaSar>;
+    fn CreateWithIndex(&mut self, antennaindex: i32, sarbackoffindex: i32) -> ::windows::core::Result<MobileBroadbandAntennaSar>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandAntennaSarFactory {
@@ -2252,14 +2252,14 @@ impl IMobileBroadbandAntennaSarFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellCdmaImpl: Sized {
-    fn BaseStationId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn BaseStationPNCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn BaseStationLatitude(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn BaseStationLongitude(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn BaseStationLastBroadcastGpsTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn NetworkId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn PilotSignalStrengthInDB(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn SystemId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn BaseStationId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn BaseStationPNCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn BaseStationLatitude(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn BaseStationLongitude(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn BaseStationLastBroadcastGpsTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn NetworkId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn PilotSignalStrengthInDB(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn SystemId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellCdma {
@@ -2374,13 +2374,13 @@ impl IMobileBroadbandCellCdmaVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellGsmImpl: Sized {
-    fn BaseStationId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn CellId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ChannelNumber(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn LocationAreaCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReceivedSignalStrengthInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn TimingAdvanceInBitPeriods(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn BaseStationId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn CellId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ChannelNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn LocationAreaCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReceivedSignalStrengthInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn TimingAdvanceInBitPeriods(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellGsm {
@@ -2483,14 +2483,14 @@ impl IMobileBroadbandCellGsmVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellLteImpl: Sized {
-    fn CellId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ChannelNumber(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn PhysicalCellId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReferenceSignalReceivedPowerInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn ReferenceSignalReceivedQualityInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn TimingAdvanceInBitPeriods(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn TrackingAreaCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn CellId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ChannelNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn PhysicalCellId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReferenceSignalReceivedPowerInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn ReferenceSignalReceivedQualityInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn TimingAdvanceInBitPeriods(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn TrackingAreaCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellLte {
@@ -2605,15 +2605,15 @@ impl IMobileBroadbandCellLteVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellNRImpl: Sized {
-    fn CellId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
-    fn ChannelNumber(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn PhysicalCellId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReferenceSignalReceivedPowerInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn ReferenceSignalReceivedQualityInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn TimingAdvanceInNanoseconds(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn TrackingAreaCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SignalToNoiseRatioInDB(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn CellId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
+    fn ChannelNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn PhysicalCellId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReferenceSignalReceivedPowerInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn ReferenceSignalReceivedQualityInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn TimingAdvanceInNanoseconds(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn TrackingAreaCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SignalToNoiseRatioInDB(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellNR {
@@ -2740,14 +2740,14 @@ impl IMobileBroadbandCellNRVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellTdscdmaImpl: Sized {
-    fn CellId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn CellParameterId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ChannelNumber(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn LocationAreaCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn PathLossInDB(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReceivedSignalCodePowerInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn TimingAdvanceInBitPeriods(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn CellId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn CellParameterId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ChannelNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn LocationAreaCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn PathLossInDB(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReceivedSignalCodePowerInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn TimingAdvanceInBitPeriods(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellTdscdma {
@@ -2862,14 +2862,14 @@ impl IMobileBroadbandCellTdscdmaVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellUmtsImpl: Sized {
-    fn CellId(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ChannelNumber(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn LocationAreaCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn PathLossInDB(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn PrimaryScramblingCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReceivedSignalCodePowerInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn SignalToNoiseRatioInDB(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn CellId(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ChannelNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn LocationAreaCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn PathLossInDB(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn PrimaryScramblingCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReceivedSignalCodePowerInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn SignalToNoiseRatioInDB(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellUmts {
@@ -2984,16 +2984,16 @@ impl IMobileBroadbandCellUmtsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellsInfoImpl: Sized {
-    fn NeighboringCellsCdma(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>;
-    fn NeighboringCellsGsm(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>;
-    fn NeighboringCellsLte(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>;
-    fn NeighboringCellsTdscdma(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>;
-    fn NeighboringCellsUmts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>;
-    fn ServingCellsCdma(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>;
-    fn ServingCellsGsm(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>;
-    fn ServingCellsLte(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>;
-    fn ServingCellsTdscdma(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>;
-    fn ServingCellsUmts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>;
+    fn NeighboringCellsCdma(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>;
+    fn NeighboringCellsGsm(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>;
+    fn NeighboringCellsLte(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>;
+    fn NeighboringCellsTdscdma(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>;
+    fn NeighboringCellsUmts(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>;
+    fn ServingCellsCdma(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>;
+    fn ServingCellsGsm(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>;
+    fn ServingCellsLte(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>;
+    fn ServingCellsTdscdma(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>;
+    fn ServingCellsUmts(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellsInfo {
@@ -3132,8 +3132,8 @@ impl IMobileBroadbandCellsInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandCellsInfo2Impl: Sized {
-    fn NeighboringCellsNR(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>;
-    fn ServingCellsNR(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>;
+    fn NeighboringCellsNR(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>;
+    fn ServingCellsNR(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandCellsInfo2 {
@@ -3176,7 +3176,7 @@ impl IMobileBroadbandCellsInfo2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandCurrentSlotIndexChangedEventArgsImpl: Sized {
-    fn CurrentSlotIndex(&self) -> ::windows::core::Result<i32>;
+    fn CurrentSlotIndex(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
@@ -3207,20 +3207,20 @@ impl IMobileBroadbandCurrentSlotIndexChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Sms", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandDeviceInformationImpl: Sized {
-    fn NetworkDeviceStatus(&self) -> ::windows::core::Result<NetworkDeviceStatus>;
-    fn Manufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Model(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirmwareInformation(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CellularClass(&self) -> ::windows::core::Result<super::super::Devices::Sms::CellularClass>;
-    fn DataClasses(&self) -> ::windows::core::Result<DataClasses>;
-    fn CustomDataClass(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MobileEquipmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TelephoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SubscriberId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SimIccId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DeviceType(&self) -> ::windows::core::Result<MobileBroadbandDeviceType>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CurrentRadioState(&self) -> ::windows::core::Result<MobileBroadbandRadioState>;
+    fn NetworkDeviceStatus(&mut self) -> ::windows::core::Result<NetworkDeviceStatus>;
+    fn Manufacturer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Model(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirmwareInformation(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CellularClass(&mut self) -> ::windows::core::Result<super::super::Devices::Sms::CellularClass>;
+    fn DataClasses(&mut self) -> ::windows::core::Result<DataClasses>;
+    fn CustomDataClass(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MobileEquipmentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TelephoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SubscriberId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SimIccId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceType(&mut self) -> ::windows::core::Result<MobileBroadbandDeviceType>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CurrentRadioState(&mut self) -> ::windows::core::Result<MobileBroadbandRadioState>;
 }
 #[cfg(all(feature = "Devices_Sms", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation {
@@ -3407,9 +3407,9 @@ impl IMobileBroadbandDeviceInformationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandDeviceInformation2Impl: Sized {
-    fn PinManager(&self) -> ::windows::core::Result<MobileBroadbandPinManager>;
-    fn Revision(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PinManager(&mut self) -> ::windows::core::Result<MobileBroadbandPinManager>;
+    fn Revision(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SerialNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation2 {
@@ -3464,9 +3464,9 @@ impl IMobileBroadbandDeviceInformation2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandDeviceInformation3Impl: Sized {
-    fn SimSpn(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SimPnn(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SimGid1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SimSpn(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SimPnn(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SimGid1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation3 {
@@ -3521,7 +3521,7 @@ impl IMobileBroadbandDeviceInformation3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandDeviceInformation4Impl: Sized {
-    fn SlotManager(&self) -> ::windows::core::Result<MobileBroadbandSlotManager>;
+    fn SlotManager(&mut self) -> ::windows::core::Result<MobileBroadbandSlotManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceInformation4 {
@@ -3552,10 +3552,10 @@ impl IMobileBroadbandDeviceInformation4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandDeviceServiceImpl: Sized {
-    fn DeviceServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SupportedCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
-    fn OpenDataSession(&self) -> ::windows::core::Result<MobileBroadbandDeviceServiceDataSession>;
-    fn OpenCommandSession(&self) -> ::windows::core::Result<MobileBroadbandDeviceServiceCommandSession>;
+    fn DeviceServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SupportedCommands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn OpenDataSession(&mut self) -> ::windows::core::Result<MobileBroadbandDeviceServiceDataSession>;
+    fn OpenCommandSession(&mut self) -> ::windows::core::Result<MobileBroadbandDeviceServiceCommandSession>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceService {
@@ -3622,8 +3622,8 @@ impl IMobileBroadbandDeviceServiceVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandDeviceServiceCommandResultImpl: Sized {
-    fn StatusCode(&self) -> ::windows::core::Result<u32>;
-    fn ResponseData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn StatusCode(&mut self) -> ::windows::core::Result<u32>;
+    fn ResponseData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceCommandResult {
@@ -3666,9 +3666,9 @@ impl IMobileBroadbandDeviceServiceCommandResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandDeviceServiceCommandSessionImpl: Sized {
-    fn SendQueryCommandAsync(&self, commandid: u32, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>;
-    fn SendSetCommandAsync(&self, commandid: u32, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>;
-    fn CloseSession(&self) -> ::windows::core::Result<()>;
+    fn SendQueryCommandAsync(&mut self, commandid: u32, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>;
+    fn SendSetCommandAsync(&mut self, commandid: u32, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>;
+    fn CloseSession(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceCommandSession {
@@ -3716,7 +3716,7 @@ impl IMobileBroadbandDeviceServiceCommandSessionVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandDeviceServiceDataReceivedEventArgsImpl: Sized {
-    fn ReceivedData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn ReceivedData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -3747,10 +3747,10 @@ impl IMobileBroadbandDeviceServiceDataReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandDeviceServiceDataSessionImpl: Sized {
-    fn WriteDataAsync(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CloseSession(&self) -> ::windows::core::Result<()>;
-    fn DataReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDataReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn WriteDataAsync(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CloseSession(&mut self) -> ::windows::core::Result<()>;
+    fn DataReceived(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDataReceived(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceDataSession {
@@ -3803,9 +3803,9 @@ impl IMobileBroadbandDeviceServiceDataSessionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandDeviceServiceInformationImpl: Sized {
-    fn DeviceServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsDataReadSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsDataWriteSupported(&self) -> ::windows::core::Result<bool>;
+    fn DeviceServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IsDataReadSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDataWriteSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceInformation {
@@ -3860,9 +3860,9 @@ impl IMobileBroadbandDeviceServiceInformationVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandDeviceServiceTriggerDetailsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DeviceServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ReceivedData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ReceivedData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandDeviceServiceTriggerDetails {
@@ -3917,16 +3917,16 @@ impl IMobileBroadbandDeviceServiceTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandModemImpl: Sized {
-    fn CurrentAccount(&self) -> ::windows::core::Result<MobileBroadbandAccount>;
-    fn DeviceInformation(&self) -> ::windows::core::Result<MobileBroadbandDeviceInformation>;
-    fn MaxDeviceServiceCommandSizeInBytes(&self) -> ::windows::core::Result<u32>;
-    fn MaxDeviceServiceDataSizeInBytes(&self) -> ::windows::core::Result<u32>;
-    fn DeviceServices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>>;
-    fn GetDeviceService(&self, deviceserviceid: &::windows::core::GUID) -> ::windows::core::Result<MobileBroadbandDeviceService>;
-    fn IsResetSupported(&self) -> ::windows::core::Result<bool>;
-    fn ResetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetCurrentConfigurationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>>;
-    fn CurrentNetwork(&self) -> ::windows::core::Result<MobileBroadbandNetwork>;
+    fn CurrentAccount(&mut self) -> ::windows::core::Result<MobileBroadbandAccount>;
+    fn DeviceInformation(&mut self) -> ::windows::core::Result<MobileBroadbandDeviceInformation>;
+    fn MaxDeviceServiceCommandSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxDeviceServiceDataSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
+    fn DeviceServices(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>>;
+    fn GetDeviceService(&mut self, deviceserviceid: &::windows::core::GUID) -> ::windows::core::Result<MobileBroadbandDeviceService>;
+    fn IsResetSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn ResetAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetCurrentConfigurationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>>;
+    fn CurrentNetwork(&mut self) -> ::windows::core::Result<MobileBroadbandNetwork>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandModem {
@@ -4065,8 +4065,8 @@ impl IMobileBroadbandModemVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandModem2Impl: Sized {
-    fn GetIsPassthroughEnabledAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SetIsPassthroughEnabledAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>;
+    fn GetIsPassthroughEnabledAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SetIsPassthroughEnabledAsync(&mut self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandModem2 {
@@ -4109,10 +4109,10 @@ impl IMobileBroadbandModem2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandModem3Impl: Sized {
-    fn TryGetPcoAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>>;
-    fn IsInEmergencyCallMode(&self) -> ::windows::core::Result<bool>;
-    fn IsInEmergencyCallModeChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandModem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIsInEmergencyCallModeChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TryGetPcoAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>>;
+    fn IsInEmergencyCallMode(&mut self) -> ::windows::core::Result<bool>;
+    fn IsInEmergencyCallModeChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandModem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIsInEmergencyCallModeChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandModem3 {
@@ -4172,9 +4172,9 @@ impl IMobileBroadbandModem3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandModemConfigurationImpl: Sized {
-    fn Uicc(&self) -> ::windows::core::Result<MobileBroadbandUicc>;
-    fn HomeProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HomeProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uicc(&mut self) -> ::windows::core::Result<MobileBroadbandUicc>;
+    fn HomeProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HomeProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandModemConfiguration {
@@ -4229,7 +4229,7 @@ impl IMobileBroadbandModemConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandModemConfiguration2Impl: Sized {
-    fn SarManager(&self) -> ::windows::core::Result<MobileBroadbandSarManager>;
+    fn SarManager(&mut self) -> ::windows::core::Result<MobileBroadbandSarManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandModemConfiguration2 {
@@ -4260,10 +4260,10 @@ impl IMobileBroadbandModemConfiguration2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandModemIsolationImpl: Sized {
-    fn AddAllowedHost(&self, host: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
-    fn AddAllowedHostRange(&self, first: &::core::option::Option<super::HostName>, last: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
-    fn ApplyConfigurationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ClearConfigurationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn AddAllowedHost(&mut self, host: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
+    fn AddAllowedHostRange(&mut self, first: &::core::option::Option<super::HostName>, last: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
+    fn ApplyConfigurationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ClearConfigurationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandModemIsolation {
@@ -4316,7 +4316,7 @@ impl IMobileBroadbandModemIsolationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandModemIsolationFactoryImpl: Sized {
-    fn Create(&self, modemdeviceid: &::windows::core::HSTRING, rulegroupid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandModemIsolation>;
+    fn Create(&mut self, modemdeviceid: &::windows::core::HSTRING, rulegroupid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandModemIsolation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandModemIsolationFactory {
@@ -4347,9 +4347,9 @@ impl IMobileBroadbandModemIsolationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandModemStaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandModem>;
-    fn GetDefault(&self) -> ::windows::core::Result<MobileBroadbandModem>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandModem>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<MobileBroadbandModem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandModemStatics {
@@ -4404,16 +4404,16 @@ impl IMobileBroadbandModemStaticsVtbl {
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandNetworkImpl: Sized {
-    fn NetworkAdapter(&self) -> ::windows::core::Result<super::Connectivity::NetworkAdapter>;
-    fn NetworkRegistrationState(&self) -> ::windows::core::Result<NetworkRegistrationState>;
-    fn RegistrationNetworkError(&self) -> ::windows::core::Result<u32>;
-    fn PacketAttachNetworkError(&self) -> ::windows::core::Result<u32>;
-    fn ActivationNetworkError(&self) -> ::windows::core::Result<u32>;
-    fn AccessPointName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RegisteredDataClass(&self) -> ::windows::core::Result<DataClasses>;
-    fn RegisteredProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RegisteredProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ShowConnectionUI(&self) -> ::windows::core::Result<()>;
+    fn NetworkAdapter(&mut self) -> ::windows::core::Result<super::Connectivity::NetworkAdapter>;
+    fn NetworkRegistrationState(&mut self) -> ::windows::core::Result<NetworkRegistrationState>;
+    fn RegistrationNetworkError(&mut self) -> ::windows::core::Result<u32>;
+    fn PacketAttachNetworkError(&mut self) -> ::windows::core::Result<u32>;
+    fn ActivationNetworkError(&mut self) -> ::windows::core::Result<u32>;
+    fn AccessPointName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RegisteredDataClass(&mut self) -> ::windows::core::Result<DataClasses>;
+    fn RegisteredProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RegisteredProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ShowConnectionUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandNetwork {
@@ -4545,8 +4545,8 @@ impl IMobileBroadbandNetworkVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandNetwork2Impl: Sized {
-    fn GetVoiceCallSupportAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RegistrationUiccApps(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>;
+    fn GetVoiceCallSupportAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RegistrationUiccApps(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandNetwork2 {
@@ -4589,7 +4589,7 @@ impl IMobileBroadbandNetwork2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandNetwork3Impl: Sized {
-    fn GetCellsInfoAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>>;
+    fn GetCellsInfoAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandNetwork3 {
@@ -4620,8 +4620,8 @@ impl IMobileBroadbandNetwork3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandNetworkRegistrationStateChangeImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Network(&self) -> ::windows::core::Result<MobileBroadbandNetwork>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Network(&mut self) -> ::windows::core::Result<MobileBroadbandNetwork>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandNetworkRegistrationStateChange {
@@ -4664,7 +4664,7 @@ impl IMobileBroadbandNetworkRegistrationStateChangeVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsImpl: Sized {
-    fn NetworkRegistrationStateChanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>>;
+    fn NetworkRegistrationStateChanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
@@ -4695,9 +4695,9 @@ impl IMobileBroadbandNetworkRegistrationStateChangeTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandPcoImpl: Sized {
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn IsComplete(&self) -> ::windows::core::Result<bool>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn IsComplete(&mut self) -> ::windows::core::Result<bool>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandPco {
@@ -4752,7 +4752,7 @@ impl IMobileBroadbandPcoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandPcoDataChangeTriggerDetailsImpl: Sized {
-    fn UpdatedData(&self) -> ::windows::core::Result<MobileBroadbandPco>;
+    fn UpdatedData(&mut self) -> ::windows::core::Result<MobileBroadbandPco>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandPcoDataChangeTriggerDetails {
@@ -4783,18 +4783,18 @@ impl IMobileBroadbandPcoDataChangeTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandPinImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<MobileBroadbandPinType>;
-    fn LockState(&self) -> ::windows::core::Result<MobileBroadbandPinLockState>;
-    fn Format(&self) -> ::windows::core::Result<MobileBroadbandPinFormat>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
-    fn MaxLength(&self) -> ::windows::core::Result<u32>;
-    fn MinLength(&self) -> ::windows::core::Result<u32>;
-    fn AttemptsRemaining(&self) -> ::windows::core::Result<u32>;
-    fn EnableAsync(&self, currentpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
-    fn DisableAsync(&self, currentpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
-    fn EnterAsync(&self, currentpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
-    fn ChangeAsync(&self, currentpin: &::windows::core::HSTRING, newpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
-    fn UnblockAsync(&self, pinunblockkey: &::windows::core::HSTRING, newpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
+    fn Type(&mut self) -> ::windows::core::Result<MobileBroadbandPinType>;
+    fn LockState(&mut self) -> ::windows::core::Result<MobileBroadbandPinLockState>;
+    fn Format(&mut self) -> ::windows::core::Result<MobileBroadbandPinFormat>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
+    fn MaxLength(&mut self) -> ::windows::core::Result<u32>;
+    fn MinLength(&mut self) -> ::windows::core::Result<u32>;
+    fn AttemptsRemaining(&mut self) -> ::windows::core::Result<u32>;
+    fn EnableAsync(&mut self, currentpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
+    fn DisableAsync(&mut self, currentpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
+    fn EnterAsync(&mut self, currentpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
+    fn ChangeAsync(&mut self, currentpin: &::windows::core::HSTRING, newpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
+    fn UnblockAsync(&mut self, pinunblockkey: &::windows::core::HSTRING, newpin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandPin {
@@ -4957,9 +4957,9 @@ impl IMobileBroadbandPinVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandPinLockStateChangeImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PinType(&self) -> ::windows::core::Result<MobileBroadbandPinType>;
-    fn PinLockState(&self) -> ::windows::core::Result<MobileBroadbandPinLockState>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PinType(&mut self) -> ::windows::core::Result<MobileBroadbandPinType>;
+    fn PinLockState(&mut self) -> ::windows::core::Result<MobileBroadbandPinLockState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandPinLockStateChange {
@@ -5014,7 +5014,7 @@ impl IMobileBroadbandPinLockStateChangeVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandPinLockStateChangeTriggerDetailsImpl: Sized {
-    fn PinLockStateChanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>>;
+    fn PinLockStateChanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandPinLockStateChangeTriggerDetails {
@@ -5045,8 +5045,8 @@ impl IMobileBroadbandPinLockStateChangeTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandPinManagerImpl: Sized {
-    fn SupportedPins(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>>;
-    fn GetPin(&self, pintype: MobileBroadbandPinType) -> ::windows::core::Result<MobileBroadbandPin>;
+    fn SupportedPins(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>>;
+    fn GetPin(&mut self, pintype: MobileBroadbandPinType) -> ::windows::core::Result<MobileBroadbandPin>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandPinManager {
@@ -5089,8 +5089,8 @@ impl IMobileBroadbandPinManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandPinOperationResultImpl: Sized {
-    fn IsSuccessful(&self) -> ::windows::core::Result<bool>;
-    fn AttemptsRemaining(&self) -> ::windows::core::Result<u32>;
+    fn IsSuccessful(&mut self) -> ::windows::core::Result<bool>;
+    fn AttemptsRemaining(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandPinOperationResult {
@@ -5133,8 +5133,8 @@ impl IMobileBroadbandPinOperationResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandRadioStateChangeImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RadioState(&self) -> ::windows::core::Result<MobileBroadbandRadioState>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RadioState(&mut self) -> ::windows::core::Result<MobileBroadbandRadioState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandRadioStateChange {
@@ -5177,7 +5177,7 @@ impl IMobileBroadbandRadioStateChangeVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandRadioStateChangeTriggerDetailsImpl: Sized {
-    fn RadioStateChanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>>;
+    fn RadioStateChanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandRadioStateChangeTriggerDetails {
@@ -5208,21 +5208,21 @@ impl IMobileBroadbandRadioStateChangeTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandSarManagerImpl: Sized {
-    fn IsBackoffEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsWiFiHardwareIntegrated(&self) -> ::windows::core::Result<bool>;
-    fn IsSarControlledByHardware(&self) -> ::windows::core::Result<bool>;
-    fn Antennas(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>>;
-    fn HysteresisTimerPeriod(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn TransmissionStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTransmissionStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnableBackoffAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DisableBackoffAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetConfigurationAsync(&self, antennas: &::core::option::Option<super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RevertSarToHardwareControlAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetTransmissionStateChangedHysteresisAsync(&self, timerperiod: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetIsTransmittingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn StartTransmissionStateMonitoring(&self) -> ::windows::core::Result<()>;
-    fn StopTransmissionStateMonitoring(&self) -> ::windows::core::Result<()>;
+    fn IsBackoffEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsWiFiHardwareIntegrated(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSarControlledByHardware(&mut self) -> ::windows::core::Result<bool>;
+    fn Antennas(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>>;
+    fn HysteresisTimerPeriod(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn TransmissionStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTransmissionStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnableBackoffAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DisableBackoffAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetConfigurationAsync(&mut self, antennas: &::core::option::Option<super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RevertSarToHardwareControlAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetTransmissionStateChangedHysteresisAsync(&mut self, timerperiod: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetIsTransmittingAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn StartTransmissionStateMonitoring(&mut self) -> ::windows::core::Result<()>;
+    fn StopTransmissionStateMonitoring(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandSarManager {
@@ -5400,8 +5400,8 @@ impl IMobileBroadbandSarManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandSlotInfoImpl: Sized {
-    fn Index(&self) -> ::windows::core::Result<i32>;
-    fn State(&self) -> ::windows::core::Result<MobileBroadbandSlotState>;
+    fn Index(&mut self) -> ::windows::core::Result<i32>;
+    fn State(&mut self) -> ::windows::core::Result<MobileBroadbandSlotState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandSlotInfo {
@@ -5444,7 +5444,7 @@ impl IMobileBroadbandSlotInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandSlotInfoChangedEventArgsImpl: Sized {
-    fn SlotInfo(&self) -> ::windows::core::Result<MobileBroadbandSlotInfo>;
+    fn SlotInfo(&mut self) -> ::windows::core::Result<MobileBroadbandSlotInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandSlotInfoChangedEventArgs {
@@ -5475,14 +5475,14 @@ impl IMobileBroadbandSlotInfoChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandSlotManagerImpl: Sized {
-    fn SlotInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>>;
-    fn CurrentSlotIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetCurrentSlot(&self, slotindex: i32) -> ::windows::core::Result<MobileBroadbandModemStatus>;
-    fn SetCurrentSlotAsync(&self, slotindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>;
-    fn SlotInfoChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSlotInfoChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CurrentSlotIndexChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCurrentSlotIndexChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SlotInfos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>>;
+    fn CurrentSlotIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetCurrentSlot(&mut self, slotindex: i32) -> ::windows::core::Result<MobileBroadbandModemStatus>;
+    fn SetCurrentSlotAsync(&mut self, slotindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>;
+    fn SlotInfoChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSlotInfoChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CurrentSlotIndexChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCurrentSlotIndexChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandSlotManager {
@@ -5583,7 +5583,7 @@ impl IMobileBroadbandSlotManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandTransmissionStateChangedEventArgsImpl: Sized {
-    fn IsTransmitting(&self) -> ::windows::core::Result<bool>;
+    fn IsTransmitting(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandTransmissionStateChangedEventArgs {
@@ -5614,8 +5614,8 @@ impl IMobileBroadbandTransmissionStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandUiccImpl: Sized {
-    fn SimIccId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetUiccAppsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>>;
+    fn SimIccId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetUiccAppsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandUicc {
@@ -5658,10 +5658,10 @@ impl IMobileBroadbandUiccVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandUiccAppImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Kind(&self) -> ::windows::core::Result<UiccAppKind>;
-    fn GetRecordDetailsAsync(&self, uiccfilepath: &::core::option::Option<super::super::Foundation::Collections::IIterable<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>;
-    fn ReadRecordAsync(&self, uiccfilepath: &::core::option::Option<super::super::Foundation::Collections::IIterable<u32>>, recordindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>;
+    fn Id(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Kind(&mut self) -> ::windows::core::Result<UiccAppKind>;
+    fn GetRecordDetailsAsync(&mut self, uiccfilepath: &::core::option::Option<super::super::Foundation::Collections::IIterable<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>;
+    fn ReadRecordAsync(&mut self, uiccfilepath: &::core::option::Option<super::super::Foundation::Collections::IIterable<u32>>, recordindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandUiccApp {
@@ -5728,8 +5728,8 @@ impl IMobileBroadbandUiccAppVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandUiccAppReadRecordResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<MobileBroadbandUiccAppOperationStatus>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Status(&mut self) -> ::windows::core::Result<MobileBroadbandUiccAppOperationStatus>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandUiccAppReadRecordResult {
@@ -5772,12 +5772,12 @@ impl IMobileBroadbandUiccAppReadRecordResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMobileBroadbandUiccAppRecordDetailsResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<MobileBroadbandUiccAppOperationStatus>;
-    fn Kind(&self) -> ::windows::core::Result<UiccAppRecordKind>;
-    fn RecordCount(&self) -> ::windows::core::Result<i32>;
-    fn RecordSize(&self) -> ::windows::core::Result<i32>;
-    fn ReadAccessCondition(&self) -> ::windows::core::Result<UiccAccessCondition>;
-    fn WriteAccessCondition(&self) -> ::windows::core::Result<UiccAccessCondition>;
+    fn Status(&mut self) -> ::windows::core::Result<MobileBroadbandUiccAppOperationStatus>;
+    fn Kind(&mut self) -> ::windows::core::Result<UiccAppRecordKind>;
+    fn RecordCount(&mut self) -> ::windows::core::Result<i32>;
+    fn RecordSize(&mut self) -> ::windows::core::Result<i32>;
+    fn ReadAccessCondition(&mut self) -> ::windows::core::Result<UiccAccessCondition>;
+    fn WriteAccessCondition(&mut self) -> ::windows::core::Result<UiccAccessCondition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMobileBroadbandUiccAppRecordDetailsResult {
@@ -5868,8 +5868,8 @@ impl IMobileBroadbandUiccAppRecordDetailsResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMobileBroadbandUiccAppsResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<MobileBroadbandUiccAppOperationStatus>;
-    fn UiccApps(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>;
+    fn Status(&mut self) -> ::windows::core::Result<MobileBroadbandUiccAppOperationStatus>;
+    fn UiccApps(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMobileBroadbandUiccAppsResult {
@@ -5912,7 +5912,7 @@ impl IMobileBroadbandUiccAppsResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INetworkOperatorDataUsageTriggerDetailsImpl: Sized {
-    fn NotificationKind(&self) -> ::windows::core::Result<NetworkOperatorDataUsageNotificationKind>;
+    fn NotificationKind(&mut self) -> ::windows::core::Result<NetworkOperatorDataUsageNotificationKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INetworkOperatorDataUsageTriggerDetails {
@@ -5943,12 +5943,12 @@ impl INetworkOperatorDataUsageTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Devices_Sms", feature = "implement_exclusive"))]
 pub trait INetworkOperatorNotificationEventDetailsImpl: Sized {
-    fn NotificationType(&self) -> ::windows::core::Result<NetworkOperatorEventMessageType>;
-    fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EncodingType(&self) -> ::windows::core::Result<u8>;
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RuleId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SmsMessage(&self) -> ::windows::core::Result<super::super::Devices::Sms::ISmsMessage>;
+    fn NotificationType(&mut self) -> ::windows::core::Result<NetworkOperatorEventMessageType>;
+    fn NetworkAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EncodingType(&mut self) -> ::windows::core::Result<u8>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RuleId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SmsMessage(&mut self) -> ::windows::core::Result<super::super::Devices::Sms::ISmsMessage>;
 }
 #[cfg(all(feature = "Devices_Sms", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorNotificationEventDetails {
@@ -6039,10 +6039,10 @@ impl INetworkOperatorNotificationEventDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INetworkOperatorTetheringAccessPointConfigurationImpl: Sized {
-    fn Ssid(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSsid(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Passphrase(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPassphrase(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Ssid(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSsid(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Passphrase(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPassphrase(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringAccessPointConfiguration {
@@ -6095,10 +6095,10 @@ impl INetworkOperatorTetheringAccessPointConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INetworkOperatorTetheringAccessPointConfiguration2Impl: Sized {
-    fn IsBandSupported(&self, band: TetheringWiFiBand) -> ::windows::core::Result<bool>;
-    fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn Band(&self) -> ::windows::core::Result<TetheringWiFiBand>;
-    fn SetBand(&self, value: TetheringWiFiBand) -> ::windows::core::Result<()>;
+    fn IsBandSupported(&mut self, band: TetheringWiFiBand) -> ::windows::core::Result<bool>;
+    fn IsBandSupportedAsync(&mut self, band: TetheringWiFiBand) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn Band(&mut self) -> ::windows::core::Result<TetheringWiFiBand>;
+    fn SetBand(&mut self, value: TetheringWiFiBand) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringAccessPointConfiguration2 {
@@ -6158,8 +6158,8 @@ impl INetworkOperatorTetheringAccessPointConfiguration2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INetworkOperatorTetheringClientImpl: Sized {
-    fn MacAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HostNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>>;
+    fn MacAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HostNames(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringClient {
@@ -6202,7 +6202,7 @@ impl INetworkOperatorTetheringClientVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INetworkOperatorTetheringClientManagerImpl: Sized {
-    fn GetTetheringClients(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>>;
+    fn GetTetheringClients(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringClientManager {
@@ -6233,7 +6233,7 @@ impl INetworkOperatorTetheringClientManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INetworkOperatorTetheringEntitlementCheckImpl: Sized {
-    fn AuthorizeTethering(&self, allow: bool, entitlementfailurereason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AuthorizeTethering(&mut self, allow: bool, entitlementfailurereason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringEntitlementCheck {
@@ -6257,13 +6257,13 @@ impl INetworkOperatorTetheringEntitlementCheckVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INetworkOperatorTetheringManagerImpl: Sized {
-    fn MaxClientCount(&self) -> ::windows::core::Result<u32>;
-    fn ClientCount(&self) -> ::windows::core::Result<u32>;
-    fn TetheringOperationalState(&self) -> ::windows::core::Result<TetheringOperationalState>;
-    fn GetCurrentAccessPointConfiguration(&self) -> ::windows::core::Result<NetworkOperatorTetheringAccessPointConfiguration>;
-    fn ConfigureAccessPointAsync(&self, configuration: &::core::option::Option<NetworkOperatorTetheringAccessPointConfiguration>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartTetheringAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>;
-    fn StopTetheringAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>;
+    fn MaxClientCount(&mut self) -> ::windows::core::Result<u32>;
+    fn ClientCount(&mut self) -> ::windows::core::Result<u32>;
+    fn TetheringOperationalState(&mut self) -> ::windows::core::Result<TetheringOperationalState>;
+    fn GetCurrentAccessPointConfiguration(&mut self) -> ::windows::core::Result<NetworkOperatorTetheringAccessPointConfiguration>;
+    fn ConfigureAccessPointAsync(&mut self, configuration: &::core::option::Option<NetworkOperatorTetheringAccessPointConfiguration>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartTetheringAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>;
+    fn StopTetheringAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringManager {
@@ -6366,8 +6366,8 @@ impl INetworkOperatorTetheringManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INetworkOperatorTetheringManagerStaticsImpl: Sized {
-    fn GetTetheringCapability(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<TetheringCapability>;
-    fn CreateFromNetworkAccountId(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<NetworkOperatorTetheringManager>;
+    fn GetTetheringCapability(&mut self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<TetheringCapability>;
+    fn CreateFromNetworkAccountId(&mut self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<NetworkOperatorTetheringManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics {
@@ -6410,8 +6410,8 @@ impl INetworkOperatorTetheringManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait INetworkOperatorTetheringManagerStatics2Impl: Sized {
-    fn GetTetheringCapabilityFromConnectionProfile(&self, profile: &::core::option::Option<super::Connectivity::ConnectionProfile>) -> ::windows::core::Result<TetheringCapability>;
-    fn CreateFromConnectionProfile(&self, profile: &::core::option::Option<super::Connectivity::ConnectionProfile>) -> ::windows::core::Result<NetworkOperatorTetheringManager>;
+    fn GetTetheringCapabilityFromConnectionProfile(&mut self, profile: &::core::option::Option<super::Connectivity::ConnectionProfile>) -> ::windows::core::Result<TetheringCapability>;
+    fn CreateFromConnectionProfile(&mut self, profile: &::core::option::Option<super::Connectivity::ConnectionProfile>) -> ::windows::core::Result<NetworkOperatorTetheringManager>;
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics2 {
@@ -6454,7 +6454,7 @@ impl INetworkOperatorTetheringManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait INetworkOperatorTetheringManagerStatics3Impl: Sized {
-    fn CreateFromConnectionProfileWithTargetAdapter(&self, profile: &::core::option::Option<super::Connectivity::ConnectionProfile>, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<NetworkOperatorTetheringManager>;
+    fn CreateFromConnectionProfileWithTargetAdapter(&mut self, profile: &::core::option::Option<super::Connectivity::ConnectionProfile>, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<NetworkOperatorTetheringManager>;
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics3 {
@@ -6485,11 +6485,11 @@ impl INetworkOperatorTetheringManagerStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INetworkOperatorTetheringManagerStatics4Impl: Sized {
-    fn IsNoConnectionsTimeoutEnabled(&self) -> ::windows::core::Result<bool>;
-    fn EnableNoConnectionsTimeout(&self) -> ::windows::core::Result<()>;
-    fn EnableNoConnectionsTimeoutAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DisableNoConnectionsTimeout(&self) -> ::windows::core::Result<()>;
-    fn DisableNoConnectionsTimeoutAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn IsNoConnectionsTimeoutEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn EnableNoConnectionsTimeout(&mut self) -> ::windows::core::Result<()>;
+    fn EnableNoConnectionsTimeoutAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DisableNoConnectionsTimeout(&mut self) -> ::windows::core::Result<()>;
+    fn DisableNoConnectionsTimeoutAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringManagerStatics4 {
@@ -6554,8 +6554,8 @@ impl INetworkOperatorTetheringManagerStatics4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INetworkOperatorTetheringOperationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<TetheringOperationStatus>;
-    fn AdditionalErrorMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<TetheringOperationStatus>;
+    fn AdditionalErrorMessage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INetworkOperatorTetheringOperationResult {
@@ -6598,8 +6598,8 @@ impl INetworkOperatorTetheringOperationResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProvisionFromXmlDocumentResultsImpl: Sized {
-    fn AllElementsProvisioned(&self) -> ::windows::core::Result<bool>;
-    fn ProvisionResultsXml(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllElementsProvisioned(&mut self) -> ::windows::core::Result<bool>;
+    fn ProvisionResultsXml(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProvisionFromXmlDocumentResults {
@@ -6642,8 +6642,8 @@ impl IProvisionFromXmlDocumentResultsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IProvisionedProfileImpl: Sized {
-    fn UpdateCost(&self, value: super::Connectivity::NetworkCostType) -> ::windows::core::Result<()>;
-    fn UpdateUsage(&self, value: &ProfileUsage) -> ::windows::core::Result<()>;
+    fn UpdateCost(&mut self, value: super::Connectivity::NetworkCostType) -> ::windows::core::Result<()>;
+    fn UpdateUsage(&mut self, value: &ProfileUsage) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProvisionedProfile {
@@ -6672,8 +6672,8 @@ impl IProvisionedProfileVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProvisioningAgentImpl: Sized {
-    fn ProvisionFromXmlDocumentAsync(&self, provisioningxmldocument: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>>;
-    fn GetProvisionedProfile(&self, mediatype: ProfileMediaType, profilename: &::windows::core::HSTRING) -> ::windows::core::Result<ProvisionedProfile>;
+    fn ProvisionFromXmlDocumentAsync(&mut self, provisioningxmldocument: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>>;
+    fn GetProvisionedProfile(&mut self, mediatype: ProfileMediaType, profilename: &::windows::core::HSTRING) -> ::windows::core::Result<ProvisionedProfile>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProvisioningAgent {
@@ -6716,7 +6716,7 @@ impl IProvisioningAgentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProvisioningAgentStaticMethodsImpl: Sized {
-    fn CreateFromNetworkAccountId(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<ProvisioningAgent>;
+    fn CreateFromNetworkAccountId(&mut self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<ProvisioningAgent>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProvisioningAgentStaticMethods {
@@ -6747,9 +6747,9 @@ impl IProvisioningAgentStaticMethodsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITetheringEntitlementCheckTriggerDetailsImpl: Sized {
-    fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AllowTethering(&self) -> ::windows::core::Result<()>;
-    fn DenyTethering(&self, entitlementfailurereason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NetworkAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllowTethering(&mut self) -> ::windows::core::Result<()>;
+    fn DenyTethering(&mut self, entitlementfailurereason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITetheringEntitlementCheckTriggerDetails {
@@ -6790,12 +6790,12 @@ impl ITetheringEntitlementCheckTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUssdMessageImpl: Sized {
-    fn DataCodingScheme(&self) -> ::windows::core::Result<u8>;
-    fn SetDataCodingScheme(&self, value: u8) -> ::windows::core::Result<()>;
-    fn GetPayload(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetPayload(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn PayloadAsText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPayloadAsText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DataCodingScheme(&mut self) -> ::windows::core::Result<u8>;
+    fn SetDataCodingScheme(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn GetPayload(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SetPayload(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn PayloadAsText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPayloadAsText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUssdMessage {
@@ -6866,7 +6866,7 @@ impl IUssdMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUssdMessageFactoryImpl: Sized {
-    fn CreateMessage(&self, messagetext: &::windows::core::HSTRING) -> ::windows::core::Result<UssdMessage>;
+    fn CreateMessage(&mut self, messagetext: &::windows::core::HSTRING) -> ::windows::core::Result<UssdMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUssdMessageFactory {
@@ -6894,8 +6894,8 @@ impl IUssdMessageFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUssdReplyImpl: Sized {
-    fn ResultCode(&self) -> ::windows::core::Result<UssdResultCode>;
-    fn Message(&self) -> ::windows::core::Result<UssdMessage>;
+    fn ResultCode(&mut self) -> ::windows::core::Result<UssdResultCode>;
+    fn Message(&mut self) -> ::windows::core::Result<UssdMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUssdReply {
@@ -6938,8 +6938,8 @@ impl IUssdReplyVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUssdSessionImpl: Sized {
-    fn SendMessageAndGetReplyAsync(&self, message: &::core::option::Option<UssdMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>;
-    fn Close(&self) -> ::windows::core::Result<()>;
+    fn SendMessageAndGetReplyAsync(&mut self, message: &::core::option::Option<UssdMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUssdSession {
@@ -6975,8 +6975,8 @@ impl IUssdSessionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUssdSessionStaticsImpl: Sized {
-    fn CreateFromNetworkAccountId(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession>;
-    fn CreateFromNetworkInterfaceId(&self, networkinterfaceid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession>;
+    fn CreateFromNetworkAccountId(&mut self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession>;
+    fn CreateFromNetworkInterfaceId(&mut self, networkinterfaceid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUssdSessionStatics {

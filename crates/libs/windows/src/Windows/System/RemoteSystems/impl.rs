@@ -1,9 +1,9 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownRemoteSystemCapabilitiesStaticsImpl: Sized {
-    fn AppService(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LaunchUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteSession(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SpatialEntity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppService(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LaunchUri(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteSession(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SpatialEntity(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownRemoteSystemCapabilitiesStatics {
@@ -70,11 +70,11 @@ impl IKnownRemoteSystemCapabilitiesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Kind(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Status(&self) -> ::windows::core::Result<RemoteSystemStatus>;
-    fn IsAvailableByProximity(&self) -> ::windows::core::Result<bool>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Kind(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<RemoteSystemStatus>;
+    fn IsAvailableByProximity(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystem {
@@ -153,8 +153,8 @@ impl IRemoteSystemVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystem2Impl: Sized {
-    fn IsAvailableBySpatialProximity(&self) -> ::windows::core::Result<bool>;
-    fn GetCapabilitySupportedAsync(&self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn IsAvailableBySpatialProximity(&mut self) -> ::windows::core::Result<bool>;
+    fn GetCapabilitySupportedAsync(&mut self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystem2 {
@@ -197,8 +197,8 @@ impl IRemoteSystem2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystem3Impl: Sized {
-    fn ManufacturerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ModelDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ManufacturerDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ModelDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystem3 {
@@ -241,7 +241,7 @@ impl IRemoteSystem3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystem4Impl: Sized {
-    fn Platform(&self) -> ::windows::core::Result<RemoteSystemPlatform>;
+    fn Platform(&mut self) -> ::windows::core::Result<RemoteSystemPlatform>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystem4 {
@@ -269,7 +269,7 @@ impl IRemoteSystem4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystem5Impl: Sized {
-    fn Apps(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RemoteSystemApp>>;
+    fn Apps(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RemoteSystemApp>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystem5 {
@@ -297,7 +297,7 @@ impl IRemoteSystem5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystem6Impl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystem6 {
@@ -325,7 +325,7 @@ impl IRemoteSystem6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemAddedEventArgsImpl: Sized {
-    fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem>;
+    fn RemoteSystem(&mut self) -> ::windows::core::Result<RemoteSystem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemAddedEventArgs {
@@ -356,11 +356,11 @@ impl IRemoteSystemAddedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemAppImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsAvailableByProximity(&self) -> ::windows::core::Result<bool>;
-    fn IsAvailableBySpatialProximity(&self) -> ::windows::core::Result<bool>;
-    fn Attributes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsAvailableByProximity(&mut self) -> ::windows::core::Result<bool>;
+    fn IsAvailableBySpatialProximity(&mut self) -> ::windows::core::Result<bool>;
+    fn Attributes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemApp {
@@ -439,8 +439,8 @@ impl IRemoteSystemAppVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemApp2Impl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::User>;
-    fn ConnectionToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
+    fn ConnectionToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemApp2 {
@@ -483,9 +483,9 @@ impl IRemoteSystemApp2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemAppRegistrationImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::User>;
-    fn Attributes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
+    fn Attributes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn SaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemAppRegistration {
@@ -540,8 +540,8 @@ impl IRemoteSystemAppRegistrationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemAppRegistrationStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<RemoteSystemAppRegistration>;
-    fn GetForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<RemoteSystemAppRegistration>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<RemoteSystemAppRegistration>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<RemoteSystemAppRegistration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemAppRegistrationStatics {
@@ -584,7 +584,7 @@ impl IRemoteSystemAppRegistrationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemAuthorizationKindFilterImpl: Sized {
-    fn RemoteSystemAuthorizationKind(&self) -> ::windows::core::Result<RemoteSystemAuthorizationKind>;
+    fn RemoteSystemAuthorizationKind(&mut self) -> ::windows::core::Result<RemoteSystemAuthorizationKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemAuthorizationKindFilter {
@@ -615,7 +615,7 @@ impl IRemoteSystemAuthorizationKindFilterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemAuthorizationKindFilterFactoryImpl: Sized {
-    fn Create(&self, remotesystemauthorizationkind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter>;
+    fn Create(&mut self, remotesystemauthorizationkind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemAuthorizationKindFilterFactory {
@@ -646,7 +646,7 @@ impl IRemoteSystemAuthorizationKindFilterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemConnectionInfoImpl: Sized {
-    fn IsProximal(&self) -> ::windows::core::Result<bool>;
+    fn IsProximal(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionInfo {
@@ -677,7 +677,7 @@ impl IRemoteSystemConnectionInfoVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 pub trait IRemoteSystemConnectionInfoStaticsImpl: Sized {
-    fn TryCreateFromAppServiceConnection(&self, connection: &::core::option::Option<super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<RemoteSystemConnectionInfo>;
+    fn TryCreateFromAppServiceConnection(&mut self, connection: &::core::option::Option<super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<RemoteSystemConnectionInfo>;
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionInfoStatics {
@@ -708,7 +708,7 @@ impl IRemoteSystemConnectionInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemConnectionRequestImpl: Sized {
-    fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem>;
+    fn RemoteSystem(&mut self) -> ::windows::core::Result<RemoteSystem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest {
@@ -739,7 +739,7 @@ impl IRemoteSystemConnectionRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemConnectionRequest2Impl: Sized {
-    fn RemoteSystemApp(&self) -> ::windows::core::Result<RemoteSystemApp>;
+    fn RemoteSystemApp(&mut self) -> ::windows::core::Result<RemoteSystemApp>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest2 {
@@ -770,7 +770,7 @@ impl IRemoteSystemConnectionRequest2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemConnectionRequest3Impl: Sized {
-    fn ConnectionToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConnectionToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequest3 {
@@ -801,7 +801,7 @@ impl IRemoteSystemConnectionRequest3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemConnectionRequestFactoryImpl: Sized {
-    fn Create(&self, remotesystem: &::core::option::Option<RemoteSystem>) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
+    fn Create(&mut self, remotesystem: &::core::option::Option<RemoteSystem>) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestFactory {
@@ -832,7 +832,7 @@ impl IRemoteSystemConnectionRequestFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemConnectionRequestStaticsImpl: Sized {
-    fn CreateForApp(&self, remotesystemapp: &::core::option::Option<RemoteSystemApp>) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
+    fn CreateForApp(&mut self, remotesystemapp: &::core::option::Option<RemoteSystemApp>) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestStatics {
@@ -863,8 +863,8 @@ impl IRemoteSystemConnectionRequestStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemConnectionRequestStatics2Impl: Sized {
-    fn CreateFromConnectionToken(&self, connectiontoken: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
-    fn CreateFromConnectionTokenForUser(&self, user: &::core::option::Option<super::User>, connectiontoken: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
+    fn CreateFromConnectionToken(&mut self, connectiontoken: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
+    fn CreateFromConnectionTokenForUser(&mut self, user: &::core::option::Option<super::User>, connectiontoken: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemConnectionRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemConnectionRequestStatics2 {
@@ -907,7 +907,7 @@ impl IRemoteSystemConnectionRequestStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemDiscoveryTypeFilterImpl: Sized {
-    fn RemoteSystemDiscoveryType(&self) -> ::windows::core::Result<RemoteSystemDiscoveryType>;
+    fn RemoteSystemDiscoveryType(&mut self) -> ::windows::core::Result<RemoteSystemDiscoveryType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemDiscoveryTypeFilter {
@@ -938,7 +938,7 @@ impl IRemoteSystemDiscoveryTypeFilterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemDiscoveryTypeFilterFactoryImpl: Sized {
-    fn Create(&self, discoverytype: RemoteSystemDiscoveryType) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter>;
+    fn Create(&mut self, discoverytype: RemoteSystemDiscoveryType) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemDiscoveryTypeFilterFactory {
@@ -996,7 +996,7 @@ impl IRemoteSystemFilterVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemKindFilterImpl: Sized {
-    fn RemoteSystemKinds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn RemoteSystemKinds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemKindFilter {
@@ -1027,7 +1027,7 @@ impl IRemoteSystemKindFilterVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemKindFilterFactoryImpl: Sized {
-    fn Create(&self, remotesystemkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<RemoteSystemKindFilter>;
+    fn Create(&mut self, remotesystemkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<RemoteSystemKindFilter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemKindFilterFactory {
@@ -1055,11 +1055,11 @@ impl IRemoteSystemKindFilterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemKindStaticsImpl: Sized {
-    fn Phone(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Hub(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Holographic(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Desktop(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Xbox(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Phone(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Hub(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Holographic(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Desktop(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Xbox(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemKindStatics {
@@ -1138,9 +1138,9 @@ impl IRemoteSystemKindStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemKindStatics2Impl: Sized {
-    fn Iot(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Tablet(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Laptop(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Iot(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Tablet(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Laptop(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemKindStatics2 {
@@ -1195,7 +1195,7 @@ impl IRemoteSystemKindStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemRemovedEventArgsImpl: Sized {
-    fn RemoteSystemId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteSystemId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemRemovedEventArgs {
@@ -1226,13 +1226,13 @@ impl IRemoteSystemRemovedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ControllerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Disconnected(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDisconnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CreateParticipantWatcher(&self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcher>;
-    fn SendInvitationAsync(&self, invitee: &::core::option::Option<RemoteSystem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ControllerDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Disconnected(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDisconnected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateParticipantWatcher(&mut self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcher>;
+    fn SendInvitationAsync(&mut self, invitee: &::core::option::Option<RemoteSystem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSession {
@@ -1328,7 +1328,7 @@ impl IRemoteSystemSessionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionAddedEventArgsImpl: Sized {
-    fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
+    fn SessionInfo(&mut self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionAddedEventArgs {
@@ -1359,10 +1359,10 @@ impl IRemoteSystemSessionAddedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionControllerImpl: Sized {
-    fn JoinRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveJoinRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RemoveParticipantAsync(&self, pparticipant: &::core::option::Option<RemoteSystemSessionParticipant>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn CreateSessionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionCreationResult>>;
+    fn JoinRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveJoinRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RemoveParticipantAsync(&mut self, pparticipant: &::core::option::Option<RemoteSystemSessionParticipant>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn CreateSessionAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionCreationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionController {
@@ -1422,8 +1422,8 @@ impl IRemoteSystemSessionControllerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionControllerFactoryImpl: Sized {
-    fn CreateController(&self, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemSessionController>;
-    fn CreateControllerWithSessionOptions(&self, displayname: &::windows::core::HSTRING, options: &::core::option::Option<RemoteSystemSessionOptions>) -> ::windows::core::Result<RemoteSystemSessionController>;
+    fn CreateController(&mut self, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemSessionController>;
+    fn CreateControllerWithSessionOptions(&mut self, displayname: &::windows::core::HSTRING, options: &::core::option::Option<RemoteSystemSessionOptions>) -> ::windows::core::Result<RemoteSystemSessionController>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionControllerFactory {
@@ -1466,8 +1466,8 @@ impl IRemoteSystemSessionControllerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionCreationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionCreationStatus>;
-    fn Session(&self) -> ::windows::core::Result<RemoteSystemSession>;
+    fn Status(&mut self) -> ::windows::core::Result<RemoteSystemSessionCreationStatus>;
+    fn Session(&mut self) -> ::windows::core::Result<RemoteSystemSession>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionCreationResult {
@@ -1510,7 +1510,7 @@ impl IRemoteSystemSessionCreationResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionDisconnectedEventArgsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<RemoteSystemSessionDisconnectedReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<RemoteSystemSessionDisconnectedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionDisconnectedEventArgs {
@@ -1541,9 +1541,9 @@ impl IRemoteSystemSessionDisconnectedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionInfoImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ControllerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JoinAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionJoinResult>>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ControllerDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JoinAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionJoinResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionInfo {
@@ -1598,8 +1598,8 @@ impl IRemoteSystemSessionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionInvitationImpl: Sized {
-    fn Sender(&self) -> ::windows::core::Result<RemoteSystem>;
-    fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
+    fn Sender(&mut self) -> ::windows::core::Result<RemoteSystem>;
+    fn SessionInfo(&mut self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitation {
@@ -1642,8 +1642,8 @@ impl IRemoteSystemSessionInvitationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionInvitationListenerImpl: Sized {
-    fn InvitationReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInvitationReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn InvitationReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInvitationReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitationListener {
@@ -1679,7 +1679,7 @@ impl IRemoteSystemSessionInvitationListenerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionInvitationReceivedEventArgsImpl: Sized {
-    fn Invitation(&self) -> ::windows::core::Result<RemoteSystemSessionInvitation>;
+    fn Invitation(&mut self) -> ::windows::core::Result<RemoteSystemSessionInvitation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionInvitationReceivedEventArgs {
@@ -1710,8 +1710,8 @@ impl IRemoteSystemSessionInvitationReceivedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionJoinRequestImpl: Sized {
-    fn Participant(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
-    fn Accept(&self) -> ::windows::core::Result<()>;
+    fn Participant(&mut self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
+    fn Accept(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinRequest {
@@ -1747,8 +1747,8 @@ impl IRemoteSystemSessionJoinRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionJoinRequestedEventArgsImpl: Sized {
-    fn JoinRequest(&self) -> ::windows::core::Result<RemoteSystemSessionJoinRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn JoinRequest(&mut self) -> ::windows::core::Result<RemoteSystemSessionJoinRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinRequestedEventArgs {
@@ -1791,8 +1791,8 @@ impl IRemoteSystemSessionJoinRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionJoinResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionJoinStatus>;
-    fn Session(&self) -> ::windows::core::Result<RemoteSystemSession>;
+    fn Status(&mut self) -> ::windows::core::Result<RemoteSystemSessionJoinStatus>;
+    fn Session(&mut self) -> ::windows::core::Result<RemoteSystemSession>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionJoinResult {
@@ -1835,12 +1835,12 @@ impl IRemoteSystemSessionJoinResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionMessageChannelImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<RemoteSystemSession>;
-    fn BroadcastValueSetAsync(&self, messagedata: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SendValueSetAsync(&self, messagedata: &::core::option::Option<super::super::Foundation::Collections::ValueSet>, participant: &::core::option::Option<RemoteSystemSessionParticipant>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SendValueSetToParticipantsAsync(&self, messagedata: &::core::option::Option<super::super::Foundation::Collections::ValueSet>, participants: &::core::option::Option<super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ValueSetReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveValueSetReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Session(&mut self) -> ::windows::core::Result<RemoteSystemSession>;
+    fn BroadcastValueSetAsync(&mut self, messagedata: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SendValueSetAsync(&mut self, messagedata: &::core::option::Option<super::super::Foundation::Collections::ValueSet>, participant: &::core::option::Option<RemoteSystemSessionParticipant>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SendValueSetToParticipantsAsync(&mut self, messagedata: &::core::option::Option<super::super::Foundation::Collections::ValueSet>, participants: &::core::option::Option<super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ValueSetReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveValueSetReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionMessageChannel {
@@ -1927,8 +1927,8 @@ impl IRemoteSystemSessionMessageChannelVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionMessageChannelFactoryImpl: Sized {
-    fn Create(&self, session: &::core::option::Option<RemoteSystemSession>, channelname: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>;
-    fn CreateWithReliability(&self, session: &::core::option::Option<RemoteSystemSession>, channelname: &::windows::core::HSTRING, reliability: RemoteSystemSessionMessageChannelReliability) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>;
+    fn Create(&mut self, session: &::core::option::Option<RemoteSystemSession>, channelname: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>;
+    fn CreateWithReliability(&mut self, session: &::core::option::Option<RemoteSystemSession>, channelname: &::windows::core::HSTRING, reliability: RemoteSystemSessionMessageChannelReliability) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionMessageChannelFactory {
@@ -1971,8 +1971,8 @@ impl IRemoteSystemSessionMessageChannelFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionOptionsImpl: Sized {
-    fn IsInviteOnly(&self) -> ::windows::core::Result<bool>;
-    fn SetIsInviteOnly(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsInviteOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsInviteOnly(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionOptions {
@@ -2008,8 +2008,8 @@ impl IRemoteSystemSessionOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionParticipantImpl: Sized {
-    fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem>;
-    fn GetHostNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Networking::HostName>>;
+    fn RemoteSystem(&mut self) -> ::windows::core::Result<RemoteSystem>;
+    fn GetHostNames(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Networking::HostName>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipant {
@@ -2052,7 +2052,7 @@ impl IRemoteSystemSessionParticipantVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionParticipantAddedEventArgsImpl: Sized {
-    fn Participant(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
+    fn Participant(&mut self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantAddedEventArgs {
@@ -2083,7 +2083,7 @@ impl IRemoteSystemSessionParticipantAddedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionParticipantRemovedEventArgsImpl: Sized {
-    fn Participant(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
+    fn Participant(&mut self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantRemovedEventArgs {
@@ -2114,15 +2114,15 @@ impl IRemoteSystemSessionParticipantRemovedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionParticipantWatcherImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcherStatus>;
-    fn Added(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Removed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcherStatus>;
+    fn Added(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Removed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionParticipantWatcher {
@@ -2214,7 +2214,7 @@ impl IRemoteSystemSessionParticipantWatcherVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionRemovedEventArgsImpl: Sized {
-    fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
+    fn SessionInfo(&mut self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionRemovedEventArgs {
@@ -2245,7 +2245,7 @@ impl IRemoteSystemSessionRemovedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionStaticsImpl: Sized {
-    fn CreateWatcher(&self) -> ::windows::core::Result<RemoteSystemSessionWatcher>;
+    fn CreateWatcher(&mut self) -> ::windows::core::Result<RemoteSystemSessionWatcher>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionStatics {
@@ -2276,7 +2276,7 @@ impl IRemoteSystemSessionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemSessionUpdatedEventArgsImpl: Sized {
-    fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
+    fn SessionInfo(&mut self) -> ::windows::core::Result<RemoteSystemSessionInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionUpdatedEventArgs {
@@ -2307,8 +2307,8 @@ impl IRemoteSystemSessionUpdatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionValueSetReceivedEventArgsImpl: Sized {
-    fn Sender(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
-    fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Sender(&mut self) -> ::windows::core::Result<RemoteSystemSessionParticipant>;
+    fn Message(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionValueSetReceivedEventArgs {
@@ -2351,15 +2351,15 @@ impl IRemoteSystemSessionValueSetReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemSessionWatcherImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionWatcherStatus>;
-    fn Added(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Updated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Removed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<RemoteSystemSessionWatcherStatus>;
+    fn Added(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Updated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Removed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemSessionWatcher {
@@ -2451,10 +2451,10 @@ impl IRemoteSystemSessionWatcherVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IRemoteSystemStaticsImpl: Sized {
-    fn FindByHostNameAsync(&self, hostname: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>>;
-    fn CreateWatcher(&self) -> ::windows::core::Result<RemoteSystemWatcher>;
-    fn CreateWatcherWithFilters(&self, filters: &::core::option::Option<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>) -> ::windows::core::Result<RemoteSystemWatcher>;
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemAccessStatus>>;
+    fn FindByHostNameAsync(&mut self, hostname: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>>;
+    fn CreateWatcher(&mut self) -> ::windows::core::Result<RemoteSystemWatcher>;
+    fn CreateWatcherWithFilters(&mut self, filters: &::core::option::Option<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>) -> ::windows::core::Result<RemoteSystemWatcher>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemAccessStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemStatics {
@@ -2521,7 +2521,7 @@ impl IRemoteSystemStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemStatics2Impl: Sized {
-    fn IsAuthorizationKindEnabled(&self, kind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<bool>;
+    fn IsAuthorizationKindEnabled(&mut self, kind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemStatics2 {
@@ -2552,8 +2552,8 @@ impl IRemoteSystemStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteSystemStatics3Impl: Sized {
-    fn CreateWatcherForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<RemoteSystemWatcher>;
-    fn CreateWatcherWithFiltersForUser(&self, user: &::core::option::Option<super::User>, filters: &::core::option::Option<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>) -> ::windows::core::Result<RemoteSystemWatcher>;
+    fn CreateWatcherForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<RemoteSystemWatcher>;
+    fn CreateWatcherWithFiltersForUser(&mut self, user: &::core::option::Option<super::User>, filters: &::core::option::Option<super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>) -> ::windows::core::Result<RemoteSystemWatcher>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemStatics3 {
@@ -2596,7 +2596,7 @@ impl IRemoteSystemStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemStatusTypeFilterImpl: Sized {
-    fn RemoteSystemStatusType(&self) -> ::windows::core::Result<RemoteSystemStatusType>;
+    fn RemoteSystemStatusType(&mut self) -> ::windows::core::Result<RemoteSystemStatusType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemStatusTypeFilter {
@@ -2627,7 +2627,7 @@ impl IRemoteSystemStatusTypeFilterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemStatusTypeFilterFactoryImpl: Sized {
-    fn Create(&self, remotesystemstatustype: RemoteSystemStatusType) -> ::windows::core::Result<RemoteSystemStatusTypeFilter>;
+    fn Create(&mut self, remotesystemstatustype: RemoteSystemStatusType) -> ::windows::core::Result<RemoteSystemStatusTypeFilter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemStatusTypeFilterFactory {
@@ -2658,7 +2658,7 @@ impl IRemoteSystemStatusTypeFilterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemUpdatedEventArgsImpl: Sized {
-    fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem>;
+    fn RemoteSystem(&mut self) -> ::windows::core::Result<RemoteSystem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemUpdatedEventArgs {
@@ -2689,14 +2689,14 @@ impl IRemoteSystemUpdatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWatcherImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn RemoteSystemAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoteSystemAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RemoteSystemUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoteSystemUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RemoteSystemRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoteSystemRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn RemoteSystemAdded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoteSystemAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RemoteSystemUpdated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoteSystemUpdated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RemoteSystemRemoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoteSystemRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWatcher {
@@ -2776,10 +2776,10 @@ impl IRemoteSystemWatcherVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWatcher2Impl: Sized {
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ErrorOccurred(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveErrorOccurred(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ErrorOccurred(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveErrorOccurred(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWatcher2 {
@@ -2832,7 +2832,7 @@ impl IRemoteSystemWatcher2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemWatcher3Impl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemWatcher3 {
@@ -2860,7 +2860,7 @@ impl IRemoteSystemWatcher3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteSystemWatcherErrorOccurredEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<RemoteSystemWatcherError>;
+    fn Error(&mut self) -> ::windows::core::Result<RemoteSystemWatcherError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteSystemWatcherErrorOccurredEventArgs {
@@ -2891,7 +2891,7 @@ impl IRemoteSystemWatcherErrorOccurredEventArgsVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWebAccountFilterImpl: Sized {
-    fn Account(&self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccount>;
+    fn Account(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccount>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWebAccountFilter {
@@ -2919,7 +2919,7 @@ impl IRemoteSystemWebAccountFilterVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IRemoteSystemWebAccountFilterFactoryImpl: Sized {
-    fn Create(&self, account: &::core::option::Option<super::super::Security::Credentials::WebAccount>) -> ::windows::core::Result<RemoteSystemWebAccountFilter>;
+    fn Create(&mut self, account: &::core::option::Option<super::super::Security::Credentials::WebAccount>) -> ::windows::core::Result<RemoteSystemWebAccountFilter>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteSystemWebAccountFilterFactory {

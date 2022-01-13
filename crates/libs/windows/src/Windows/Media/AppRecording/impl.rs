@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAppRecordingManagerImpl: Sized {
-    fn GetStatus(&self) -> ::windows::core::Result<AppRecordingStatus>;
-    fn StartRecordingToFileAsync(&self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>;
-    fn RecordTimeSpanToFileAsync(&self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>;
-    fn SupportedScreenshotMediaEncodingSubtypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SaveScreenshotToFilesAsync(&self, folder: &::core::option::Option<super::super::Storage::StorageFolder>, filenameprefix: &::windows::core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>;
+    fn GetStatus(&mut self) -> ::windows::core::Result<AppRecordingStatus>;
+    fn StartRecordingToFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>;
+    fn RecordTimeSpanToFileAsync(&mut self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>;
+    fn SupportedScreenshotMediaEncodingSubtypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SaveScreenshotToFilesAsync(&mut self, folder: &::core::option::Option<super::super::Storage::StorageFolder>, filenameprefix: &::windows::core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppRecordingManager {
@@ -92,7 +92,7 @@ impl IAppRecordingManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppRecordingManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<AppRecordingManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<AppRecordingManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppRecordingManagerStatics {
@@ -123,10 +123,10 @@ impl IAppRecordingManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppRecordingResultImpl: Sized {
-    fn Succeeded(&self) -> ::windows::core::Result<bool>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn IsFileTruncated(&self) -> ::windows::core::Result<bool>;
+    fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn IsFileTruncated(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppRecordingResult {
@@ -193,9 +193,9 @@ impl IAppRecordingResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppRecordingSaveScreenshotResultImpl: Sized {
-    fn Succeeded(&self) -> ::windows::core::Result<bool>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn SavedScreenshotInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>>;
+    fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn SavedScreenshotInfos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppRecordingSaveScreenshotResult {
@@ -250,8 +250,8 @@ impl IAppRecordingSaveScreenshotResultVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAppRecordingSavedScreenshotInfoImpl: Sized {
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
-    fn MediaEncodingSubtype(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn MediaEncodingSubtype(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppRecordingSavedScreenshotInfo {
@@ -294,10 +294,10 @@ impl IAppRecordingSavedScreenshotInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppRecordingStatusImpl: Sized {
-    fn CanRecord(&self) -> ::windows::core::Result<bool>;
-    fn CanRecordTimeSpan(&self) -> ::windows::core::Result<bool>;
-    fn HistoricalBufferDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Details(&self) -> ::windows::core::Result<AppRecordingStatusDetails>;
+    fn CanRecord(&mut self) -> ::windows::core::Result<bool>;
+    fn CanRecordTimeSpan(&mut self) -> ::windows::core::Result<bool>;
+    fn HistoricalBufferDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Details(&mut self) -> ::windows::core::Result<AppRecordingStatusDetails>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppRecordingStatus {
@@ -364,15 +364,15 @@ impl IAppRecordingStatusVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppRecordingStatusDetailsImpl: Sized {
-    fn IsAnyAppBroadcasting(&self) -> ::windows::core::Result<bool>;
-    fn IsCaptureResourceUnavailable(&self) -> ::windows::core::Result<bool>;
-    fn IsGameStreamInProgress(&self) -> ::windows::core::Result<bool>;
-    fn IsTimeSpanRecordingDisabled(&self) -> ::windows::core::Result<bool>;
-    fn IsGpuConstrained(&self) -> ::windows::core::Result<bool>;
-    fn IsAppInactive(&self) -> ::windows::core::Result<bool>;
-    fn IsBlockedForApp(&self) -> ::windows::core::Result<bool>;
-    fn IsDisabledByUser(&self) -> ::windows::core::Result<bool>;
-    fn IsDisabledBySystem(&self) -> ::windows::core::Result<bool>;
+    fn IsAnyAppBroadcasting(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCaptureResourceUnavailable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsGameStreamInProgress(&mut self) -> ::windows::core::Result<bool>;
+    fn IsTimeSpanRecordingDisabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsGpuConstrained(&mut self) -> ::windows::core::Result<bool>;
+    fn IsAppInactive(&mut self) -> ::windows::core::Result<bool>;
+    fn IsBlockedForApp(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDisabledByUser(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDisabledBySystem(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppRecordingStatusDetails {

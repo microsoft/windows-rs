@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_SpeechRecognition", feature = "implement_exclusive"))]
 pub trait IVoiceCommandImpl: Sized {
-    fn CommandName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn SpeechRecognitionResult(&self) -> ::windows::core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult>;
+    fn CommandName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn SpeechRecognitionResult(&mut self) -> ::windows::core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_SpeechRecognition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommand {
@@ -57,7 +57,7 @@ impl IVoiceCommandVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVoiceCommandCompletedEventArgsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<VoiceCommandCompletionReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<VoiceCommandCompletionReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVoiceCommandCompletedEventArgs {
@@ -85,7 +85,7 @@ impl IVoiceCommandCompletedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVoiceCommandConfirmationResultImpl: Sized {
-    fn Confirmed(&self) -> ::windows::core::Result<bool>;
+    fn Confirmed(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVoiceCommandConfirmationResult {
@@ -116,22 +116,22 @@ impl IVoiceCommandConfirmationResultVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IVoiceCommandContentTileImpl: Sized {
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TextLine1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTextLine1(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TextLine2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTextLine2(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TextLine3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTextLine3(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Image(&self) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
-    fn SetImage(&self, value: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<()>;
-    fn AppContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetAppContext(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn AppLaunchArgument(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAppLaunchArgument(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContentTileType(&self) -> ::windows::core::Result<VoiceCommandContentTileType>;
-    fn SetContentTileType(&self, value: VoiceCommandContentTileType) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TextLine1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTextLine1(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TextLine2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTextLine2(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TextLine3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTextLine3(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Image(&mut self) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
+    fn SetImage(&mut self, value: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<()>;
+    fn AppContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetAppContext(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn AppLaunchArgument(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAppLaunchArgument(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContentTileType(&mut self) -> ::windows::core::Result<VoiceCommandContentTileType>;
+    fn SetContentTileType(&mut self, value: VoiceCommandContentTileType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandContentTile {
@@ -286,9 +286,9 @@ impl IVoiceCommandContentTileVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVoiceCommandDefinitionImpl: Sized {
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPhraseListAsync(&self, phraselistname: &::windows::core::HSTRING, phraselist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPhraseListAsync(&mut self, phraselistname: &::windows::core::HSTRING, phraselist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandDefinition {
@@ -343,8 +343,8 @@ impl IVoiceCommandDefinitionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IVoiceCommandDefinitionManagerStaticsImpl: Sized {
-    fn InstallCommandDefinitionsFromStorageFileAsync(&self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn InstalledCommandDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, VoiceCommandDefinition>>;
+    fn InstallCommandDefinitionsFromStorageFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn InstalledCommandDefinitions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, VoiceCommandDefinition>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandDefinitionManagerStatics {
@@ -387,7 +387,7 @@ impl IVoiceCommandDefinitionManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVoiceCommandDisambiguationResultImpl: Sized {
-    fn SelectedItem(&self) -> ::windows::core::Result<VoiceCommandContentTile>;
+    fn SelectedItem(&mut self) -> ::windows::core::Result<VoiceCommandContentTile>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVoiceCommandDisambiguationResult {
@@ -418,13 +418,13 @@ impl IVoiceCommandDisambiguationResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVoiceCommandResponseImpl: Sized {
-    fn Message(&self) -> ::windows::core::Result<VoiceCommandUserMessage>;
-    fn SetMessage(&self, value: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<()>;
-    fn RepeatMessage(&self) -> ::windows::core::Result<VoiceCommandUserMessage>;
-    fn SetRepeatMessage(&self, value: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<()>;
-    fn AppLaunchArgument(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAppLaunchArgument(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn VoiceCommandContentTiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VoiceCommandContentTile>>;
+    fn Message(&mut self) -> ::windows::core::Result<VoiceCommandUserMessage>;
+    fn SetMessage(&mut self, value: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<()>;
+    fn RepeatMessage(&mut self) -> ::windows::core::Result<VoiceCommandUserMessage>;
+    fn SetRepeatMessage(&mut self, value: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<()>;
+    fn AppLaunchArgument(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAppLaunchArgument(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn VoiceCommandContentTiles(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VoiceCommandContentTile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandResponse {
@@ -506,11 +506,11 @@ impl IVoiceCommandResponseVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVoiceCommandResponseStaticsImpl: Sized {
-    fn MaxSupportedVoiceCommandContentTiles(&self) -> ::windows::core::Result<u32>;
-    fn CreateResponse(&self, usermessage: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<VoiceCommandResponse>;
-    fn CreateResponseWithTiles(&self, message: &::core::option::Option<VoiceCommandUserMessage>, contenttiles: &::core::option::Option<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>) -> ::windows::core::Result<VoiceCommandResponse>;
-    fn CreateResponseForPrompt(&self, message: &::core::option::Option<VoiceCommandUserMessage>, repeatmessage: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<VoiceCommandResponse>;
-    fn CreateResponseForPromptWithTiles(&self, message: &::core::option::Option<VoiceCommandUserMessage>, repeatmessage: &::core::option::Option<VoiceCommandUserMessage>, contenttiles: &::core::option::Option<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>) -> ::windows::core::Result<VoiceCommandResponse>;
+    fn MaxSupportedVoiceCommandContentTiles(&mut self) -> ::windows::core::Result<u32>;
+    fn CreateResponse(&mut self, usermessage: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<VoiceCommandResponse>;
+    fn CreateResponseWithTiles(&mut self, message: &::core::option::Option<VoiceCommandUserMessage>, contenttiles: &::core::option::Option<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>) -> ::windows::core::Result<VoiceCommandResponse>;
+    fn CreateResponseForPrompt(&mut self, message: &::core::option::Option<VoiceCommandUserMessage>, repeatmessage: &::core::option::Option<VoiceCommandUserMessage>) -> ::windows::core::Result<VoiceCommandResponse>;
+    fn CreateResponseForPromptWithTiles(&mut self, message: &::core::option::Option<VoiceCommandUserMessage>, repeatmessage: &::core::option::Option<VoiceCommandUserMessage>, contenttiles: &::core::option::Option<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>) -> ::windows::core::Result<VoiceCommandResponse>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandResponseStatics {
@@ -593,16 +593,16 @@ impl IVoiceCommandResponseStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait IVoiceCommandServiceConnectionImpl: Sized {
-    fn GetVoiceCommandAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommand>>;
-    fn RequestConfirmationAsync(&self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>>;
-    fn RequestDisambiguationAsync(&self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandDisambiguationResult>>;
-    fn ReportProgressAsync(&self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ReportSuccessAsync(&self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ReportFailureAsync(&self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RequestAppLaunchAsync(&self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Language(&self) -> ::windows::core::Result<super::super::Globalization::Language>;
-    fn VoiceCommandCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVoiceCommandCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetVoiceCommandAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommand>>;
+    fn RequestConfirmationAsync(&mut self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>>;
+    fn RequestDisambiguationAsync(&mut self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandDisambiguationResult>>;
+    fn ReportProgressAsync(&mut self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ReportSuccessAsync(&mut self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ReportFailureAsync(&mut self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RequestAppLaunchAsync(&mut self, response: &::core::option::Option<VoiceCommandResponse>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Language(&mut self) -> ::windows::core::Result<super::super::Globalization::Language>;
+    fn VoiceCommandCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVoiceCommandCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandServiceConnection {
@@ -734,7 +734,7 @@ impl IVoiceCommandServiceConnectionVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 pub trait IVoiceCommandServiceConnectionStaticsImpl: Sized {
-    fn FromAppServiceTriggerDetails(&self, triggerdetails: &::core::option::Option<super::AppService::AppServiceTriggerDetails>) -> ::windows::core::Result<VoiceCommandServiceConnection>;
+    fn FromAppServiceTriggerDetails(&mut self, triggerdetails: &::core::option::Option<super::AppService::AppServiceTriggerDetails>) -> ::windows::core::Result<VoiceCommandServiceConnection>;
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandServiceConnectionStatics {
@@ -765,10 +765,10 @@ impl IVoiceCommandServiceConnectionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVoiceCommandUserMessageImpl: Sized {
-    fn DisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SpokenMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSpokenMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayMessage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayMessage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SpokenMessage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSpokenMessage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVoiceCommandUserMessage {

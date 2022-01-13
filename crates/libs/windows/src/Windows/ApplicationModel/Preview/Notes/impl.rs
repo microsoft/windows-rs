@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait INotePlacementChangedPreviewEventArgsImpl: Sized {
-    fn ViewId(&self) -> ::windows::core::Result<i32>;
+    fn ViewId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INotePlacementChangedPreviewEventArgs {
@@ -31,8 +31,8 @@ impl INotePlacementChangedPreviewEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INoteVisibilityChangedPreviewEventArgsImpl: Sized {
-    fn ViewId(&self) -> ::windows::core::Result<i32>;
-    fn IsVisible(&self) -> ::windows::core::Result<bool>;
+    fn ViewId(&mut self) -> ::windows::core::Result<i32>;
+    fn IsVisible(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INoteVisibilityChangedPreviewEventArgs {
@@ -75,21 +75,21 @@ impl INoteVisibilityChangedPreviewEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait INotesWindowManagerPreviewImpl: Sized {
-    fn IsScreenLocked(&self) -> ::windows::core::Result<bool>;
-    fn ShowNote(&self, noteviewid: i32) -> ::windows::core::Result<()>;
-    fn ShowNoteRelativeTo(&self, noteviewid: i32, anchornoteviewid: i32) -> ::windows::core::Result<()>;
-    fn ShowNoteWithPlacement(&self, noteviewid: i32, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn HideNote(&self, noteviewid: i32) -> ::windows::core::Result<()>;
-    fn GetNotePlacement(&self, noteviewid: i32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn TrySetNoteSize(&self, noteviewid: i32, size: &super::super::super::Foundation::Size) -> ::windows::core::Result<bool>;
-    fn SetFocusToNextView(&self) -> ::windows::core::Result<()>;
-    fn SetNotesThumbnailAsync(&self, thumbnail: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn SystemLockStateChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSystemLockStateChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NotePlacementChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NotePlacementChangedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNotePlacementChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NoteVisibilityChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNoteVisibilityChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsScreenLocked(&mut self) -> ::windows::core::Result<bool>;
+    fn ShowNote(&mut self, noteviewid: i32) -> ::windows::core::Result<()>;
+    fn ShowNoteRelativeTo(&mut self, noteviewid: i32, anchornoteviewid: i32) -> ::windows::core::Result<()>;
+    fn ShowNoteWithPlacement(&mut self, noteviewid: i32, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn HideNote(&mut self, noteviewid: i32) -> ::windows::core::Result<()>;
+    fn GetNotePlacement(&mut self, noteviewid: i32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn TrySetNoteSize(&mut self, noteviewid: i32, size: &super::super::super::Foundation::Size) -> ::windows::core::Result<bool>;
+    fn SetFocusToNextView(&mut self) -> ::windows::core::Result<()>;
+    fn SetNotesThumbnailAsync(&mut self, thumbnail: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn SystemLockStateChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSystemLockStateChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NotePlacementChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NotePlacementChangedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNotePlacementChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NoteVisibilityChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNoteVisibilityChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotesWindowManagerPreview {
@@ -232,10 +232,10 @@ impl INotesWindowManagerPreviewVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait INotesWindowManagerPreview2Impl: Sized {
-    fn ShowNoteRelativeToWithOptions(&self, noteviewid: i32, anchornoteviewid: i32, options: &::core::option::Option<NotesWindowManagerPreviewShowNoteOptions>) -> ::windows::core::Result<()>;
-    fn ShowNoteWithPlacementWithOptions(&self, noteviewid: i32, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, options: &::core::option::Option<NotesWindowManagerPreviewShowNoteOptions>) -> ::windows::core::Result<()>;
-    fn SetFocusToPreviousView(&self) -> ::windows::core::Result<()>;
-    fn SetThumbnailImageForTaskSwitcherAsync(&self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ShowNoteRelativeToWithOptions(&mut self, noteviewid: i32, anchornoteviewid: i32, options: &::core::option::Option<NotesWindowManagerPreviewShowNoteOptions>) -> ::windows::core::Result<()>;
+    fn ShowNoteWithPlacementWithOptions(&mut self, noteviewid: i32, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, options: &::core::option::Option<NotesWindowManagerPreviewShowNoteOptions>) -> ::windows::core::Result<()>;
+    fn SetFocusToPreviousView(&mut self) -> ::windows::core::Result<()>;
+    fn SetThumbnailImageForTaskSwitcherAsync(&mut self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotesWindowManagerPreview2 {
@@ -281,8 +281,8 @@ impl INotesWindowManagerPreview2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INotesWindowManagerPreviewShowNoteOptionsImpl: Sized {
-    fn ShowWithFocus(&self) -> ::windows::core::Result<bool>;
-    fn SetShowWithFocus(&self, value: bool) -> ::windows::core::Result<()>;
+    fn ShowWithFocus(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShowWithFocus(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INotesWindowManagerPreviewShowNoteOptions {
@@ -318,7 +318,7 @@ impl INotesWindowManagerPreviewShowNoteOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INotesWindowManagerPreviewStaticsImpl: Sized {
-    fn GetForCurrentApp(&self) -> ::windows::core::Result<NotesWindowManagerPreview>;
+    fn GetForCurrentApp(&mut self) -> ::windows::core::Result<NotesWindowManagerPreview>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INotesWindowManagerPreviewStatics {

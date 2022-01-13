@@ -1,7 +1,7 @@
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAdaptiveNotificationContentImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<AdaptiveNotificationContentKind>;
-    fn Hints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Kind(&mut self) -> ::windows::core::Result<AdaptiveNotificationContentKind>;
+    fn Hints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAdaptiveNotificationContent {
@@ -44,10 +44,10 @@ impl IAdaptiveNotificationContentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdaptiveNotificationTextImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdaptiveNotificationText {
@@ -100,9 +100,9 @@ impl IAdaptiveNotificationTextVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBadgeNotificationImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn Content(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn SetExpirationTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeNotification {
@@ -150,7 +150,7 @@ impl IBadgeNotificationVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IBadgeNotificationFactoryImpl: Sized {
-    fn CreateBadgeNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<BadgeNotification>;
+    fn CreateBadgeNotification(&mut self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<BadgeNotification>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeNotificationFactory {
@@ -181,10 +181,10 @@ impl IBadgeNotificationFactoryVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IBadgeUpdateManagerForUserImpl: Sized {
-    fn CreateBadgeUpdaterForApplication(&self) -> ::windows::core::Result<BadgeUpdater>;
-    fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
-    fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn CreateBadgeUpdaterForApplication(&mut self) -> ::windows::core::Result<BadgeUpdater>;
+    fn CreateBadgeUpdaterForApplicationWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
+    fn CreateBadgeUpdaterForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdateManagerForUser {
@@ -251,10 +251,10 @@ impl IBadgeUpdateManagerForUserVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IBadgeUpdateManagerStaticsImpl: Sized {
-    fn CreateBadgeUpdaterForApplication(&self) -> ::windows::core::Result<BadgeUpdater>;
-    fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
-    fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
-    fn GetTemplateContent(&self, r#type: BadgeTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn CreateBadgeUpdaterForApplication(&mut self) -> ::windows::core::Result<BadgeUpdater>;
+    fn CreateBadgeUpdaterForApplicationWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
+    fn CreateBadgeUpdaterForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater>;
+    fn GetTemplateContent(&mut self, r#type: BadgeTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdateManagerStatics {
@@ -321,7 +321,7 @@ impl IBadgeUpdateManagerStaticsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IBadgeUpdateManagerStatics2Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<BadgeUpdateManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<BadgeUpdateManagerForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdateManagerStatics2 {
@@ -352,11 +352,11 @@ impl IBadgeUpdateManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBadgeUpdaterImpl: Sized {
-    fn Update(&self, notification: &::core::option::Option<BadgeNotification>) -> ::windows::core::Result<()>;
-    fn Clear(&self) -> ::windows::core::Result<()>;
-    fn StartPeriodicUpdate(&self, badgecontent: &::core::option::Option<super::super::Foundation::Uri>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
-    fn StartPeriodicUpdateAtTime(&self, badgecontent: &::core::option::Option<super::super::Foundation::Uri>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
-    fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()>;
+    fn Update(&mut self, notification: &::core::option::Option<BadgeNotification>) -> ::windows::core::Result<()>;
+    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn StartPeriodicUpdate(&mut self, badgecontent: &::core::option::Option<super::super::Foundation::Uri>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn StartPeriodicUpdateAtTime(&mut self, badgecontent: &::core::option::Option<super::super::Foundation::Uri>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn StopPeriodicUpdate(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBadgeUpdater {
@@ -400,12 +400,12 @@ impl IBadgeUpdaterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownAdaptiveNotificationHintsStaticsImpl: Sized {
-    fn Style(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wrap(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MaxLines(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MinLines(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TextStacking(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Align(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Style(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wrap(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MaxLines(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MinLines(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TextStacking(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Align(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownAdaptiveNotificationHintsStatics {
@@ -496,25 +496,25 @@ impl IKnownAdaptiveNotificationHintsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownAdaptiveNotificationTextStylesStaticsImpl: Sized {
-    fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Base(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Subheader(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Header(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TitleNumeral(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SubheaderNumeral(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HeaderNumeral(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CaptionSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BodySubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BaseSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SubtitleSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TitleSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SubheaderSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SubheaderNumeralSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HeaderSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HeaderNumeralSubtle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Caption(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Base(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Subtitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Subheader(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Header(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TitleNumeral(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SubheaderNumeral(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HeaderNumeral(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CaptionSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BodySubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BaseSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SubtitleSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TitleSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SubheaderSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SubheaderNumeralSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HeaderSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HeaderNumeralSubtle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownAdaptiveNotificationTextStylesStatics {
@@ -761,7 +761,7 @@ impl IKnownAdaptiveNotificationTextStylesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownNotificationBindingsStaticsImpl: Sized {
-    fn ToastGeneric(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ToastGeneric(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownNotificationBindingsStatics {
@@ -792,10 +792,10 @@ impl IKnownNotificationBindingsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INotificationImpl: Sized {
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn Visual(&self) -> ::windows::core::Result<NotificationVisual>;
-    fn SetVisual(&self, value: &::core::option::Option<NotificationVisual>) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetExpirationTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn Visual(&mut self) -> ::windows::core::Result<NotificationVisual>;
+    fn SetVisual(&mut self, value: &::core::option::Option<NotificationVisual>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotification {
@@ -848,12 +848,12 @@ impl INotificationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationBindingImpl: Sized {
-    fn Template(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTemplate(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Hints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn GetTextElements(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AdaptiveNotificationText>>;
+    fn Template(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTemplate(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Hints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn GetTextElements(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AdaptiveNotificationText>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationBinding {
@@ -930,9 +930,9 @@ impl INotificationBindingVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationDataImpl: Sized {
-    fn Values(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn SequenceNumber(&self) -> ::windows::core::Result<u32>;
-    fn SetSequenceNumber(&self, value: u32) -> ::windows::core::Result<()>;
+    fn Values(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn SequenceNumber(&mut self) -> ::windows::core::Result<u32>;
+    fn SetSequenceNumber(&mut self, value: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationData {
@@ -980,8 +980,8 @@ impl INotificationDataVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationDataFactoryImpl: Sized {
-    fn CreateNotificationDataWithValuesAndSequenceNumber(&self, initialvalues: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, sequencenumber: u32) -> ::windows::core::Result<NotificationData>;
-    fn CreateNotificationDataWithValues(&self, initialvalues: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>) -> ::windows::core::Result<NotificationData>;
+    fn CreateNotificationDataWithValuesAndSequenceNumber(&mut self, initialvalues: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, sequencenumber: u32) -> ::windows::core::Result<NotificationData>;
+    fn CreateNotificationDataWithValues(&mut self, initialvalues: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>) -> ::windows::core::Result<NotificationData>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationDataFactory {
@@ -1024,10 +1024,10 @@ impl INotificationDataFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INotificationVisualImpl: Sized {
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Bindings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<NotificationBinding>>;
-    fn GetBinding(&self, templatename: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationBinding>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Bindings(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<NotificationBinding>>;
+    fn GetBinding(&mut self, templatename: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationBinding>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INotificationVisual {
@@ -1087,14 +1087,14 @@ impl INotificationVisualVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledTileNotificationImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn DeliveryTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Content(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn DeliveryTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetExpirationTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledTileNotification {
@@ -1188,7 +1188,7 @@ impl IScheduledTileNotificationVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledTileNotificationFactoryImpl: Sized {
-    fn CreateScheduledTileNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledTileNotification>;
+    fn CreateScheduledTileNotification(&mut self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledTileNotification>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledTileNotificationFactory {
@@ -1219,12 +1219,12 @@ impl IScheduledTileNotificationFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotificationImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn DeliveryTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SnoozeInterval(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn MaximumSnoozeCount(&self) -> ::windows::core::Result<u32>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Content(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn DeliveryTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SnoozeInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn MaximumSnoozeCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotification {
@@ -1308,12 +1308,12 @@ impl IScheduledToastNotificationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IScheduledToastNotification2Impl: Sized {
-    fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetGroup(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSuppressPopup(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SuppressPopup(&self) -> ::windows::core::Result<bool>;
+    fn SetTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetGroup(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Group(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSuppressPopup(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SuppressPopup(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScheduledToastNotification2 {
@@ -1383,10 +1383,10 @@ impl IScheduledToastNotification2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IScheduledToastNotification3Impl: Sized {
-    fn NotificationMirroring(&self) -> ::windows::core::Result<NotificationMirroring>;
-    fn SetNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::core::Result<()>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NotificationMirroring(&mut self) -> ::windows::core::Result<NotificationMirroring>;
+    fn SetNotificationMirroring(&mut self, value: NotificationMirroring) -> ::windows::core::Result<()>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScheduledToastNotification3 {
@@ -1439,8 +1439,8 @@ impl IScheduledToastNotification3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotification4Impl: Sized {
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetExpirationTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotification4 {
@@ -1476,8 +1476,8 @@ impl IScheduledToastNotification4Vtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotificationFactoryImpl: Sized {
-    fn CreateScheduledToastNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledToastNotification>;
-    fn CreateScheduledToastNotificationRecurring(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime, snoozeinterval: &super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows::core::Result<ScheduledToastNotification>;
+    fn CreateScheduledToastNotification(&mut self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledToastNotification>;
+    fn CreateScheduledToastNotificationRecurring(&mut self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>, deliverytime: &super::super::Foundation::DateTime, snoozeinterval: &super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows::core::Result<ScheduledToastNotification>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotificationFactory {
@@ -1525,10 +1525,10 @@ impl IScheduledToastNotificationFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScheduledToastNotificationShowingEventArgsImpl: Sized {
-    fn Cancel(&self) -> ::windows::core::Result<bool>;
-    fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ScheduledToastNotification(&self) -> ::windows::core::Result<ScheduledToastNotification>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn Cancel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCancel(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ScheduledToastNotification(&mut self) -> ::windows::core::Result<ScheduledToastNotification>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScheduledToastNotificationShowingEventArgs {
@@ -1588,7 +1588,7 @@ impl IScheduledToastNotificationShowingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IShownTileNotificationImpl: Sized {
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IShownTileNotification {
@@ -1616,9 +1616,9 @@ impl IShownTileNotificationVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITileFlyoutNotificationImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn Content(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn SetExpirationTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutNotification {
@@ -1666,7 +1666,7 @@ impl ITileFlyoutNotificationVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileFlyoutNotificationFactoryImpl: Sized {
-    fn CreateTileFlyoutNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<TileFlyoutNotification>;
+    fn CreateTileFlyoutNotification(&mut self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<TileFlyoutNotification>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutNotificationFactory {
@@ -1697,10 +1697,10 @@ impl ITileFlyoutNotificationFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileFlyoutUpdateManagerStaticsImpl: Sized {
-    fn CreateTileFlyoutUpdaterForApplication(&self) -> ::windows::core::Result<TileFlyoutUpdater>;
-    fn CreateTileFlyoutUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater>;
-    fn CreateTileFlyoutUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater>;
-    fn GetTemplateContent(&self, r#type: TileFlyoutTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn CreateTileFlyoutUpdaterForApplication(&mut self) -> ::windows::core::Result<TileFlyoutUpdater>;
+    fn CreateTileFlyoutUpdaterForApplicationWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater>;
+    fn CreateTileFlyoutUpdaterForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileFlyoutUpdater>;
+    fn GetTemplateContent(&mut self, r#type: TileFlyoutTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutUpdateManagerStatics {
@@ -1767,12 +1767,12 @@ impl ITileFlyoutUpdateManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITileFlyoutUpdaterImpl: Sized {
-    fn Update(&self, notification: &::core::option::Option<TileFlyoutNotification>) -> ::windows::core::Result<()>;
-    fn Clear(&self) -> ::windows::core::Result<()>;
-    fn StartPeriodicUpdate(&self, tileflyoutcontent: &::core::option::Option<super::super::Foundation::Uri>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
-    fn StartPeriodicUpdateAtTime(&self, tileflyoutcontent: &::core::option::Option<super::super::Foundation::Uri>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
-    fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()>;
-    fn Setting(&self) -> ::windows::core::Result<NotificationSetting>;
+    fn Update(&mut self, notification: &::core::option::Option<TileFlyoutNotification>) -> ::windows::core::Result<()>;
+    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn StartPeriodicUpdate(&mut self, tileflyoutcontent: &::core::option::Option<super::super::Foundation::Uri>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn StartPeriodicUpdateAtTime(&mut self, tileflyoutcontent: &::core::option::Option<super::super::Foundation::Uri>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn StopPeriodicUpdate(&mut self) -> ::windows::core::Result<()>;
+    fn Setting(&mut self) -> ::windows::core::Result<NotificationSetting>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileFlyoutUpdater {
@@ -1828,11 +1828,11 @@ impl ITileFlyoutUpdaterVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITileNotificationImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Content(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn SetExpirationTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileNotification {
@@ -1897,7 +1897,7 @@ impl ITileNotificationVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileNotificationFactoryImpl: Sized {
-    fn CreateTileNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<TileNotification>;
+    fn CreateTileNotification(&mut self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<TileNotification>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileNotificationFactory {
@@ -1928,10 +1928,10 @@ impl ITileNotificationFactoryVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ITileUpdateManagerForUserImpl: Sized {
-    fn CreateTileUpdaterForApplication(&self) -> ::windows::core::Result<TileUpdater>;
-    fn CreateTileUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
-    fn CreateTileUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn CreateTileUpdaterForApplication(&mut self) -> ::windows::core::Result<TileUpdater>;
+    fn CreateTileUpdaterForApplicationWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
+    fn CreateTileUpdaterForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdateManagerForUser {
@@ -1998,10 +1998,10 @@ impl ITileUpdateManagerForUserVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait ITileUpdateManagerStaticsImpl: Sized {
-    fn CreateTileUpdaterForApplication(&self) -> ::windows::core::Result<TileUpdater>;
-    fn CreateTileUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
-    fn CreateTileUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
-    fn GetTemplateContent(&self, r#type: TileTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn CreateTileUpdaterForApplication(&mut self) -> ::windows::core::Result<TileUpdater>;
+    fn CreateTileUpdaterForApplicationWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
+    fn CreateTileUpdaterForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<TileUpdater>;
+    fn GetTemplateContent(&mut self, r#type: TileTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdateManagerStatics {
@@ -2068,7 +2068,7 @@ impl ITileUpdateManagerStaticsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ITileUpdateManagerStatics2Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<TileUpdateManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<TileUpdateManagerForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdateManagerStatics2 {
@@ -2096,18 +2096,18 @@ impl ITileUpdateManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITileUpdaterImpl: Sized {
-    fn Update(&self, notification: &::core::option::Option<TileNotification>) -> ::windows::core::Result<()>;
-    fn Clear(&self) -> ::windows::core::Result<()>;
-    fn EnableNotificationQueue(&self, enable: bool) -> ::windows::core::Result<()>;
-    fn Setting(&self) -> ::windows::core::Result<NotificationSetting>;
-    fn AddToSchedule(&self, scheduledtile: &::core::option::Option<ScheduledTileNotification>) -> ::windows::core::Result<()>;
-    fn RemoveFromSchedule(&self, scheduledtile: &::core::option::Option<ScheduledTileNotification>) -> ::windows::core::Result<()>;
-    fn GetScheduledTileNotifications(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ScheduledTileNotification>>;
-    fn StartPeriodicUpdate(&self, tilecontent: &::core::option::Option<super::super::Foundation::Uri>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
-    fn StartPeriodicUpdateAtTime(&self, tilecontent: &::core::option::Option<super::super::Foundation::Uri>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
-    fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()>;
-    fn StartPeriodicUpdateBatch(&self, tilecontents: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
-    fn StartPeriodicUpdateBatchAtTime(&self, tilecontents: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn Update(&mut self, notification: &::core::option::Option<TileNotification>) -> ::windows::core::Result<()>;
+    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn EnableNotificationQueue(&mut self, enable: bool) -> ::windows::core::Result<()>;
+    fn Setting(&mut self) -> ::windows::core::Result<NotificationSetting>;
+    fn AddToSchedule(&mut self, scheduledtile: &::core::option::Option<ScheduledTileNotification>) -> ::windows::core::Result<()>;
+    fn RemoveFromSchedule(&mut self, scheduledtile: &::core::option::Option<ScheduledTileNotification>) -> ::windows::core::Result<()>;
+    fn GetScheduledTileNotifications(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ScheduledTileNotification>>;
+    fn StartPeriodicUpdate(&mut self, tilecontent: &::core::option::Option<super::super::Foundation::Uri>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn StartPeriodicUpdateAtTime(&mut self, tilecontent: &::core::option::Option<super::super::Foundation::Uri>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn StopPeriodicUpdate(&mut self) -> ::windows::core::Result<()>;
+    fn StartPeriodicUpdateBatch(&mut self, tilecontents: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
+    fn StartPeriodicUpdateBatchAtTime(&mut self, tilecontents: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, starttime: &super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileUpdater {
@@ -2202,9 +2202,9 @@ impl ITileUpdaterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITileUpdater2Impl: Sized {
-    fn EnableNotificationQueueForSquare150x150(&self, enable: bool) -> ::windows::core::Result<()>;
-    fn EnableNotificationQueueForWide310x150(&self, enable: bool) -> ::windows::core::Result<()>;
-    fn EnableNotificationQueueForSquare310x310(&self, enable: bool) -> ::windows::core::Result<()>;
+    fn EnableNotificationQueueForSquare150x150(&mut self, enable: bool) -> ::windows::core::Result<()>;
+    fn EnableNotificationQueueForWide310x150(&mut self, enable: bool) -> ::windows::core::Result<()>;
+    fn EnableNotificationQueueForSquare310x310(&mut self, enable: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITileUpdater2 {
@@ -2238,7 +2238,7 @@ impl ITileUpdater2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastActivatedEventArgsImpl: Sized {
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastActivatedEventArgs {
@@ -2266,7 +2266,7 @@ impl IToastActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastActivatedEventArgs2Impl: Sized {
-    fn UserInput(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn UserInput(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastActivatedEventArgs2 {
@@ -2294,13 +2294,13 @@ impl IToastActivatedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastCollectionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LaunchArgs(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLaunchArgs(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Icon(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetIcon(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LaunchArgs(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLaunchArgs(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Icon(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetIcon(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastCollection {
@@ -2382,7 +2382,7 @@ impl IToastCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastCollectionFactoryImpl: Sized {
-    fn CreateInstance(&self, collectionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, launchargs: &::windows::core::HSTRING, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ToastCollection>;
+    fn CreateInstance(&mut self, collectionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, launchargs: &::windows::core::HSTRING, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ToastCollection>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastCollectionFactory {
@@ -2418,13 +2418,13 @@ impl IToastCollectionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IToastCollectionManagerImpl: Sized {
-    fn SaveToastCollectionAsync(&self, collection: &::core::option::Option<ToastCollection>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn FindAllToastCollectionsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ToastCollection>>>;
-    fn GetToastCollectionAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastCollection>>;
-    fn RemoveToastCollectionAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RemoveAllToastCollectionsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
-    fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SaveToastCollectionAsync(&mut self, collection: &::core::option::Option<ToastCollection>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn FindAllToastCollectionsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ToastCollection>>>;
+    fn GetToastCollectionAsync(&mut self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastCollection>>;
+    fn RemoveToastCollectionAsync(&mut self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RemoveAllToastCollectionsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastCollectionManager {
@@ -2527,7 +2527,7 @@ impl IToastCollectionManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastDismissedEventArgsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<ToastDismissalReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<ToastDismissalReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastDismissedEventArgs {
@@ -2555,7 +2555,7 @@ impl IToastDismissedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastFailedEventArgsImpl: Sized {
-    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastFailedEventArgs {
@@ -2583,15 +2583,15 @@ impl IToastFailedEventArgsVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastNotificationImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetExpirationTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn Dismissed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDismissed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Activated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotification, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Failed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFailed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Content(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn SetExpirationTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn Dismissed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDismissed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Activated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotification, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActivated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Failed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFailed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotification {
@@ -2690,12 +2690,12 @@ impl IToastNotificationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotification2Impl: Sized {
-    fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetGroup(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSuppressPopup(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SuppressPopup(&self) -> ::windows::core::Result<bool>;
+    fn SetTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetGroup(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Group(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSuppressPopup(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SuppressPopup(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotification2 {
@@ -2765,10 +2765,10 @@ impl IToastNotification2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotification3Impl: Sized {
-    fn NotificationMirroring(&self) -> ::windows::core::Result<NotificationMirroring>;
-    fn SetNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::core::Result<()>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NotificationMirroring(&mut self) -> ::windows::core::Result<NotificationMirroring>;
+    fn SetNotificationMirroring(&mut self, value: NotificationMirroring) -> ::windows::core::Result<()>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotification3 {
@@ -2821,10 +2821,10 @@ impl IToastNotification3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotification4Impl: Sized {
-    fn Data(&self) -> ::windows::core::Result<NotificationData>;
-    fn SetData(&self, value: &::core::option::Option<NotificationData>) -> ::windows::core::Result<()>;
-    fn Priority(&self) -> ::windows::core::Result<ToastNotificationPriority>;
-    fn SetPriority(&self, value: ToastNotificationPriority) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<NotificationData>;
+    fn SetData(&mut self, value: &::core::option::Option<NotificationData>) -> ::windows::core::Result<()>;
+    fn Priority(&mut self) -> ::windows::core::Result<ToastNotificationPriority>;
+    fn SetPriority(&mut self, value: ToastNotificationPriority) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotification4 {
@@ -2877,8 +2877,8 @@ impl IToastNotification4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotification6Impl: Sized {
-    fn ExpiresOnReboot(&self) -> ::windows::core::Result<bool>;
-    fn SetExpiresOnReboot(&self, value: bool) -> ::windows::core::Result<()>;
+    fn ExpiresOnReboot(&mut self) -> ::windows::core::Result<bool>;
+    fn SetExpiresOnReboot(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotification6 {
@@ -2914,8 +2914,8 @@ impl IToastNotification6Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastNotificationActionTriggerDetailImpl: Sized {
-    fn Argument(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UserInput(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Argument(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UserInput(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationActionTriggerDetail {
@@ -2958,7 +2958,7 @@ impl IToastNotificationActionTriggerDetailVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IToastNotificationFactoryImpl: Sized {
-    fn CreateToastNotification(&self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<ToastNotification>;
+    fn CreateToastNotification(&mut self, content: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<ToastNotification>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationFactory {
@@ -2989,13 +2989,13 @@ impl IToastNotificationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotificationHistoryImpl: Sized {
-    fn RemoveGroup(&self, group: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RemoveGroupWithId(&self, group: &::windows::core::HSTRING, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RemoveGroupedTagWithId(&self, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RemoveGroupedTag(&self, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Remove(&self, tag: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Clear(&self) -> ::windows::core::Result<()>;
-    fn ClearWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RemoveGroup(&mut self, group: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RemoveGroupWithId(&mut self, group: &::windows::core::HSTRING, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RemoveGroupedTagWithId(&mut self, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RemoveGroupedTag(&mut self, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, tag: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn ClearWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotificationHistory {
@@ -3055,8 +3055,8 @@ impl IToastNotificationHistoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastNotificationHistory2Impl: Sized {
-    fn GetHistory(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>;
-    fn GetHistoryWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>;
+    fn GetHistory(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>;
+    fn GetHistoryWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationHistory2 {
@@ -3099,7 +3099,7 @@ impl IToastNotificationHistory2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotificationHistoryChangedTriggerDetailImpl: Sized {
-    fn ChangeType(&self) -> ::windows::core::Result<ToastHistoryChangedType>;
+    fn ChangeType(&mut self) -> ::windows::core::Result<ToastHistoryChangedType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotificationHistoryChangedTriggerDetail {
@@ -3130,7 +3130,7 @@ impl IToastNotificationHistoryChangedTriggerDetailVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotificationHistoryChangedTriggerDetail2Impl: Sized {
-    fn CollectionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CollectionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotificationHistoryChangedTriggerDetail2 {
@@ -3161,10 +3161,10 @@ impl IToastNotificationHistoryChangedTriggerDetail2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerForUserImpl: Sized {
-    fn CreateToastNotifier(&self) -> ::windows::core::Result<ToastNotifier>;
-    fn CreateToastNotifierWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier>;
-    fn History(&self) -> ::windows::core::Result<ToastNotificationHistory>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn CreateToastNotifier(&mut self) -> ::windows::core::Result<ToastNotifier>;
+    fn CreateToastNotifierWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier>;
+    fn History(&mut self) -> ::windows::core::Result<ToastNotificationHistory>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerForUser {
@@ -3231,10 +3231,10 @@ impl IToastNotificationManagerForUserVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerForUser2Impl: Sized {
-    fn GetToastNotifierForToastCollectionIdAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>>;
-    fn GetHistoryForToastCollectionIdAsync(&self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>;
-    fn GetToastCollectionManager(&self) -> ::windows::core::Result<ToastCollectionManager>;
-    fn GetToastCollectionManagerWithAppId(&self, appid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastCollectionManager>;
+    fn GetToastNotifierForToastCollectionIdAsync(&mut self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>>;
+    fn GetHistoryForToastCollectionIdAsync(&mut self, collectionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>;
+    fn GetToastCollectionManager(&mut self) -> ::windows::core::Result<ToastCollectionManager>;
+    fn GetToastCollectionManagerWithAppId(&mut self, appid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastCollectionManager>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerForUser2 {
@@ -3301,9 +3301,9 @@ impl IToastNotificationManagerForUser2Vtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerStaticsImpl: Sized {
-    fn CreateToastNotifier(&self) -> ::windows::core::Result<ToastNotifier>;
-    fn CreateToastNotifierWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier>;
-    fn GetTemplateContent(&self, r#type: ToastTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn CreateToastNotifier(&mut self) -> ::windows::core::Result<ToastNotifier>;
+    fn CreateToastNotifierWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotifier>;
+    fn GetTemplateContent(&mut self, r#type: ToastTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics {
@@ -3358,7 +3358,7 @@ impl IToastNotificationManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotificationManagerStatics2Impl: Sized {
-    fn History(&self) -> ::windows::core::Result<ToastNotificationHistory>;
+    fn History(&mut self) -> ::windows::core::Result<ToastNotificationHistory>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics2 {
@@ -3389,8 +3389,8 @@ impl IToastNotificationManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IToastNotificationManagerStatics4Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ToastNotificationManagerForUser>;
-    fn ConfigureNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::core::Result<()>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ToastNotificationManagerForUser>;
+    fn ConfigureNotificationMirroring(&mut self, value: NotificationMirroring) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics4 {
@@ -3426,7 +3426,7 @@ impl IToastNotificationManagerStatics4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotificationManagerStatics5Impl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<ToastNotificationManagerForUser>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<ToastNotificationManagerForUser>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics5 {
@@ -3457,12 +3457,12 @@ impl IToastNotificationManagerStatics5Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IToastNotifierImpl: Sized {
-    fn Show(&self, notification: &::core::option::Option<ToastNotification>) -> ::windows::core::Result<()>;
-    fn Hide(&self, notification: &::core::option::Option<ToastNotification>) -> ::windows::core::Result<()>;
-    fn Setting(&self) -> ::windows::core::Result<NotificationSetting>;
-    fn AddToSchedule(&self, scheduledtoast: &::core::option::Option<ScheduledToastNotification>) -> ::windows::core::Result<()>;
-    fn RemoveFromSchedule(&self, scheduledtoast: &::core::option::Option<ScheduledToastNotification>) -> ::windows::core::Result<()>;
-    fn GetScheduledToastNotifications(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>>;
+    fn Show(&mut self, notification: &::core::option::Option<ToastNotification>) -> ::windows::core::Result<()>;
+    fn Hide(&mut self, notification: &::core::option::Option<ToastNotification>) -> ::windows::core::Result<()>;
+    fn Setting(&mut self) -> ::windows::core::Result<NotificationSetting>;
+    fn AddToSchedule(&mut self, scheduledtoast: &::core::option::Option<ScheduledToastNotification>) -> ::windows::core::Result<()>;
+    fn RemoveFromSchedule(&mut self, scheduledtoast: &::core::option::Option<ScheduledToastNotification>) -> ::windows::core::Result<()>;
+    fn GetScheduledToastNotifications(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotifier {
@@ -3525,8 +3525,8 @@ impl IToastNotifierVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotifier2Impl: Sized {
-    fn UpdateWithTagAndGroup(&self, data: &::core::option::Option<NotificationData>, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>;
-    fn UpdateWithTag(&self, data: &::core::option::Option<NotificationData>, tag: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>;
+    fn UpdateWithTagAndGroup(&mut self, data: &::core::option::Option<NotificationData>, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>;
+    fn UpdateWithTag(&mut self, data: &::core::option::Option<NotificationData>, tag: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotifier2 {
@@ -3569,8 +3569,8 @@ impl IToastNotifier2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToastNotifier3Impl: Sized {
-    fn ScheduledToastNotificationShowing(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveScheduledToastNotificationShowing(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ScheduledToastNotificationShowing(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveScheduledToastNotificationShowing(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToastNotifier3 {
@@ -3606,10 +3606,10 @@ impl IToastNotifier3Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserNotificationImpl: Sized {
-    fn Notification(&self) -> ::windows::core::Result<Notification>;
-    fn AppInfo(&self) -> ::windows::core::Result<super::super::ApplicationModel::AppInfo>;
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn CreationTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Notification(&mut self) -> ::windows::core::Result<Notification>;
+    fn AppInfo(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::AppInfo>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn CreationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserNotification {
@@ -3676,8 +3676,8 @@ impl IUserNotificationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserNotificationChangedEventArgsImpl: Sized {
-    fn ChangeKind(&self) -> ::windows::core::Result<UserNotificationChangedKind>;
-    fn UserNotificationId(&self) -> ::windows::core::Result<u32>;
+    fn ChangeKind(&mut self) -> ::windows::core::Result<UserNotificationChangedKind>;
+    fn UserNotificationId(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserNotificationChangedEventArgs {

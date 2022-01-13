@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ICallAnswerEventArgsImpl: Sized {
-    fn AcceptedMedia(&self) -> ::windows::core::Result<VoipPhoneCallMedia>;
+    fn AcceptedMedia(&mut self) -> ::windows::core::Result<VoipPhoneCallMedia>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICallAnswerEventArgs {
@@ -28,7 +28,7 @@ impl ICallAnswerEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICallRejectEventArgsImpl: Sized {
-    fn RejectReason(&self) -> ::windows::core::Result<VoipPhoneCallRejectReason>;
+    fn RejectReason(&mut self) -> ::windows::core::Result<VoipPhoneCallRejectReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICallRejectEventArgs {
@@ -56,7 +56,7 @@ impl ICallRejectEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICallStateChangeEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<VoipPhoneCallState>;
+    fn State(&mut self) -> ::windows::core::Result<VoipPhoneCallState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICallStateChangeEventArgs {
@@ -84,7 +84,7 @@ impl ICallStateChangeEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILockScreenCallEndCallDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILockScreenCallEndCallDeferral {
@@ -105,8 +105,8 @@ impl ILockScreenCallEndCallDeferralVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockScreenCallEndRequestedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<LockScreenCallEndCallDeferral>;
-    fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<LockScreenCallEndCallDeferral>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenCallEndRequestedEventArgs {
@@ -149,13 +149,13 @@ impl ILockScreenCallEndRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockScreenCallUIImpl: Sized {
-    fn Dismiss(&self) -> ::windows::core::Result<()>;
-    fn EndRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEndRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenCallUI, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CallTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCallTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Dismiss(&mut self) -> ::windows::core::Result<()>;
+    fn EndRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEndRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenCallUI, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CallTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCallTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenCallUI {
@@ -230,7 +230,7 @@ impl ILockScreenCallUIVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMuteChangeEventArgsImpl: Sized {
-    fn Muted(&self) -> ::windows::core::Result<bool>;
+    fn Muted(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMuteChangeEventArgs {
@@ -258,36 +258,36 @@ impl IMuteChangeEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallImpl: Sized {
-    fn StatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AudioDeviceChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioDeviceChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn IsMutedChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIsMutedChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CallId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsMuted(&self) -> ::windows::core::Result<bool>;
-    fn Status(&self) -> ::windows::core::Result<PhoneCallStatus>;
-    fn AudioDevice(&self) -> ::windows::core::Result<PhoneCallAudioDevice>;
-    fn GetPhoneCallInfo(&self) -> ::windows::core::Result<PhoneCallInfo>;
-    fn GetPhoneCallInfoAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallInfo>>;
-    fn End(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn EndAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn SendDtmfKey(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn SendDtmfKeyAsync(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn AcceptIncoming(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn AcceptIncomingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn Hold(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn HoldAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn ResumeFromHold(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn ResumeFromHoldAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn Mute(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn MuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn Unmute(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn UnmuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn RejectIncoming(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn RejectIncomingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
-    fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn StatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AudioDeviceChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioDeviceChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsMutedChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIsMutedChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CallId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsMuted(&mut self) -> ::windows::core::Result<bool>;
+    fn Status(&mut self) -> ::windows::core::Result<PhoneCallStatus>;
+    fn AudioDevice(&mut self) -> ::windows::core::Result<PhoneCallAudioDevice>;
+    fn GetPhoneCallInfo(&mut self) -> ::windows::core::Result<PhoneCallInfo>;
+    fn GetPhoneCallInfoAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallInfo>>;
+    fn End(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn EndAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn SendDtmfKey(&mut self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn SendDtmfKeyAsync(&mut self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn AcceptIncoming(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn AcceptIncomingAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn Hold(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn HoldAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn ResumeFromHold(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn ResumeFromHoldAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn Mute(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn MuteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn Unmute(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn UnmuteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn RejectIncoming(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn RejectIncomingAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
+    fn ChangeAudioDevice(&mut self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn ChangeAudioDeviceAsync(&mut self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCall {
@@ -645,11 +645,11 @@ impl IPhoneCallVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallBlockingStaticsImpl: Sized {
-    fn BlockUnknownNumbers(&self) -> ::windows::core::Result<bool>;
-    fn SetBlockUnknownNumbers(&self, value: bool) -> ::windows::core::Result<()>;
-    fn BlockPrivateNumbers(&self) -> ::windows::core::Result<bool>;
-    fn SetBlockPrivateNumbers(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCallBlockingListAsync(&self, phonenumberlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn BlockUnknownNumbers(&mut self) -> ::windows::core::Result<bool>;
+    fn SetBlockUnknownNumbers(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn BlockPrivateNumbers(&mut self) -> ::windows::core::Result<bool>;
+    fn SetBlockPrivateNumbers(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCallBlockingListAsync(&mut self, phonenumberlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallBlockingStatics {
@@ -714,40 +714,40 @@ impl IPhoneCallBlockingStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryEntryImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Address(&self) -> ::windows::core::Result<PhoneCallHistoryEntryAddress>;
-    fn SetAddress(&self, value: &::core::option::Option<PhoneCallHistoryEntryAddress>) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetDuration(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn IsCallerIdBlocked(&self) -> ::windows::core::Result<bool>;
-    fn SetIsCallerIdBlocked(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsEmergency(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEmergency(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsIncoming(&self) -> ::windows::core::Result<bool>;
-    fn SetIsIncoming(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsMissed(&self) -> ::windows::core::Result<bool>;
-    fn SetIsMissed(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsRinging(&self) -> ::windows::core::Result<bool>;
-    fn SetIsRinging(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsSeen(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSeen(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsSuppressed(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSuppressed(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsVoicemail(&self) -> ::windows::core::Result<bool>;
-    fn SetIsVoicemail(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Media(&self) -> ::windows::core::Result<PhoneCallHistoryEntryMedia>;
-    fn SetMedia(&self, value: PhoneCallHistoryEntryMedia) -> ::windows::core::Result<()>;
-    fn OtherAppReadAccess(&self) -> ::windows::core::Result<PhoneCallHistoryEntryOtherAppReadAccess>;
-    fn SetOtherAppReadAccess(&self, value: PhoneCallHistoryEntryOtherAppReadAccess) -> ::windows::core::Result<()>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SourceDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SourceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSourceId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SourceIdKind(&self) -> ::windows::core::Result<PhoneCallHistorySourceIdKind>;
-    fn SetSourceIdKind(&self, value: PhoneCallHistorySourceIdKind) -> ::windows::core::Result<()>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetStartTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Address(&mut self) -> ::windows::core::Result<PhoneCallHistoryEntryAddress>;
+    fn SetAddress(&mut self, value: &::core::option::Option<PhoneCallHistoryEntryAddress>) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetDuration(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn IsCallerIdBlocked(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsCallerIdBlocked(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsEmergency(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEmergency(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsIncoming(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsIncoming(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsMissed(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsMissed(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsRinging(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsRinging(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsSeen(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSeen(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsSuppressed(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSuppressed(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsVoicemail(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsVoicemail(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Media(&mut self) -> ::windows::core::Result<PhoneCallHistoryEntryMedia>;
+    fn SetMedia(&mut self, value: PhoneCallHistoryEntryMedia) -> ::windows::core::Result<()>;
+    fn OtherAppReadAccess(&mut self) -> ::windows::core::Result<PhoneCallHistoryEntryOtherAppReadAccess>;
+    fn SetOtherAppReadAccess(&mut self, value: PhoneCallHistoryEntryOtherAppReadAccess) -> ::windows::core::Result<()>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SourceDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SourceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSourceId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SourceIdKind(&mut self) -> ::windows::core::Result<PhoneCallHistorySourceIdKind>;
+    fn SetSourceIdKind(&mut self, value: PhoneCallHistorySourceIdKind) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetStartTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntry {
@@ -1062,14 +1062,14 @@ impl IPhoneCallHistoryEntryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneCallHistoryEntryAddressImpl: Sized {
-    fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContactId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RawAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRawAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RawAddressKind(&self) -> ::windows::core::Result<PhoneCallHistoryEntryRawAddressKind>;
-    fn SetRawAddressKind(&self, value: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<()>;
+    fn ContactId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContactId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RawAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRawAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RawAddressKind(&mut self) -> ::windows::core::Result<PhoneCallHistoryEntryRawAddressKind>;
+    fn SetRawAddressKind(&mut self, value: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryAddress {
@@ -1156,7 +1156,7 @@ impl IPhoneCallHistoryEntryAddressVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneCallHistoryEntryAddressFactoryImpl: Sized {
-    fn Create(&self, rawaddress: &::windows::core::HSTRING, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<PhoneCallHistoryEntryAddress>;
+    fn Create(&mut self, rawaddress: &::windows::core::HSTRING, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<PhoneCallHistoryEntryAddress>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryAddressFactory {
@@ -1187,9 +1187,9 @@ impl IPhoneCallHistoryEntryAddressFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryEntryQueryOptionsImpl: Sized {
-    fn DesiredMedia(&self) -> ::windows::core::Result<PhoneCallHistoryEntryQueryDesiredMedia>;
-    fn SetDesiredMedia(&self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::Result<()>;
-    fn SourceIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn DesiredMedia(&mut self) -> ::windows::core::Result<PhoneCallHistoryEntryQueryDesiredMedia>;
+    fn SetDesiredMedia(&mut self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::Result<()>;
+    fn SourceIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryQueryOptions {
@@ -1237,7 +1237,7 @@ impl IPhoneCallHistoryEntryQueryOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryEntryReaderImpl: Sized {
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryEntryReader {
@@ -1268,8 +1268,8 @@ impl IPhoneCallHistoryEntryReaderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryManagerForUserImpl: Sized {
-    fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn RequestStoreAsync(&mut self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryManagerForUser {
@@ -1312,7 +1312,7 @@ impl IPhoneCallHistoryManagerForUserVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryManagerStaticsImpl: Sized {
-    fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>;
+    fn RequestStoreAsync(&mut self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryManagerStatics {
@@ -1343,7 +1343,7 @@ impl IPhoneCallHistoryManagerStaticsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryManagerStatics2Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PhoneCallHistoryManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PhoneCallHistoryManagerForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryManagerStatics2 {
@@ -1374,18 +1374,18 @@ impl IPhoneCallHistoryManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallHistoryStoreImpl: Sized {
-    fn GetEntryAsync(&self, callhistoryentryid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>>;
-    fn GetEntryReader(&self) -> ::windows::core::Result<PhoneCallHistoryEntryReader>;
-    fn GetEntryReaderWithOptions(&self, queryoptions: &::core::option::Option<PhoneCallHistoryEntryQueryOptions>) -> ::windows::core::Result<PhoneCallHistoryEntryReader>;
-    fn SaveEntryAsync(&self, callhistoryentry: &::core::option::Option<PhoneCallHistoryEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteEntryAsync(&self, callhistoryentry: &::core::option::Option<PhoneCallHistoryEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteEntriesAsync(&self, callhistoryentries: &::core::option::Option<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MarkEntryAsSeenAsync(&self, callhistoryentry: &::core::option::Option<PhoneCallHistoryEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MarkEntriesAsSeenAsync(&self, callhistoryentries: &::core::option::Option<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetUnseenCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn MarkAllAsSeenAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetSourcesUnseenCountAsync(&self, sourceids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn MarkSourcesAsSeenAsync(&self, sourceids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetEntryAsync(&mut self, callhistoryentryid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>>;
+    fn GetEntryReader(&mut self) -> ::windows::core::Result<PhoneCallHistoryEntryReader>;
+    fn GetEntryReaderWithOptions(&mut self, queryoptions: &::core::option::Option<PhoneCallHistoryEntryQueryOptions>) -> ::windows::core::Result<PhoneCallHistoryEntryReader>;
+    fn SaveEntryAsync(&mut self, callhistoryentry: &::core::option::Option<PhoneCallHistoryEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteEntryAsync(&mut self, callhistoryentry: &::core::option::Option<PhoneCallHistoryEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteEntriesAsync(&mut self, callhistoryentries: &::core::option::Option<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MarkEntryAsSeenAsync(&mut self, callhistoryentry: &::core::option::Option<PhoneCallHistoryEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MarkEntriesAsSeenAsync(&mut self, callhistoryentries: &::core::option::Option<super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetUnseenCountAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn MarkAllAsSeenAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetSourcesUnseenCountAsync(&mut self, sourceids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn MarkSourcesAsSeenAsync(&mut self, sourceids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallHistoryStore {
@@ -1548,12 +1548,12 @@ impl IPhoneCallHistoryStoreVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallInfoImpl: Sized {
-    fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsHoldSupported(&self) -> ::windows::core::Result<bool>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CallDirection(&self) -> ::windows::core::Result<PhoneCallDirection>;
+    fn LineId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IsHoldSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn PhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CallDirection(&mut self) -> ::windows::core::Result<PhoneCallDirection>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallInfo {
@@ -1644,7 +1644,7 @@ impl IPhoneCallInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneCallManagerStaticsImpl: Sized {
-    fn ShowPhoneCallUI(&self, phonenumber: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ShowPhoneCallUI(&mut self, phonenumber: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneCallManagerStatics {
@@ -1668,12 +1668,12 @@ impl IPhoneCallManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallManagerStatics2Impl: Sized {
-    fn CallStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCallStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn IsCallActive(&self) -> ::windows::core::Result<bool>;
-    fn IsCallIncoming(&self) -> ::windows::core::Result<bool>;
-    fn ShowPhoneCallSettingsUI(&self) -> ::windows::core::Result<()>;
-    fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallStore>>;
+    fn CallStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCallStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsCallActive(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCallIncoming(&mut self) -> ::windows::core::Result<bool>;
+    fn ShowPhoneCallSettingsUI(&mut self) -> ::windows::core::Result<()>;
+    fn RequestStoreAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallStore>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallManagerStatics2 {
@@ -1750,7 +1750,7 @@ impl IPhoneCallManagerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneCallStaticsImpl: Sized {
-    fn GetFromId(&self, callid: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneCall>;
+    fn GetFromId(&mut self, callid: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneCall>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneCallStatics {
@@ -1778,9 +1778,9 @@ impl IPhoneCallStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallStoreImpl: Sized {
-    fn IsEmergencyPhoneNumberAsync(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn GetDefaultLineAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>;
-    fn RequestLineWatcher(&self) -> ::windows::core::Result<PhoneLineWatcher>;
+    fn IsEmergencyPhoneNumberAsync(&mut self, number: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetDefaultLineAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>;
+    fn RequestLineWatcher(&mut self) -> ::windows::core::Result<PhoneLineWatcher>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallStore {
@@ -1835,7 +1835,7 @@ impl IPhoneCallStoreVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneCallVideoCapabilitiesImpl: Sized {
-    fn IsVideoCallingCapable(&self) -> ::windows::core::Result<bool>;
+    fn IsVideoCallingCapable(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneCallVideoCapabilities {
@@ -1866,7 +1866,7 @@ impl IPhoneCallVideoCapabilitiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneCallVideoCapabilitiesManagerStaticsImpl: Sized {
-    fn GetCapabilitiesAsync(&self, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>>;
+    fn GetCapabilitiesAsync(&mut self, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallVideoCapabilitiesManagerStatics {
@@ -1897,8 +1897,8 @@ impl IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneCallsResultImpl: Sized {
-    fn OperationStatus(&self) -> ::windows::core::Result<PhoneLineOperationStatus>;
-    fn AllActivePhoneCalls(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>>;
+    fn OperationStatus(&mut self) -> ::windows::core::Result<PhoneLineOperationStatus>;
+    fn AllActivePhoneCalls(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneCallsResult {
@@ -1941,18 +1941,18 @@ impl IPhoneCallsResultVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Contacts", feature = "implement_exclusive"))]
 pub trait IPhoneDialOptionsImpl: Sized {
-    fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact>;
-    fn SetContact(&self, value: &::core::option::Option<super::Contacts::Contact>) -> ::windows::core::Result<()>;
-    fn ContactPhone(&self) -> ::windows::core::Result<super::Contacts::ContactPhone>;
-    fn SetContactPhone(&self, value: &::core::option::Option<super::Contacts::ContactPhone>) -> ::windows::core::Result<()>;
-    fn Media(&self) -> ::windows::core::Result<PhoneCallMedia>;
-    fn SetMedia(&self, value: PhoneCallMedia) -> ::windows::core::Result<()>;
-    fn AudioEndpoint(&self) -> ::windows::core::Result<PhoneAudioRoutingEndpoint>;
-    fn SetAudioEndpoint(&self, value: PhoneAudioRoutingEndpoint) -> ::windows::core::Result<()>;
+    fn Number(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNumber(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contacts::Contact>;
+    fn SetContact(&mut self, value: &::core::option::Option<super::Contacts::Contact>) -> ::windows::core::Result<()>;
+    fn ContactPhone(&mut self) -> ::windows::core::Result<super::Contacts::ContactPhone>;
+    fn SetContactPhone(&mut self, value: &::core::option::Option<super::Contacts::ContactPhone>) -> ::windows::core::Result<()>;
+    fn Media(&mut self) -> ::windows::core::Result<PhoneCallMedia>;
+    fn SetMedia(&mut self, value: PhoneCallMedia) -> ::windows::core::Result<()>;
+    fn AudioEndpoint(&mut self) -> ::windows::core::Result<PhoneAudioRoutingEndpoint>;
+    fn SetAudioEndpoint(&mut self, value: PhoneAudioRoutingEndpoint) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel_Contacts", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneDialOptions {
@@ -2073,23 +2073,23 @@ impl IPhoneDialOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait IPhoneLineImpl: Sized {
-    fn LineChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLineChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DisplayColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn NetworkState(&self) -> ::windows::core::Result<PhoneNetworkState>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Voicemail(&self) -> ::windows::core::Result<PhoneVoicemail>;
-    fn NetworkName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CellularDetails(&self) -> ::windows::core::Result<PhoneLineCellularDetails>;
-    fn Transport(&self) -> ::windows::core::Result<PhoneLineTransport>;
-    fn CanDial(&self) -> ::windows::core::Result<bool>;
-    fn SupportsTile(&self) -> ::windows::core::Result<bool>;
-    fn VideoCallingCapabilities(&self) -> ::windows::core::Result<PhoneCallVideoCapabilities>;
-    fn LineConfiguration(&self) -> ::windows::core::Result<PhoneLineConfiguration>;
-    fn IsImmediateDialNumberAsync(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn Dial(&self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DialWithOptions(&self, options: &::core::option::Option<PhoneDialOptions>) -> ::windows::core::Result<()>;
+    fn LineChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLineChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DisplayColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn NetworkState(&mut self) -> ::windows::core::Result<PhoneNetworkState>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Voicemail(&mut self) -> ::windows::core::Result<PhoneVoicemail>;
+    fn NetworkName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CellularDetails(&mut self) -> ::windows::core::Result<PhoneLineCellularDetails>;
+    fn Transport(&mut self) -> ::windows::core::Result<PhoneLineTransport>;
+    fn CanDial(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportsTile(&mut self) -> ::windows::core::Result<bool>;
+    fn VideoCallingCapabilities(&mut self) -> ::windows::core::Result<PhoneCallVideoCapabilities>;
+    fn LineConfiguration(&mut self) -> ::windows::core::Result<PhoneLineConfiguration>;
+    fn IsImmediateDialNumberAsync(&mut self, number: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn Dial(&mut self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DialWithOptions(&mut self, options: &::core::option::Option<PhoneDialOptions>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLine {
@@ -2291,8 +2291,8 @@ impl IPhoneLineVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneLine2Impl: Sized {
-    fn EnableTextReply(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TransportDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EnableTextReply(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TransportDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneLine2 {
@@ -2328,10 +2328,10 @@ impl IPhoneLine2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLine3Impl: Sized {
-    fn DialWithResult(&self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneLineDialResult>;
-    fn DialWithResultAsync(&self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>>;
-    fn GetAllActivePhoneCalls(&self) -> ::windows::core::Result<PhoneCallsResult>;
-    fn GetAllActivePhoneCallsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallsResult>>;
+    fn DialWithResult(&mut self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneLineDialResult>;
+    fn DialWithResultAsync(&mut self, number: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>>;
+    fn GetAllActivePhoneCalls(&mut self) -> ::windows::core::Result<PhoneCallsResult>;
+    fn GetAllActivePhoneCallsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallsResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLine3 {
@@ -2398,11 +2398,11 @@ impl IPhoneLine3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneLineCellularDetailsImpl: Sized {
-    fn SimState(&self) -> ::windows::core::Result<PhoneSimState>;
-    fn SimSlotIndex(&self) -> ::windows::core::Result<i32>;
-    fn IsModemOn(&self) -> ::windows::core::Result<bool>;
-    fn RegistrationRejectCode(&self) -> ::windows::core::Result<i32>;
-    fn GetNetworkOperatorDisplayText(&self, location: PhoneLineNetworkOperatorDisplayTextLocation) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SimState(&mut self) -> ::windows::core::Result<PhoneSimState>;
+    fn SimSlotIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn IsModemOn(&mut self) -> ::windows::core::Result<bool>;
+    fn RegistrationRejectCode(&mut self) -> ::windows::core::Result<i32>;
+    fn GetNetworkOperatorDisplayText(&mut self, location: PhoneLineNetworkOperatorDisplayTextLocation) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneLineCellularDetails {
@@ -2481,8 +2481,8 @@ impl IPhoneLineCellularDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPhoneLineConfigurationImpl: Sized {
-    fn IsVideoCallingEnabled(&self) -> ::windows::core::Result<bool>;
-    fn ExtendedProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn IsVideoCallingEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn ExtendedProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineConfiguration {
@@ -2525,8 +2525,8 @@ impl IPhoneLineConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneLineDialResultImpl: Sized {
-    fn DialCallStatus(&self) -> ::windows::core::Result<PhoneCallOperationStatus>;
-    fn DialedCall(&self) -> ::windows::core::Result<PhoneCall>;
+    fn DialCallStatus(&mut self) -> ::windows::core::Result<PhoneCallOperationStatus>;
+    fn DialedCall(&mut self) -> ::windows::core::Result<PhoneCall>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneLineDialResult {
@@ -2569,7 +2569,7 @@ impl IPhoneLineDialResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLineStaticsImpl: Sized {
-    fn FromIdAsync(&self, lineid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLine>>;
+    fn FromIdAsync(&mut self, lineid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLine>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineStatics {
@@ -2597,16 +2597,16 @@ impl IPhoneLineStaticsVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPhoneLineTransportDeviceImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Transport(&self) -> ::windows::core::Result<PhoneLineTransport>;
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>>;
-    fn RegisterApp(&self) -> ::windows::core::Result<()>;
-    fn RegisterAppForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<()>;
-    fn UnregisterApp(&self) -> ::windows::core::Result<()>;
-    fn UnregisterAppForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<()>;
-    fn IsRegistered(&self) -> ::windows::core::Result<bool>;
-    fn Connect(&self) -> ::windows::core::Result<bool>;
-    fn ConnectAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Transport(&mut self) -> ::windows::core::Result<PhoneLineTransport>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>>;
+    fn RegisterApp(&mut self) -> ::windows::core::Result<()>;
+    fn RegisterAppForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<()>;
+    fn UnregisterApp(&mut self) -> ::windows::core::Result<()>;
+    fn UnregisterAppForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<()>;
+    fn IsRegistered(&mut self) -> ::windows::core::Result<bool>;
+    fn Connect(&mut self) -> ::windows::core::Result<bool>;
+    fn ConnectAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineTransportDevice {
@@ -2717,12 +2717,12 @@ impl IPhoneLineTransportDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLineTransportDevice2Impl: Sized {
-    fn AudioRoutingStatus(&self) -> ::windows::core::Result<TransportDeviceAudioRoutingStatus>;
-    fn AudioRoutingStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioRoutingStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn InBandRingingEnabled(&self) -> ::windows::core::Result<bool>;
-    fn InBandRingingEnabledChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInBandRingingEnabledChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AudioRoutingStatus(&mut self) -> ::windows::core::Result<TransportDeviceAudioRoutingStatus>;
+    fn AudioRoutingStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioRoutingStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn InBandRingingEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn InBandRingingEnabledChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInBandRingingEnabledChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineTransportDevice2 {
@@ -2799,9 +2799,9 @@ impl IPhoneLineTransportDevice2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneLineTransportDeviceStaticsImpl: Sized {
-    fn FromId(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneLineTransportDevice>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorForPhoneLineTransport(&self, transport: PhoneLineTransport) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromId(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneLineTransportDevice>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForPhoneLineTransport(&mut self, transport: PhoneLineTransport) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneLineTransportDeviceStatics {
@@ -2856,19 +2856,19 @@ impl IPhoneLineTransportDeviceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneLineWatcherImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn LineAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLineAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LineRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLineRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LineUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLineUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<PhoneLineWatcherStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn LineAdded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLineAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LineRemoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLineRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LineUpdated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLineUpdated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<PhoneLineWatcherStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneLineWatcher {
@@ -2994,7 +2994,7 @@ impl IPhoneLineWatcherVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPhoneLineWatcherEventArgsImpl: Sized {
-    fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LineId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPhoneLineWatcherEventArgs {
@@ -3022,10 +3022,10 @@ impl IPhoneLineWatcherEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhoneVoicemailImpl: Sized {
-    fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MessageCount(&self) -> ::windows::core::Result<i32>;
-    fn Type(&self) -> ::windows::core::Result<PhoneVoicemailType>;
-    fn DialVoicemailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Number(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MessageCount(&mut self) -> ::windows::core::Result<i32>;
+    fn Type(&mut self) -> ::windows::core::Result<PhoneVoicemailType>;
+    fn DialVoicemailAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneVoicemail {
@@ -3092,17 +3092,17 @@ impl IPhoneVoicemailVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinatorImpl: Sized {
-    fn ReserveCallResourcesAsync(&self, taskentrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>>;
-    fn MuteStateChanged(&self, mutechangehandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMuteStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RequestNewIncomingCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &::core::option::Option<super::super::Foundation::Uri>, servicename: &::windows::core::HSTRING, brandingimage: &::core::option::Option<super::super::Foundation::Uri>, calldetails: &::windows::core::HSTRING, ringtone: &::core::option::Option<super::super::Foundation::Uri>, media: VoipPhoneCallMedia, ringtimeout: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>;
-    fn RequestNewOutgoingCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
-    fn NotifyMuted(&self) -> ::windows::core::Result<()>;
-    fn NotifyUnmuted(&self) -> ::windows::core::Result<()>;
-    fn RequestOutgoingUpgradeToVideoCall(&self, callupgradeguid: &::windows::core::GUID, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING) -> ::windows::core::Result<VoipPhoneCall>;
-    fn RequestIncomingUpgradeToVideoCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &::core::option::Option<super::super::Foundation::Uri>, servicename: &::windows::core::HSTRING, brandingimage: &::core::option::Option<super::super::Foundation::Uri>, calldetails: &::windows::core::HSTRING, ringtone: &::core::option::Option<super::super::Foundation::Uri>, ringtimeout: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>;
-    fn TerminateCellularCall(&self, callupgradeguid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn CancelUpgrade(&self, callupgradeguid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ReserveCallResourcesAsync(&mut self, taskentrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>>;
+    fn MuteStateChanged(&mut self, mutechangehandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMuteStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RequestNewIncomingCall(&mut self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &::core::option::Option<super::super::Foundation::Uri>, servicename: &::windows::core::HSTRING, brandingimage: &::core::option::Option<super::super::Foundation::Uri>, calldetails: &::windows::core::HSTRING, ringtone: &::core::option::Option<super::super::Foundation::Uri>, media: VoipPhoneCallMedia, ringtimeout: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>;
+    fn RequestNewOutgoingCall(&mut self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
+    fn NotifyMuted(&mut self) -> ::windows::core::Result<()>;
+    fn NotifyUnmuted(&mut self) -> ::windows::core::Result<()>;
+    fn RequestOutgoingUpgradeToVideoCall(&mut self, callupgradeguid: &::windows::core::GUID, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING) -> ::windows::core::Result<VoipPhoneCall>;
+    fn RequestIncomingUpgradeToVideoCall(&mut self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &::core::option::Option<super::super::Foundation::Uri>, servicename: &::windows::core::HSTRING, brandingimage: &::core::option::Option<super::super::Foundation::Uri>, calldetails: &::windows::core::HSTRING, ringtone: &::core::option::Option<super::super::Foundation::Uri>, ringtimeout: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>;
+    fn TerminateCellularCall(&mut self, callupgradeguid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn CancelUpgrade(&mut self, callupgradeguid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator {
@@ -3249,7 +3249,7 @@ impl IVoipCallCoordinatorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinator2Impl: Sized + IVoipCallCoordinatorImpl {
-    fn SetupNewAcceptedCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
+    fn SetupNewAcceptedCall(&mut self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator2 {
@@ -3286,8 +3286,8 @@ impl IVoipCallCoordinator2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinator3Impl: Sized + IVoipCallCoordinatorImpl {
-    fn RequestNewAppInitiatedCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
-    fn RequestNewIncomingCallWithContactRemoteId(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &::core::option::Option<super::super::Foundation::Uri>, servicename: &::windows::core::HSTRING, brandingimage: &::core::option::Option<super::super::Foundation::Uri>, calldetails: &::windows::core::HSTRING, ringtone: &::core::option::Option<super::super::Foundation::Uri>, media: VoipPhoneCallMedia, ringtimeout: &super::super::Foundation::TimeSpan, contactremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<VoipPhoneCall>;
+    fn RequestNewAppInitiatedCall(&mut self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>;
+    fn RequestNewIncomingCallWithContactRemoteId(&mut self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &::core::option::Option<super::super::Foundation::Uri>, servicename: &::windows::core::HSTRING, brandingimage: &::core::option::Option<super::super::Foundation::Uri>, calldetails: &::windows::core::HSTRING, ringtone: &::core::option::Option<super::super::Foundation::Uri>, media: VoipPhoneCallMedia, ringtimeout: &super::super::Foundation::TimeSpan, contactremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<VoipPhoneCall>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator3 {
@@ -3362,7 +3362,7 @@ impl IVoipCallCoordinator3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipCallCoordinator4Impl: Sized + IVoipCallCoordinatorImpl {
-    fn ReserveOneProcessCallResourcesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>>;
+    fn ReserveOneProcessCallResourcesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipCallCoordinator4 {
@@ -3393,7 +3393,7 @@ impl IVoipCallCoordinator4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVoipCallCoordinatorStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<VoipCallCoordinator>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<VoipCallCoordinator>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVoipCallCoordinatorStatics {
@@ -3424,26 +3424,26 @@ impl IVoipCallCoordinatorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipPhoneCallImpl: Sized {
-    fn EndRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEndRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HoldRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHoldRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ResumeRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveResumeRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AnswerRequested(&self, accepthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAnswerRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RejectRequested(&self, rejecthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRejectRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NotifyCallHeld(&self) -> ::windows::core::Result<()>;
-    fn NotifyCallActive(&self) -> ::windows::core::Result<()>;
-    fn NotifyCallEnded(&self) -> ::windows::core::Result<()>;
-    fn ContactName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContactName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetStartTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn CallMedia(&self) -> ::windows::core::Result<VoipPhoneCallMedia>;
-    fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> ::windows::core::Result<()>;
-    fn NotifyCallReady(&self) -> ::windows::core::Result<()>;
+    fn EndRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEndRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HoldRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHoldRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ResumeRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveResumeRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AnswerRequested(&mut self, accepthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAnswerRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RejectRequested(&mut self, rejecthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRejectRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NotifyCallHeld(&mut self) -> ::windows::core::Result<()>;
+    fn NotifyCallActive(&mut self) -> ::windows::core::Result<()>;
+    fn NotifyCallEnded(&mut self) -> ::windows::core::Result<()>;
+    fn ContactName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContactName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetStartTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn CallMedia(&mut self) -> ::windows::core::Result<VoipPhoneCallMedia>;
+    fn SetCallMedia(&mut self, value: VoipPhoneCallMedia) -> ::windows::core::Result<()>;
+    fn NotifyCallReady(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipPhoneCall {
@@ -3618,7 +3618,7 @@ impl IVoipPhoneCallVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipPhoneCall2Impl: Sized + IVoipPhoneCallImpl {
-    fn TryShowAppUI(&self) -> ::windows::core::Result<()>;
+    fn TryShowAppUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipPhoneCall2 {
@@ -3639,7 +3639,7 @@ impl IVoipPhoneCall2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVoipPhoneCall3Impl: Sized + IVoipPhoneCallImpl + IVoipPhoneCall2Impl {
-    fn NotifyCallAccepted(&self, media: VoipPhoneCallMedia) -> ::windows::core::Result<()>;
+    fn NotifyCallAccepted(&mut self, media: VoipPhoneCallMedia) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoipPhoneCall3 {

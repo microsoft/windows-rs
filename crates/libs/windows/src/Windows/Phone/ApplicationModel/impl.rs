@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationProfileStaticsImpl: Sized {
-    fn Modes(&self) -> ::windows::core::Result<ApplicationProfileModes>;
+    fn Modes(&mut self) -> ::windows::core::Result<ApplicationProfileModes>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IApplicationProfileStatics {

@@ -1,11 +1,11 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IHidBooleanControlImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn UsagePage(&self) -> ::windows::core::Result<u16>;
-    fn UsageId(&self) -> ::windows::core::Result<u16>;
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn SetIsActive(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ControlDescription(&self) -> ::windows::core::Result<HidBooleanControlDescription>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn UsagePage(&mut self) -> ::windows::core::Result<u16>;
+    fn UsageId(&mut self) -> ::windows::core::Result<u16>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsActive(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ControlDescription(&mut self) -> ::windows::core::Result<HidBooleanControlDescription>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHidBooleanControl {
@@ -89,12 +89,12 @@ impl IHidBooleanControlVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHidBooleanControlDescriptionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn ReportId(&self) -> ::windows::core::Result<u16>;
-    fn ReportType(&self) -> ::windows::core::Result<HidReportType>;
-    fn UsagePage(&self) -> ::windows::core::Result<u16>;
-    fn UsageId(&self) -> ::windows::core::Result<u16>;
-    fn ParentCollections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn ReportId(&mut self) -> ::windows::core::Result<u16>;
+    fn ReportType(&mut self) -> ::windows::core::Result<HidReportType>;
+    fn UsagePage(&mut self) -> ::windows::core::Result<u16>;
+    fn UsageId(&mut self) -> ::windows::core::Result<u16>;
+    fn ParentCollections(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidBooleanControlDescription {
@@ -185,7 +185,7 @@ impl IHidBooleanControlDescriptionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHidBooleanControlDescription2Impl: Sized {
-    fn IsAbsolute(&self) -> ::windows::core::Result<bool>;
+    fn IsAbsolute(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHidBooleanControlDescription2 {
@@ -216,10 +216,10 @@ impl IHidBooleanControlDescription2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHidCollectionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn Type(&self) -> ::windows::core::Result<HidCollectionType>;
-    fn UsagePage(&self) -> ::windows::core::Result<u32>;
-    fn UsageId(&self) -> ::windows::core::Result<u32>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn Type(&mut self) -> ::windows::core::Result<HidCollectionType>;
+    fn UsagePage(&mut self) -> ::windows::core::Result<u32>;
+    fn UsageId(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHidCollection {
@@ -286,25 +286,25 @@ impl IHidCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHidDeviceImpl: Sized + IClosableImpl {
-    fn VendorId(&self) -> ::windows::core::Result<u16>;
-    fn ProductId(&self) -> ::windows::core::Result<u16>;
-    fn Version(&self) -> ::windows::core::Result<u16>;
-    fn UsagePage(&self) -> ::windows::core::Result<u16>;
-    fn UsageId(&self) -> ::windows::core::Result<u16>;
-    fn GetInputReportAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidInputReport>>;
-    fn GetInputReportByIdAsync(&self, reportid: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidInputReport>>;
-    fn GetFeatureReportAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>>;
-    fn GetFeatureReportByIdAsync(&self, reportid: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>>;
-    fn CreateOutputReport(&self) -> ::windows::core::Result<HidOutputReport>;
-    fn CreateOutputReportById(&self, reportid: u16) -> ::windows::core::Result<HidOutputReport>;
-    fn CreateFeatureReport(&self) -> ::windows::core::Result<HidFeatureReport>;
-    fn CreateFeatureReportById(&self, reportid: u16) -> ::windows::core::Result<HidFeatureReport>;
-    fn SendOutputReportAsync(&self, outputreport: &::core::option::Option<HidOutputReport>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn SendFeatureReportAsync(&self, featurereport: &::core::option::Option<HidFeatureReport>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>;
-    fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>;
-    fn InputReportReceived(&self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInputReportReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VendorId(&mut self) -> ::windows::core::Result<u16>;
+    fn ProductId(&mut self) -> ::windows::core::Result<u16>;
+    fn Version(&mut self) -> ::windows::core::Result<u16>;
+    fn UsagePage(&mut self) -> ::windows::core::Result<u16>;
+    fn UsageId(&mut self) -> ::windows::core::Result<u16>;
+    fn GetInputReportAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidInputReport>>;
+    fn GetInputReportByIdAsync(&mut self, reportid: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidInputReport>>;
+    fn GetFeatureReportAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>>;
+    fn GetFeatureReportByIdAsync(&mut self, reportid: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>>;
+    fn CreateOutputReport(&mut self) -> ::windows::core::Result<HidOutputReport>;
+    fn CreateOutputReportById(&mut self, reportid: u16) -> ::windows::core::Result<HidOutputReport>;
+    fn CreateFeatureReport(&mut self) -> ::windows::core::Result<HidFeatureReport>;
+    fn CreateFeatureReportById(&mut self, reportid: u16) -> ::windows::core::Result<HidFeatureReport>;
+    fn SendOutputReportAsync(&mut self, outputreport: &::core::option::Option<HidOutputReport>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn SendFeatureReportAsync(&mut self, featurereport: &::core::option::Option<HidFeatureReport>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn GetBooleanControlDescriptions(&mut self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>;
+    fn GetNumericControlDescriptions(&mut self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>;
+    fn InputReportReceived(&mut self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInputReportReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidDevice {
@@ -544,9 +544,9 @@ impl IHidDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IHidDeviceStaticsImpl: Sized {
-    fn GetDeviceSelector(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorVidPid(&self, usagepage: u16, usageid: u16, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>>;
+    fn GetDeviceSelector(&mut self, usagepage: u16, usageid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorVidPid(&mut self, usagepage: u16, usageid: u16, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidDeviceStatics {
@@ -601,13 +601,13 @@ impl IHidDeviceStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHidFeatureReportImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u16>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetData(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl>;
-    fn GetBooleanControlByDescription(&self, controldescription: &::core::option::Option<HidBooleanControlDescription>) -> ::windows::core::Result<HidBooleanControl>;
-    fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
-    fn GetNumericControlByDescription(&self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
+    fn Id(&mut self) -> ::windows::core::Result<u16>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetData(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn GetBooleanControl(&mut self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl>;
+    fn GetBooleanControlByDescription(&mut self, controldescription: &::core::option::Option<HidBooleanControlDescription>) -> ::windows::core::Result<HidBooleanControl>;
+    fn GetNumericControl(&mut self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
+    fn GetNumericControlByDescription(&mut self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidFeatureReport {
@@ -703,14 +703,14 @@ impl IHidFeatureReportVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHidInputReportImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u16>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn ActivatedBooleanControls(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>;
-    fn TransitionedBooleanControls(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>;
-    fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl>;
-    fn GetBooleanControlByDescription(&self, controldescription: &::core::option::Option<HidBooleanControlDescription>) -> ::windows::core::Result<HidBooleanControl>;
-    fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
-    fn GetNumericControlByDescription(&self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
+    fn Id(&mut self) -> ::windows::core::Result<u16>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn ActivatedBooleanControls(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>;
+    fn TransitionedBooleanControls(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>;
+    fn GetBooleanControl(&mut self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl>;
+    fn GetBooleanControlByDescription(&mut self, controldescription: &::core::option::Option<HidBooleanControlDescription>) -> ::windows::core::Result<HidBooleanControl>;
+    fn GetNumericControl(&mut self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
+    fn GetNumericControlByDescription(&mut self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidInputReport {
@@ -825,7 +825,7 @@ impl IHidInputReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHidInputReportReceivedEventArgsImpl: Sized {
-    fn Report(&self) -> ::windows::core::Result<HidInputReport>;
+    fn Report(&mut self) -> ::windows::core::Result<HidInputReport>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHidInputReportReceivedEventArgs {
@@ -853,15 +853,15 @@ impl IHidInputReportReceivedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHidNumericControlImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn IsGrouped(&self) -> ::windows::core::Result<bool>;
-    fn UsagePage(&self) -> ::windows::core::Result<u16>;
-    fn UsageId(&self) -> ::windows::core::Result<u16>;
-    fn Value(&self) -> ::windows::core::Result<i64>;
-    fn SetValue(&self, value: i64) -> ::windows::core::Result<()>;
-    fn ScaledValue(&self) -> ::windows::core::Result<i64>;
-    fn SetScaledValue(&self, value: i64) -> ::windows::core::Result<()>;
-    fn ControlDescription(&self) -> ::windows::core::Result<HidNumericControlDescription>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn IsGrouped(&mut self) -> ::windows::core::Result<bool>;
+    fn UsagePage(&mut self) -> ::windows::core::Result<u16>;
+    fn UsageId(&mut self) -> ::windows::core::Result<u16>;
+    fn Value(&mut self) -> ::windows::core::Result<i64>;
+    fn SetValue(&mut self, value: i64) -> ::windows::core::Result<()>;
+    fn ScaledValue(&mut self) -> ::windows::core::Result<i64>;
+    fn SetScaledValue(&mut self, value: i64) -> ::windows::core::Result<()>;
+    fn ControlDescription(&mut self) -> ::windows::core::Result<HidNumericControlDescription>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHidNumericControl {
@@ -974,22 +974,22 @@ impl IHidNumericControlVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHidNumericControlDescriptionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn ReportId(&self) -> ::windows::core::Result<u16>;
-    fn ReportType(&self) -> ::windows::core::Result<HidReportType>;
-    fn ReportSize(&self) -> ::windows::core::Result<u32>;
-    fn ReportCount(&self) -> ::windows::core::Result<u32>;
-    fn UsagePage(&self) -> ::windows::core::Result<u16>;
-    fn UsageId(&self) -> ::windows::core::Result<u16>;
-    fn LogicalMinimum(&self) -> ::windows::core::Result<i32>;
-    fn LogicalMaximum(&self) -> ::windows::core::Result<i32>;
-    fn PhysicalMinimum(&self) -> ::windows::core::Result<i32>;
-    fn PhysicalMaximum(&self) -> ::windows::core::Result<i32>;
-    fn UnitExponent(&self) -> ::windows::core::Result<u32>;
-    fn Unit(&self) -> ::windows::core::Result<u32>;
-    fn IsAbsolute(&self) -> ::windows::core::Result<bool>;
-    fn HasNull(&self) -> ::windows::core::Result<bool>;
-    fn ParentCollections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn ReportId(&mut self) -> ::windows::core::Result<u16>;
+    fn ReportType(&mut self) -> ::windows::core::Result<HidReportType>;
+    fn ReportSize(&mut self) -> ::windows::core::Result<u32>;
+    fn ReportCount(&mut self) -> ::windows::core::Result<u32>;
+    fn UsagePage(&mut self) -> ::windows::core::Result<u16>;
+    fn UsageId(&mut self) -> ::windows::core::Result<u16>;
+    fn LogicalMinimum(&mut self) -> ::windows::core::Result<i32>;
+    fn LogicalMaximum(&mut self) -> ::windows::core::Result<i32>;
+    fn PhysicalMinimum(&mut self) -> ::windows::core::Result<i32>;
+    fn PhysicalMaximum(&mut self) -> ::windows::core::Result<i32>;
+    fn UnitExponent(&mut self) -> ::windows::core::Result<u32>;
+    fn Unit(&mut self) -> ::windows::core::Result<u32>;
+    fn IsAbsolute(&mut self) -> ::windows::core::Result<bool>;
+    fn HasNull(&mut self) -> ::windows::core::Result<bool>;
+    fn ParentCollections(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidNumericControlDescription {
@@ -1200,13 +1200,13 @@ impl IHidNumericControlDescriptionVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHidOutputReportImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u16>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetData(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl>;
-    fn GetBooleanControlByDescription(&self, controldescription: &::core::option::Option<HidBooleanControlDescription>) -> ::windows::core::Result<HidBooleanControl>;
-    fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
-    fn GetNumericControlByDescription(&self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
+    fn Id(&mut self) -> ::windows::core::Result<u16>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetData(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn GetBooleanControl(&mut self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl>;
+    fn GetBooleanControlByDescription(&mut self, controldescription: &::core::option::Option<HidBooleanControlDescription>) -> ::windows::core::Result<HidBooleanControl>;
+    fn GetNumericControl(&mut self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl>;
+    fn GetNumericControlByDescription(&mut self, controldescription: &::core::option::Option<HidNumericControlDescription>) -> ::windows::core::Result<HidNumericControl>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHidOutputReport {

@@ -1,15 +1,15 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IProviderSpiConnectionSettingsImpl: Sized {
-    fn ChipSelectLine(&self) -> ::windows::core::Result<i32>;
-    fn SetChipSelectLine(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Mode(&self) -> ::windows::core::Result<ProviderSpiMode>;
-    fn SetMode(&self, value: ProviderSpiMode) -> ::windows::core::Result<()>;
-    fn DataBitLength(&self) -> ::windows::core::Result<i32>;
-    fn SetDataBitLength(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ClockFrequency(&self) -> ::windows::core::Result<i32>;
-    fn SetClockFrequency(&self, value: i32) -> ::windows::core::Result<()>;
-    fn SharingMode(&self) -> ::windows::core::Result<ProviderSpiSharingMode>;
-    fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> ::windows::core::Result<()>;
+    fn ChipSelectLine(&mut self) -> ::windows::core::Result<i32>;
+    fn SetChipSelectLine(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<ProviderSpiMode>;
+    fn SetMode(&mut self, value: ProviderSpiMode) -> ::windows::core::Result<()>;
+    fn DataBitLength(&mut self) -> ::windows::core::Result<i32>;
+    fn SetDataBitLength(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ClockFrequency(&mut self) -> ::windows::core::Result<i32>;
+    fn SetClockFrequency(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn SharingMode(&mut self) -> ::windows::core::Result<ProviderSpiSharingMode>;
+    fn SetSharingMode(&mut self, value: ProviderSpiSharingMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProviderSpiConnectionSettings {
@@ -113,7 +113,7 @@ impl IProviderSpiConnectionSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProviderSpiConnectionSettingsFactoryImpl: Sized {
-    fn Create(&self, chipselectline: i32) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
+    fn Create(&mut self, chipselectline: i32) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProviderSpiConnectionSettingsFactory {
@@ -143,7 +143,7 @@ impl IProviderSpiConnectionSettingsFactoryVtbl {
     }
 }
 pub trait ISpiControllerProviderImpl: Sized {
-    fn GetDeviceProvider(&self, settings: &::core::option::Option<ProviderSpiConnectionSettings>) -> ::windows::core::Result<ISpiDeviceProvider>;
+    fn GetDeviceProvider(&mut self, settings: &::core::option::Option<ProviderSpiConnectionSettings>) -> ::windows::core::Result<ISpiDeviceProvider>;
 }
 impl ::windows::core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
@@ -172,12 +172,12 @@ impl ISpiControllerProviderVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISpiDeviceProviderImpl: Sized + IClosableImpl {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ConnectionSettings(&self) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
-    fn Write(&self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn Read(&self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn TransferSequential(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn TransferFullDuplex(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConnectionSettings(&mut self) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
+    fn Write(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn Read(&mut self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn TransferSequential(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn TransferFullDuplex(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISpiDeviceProvider {
@@ -240,7 +240,7 @@ impl ISpiDeviceProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISpiProviderImpl: Sized {
-    fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
+    fn GetControllersAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISpiProvider {

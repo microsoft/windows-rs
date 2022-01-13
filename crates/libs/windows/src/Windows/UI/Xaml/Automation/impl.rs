@@ -15,11 +15,11 @@ impl IAnnotationPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnnotationPatternIdentifiersStaticsImpl: Sized {
-    fn AnnotationTypeIdProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn AnnotationTypeNameProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn AuthorProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn DateTimeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn TargetProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn AnnotationTypeIdProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn AnnotationTypeNameProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn AuthorProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn DateTimeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn TargetProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnnotationPatternIdentifiersStatics {
@@ -98,10 +98,10 @@ impl IAnnotationPatternIdentifiersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationAnnotationImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<AnnotationType>;
-    fn SetType(&self, value: AnnotationType) -> ::windows::core::Result<()>;
-    fn Element(&self) -> ::windows::core::Result<super::UIElement>;
-    fn SetElement(&self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<AnnotationType>;
+    fn SetType(&mut self, value: AnnotationType) -> ::windows::core::Result<()>;
+    fn Element(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn SetElement(&mut self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationAnnotation {
@@ -154,8 +154,8 @@ impl IAutomationAnnotationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationAnnotationFactoryImpl: Sized {
-    fn CreateInstance(&self, r#type: AnnotationType) -> ::windows::core::Result<AutomationAnnotation>;
-    fn CreateWithElementParameter(&self, r#type: AnnotationType, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<AutomationAnnotation>;
+    fn CreateInstance(&mut self, r#type: AnnotationType) -> ::windows::core::Result<AutomationAnnotation>;
+    fn CreateWithElementParameter(&mut self, r#type: AnnotationType, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<AutomationAnnotation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationAnnotationFactory {
@@ -198,8 +198,8 @@ impl IAutomationAnnotationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationAnnotationStaticsImpl: Sized {
-    fn TypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ElementProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn TypeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ElementProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationAnnotationStatics {
@@ -257,29 +257,29 @@ impl IAutomationElementIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStaticsImpl: Sized {
-    fn AcceleratorKeyProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn AccessKeyProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn AutomationIdProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn BoundingRectangleProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ClassNameProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ClickablePointProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ControlTypeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn HasKeyboardFocusProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn HelpTextProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsContentElementProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsControlElementProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsEnabledProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsKeyboardFocusableProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsOffscreenProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsPasswordProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsRequiredForFormProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ItemStatusProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ItemTypeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn LabeledByProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn LocalizedControlTypeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn NameProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn OrientationProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn LiveSettingProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn AcceleratorKeyProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn AccessKeyProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn AutomationIdProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn BoundingRectangleProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ClassNameProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ClickablePointProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ControlTypeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn HasKeyboardFocusProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn HelpTextProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsContentElementProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsControlElementProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsEnabledProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsKeyboardFocusableProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsOffscreenProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsPasswordProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsRequiredForFormProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ItemStatusProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ItemTypeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn LabeledByProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn LocalizedControlTypeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn NameProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn OrientationProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn LiveSettingProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics {
@@ -574,7 +574,7 @@ impl IAutomationElementIdentifiersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics2Impl: Sized {
-    fn ControlledPeersProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ControlledPeersProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics2 {
@@ -605,10 +605,10 @@ impl IAutomationElementIdentifiersStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics3Impl: Sized {
-    fn PositionInSetProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn SizeOfSetProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn LevelProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn AnnotationsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn PositionInSetProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn SizeOfSetProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn LevelProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn AnnotationsProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics3 {
@@ -675,8 +675,8 @@ impl IAutomationElementIdentifiersStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics4Impl: Sized {
-    fn LandmarkTypeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn LocalizedLandmarkTypeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn LandmarkTypeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn LocalizedLandmarkTypeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics4 {
@@ -719,12 +719,12 @@ impl IAutomationElementIdentifiersStatics4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics5Impl: Sized {
-    fn IsPeripheralProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsDataValidForFormProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn FullDescriptionProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn DescribedByProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn FlowsToProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn FlowsFromProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsPeripheralProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsDataValidForFormProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn FullDescriptionProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn DescribedByProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn FlowsToProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn FlowsFromProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics5 {
@@ -815,7 +815,7 @@ impl IAutomationElementIdentifiersStatics5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics6Impl: Sized {
-    fn CultureProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn CultureProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics6 {
@@ -846,7 +846,7 @@ impl IAutomationElementIdentifiersStatics6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics7Impl: Sized {
-    fn HeadingLevelProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn HeadingLevelProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics7 {
@@ -877,7 +877,7 @@ impl IAutomationElementIdentifiersStatics7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementIdentifiersStatics8Impl: Sized {
-    fn IsDialogProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsDialogProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElementIdentifiersStatics8 {
@@ -923,36 +923,36 @@ impl IAutomationPropertiesVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStaticsImpl: Sized {
-    fn AcceleratorKeyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetAcceleratorKey(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAcceleratorKey(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AccessKeyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetAccessKey(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAccessKey(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AutomationIdProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetAutomationId(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAutomationId(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn HelpTextProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetHelpText(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHelpText(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsRequiredForFormProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetIsRequiredForForm(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetIsRequiredForForm(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn ItemStatusProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetItemStatus(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetItemStatus(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ItemTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetItemType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetItemType(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LabeledByProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetLabeledBy(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::UIElement>;
-    fn SetLabeledBy(&self, element: &::core::option::Option<super::DependencyObject>, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn NameProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetName(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LiveSettingProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetLiveSetting(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationLiveSetting>;
-    fn SetLiveSetting(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationLiveSetting) -> ::windows::core::Result<()>;
+    fn AcceleratorKeyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetAcceleratorKey(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAcceleratorKey(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AccessKeyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetAccessKey(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAccessKey(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AutomationIdProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetAutomationId(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAutomationId(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn HelpTextProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetHelpText(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHelpText(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsRequiredForFormProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetIsRequiredForForm(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetIsRequiredForForm(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn ItemStatusProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetItemStatus(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetItemStatus(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ItemTypeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetItemType(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetItemType(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LabeledByProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetLabeledBy(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::UIElement>;
+    fn SetLabeledBy(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn NameProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetName(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LiveSettingProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetLiveSetting(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationLiveSetting>;
+    fn SetLiveSetting(&mut self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationLiveSetting) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics {
@@ -1261,11 +1261,11 @@ impl IAutomationPropertiesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics2Impl: Sized {
-    fn AccessibilityViewProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetAccessibilityView(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AccessibilityView>;
-    fn SetAccessibilityView(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AccessibilityView) -> ::windows::core::Result<()>;
-    fn ControlledPeersProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetControlledPeers(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::UIElement>>;
+    fn AccessibilityViewProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetAccessibilityView(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AccessibilityView>;
+    fn SetAccessibilityView(&mut self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AccessibilityView) -> ::windows::core::Result<()>;
+    fn ControlledPeersProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetControlledPeers(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::UIElement>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics2 {
@@ -1337,17 +1337,17 @@ impl IAutomationPropertiesStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics3Impl: Sized {
-    fn PositionInSetProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetPositionInSet(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetPositionInSet(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
-    fn SizeOfSetProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetSizeOfSet(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetSizeOfSet(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
-    fn LevelProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetLevel(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetLevel(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
-    fn AnnotationsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetAnnotations(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>>;
+    fn PositionInSetProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetPositionInSet(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetPositionInSet(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn SizeOfSetProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetSizeOfSet(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetSizeOfSet(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn LevelProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetLevel(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetLevel(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn AnnotationsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetAnnotations(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics3 {
@@ -1477,12 +1477,12 @@ impl IAutomationPropertiesStatics3Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics4Impl: Sized {
-    fn LandmarkTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationLandmarkType>;
-    fn SetLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationLandmarkType) -> ::windows::core::Result<()>;
-    fn LocalizedLandmarkTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetLocalizedLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLocalizedLandmarkType(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LandmarkTypeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetLandmarkType(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationLandmarkType>;
+    fn SetLandmarkType(&mut self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationLandmarkType) -> ::windows::core::Result<()>;
+    fn LocalizedLandmarkTypeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetLocalizedLandmarkType(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLocalizedLandmarkType(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics4 {
@@ -1559,24 +1559,24 @@ impl IAutomationPropertiesStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics5Impl: Sized {
-    fn IsPeripheralProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetIsPeripheral(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetIsPeripheral(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn IsDataValidForFormProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetIsDataValidForForm(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetIsDataValidForForm(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn FullDescriptionProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetFullDescription(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFullDescription(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LocalizedControlTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetLocalizedControlType(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLocalizedControlType(&self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DescribedByProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetDescribedBy(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
-    fn FlowsToProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetFlowsTo(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
-    fn FlowsFromProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetFlowsFrom(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
+    fn IsPeripheralProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetIsPeripheral(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetIsPeripheral(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn IsDataValidForFormProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetIsDataValidForForm(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetIsDataValidForForm(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn FullDescriptionProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetFullDescription(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFullDescription(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LocalizedControlTypeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetLocalizedControlType(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLocalizedControlType(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DescribedByProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetDescribedBy(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
+    fn FlowsToProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetFlowsTo(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
+    fn FlowsFromProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetFlowsFrom(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics5 {
@@ -1783,9 +1783,9 @@ impl IAutomationPropertiesStatics5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics6Impl: Sized {
-    fn CultureProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetCulture(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetCulture(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn CultureProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetCulture(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetCulture(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics6 {
@@ -1833,9 +1833,9 @@ impl IAutomationPropertiesStatics6Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics7Impl: Sized {
-    fn HeadingLevelProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetHeadingLevel(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationHeadingLevel>;
-    fn SetHeadingLevel(&self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationHeadingLevel) -> ::windows::core::Result<()>;
+    fn HeadingLevelProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetHeadingLevel(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<Peers::AutomationHeadingLevel>;
+    fn SetHeadingLevel(&mut self, element: &::core::option::Option<super::DependencyObject>, value: Peers::AutomationHeadingLevel) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics7 {
@@ -1883,9 +1883,9 @@ impl IAutomationPropertiesStatics7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPropertiesStatics8Impl: Sized {
-    fn IsDialogProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetIsDialog(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetIsDialog(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn IsDialogProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetIsDialog(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetIsDialog(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics8 {
@@ -1933,9 +1933,9 @@ impl IAutomationPropertiesStatics8Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 pub trait IAutomationPropertiesStatics9Impl: Sized {
-    fn AutomationControlTypeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetAutomationControlType(&self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<Peers::AutomationControlType>;
-    fn SetAutomationControlType(&self, element: &::core::option::Option<super::UIElement>, value: Peers::AutomationControlType) -> ::windows::core::Result<()>;
+    fn AutomationControlTypeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetAutomationControlType(&mut self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<Peers::AutomationControlType>;
+    fn SetAutomationControlType(&mut self, element: &::core::option::Option<super::UIElement>, value: Peers::AutomationControlType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Peers", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPropertiesStatics9 {
@@ -2013,7 +2013,7 @@ impl IDockPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDockPatternIdentifiersStaticsImpl: Sized {
-    fn DockPositionProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn DockPositionProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDockPatternIdentifiersStatics {
@@ -2059,10 +2059,10 @@ impl IDragPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragPatternIdentifiersStaticsImpl: Sized {
-    fn DropEffectProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn DropEffectsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn GrabbedItemsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsGrabbedProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn DropEffectProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn DropEffectsProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn GrabbedItemsProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsGrabbedProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragPatternIdentifiersStatics {
@@ -2144,8 +2144,8 @@ impl IDropTargetPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDropTargetPatternIdentifiersStaticsImpl: Sized {
-    fn DropTargetEffectProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn DropTargetEffectsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn DropTargetEffectProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn DropTargetEffectsProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDropTargetPatternIdentifiersStatics {
@@ -2203,7 +2203,7 @@ impl IExpandCollapsePatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IExpandCollapsePatternIdentifiersStaticsImpl: Sized {
-    fn ExpandCollapseStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ExpandCollapseStateProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExpandCollapsePatternIdentifiersStatics {
@@ -2249,11 +2249,11 @@ impl IGridItemPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridItemPatternIdentifiersStaticsImpl: Sized {
-    fn ColumnProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ColumnSpanProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ContainingGridProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn RowProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn RowSpanProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ColumnProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ColumnSpanProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ContainingGridProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn RowProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn RowSpanProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGridItemPatternIdentifiersStatics {
@@ -2347,8 +2347,8 @@ impl IGridPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridPatternIdentifiersStaticsImpl: Sized {
-    fn ColumnCountProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn RowCountProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ColumnCountProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn RowCountProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGridPatternIdentifiersStatics {
@@ -2406,8 +2406,8 @@ impl IMultipleViewPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMultipleViewPatternIdentifiersStaticsImpl: Sized {
-    fn CurrentViewProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn SupportedViewsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn CurrentViewProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn SupportedViewsProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMultipleViewPatternIdentifiersStatics {
@@ -2465,12 +2465,12 @@ impl IRangeValuePatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRangeValuePatternIdentifiersStaticsImpl: Sized {
-    fn IsReadOnlyProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn LargeChangeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn MaximumProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn MinimumProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn SmallChangeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ValueProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsReadOnlyProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn LargeChangeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn MaximumProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn MinimumProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn SmallChangeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ValueProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRangeValuePatternIdentifiersStatics {
@@ -2576,13 +2576,13 @@ impl IScrollPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IScrollPatternIdentifiersStaticsImpl: Sized {
-    fn HorizontallyScrollableProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn HorizontalScrollPercentProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn HorizontalViewSizeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn NoScroll(&self) -> ::windows::core::Result<f64>;
-    fn VerticallyScrollableProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn VerticalScrollPercentProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn VerticalViewSizeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn HorizontallyScrollableProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn HorizontalScrollPercentProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn HorizontalViewSizeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn NoScroll(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticallyScrollableProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn VerticalScrollPercentProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn VerticalViewSizeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScrollPatternIdentifiersStatics {
@@ -2700,8 +2700,8 @@ impl ISelectionItemPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectionItemPatternIdentifiersStaticsImpl: Sized {
-    fn IsSelectedProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn SelectionContainerProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsSelectedProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn SelectionContainerProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectionItemPatternIdentifiersStatics {
@@ -2759,9 +2759,9 @@ impl ISelectionPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectionPatternIdentifiersStaticsImpl: Sized {
-    fn CanSelectMultipleProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsSelectionRequiredProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn SelectionProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn CanSelectMultipleProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsSelectionRequiredProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn SelectionProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectionPatternIdentifiersStatics {
@@ -2831,7 +2831,7 @@ impl ISpreadsheetItemPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpreadsheetItemPatternIdentifiersStaticsImpl: Sized {
-    fn FormulaProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn FormulaProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpreadsheetItemPatternIdentifiersStatics {
@@ -2877,13 +2877,13 @@ impl IStylesPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStylesPatternIdentifiersStaticsImpl: Sized {
-    fn ExtendedPropertiesProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn FillColorProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn FillPatternColorProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn FillPatternStyleProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ShapeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn StyleIdProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn StyleNameProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ExtendedPropertiesProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn FillColorProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn FillPatternColorProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn FillPatternStyleProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ShapeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn StyleIdProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn StyleNameProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStylesPatternIdentifiersStatics {
@@ -3001,8 +3001,8 @@ impl ITableItemPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITableItemPatternIdentifiersStaticsImpl: Sized {
-    fn ColumnHeaderItemsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn RowHeaderItemsProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ColumnHeaderItemsProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn RowHeaderItemsProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITableItemPatternIdentifiersStatics {
@@ -3060,9 +3060,9 @@ impl ITablePatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITablePatternIdentifiersStaticsImpl: Sized {
-    fn ColumnHeadersProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn RowHeadersProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn RowOrColumnMajorProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ColumnHeadersProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn RowHeadersProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn RowOrColumnMajorProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITablePatternIdentifiersStatics {
@@ -3132,7 +3132,7 @@ impl ITogglePatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITogglePatternIdentifiersStaticsImpl: Sized {
-    fn ToggleStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn ToggleStateProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITogglePatternIdentifiersStatics {
@@ -3178,10 +3178,10 @@ impl ITransformPattern2IdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITransformPattern2IdentifiersStaticsImpl: Sized {
-    fn CanZoomProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ZoomLevelProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn MaxZoomProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn MinZoomProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn CanZoomProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ZoomLevelProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn MaxZoomProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn MinZoomProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITransformPattern2IdentifiersStatics {
@@ -3263,9 +3263,9 @@ impl ITransformPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITransformPatternIdentifiersStaticsImpl: Sized {
-    fn CanMoveProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn CanResizeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn CanRotateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn CanMoveProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn CanResizeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn CanRotateProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITransformPatternIdentifiersStatics {
@@ -3335,8 +3335,8 @@ impl IValuePatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IValuePatternIdentifiersStaticsImpl: Sized {
-    fn IsReadOnlyProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn ValueProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsReadOnlyProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn ValueProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IValuePatternIdentifiersStatics {
@@ -3394,12 +3394,12 @@ impl IWindowPatternIdentifiersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowPatternIdentifiersStaticsImpl: Sized {
-    fn CanMaximizeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn CanMinimizeProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsModalProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn IsTopmostProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn WindowInteractionStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
-    fn WindowVisualStateProperty(&self) -> ::windows::core::Result<AutomationProperty>;
+    fn CanMaximizeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn CanMinimizeProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsModalProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn IsTopmostProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn WindowInteractionStateProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
+    fn WindowVisualStateProperty(&mut self) -> ::windows::core::Result<AutomationProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWindowPatternIdentifiersStatics {

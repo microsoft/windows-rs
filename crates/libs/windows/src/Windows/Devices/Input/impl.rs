@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyboardCapabilitiesImpl: Sized {
-    fn KeyboardPresent(&self) -> ::windows::core::Result<i32>;
+    fn KeyboardPresent(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyboardCapabilities {
@@ -31,11 +31,11 @@ impl IKeyboardCapabilitiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMouseCapabilitiesImpl: Sized {
-    fn MousePresent(&self) -> ::windows::core::Result<i32>;
-    fn VerticalWheelPresent(&self) -> ::windows::core::Result<i32>;
-    fn HorizontalWheelPresent(&self) -> ::windows::core::Result<i32>;
-    fn SwapButtons(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfButtons(&self) -> ::windows::core::Result<u32>;
+    fn MousePresent(&mut self) -> ::windows::core::Result<i32>;
+    fn VerticalWheelPresent(&mut self) -> ::windows::core::Result<i32>;
+    fn HorizontalWheelPresent(&mut self) -> ::windows::core::Result<i32>;
+    fn SwapButtons(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfButtons(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMouseCapabilities {
@@ -114,8 +114,8 @@ impl IMouseCapabilitiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMouseDeviceImpl: Sized {
-    fn MouseMoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMouseMoved(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MouseMoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMouseMoved(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMouseDevice {
@@ -151,7 +151,7 @@ impl IMouseDeviceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMouseDeviceStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<MouseDevice>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<MouseDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMouseDeviceStatics {
@@ -182,7 +182,7 @@ impl IMouseDeviceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMouseEventArgsImpl: Sized {
-    fn MouseDelta(&self) -> ::windows::core::Result<MouseDelta>;
+    fn MouseDelta(&mut self) -> ::windows::core::Result<MouseDelta>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMouseEventArgs {
@@ -210,15 +210,15 @@ impl IMouseEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPenButtonListenerImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsSupportedChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIsSupportedChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TailButtonClicked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTailButtonClicked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TailButtonDoubleClicked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTailButtonDoubleClicked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TailButtonLongPressed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTailButtonLongPressed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSupportedChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIsSupportedChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TailButtonClicked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTailButtonClicked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TailButtonDoubleClicked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTailButtonDoubleClicked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TailButtonLongPressed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTailButtonLongPressed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPenButtonListener {
@@ -317,7 +317,7 @@ impl IPenButtonListenerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPenButtonListenerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<PenButtonListener>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<PenButtonListener>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenButtonListenerStatics {
@@ -345,7 +345,7 @@ impl IPenButtonListenerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPenDeviceImpl: Sized {
-    fn PenId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn PenId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenDevice {
@@ -373,7 +373,7 @@ impl IPenDeviceVtbl {
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait IPenDevice2Impl: Sized {
-    fn SimpleHapticsController(&self) -> ::windows::core::Result<super::Haptics::SimpleHapticsController>;
+    fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::Haptics::SimpleHapticsController>;
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPenDevice2 {
@@ -404,7 +404,7 @@ impl IPenDevice2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPenDeviceStaticsImpl: Sized {
-    fn GetFromPointerId(&self, pointerid: u32) -> ::windows::core::Result<PenDevice>;
+    fn GetFromPointerId(&mut self, pointerid: u32) -> ::windows::core::Result<PenDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenDeviceStatics {
@@ -435,13 +435,13 @@ impl IPenDeviceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPenDockListenerImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsSupportedChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenDockListener, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIsSupportedChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Docked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDocked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Undocked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUndocked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSupportedChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenDockListener, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIsSupportedChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Docked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDocked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Undocked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUndocked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPenDockListener {
@@ -523,7 +523,7 @@ impl IPenDockListenerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPenDockListenerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<PenDockListener>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<PenDockListener>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenDockListenerStatics {
@@ -626,12 +626,12 @@ impl IPenUndockedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPointerDeviceImpl: Sized {
-    fn PointerDeviceType(&self) -> ::windows::core::Result<PointerDeviceType>;
-    fn IsIntegrated(&self) -> ::windows::core::Result<bool>;
-    fn MaxContacts(&self) -> ::windows::core::Result<u32>;
-    fn PhysicalDeviceRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn ScreenRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SupportedUsages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>>;
+    fn PointerDeviceType(&mut self) -> ::windows::core::Result<PointerDeviceType>;
+    fn IsIntegrated(&mut self) -> ::windows::core::Result<bool>;
+    fn MaxContacts(&mut self) -> ::windows::core::Result<u32>;
+    fn PhysicalDeviceRect(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn ScreenRect(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SupportedUsages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerDevice {
@@ -722,7 +722,7 @@ impl IPointerDeviceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointerDevice2Impl: Sized {
-    fn MaxPointersWithZDistance(&self) -> ::windows::core::Result<u32>;
+    fn MaxPointersWithZDistance(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointerDevice2 {
@@ -753,8 +753,8 @@ impl IPointerDevice2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPointerDeviceStaticsImpl: Sized {
-    fn GetPointerDevice(&self, pointerid: u32) -> ::windows::core::Result<PointerDevice>;
-    fn GetPointerDevices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDevice>>;
+    fn GetPointerDevice(&mut self, pointerid: u32) -> ::windows::core::Result<PointerDevice>;
+    fn GetPointerDevices(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDevice>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerDeviceStatics {
@@ -797,8 +797,8 @@ impl IPointerDeviceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITouchCapabilitiesImpl: Sized {
-    fn TouchPresent(&self) -> ::windows::core::Result<i32>;
-    fn Contacts(&self) -> ::windows::core::Result<u32>;
+    fn TouchPresent(&mut self) -> ::windows::core::Result<i32>;
+    fn Contacts(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITouchCapabilities {

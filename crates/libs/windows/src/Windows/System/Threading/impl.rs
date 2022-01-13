@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IThreadPoolStaticsImpl: Sized {
-    fn RunAsync(&self, handler: &::core::option::Option<WorkItemHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RunWithPriorityAsync(&self, handler: &::core::option::Option<WorkItemHandler>, priority: WorkItemPriority) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RunWithPriorityAndOptionsAsync(&self, handler: &::core::option::Option<WorkItemHandler>, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RunAsync(&mut self, handler: &::core::option::Option<WorkItemHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RunWithPriorityAsync(&mut self, handler: &::core::option::Option<WorkItemHandler>, priority: WorkItemPriority) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RunWithPriorityAndOptionsAsync(&mut self, handler: &::core::option::Option<WorkItemHandler>, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThreadPoolStatics {
@@ -57,9 +57,9 @@ impl IThreadPoolStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IThreadPoolTimerImpl: Sized {
-    fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Period(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Delay(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThreadPoolTimer {
@@ -107,10 +107,10 @@ impl IThreadPoolTimerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IThreadPoolTimerStaticsImpl: Sized {
-    fn CreatePeriodicTimer(&self, handler: &::core::option::Option<TimerElapsedHandler>, period: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ThreadPoolTimer>;
-    fn CreateTimer(&self, handler: &::core::option::Option<TimerElapsedHandler>, delay: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ThreadPoolTimer>;
-    fn CreatePeriodicTimerWithCompletion(&self, handler: &::core::option::Option<TimerElapsedHandler>, period: &super::super::Foundation::TimeSpan, destroyed: &::core::option::Option<TimerDestroyedHandler>) -> ::windows::core::Result<ThreadPoolTimer>;
-    fn CreateTimerWithCompletion(&self, handler: &::core::option::Option<TimerElapsedHandler>, delay: &super::super::Foundation::TimeSpan, destroyed: &::core::option::Option<TimerDestroyedHandler>) -> ::windows::core::Result<ThreadPoolTimer>;
+    fn CreatePeriodicTimer(&mut self, handler: &::core::option::Option<TimerElapsedHandler>, period: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ThreadPoolTimer>;
+    fn CreateTimer(&mut self, handler: &::core::option::Option<TimerElapsedHandler>, delay: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ThreadPoolTimer>;
+    fn CreatePeriodicTimerWithCompletion(&mut self, handler: &::core::option::Option<TimerElapsedHandler>, period: &super::super::Foundation::TimeSpan, destroyed: &::core::option::Option<TimerDestroyedHandler>) -> ::windows::core::Result<ThreadPoolTimer>;
+    fn CreateTimerWithCompletion(&mut self, handler: &::core::option::Option<TimerElapsedHandler>, delay: &super::super::Foundation::TimeSpan, destroyed: &::core::option::Option<TimerDestroyedHandler>) -> ::windows::core::Result<ThreadPoolTimer>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThreadPoolTimerStatics {

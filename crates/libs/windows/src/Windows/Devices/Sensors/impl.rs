@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAccelerometerImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<AccelerometerReading>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Shaken(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerShakenEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveShaken(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<AccelerometerReading>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Shaken(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerShakenEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveShaken(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccelerometer {
@@ -101,8 +101,8 @@ impl IAccelerometerVtbl {
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 pub trait IAccelerometer2Impl: Sized {
-    fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
-    fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
+    fn SetReadingTransform(&mut self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
+    fn ReadingTransform(&mut self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccelerometer2 {
@@ -138,9 +138,9 @@ impl IAccelerometer2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometer3Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometer3 {
@@ -188,7 +188,7 @@ impl IAccelerometer3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometer4Impl: Sized {
-    fn ReadingType(&self) -> ::windows::core::Result<AccelerometerReadingType>;
+    fn ReadingType(&mut self) -> ::windows::core::Result<AccelerometerReadingType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometer4 {
@@ -216,7 +216,7 @@ impl IAccelerometer4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometer5Impl: Sized {
-    fn ReportThreshold(&self) -> ::windows::core::Result<AccelerometerDataThreshold>;
+    fn ReportThreshold(&mut self) -> ::windows::core::Result<AccelerometerDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometer5 {
@@ -244,12 +244,12 @@ impl IAccelerometer5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometerDataThresholdImpl: Sized {
-    fn XAxisInGForce(&self) -> ::windows::core::Result<f64>;
-    fn SetXAxisInGForce(&self, value: f64) -> ::windows::core::Result<()>;
-    fn YAxisInGForce(&self) -> ::windows::core::Result<f64>;
-    fn SetYAxisInGForce(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ZAxisInGForce(&self) -> ::windows::core::Result<f64>;
-    fn SetZAxisInGForce(&self, value: f64) -> ::windows::core::Result<()>;
+    fn XAxisInGForce(&mut self) -> ::windows::core::Result<f64>;
+    fn SetXAxisInGForce(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn YAxisInGForce(&mut self) -> ::windows::core::Result<f64>;
+    fn SetYAxisInGForce(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ZAxisInGForce(&mut self) -> ::windows::core::Result<f64>;
+    fn SetZAxisInGForce(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometerDataThreshold {
@@ -319,7 +319,7 @@ impl IAccelerometerDataThresholdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometerDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometerDeviceId {
@@ -347,10 +347,10 @@ impl IAccelerometerDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAccelerometerReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn AccelerationX(&self) -> ::windows::core::Result<f64>;
-    fn AccelerationY(&self) -> ::windows::core::Result<f64>;
-    fn AccelerationZ(&self) -> ::windows::core::Result<f64>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn AccelerationX(&mut self) -> ::windows::core::Result<f64>;
+    fn AccelerationY(&mut self) -> ::windows::core::Result<f64>;
+    fn AccelerationZ(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccelerometerReading {
@@ -417,8 +417,8 @@ impl IAccelerometerReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAccelerometerReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccelerometerReading2 {
@@ -461,7 +461,7 @@ impl IAccelerometerReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometerReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<AccelerometerReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<AccelerometerReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometerReadingChangedEventArgs {
@@ -492,7 +492,7 @@ impl IAccelerometerReadingChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAccelerometerShakenEventArgsImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccelerometerShakenEventArgs {
@@ -523,7 +523,7 @@ impl IAccelerometerShakenEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Accelerometer>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Accelerometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometerStatics {
@@ -551,7 +551,7 @@ impl IAccelerometerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccelerometerStatics2Impl: Sized {
-    fn GetDefaultWithAccelerometerReadingType(&self, readingtype: AccelerometerReadingType) -> ::windows::core::Result<Accelerometer>;
+    fn GetDefaultWithAccelerometerReadingType(&mut self, readingtype: AccelerometerReadingType) -> ::windows::core::Result<Accelerometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccelerometerStatics2 {
@@ -582,8 +582,8 @@ impl IAccelerometerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAccelerometerStatics3Impl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>>;
-    fn GetDeviceSelector(&self, readingtype: AccelerometerReadingType) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>>;
+    fn GetDeviceSelector(&mut self, readingtype: AccelerometerReadingType) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccelerometerStatics3 {
@@ -626,14 +626,14 @@ impl IAccelerometerStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivitySensorImpl: Sized {
-    fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensorReading>>;
-    fn SubscribedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ActivityType>>;
-    fn PowerInMilliwatts(&self) -> ::windows::core::Result<f64>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SupportedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivityType>>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ActivitySensor, ActivitySensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReadingAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensorReading>>;
+    fn SubscribedActivities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ActivityType>>;
+    fn PowerInMilliwatts(&mut self) -> ::windows::core::Result<f64>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportedActivities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivityType>>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ActivitySensor, ActivitySensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivitySensor {
@@ -741,9 +741,9 @@ impl IActivitySensorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IActivitySensorReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Activity(&self) -> ::windows::core::Result<ActivityType>;
-    fn Confidence(&self) -> ::windows::core::Result<ActivitySensorReadingConfidence>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Activity(&mut self) -> ::windows::core::Result<ActivityType>;
+    fn Confidence(&mut self) -> ::windows::core::Result<ActivitySensorReadingConfidence>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivitySensorReading {
@@ -798,7 +798,7 @@ impl IActivitySensorReadingVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IActivitySensorReadingChangeReportImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<ActivitySensorReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<ActivitySensorReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IActivitySensorReadingChangeReport {
@@ -829,7 +829,7 @@ impl IActivitySensorReadingChangeReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IActivitySensorReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<ActivitySensorReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<ActivitySensorReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IActivitySensorReadingChangedEventArgs {
@@ -860,11 +860,11 @@ impl IActivitySensorReadingChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IActivitySensorStaticsImpl: Sized {
-    fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>>;
-    fn GetSystemHistoryAsync(&self, fromtime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>;
-    fn GetSystemHistoryWithDurationAsync(&self, fromtime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>;
+    fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>>;
+    fn GetSystemHistoryAsync(&mut self, fromtime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>;
+    fn GetSystemHistoryWithDurationAsync(&mut self, fromtime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivitySensorStatics {
@@ -943,7 +943,7 @@ impl IActivitySensorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivitySensorTriggerDetailsImpl: Sized {
-    fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>>;
+    fn ReadReports(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivitySensorTriggerDetails {
@@ -974,13 +974,13 @@ impl IActivitySensorTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAltimeterImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<AltimeterReading>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Altimeter, AltimeterReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<AltimeterReading>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Altimeter, AltimeterReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAltimeter {
@@ -1069,9 +1069,9 @@ impl IAltimeterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAltimeter2Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAltimeter2 {
@@ -1119,8 +1119,8 @@ impl IAltimeter2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAltimeterReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn AltitudeChangeInMeters(&self) -> ::windows::core::Result<f64>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn AltitudeChangeInMeters(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAltimeterReading {
@@ -1163,8 +1163,8 @@ impl IAltimeterReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAltimeterReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAltimeterReading2 {
@@ -1207,7 +1207,7 @@ impl IAltimeterReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAltimeterReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<AltimeterReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<AltimeterReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAltimeterReadingChangedEventArgs {
@@ -1238,7 +1238,7 @@ impl IAltimeterReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAltimeterStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Altimeter>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Altimeter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAltimeterStatics {
@@ -1266,13 +1266,13 @@ impl IAltimeterStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBarometerImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<BarometerReading>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<BarometerReading>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarometer {
@@ -1361,9 +1361,9 @@ impl IBarometerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarometer2Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBarometer2 {
@@ -1411,7 +1411,7 @@ impl IBarometer2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarometer3Impl: Sized {
-    fn ReportThreshold(&self) -> ::windows::core::Result<BarometerDataThreshold>;
+    fn ReportThreshold(&mut self) -> ::windows::core::Result<BarometerDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBarometer3 {
@@ -1439,8 +1439,8 @@ impl IBarometer3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarometerDataThresholdImpl: Sized {
-    fn Hectopascals(&self) -> ::windows::core::Result<f64>;
-    fn SetHectopascals(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Hectopascals(&mut self) -> ::windows::core::Result<f64>;
+    fn SetHectopascals(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBarometerDataThreshold {
@@ -1476,8 +1476,8 @@ impl IBarometerDataThresholdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBarometerReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn StationPressureInHectopascals(&self) -> ::windows::core::Result<f64>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn StationPressureInHectopascals(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarometerReading {
@@ -1520,8 +1520,8 @@ impl IBarometerReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBarometerReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarometerReading2 {
@@ -1564,7 +1564,7 @@ impl IBarometerReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarometerReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<BarometerReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<BarometerReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBarometerReadingChangedEventArgs {
@@ -1595,7 +1595,7 @@ impl IBarometerReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBarometerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Barometer>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Barometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBarometerStatics {
@@ -1623,8 +1623,8 @@ impl IBarometerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBarometerStatics2Impl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBarometerStatics2 {
@@ -1667,12 +1667,12 @@ impl IBarometerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompassImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<CompassReading>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Compass, CompassReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<CompassReading>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Compass, CompassReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompass {
@@ -1749,8 +1749,8 @@ impl ICompassVtbl {
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 pub trait ICompass2Impl: Sized {
-    fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
-    fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
+    fn SetReadingTransform(&mut self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
+    fn ReadingTransform(&mut self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompass2 {
@@ -1786,9 +1786,9 @@ impl ICompass2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompass3Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompass3 {
@@ -1836,7 +1836,7 @@ impl ICompass3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompass4Impl: Sized {
-    fn ReportThreshold(&self) -> ::windows::core::Result<CompassDataThreshold>;
+    fn ReportThreshold(&mut self) -> ::windows::core::Result<CompassDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompass4 {
@@ -1864,8 +1864,8 @@ impl ICompass4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompassDataThresholdImpl: Sized {
-    fn Degrees(&self) -> ::windows::core::Result<f64>;
-    fn SetDegrees(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Degrees(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDegrees(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompassDataThreshold {
@@ -1901,7 +1901,7 @@ impl ICompassDataThresholdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompassDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompassDeviceId {
@@ -1929,9 +1929,9 @@ impl ICompassDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompassReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn HeadingMagneticNorth(&self) -> ::windows::core::Result<f64>;
-    fn HeadingTrueNorth(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn HeadingMagneticNorth(&mut self) -> ::windows::core::Result<f64>;
+    fn HeadingTrueNorth(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompassReading {
@@ -1986,8 +1986,8 @@ impl ICompassReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICompassReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompassReading2 {
@@ -2030,7 +2030,7 @@ impl ICompassReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompassReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<CompassReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<CompassReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompassReadingChangedEventArgs {
@@ -2058,7 +2058,7 @@ impl ICompassReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompassReadingHeadingAccuracyImpl: Sized {
-    fn HeadingAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy>;
+    fn HeadingAccuracy(&mut self) -> ::windows::core::Result<MagnetometerAccuracy>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompassReadingHeadingAccuracy {
@@ -2089,7 +2089,7 @@ impl ICompassReadingHeadingAccuracyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompassStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Compass>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Compass>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompassStatics {
@@ -2117,8 +2117,8 @@ impl ICompassStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompassStatics2Impl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompassStatics2 {
@@ -2161,12 +2161,12 @@ impl ICompassStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGyrometerImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<GyrometerReading>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<GyrometerReading>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGyrometer {
@@ -2243,8 +2243,8 @@ impl IGyrometerVtbl {
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 pub trait IGyrometer2Impl: Sized {
-    fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
-    fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
+    fn SetReadingTransform(&mut self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
+    fn ReadingTransform(&mut self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGyrometer2 {
@@ -2280,9 +2280,9 @@ impl IGyrometer2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGyrometer3Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGyrometer3 {
@@ -2330,7 +2330,7 @@ impl IGyrometer3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGyrometer4Impl: Sized {
-    fn ReportThreshold(&self) -> ::windows::core::Result<GyrometerDataThreshold>;
+    fn ReportThreshold(&mut self) -> ::windows::core::Result<GyrometerDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGyrometer4 {
@@ -2358,12 +2358,12 @@ impl IGyrometer4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGyrometerDataThresholdImpl: Sized {
-    fn XAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64>;
-    fn SetXAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()>;
-    fn YAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64>;
-    fn SetYAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ZAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64>;
-    fn SetZAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()>;
+    fn XAxisInDegreesPerSecond(&mut self) -> ::windows::core::Result<f64>;
+    fn SetXAxisInDegreesPerSecond(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn YAxisInDegreesPerSecond(&mut self) -> ::windows::core::Result<f64>;
+    fn SetYAxisInDegreesPerSecond(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ZAxisInDegreesPerSecond(&mut self) -> ::windows::core::Result<f64>;
+    fn SetZAxisInDegreesPerSecond(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGyrometerDataThreshold {
@@ -2433,7 +2433,7 @@ impl IGyrometerDataThresholdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGyrometerDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGyrometerDeviceId {
@@ -2461,10 +2461,10 @@ impl IGyrometerDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGyrometerReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn AngularVelocityX(&self) -> ::windows::core::Result<f64>;
-    fn AngularVelocityY(&self) -> ::windows::core::Result<f64>;
-    fn AngularVelocityZ(&self) -> ::windows::core::Result<f64>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn AngularVelocityX(&mut self) -> ::windows::core::Result<f64>;
+    fn AngularVelocityY(&mut self) -> ::windows::core::Result<f64>;
+    fn AngularVelocityZ(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGyrometerReading {
@@ -2531,8 +2531,8 @@ impl IGyrometerReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGyrometerReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGyrometerReading2 {
@@ -2575,7 +2575,7 @@ impl IGyrometerReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGyrometerReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<GyrometerReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<GyrometerReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGyrometerReadingChangedEventArgs {
@@ -2606,7 +2606,7 @@ impl IGyrometerReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGyrometerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Gyrometer>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Gyrometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGyrometerStatics {
@@ -2634,8 +2634,8 @@ impl IGyrometerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGyrometerStatics2Impl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGyrometerStatics2 {
@@ -2678,9 +2678,9 @@ impl IGyrometerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHingeAngleReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn AngleInDegrees(&self) -> ::windows::core::Result<f64>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn AngleInDegrees(&mut self) -> ::windows::core::Result<f64>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHingeAngleReading {
@@ -2735,13 +2735,13 @@ impl IHingeAngleReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHingeAngleSensorImpl: Sized {
-    fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleReading>>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MinReportThresholdInDegrees(&self) -> ::windows::core::Result<f64>;
-    fn ReportThresholdInDegrees(&self) -> ::windows::core::Result<f64>;
-    fn SetReportThresholdInDegrees(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HingeAngleSensor, HingeAngleSensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReadingAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleReading>>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MinReportThresholdInDegrees(&mut self) -> ::windows::core::Result<f64>;
+    fn ReportThresholdInDegrees(&mut self) -> ::windows::core::Result<f64>;
+    fn SetReportThresholdInDegrees(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HingeAngleSensor, HingeAngleSensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHingeAngleSensor {
@@ -2830,7 +2830,7 @@ impl IHingeAngleSensorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHingeAngleSensorReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<HingeAngleReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<HingeAngleReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHingeAngleSensorReadingChangedEventArgs {
@@ -2861,10 +2861,10 @@ impl IHingeAngleSensorReadingChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHingeAngleSensorStaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>;
-    fn GetRelatedToAdjacentPanelsAsync(&self, firstpanelid: &::windows::core::HSTRING, secondpanelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>;
+    fn GetRelatedToAdjacentPanelsAsync(&mut self, firstpanelid: &::windows::core::HSTRING, secondpanelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHingeAngleSensorStatics {
@@ -2931,12 +2931,12 @@ impl IHingeAngleSensorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IInclinometerImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<InclinometerReading>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Inclinometer, InclinometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<InclinometerReading>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Inclinometer, InclinometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInclinometer {
@@ -3013,9 +3013,9 @@ impl IInclinometerVtbl {
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 pub trait IInclinometer2Impl: Sized {
-    fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
-    fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
-    fn ReadingType(&self) -> ::windows::core::Result<SensorReadingType>;
+    fn SetReadingTransform(&mut self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
+    fn ReadingTransform(&mut self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
+    fn ReadingType(&mut self) -> ::windows::core::Result<SensorReadingType>;
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInclinometer2 {
@@ -3063,9 +3063,9 @@ impl IInclinometer2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometer3Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometer3 {
@@ -3113,7 +3113,7 @@ impl IInclinometer3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometer4Impl: Sized {
-    fn ReportThreshold(&self) -> ::windows::core::Result<InclinometerDataThreshold>;
+    fn ReportThreshold(&mut self) -> ::windows::core::Result<InclinometerDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometer4 {
@@ -3141,12 +3141,12 @@ impl IInclinometer4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometerDataThresholdImpl: Sized {
-    fn PitchInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetPitchInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RollInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetRollInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn YawInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetYawInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
+    fn PitchInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPitchInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RollInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRollInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn YawInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetYawInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometerDataThreshold {
@@ -3216,7 +3216,7 @@ impl IInclinometerDataThresholdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometerDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometerDeviceId {
@@ -3244,10 +3244,10 @@ impl IInclinometerDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IInclinometerReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn PitchDegrees(&self) -> ::windows::core::Result<f32>;
-    fn RollDegrees(&self) -> ::windows::core::Result<f32>;
-    fn YawDegrees(&self) -> ::windows::core::Result<f32>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn PitchDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn RollDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn YawDegrees(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInclinometerReading {
@@ -3314,8 +3314,8 @@ impl IInclinometerReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInclinometerReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInclinometerReading2 {
@@ -3358,7 +3358,7 @@ impl IInclinometerReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometerReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<InclinometerReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<InclinometerReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometerReadingChangedEventArgs {
@@ -3389,7 +3389,7 @@ impl IInclinometerReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometerReadingYawAccuracyImpl: Sized {
-    fn YawAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy>;
+    fn YawAccuracy(&mut self) -> ::windows::core::Result<MagnetometerAccuracy>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometerReadingYawAccuracy {
@@ -3420,7 +3420,7 @@ impl IInclinometerReadingYawAccuracyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Inclinometer>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Inclinometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometerStatics {
@@ -3448,7 +3448,7 @@ impl IInclinometerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometerStatics2Impl: Sized {
-    fn GetDefaultForRelativeReadings(&self) -> ::windows::core::Result<Inclinometer>;
+    fn GetDefaultForRelativeReadings(&mut self) -> ::windows::core::Result<Inclinometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometerStatics2 {
@@ -3479,7 +3479,7 @@ impl IInclinometerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInclinometerStatics3Impl: Sized {
-    fn GetDefaultWithSensorReadingType(&self, sensorreadingtype: SensorReadingType) -> ::windows::core::Result<Inclinometer>;
+    fn GetDefaultWithSensorReadingType(&mut self, sensorreadingtype: SensorReadingType) -> ::windows::core::Result<Inclinometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInclinometerStatics3 {
@@ -3510,8 +3510,8 @@ impl IInclinometerStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IInclinometerStatics4Impl: Sized {
-    fn GetDeviceSelector(&self, readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>>;
+    fn GetDeviceSelector(&mut self, readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInclinometerStatics4 {
@@ -3554,12 +3554,12 @@ impl IInclinometerStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILightSensorImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<LightSensorReading>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<LightSensorReading>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILightSensor {
@@ -3636,9 +3636,9 @@ impl ILightSensorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILightSensor2Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILightSensor2 {
@@ -3686,7 +3686,7 @@ impl ILightSensor2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILightSensor3Impl: Sized {
-    fn ReportThreshold(&self) -> ::windows::core::Result<LightSensorDataThreshold>;
+    fn ReportThreshold(&mut self) -> ::windows::core::Result<LightSensorDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILightSensor3 {
@@ -3714,10 +3714,10 @@ impl ILightSensor3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILightSensorDataThresholdImpl: Sized {
-    fn LuxPercentage(&self) -> ::windows::core::Result<f32>;
-    fn SetLuxPercentage(&self, value: f32) -> ::windows::core::Result<()>;
-    fn AbsoluteLux(&self) -> ::windows::core::Result<f32>;
-    fn SetAbsoluteLux(&self, value: f32) -> ::windows::core::Result<()>;
+    fn LuxPercentage(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLuxPercentage(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn AbsoluteLux(&mut self) -> ::windows::core::Result<f32>;
+    fn SetAbsoluteLux(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILightSensorDataThreshold {
@@ -3770,7 +3770,7 @@ impl ILightSensorDataThresholdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILightSensorDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILightSensorDeviceId {
@@ -3798,8 +3798,8 @@ impl ILightSensorDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILightSensorReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn IlluminanceInLux(&self) -> ::windows::core::Result<f32>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn IlluminanceInLux(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILightSensorReading {
@@ -3842,8 +3842,8 @@ impl ILightSensorReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILightSensorReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILightSensorReading2 {
@@ -3886,7 +3886,7 @@ impl ILightSensorReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILightSensorReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<LightSensorReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<LightSensorReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILightSensorReadingChangedEventArgs {
@@ -3917,7 +3917,7 @@ impl ILightSensorReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILightSensorStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<LightSensor>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<LightSensor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILightSensorStatics {
@@ -3945,8 +3945,8 @@ impl ILightSensorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILightSensorStatics2Impl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LightSensor>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LightSensor>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILightSensorStatics2 {
@@ -3989,12 +3989,12 @@ impl ILightSensorStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMagnetometerImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<MagnetometerReading>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Magnetometer, MagnetometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<MagnetometerReading>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Magnetometer, MagnetometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagnetometer {
@@ -4071,8 +4071,8 @@ impl IMagnetometerVtbl {
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 pub trait IMagnetometer2Impl: Sized {
-    fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
-    fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
+    fn SetReadingTransform(&mut self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
+    fn ReadingTransform(&mut self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagnetometer2 {
@@ -4108,9 +4108,9 @@ impl IMagnetometer2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMagnetometer3Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMagnetometer3 {
@@ -4158,7 +4158,7 @@ impl IMagnetometer3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMagnetometer4Impl: Sized {
-    fn ReportThreshold(&self) -> ::windows::core::Result<MagnetometerDataThreshold>;
+    fn ReportThreshold(&mut self) -> ::windows::core::Result<MagnetometerDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMagnetometer4 {
@@ -4186,12 +4186,12 @@ impl IMagnetometer4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMagnetometerDataThresholdImpl: Sized {
-    fn XAxisMicroteslas(&self) -> ::windows::core::Result<f32>;
-    fn SetXAxisMicroteslas(&self, value: f32) -> ::windows::core::Result<()>;
-    fn YAxisMicroteslas(&self) -> ::windows::core::Result<f32>;
-    fn SetYAxisMicroteslas(&self, value: f32) -> ::windows::core::Result<()>;
-    fn ZAxisMicroteslas(&self) -> ::windows::core::Result<f32>;
-    fn SetZAxisMicroteslas(&self, value: f32) -> ::windows::core::Result<()>;
+    fn XAxisMicroteslas(&mut self) -> ::windows::core::Result<f32>;
+    fn SetXAxisMicroteslas(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn YAxisMicroteslas(&mut self) -> ::windows::core::Result<f32>;
+    fn SetYAxisMicroteslas(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn ZAxisMicroteslas(&mut self) -> ::windows::core::Result<f32>;
+    fn SetZAxisMicroteslas(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMagnetometerDataThreshold {
@@ -4261,7 +4261,7 @@ impl IMagnetometerDataThresholdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMagnetometerDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMagnetometerDeviceId {
@@ -4289,11 +4289,11 @@ impl IMagnetometerDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMagnetometerReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn MagneticFieldX(&self) -> ::windows::core::Result<f32>;
-    fn MagneticFieldY(&self) -> ::windows::core::Result<f32>;
-    fn MagneticFieldZ(&self) -> ::windows::core::Result<f32>;
-    fn DirectionalAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn MagneticFieldX(&mut self) -> ::windows::core::Result<f32>;
+    fn MagneticFieldY(&mut self) -> ::windows::core::Result<f32>;
+    fn MagneticFieldZ(&mut self) -> ::windows::core::Result<f32>;
+    fn DirectionalAccuracy(&mut self) -> ::windows::core::Result<MagnetometerAccuracy>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagnetometerReading {
@@ -4372,8 +4372,8 @@ impl IMagnetometerReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMagnetometerReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagnetometerReading2 {
@@ -4416,7 +4416,7 @@ impl IMagnetometerReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMagnetometerReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<MagnetometerReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<MagnetometerReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMagnetometerReadingChangedEventArgs {
@@ -4447,7 +4447,7 @@ impl IMagnetometerReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMagnetometerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Magnetometer>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Magnetometer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMagnetometerStatics {
@@ -4475,8 +4475,8 @@ impl IMagnetometerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMagnetometerStatics2Impl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMagnetometerStatics2 {
@@ -4519,12 +4519,12 @@ impl IMagnetometerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOrientationSensorImpl: Sized {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<OrientationSensorReading>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<OrientationSensor, OrientationSensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<OrientationSensorReading>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<OrientationSensor, OrientationSensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOrientationSensor {
@@ -4601,9 +4601,9 @@ impl IOrientationSensorVtbl {
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 pub trait IOrientationSensor2Impl: Sized {
-    fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
-    fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
-    fn ReadingType(&self) -> ::windows::core::Result<SensorReadingType>;
+    fn SetReadingTransform(&mut self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
+    fn ReadingTransform(&mut self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
+    fn ReadingType(&mut self) -> ::windows::core::Result<SensorReadingType>;
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOrientationSensor2 {
@@ -4651,9 +4651,9 @@ impl IOrientationSensor2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOrientationSensor3Impl: Sized {
-    fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportLatency(&self) -> ::windows::core::Result<u32>;
-    fn MaxBatchSize(&self) -> ::windows::core::Result<u32>;
+    fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOrientationSensor3 {
@@ -4701,7 +4701,7 @@ impl IOrientationSensor3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOrientationSensorDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOrientationSensorDeviceId {
@@ -4729,9 +4729,9 @@ impl IOrientationSensorDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOrientationSensorReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn RotationMatrix(&self) -> ::windows::core::Result<SensorRotationMatrix>;
-    fn Quaternion(&self) -> ::windows::core::Result<SensorQuaternion>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn RotationMatrix(&mut self) -> ::windows::core::Result<SensorRotationMatrix>;
+    fn Quaternion(&mut self) -> ::windows::core::Result<SensorQuaternion>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOrientationSensorReading {
@@ -4786,8 +4786,8 @@ impl IOrientationSensorReadingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOrientationSensorReading2Impl: Sized {
-    fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOrientationSensorReading2 {
@@ -4830,7 +4830,7 @@ impl IOrientationSensorReading2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOrientationSensorReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<OrientationSensorReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<OrientationSensorReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOrientationSensorReadingChangedEventArgs {
@@ -4861,7 +4861,7 @@ impl IOrientationSensorReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOrientationSensorReadingYawAccuracyImpl: Sized {
-    fn YawAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy>;
+    fn YawAccuracy(&mut self) -> ::windows::core::Result<MagnetometerAccuracy>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOrientationSensorReadingYawAccuracy {
@@ -4892,7 +4892,7 @@ impl IOrientationSensorReadingYawAccuracyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOrientationSensorStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<OrientationSensor>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<OrientationSensor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOrientationSensorStatics {
@@ -4920,7 +4920,7 @@ impl IOrientationSensorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOrientationSensorStatics2Impl: Sized {
-    fn GetDefaultForRelativeReadings(&self) -> ::windows::core::Result<OrientationSensor>;
+    fn GetDefaultForRelativeReadings(&mut self) -> ::windows::core::Result<OrientationSensor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOrientationSensorStatics2 {
@@ -4951,8 +4951,8 @@ impl IOrientationSensorStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOrientationSensorStatics3Impl: Sized {
-    fn GetDefaultWithSensorReadingType(&self, sensorreadingtype: SensorReadingType) -> ::windows::core::Result<OrientationSensor>;
-    fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal(&self, sensorreadingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<OrientationSensor>;
+    fn GetDefaultWithSensorReadingType(&mut self, sensorreadingtype: SensorReadingType) -> ::windows::core::Result<OrientationSensor>;
+    fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal(&mut self, sensorreadingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<OrientationSensor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOrientationSensorStatics3 {
@@ -4995,9 +4995,9 @@ impl IOrientationSensorStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOrientationSensorStatics4Impl: Sized {
-    fn GetDeviceSelector(&self, readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal(&self, readingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>>;
+    fn GetDeviceSelector(&mut self, readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal(&mut self, readingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOrientationSensorStatics4 {
@@ -5052,13 +5052,13 @@ impl IOrientationSensorStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPedometerImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PowerInMilliwatts(&self) -> ::windows::core::Result<f64>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Pedometer, PedometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PowerInMilliwatts(&mut self) -> ::windows::core::Result<f64>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Pedometer, PedometerReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPedometer {
@@ -5147,7 +5147,7 @@ impl IPedometerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPedometer2Impl: Sized {
-    fn GetCurrentReadings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>>;
+    fn GetCurrentReadings(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPedometer2 {
@@ -5178,7 +5178,7 @@ impl IPedometer2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPedometerDataThresholdFactoryImpl: Sized {
-    fn Create(&self, sensor: &::core::option::Option<Pedometer>, stepgoal: i32) -> ::windows::core::Result<PedometerDataThreshold>;
+    fn Create(&mut self, sensor: &::core::option::Option<Pedometer>, stepgoal: i32) -> ::windows::core::Result<PedometerDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPedometerDataThresholdFactory {
@@ -5206,10 +5206,10 @@ impl IPedometerDataThresholdFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPedometerReadingImpl: Sized {
-    fn StepKind(&self) -> ::windows::core::Result<PedometerStepKind>;
-    fn CumulativeSteps(&self) -> ::windows::core::Result<i32>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn CumulativeStepsDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn StepKind(&mut self) -> ::windows::core::Result<PedometerStepKind>;
+    fn CumulativeSteps(&mut self) -> ::windows::core::Result<i32>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn CumulativeStepsDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPedometerReading {
@@ -5276,7 +5276,7 @@ impl IPedometerReadingVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPedometerReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<PedometerReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<PedometerReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPedometerReadingChangedEventArgs {
@@ -5307,11 +5307,11 @@ impl IPedometerReadingChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPedometerStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>>;
-    fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetSystemHistoryAsync(&self, fromtime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>;
-    fn GetSystemHistoryWithDurationAsync(&self, fromtime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>>;
+    fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetSystemHistoryAsync(&mut self, fromtime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>;
+    fn GetSystemHistoryWithDurationAsync(&mut self, fromtime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPedometerStatics {
@@ -5390,7 +5390,7 @@ impl IPedometerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPedometerStatics2Impl: Sized {
-    fn GetReadingsFromTriggerDetails(&self, triggerdetails: &::core::option::Option<SensorDataThresholdTriggerDetails>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
+    fn GetReadingsFromTriggerDetails(&mut self, triggerdetails: &::core::option::Option<SensorDataThresholdTriggerDetails>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPedometerStatics2 {
@@ -5421,13 +5421,13 @@ impl IPedometerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProximitySensorImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MaxDistanceInMillimeters(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn MinDistanceInMillimeters(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn GetCurrentReading(&self) -> ::windows::core::Result<ProximitySensorReading>;
-    fn ReadingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ProximitySensor, ProximitySensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CreateDisplayOnOffController(&self) -> ::windows::core::Result<ProximitySensorDisplayOnOffController>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MaxDistanceInMillimeters(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn MinDistanceInMillimeters(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<ProximitySensorReading>;
+    fn ReadingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ProximitySensor, ProximitySensorReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateDisplayOnOffController(&mut self) -> ::windows::core::Result<ProximitySensorDisplayOnOffController>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProximitySensor {
@@ -5523,7 +5523,7 @@ impl IProximitySensorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProximitySensorDataThresholdFactoryImpl: Sized {
-    fn Create(&self, sensor: &::core::option::Option<ProximitySensor>) -> ::windows::core::Result<ProximitySensorDataThreshold>;
+    fn Create(&mut self, sensor: &::core::option::Option<ProximitySensor>) -> ::windows::core::Result<ProximitySensorDataThreshold>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProximitySensorDataThresholdFactory {
@@ -5554,9 +5554,9 @@ impl IProximitySensorDataThresholdFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProximitySensorReadingImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn IsDetected(&self) -> ::windows::core::Result<bool>;
-    fn DistanceInMillimeters(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn IsDetected(&mut self) -> ::windows::core::Result<bool>;
+    fn DistanceInMillimeters(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProximitySensorReading {
@@ -5611,7 +5611,7 @@ impl IProximitySensorReadingVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProximitySensorReadingChangedEventArgsImpl: Sized {
-    fn Reading(&self) -> ::windows::core::Result<ProximitySensorReading>;
+    fn Reading(&mut self) -> ::windows::core::Result<ProximitySensorReading>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProximitySensorReadingChangedEventArgs {
@@ -5642,8 +5642,8 @@ impl IProximitySensorReadingChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProximitySensorStaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromId(&self, sensorid: &::windows::core::HSTRING) -> ::windows::core::Result<ProximitySensor>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromId(&mut self, sensorid: &::windows::core::HSTRING) -> ::windows::core::Result<ProximitySensor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProximitySensorStatics {
@@ -5686,7 +5686,7 @@ impl IProximitySensorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProximitySensorStatics2Impl: Sized {
-    fn GetReadingsFromTriggerDetails(&self, triggerdetails: &::core::option::Option<SensorDataThresholdTriggerDetails>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>;
+    fn GetReadingsFromTriggerDetails(&mut self, triggerdetails: &::core::option::Option<SensorDataThresholdTriggerDetails>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProximitySensorStatics2 {
@@ -5729,8 +5729,8 @@ impl ISensorDataThresholdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISensorDataThresholdTriggerDetailsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SensorType(&self) -> ::windows::core::Result<SensorType>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SensorType(&mut self) -> ::windows::core::Result<SensorType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISensorDataThresholdTriggerDetails {
@@ -5773,10 +5773,10 @@ impl ISensorDataThresholdTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISensorQuaternionImpl: Sized {
-    fn W(&self) -> ::windows::core::Result<f32>;
-    fn X(&self) -> ::windows::core::Result<f32>;
-    fn Y(&self) -> ::windows::core::Result<f32>;
-    fn Z(&self) -> ::windows::core::Result<f32>;
+    fn W(&mut self) -> ::windows::core::Result<f32>;
+    fn X(&mut self) -> ::windows::core::Result<f32>;
+    fn Y(&mut self) -> ::windows::core::Result<f32>;
+    fn Z(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISensorQuaternion {
@@ -5843,15 +5843,15 @@ impl ISensorQuaternionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISensorRotationMatrixImpl: Sized {
-    fn M11(&self) -> ::windows::core::Result<f32>;
-    fn M12(&self) -> ::windows::core::Result<f32>;
-    fn M13(&self) -> ::windows::core::Result<f32>;
-    fn M21(&self) -> ::windows::core::Result<f32>;
-    fn M22(&self) -> ::windows::core::Result<f32>;
-    fn M23(&self) -> ::windows::core::Result<f32>;
-    fn M31(&self) -> ::windows::core::Result<f32>;
-    fn M32(&self) -> ::windows::core::Result<f32>;
-    fn M33(&self) -> ::windows::core::Result<f32>;
+    fn M11(&mut self) -> ::windows::core::Result<f32>;
+    fn M12(&mut self) -> ::windows::core::Result<f32>;
+    fn M13(&mut self) -> ::windows::core::Result<f32>;
+    fn M21(&mut self) -> ::windows::core::Result<f32>;
+    fn M22(&mut self) -> ::windows::core::Result<f32>;
+    fn M23(&mut self) -> ::windows::core::Result<f32>;
+    fn M31(&mut self) -> ::windows::core::Result<f32>;
+    fn M32(&mut self) -> ::windows::core::Result<f32>;
+    fn M33(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISensorRotationMatrix {
@@ -5978,9 +5978,9 @@ impl ISensorRotationMatrixVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISimpleOrientationSensorImpl: Sized {
-    fn GetCurrentOrientation(&self) -> ::windows::core::Result<SimpleOrientation>;
-    fn OrientationChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOrientationChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentOrientation(&mut self) -> ::windows::core::Result<SimpleOrientation>;
+    fn OrientationChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOrientationChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleOrientationSensor {
@@ -6028,8 +6028,8 @@ impl ISimpleOrientationSensorVtbl {
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 pub trait ISimpleOrientationSensor2Impl: Sized {
-    fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
-    fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
+    fn SetReadingTransform(&mut self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()>;
+    fn ReadingTransform(&mut self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations>;
 }
 #[cfg(all(feature = "Graphics_Display", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleOrientationSensor2 {
@@ -6065,7 +6065,7 @@ impl ISimpleOrientationSensor2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISimpleOrientationSensorDeviceIdImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISimpleOrientationSensorDeviceId {
@@ -6096,8 +6096,8 @@ impl ISimpleOrientationSensorDeviceIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISimpleOrientationSensorOrientationChangedEventArgsImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Orientation(&self) -> ::windows::core::Result<SimpleOrientation>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Orientation(&mut self) -> ::windows::core::Result<SimpleOrientation>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleOrientationSensorOrientationChangedEventArgs {
@@ -6140,7 +6140,7 @@ impl ISimpleOrientationSensorOrientationChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISimpleOrientationSensorStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<SimpleOrientationSensor>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<SimpleOrientationSensor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISimpleOrientationSensorStatics {
@@ -6171,8 +6171,8 @@ impl ISimpleOrientationSensorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISimpleOrientationSensorStatics2Impl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleOrientationSensorStatics2 {

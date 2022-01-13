@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechContinuousRecognitionCompletedEventArgsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<SpeechRecognitionResultStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<SpeechRecognitionResultStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechContinuousRecognitionCompletedEventArgs {
@@ -31,7 +31,7 @@ impl ISpeechContinuousRecognitionCompletedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechContinuousRecognitionResultGeneratedEventArgsImpl: Sized {
-    fn Result(&self) -> ::windows::core::Result<SpeechRecognitionResult>;
+    fn Result(&mut self) -> ::windows::core::Result<SpeechRecognitionResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechContinuousRecognitionResultGeneratedEventArgs {
@@ -62,18 +62,18 @@ impl ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpeechContinuousRecognitionSessionImpl: Sized {
-    fn AutoStopSilenceTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetAutoStopSilenceTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StopAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CancelAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn PauseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Resume(&self) -> ::windows::core::Result<()>;
-    fn Completed(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ResultGenerated(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveResultGenerated(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AutoStopSilenceTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetAutoStopSilenceTimeout(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartWithModeAsync(&mut self, mode: SpeechContinuousRecognitionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StopAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CancelAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PauseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn Completed(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ResultGenerated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveResultGenerated(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechContinuousRecognitionSession {
@@ -208,7 +208,7 @@ impl ISpeechContinuousRecognitionSessionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognitionCompilationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<SpeechRecognitionResultStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<SpeechRecognitionResultStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognitionCompilationResult {
@@ -238,13 +238,13 @@ impl ISpeechRecognitionCompilationResultVtbl {
     }
 }
 pub trait ISpeechRecognitionConstraintImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Type(&self) -> ::windows::core::Result<SpeechRecognitionConstraintType>;
-    fn Probability(&self) -> ::windows::core::Result<SpeechRecognitionConstraintProbability>;
-    fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<SpeechRecognitionConstraintType>;
+    fn Probability(&mut self) -> ::windows::core::Result<SpeechRecognitionConstraintProbability>;
+    fn SetProbability(&mut self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISpeechRecognitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint";
@@ -324,7 +324,7 @@ impl ISpeechRecognitionConstraintVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait ISpeechRecognitionGrammarFileConstraintImpl: Sized + ISpeechRecognitionConstraintImpl {
-    fn GrammarFile(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn GrammarFile(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognitionGrammarFileConstraint {
@@ -355,8 +355,8 @@ impl ISpeechRecognitionGrammarFileConstraintVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait ISpeechRecognitionGrammarFileConstraintFactoryImpl: Sized {
-    fn Create(&self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint>;
-    fn CreateWithTag(&self, file: &::core::option::Option<super::super::Storage::StorageFile>, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint>;
+    fn Create(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint>;
+    fn CreateWithTag(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognitionGrammarFileConstraintFactory {
@@ -399,7 +399,7 @@ impl ISpeechRecognitionGrammarFileConstraintFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognitionHypothesisImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognitionHypothesis {
@@ -427,7 +427,7 @@ impl ISpeechRecognitionHypothesisVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognitionHypothesisGeneratedEventArgsImpl: Sized {
-    fn Hypothesis(&self) -> ::windows::core::Result<SpeechRecognitionHypothesis>;
+    fn Hypothesis(&mut self) -> ::windows::core::Result<SpeechRecognitionHypothesis>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognitionHypothesisGeneratedEventArgs {
@@ -458,7 +458,7 @@ impl ISpeechRecognitionHypothesisGeneratedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpeechRecognitionListConstraintImpl: Sized + ISpeechRecognitionConstraintImpl {
-    fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Commands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognitionListConstraint {
@@ -489,8 +489,8 @@ impl ISpeechRecognitionListConstraintVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpeechRecognitionListConstraintFactoryImpl: Sized {
-    fn Create(&self, commands: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<SpeechRecognitionListConstraint>;
-    fn CreateWithTag(&self, commands: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionListConstraint>;
+    fn Create(&mut self, commands: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<SpeechRecognitionListConstraint>;
+    fn CreateWithTag(&mut self, commands: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionListConstraint>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognitionListConstraintFactory {
@@ -533,7 +533,7 @@ impl ISpeechRecognitionListConstraintFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognitionQualityDegradingEventArgsImpl: Sized {
-    fn Problem(&self) -> ::windows::core::Result<SpeechRecognitionAudioProblem>;
+    fn Problem(&mut self) -> ::windows::core::Result<SpeechRecognitionAudioProblem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognitionQualityDegradingEventArgs {
@@ -564,14 +564,14 @@ impl ISpeechRecognitionQualityDegradingEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpeechRecognitionResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<SpeechRecognitionResultStatus>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Confidence(&self) -> ::windows::core::Result<SpeechRecognitionConfidence>;
-    fn SemanticInterpretation(&self) -> ::windows::core::Result<SpeechRecognitionSemanticInterpretation>;
-    fn GetAlternates(&self, maxalternates: u32) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SpeechRecognitionResult>>;
-    fn Constraint(&self) -> ::windows::core::Result<ISpeechRecognitionConstraint>;
-    fn RulePath(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn RawConfidence(&self) -> ::windows::core::Result<f64>;
+    fn Status(&mut self) -> ::windows::core::Result<SpeechRecognitionResultStatus>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Confidence(&mut self) -> ::windows::core::Result<SpeechRecognitionConfidence>;
+    fn SemanticInterpretation(&mut self) -> ::windows::core::Result<SpeechRecognitionSemanticInterpretation>;
+    fn GetAlternates(&mut self, maxalternates: u32) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SpeechRecognitionResult>>;
+    fn Constraint(&mut self) -> ::windows::core::Result<ISpeechRecognitionConstraint>;
+    fn RulePath(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn RawConfidence(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognitionResult {
@@ -686,8 +686,8 @@ impl ISpeechRecognitionResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpeechRecognitionResult2Impl: Sized {
-    fn PhraseStartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn PhraseDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn PhraseStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn PhraseDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognitionResult2 {
@@ -730,7 +730,7 @@ impl ISpeechRecognitionResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpeechRecognitionSemanticInterpretationImpl: Sized {
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognitionSemanticInterpretation {
@@ -761,8 +761,8 @@ impl ISpeechRecognitionSemanticInterpretationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognitionTopicConstraintImpl: Sized + ISpeechRecognitionConstraintImpl {
-    fn Scenario(&self) -> ::windows::core::Result<SpeechRecognitionScenario>;
-    fn TopicHint(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Scenario(&mut self) -> ::windows::core::Result<SpeechRecognitionScenario>;
+    fn TopicHint(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognitionTopicConstraint {
@@ -805,8 +805,8 @@ impl ISpeechRecognitionTopicConstraintVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognitionTopicConstraintFactoryImpl: Sized {
-    fn Create(&self, scenario: SpeechRecognitionScenario, topichint: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>;
-    fn CreateWithTag(&self, scenario: SpeechRecognitionScenario, topichint: &::windows::core::HSTRING, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>;
+    fn Create(&mut self, scenario: SpeechRecognitionScenario, topichint: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>;
+    fn CreateWithTag(&mut self, scenario: SpeechRecognitionScenario, topichint: &::windows::core::HSTRING, tag: &::windows::core::HSTRING) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognitionTopicConstraintFactory {
@@ -864,17 +864,17 @@ impl ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait ISpeechRecognizerImpl: Sized + IClosableImpl {
-    fn CurrentLanguage(&self) -> ::windows::core::Result<super::super::Globalization::Language>;
-    fn Constraints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISpeechRecognitionConstraint>>;
-    fn Timeouts(&self) -> ::windows::core::Result<SpeechRecognizerTimeouts>;
-    fn UIOptions(&self) -> ::windows::core::Result<SpeechRecognizerUIOptions>;
-    fn CompileConstraintsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionCompilationResult>>;
-    fn RecognizeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>>;
-    fn RecognizeWithUIAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>>;
-    fn RecognitionQualityDegrading(&self, speechrecognitionqualitydegradinghandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecognitionQualityDegrading(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StateChanged(&self, statechangedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CurrentLanguage(&mut self) -> ::windows::core::Result<super::super::Globalization::Language>;
+    fn Constraints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISpeechRecognitionConstraint>>;
+    fn Timeouts(&mut self) -> ::windows::core::Result<SpeechRecognizerTimeouts>;
+    fn UIOptions(&mut self) -> ::windows::core::Result<SpeechRecognizerUIOptions>;
+    fn CompileConstraintsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionCompilationResult>>;
+    fn RecognizeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>>;
+    fn RecognizeWithUIAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>>;
+    fn RecognitionQualityDegrading(&mut self, speechrecognitionqualitydegradinghandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecognitionQualityDegrading(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StateChanged(&mut self, statechangedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognizer {
@@ -1011,11 +1011,11 @@ impl ISpeechRecognizerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpeechRecognizer2Impl: Sized {
-    fn ContinuousRecognitionSession(&self) -> ::windows::core::Result<SpeechContinuousRecognitionSession>;
-    fn State(&self) -> ::windows::core::Result<SpeechRecognizerState>;
-    fn StopRecognitionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn HypothesisGenerated(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHypothesisGenerated(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ContinuousRecognitionSession(&mut self) -> ::windows::core::Result<SpeechContinuousRecognitionSession>;
+    fn State(&mut self) -> ::windows::core::Result<SpeechRecognizerState>;
+    fn StopRecognitionAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn HypothesisGenerated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHypothesisGenerated(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognizer2 {
@@ -1087,7 +1087,7 @@ impl ISpeechRecognizer2Vtbl {
 }
 #[cfg(all(feature = "Globalization", feature = "implement_exclusive"))]
 pub trait ISpeechRecognizerFactoryImpl: Sized {
-    fn Create(&self, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<SpeechRecognizer>;
+    fn Create(&mut self, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<SpeechRecognizer>;
 }
 #[cfg(all(feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognizerFactory {
@@ -1115,7 +1115,7 @@ impl ISpeechRecognizerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognizerStateChangedEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<SpeechRecognizerState>;
+    fn State(&mut self) -> ::windows::core::Result<SpeechRecognizerState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognizerStateChangedEventArgs {
@@ -1146,9 +1146,9 @@ impl ISpeechRecognizerStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait ISpeechRecognizerStaticsImpl: Sized {
-    fn SystemSpeechLanguage(&self) -> ::windows::core::Result<super::super::Globalization::Language>;
-    fn SupportedTopicLanguages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>;
-    fn SupportedGrammarLanguages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>;
+    fn SystemSpeechLanguage(&mut self) -> ::windows::core::Result<super::super::Globalization::Language>;
+    fn SupportedTopicLanguages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>;
+    fn SupportedGrammarLanguages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognizerStatics {
@@ -1203,7 +1203,7 @@ impl ISpeechRecognizerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait ISpeechRecognizerStatics2Impl: Sized {
-    fn TrySetSystemSpeechLanguageAsync(&self, speechlanguage: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TrySetSystemSpeechLanguageAsync(&mut self, speechlanguage: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognizerStatics2 {
@@ -1234,12 +1234,12 @@ impl ISpeechRecognizerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpeechRecognizerTimeoutsImpl: Sized {
-    fn InitialSilenceTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetInitialSilenceTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn EndSilenceTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetEndSilenceTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn BabbleTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetBabbleTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn InitialSilenceTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetInitialSilenceTimeout(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn EndSilenceTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetEndSilenceTimeout(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn BabbleTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetBabbleTimeout(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechRecognizerTimeouts {
@@ -1309,14 +1309,14 @@ impl ISpeechRecognizerTimeoutsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpeechRecognizerUIOptionsImpl: Sized {
-    fn ExampleText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExampleText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AudiblePrompt(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAudiblePrompt(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsReadBackEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsReadBackEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShowConfirmation(&self) -> ::windows::core::Result<bool>;
-    fn SetShowConfirmation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn ExampleText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetExampleText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AudiblePrompt(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAudiblePrompt(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsReadBackEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsReadBackEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShowConfirmation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShowConfirmation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpeechRecognizerUIOptions {
@@ -1403,8 +1403,8 @@ impl ISpeechRecognizerUIOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IVoiceCommandManagerImpl: Sized {
-    fn InstallCommandSetsFromStorageFileAsync(&self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn InstalledCommandSets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, VoiceCommandSet>>;
+    fn InstallCommandSetsFromStorageFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn InstalledCommandSets(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, VoiceCommandSet>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandManager {
@@ -1447,9 +1447,9 @@ impl IVoiceCommandManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVoiceCommandSetImpl: Sized {
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPhraseListAsync(&self, phraselistname: &::windows::core::HSTRING, phraselist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPhraseListAsync(&mut self, phraselistname: &::windows::core::HSTRING, phraselist: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVoiceCommandSet {

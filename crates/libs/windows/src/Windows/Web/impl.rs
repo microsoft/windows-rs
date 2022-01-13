@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IUriToStreamResolverImpl: Sized {
-    fn UriToStreamAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;
+    fn UriToStreamAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IUriToStreamResolver {
@@ -31,7 +31,7 @@ impl IUriToStreamResolverVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebErrorStaticsImpl: Sized {
-    fn GetStatus(&self, hresult: i32) -> ::windows::core::Result<WebErrorStatus>;
+    fn GetStatus(&mut self, hresult: i32) -> ::windows::core::Result<WebErrorStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebErrorStatics {

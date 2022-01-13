@@ -1,10 +1,10 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownSimpleHapticsControllerWaveformsStaticsImpl: Sized {
-    fn Click(&self) -> ::windows::core::Result<u16>;
-    fn BuzzContinuous(&self) -> ::windows::core::Result<u16>;
-    fn RumbleContinuous(&self) -> ::windows::core::Result<u16>;
-    fn Press(&self) -> ::windows::core::Result<u16>;
-    fn Release(&self) -> ::windows::core::Result<u16>;
+    fn Click(&mut self) -> ::windows::core::Result<u16>;
+    fn BuzzContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn RumbleContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn Press(&mut self) -> ::windows::core::Result<u16>;
+    fn Release(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownSimpleHapticsControllerWaveformsStatics {
@@ -83,16 +83,16 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownSimpleHapticsControllerWaveformsStatics2Impl: Sized {
-    fn BrushContinuous(&self) -> ::windows::core::Result<u16>;
-    fn ChiselMarkerContinuous(&self) -> ::windows::core::Result<u16>;
-    fn EraserContinuous(&self) -> ::windows::core::Result<u16>;
-    fn Error(&self) -> ::windows::core::Result<u16>;
-    fn GalaxyPenContinuous(&self) -> ::windows::core::Result<u16>;
-    fn Hover(&self) -> ::windows::core::Result<u16>;
-    fn InkContinuous(&self) -> ::windows::core::Result<u16>;
-    fn MarkerContinuous(&self) -> ::windows::core::Result<u16>;
-    fn PencilContinuous(&self) -> ::windows::core::Result<u16>;
-    fn Success(&self) -> ::windows::core::Result<u16>;
+    fn BrushContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn ChiselMarkerContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn EraserContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn Error(&mut self) -> ::windows::core::Result<u16>;
+    fn GalaxyPenContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn Hover(&mut self) -> ::windows::core::Result<u16>;
+    fn InkContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn MarkerContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn PencilContinuous(&mut self) -> ::windows::core::Result<u16>;
+    fn Success(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownSimpleHapticsControllerWaveformsStatics2 {
@@ -231,17 +231,17 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISimpleHapticsControllerImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SupportedFeedback(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>>;
-    fn IsIntensitySupported(&self) -> ::windows::core::Result<bool>;
-    fn IsPlayCountSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsPlayDurationSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsReplayPauseIntervalSupported(&self) -> ::windows::core::Result<bool>;
-    fn StopFeedback(&self) -> ::windows::core::Result<()>;
-    fn SendHapticFeedback(&self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>) -> ::windows::core::Result<()>;
-    fn SendHapticFeedbackWithIntensity(&self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64) -> ::windows::core::Result<()>;
-    fn SendHapticFeedbackForDuration(&self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64, playduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SendHapticFeedbackForPlayCount(&self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64, playcount: i32, replaypauseinterval: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportedFeedback(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>>;
+    fn IsIntensitySupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPlayCountSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPlayDurationSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsReplayPauseIntervalSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn StopFeedback(&mut self) -> ::windows::core::Result<()>;
+    fn SendHapticFeedback(&mut self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>) -> ::windows::core::Result<()>;
+    fn SendHapticFeedbackWithIntensity(&mut self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64) -> ::windows::core::Result<()>;
+    fn SendHapticFeedbackForDuration(&mut self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64, playduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SendHapticFeedbackForPlayCount(&mut self, feedback: &::core::option::Option<SimpleHapticsControllerFeedback>, intensity: f64, playcount: i32, replaypauseinterval: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleHapticsController {
@@ -357,8 +357,8 @@ impl ISimpleHapticsControllerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISimpleHapticsControllerFeedbackImpl: Sized {
-    fn Waveform(&self) -> ::windows::core::Result<u16>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Waveform(&mut self) -> ::windows::core::Result<u16>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISimpleHapticsControllerFeedback {
@@ -401,8 +401,8 @@ impl ISimpleHapticsControllerFeedbackVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVibrationDeviceImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SimpleHapticsController(&self) -> ::windows::core::Result<SimpleHapticsController>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SimpleHapticsController(&mut self) -> ::windows::core::Result<SimpleHapticsController>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVibrationDevice {
@@ -445,11 +445,11 @@ impl IVibrationDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IVibrationDeviceStaticsImpl: Sized {
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationAccessStatus>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>>;
-    fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>>;
-    fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<VibrationDevice>>>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationAccessStatus>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>>;
+    fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>>;
+    fn FindAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<VibrationDevice>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVibrationDeviceStatics {

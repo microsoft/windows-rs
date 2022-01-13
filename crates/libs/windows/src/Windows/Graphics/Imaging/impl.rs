@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBitmapBufferImpl: Sized + IClosableImpl + IMemoryBufferImpl {
-    fn GetPlaneCount(&self) -> ::windows::core::Result<i32>;
-    fn GetPlaneDescription(&self, index: i32) -> ::windows::core::Result<BitmapPlaneDescription>;
+    fn GetPlaneCount(&mut self) -> ::windows::core::Result<i32>;
+    fn GetPlaneDescription(&mut self, index: i32) -> ::windows::core::Result<BitmapPlaneDescription>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapBuffer {
@@ -44,10 +44,10 @@ impl IBitmapBufferVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBitmapCodecInformationImpl: Sized {
-    fn CodecId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn FileExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MimeTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn CodecId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn FileExtensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MimeTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapCodecInformation {
@@ -114,11 +114,11 @@ impl IBitmapCodecInformationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBitmapDecoderImpl: Sized {
-    fn BitmapContainerProperties(&self) -> ::windows::core::Result<BitmapPropertiesView>;
-    fn DecoderInformation(&self) -> ::windows::core::Result<BitmapCodecInformation>;
-    fn FrameCount(&self) -> ::windows::core::Result<u32>;
-    fn GetPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
-    fn GetFrameAsync(&self, frameindex: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapFrame>>;
+    fn BitmapContainerProperties(&mut self) -> ::windows::core::Result<BitmapPropertiesView>;
+    fn DecoderInformation(&mut self) -> ::windows::core::Result<BitmapCodecInformation>;
+    fn FrameCount(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPreviewAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
+    fn GetFrameAsync(&mut self, frameindex: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapFrame>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapDecoder {
@@ -197,16 +197,16 @@ impl IBitmapDecoderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBitmapDecoderStaticsImpl: Sized {
-    fn BmpDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn JpegDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn PngDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TiffDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GifDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn JpegXRDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IcoDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetDecoderInformationEnumerator(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>>;
-    fn CreateAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>;
-    fn CreateWithIdAsync(&self, decoderid: &::windows::core::GUID, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>;
+    fn BmpDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn JpegDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn PngDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TiffDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GifDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn JpegXRDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IcoDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetDecoderInformationEnumerator(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>>;
+    fn CreateAsync(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>;
+    fn CreateWithIdAsync(&mut self, decoderid: &::windows::core::GUID, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapDecoderStatics {
@@ -345,8 +345,8 @@ impl IBitmapDecoderStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapDecoderStatics2Impl: Sized {
-    fn HeifDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn WebpDecoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HeifDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn WebpDecoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBitmapDecoderStatics2 {
@@ -389,20 +389,20 @@ impl IBitmapDecoderStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBitmapEncoderImpl: Sized {
-    fn EncoderInformation(&self) -> ::windows::core::Result<BitmapCodecInformation>;
-    fn BitmapProperties(&self) -> ::windows::core::Result<BitmapProperties>;
-    fn BitmapContainerProperties(&self) -> ::windows::core::Result<BitmapProperties>;
-    fn IsThumbnailGenerated(&self) -> ::windows::core::Result<bool>;
-    fn SetIsThumbnailGenerated(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GeneratedThumbnailWidth(&self) -> ::windows::core::Result<u32>;
-    fn SetGeneratedThumbnailWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn GeneratedThumbnailHeight(&self) -> ::windows::core::Result<u32>;
-    fn SetGeneratedThumbnailHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn BitmapTransform(&self) -> ::windows::core::Result<BitmapTransform>;
-    fn SetPixelData(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GoToNextFrameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GoToNextFrameWithEncodingOptionsAsync(&self, encodingoptions: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn EncoderInformation(&mut self) -> ::windows::core::Result<BitmapCodecInformation>;
+    fn BitmapProperties(&mut self) -> ::windows::core::Result<BitmapProperties>;
+    fn BitmapContainerProperties(&mut self) -> ::windows::core::Result<BitmapProperties>;
+    fn IsThumbnailGenerated(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsThumbnailGenerated(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GeneratedThumbnailWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn SetGeneratedThumbnailWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn GeneratedThumbnailHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn SetGeneratedThumbnailHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn BitmapTransform(&mut self) -> ::windows::core::Result<BitmapTransform>;
+    fn SetPixelData(&mut self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GoToNextFrameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GoToNextFrameWithEncodingOptionsAsync(&mut self, encodingoptions: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn FlushAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapEncoder {
@@ -561,17 +561,17 @@ impl IBitmapEncoderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBitmapEncoderStaticsImpl: Sized {
-    fn BmpEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn JpegEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn PngEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TiffEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GifEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn JpegXREncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetEncoderInformationEnumerator(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>>;
-    fn CreateAsync(&self, encoderid: &::windows::core::GUID, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
-    fn CreateWithEncodingOptionsAsync(&self, encoderid: &::windows::core::GUID, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, encodingoptions: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
-    fn CreateForTranscodingAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, bitmapdecoder: &::core::option::Option<BitmapDecoder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
-    fn CreateForInPlacePropertyEncodingAsync(&self, bitmapdecoder: &::core::option::Option<BitmapDecoder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
+    fn BmpEncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn JpegEncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn PngEncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TiffEncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GifEncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn JpegXREncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetEncoderInformationEnumerator(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>>;
+    fn CreateAsync(&mut self, encoderid: &::windows::core::GUID, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
+    fn CreateWithEncodingOptionsAsync(&mut self, encoderid: &::windows::core::GUID, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, encodingoptions: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
+    fn CreateForTranscodingAsync(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, bitmapdecoder: &::core::option::Option<BitmapDecoder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
+    fn CreateForInPlacePropertyEncodingAsync(&mut self, bitmapdecoder: &::core::option::Option<BitmapDecoder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapEncoderStatics {
@@ -726,7 +726,7 @@ impl IBitmapEncoderStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapEncoderStatics2Impl: Sized {
-    fn HeifEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HeifEncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBitmapEncoderStatics2 {
@@ -757,7 +757,7 @@ impl IBitmapEncoderStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapEncoderWithSoftwareBitmapImpl: Sized {
-    fn SetSoftwareBitmap(&self, bitmap: &::core::option::Option<SoftwareBitmap>) -> ::windows::core::Result<()>;
+    fn SetSoftwareBitmap(&mut self, bitmap: &::core::option::Option<SoftwareBitmap>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBitmapEncoderWithSoftwareBitmap {
@@ -781,18 +781,18 @@ impl IBitmapEncoderWithSoftwareBitmapVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBitmapFrameImpl: Sized {
-    fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
-    fn BitmapProperties(&self) -> ::windows::core::Result<BitmapPropertiesView>;
-    fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat>;
-    fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode>;
-    fn DpiX(&self) -> ::windows::core::Result<f64>;
-    fn DpiY(&self) -> ::windows::core::Result<f64>;
-    fn PixelWidth(&self) -> ::windows::core::Result<u32>;
-    fn PixelHeight(&self) -> ::windows::core::Result<u32>;
-    fn OrientedPixelWidth(&self) -> ::windows::core::Result<u32>;
-    fn OrientedPixelHeight(&self) -> ::windows::core::Result<u32>;
-    fn GetPixelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
-    fn GetPixelDataTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
+    fn GetThumbnailAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
+    fn BitmapProperties(&mut self) -> ::windows::core::Result<BitmapPropertiesView>;
+    fn BitmapPixelFormat(&mut self) -> ::windows::core::Result<BitmapPixelFormat>;
+    fn BitmapAlphaMode(&mut self) -> ::windows::core::Result<BitmapAlphaMode>;
+    fn DpiX(&mut self) -> ::windows::core::Result<f64>;
+    fn DpiY(&mut self) -> ::windows::core::Result<f64>;
+    fn PixelWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn PixelHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn OrientedPixelWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn OrientedPixelHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPixelDataAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
+    fn GetPixelDataTransformedAsync(&mut self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IBitmapFrame {
@@ -955,9 +955,9 @@ impl IBitmapFrameVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBitmapFrameWithSoftwareBitmapImpl: Sized + IBitmapFrameImpl {
-    fn GetSoftwareBitmapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn GetSoftwareBitmapTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapConvertedAsync(&mut self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapTransformedAsync(&mut self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBitmapFrameWithSoftwareBitmap {
@@ -1012,7 +1012,7 @@ impl IBitmapFrameWithSoftwareBitmapVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBitmapPropertiesImpl: Sized + IBitmapPropertiesViewImpl {
-    fn SetPropertiesAsync(&self, propertiestoset: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetPropertiesAsync(&mut self, propertiestoset: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapProperties {
@@ -1043,7 +1043,7 @@ impl IBitmapPropertiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IBitmapPropertiesViewImpl: Sized {
-    fn GetPropertiesAsync(&self, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
+    fn GetPropertiesAsync(&mut self, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IBitmapPropertiesView {
@@ -1074,18 +1074,18 @@ impl IBitmapPropertiesViewVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBitmapTransformImpl: Sized {
-    fn ScaledWidth(&self) -> ::windows::core::Result<u32>;
-    fn SetScaledWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ScaledHeight(&self) -> ::windows::core::Result<u32>;
-    fn SetScaledHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn InterpolationMode(&self) -> ::windows::core::Result<BitmapInterpolationMode>;
-    fn SetInterpolationMode(&self, value: BitmapInterpolationMode) -> ::windows::core::Result<()>;
-    fn Flip(&self) -> ::windows::core::Result<BitmapFlip>;
-    fn SetFlip(&self, value: BitmapFlip) -> ::windows::core::Result<()>;
-    fn Rotation(&self) -> ::windows::core::Result<BitmapRotation>;
-    fn SetRotation(&self, value: BitmapRotation) -> ::windows::core::Result<()>;
-    fn Bounds(&self) -> ::windows::core::Result<BitmapBounds>;
-    fn SetBounds(&self, value: &BitmapBounds) -> ::windows::core::Result<()>;
+    fn ScaledWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn SetScaledWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ScaledHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn SetScaledHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn InterpolationMode(&mut self) -> ::windows::core::Result<BitmapInterpolationMode>;
+    fn SetInterpolationMode(&mut self, value: BitmapInterpolationMode) -> ::windows::core::Result<()>;
+    fn Flip(&mut self) -> ::windows::core::Result<BitmapFlip>;
+    fn SetFlip(&mut self, value: BitmapFlip) -> ::windows::core::Result<()>;
+    fn Rotation(&mut self) -> ::windows::core::Result<BitmapRotation>;
+    fn SetRotation(&mut self, value: BitmapRotation) -> ::windows::core::Result<()>;
+    fn Bounds(&mut self) -> ::windows::core::Result<BitmapBounds>;
+    fn SetBounds(&mut self, value: &BitmapBounds) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBitmapTransform {
@@ -1206,8 +1206,8 @@ impl IBitmapTransformVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBitmapTypedValueImpl: Sized {
-    fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Type(&self) -> ::windows::core::Result<super::super::Foundation::PropertyType>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Type(&mut self) -> ::windows::core::Result<super::super::Foundation::PropertyType>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapTypedValue {
@@ -1250,7 +1250,7 @@ impl IBitmapTypedValueVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBitmapTypedValueFactoryImpl: Sized {
-    fn Create(&self, value: &::core::option::Option<::windows::core::IInspectable>, r#type: super::super::Foundation::PropertyType) -> ::windows::core::Result<BitmapTypedValue>;
+    fn Create(&mut self, value: &::core::option::Option<::windows::core::IInspectable>, r#type: super::super::Foundation::PropertyType) -> ::windows::core::Result<BitmapTypedValue>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBitmapTypedValueFactory {
@@ -1278,7 +1278,7 @@ impl IBitmapTypedValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPixelDataProviderImpl: Sized {
-    fn DetachPixelData(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn DetachPixelData(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPixelDataProvider {
@@ -1310,20 +1310,20 @@ impl IPixelDataProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISoftwareBitmapImpl: Sized + IClosableImpl {
-    fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat>;
-    fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode>;
-    fn PixelWidth(&self) -> ::windows::core::Result<i32>;
-    fn PixelHeight(&self) -> ::windows::core::Result<i32>;
-    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
-    fn SetDpiX(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DpiX(&self) -> ::windows::core::Result<f64>;
-    fn SetDpiY(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DpiY(&self) -> ::windows::core::Result<f64>;
-    fn LockBuffer(&self, mode: BitmapBufferAccessMode) -> ::windows::core::Result<BitmapBuffer>;
-    fn CopyTo(&self, bitmap: &::core::option::Option<SoftwareBitmap>) -> ::windows::core::Result<()>;
-    fn CopyFromBuffer(&self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn CopyToBuffer(&self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn GetReadOnlyView(&self) -> ::windows::core::Result<SoftwareBitmap>;
+    fn BitmapPixelFormat(&mut self) -> ::windows::core::Result<BitmapPixelFormat>;
+    fn BitmapAlphaMode(&mut self) -> ::windows::core::Result<BitmapAlphaMode>;
+    fn PixelWidth(&mut self) -> ::windows::core::Result<i32>;
+    fn PixelHeight(&mut self) -> ::windows::core::Result<i32>;
+    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDpiX(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DpiX(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDpiY(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DpiY(&mut self) -> ::windows::core::Result<f64>;
+    fn LockBuffer(&mut self, mode: BitmapBufferAccessMode) -> ::windows::core::Result<BitmapBuffer>;
+    fn CopyTo(&mut self, bitmap: &::core::option::Option<SoftwareBitmap>) -> ::windows::core::Result<()>;
+    fn CopyFromBuffer(&mut self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn CopyToBuffer(&mut self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn GetReadOnlyView(&mut self) -> ::windows::core::Result<SoftwareBitmap>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISoftwareBitmap {
@@ -1475,8 +1475,8 @@ impl ISoftwareBitmapVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISoftwareBitmapFactoryImpl: Sized {
-    fn Create(&self, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>;
-    fn CreateWithAlpha(&self, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>;
+    fn Create(&mut self, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>;
+    fn CreateWithAlpha(&mut self, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISoftwareBitmapFactory {
@@ -1519,13 +1519,13 @@ impl ISoftwareBitmapFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISoftwareBitmapStaticsImpl: Sized {
-    fn Copy(&self, source: &::core::option::Option<SoftwareBitmap>) -> ::windows::core::Result<SoftwareBitmap>;
-    fn Convert(&self, source: &::core::option::Option<SoftwareBitmap>, format: BitmapPixelFormat) -> ::windows::core::Result<SoftwareBitmap>;
-    fn ConvertWithAlpha(&self, source: &::core::option::Option<SoftwareBitmap>, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>;
-    fn CreateCopyFromBuffer(&self, source: &::core::option::Option<super::super::Storage::Streams::IBuffer>, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>;
-    fn CreateCopyWithAlphaFromBuffer(&self, source: &::core::option::Option<super::super::Storage::Streams::IBuffer>, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>;
-    fn CreateCopyFromSurfaceAsync(&self, surface: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn CreateCopyWithAlphaFromSurfaceAsync(&self, surface: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>, alpha: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn Copy(&mut self, source: &::core::option::Option<SoftwareBitmap>) -> ::windows::core::Result<SoftwareBitmap>;
+    fn Convert(&mut self, source: &::core::option::Option<SoftwareBitmap>, format: BitmapPixelFormat) -> ::windows::core::Result<SoftwareBitmap>;
+    fn ConvertWithAlpha(&mut self, source: &::core::option::Option<SoftwareBitmap>, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>;
+    fn CreateCopyFromBuffer(&mut self, source: &::core::option::Option<super::super::Storage::Streams::IBuffer>, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>;
+    fn CreateCopyWithAlphaFromBuffer(&mut self, source: &::core::option::Option<super::super::Storage::Streams::IBuffer>, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>;
+    fn CreateCopyFromSurfaceAsync(&mut self, surface: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn CreateCopyWithAlphaFromSurfaceAsync(&mut self, surface: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>, alpha: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISoftwareBitmapStatics {

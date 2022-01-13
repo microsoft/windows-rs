@@ -1,9 +1,9 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionDebugHeatMapsImpl: Sized {
-    fn Hide(&self, subtree: &::core::option::Option<super::Visual>) -> ::windows::core::Result<()>;
-    fn ShowMemoryUsage(&self, subtree: &::core::option::Option<super::Visual>) -> ::windows::core::Result<()>;
-    fn ShowOverdraw(&self, subtree: &::core::option::Option<super::Visual>, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()>;
-    fn ShowRedraw(&self, subtree: &::core::option::Option<super::Visual>) -> ::windows::core::Result<()>;
+    fn Hide(&mut self, subtree: &::core::option::Option<super::Visual>) -> ::windows::core::Result<()>;
+    fn ShowMemoryUsage(&mut self, subtree: &::core::option::Option<super::Visual>) -> ::windows::core::Result<()>;
+    fn ShowOverdraw(&mut self, subtree: &::core::option::Option<super::Visual>, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()>;
+    fn ShowRedraw(&mut self, subtree: &::core::option::Option<super::Visual>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionDebugHeatMaps {
@@ -42,7 +42,7 @@ impl ICompositionDebugHeatMapsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionDebugSettingsImpl: Sized {
-    fn HeatMaps(&self) -> ::windows::core::Result<CompositionDebugHeatMaps>;
+    fn HeatMaps(&mut self) -> ::windows::core::Result<CompositionDebugHeatMaps>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionDebugSettings {
@@ -70,7 +70,7 @@ impl ICompositionDebugSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionDebugSettingsStaticsImpl: Sized {
-    fn TryGetSettings(&self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<CompositionDebugSettings>;
+    fn TryGetSettings(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<CompositionDebugSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionDebugSettingsStatics {

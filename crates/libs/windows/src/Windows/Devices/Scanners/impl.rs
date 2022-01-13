@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IImageScannerImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DefaultScanSource(&self) -> ::windows::core::Result<ImageScannerScanSource>;
-    fn IsScanSourceSupported(&self, value: ImageScannerScanSource) -> ::windows::core::Result<bool>;
-    fn FlatbedConfiguration(&self) -> ::windows::core::Result<ImageScannerFlatbedConfiguration>;
-    fn FeederConfiguration(&self) -> ::windows::core::Result<ImageScannerFeederConfiguration>;
-    fn AutoConfiguration(&self) -> ::windows::core::Result<ImageScannerAutoConfiguration>;
-    fn IsPreviewSupported(&self, scansource: ImageScannerScanSource) -> ::windows::core::Result<bool>;
-    fn ScanPreviewToStreamAsync(&self, scansource: ImageScannerScanSource, targetstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>;
-    fn ScanFilesToFolderAsync(&self, scansource: ImageScannerScanSource, storagefolder: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DefaultScanSource(&mut self) -> ::windows::core::Result<ImageScannerScanSource>;
+    fn IsScanSourceSupported(&mut self, value: ImageScannerScanSource) -> ::windows::core::Result<bool>;
+    fn FlatbedConfiguration(&mut self) -> ::windows::core::Result<ImageScannerFlatbedConfiguration>;
+    fn FeederConfiguration(&mut self) -> ::windows::core::Result<ImageScannerFeederConfiguration>;
+    fn AutoConfiguration(&mut self) -> ::windows::core::Result<ImageScannerAutoConfiguration>;
+    fn IsPreviewSupported(&mut self, scansource: ImageScannerScanSource) -> ::windows::core::Result<bool>;
+    fn ScanPreviewToStreamAsync(&mut self, scansource: ImageScannerScanSource, targetstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>;
+    fn ScanFilesToFolderAsync(&mut self, scansource: ImageScannerScanSource, storagefolder: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScanner {
@@ -135,23 +135,23 @@ impl IImageScannerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IImageScannerFeederConfigurationImpl: Sized + IImageScannerFormatConfigurationImpl + IImageScannerSourceConfigurationImpl {
-    fn CanAutoDetectPageSize(&self) -> ::windows::core::Result<bool>;
-    fn AutoDetectPageSize(&self) -> ::windows::core::Result<bool>;
-    fn SetAutoDetectPageSize(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PageSize(&self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintMediaSize>;
-    fn SetPageSize(&self, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::Result<()>;
-    fn PageOrientation(&self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintOrientation>;
-    fn SetPageOrientation(&self, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<()>;
-    fn PageSizeDimensions(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn IsPageSizeSupported(&self, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<bool>;
-    fn MaxNumberOfPages(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxNumberOfPages(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CanScanDuplex(&self) -> ::windows::core::Result<bool>;
-    fn Duplex(&self) -> ::windows::core::Result<bool>;
-    fn SetDuplex(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanScanAhead(&self) -> ::windows::core::Result<bool>;
-    fn ScanAhead(&self) -> ::windows::core::Result<bool>;
-    fn SetScanAhead(&self, value: bool) -> ::windows::core::Result<()>;
+    fn CanAutoDetectPageSize(&mut self) -> ::windows::core::Result<bool>;
+    fn AutoDetectPageSize(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutoDetectPageSize(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PageSize(&mut self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintMediaSize>;
+    fn SetPageSize(&mut self, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::Result<()>;
+    fn PageOrientation(&mut self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintOrientation>;
+    fn SetPageOrientation(&mut self, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<()>;
+    fn PageSizeDimensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn IsPageSizeSupported(&mut self, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<bool>;
+    fn MaxNumberOfPages(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxNumberOfPages(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CanScanDuplex(&mut self) -> ::windows::core::Result<bool>;
+    fn Duplex(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDuplex(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanScanAhead(&mut self) -> ::windows::core::Result<bool>;
+    fn ScanAhead(&mut self) -> ::windows::core::Result<bool>;
+    fn SetScanAhead(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScannerFeederConfiguration {
@@ -331,10 +331,10 @@ impl IImageScannerFeederConfigurationVtbl {
     }
 }
 pub trait IImageScannerFormatConfigurationImpl: Sized {
-    fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat>;
-    fn Format(&self) -> ::windows::core::Result<ImageScannerFormat>;
-    fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()>;
-    fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool>;
+    fn DefaultFormat(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
+    fn Format(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
+    fn SetFormat(&mut self, value: ImageScannerFormat) -> ::windows::core::Result<()>;
+    fn IsFormatSupported(&mut self, value: ImageScannerFormat) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IImageScannerFormatConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFormatConfiguration";
@@ -392,8 +392,8 @@ impl IImageScannerFormatConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IImageScannerPreviewResultImpl: Sized {
-    fn Succeeded(&self) -> ::windows::core::Result<bool>;
-    fn Format(&self) -> ::windows::core::Result<ImageScannerFormat>;
+    fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
+    fn Format(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IImageScannerPreviewResult {
@@ -436,7 +436,7 @@ impl IImageScannerPreviewResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IImageScannerScanResultImpl: Sized {
-    fn ScannedFiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
+    fn ScannedFiles(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScannerScanResult {
@@ -467,35 +467,35 @@ impl IImageScannerScanResultVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IImageScannerSourceConfigurationImpl: Sized + IImageScannerFormatConfigurationImpl {
-    fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn SelectedScanRegion(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SetSelectedScanRegion(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode>;
-    fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()>;
-    fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool>;
-    fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn SetDesiredResolution(&self, value: &ImageScannerResolution) -> ::windows::core::Result<()>;
-    fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode>;
-    fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode>;
-    fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()>;
-    fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool>;
-    fn MinBrightness(&self) -> ::windows::core::Result<i32>;
-    fn MaxBrightness(&self) -> ::windows::core::Result<i32>;
-    fn BrightnessStep(&self) -> ::windows::core::Result<u32>;
-    fn DefaultBrightness(&self) -> ::windows::core::Result<i32>;
-    fn Brightness(&self) -> ::windows::core::Result<i32>;
-    fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()>;
-    fn MinContrast(&self) -> ::windows::core::Result<i32>;
-    fn MaxContrast(&self) -> ::windows::core::Result<i32>;
-    fn ContrastStep(&self) -> ::windows::core::Result<u32>;
-    fn DefaultContrast(&self) -> ::windows::core::Result<i32>;
-    fn Contrast(&self) -> ::windows::core::Result<i32>;
-    fn SetContrast(&self, value: i32) -> ::windows::core::Result<()>;
+    fn MinScanArea(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn MaxScanArea(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn SelectedScanRegion(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SetSelectedScanRegion(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn AutoCroppingMode(&mut self) -> ::windows::core::Result<ImageScannerAutoCroppingMode>;
+    fn SetAutoCroppingMode(&mut self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()>;
+    fn IsAutoCroppingModeSupported(&mut self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool>;
+    fn MinResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn MaxResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn OpticalResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn DesiredResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn SetDesiredResolution(&mut self, value: &ImageScannerResolution) -> ::windows::core::Result<()>;
+    fn ActualResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn DefaultColorMode(&mut self) -> ::windows::core::Result<ImageScannerColorMode>;
+    fn ColorMode(&mut self) -> ::windows::core::Result<ImageScannerColorMode>;
+    fn SetColorMode(&mut self, value: ImageScannerColorMode) -> ::windows::core::Result<()>;
+    fn IsColorModeSupported(&mut self, value: ImageScannerColorMode) -> ::windows::core::Result<bool>;
+    fn MinBrightness(&mut self) -> ::windows::core::Result<i32>;
+    fn MaxBrightness(&mut self) -> ::windows::core::Result<i32>;
+    fn BrightnessStep(&mut self) -> ::windows::core::Result<u32>;
+    fn DefaultBrightness(&mut self) -> ::windows::core::Result<i32>;
+    fn Brightness(&mut self) -> ::windows::core::Result<i32>;
+    fn SetBrightness(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn MinContrast(&mut self) -> ::windows::core::Result<i32>;
+    fn MaxContrast(&mut self) -> ::windows::core::Result<i32>;
+    fn ContrastStep(&mut self) -> ::windows::core::Result<u32>;
+    fn DefaultContrast(&mut self) -> ::windows::core::Result<i32>;
+    fn Contrast(&mut self) -> ::windows::core::Result<i32>;
+    fn SetContrast(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IImageScannerSourceConfiguration {
@@ -820,8 +820,8 @@ impl IImageScannerSourceConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IImageScannerStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageScannerStatics {

@@ -1,9 +1,9 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionConditionalValueImpl: Sized {
-    fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetCondition(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetValue(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetValue(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionConditionalValue {
@@ -56,7 +56,7 @@ impl ICompositionConditionalValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionConditionalValueStaticsImpl: Sized {
-    fn Create(&self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<CompositionConditionalValue>;
+    fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<CompositionConditionalValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionConditionalValueStatics {
@@ -99,10 +99,10 @@ impl ICompositionInteractionSourceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionInteractionSourceCollectionImpl: Sized {
-    fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, value: &::core::option::Option<ICompositionInteractionSource>) -> ::windows::core::Result<()>;
-    fn Remove(&self, value: &::core::option::Option<ICompositionInteractionSource>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Add(&mut self, value: &::core::option::Option<ICompositionInteractionSource>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, value: &::core::option::Option<ICompositionInteractionSource>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionInteractionSourceCollection {
@@ -148,12 +148,12 @@ impl ICompositionInteractionSourceCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionSourceConfigurationImpl: Sized {
-    fn PositionXSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
-    fn SetPositionXSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
-    fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
-    fn SetPositionYSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
-    fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
-    fn SetScaleSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
+    fn PositionXSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
+    fn SetPositionXSourceMode(&mut self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
+    fn PositionYSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
+    fn SetPositionYSourceMode(&mut self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
+    fn ScaleSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
+    fn SetScaleSourceMode(&mut self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionSourceConfiguration {
@@ -223,39 +223,39 @@ impl IInteractionSourceConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTrackerImpl: Sized {
-    fn InteractionSources(&self) -> ::windows::core::Result<CompositionInteractionSourceCollection>;
-    fn IsPositionRoundingSuggested(&self) -> ::windows::core::Result<bool>;
-    fn MaxPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn SetMaxPosition(&self, value: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn MaxScale(&self) -> ::windows::core::Result<f32>;
-    fn SetMaxScale(&self, value: f32) -> ::windows::core::Result<()>;
-    fn MinPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn SetMinPosition(&self, value: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn MinScale(&self) -> ::windows::core::Result<f32>;
-    fn SetMinScale(&self, value: f32) -> ::windows::core::Result<()>;
-    fn NaturalRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn NaturalRestingScale(&self) -> ::windows::core::Result<f32>;
-    fn Owner(&self) -> ::windows::core::Result<IInteractionTrackerOwner>;
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn PositionInertiaDecayRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
-    fn SetPositionInertiaDecayRate(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>) -> ::windows::core::Result<()>;
-    fn PositionVelocityInPixelsPerSecond(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn Scale(&self) -> ::windows::core::Result<f32>;
-    fn ScaleInertiaDecayRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
-    fn SetScaleInertiaDecayRate(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
-    fn ScaleVelocityInPercentPerSecond(&self) -> ::windows::core::Result<f32>;
-    fn AdjustPositionXIfGreaterThanThreshold(&self, adjustment: f32, positionthreshold: f32) -> ::windows::core::Result<()>;
-    fn AdjustPositionYIfGreaterThanThreshold(&self, adjustment: f32, positionthreshold: f32) -> ::windows::core::Result<()>;
-    fn ConfigurePositionXInertiaModifiers(&self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>) -> ::windows::core::Result<()>;
-    fn ConfigurePositionYInertiaModifiers(&self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>) -> ::windows::core::Result<()>;
-    fn ConfigureScaleInertiaModifiers(&self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>) -> ::windows::core::Result<()>;
-    fn TryUpdatePosition(&self, value: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
-    fn TryUpdatePositionBy(&self, amount: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
-    fn TryUpdatePositionWithAnimation(&self, animation: &::core::option::Option<super::CompositionAnimation>) -> ::windows::core::Result<i32>;
-    fn TryUpdatePositionWithAdditionalVelocity(&self, velocityinpixelspersecond: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
-    fn TryUpdateScale(&self, value: f32, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
-    fn TryUpdateScaleWithAnimation(&self, animation: &::core::option::Option<super::CompositionAnimation>, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
-    fn TryUpdateScaleWithAdditionalVelocity(&self, velocityinpercentpersecond: f32, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
+    fn InteractionSources(&mut self) -> ::windows::core::Result<CompositionInteractionSourceCollection>;
+    fn IsPositionRoundingSuggested(&mut self) -> ::windows::core::Result<bool>;
+    fn MaxPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn SetMaxPosition(&mut self, value: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn MaxScale(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMaxScale(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn MinPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn SetMinPosition(&mut self, value: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn MinScale(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMinScale(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn NaturalRestingPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn NaturalRestingScale(&mut self) -> ::windows::core::Result<f32>;
+    fn Owner(&mut self) -> ::windows::core::Result<IInteractionTrackerOwner>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn PositionInertiaDecayRate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
+    fn SetPositionInertiaDecayRate(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>) -> ::windows::core::Result<()>;
+    fn PositionVelocityInPixelsPerSecond(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn Scale(&mut self) -> ::windows::core::Result<f32>;
+    fn ScaleInertiaDecayRate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
+    fn SetScaleInertiaDecayRate(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
+    fn ScaleVelocityInPercentPerSecond(&mut self) -> ::windows::core::Result<f32>;
+    fn AdjustPositionXIfGreaterThanThreshold(&mut self, adjustment: f32, positionthreshold: f32) -> ::windows::core::Result<()>;
+    fn AdjustPositionYIfGreaterThanThreshold(&mut self, adjustment: f32, positionthreshold: f32) -> ::windows::core::Result<()>;
+    fn ConfigurePositionXInertiaModifiers(&mut self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>) -> ::windows::core::Result<()>;
+    fn ConfigurePositionYInertiaModifiers(&mut self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>) -> ::windows::core::Result<()>;
+    fn ConfigureScaleInertiaModifiers(&mut self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>) -> ::windows::core::Result<()>;
+    fn TryUpdatePosition(&mut self, value: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
+    fn TryUpdatePositionBy(&mut self, amount: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
+    fn TryUpdatePositionWithAnimation(&mut self, animation: &::core::option::Option<super::CompositionAnimation>) -> ::windows::core::Result<i32>;
+    fn TryUpdatePositionWithAdditionalVelocity(&mut self, velocityinpixelspersecond: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
+    fn TryUpdateScale(&mut self, value: f32, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
+    fn TryUpdateScaleWithAnimation(&mut self, animation: &::core::option::Option<super::CompositionAnimation>, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
+    fn TryUpdateScaleWithAdditionalVelocity(&mut self, velocityinpercentpersecond: f32, centerpoint: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker {
@@ -593,8 +593,8 @@ impl IInteractionTrackerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInteractionTracker2Impl: Sized {
-    fn ConfigureCenterPointXInertiaModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
-    fn ConfigureCenterPointYInertiaModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
+    fn ConfigureCenterPointXInertiaModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
+    fn ConfigureCenterPointYInertiaModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker2 {
@@ -623,7 +623,7 @@ impl IInteractionTracker2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInteractionTracker3Impl: Sized {
-    fn ConfigureVector2PositionInertiaModifiers(&self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>) -> ::windows::core::Result<()>;
+    fn ConfigureVector2PositionInertiaModifiers(&mut self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker3 {
@@ -647,9 +647,9 @@ impl IInteractionTracker3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTracker4Impl: Sized {
-    fn TryUpdatePositionWithOption(&self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
-    fn TryUpdatePositionByWithOption(&self, amount: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
-    fn IsInertiaFromImpulse(&self) -> ::windows::core::Result<bool>;
+    fn TryUpdatePositionWithOption(&mut self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
+    fn TryUpdatePositionByWithOption(&mut self, amount: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
+    fn IsInertiaFromImpulse(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker4 {
@@ -704,7 +704,7 @@ impl IInteractionTracker4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTracker5Impl: Sized {
-    fn TryUpdatePositionWithOption(&self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32>;
+    fn TryUpdatePositionWithOption(&mut self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTracker5 {
@@ -735,7 +735,7 @@ impl IInteractionTracker5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerCustomAnimationStateEnteredArgsImpl: Sized {
-    fn RequestId(&self) -> ::windows::core::Result<i32>;
+    fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerCustomAnimationStateEnteredArgs {
@@ -766,7 +766,7 @@ impl IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerCustomAnimationStateEnteredArgs2Impl: Sized {
-    fn IsFromBinding(&self) -> ::windows::core::Result<bool>;
+    fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerCustomAnimationStateEnteredArgs2 {
@@ -797,7 +797,7 @@ impl IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerIdleStateEnteredArgsImpl: Sized {
-    fn RequestId(&self) -> ::windows::core::Result<i32>;
+    fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerIdleStateEnteredArgs {
@@ -828,7 +828,7 @@ impl IInteractionTrackerIdleStateEnteredArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerIdleStateEnteredArgs2Impl: Sized {
-    fn IsFromBinding(&self) -> ::windows::core::Result<bool>;
+    fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerIdleStateEnteredArgs2 {
@@ -889,10 +889,10 @@ impl IInteractionTrackerInertiaModifierFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaMotionImpl: Sized {
-    fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetCondition(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
-    fn Motion(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetMotion(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn Motion(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetMotion(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaMotion {
@@ -945,7 +945,7 @@ impl IInteractionTrackerInertiaMotionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaMotionStaticsImpl: Sized {
-    fn Create(&self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaMotion>;
+    fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaMotion>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaMotionStatics {
@@ -976,10 +976,10 @@ impl IInteractionTrackerInertiaMotionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaNaturalMotionImpl: Sized {
-    fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetCondition(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
-    fn NaturalMotion(&self) -> ::windows::core::Result<super::ScalarNaturalMotionAnimation>;
-    fn SetNaturalMotion(&self, value: &::core::option::Option<super::ScalarNaturalMotionAnimation>) -> ::windows::core::Result<()>;
+    fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn NaturalMotion(&mut self) -> ::windows::core::Result<super::ScalarNaturalMotionAnimation>;
+    fn SetNaturalMotion(&mut self, value: &::core::option::Option<super::ScalarNaturalMotionAnimation>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaNaturalMotion {
@@ -1032,7 +1032,7 @@ impl IInteractionTrackerInertiaNaturalMotionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaNaturalMotionStaticsImpl: Sized {
-    fn Create(&self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaNaturalMotion>;
+    fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaNaturalMotion>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaNaturalMotionStatics {
@@ -1063,10 +1063,10 @@ impl IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaRestingValueImpl: Sized {
-    fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetCondition(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
-    fn RestingValue(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetRestingValue(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn RestingValue(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetRestingValue(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaRestingValue {
@@ -1119,7 +1119,7 @@ impl IInteractionTrackerInertiaRestingValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaRestingValueStaticsImpl: Sized {
-    fn Create(&self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaRestingValue>;
+    fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaRestingValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaRestingValueStatics {
@@ -1150,13 +1150,13 @@ impl IInteractionTrackerInertiaRestingValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTrackerInertiaStateEnteredArgsImpl: Sized {
-    fn ModifiedRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
-    fn ModifiedRestingScale(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
-    fn NaturalRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn NaturalRestingScale(&self) -> ::windows::core::Result<f32>;
-    fn PositionVelocityInPixelsPerSecond(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn RequestId(&self) -> ::windows::core::Result<i32>;
-    fn ScaleVelocityInPercentPerSecond(&self) -> ::windows::core::Result<f32>;
+    fn ModifiedRestingPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
+    fn ModifiedRestingScale(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
+    fn NaturalRestingPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn NaturalRestingScale(&mut self) -> ::windows::core::Result<f32>;
+    fn PositionVelocityInPixelsPerSecond(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn RequestId(&mut self) -> ::windows::core::Result<i32>;
+    fn ScaleVelocityInPercentPerSecond(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs {
@@ -1259,7 +1259,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaStateEnteredArgs2Impl: Sized {
-    fn IsInertiaFromImpulse(&self) -> ::windows::core::Result<bool>;
+    fn IsInertiaFromImpulse(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs2 {
@@ -1290,7 +1290,7 @@ impl IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInertiaStateEnteredArgs3Impl: Sized {
-    fn IsFromBinding(&self) -> ::windows::core::Result<bool>;
+    fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs3 {
@@ -1321,7 +1321,7 @@ impl IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInteractingStateEnteredArgsImpl: Sized {
-    fn RequestId(&self) -> ::windows::core::Result<i32>;
+    fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInteractingStateEnteredArgs {
@@ -1352,7 +1352,7 @@ impl IInteractionTrackerInteractingStateEnteredArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerInteractingStateEnteredArgs2Impl: Sized {
-    fn IsFromBinding(&self) -> ::windows::core::Result<bool>;
+    fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInteractingStateEnteredArgs2 {
@@ -1382,12 +1382,12 @@ impl IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
     }
 }
 pub trait IInteractionTrackerOwnerImpl: Sized {
-    fn CustomAnimationStateEntered(&self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerCustomAnimationStateEnteredArgs>) -> ::windows::core::Result<()>;
-    fn IdleStateEntered(&self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerIdleStateEnteredArgs>) -> ::windows::core::Result<()>;
-    fn InertiaStateEntered(&self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerInertiaStateEnteredArgs>) -> ::windows::core::Result<()>;
-    fn InteractingStateEntered(&self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerInteractingStateEnteredArgs>) -> ::windows::core::Result<()>;
-    fn RequestIgnored(&self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerRequestIgnoredArgs>) -> ::windows::core::Result<()>;
-    fn ValuesChanged(&self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerValuesChangedArgs>) -> ::windows::core::Result<()>;
+    fn CustomAnimationStateEntered(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerCustomAnimationStateEnteredArgs>) -> ::windows::core::Result<()>;
+    fn IdleStateEntered(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerIdleStateEnteredArgs>) -> ::windows::core::Result<()>;
+    fn InertiaStateEntered(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerInertiaStateEnteredArgs>) -> ::windows::core::Result<()>;
+    fn InteractingStateEntered(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerInteractingStateEnteredArgs>) -> ::windows::core::Result<()>;
+    fn RequestIgnored(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerRequestIgnoredArgs>) -> ::windows::core::Result<()>;
+    fn ValuesChanged(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerValuesChangedArgs>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IInteractionTrackerOwner {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerOwner";
@@ -1434,7 +1434,7 @@ impl IInteractionTrackerOwnerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerRequestIgnoredArgsImpl: Sized {
-    fn RequestId(&self) -> ::windows::core::Result<i32>;
+    fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerRequestIgnoredArgs {
@@ -1465,8 +1465,8 @@ impl IInteractionTrackerRequestIgnoredArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerStaticsImpl: Sized {
-    fn Create(&self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTracker>;
-    fn CreateWithOwner(&self, compositor: &::core::option::Option<super::Compositor>, owner: &::core::option::Option<IInteractionTrackerOwner>) -> ::windows::core::Result<InteractionTracker>;
+    fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTracker>;
+    fn CreateWithOwner(&mut self, compositor: &::core::option::Option<super::Compositor>, owner: &::core::option::Option<IInteractionTrackerOwner>) -> ::windows::core::Result<InteractionTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerStatics {
@@ -1509,8 +1509,8 @@ impl IInteractionTrackerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerStatics2Impl: Sized {
-    fn SetBindingMode(&self, boundtracker1: &::core::option::Option<InteractionTracker>, boundtracker2: &::core::option::Option<InteractionTracker>, axismode: InteractionBindingAxisModes) -> ::windows::core::Result<()>;
-    fn GetBindingMode(&self, boundtracker1: &::core::option::Option<InteractionTracker>, boundtracker2: &::core::option::Option<InteractionTracker>) -> ::windows::core::Result<InteractionBindingAxisModes>;
+    fn SetBindingMode(&mut self, boundtracker1: &::core::option::Option<InteractionTracker>, boundtracker2: &::core::option::Option<InteractionTracker>, axismode: InteractionBindingAxisModes) -> ::windows::core::Result<()>;
+    fn GetBindingMode(&mut self, boundtracker1: &::core::option::Option<InteractionTracker>, boundtracker2: &::core::option::Option<InteractionTracker>) -> ::windows::core::Result<InteractionBindingAxisModes>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerStatics2 {
@@ -1546,9 +1546,9 @@ impl IInteractionTrackerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IInteractionTrackerValuesChangedArgsImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn RequestId(&self) -> ::windows::core::Result<i32>;
-    fn Scale(&self) -> ::windows::core::Result<f32>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn RequestId(&mut self) -> ::windows::core::Result<i32>;
+    fn Scale(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInteractionTrackerValuesChangedArgs {
@@ -1633,10 +1633,10 @@ impl IInteractionTrackerVector2InertiaModifierFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerVector2InertiaNaturalMotionImpl: Sized {
-    fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation>;
-    fn SetCondition(&self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
-    fn NaturalMotion(&self) -> ::windows::core::Result<super::Vector2NaturalMotionAnimation>;
-    fn SetNaturalMotion(&self, value: &::core::option::Option<super::Vector2NaturalMotionAnimation>) -> ::windows::core::Result<()>;
+    fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
+    fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
+    fn NaturalMotion(&mut self) -> ::windows::core::Result<super::Vector2NaturalMotionAnimation>;
+    fn SetNaturalMotion(&mut self, value: &::core::option::Option<super::Vector2NaturalMotionAnimation>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaNaturalMotion {
@@ -1689,7 +1689,7 @@ impl IInteractionTrackerVector2InertiaNaturalMotionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractionTrackerVector2InertiaNaturalMotionStaticsImpl: Sized {
-    fn Create(&self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerVector2InertiaNaturalMotion>;
+    fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerVector2InertiaNaturalMotion>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaNaturalMotionStatics {
@@ -1720,26 +1720,26 @@ impl IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IVisualInteractionSourceImpl: Sized {
-    fn IsPositionXRailsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsPositionXRailsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsPositionYRailsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsPositionYRailsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ManipulationRedirectionMode(&self) -> ::windows::core::Result<VisualInteractionSourceRedirectionMode>;
-    fn SetManipulationRedirectionMode(&self, value: VisualInteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
-    fn PositionXChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode>;
-    fn SetPositionXChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()>;
-    fn PositionXSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode>;
-    fn SetPositionXSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()>;
-    fn PositionYChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode>;
-    fn SetPositionYChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()>;
-    fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode>;
-    fn SetPositionYSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()>;
-    fn ScaleChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode>;
-    fn SetScaleChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()>;
-    fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode>;
-    fn SetScaleSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()>;
-    fn Source(&self) -> ::windows::core::Result<super::Visual>;
-    fn TryRedirectForManipulation(&self, pointerpoint: &::core::option::Option<super::super::Input::PointerPoint>) -> ::windows::core::Result<()>;
+    fn IsPositionXRailsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsPositionXRailsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsPositionYRailsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsPositionYRailsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ManipulationRedirectionMode(&mut self) -> ::windows::core::Result<VisualInteractionSourceRedirectionMode>;
+    fn SetManipulationRedirectionMode(&mut self, value: VisualInteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
+    fn PositionXChainingMode(&mut self) -> ::windows::core::Result<InteractionChainingMode>;
+    fn SetPositionXChainingMode(&mut self, value: InteractionChainingMode) -> ::windows::core::Result<()>;
+    fn PositionXSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceMode>;
+    fn SetPositionXSourceMode(&mut self, value: InteractionSourceMode) -> ::windows::core::Result<()>;
+    fn PositionYChainingMode(&mut self) -> ::windows::core::Result<InteractionChainingMode>;
+    fn SetPositionYChainingMode(&mut self, value: InteractionChainingMode) -> ::windows::core::Result<()>;
+    fn PositionYSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceMode>;
+    fn SetPositionYSourceMode(&mut self, value: InteractionSourceMode) -> ::windows::core::Result<()>;
+    fn ScaleChainingMode(&mut self) -> ::windows::core::Result<InteractionChainingMode>;
+    fn SetScaleChainingMode(&mut self, value: InteractionChainingMode) -> ::windows::core::Result<()>;
+    fn ScaleSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceMode>;
+    fn SetScaleSourceMode(&mut self, value: InteractionSourceMode) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<super::Visual>;
+    fn TryRedirectForManipulation(&mut self, pointerpoint: &::core::option::Option<super::super::Input::PointerPoint>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisualInteractionSource {
@@ -1928,17 +1928,17 @@ impl IVisualInteractionSourceVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVisualInteractionSource2Impl: Sized {
-    fn DeltaPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn DeltaScale(&self) -> ::windows::core::Result<f32>;
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn PositionVelocity(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn Scale(&self) -> ::windows::core::Result<f32>;
-    fn ScaleVelocity(&self) -> ::windows::core::Result<f32>;
-    fn ConfigureCenterPointXModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
-    fn ConfigureCenterPointYModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
-    fn ConfigureDeltaPositionXModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
-    fn ConfigureDeltaPositionYModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
-    fn ConfigureDeltaScaleModifiers(&self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
+    fn DeltaPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn DeltaScale(&mut self) -> ::windows::core::Result<f32>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn PositionVelocity(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn Scale(&mut self) -> ::windows::core::Result<f32>;
+    fn ScaleVelocity(&mut self) -> ::windows::core::Result<f32>;
+    fn ConfigureCenterPointXModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
+    fn ConfigureCenterPointYModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
+    fn ConfigureDeltaPositionXModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
+    fn ConfigureDeltaPositionYModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
+    fn ConfigureDeltaScaleModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisualInteractionSource2 {
@@ -2054,7 +2054,7 @@ impl IVisualInteractionSource2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisualInteractionSource3Impl: Sized {
-    fn PointerWheelConfig(&self) -> ::windows::core::Result<InteractionSourceConfiguration>;
+    fn PointerWheelConfig(&mut self) -> ::windows::core::Result<InteractionSourceConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualInteractionSource3 {
@@ -2100,7 +2100,7 @@ impl IVisualInteractionSourceObjectFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisualInteractionSourceStaticsImpl: Sized {
-    fn Create(&self, source: &::core::option::Option<super::Visual>) -> ::windows::core::Result<VisualInteractionSource>;
+    fn Create(&mut self, source: &::core::option::Option<super::Visual>) -> ::windows::core::Result<VisualInteractionSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualInteractionSourceStatics {
@@ -2128,7 +2128,7 @@ impl IVisualInteractionSourceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisualInteractionSourceStatics2Impl: Sized {
-    fn CreateFromIVisualElement(&self, source: &::core::option::Option<super::IVisualElement>) -> ::windows::core::Result<VisualInteractionSource>;
+    fn CreateFromIVisualElement(&mut self, source: &::core::option::Option<super::IVisualElement>) -> ::windows::core::Result<VisualInteractionSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualInteractionSourceStatics2 {

@@ -1,11 +1,11 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ISyndicationAttributeImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Namespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNamespace(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Namespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNamespace(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISyndicationAttribute {
@@ -75,7 +75,7 @@ impl ISyndicationAttributeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISyndicationAttributeFactoryImpl: Sized {
-    fn CreateSyndicationAttribute(&self, attributename: &::windows::core::HSTRING, attributenamespace: &::windows::core::HSTRING, attributevalue: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationAttribute>;
+    fn CreateSyndicationAttribute(&mut self, attributename: &::windows::core::HSTRING, attributenamespace: &::windows::core::HSTRING, attributevalue: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationAttribute>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISyndicationAttributeFactory {
@@ -110,12 +110,12 @@ impl ISyndicationAttributeFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationCategoryImpl: Sized + ISyndicationNodeImpl {
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Scheme(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetScheme(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Term(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTerm(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Scheme(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetScheme(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Term(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTerm(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationCategory {
@@ -185,8 +185,8 @@ impl ISyndicationCategoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISyndicationCategoryFactoryImpl: Sized {
-    fn CreateSyndicationCategory(&self, term: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationCategory>;
-    fn CreateSyndicationCategoryEx(&self, term: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING, label: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationCategory>;
+    fn CreateSyndicationCategory(&mut self, term: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationCategory>;
+    fn CreateSyndicationCategoryEx(&mut self, term: &::windows::core::HSTRING, scheme: &::windows::core::HSTRING, label: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationCategory>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISyndicationCategoryFactory {
@@ -229,18 +229,18 @@ impl ISyndicationCategoryFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 pub trait ISyndicationClientImpl: Sized {
-    fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn MaxResponseBufferSize(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxResponseBufferSize(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Timeout(&self) -> ::windows::core::Result<u32>;
-    fn SetTimeout(&self, value: u32) -> ::windows::core::Result<()>;
-    fn BypassCacheOnRetrieve(&self) -> ::windows::core::Result<bool>;
-    fn SetBypassCacheOnRetrieve(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetRequestHeader(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RetrieveFeedAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
+    fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetServerCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn ProxyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetProxyCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn MaxResponseBufferSize(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxResponseBufferSize(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Timeout(&mut self) -> ::windows::core::Result<u32>;
+    fn SetTimeout(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn BypassCacheOnRetrieve(&mut self) -> ::windows::core::Result<bool>;
+    fn SetBypassCacheOnRetrieve(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetRequestHeader(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RetrieveFeedAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 impl ::windows::core::RuntimeName for ISyndicationClient {
@@ -361,7 +361,7 @@ impl ISyndicationClientVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait ISyndicationClientFactoryImpl: Sized {
-    fn CreateSyndicationClient(&self, servercredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<SyndicationClient>;
+    fn CreateSyndicationClient(&mut self, servercredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<SyndicationClient>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationClientFactory {
@@ -392,8 +392,8 @@ impl ISyndicationClientFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationContentImpl: Sized + ISyndicationNodeImpl + ISyndicationTextImpl {
-    fn SourceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetSourceUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn SourceUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetSourceUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationContent {
@@ -429,8 +429,8 @@ impl ISyndicationContentVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationContentFactoryImpl: Sized {
-    fn CreateSyndicationContent(&self, text: &::windows::core::HSTRING, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationContent>;
-    fn CreateSyndicationContentWithSourceUri(&self, sourceuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationContent>;
+    fn CreateSyndicationContent(&mut self, text: &::windows::core::HSTRING, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationContent>;
+    fn CreateSyndicationContentWithSourceUri(&mut self, sourceuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationContent>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationContentFactory {
@@ -473,7 +473,7 @@ impl ISyndicationContentFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISyndicationErrorStaticsImpl: Sized {
-    fn GetStatus(&self, hresult: i32) -> ::windows::core::Result<SyndicationErrorStatus>;
+    fn GetStatus(&mut self, hresult: i32) -> ::windows::core::Result<SyndicationErrorStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISyndicationErrorStatics {
@@ -501,34 +501,34 @@ impl ISyndicationErrorStaticsVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationFeedImpl: Sized + ISyndicationNodeImpl {
-    fn Authors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
-    fn Categories(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>>;
-    fn Contributors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
-    fn Generator(&self) -> ::windows::core::Result<SyndicationGenerator>;
-    fn SetGenerator(&self, value: &::core::option::Option<SyndicationGenerator>) -> ::windows::core::Result<()>;
-    fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetIconUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationItem>>;
-    fn LastUpdatedTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetLastUpdatedTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn Links(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>>;
-    fn ImageUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetImageUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Rights(&self) -> ::windows::core::Result<ISyndicationText>;
-    fn SetRights(&self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
-    fn Subtitle(&self) -> ::windows::core::Result<ISyndicationText>;
-    fn SetSubtitle(&self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<ISyndicationText>;
-    fn SetTitle(&self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
-    fn FirstUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn LastUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn NextUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn PreviousUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SourceFormat(&self) -> ::windows::core::Result<SyndicationFormat>;
-    fn Load(&self, feed: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LoadFromXml(&self, feeddocument: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
+    fn Authors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
+    fn Categories(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>>;
+    fn Contributors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
+    fn Generator(&mut self) -> ::windows::core::Result<SyndicationGenerator>;
+    fn SetGenerator(&mut self, value: &::core::option::Option<SyndicationGenerator>) -> ::windows::core::Result<()>;
+    fn IconUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetIconUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationItem>>;
+    fn LastUpdatedTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetLastUpdatedTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn Links(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>>;
+    fn ImageUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetImageUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Rights(&mut self) -> ::windows::core::Result<ISyndicationText>;
+    fn SetRights(&mut self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
+    fn Subtitle(&mut self) -> ::windows::core::Result<ISyndicationText>;
+    fn SetSubtitle(&mut self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<ISyndicationText>;
+    fn SetTitle(&mut self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
+    fn FirstUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn LastUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn NextUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn PreviousUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SourceFormat(&mut self) -> ::windows::core::Result<SyndicationFormat>;
+    fn Load(&mut self, feed: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LoadFromXml(&mut self, feeddocument: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationFeed {
@@ -813,7 +813,7 @@ impl ISyndicationFeedVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationFeedFactoryImpl: Sized {
-    fn CreateSyndicationFeed(&self, title: &::windows::core::HSTRING, subtitle: &::windows::core::HSTRING, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationFeed>;
+    fn CreateSyndicationFeed(&mut self, title: &::windows::core::HSTRING, subtitle: &::windows::core::HSTRING, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationFeed>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationFeedFactory {
@@ -848,12 +848,12 @@ impl ISyndicationFeedFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationGeneratorImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetVersion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Version(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetVersion(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationGenerator {
@@ -923,7 +923,7 @@ impl ISyndicationGeneratorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISyndicationGeneratorFactoryImpl: Sized {
-    fn CreateSyndicationGenerator(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationGenerator>;
+    fn CreateSyndicationGenerator(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationGenerator>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISyndicationGeneratorFactory {
@@ -954,34 +954,34 @@ impl ISyndicationGeneratorFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationItemImpl: Sized + ISyndicationNodeImpl {
-    fn Authors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
-    fn Categories(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>>;
-    fn Contributors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
-    fn Content(&self) -> ::windows::core::Result<SyndicationContent>;
-    fn SetContent(&self, value: &::core::option::Option<SyndicationContent>) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LastUpdatedTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetLastUpdatedTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn Links(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>>;
-    fn PublishedDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetPublishedDate(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn Rights(&self) -> ::windows::core::Result<ISyndicationText>;
-    fn SetRights(&self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
-    fn Source(&self) -> ::windows::core::Result<SyndicationFeed>;
-    fn SetSource(&self, value: &::core::option::Option<SyndicationFeed>) -> ::windows::core::Result<()>;
-    fn Summary(&self) -> ::windows::core::Result<ISyndicationText>;
-    fn SetSummary(&self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<ISyndicationText>;
-    fn SetTitle(&self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
-    fn CommentsUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetCommentsUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn EditUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn EditMediaUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn ETag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ItemUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn Load(&self, item: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LoadFromXml(&self, itemdocument: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
+    fn Authors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
+    fn Categories(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>>;
+    fn Contributors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>>;
+    fn Content(&mut self) -> ::windows::core::Result<SyndicationContent>;
+    fn SetContent(&mut self, value: &::core::option::Option<SyndicationContent>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LastUpdatedTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetLastUpdatedTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn Links(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>>;
+    fn PublishedDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetPublishedDate(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn Rights(&mut self) -> ::windows::core::Result<ISyndicationText>;
+    fn SetRights(&mut self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<SyndicationFeed>;
+    fn SetSource(&mut self, value: &::core::option::Option<SyndicationFeed>) -> ::windows::core::Result<()>;
+    fn Summary(&mut self) -> ::windows::core::Result<ISyndicationText>;
+    fn SetSummary(&mut self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<ISyndicationText>;
+    fn SetTitle(&mut self, value: &::core::option::Option<ISyndicationText>) -> ::windows::core::Result<()>;
+    fn CommentsUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetCommentsUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn EditUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn EditMediaUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn ETag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ItemUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn Load(&mut self, item: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LoadFromXml(&mut self, itemdocument: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationItem {
@@ -1259,7 +1259,7 @@ impl ISyndicationItemVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationItemFactoryImpl: Sized {
-    fn CreateSyndicationItem(&self, title: &::windows::core::HSTRING, content: &::core::option::Option<SyndicationContent>, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationItem>;
+    fn CreateSyndicationItem(&mut self, title: &::windows::core::HSTRING, content: &::core::option::Option<SyndicationContent>, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationItem>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationItemFactory {
@@ -1290,18 +1290,18 @@ impl ISyndicationItemFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationLinkImpl: Sized + ISyndicationNodeImpl {
-    fn Length(&self) -> ::windows::core::Result<u32>;
-    fn SetLength(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MediaType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMediaType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Relationship(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRelationship(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ResourceLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetResourceLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Length(&mut self) -> ::windows::core::Result<u32>;
+    fn SetLength(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MediaType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMediaType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Relationship(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRelationship(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ResourceLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetResourceLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationLink {
@@ -1422,8 +1422,8 @@ impl ISyndicationLinkVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationLinkFactoryImpl: Sized {
-    fn CreateSyndicationLink(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationLink>;
-    fn CreateSyndicationLinkEx(&self, uri: &::core::option::Option<super::super::Foundation::Uri>, relationship: &::windows::core::HSTRING, title: &::windows::core::HSTRING, mediatype: &::windows::core::HSTRING, length: u32) -> ::windows::core::Result<SyndicationLink>;
+    fn CreateSyndicationLink(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationLink>;
+    fn CreateSyndicationLinkEx(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, relationship: &::windows::core::HSTRING, title: &::windows::core::HSTRING, mediatype: &::windows::core::HSTRING, length: u32) -> ::windows::core::Result<SyndicationLink>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationLinkFactory {
@@ -1472,19 +1472,19 @@ impl ISyndicationLinkFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISyndicationNodeImpl: Sized {
-    fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNodeName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn NodeNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNodeNamespace(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn NodeValue(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNodeValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BaseUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetBaseUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn AttributeExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>>;
-    fn ElementExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
-    fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn NodeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNodeName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NodeNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNodeNamespace(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NodeValue(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNodeValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BaseUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetBaseUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn AttributeExtensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>>;
+    fn ElementExtensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
+    fn GetXmlDocument(&mut self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationNode {
@@ -1624,7 +1624,7 @@ impl ISyndicationNodeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISyndicationNodeFactoryImpl: Sized {
-    fn CreateSyndicationNode(&self, nodename: &::windows::core::HSTRING, nodenamespace: &::windows::core::HSTRING, nodevalue: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationNode>;
+    fn CreateSyndicationNode(&mut self, nodename: &::windows::core::HSTRING, nodenamespace: &::windows::core::HSTRING, nodevalue: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationNode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISyndicationNodeFactory {
@@ -1659,12 +1659,12 @@ impl ISyndicationNodeFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISyndicationPersonImpl: Sized + ISyndicationNodeImpl {
-    fn Email(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetEmail(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Email(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetEmail(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationPerson {
@@ -1734,8 +1734,8 @@ impl ISyndicationPersonVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISyndicationPersonFactoryImpl: Sized {
-    fn CreateSyndicationPerson(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationPerson>;
-    fn CreateSyndicationPersonEx(&self, name: &::windows::core::HSTRING, email: &::windows::core::HSTRING, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationPerson>;
+    fn CreateSyndicationPerson(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationPerson>;
+    fn CreateSyndicationPersonEx(&mut self, name: &::windows::core::HSTRING, email: &::windows::core::HSTRING, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SyndicationPerson>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISyndicationPersonFactory {
@@ -1782,12 +1782,12 @@ impl ISyndicationPersonFactoryVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISyndicationTextImpl: Sized + ISyndicationNodeImpl {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Xml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetXml(&self, value: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Xml(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn SetXml(&mut self, value: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationText {
@@ -1857,8 +1857,8 @@ impl ISyndicationTextVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISyndicationTextFactoryImpl: Sized {
-    fn CreateSyndicationText(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationText>;
-    fn CreateSyndicationTextEx(&self, text: &::windows::core::HSTRING, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationText>;
+    fn CreateSyndicationText(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationText>;
+    fn CreateSyndicationTextEx(&mut self, text: &::windows::core::HSTRING, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationText>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISyndicationTextFactory {

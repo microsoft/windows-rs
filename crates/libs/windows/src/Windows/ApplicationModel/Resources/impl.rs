@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceLoaderImpl: Sized {
-    fn GetString(&self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetString(&mut self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceLoader {
@@ -28,7 +28,7 @@ impl IResourceLoaderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IResourceLoader2Impl: Sized {
-    fn GetStringForUri(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetStringForUri(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceLoader2 {
@@ -56,7 +56,7 @@ impl IResourceLoader2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceLoaderFactoryImpl: Sized {
-    fn CreateResourceLoaderByName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceLoader>;
+    fn CreateResourceLoaderByName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceLoader>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceLoaderFactory {
@@ -87,7 +87,7 @@ impl IResourceLoaderFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IResourceLoaderStaticsImpl: Sized {
-    fn GetStringForReference(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetStringForReference(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceLoaderStatics {
@@ -118,10 +118,10 @@ impl IResourceLoaderStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceLoaderStatics2Impl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<ResourceLoader>;
-    fn GetForCurrentViewWithName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceLoader>;
-    fn GetForViewIndependentUse(&self) -> ::windows::core::Result<ResourceLoader>;
-    fn GetForViewIndependentUseWithName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceLoader>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<ResourceLoader>;
+    fn GetForCurrentViewWithName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceLoader>;
+    fn GetForViewIndependentUse(&mut self) -> ::windows::core::Result<ResourceLoader>;
+    fn GetForViewIndependentUseWithName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceLoader>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceLoaderStatics2 {
@@ -188,7 +188,7 @@ impl IResourceLoaderStatics2Vtbl {
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait IResourceLoaderStatics3Impl: Sized {
-    fn GetForUIContext(&self, context: &::core::option::Option<super::super::UI::UIContext>) -> ::windows::core::Result<ResourceLoader>;
+    fn GetForUIContext(&mut self, context: &::core::option::Option<super::super::UI::UIContext>) -> ::windows::core::Result<ResourceLoader>;
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceLoaderStatics3 {
@@ -219,7 +219,7 @@ impl IResourceLoaderStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceLoaderStatics4Impl: Sized {
-    fn GetDefaultPriPath(&self, packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDefaultPriPath(&mut self, packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceLoaderStatics4 {

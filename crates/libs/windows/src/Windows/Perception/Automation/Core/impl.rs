@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICorePerceptionAutomationStaticsImpl: Sized {
-    fn SetActivationFactoryProvider(&self, provider: &::core::option::Option<super::super::super::Foundation::IGetActivationFactory>) -> ::windows::core::Result<()>;
+    fn SetActivationFactoryProvider(&mut self, provider: &::core::option::Option<super::super::super::Foundation::IGetActivationFactory>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICorePerceptionAutomationStatics {

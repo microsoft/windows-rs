@@ -1,9 +1,9 @@
 pub trait IAnnotationProviderImpl: Sized {
-    fn AnnotationTypeId(&self) -> ::windows::core::Result<i32>;
-    fn AnnotationTypeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DateTime(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Target(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn AnnotationTypeId(&mut self) -> ::windows::core::Result<i32>;
+    fn AnnotationTypeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Author(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DateTime(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Target(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 impl ::windows::core::RuntimeName for IAnnotationProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IAnnotationProvider";
@@ -80,7 +80,7 @@ impl IAnnotationProviderVtbl {
 }
 #[cfg(feature = "UI_Xaml_Automation_Peers")]
 pub trait ICustomNavigationProviderImpl: Sized {
-    fn NavigateCustom(&self, direction: super::Peers::AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn NavigateCustom(&mut self, direction: super::Peers::AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "UI_Xaml_Automation_Peers")]
 impl ::windows::core::RuntimeName for ICustomNavigationProvider {
@@ -110,8 +110,8 @@ impl ICustomNavigationProviderVtbl {
     }
 }
 pub trait IDockProviderImpl: Sized {
-    fn DockPosition(&self) -> ::windows::core::Result<super::DockPosition>;
-    fn SetDockPosition(&self, dockposition: super::DockPosition) -> ::windows::core::Result<()>;
+    fn DockPosition(&mut self) -> ::windows::core::Result<super::DockPosition>;
+    fn SetDockPosition(&mut self, dockposition: super::DockPosition) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDockProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IDockProvider";
@@ -144,10 +144,10 @@ impl IDockProviderVtbl {
     }
 }
 pub trait IDragProviderImpl: Sized {
-    fn IsGrabbed(&self) -> ::windows::core::Result<bool>;
-    fn DropEffect(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DropEffects(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
-    fn GetGrabbedItems(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn IsGrabbed(&mut self) -> ::windows::core::Result<bool>;
+    fn DropEffect(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DropEffects(&mut self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
+    fn GetGrabbedItems(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
 }
 impl ::windows::core::RuntimeName for IDragProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IDragProvider";
@@ -213,8 +213,8 @@ impl IDragProviderVtbl {
     }
 }
 pub trait IDropTargetProviderImpl: Sized {
-    fn DropEffect(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DropEffects(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
+    fn DropEffect(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DropEffects(&mut self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
 }
 impl ::windows::core::RuntimeName for IDropTargetProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IDropTargetProvider";
@@ -255,9 +255,9 @@ impl IDropTargetProviderVtbl {
     }
 }
 pub trait IExpandCollapseProviderImpl: Sized {
-    fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState>;
-    fn Collapse(&self) -> ::windows::core::Result<()>;
-    fn Expand(&self) -> ::windows::core::Result<()>;
+    fn ExpandCollapseState(&mut self) -> ::windows::core::Result<super::ExpandCollapseState>;
+    fn Collapse(&mut self) -> ::windows::core::Result<()>;
+    fn Expand(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IExpandCollapseProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IExpandCollapseProvider";
@@ -295,11 +295,11 @@ impl IExpandCollapseProviderVtbl {
     }
 }
 pub trait IGridItemProviderImpl: Sized {
-    fn Column(&self) -> ::windows::core::Result<i32>;
-    fn ColumnSpan(&self) -> ::windows::core::Result<i32>;
-    fn ContainingGrid(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
-    fn Row(&self) -> ::windows::core::Result<i32>;
-    fn RowSpan(&self) -> ::windows::core::Result<i32>;
+    fn Column(&mut self) -> ::windows::core::Result<i32>;
+    fn ColumnSpan(&mut self) -> ::windows::core::Result<i32>;
+    fn ContainingGrid(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn Row(&mut self) -> ::windows::core::Result<i32>;
+    fn RowSpan(&mut self) -> ::windows::core::Result<i32>;
 }
 impl ::windows::core::RuntimeName for IGridItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IGridItemProvider";
@@ -375,9 +375,9 @@ impl IGridItemProviderVtbl {
     }
 }
 pub trait IGridProviderImpl: Sized {
-    fn ColumnCount(&self) -> ::windows::core::Result<i32>;
-    fn RowCount(&self) -> ::windows::core::Result<i32>;
-    fn GetItem(&self, row: i32, column: i32) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn ColumnCount(&mut self) -> ::windows::core::Result<i32>;
+    fn RowCount(&mut self) -> ::windows::core::Result<i32>;
+    fn GetItem(&mut self, row: i32, column: i32) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 impl ::windows::core::RuntimeName for IGridProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IGridProvider";
@@ -444,7 +444,7 @@ impl IIRawElementProviderSimpleVtbl {
     }
 }
 pub trait IInvokeProviderImpl: Sized {
-    fn Invoke(&self) -> ::windows::core::Result<()>;
+    fn Invoke(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IInvokeProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IInvokeProvider";
@@ -462,7 +462,7 @@ impl IInvokeProviderVtbl {
     }
 }
 pub trait IItemContainerProviderImpl: Sized {
-    fn FindItemByProperty(&self, startafter: &::core::option::Option<IRawElementProviderSimple>, automationproperty: &::core::option::Option<super::AutomationProperty>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn FindItemByProperty(&mut self, startafter: &::core::option::Option<IRawElementProviderSimple>, automationproperty: &::core::option::Option<super::AutomationProperty>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 impl ::windows::core::RuntimeName for IItemContainerProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IItemContainerProvider";
@@ -494,10 +494,10 @@ impl IItemContainerProviderVtbl {
     }
 }
 pub trait IMultipleViewProviderImpl: Sized {
-    fn CurrentView(&self) -> ::windows::core::Result<i32>;
-    fn GetSupportedViews(&self) -> ::windows::core::Result<::windows::core::Array<i32>>;
-    fn GetViewName(&self, viewid: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCurrentView(&self, viewid: i32) -> ::windows::core::Result<()>;
+    fn CurrentView(&mut self) -> ::windows::core::Result<i32>;
+    fn GetSupportedViews(&mut self) -> ::windows::core::Result<::windows::core::Array<i32>>;
+    fn GetViewName(&mut self, viewid: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCurrentView(&mut self, viewid: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMultipleViewProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IMultipleViewProvider";
@@ -555,7 +555,7 @@ impl IMultipleViewProviderVtbl {
     }
 }
 pub trait IObjectModelProviderImpl: Sized {
-    fn GetUnderlyingObjectModel(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetUnderlyingObjectModel(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for IObjectModelProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IObjectModelProvider";
@@ -583,13 +583,13 @@ impl IObjectModelProviderVtbl {
     }
 }
 pub trait IRangeValueProviderImpl: Sized {
-    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
-    fn LargeChange(&self) -> ::windows::core::Result<f64>;
-    fn Maximum(&self) -> ::windows::core::Result<f64>;
-    fn Minimum(&self) -> ::windows::core::Result<f64>;
-    fn SmallChange(&self) -> ::windows::core::Result<f64>;
-    fn Value(&self) -> ::windows::core::Result<f64>;
-    fn SetValue(&self, value: f64) -> ::windows::core::Result<()>;
+    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn LargeChange(&mut self) -> ::windows::core::Result<f64>;
+    fn Maximum(&mut self) -> ::windows::core::Result<f64>;
+    fn Minimum(&mut self) -> ::windows::core::Result<f64>;
+    fn SmallChange(&mut self) -> ::windows::core::Result<f64>;
+    fn Value(&mut self) -> ::windows::core::Result<f64>;
+    fn SetValue(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRangeValueProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IRangeValueProvider";
@@ -682,7 +682,7 @@ impl IRangeValueProviderVtbl {
     }
 }
 pub trait IScrollItemProviderImpl: Sized {
-    fn ScrollIntoView(&self) -> ::windows::core::Result<()>;
+    fn ScrollIntoView(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IScrollItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IScrollItemProvider";
@@ -703,14 +703,14 @@ impl IScrollItemProviderVtbl {
     }
 }
 pub trait IScrollProviderImpl: Sized {
-    fn HorizontallyScrollable(&self) -> ::windows::core::Result<bool>;
-    fn HorizontalScrollPercent(&self) -> ::windows::core::Result<f64>;
-    fn HorizontalViewSize(&self) -> ::windows::core::Result<f64>;
-    fn VerticallyScrollable(&self) -> ::windows::core::Result<bool>;
-    fn VerticalScrollPercent(&self) -> ::windows::core::Result<f64>;
-    fn VerticalViewSize(&self) -> ::windows::core::Result<f64>;
-    fn Scroll(&self, horizontalamount: super::ScrollAmount, verticalamount: super::ScrollAmount) -> ::windows::core::Result<()>;
-    fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()>;
+    fn HorizontallyScrollable(&mut self) -> ::windows::core::Result<bool>;
+    fn HorizontalScrollPercent(&mut self) -> ::windows::core::Result<f64>;
+    fn HorizontalViewSize(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticallyScrollable(&mut self) -> ::windows::core::Result<bool>;
+    fn VerticalScrollPercent(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticalViewSize(&mut self) -> ::windows::core::Result<f64>;
+    fn Scroll(&mut self, horizontalamount: super::ScrollAmount, verticalamount: super::ScrollAmount) -> ::windows::core::Result<()>;
+    fn SetScrollPercent(&mut self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IScrollProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IScrollProvider";
@@ -808,11 +808,11 @@ impl IScrollProviderVtbl {
     }
 }
 pub trait ISelectionItemProviderImpl: Sized {
-    fn IsSelected(&self) -> ::windows::core::Result<bool>;
-    fn SelectionContainer(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
-    fn AddToSelection(&self) -> ::windows::core::Result<()>;
-    fn RemoveFromSelection(&self) -> ::windows::core::Result<()>;
-    fn Select(&self) -> ::windows::core::Result<()>;
+    fn IsSelected(&mut self) -> ::windows::core::Result<bool>;
+    fn SelectionContainer(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn AddToSelection(&mut self) -> ::windows::core::Result<()>;
+    fn RemoveFromSelection(&mut self) -> ::windows::core::Result<()>;
+    fn Select(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISelectionItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISelectionItemProvider";
@@ -867,9 +867,9 @@ impl ISelectionItemProviderVtbl {
     }
 }
 pub trait ISelectionProviderImpl: Sized {
-    fn CanSelectMultiple(&self) -> ::windows::core::Result<bool>;
-    fn IsSelectionRequired(&self) -> ::windows::core::Result<bool>;
-    fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn CanSelectMultiple(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSelectionRequired(&mut self) -> ::windows::core::Result<bool>;
+    fn GetSelection(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
 }
 impl ::windows::core::RuntimeName for ISelectionProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISelectionProvider";
@@ -922,9 +922,9 @@ impl ISelectionProviderVtbl {
     }
 }
 pub trait ISpreadsheetItemProviderImpl: Sized {
-    fn Formula(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAnnotationObjects(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
-    fn GetAnnotationTypes(&self) -> ::windows::core::Result<::windows::core::Array<super::AnnotationType>>;
+    fn Formula(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAnnotationObjects(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn GetAnnotationTypes(&mut self) -> ::windows::core::Result<::windows::core::Array<super::AnnotationType>>;
 }
 impl ::windows::core::RuntimeName for ISpreadsheetItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISpreadsheetItemProvider";
@@ -978,7 +978,7 @@ impl ISpreadsheetItemProviderVtbl {
     }
 }
 pub trait ISpreadsheetProviderImpl: Sized {
-    fn GetItemByName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn GetItemByName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 impl ::windows::core::RuntimeName for ISpreadsheetProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISpreadsheetProvider";
@@ -1003,13 +1003,13 @@ impl ISpreadsheetProviderVtbl {
     }
 }
 pub trait IStylesProviderImpl: Sized {
-    fn ExtendedProperties(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FillColor(&self) -> ::windows::core::Result<super::super::super::Color>;
-    fn FillPatternColor(&self) -> ::windows::core::Result<super::super::super::Color>;
-    fn FillPatternStyle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Shape(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn StyleId(&self) -> ::windows::core::Result<i32>;
-    fn StyleName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ExtendedProperties(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FillColor(&mut self) -> ::windows::core::Result<super::super::super::Color>;
+    fn FillPatternColor(&mut self) -> ::windows::core::Result<super::super::super::Color>;
+    fn FillPatternStyle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Shape(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StyleId(&mut self) -> ::windows::core::Result<i32>;
+    fn StyleName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IStylesProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IStylesProvider";
@@ -1109,8 +1109,8 @@ impl IStylesProviderVtbl {
     }
 }
 pub trait ISynchronizedInputProviderImpl: Sized {
-    fn Cancel(&self) -> ::windows::core::Result<()>;
-    fn StartListening(&self, inputtype: super::SynchronizedInputType) -> ::windows::core::Result<()>;
+    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn StartListening(&mut self, inputtype: super::SynchronizedInputType) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISynchronizedInputProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ISynchronizedInputProvider";
@@ -1136,8 +1136,8 @@ impl ISynchronizedInputProviderVtbl {
     }
 }
 pub trait ITableItemProviderImpl: Sized {
-    fn GetColumnHeaderItems(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
-    fn GetRowHeaderItems(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn GetColumnHeaderItems(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn GetRowHeaderItems(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
 }
 impl ::windows::core::RuntimeName for ITableItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITableItemProvider";
@@ -1179,9 +1179,9 @@ impl ITableItemProviderVtbl {
     }
 }
 pub trait ITableProviderImpl: Sized {
-    fn RowOrColumnMajor(&self) -> ::windows::core::Result<super::RowOrColumnMajor>;
-    fn GetColumnHeaders(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
-    fn GetRowHeaders(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn RowOrColumnMajor(&mut self) -> ::windows::core::Result<super::RowOrColumnMajor>;
+    fn GetColumnHeaders(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn GetRowHeaders(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
 }
 impl ::windows::core::RuntimeName for ITableProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITableProvider";
@@ -1235,8 +1235,8 @@ impl ITableProviderVtbl {
     }
 }
 pub trait ITextChildProviderImpl: Sized {
-    fn TextContainer(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
-    fn TextRange(&self) -> ::windows::core::Result<ITextRangeProvider>;
+    fn TextContainer(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn TextRange(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
 }
 impl ::windows::core::RuntimeName for ITextChildProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITextChildProvider";
@@ -1277,8 +1277,8 @@ impl ITextChildProviderVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ITextEditProviderImpl: Sized + ITextProviderImpl {
-    fn GetActiveComposition(&self) -> ::windows::core::Result<ITextRangeProvider>;
-    fn GetConversionTarget(&self) -> ::windows::core::Result<ITextRangeProvider>;
+    fn GetActiveComposition(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
+    fn GetConversionTarget(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ITextEditProvider {
@@ -1321,12 +1321,12 @@ impl ITextEditProviderVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ITextProviderImpl: Sized {
-    fn DocumentRange(&self) -> ::windows::core::Result<ITextRangeProvider>;
-    fn SupportedTextSelection(&self) -> ::windows::core::Result<super::SupportedTextSelection>;
-    fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>>;
-    fn GetVisibleRanges(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>>;
-    fn RangeFromChild(&self, childelement: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
-    fn RangeFromPoint(&self, screenlocation: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<ITextRangeProvider>;
+    fn DocumentRange(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
+    fn SupportedTextSelection(&mut self) -> ::windows::core::Result<super::SupportedTextSelection>;
+    fn GetSelection(&mut self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>>;
+    fn GetVisibleRanges(&mut self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>>;
+    fn RangeFromChild(&mut self, childelement: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
+    fn RangeFromPoint(&mut self, screenlocation: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ITextProvider {
@@ -1419,8 +1419,8 @@ impl ITextProviderVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ITextProvider2Impl: Sized + ITextProviderImpl {
-    fn RangeFromAnnotation(&self, annotationelement: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
-    fn GetCaretRange(&self, isactive: &mut bool) -> ::windows::core::Result<ITextRangeProvider>;
+    fn RangeFromAnnotation(&mut self, annotationelement: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
+    fn GetCaretRange(&mut self, isactive: &mut bool) -> ::windows::core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ITextProvider2 {
@@ -1463,24 +1463,24 @@ impl ITextProvider2Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 pub trait ITextRangeProviderImpl: Sized {
-    fn Clone(&self) -> ::windows::core::Result<ITextRangeProvider>;
-    fn Compare(&self, textrangeprovider: &::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<bool>;
-    fn CompareEndpoints(&self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: &::core::option::Option<ITextRangeProvider>, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<i32>;
-    fn ExpandToEnclosingUnit(&self, unit: super::Text::TextUnit) -> ::windows::core::Result<()>;
-    fn FindAttribute(&self, attributeid: i32, value: &::core::option::Option<::windows::core::IInspectable>, backward: bool) -> ::windows::core::Result<ITextRangeProvider>;
-    fn FindText(&self, text: &::windows::core::HSTRING, backward: bool, ignorecase: bool) -> ::windows::core::Result<ITextRangeProvider>;
-    fn GetAttributeValue(&self, attributeid: i32) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetBoundingRectangles(&self, returnvalue: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()>;
-    fn GetEnclosingElement(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
-    fn GetText(&self, maxlength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Move(&self, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveEndpointByUnit(&self, endpoint: super::Text::TextPatternRangeEndpoint, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveEndpointByRange(&self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: &::core::option::Option<ITextRangeProvider>, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<()>;
-    fn Select(&self) -> ::windows::core::Result<()>;
-    fn AddToSelection(&self) -> ::windows::core::Result<()>;
-    fn RemoveFromSelection(&self) -> ::windows::core::Result<()>;
-    fn ScrollIntoView(&self, aligntotop: bool) -> ::windows::core::Result<()>;
-    fn GetChildren(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
+    fn Clone(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
+    fn Compare(&mut self, textrangeprovider: &::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<bool>;
+    fn CompareEndpoints(&mut self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: &::core::option::Option<ITextRangeProvider>, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<i32>;
+    fn ExpandToEnclosingUnit(&mut self, unit: super::Text::TextUnit) -> ::windows::core::Result<()>;
+    fn FindAttribute(&mut self, attributeid: i32, value: &::core::option::Option<::windows::core::IInspectable>, backward: bool) -> ::windows::core::Result<ITextRangeProvider>;
+    fn FindText(&mut self, text: &::windows::core::HSTRING, backward: bool, ignorecase: bool) -> ::windows::core::Result<ITextRangeProvider>;
+    fn GetAttributeValue(&mut self, attributeid: i32) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetBoundingRectangles(&mut self, returnvalue: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()>;
+    fn GetEnclosingElement(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn GetText(&mut self, maxlength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Move(&mut self, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveEndpointByUnit(&mut self, endpoint: super::Text::TextPatternRangeEndpoint, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveEndpointByRange(&mut self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: &::core::option::Option<ITextRangeProvider>, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<()>;
+    fn Select(&mut self) -> ::windows::core::Result<()>;
+    fn AddToSelection(&mut self) -> ::windows::core::Result<()>;
+    fn RemoveFromSelection(&mut self) -> ::windows::core::Result<()>;
+    fn ScrollIntoView(&mut self, aligntotop: bool) -> ::windows::core::Result<()>;
+    fn GetChildren(&mut self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>>;
 }
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 impl ::windows::core::RuntimeName for ITextRangeProvider {
@@ -1667,7 +1667,7 @@ impl ITextRangeProviderVtbl {
 }
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 pub trait ITextRangeProvider2Impl: Sized + ITextRangeProviderImpl {
-    fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
+    fn ShowContextMenu(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 impl ::windows::core::RuntimeName for ITextRangeProvider2 {
@@ -1690,8 +1690,8 @@ impl ITextRangeProvider2Vtbl {
     }
 }
 pub trait IToggleProviderImpl: Sized {
-    fn ToggleState(&self) -> ::windows::core::Result<super::ToggleState>;
-    fn Toggle(&self) -> ::windows::core::Result<()>;
+    fn ToggleState(&mut self) -> ::windows::core::Result<super::ToggleState>;
+    fn Toggle(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IToggleProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IToggleProvider";
@@ -1724,12 +1724,12 @@ impl IToggleProviderVtbl {
     }
 }
 pub trait ITransformProviderImpl: Sized {
-    fn CanMove(&self) -> ::windows::core::Result<bool>;
-    fn CanResize(&self) -> ::windows::core::Result<bool>;
-    fn CanRotate(&self) -> ::windows::core::Result<bool>;
-    fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()>;
-    fn Resize(&self, width: f64, height: f64) -> ::windows::core::Result<()>;
-    fn Rotate(&self, degrees: f64) -> ::windows::core::Result<()>;
+    fn CanMove(&mut self) -> ::windows::core::Result<bool>;
+    fn CanResize(&mut self) -> ::windows::core::Result<bool>;
+    fn CanRotate(&mut self) -> ::windows::core::Result<bool>;
+    fn Move(&mut self, x: f64, y: f64) -> ::windows::core::Result<()>;
+    fn Resize(&mut self, width: f64, height: f64) -> ::windows::core::Result<()>;
+    fn Rotate(&mut self, degrees: f64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITransformProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITransformProvider";
@@ -1796,12 +1796,12 @@ impl ITransformProviderVtbl {
     }
 }
 pub trait ITransformProvider2Impl: Sized + ITransformProviderImpl {
-    fn CanZoom(&self) -> ::windows::core::Result<bool>;
-    fn ZoomLevel(&self) -> ::windows::core::Result<f64>;
-    fn MaxZoom(&self) -> ::windows::core::Result<f64>;
-    fn MinZoom(&self) -> ::windows::core::Result<f64>;
-    fn Zoom(&self, zoom: f64) -> ::windows::core::Result<()>;
-    fn ZoomByUnit(&self, zoomunit: super::ZoomUnit) -> ::windows::core::Result<()>;
+    fn CanZoom(&mut self) -> ::windows::core::Result<bool>;
+    fn ZoomLevel(&mut self) -> ::windows::core::Result<f64>;
+    fn MaxZoom(&mut self) -> ::windows::core::Result<f64>;
+    fn MinZoom(&mut self) -> ::windows::core::Result<f64>;
+    fn Zoom(&mut self, zoom: f64) -> ::windows::core::Result<()>;
+    fn ZoomByUnit(&mut self, zoomunit: super::ZoomUnit) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITransformProvider2 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.ITransformProvider2";
@@ -1875,9 +1875,9 @@ impl ITransformProvider2Vtbl {
     }
 }
 pub trait IValueProviderImpl: Sized {
-    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IValueProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IValueProvider";
@@ -1922,7 +1922,7 @@ impl IValueProviderVtbl {
     }
 }
 pub trait IVirtualizedItemProviderImpl: Sized {
-    fn Realize(&self) -> ::windows::core::Result<()>;
+    fn Realize(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVirtualizedItemProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IVirtualizedItemProvider";
@@ -1940,15 +1940,15 @@ impl IVirtualizedItemProviderVtbl {
     }
 }
 pub trait IWindowProviderImpl: Sized {
-    fn IsModal(&self) -> ::windows::core::Result<bool>;
-    fn IsTopmost(&self) -> ::windows::core::Result<bool>;
-    fn Maximizable(&self) -> ::windows::core::Result<bool>;
-    fn Minimizable(&self) -> ::windows::core::Result<bool>;
-    fn InteractionState(&self) -> ::windows::core::Result<super::WindowInteractionState>;
-    fn VisualState(&self) -> ::windows::core::Result<super::WindowVisualState>;
-    fn Close(&self) -> ::windows::core::Result<()>;
-    fn SetVisualState(&self, state: super::WindowVisualState) -> ::windows::core::Result<()>;
-    fn WaitForInputIdle(&self, milliseconds: i32) -> ::windows::core::Result<bool>;
+    fn IsModal(&mut self) -> ::windows::core::Result<bool>;
+    fn IsTopmost(&mut self) -> ::windows::core::Result<bool>;
+    fn Maximizable(&mut self) -> ::windows::core::Result<bool>;
+    fn Minimizable(&mut self) -> ::windows::core::Result<bool>;
+    fn InteractionState(&mut self) -> ::windows::core::Result<super::WindowInteractionState>;
+    fn VisualState(&mut self) -> ::windows::core::Result<super::WindowVisualState>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn SetVisualState(&mut self, state: super::WindowVisualState) -> ::windows::core::Result<()>;
+    fn WaitForInputIdle(&mut self, milliseconds: i32) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IWindowProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IWindowProvider";

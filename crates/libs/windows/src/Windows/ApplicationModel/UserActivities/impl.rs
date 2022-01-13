@@ -1,20 +1,20 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<UserActivityState>;
-    fn ActivityId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VisualElements(&self) -> ::windows::core::Result<UserActivityVisualElements>;
-    fn ContentUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetContentUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FallbackUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetFallbackUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ActivationUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetActivationUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ContentInfo(&self) -> ::windows::core::Result<IUserActivityContentInfo>;
-    fn SetContentInfo(&self, value: &::core::option::Option<IUserActivityContentInfo>) -> ::windows::core::Result<()>;
-    fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CreateSession(&self) -> ::windows::core::Result<UserActivitySession>;
+    fn State(&mut self) -> ::windows::core::Result<UserActivityState>;
+    fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VisualElements(&mut self) -> ::windows::core::Result<UserActivityVisualElements>;
+    fn ContentUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetContentUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FallbackUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetFallbackUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ActivationUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetActivationUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ContentInfo(&mut self) -> ::windows::core::Result<IUserActivityContentInfo>;
+    fn SetContentInfo(&mut self, value: &::core::option::Option<IUserActivityContentInfo>) -> ::windows::core::Result<()>;
+    fn SaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CreateSession(&mut self) -> ::windows::core::Result<UserActivitySession>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivity {
@@ -178,7 +178,7 @@ impl IUserActivityVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivity2Impl: Sized {
-    fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ToJson(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivity2 {
@@ -206,8 +206,8 @@ impl IUserActivity2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivity3Impl: Sized {
-    fn IsRoamable(&self) -> ::windows::core::Result<bool>;
-    fn SetIsRoamable(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsRoamable(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsRoamable(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivity3 {
@@ -243,12 +243,12 @@ impl IUserActivity3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityAttributionImpl: Sized {
-    fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetIconUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAlternateText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AddImageQuery(&self) -> ::windows::core::Result<bool>;
-    fn SetAddImageQuery(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IconUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetIconUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn AlternateText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAlternateText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AddImageQuery(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAddImageQuery(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityAttribution {
@@ -318,7 +318,7 @@ impl IUserActivityAttributionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityAttributionFactoryImpl: Sized {
-    fn CreateWithUri(&self, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<UserActivityAttribution>;
+    fn CreateWithUri(&mut self, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<UserActivityAttribution>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityAttributionFactory {
@@ -349,9 +349,9 @@ impl IUserActivityAttributionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityChannelImpl: Sized {
-    fn GetOrCreateUserActivityAsync(&self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserActivity>>;
-    fn DeleteActivityAsync(&self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteAllActivitiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetOrCreateUserActivityAsync(&mut self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserActivity>>;
+    fn DeleteActivityAsync(&mut self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteAllActivitiesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannel {
@@ -406,8 +406,8 @@ impl IUserActivityChannelVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserActivityChannel2Impl: Sized {
-    fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>;
-    fn GetSessionHistoryItemsForUserActivityAsync(&self, activityid: &::windows::core::HSTRING, starttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>;
+    fn GetRecentUserActivitiesAsync(&mut self, maxuniqueactivities: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>;
+    fn GetSessionHistoryItemsForUserActivityAsync(&mut self, activityid: &::windows::core::HSTRING, starttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannel2 {
@@ -450,7 +450,7 @@ impl IUserActivityChannel2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivityChannelStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<UserActivityChannel>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<UserActivityChannel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivityChannelStatics {
@@ -481,8 +481,8 @@ impl IUserActivityChannelStaticsVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IUserActivityChannelStatics2Impl: Sized {
-    fn DisableAutoSessionCreation(&self) -> ::windows::core::Result<()>;
-    fn TryGetForWebAccount(&self, account: &::core::option::Option<super::super::Security::Credentials::WebAccount>) -> ::windows::core::Result<UserActivityChannel>;
+    fn DisableAutoSessionCreation(&mut self) -> ::windows::core::Result<()>;
+    fn TryGetForWebAccount(&mut self, account: &::core::option::Option<super::super::Security::Credentials::WebAccount>) -> ::windows::core::Result<UserActivityChannel>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannelStatics2 {
@@ -518,7 +518,7 @@ impl IUserActivityChannelStatics2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IUserActivityChannelStatics3Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserActivityChannel>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserActivityChannel>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityChannelStatics3 {
@@ -548,7 +548,7 @@ impl IUserActivityChannelStatics3Vtbl {
     }
 }
 pub trait IUserActivityContentInfoImpl: Sized {
-    fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ToJson(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IUserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityContentInfo";
@@ -574,7 +574,7 @@ impl IUserActivityContentInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivityContentInfoStaticsImpl: Sized {
-    fn FromJson(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivityContentInfo>;
+    fn FromJson(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivityContentInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivityContentInfoStatics {
@@ -605,7 +605,7 @@ impl IUserActivityContentInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivityFactoryImpl: Sized {
-    fn CreateWithActivityId(&self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivity>;
+    fn CreateWithActivityId(&mut self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivity>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivityFactory {
@@ -636,7 +636,7 @@ impl IUserActivityFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivityRequestImpl: Sized {
-    fn SetUserActivity(&self, activity: &::core::option::Option<UserActivity>) -> ::windows::core::Result<()>;
+    fn SetUserActivity(&mut self, activity: &::core::option::Option<UserActivity>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivityRequest {
@@ -660,8 +660,8 @@ impl IUserActivityRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityRequestManagerImpl: Sized {
-    fn UserActivityRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUserActivityRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UserActivityRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUserActivityRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityRequestManager {
@@ -697,7 +697,7 @@ impl IUserActivityRequestManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivityRequestManagerStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<UserActivityRequestManager>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<UserActivityRequestManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivityRequestManagerStatics {
@@ -728,8 +728,8 @@ impl IUserActivityRequestManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivityRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<UserActivityRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<UserActivityRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityRequestedEventArgs {
@@ -772,7 +772,7 @@ impl IUserActivityRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivitySessionImpl: Sized {
-    fn ActivityId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivitySession {
@@ -800,9 +800,9 @@ impl IUserActivitySessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserActivitySessionHistoryItemImpl: Sized {
-    fn UserActivity(&self) -> ::windows::core::Result<UserActivity>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn UserActivity(&mut self) -> ::windows::core::Result<UserActivity>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn EndTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivitySessionHistoryItem {
@@ -857,9 +857,9 @@ impl IUserActivitySessionHistoryItemVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserActivityStaticsImpl: Sized {
-    fn TryParseFromJson(&self, json: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivity>;
-    fn TryParseFromJsonArray(&self, json: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>>;
-    fn ToJsonArray(&self, activities: &::core::option::Option<super::super::Foundation::Collections::IIterable<UserActivity>>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TryParseFromJson(&mut self, json: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivity>;
+    fn TryParseFromJsonArray(&mut self, json: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>>;
+    fn ToJsonArray(&mut self, activities: &::core::option::Option<super::super::Foundation::Collections::IIterable<UserActivity>>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityStatics {
@@ -914,16 +914,16 @@ impl IUserActivityStaticsVtbl {
 }
 #[cfg(all(feature = "UI", feature = "UI_Shell", feature = "implement_exclusive"))]
 pub trait IUserActivityVisualElementsImpl: Sized {
-    fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetBackgroundColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn Attribution(&self) -> ::windows::core::Result<UserActivityAttribution>;
-    fn SetAttribution(&self, value: &::core::option::Option<UserActivityAttribution>) -> ::windows::core::Result<()>;
-    fn SetContent(&self, value: &::core::option::Option<super::super::UI::Shell::IAdaptiveCard>) -> ::windows::core::Result<()>;
-    fn Content(&self) -> ::windows::core::Result<super::super::UI::Shell::IAdaptiveCard>;
+    fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetBackgroundColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn Attribution(&mut self) -> ::windows::core::Result<UserActivityAttribution>;
+    fn SetAttribution(&mut self, value: &::core::option::Option<UserActivityAttribution>) -> ::windows::core::Result<()>;
+    fn SetContent(&mut self, value: &::core::option::Option<super::super::UI::Shell::IAdaptiveCard>) -> ::windows::core::Result<()>;
+    fn Content(&mut self) -> ::windows::core::Result<super::super::UI::Shell::IAdaptiveCard>;
 }
 #[cfg(all(feature = "UI", feature = "UI_Shell", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserActivityVisualElements {
@@ -1027,8 +1027,8 @@ impl IUserActivityVisualElementsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserActivityVisualElements2Impl: Sized {
-    fn AttributionDisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAttributionDisplayText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AttributionDisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAttributionDisplayText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserActivityVisualElements2 {

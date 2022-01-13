@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowBackgroundSessionImpl: Sized {
-    fn SetupRequested(&self, setupeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSetupRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Submitted(&self, submittedeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSubmitted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn SetupRequested(&mut self, setupeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSetupRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Submitted(&mut self, submittedeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSubmitted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowBackgroundSession {
@@ -75,10 +75,10 @@ impl IPrintWorkflowBackgroundSessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowBackgroundSetupRequestedEventArgsImpl: Sized {
-    fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
-    fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
-    fn SetRequiresUI(&self) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn GetUserPrintTicketAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
+    fn Configuration(&mut self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
+    fn SetRequiresUI(&mut self) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowBackgroundSetupRequestedEventArgs {
@@ -138,9 +138,9 @@ impl IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintWorkflowConfigurationImpl: Sized {
-    fn SourceAppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JobTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SourceAppDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JobTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintWorkflowConfiguration {
@@ -195,7 +195,7 @@ impl IPrintWorkflowConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintWorkflowConfiguration2Impl: Sized {
-    fn AbortPrintFlow(&self, reason: PrintWorkflowJobAbortReason) -> ::windows::core::Result<()>;
+    fn AbortPrintFlow(&mut self, reason: PrintWorkflowJobAbortReason) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintWorkflowConfiguration2 {
@@ -219,12 +219,12 @@ impl IPrintWorkflowConfiguration2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowForegroundSessionImpl: Sized {
-    fn SetupRequested(&self, setupeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSetupRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn XpsDataAvailable(&self, xpsdataavailableeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveXpsDataAvailable(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn SetupRequested(&mut self, setupeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSetupRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn XpsDataAvailable(&mut self, xpsdataavailableeventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveXpsDataAvailable(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowForegroundSession {
@@ -294,9 +294,9 @@ impl IPrintWorkflowForegroundSessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowForegroundSetupRequestedEventArgsImpl: Sized {
-    fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
-    fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn GetUserPrintTicketAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
+    fn Configuration(&mut self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowForegroundSetupRequestedEventArgs {
@@ -351,7 +351,7 @@ impl IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintWorkflowJobActivatedEventArgsImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<PrintWorkflowJobUISession>;
+    fn Session(&mut self) -> ::windows::core::Result<PrintWorkflowJobUISession>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobActivatedEventArgs {
@@ -382,12 +382,12 @@ impl IPrintWorkflowJobActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobBackgroundSessionImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
-    fn JobStarting(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveJobStarting(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PdlModificationRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePdlModificationRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
+    fn JobStarting(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveJobStarting(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PdlModificationRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePdlModificationRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobBackgroundSession {
@@ -457,9 +457,9 @@ impl IPrintWorkflowJobBackgroundSessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobNotificationEventArgsImpl: Sized {
-    fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
-    fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Configuration(&mut self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
+    fn PrinterJob(&mut self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobNotificationEventArgs {
@@ -514,10 +514,10 @@ impl IPrintWorkflowJobNotificationEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobStartingEventArgsImpl: Sized {
-    fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
-    fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice>;
-    fn SetSkipSystemRendering(&self) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Configuration(&mut self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
+    fn Printer(&mut self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice>;
+    fn SetSkipSystemRendering(&mut self) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobStartingEventArgs {
@@ -577,7 +577,7 @@ impl IPrintWorkflowJobStartingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintWorkflowJobTriggerDetailsImpl: Sized {
-    fn PrintWorkflowJobSession(&self) -> ::windows::core::Result<PrintWorkflowJobBackgroundSession>;
+    fn PrintWorkflowJobSession(&mut self) -> ::windows::core::Result<PrintWorkflowJobBackgroundSession>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobTriggerDetails {
@@ -608,12 +608,12 @@ impl IPrintWorkflowJobTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowJobUISessionImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
-    fn PdlDataAvailable(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePdlDataAvailable(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn JobNotification(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveJobNotification(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<PrintWorkflowSessionStatus>;
+    fn PdlDataAvailable(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePdlDataAvailable(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn JobNotification(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveJobNotification(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowJobUISession {
@@ -698,7 +698,7 @@ impl IPrintWorkflowObjectModelSourceFileContentVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowObjectModelSourceFileContentFactoryImpl: Sized {
-    fn CreateInstance(&self, xpsstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>;
+    fn CreateInstance(&mut self, xpsstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowObjectModelSourceFileContentFactory {
@@ -744,7 +744,7 @@ impl IPrintWorkflowObjectModelTargetPackageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlConverterImpl: Sized {
-    fn ConvertPdlAsync(&self, printticket: &::core::option::Option<super::PrintTicket::WorkflowPrintTicket>, inputstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>, outputstream: &::core::option::Option<super::super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ConvertPdlAsync(&mut self, printticket: &::core::option::Option<super::PrintTicket::WorkflowPrintTicket>, inputstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>, outputstream: &::core::option::Option<super::super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlConverter {
@@ -779,10 +779,10 @@ impl IPrintWorkflowPdlConverterVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlDataAvailableEventArgsImpl: Sized {
-    fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
-    fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
-    fn SourceContent(&self) -> ::windows::core::Result<PrintWorkflowPdlSourceContent>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Configuration(&mut self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
+    fn PrinterJob(&mut self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
+    fn SourceContent(&mut self) -> ::windows::core::Result<PrintWorkflowPdlSourceContent>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlDataAvailableEventArgs {
@@ -849,15 +849,15 @@ impl IPrintWorkflowPdlDataAvailableEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlModificationRequestedEventArgsImpl: Sized {
-    fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
-    fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
-    fn SourceContent(&self) -> ::windows::core::Result<PrintWorkflowPdlSourceContent>;
-    fn UILauncher(&self) -> ::windows::core::Result<PrintWorkflowUILauncher>;
-    fn CreateJobOnPrinter(&self, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>;
-    fn CreateJobOnPrinterWithAttributes(&self, jobattributes: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>;
-    fn CreateJobOnPrinterWithAttributesBuffer(&self, jobattributesbuffer: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>;
-    fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> ::windows::core::Result<PrintWorkflowPdlConverter>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Configuration(&mut self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
+    fn PrinterJob(&mut self) -> ::windows::core::Result<PrintWorkflowPrinterJob>;
+    fn SourceContent(&mut self) -> ::windows::core::Result<PrintWorkflowPdlSourceContent>;
+    fn UILauncher(&mut self) -> ::windows::core::Result<PrintWorkflowUILauncher>;
+    fn CreateJobOnPrinter(&mut self, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>;
+    fn CreateJobOnPrinterWithAttributes(&mut self, jobattributes: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>;
+    fn CreateJobOnPrinterWithAttributesBuffer(&mut self, jobattributesbuffer: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>;
+    fn GetPdlConverter(&mut self, conversiontype: PrintWorkflowPdlConversionType) -> ::windows::core::Result<PrintWorkflowPdlConverter>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Devices_Printers", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlModificationRequestedEventArgs {
@@ -987,9 +987,9 @@ impl IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlSourceContentImpl: Sized {
-    fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream>;
-    fn GetContentFileAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>>;
+    fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetInputStream(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream>;
+    fn GetContentFileAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlSourceContent {
@@ -1044,8 +1044,8 @@ impl IPrintWorkflowPdlSourceContentVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPdlTargetStreamImpl: Sized {
-    fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream>;
-    fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()>;
+    fn GetOutputStream(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream>;
+    fn CompleteStreamSubmission(&mut self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPdlTargetStream {
@@ -1081,14 +1081,14 @@ impl IPrintWorkflowPdlTargetStreamVtbl {
 }
 #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowPrinterJobImpl: Sized {
-    fn JobId(&self) -> ::windows::core::Result<i32>;
-    fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice>;
-    fn GetJobStatus(&self) -> ::windows::core::Result<PrintWorkflowPrinterJobStatus>;
-    fn GetJobPrintTicket(&self) -> ::windows::core::Result<super::PrintTicket::WorkflowPrintTicket>;
-    fn GetJobAttributesAsBuffer(&self, attributenames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn GetJobAttributes(&self, attributenames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>;
-    fn SetJobAttributesFromBuffer(&self, jobattributesbuffer: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>;
-    fn SetJobAttributes(&self, jobattributes: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>;
+    fn JobId(&mut self) -> ::windows::core::Result<i32>;
+    fn Printer(&mut self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice>;
+    fn GetJobStatus(&mut self) -> ::windows::core::Result<PrintWorkflowPrinterJobStatus>;
+    fn GetJobPrintTicket(&mut self) -> ::windows::core::Result<super::PrintTicket::WorkflowPrintTicket>;
+    fn GetJobAttributesAsBuffer(&mut self, attributenames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn GetJobAttributes(&mut self, attributenames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>;
+    fn SetJobAttributesFromBuffer(&mut self, jobattributesbuffer: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>;
+    fn SetJobAttributes(&mut self, jobattributes: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>;
 }
 #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowPrinterJob {
@@ -1203,9 +1203,9 @@ impl IPrintWorkflowPrinterJobVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowSourceContentImpl: Sized {
-    fn GetJobPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
-    fn GetSourceSpoolDataAsStreamContent(&self) -> ::windows::core::Result<PrintWorkflowSpoolStreamContent>;
-    fn GetSourceSpoolDataAsXpsObjectModel(&self) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>;
+    fn GetJobPrintTicketAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>;
+    fn GetSourceSpoolDataAsStreamContent(&mut self) -> ::windows::core::Result<PrintWorkflowSpoolStreamContent>;
+    fn GetSourceSpoolDataAsXpsObjectModel(&mut self) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowSourceContent {
@@ -1260,7 +1260,7 @@ impl IPrintWorkflowSourceContentVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowSpoolStreamContentImpl: Sized {
-    fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream>;
+    fn GetInputStream(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowSpoolStreamContent {
@@ -1291,7 +1291,7 @@ impl IPrintWorkflowSpoolStreamContentVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowStreamTargetImpl: Sized {
-    fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream>;
+    fn GetOutputStream(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowStreamTarget {
@@ -1322,9 +1322,9 @@ impl IPrintWorkflowStreamTargetVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowSubmittedEventArgsImpl: Sized {
-    fn Operation(&self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation>;
-    fn GetTarget(&self, jobprintticket: &::core::option::Option<super::PrintTicket::WorkflowPrintTicket>) -> ::windows::core::Result<PrintWorkflowTarget>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Operation(&mut self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation>;
+    fn GetTarget(&mut self, jobprintticket: &::core::option::Option<super::PrintTicket::WorkflowPrintTicket>) -> ::windows::core::Result<PrintWorkflowTarget>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowSubmittedEventArgs {
@@ -1379,9 +1379,9 @@ impl IPrintWorkflowSubmittedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintWorkflowSubmittedOperationImpl: Sized {
-    fn Complete(&self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()>;
-    fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
-    fn XpsContent(&self) -> ::windows::core::Result<PrintWorkflowSourceContent>;
+    fn Complete(&mut self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()>;
+    fn Configuration(&mut self) -> ::windows::core::Result<PrintWorkflowConfiguration>;
+    fn XpsContent(&mut self) -> ::windows::core::Result<PrintWorkflowSourceContent>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintWorkflowSubmittedOperation {
@@ -1429,8 +1429,8 @@ impl IPrintWorkflowSubmittedOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintWorkflowTargetImpl: Sized {
-    fn TargetAsStream(&self) -> ::windows::core::Result<PrintWorkflowStreamTarget>;
-    fn TargetAsXpsObjectModelPackage(&self) -> ::windows::core::Result<PrintWorkflowObjectModelTargetPackage>;
+    fn TargetAsStream(&mut self) -> ::windows::core::Result<PrintWorkflowStreamTarget>;
+    fn TargetAsXpsObjectModelPackage(&mut self) -> ::windows::core::Result<PrintWorkflowObjectModelTargetPackage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintWorkflowTarget {
@@ -1473,7 +1473,7 @@ impl IPrintWorkflowTargetVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintWorkflowTriggerDetailsImpl: Sized {
-    fn PrintWorkflowSession(&self) -> ::windows::core::Result<PrintWorkflowBackgroundSession>;
+    fn PrintWorkflowSession(&mut self) -> ::windows::core::Result<PrintWorkflowBackgroundSession>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintWorkflowTriggerDetails {
@@ -1504,7 +1504,7 @@ impl IPrintWorkflowTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowUIActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IActivatedEventArgsWithUserImpl {
-    fn PrintWorkflowSession(&self) -> ::windows::core::Result<PrintWorkflowForegroundSession>;
+    fn PrintWorkflowSession(&mut self) -> ::windows::core::Result<PrintWorkflowForegroundSession>;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowUIActivatedEventArgs {
@@ -1535,8 +1535,8 @@ impl IPrintWorkflowUIActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowUILauncherImpl: Sized {
-    fn IsUILaunchEnabled(&self) -> ::windows::core::Result<bool>;
-    fn LaunchAndCompleteUIAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PrintWorkflowUICompletionStatus>>;
+    fn IsUILaunchEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn LaunchAndCompleteUIAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PrintWorkflowUICompletionStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowUILauncher {
@@ -1579,8 +1579,8 @@ impl IPrintWorkflowUILauncherVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintWorkflowXpsDataAvailableEventArgsImpl: Sized {
-    fn Operation(&self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Operation(&mut self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintWorkflowXpsDataAvailableEventArgs {

@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics", feature = "implement_exclusive"))]
 pub trait IDisplayAdapterImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId>;
-    fn DeviceInterfacePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SourceCount(&self) -> ::windows::core::Result<u32>;
-    fn PciVendorId(&self) -> ::windows::core::Result<u32>;
-    fn PciDeviceId(&self) -> ::windows::core::Result<u32>;
-    fn PciSubSystemId(&self) -> ::windows::core::Result<u32>;
-    fn PciRevision(&self) -> ::windows::core::Result<u32>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn Id(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId>;
+    fn DeviceInterfacePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SourceCount(&mut self) -> ::windows::core::Result<u32>;
+    fn PciVendorId(&mut self) -> ::windows::core::Result<u32>;
+    fn PciDeviceId(&mut self) -> ::windows::core::Result<u32>;
+    fn PciSubSystemId(&mut self) -> ::windows::core::Result<u32>;
+    fn PciRevision(&mut self) -> ::windows::core::Result<u32>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayAdapter {
@@ -122,7 +122,7 @@ impl IDisplayAdapterVtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 pub trait IDisplayAdapterStaticsImpl: Sized {
-    fn FromId(&self, id: &super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::Result<DisplayAdapter>;
+    fn FromId(&mut self, id: &super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::Result<DisplayAdapter>;
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayAdapterStatics {
@@ -150,13 +150,13 @@ impl IDisplayAdapterStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayDeviceImpl: Sized {
-    fn CreateScanoutSource(&self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplaySource>;
-    fn CreatePrimary(&self, target: &::core::option::Option<DisplayTarget>, desc: &::core::option::Option<DisplayPrimaryDescription>) -> ::windows::core::Result<DisplaySurface>;
-    fn CreateTaskPool(&self) -> ::windows::core::Result<DisplayTaskPool>;
-    fn CreatePeriodicFence(&self, target: &::core::option::Option<DisplayTarget>, offsetfromvblank: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence>;
-    fn WaitForVBlank(&self, source: &::core::option::Option<DisplaySource>) -> ::windows::core::Result<()>;
-    fn CreateSimpleScanout(&self, psource: &::core::option::Option<DisplaySource>, psurface: &::core::option::Option<DisplaySurface>, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout>;
-    fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> ::windows::core::Result<bool>;
+    fn CreateScanoutSource(&mut self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplaySource>;
+    fn CreatePrimary(&mut self, target: &::core::option::Option<DisplayTarget>, desc: &::core::option::Option<DisplayPrimaryDescription>) -> ::windows::core::Result<DisplaySurface>;
+    fn CreateTaskPool(&mut self) -> ::windows::core::Result<DisplayTaskPool>;
+    fn CreatePeriodicFence(&mut self, target: &::core::option::Option<DisplayTarget>, offsetfromvblank: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence>;
+    fn WaitForVBlank(&mut self, source: &::core::option::Option<DisplaySource>) -> ::windows::core::Result<()>;
+    fn CreateSimpleScanout(&mut self, psource: &::core::option::Option<DisplaySource>, psurface: &::core::option::Option<DisplaySurface>, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout>;
+    fn IsCapabilitySupported(&mut self, capability: DisplayDeviceCapability) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayDevice {
@@ -252,7 +252,7 @@ impl IDisplayDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics", feature = "implement_exclusive"))]
 pub trait IDisplayDevice2Impl: Sized {
-    fn CreateSimpleScanoutWithDirtyRectsAndOptions(&self, source: &::core::option::Option<DisplaySource>, surface: &::core::option::Option<DisplaySurface>, subresourceindex: u32, syncinterval: u32, dirtyrects: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout>;
+    fn CreateSimpleScanoutWithDirtyRectsAndOptions(&mut self, source: &::core::option::Option<DisplaySource>, surface: &::core::option::Option<DisplaySurface>, subresourceindex: u32, syncinterval: u32, dirtyrects: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayDevice2 {
@@ -305,25 +305,25 @@ impl IDisplayFenceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDisplayManagerImpl: Sized {
-    fn GetCurrentTargets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>;
-    fn GetCurrentAdapters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>>;
-    fn TryAcquireTarget(&self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayManagerResult>;
-    fn ReleaseTarget(&self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<()>;
-    fn TryReadCurrentStateForAllTargets(&self) -> ::windows::core::Result<DisplayManagerResultWithState>;
-    fn TryAcquireTargetsAndReadCurrentState(&self, targets: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>) -> ::windows::core::Result<DisplayManagerResultWithState>;
-    fn TryAcquireTargetsAndCreateEmptyState(&self, targets: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>) -> ::windows::core::Result<DisplayManagerResultWithState>;
-    fn TryAcquireTargetsAndCreateSubstate(&self, existingstate: &::core::option::Option<DisplayState>, targets: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>) -> ::windows::core::Result<DisplayManagerResultWithState>;
-    fn CreateDisplayDevice(&self, adapter: &::core::option::Option<DisplayAdapter>) -> ::windows::core::Result<DisplayDevice>;
-    fn Enabled(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnabled(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Disabled(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDisabled(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PathsFailedOrInvalidated(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePathsFailedOrInvalidated(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn GetCurrentTargets(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>;
+    fn GetCurrentAdapters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>>;
+    fn TryAcquireTarget(&mut self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayManagerResult>;
+    fn ReleaseTarget(&mut self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<()>;
+    fn TryReadCurrentStateForAllTargets(&mut self) -> ::windows::core::Result<DisplayManagerResultWithState>;
+    fn TryAcquireTargetsAndReadCurrentState(&mut self, targets: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>) -> ::windows::core::Result<DisplayManagerResultWithState>;
+    fn TryAcquireTargetsAndCreateEmptyState(&mut self, targets: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>) -> ::windows::core::Result<DisplayManagerResultWithState>;
+    fn TryAcquireTargetsAndCreateSubstate(&mut self, existingstate: &::core::option::Option<DisplayState>, targets: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>) -> ::windows::core::Result<DisplayManagerResultWithState>;
+    fn CreateDisplayDevice(&mut self, adapter: &::core::option::Option<DisplayAdapter>) -> ::windows::core::Result<DisplayDevice>;
+    fn Enabled(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnabled(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Disabled(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDisabled(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Changed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PathsFailedOrInvalidated(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePathsFailedOrInvalidated(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayManager {
@@ -521,9 +521,9 @@ impl IDisplayManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayManagerChangedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayManagerChangedEventArgs {
@@ -571,9 +571,9 @@ impl IDisplayManagerChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayManagerDisabledEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayManagerDisabledEventArgs {
@@ -621,9 +621,9 @@ impl IDisplayManagerDisabledEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayManagerEnabledEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayManagerEnabledEventArgs {
@@ -671,9 +671,9 @@ impl IDisplayManagerEnabledEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayManagerPathsFailedOrInvalidatedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -721,9 +721,9 @@ impl IDisplayManagerPathsFailedOrInvalidatedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayManagerResultWithStateImpl: Sized {
-    fn ErrorCode(&self) -> ::windows::core::Result<DisplayManagerResult>;
-    fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn State(&self) -> ::windows::core::Result<DisplayState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<DisplayManagerResult>;
+    fn ExtendedErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn State(&mut self) -> ::windows::core::Result<DisplayState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayManagerResultWithState {
@@ -778,7 +778,7 @@ impl IDisplayManagerResultWithStateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayManagerStaticsImpl: Sized {
-    fn Create(&self, options: DisplayManagerOptions) -> ::windows::core::Result<DisplayManager>;
+    fn Create(&mut self, options: DisplayManagerOptions) -> ::windows::core::Result<DisplayManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayManagerStatics {
@@ -806,15 +806,15 @@ impl IDisplayManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IDisplayModeInfoImpl: Sized {
-    fn SourceResolution(&self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32>;
-    fn IsStereo(&self) -> ::windows::core::Result<bool>;
-    fn SourcePixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn TargetResolution(&self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32>;
-    fn PresentationRate(&self) -> ::windows::core::Result<DisplayPresentationRate>;
-    fn IsInterlaced(&self) -> ::windows::core::Result<bool>;
-    fn GetWireFormatSupportedBitsPerChannel(&self, encoding: DisplayWireFormatPixelEncoding) -> ::windows::core::Result<DisplayBitsPerChannel>;
-    fn IsWireFormatSupported(&self, wireformat: &::core::option::Option<DisplayWireFormat>) -> ::windows::core::Result<bool>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn SourceResolution(&mut self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32>;
+    fn IsStereo(&mut self) -> ::windows::core::Result<bool>;
+    fn SourcePixelFormat(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn TargetResolution(&mut self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32>;
+    fn PresentationRate(&mut self) -> ::windows::core::Result<DisplayPresentationRate>;
+    fn IsInterlaced(&mut self) -> ::windows::core::Result<bool>;
+    fn GetWireFormatSupportedBitsPerChannel(&mut self, encoding: DisplayWireFormatPixelEncoding) -> ::windows::core::Result<DisplayBitsPerChannel>;
+    fn IsWireFormatSupported(&mut self, wireformat: &::core::option::Option<DisplayWireFormat>) -> ::windows::core::Result<bool>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayModeInfo {
@@ -941,7 +941,7 @@ impl IDisplayModeInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IDisplayModeInfo2Impl: Sized {
-    fn PhysicalPresentationRate(&self) -> ::windows::core::Result<DisplayPresentationRate>;
+    fn PhysicalPresentationRate(&mut self) -> ::windows::core::Result<DisplayPresentationRate>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayModeInfo2 {
@@ -972,30 +972,30 @@ impl IDisplayModeInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IDisplayPathImpl: Sized {
-    fn View(&self) -> ::windows::core::Result<DisplayView>;
-    fn Target(&self) -> ::windows::core::Result<DisplayTarget>;
-    fn Status(&self) -> ::windows::core::Result<DisplayPathStatus>;
-    fn SourceResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>;
-    fn SetSourceResolution(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>) -> ::windows::core::Result<()>;
-    fn SourcePixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn SetSourcePixelFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
-    fn IsStereo(&self) -> ::windows::core::Result<bool>;
-    fn SetIsStereo(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TargetResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>;
-    fn SetTargetResolution(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>) -> ::windows::core::Result<()>;
-    fn PresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>>;
-    fn SetPresentationRate(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<DisplayPresentationRate>>) -> ::windows::core::Result<()>;
-    fn IsInterlaced(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<bool>>;
-    fn SetIsInterlaced(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
-    fn WireFormat(&self) -> ::windows::core::Result<DisplayWireFormat>;
-    fn SetWireFormat(&self, value: &::core::option::Option<DisplayWireFormat>) -> ::windows::core::Result<()>;
-    fn Rotation(&self) -> ::windows::core::Result<DisplayRotation>;
-    fn SetRotation(&self, value: DisplayRotation) -> ::windows::core::Result<()>;
-    fn Scaling(&self) -> ::windows::core::Result<DisplayPathScaling>;
-    fn SetScaling(&self, value: DisplayPathScaling) -> ::windows::core::Result<()>;
-    fn FindModes(&self, flags: DisplayModeQueryOptions) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>;
-    fn ApplyPropertiesFromMode(&self, moderesult: &::core::option::Option<DisplayModeInfo>) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn View(&mut self) -> ::windows::core::Result<DisplayView>;
+    fn Target(&mut self) -> ::windows::core::Result<DisplayTarget>;
+    fn Status(&mut self) -> ::windows::core::Result<DisplayPathStatus>;
+    fn SourceResolution(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>;
+    fn SetSourceResolution(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>) -> ::windows::core::Result<()>;
+    fn SourcePixelFormat(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn SetSourcePixelFormat(&mut self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
+    fn IsStereo(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsStereo(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TargetResolution(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>;
+    fn SetTargetResolution(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>) -> ::windows::core::Result<()>;
+    fn PresentationRate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>>;
+    fn SetPresentationRate(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<DisplayPresentationRate>>) -> ::windows::core::Result<()>;
+    fn IsInterlaced(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<bool>>;
+    fn SetIsInterlaced(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
+    fn WireFormat(&mut self) -> ::windows::core::Result<DisplayWireFormat>;
+    fn SetWireFormat(&mut self, value: &::core::option::Option<DisplayWireFormat>) -> ::windows::core::Result<()>;
+    fn Rotation(&mut self) -> ::windows::core::Result<DisplayRotation>;
+    fn SetRotation(&mut self, value: DisplayRotation) -> ::windows::core::Result<()>;
+    fn Scaling(&mut self) -> ::windows::core::Result<DisplayPathScaling>;
+    fn SetScaling(&mut self, value: DisplayPathScaling) -> ::windows::core::Result<()>;
+    fn FindModes(&mut self, flags: DisplayModeQueryOptions) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>;
+    fn ApplyPropertiesFromMode(&mut self, moderesult: &::core::option::Option<DisplayModeInfo>) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayPath {
@@ -1232,8 +1232,8 @@ impl IDisplayPathVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IDisplayPath2Impl: Sized {
-    fn PhysicalPresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>>;
-    fn SetPhysicalPresentationRate(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<DisplayPresentationRate>>) -> ::windows::core::Result<()>;
+    fn PhysicalPresentationRate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>>;
+    fn SetPhysicalPresentationRate(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<DisplayPresentationRate>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayPath2 {
@@ -1269,13 +1269,13 @@ impl IDisplayPath2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IDisplayPrimaryDescriptionImpl: Sized {
-    fn Width(&self) -> ::windows::core::Result<u32>;
-    fn Height(&self) -> ::windows::core::Result<u32>;
-    fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn ColorSpace(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXColorSpace>;
-    fn IsStereo(&self) -> ::windows::core::Result<bool>;
-    fn MultisampleDescription(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
+    fn Format(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn ColorSpace(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXColorSpace>;
+    fn IsStereo(&mut self) -> ::windows::core::Result<bool>;
+    fn MultisampleDescription(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayPrimaryDescription {
@@ -1378,7 +1378,7 @@ impl IDisplayPrimaryDescriptionVtbl {
 }
 #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IDisplayPrimaryDescriptionFactoryImpl: Sized {
-    fn CreateInstance(&self, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: &super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>;
+    fn CreateInstance(&mut self, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: &super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>;
 }
 #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayPrimaryDescriptionFactory {
@@ -1409,7 +1409,7 @@ impl IDisplayPrimaryDescriptionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IDisplayPrimaryDescriptionStaticsImpl: Sized {
-    fn CreateWithProperties(&self, extraproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: &super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>;
+    fn CreateWithProperties(&mut self, extraproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: &super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayPrimaryDescriptionStatics {
@@ -1463,9 +1463,9 @@ impl IDisplayScanoutVtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDisplaySourceImpl: Sized {
-    fn AdapterId(&self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId>;
-    fn SourceId(&self) -> ::windows::core::Result<u32>;
-    fn GetMetadata(&self, key: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn AdapterId(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId>;
+    fn SourceId(&mut self) -> ::windows::core::Result<u32>;
+    fn GetMetadata(&mut self, key: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Graphics", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplaySource {
@@ -1520,9 +1520,9 @@ impl IDisplaySourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplaySource2Impl: Sized {
-    fn Status(&self) -> ::windows::core::Result<DisplaySourceStatus>;
-    fn StatusChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStatusChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<DisplaySourceStatus>;
+    fn StatusChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplaySource2 {
@@ -1570,20 +1570,20 @@ impl IDisplaySource2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDisplayStateImpl: Sized {
-    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
-    fn IsStale(&self) -> ::windows::core::Result<bool>;
-    fn Targets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>;
-    fn Views(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayView>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>;
-    fn ConnectTarget(&self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayPath>;
-    fn ConnectTargetToView(&self, target: &::core::option::Option<DisplayTarget>, view: &::core::option::Option<DisplayView>) -> ::windows::core::Result<DisplayPath>;
-    fn CanConnectTargetToView(&self, target: &::core::option::Option<DisplayTarget>, view: &::core::option::Option<DisplayView>) -> ::windows::core::Result<bool>;
-    fn GetViewForTarget(&self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayView>;
-    fn GetPathForTarget(&self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayPath>;
-    fn DisconnectTarget(&self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<()>;
-    fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> ::windows::core::Result<DisplayStateOperationResult>;
-    fn TryApply(&self, options: DisplayStateApplyOptions) -> ::windows::core::Result<DisplayStateOperationResult>;
-    fn Clone(&self) -> ::windows::core::Result<DisplayState>;
+    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn IsStale(&mut self) -> ::windows::core::Result<bool>;
+    fn Targets(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>;
+    fn Views(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayView>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn ConnectTarget(&mut self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayPath>;
+    fn ConnectTargetToView(&mut self, target: &::core::option::Option<DisplayTarget>, view: &::core::option::Option<DisplayView>) -> ::windows::core::Result<DisplayPath>;
+    fn CanConnectTargetToView(&mut self, target: &::core::option::Option<DisplayTarget>, view: &::core::option::Option<DisplayView>) -> ::windows::core::Result<bool>;
+    fn GetViewForTarget(&mut self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayView>;
+    fn GetPathForTarget(&mut self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<DisplayPath>;
+    fn DisconnectTarget(&mut self, target: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<()>;
+    fn TryFunctionalize(&mut self, options: DisplayStateFunctionalizeOptions) -> ::windows::core::Result<DisplayStateOperationResult>;
+    fn TryApply(&mut self, options: DisplayStateApplyOptions) -> ::windows::core::Result<DisplayStateOperationResult>;
+    fn Clone(&mut self) -> ::windows::core::Result<DisplayState>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayState {
@@ -1763,8 +1763,8 @@ impl IDisplayStateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayStateOperationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<DisplayStateOperationStatus>;
-    fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Status(&mut self) -> ::windows::core::Result<DisplayStateOperationStatus>;
+    fn ExtendedErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayStateOperationResult {
@@ -1822,20 +1822,20 @@ impl IDisplaySurfaceVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDisplayTargetImpl: Sized {
-    fn Adapter(&self) -> ::windows::core::Result<DisplayAdapter>;
-    fn DeviceInterfacePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AdapterRelativeId(&self) -> ::windows::core::Result<u32>;
-    fn IsConnected(&self) -> ::windows::core::Result<bool>;
-    fn IsVirtualModeEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsVirtualTopologyEnabled(&self) -> ::windows::core::Result<bool>;
-    fn UsageKind(&self) -> ::windows::core::Result<super::DisplayMonitorUsageKind>;
-    fn MonitorPersistence(&self) -> ::windows::core::Result<DisplayTargetPersistence>;
-    fn StableMonitorId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TryGetMonitor(&self) -> ::windows::core::Result<super::DisplayMonitor>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
-    fn IsStale(&self) -> ::windows::core::Result<bool>;
-    fn IsSame(&self, othertarget: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<bool>;
-    fn IsEqual(&self, othertarget: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<bool>;
+    fn Adapter(&mut self) -> ::windows::core::Result<DisplayAdapter>;
+    fn DeviceInterfacePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AdapterRelativeId(&mut self) -> ::windows::core::Result<u32>;
+    fn IsConnected(&mut self) -> ::windows::core::Result<bool>;
+    fn IsVirtualModeEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsVirtualTopologyEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn UsageKind(&mut self) -> ::windows::core::Result<super::DisplayMonitorUsageKind>;
+    fn MonitorPersistence(&mut self) -> ::windows::core::Result<DisplayTargetPersistence>;
+    fn StableMonitorId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TryGetMonitor(&mut self) -> ::windows::core::Result<super::DisplayMonitor>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn IsStale(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSame(&mut self, othertarget: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<bool>;
+    fn IsEqual(&mut self, othertarget: &::core::option::Option<DisplayTarget>) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayTarget {
@@ -2022,8 +2022,8 @@ impl IDisplayTargetVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayTaskImpl: Sized {
-    fn SetScanout(&self, scanout: &::core::option::Option<DisplayScanout>) -> ::windows::core::Result<()>;
-    fn SetWait(&self, readyfence: &::core::option::Option<DisplayFence>, readyfencevalue: u64) -> ::windows::core::Result<()>;
+    fn SetScanout(&mut self, scanout: &::core::option::Option<DisplayScanout>) -> ::windows::core::Result<()>;
+    fn SetWait(&mut self, readyfence: &::core::option::Option<DisplayFence>, readyfencevalue: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayTask {
@@ -2052,7 +2052,7 @@ impl IDisplayTaskVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayTask2Impl: Sized {
-    fn SetSignal(&self, signalkind: DisplayTaskSignalKind, fence: &::core::option::Option<DisplayFence>) -> ::windows::core::Result<()>;
+    fn SetSignal(&mut self, signalkind: DisplayTaskSignalKind, fence: &::core::option::Option<DisplayFence>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayTask2 {
@@ -2073,8 +2073,8 @@ impl IDisplayTask2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayTaskPoolImpl: Sized {
-    fn CreateTask(&self) -> ::windows::core::Result<DisplayTask>;
-    fn ExecuteTask(&self, task: &::core::option::Option<DisplayTask>) -> ::windows::core::Result<()>;
+    fn CreateTask(&mut self) -> ::windows::core::Result<DisplayTask>;
+    fn ExecuteTask(&mut self, task: &::core::option::Option<DisplayTask>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayTaskPool {
@@ -2110,7 +2110,7 @@ impl IDisplayTaskPoolVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayTaskPool2Impl: Sized {
-    fn TryExecuteTask(&self, task: &::core::option::Option<DisplayTask>) -> ::windows::core::Result<DisplayTaskResult>;
+    fn TryExecuteTask(&mut self, task: &::core::option::Option<DisplayTask>) -> ::windows::core::Result<DisplayTaskResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayTaskPool2 {
@@ -2138,9 +2138,9 @@ impl IDisplayTaskPool2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayTaskResultImpl: Sized {
-    fn PresentStatus(&self) -> ::windows::core::Result<DisplayPresentStatus>;
-    fn PresentId(&self) -> ::windows::core::Result<u64>;
-    fn SourceStatus(&self) -> ::windows::core::Result<DisplaySourceStatus>;
+    fn PresentStatus(&mut self) -> ::windows::core::Result<DisplayPresentStatus>;
+    fn PresentId(&mut self) -> ::windows::core::Result<u64>;
+    fn SourceStatus(&mut self) -> ::windows::core::Result<DisplaySourceStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayTaskResult {
@@ -2195,11 +2195,11 @@ impl IDisplayTaskResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics", feature = "implement_exclusive"))]
 pub trait IDisplayViewImpl: Sized {
-    fn Paths(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayPath>>;
-    fn ContentResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>;
-    fn SetContentResolution(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>) -> ::windows::core::Result<()>;
-    fn SetPrimaryPath(&self, path: &::core::option::Option<DisplayPath>) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn Paths(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayPath>>;
+    fn ContentResolution(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>;
+    fn SetContentResolution(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>) -> ::windows::core::Result<()>;
+    fn SetPrimaryPath(&mut self, path: &::core::option::Option<DisplayPath>) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayView {
@@ -2264,12 +2264,12 @@ impl IDisplayViewVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDisplayWireFormatImpl: Sized {
-    fn PixelEncoding(&self) -> ::windows::core::Result<DisplayWireFormatPixelEncoding>;
-    fn BitsPerChannel(&self) -> ::windows::core::Result<i32>;
-    fn ColorSpace(&self) -> ::windows::core::Result<DisplayWireFormatColorSpace>;
-    fn Eotf(&self) -> ::windows::core::Result<DisplayWireFormatEotf>;
-    fn HdrMetadata(&self) -> ::windows::core::Result<DisplayWireFormatHdrMetadata>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn PixelEncoding(&mut self) -> ::windows::core::Result<DisplayWireFormatPixelEncoding>;
+    fn BitsPerChannel(&mut self) -> ::windows::core::Result<i32>;
+    fn ColorSpace(&mut self) -> ::windows::core::Result<DisplayWireFormatColorSpace>;
+    fn Eotf(&mut self) -> ::windows::core::Result<DisplayWireFormatEotf>;
+    fn HdrMetadata(&mut self) -> ::windows::core::Result<DisplayWireFormatHdrMetadata>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayWireFormat {
@@ -2360,7 +2360,7 @@ impl IDisplayWireFormatVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayWireFormatFactoryImpl: Sized {
-    fn CreateInstance(&self, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat>;
+    fn CreateInstance(&mut self, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayWireFormatFactory {
@@ -2391,7 +2391,7 @@ impl IDisplayWireFormatFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDisplayWireFormatStaticsImpl: Sized {
-    fn CreateWithProperties(&self, extraproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat>;
+    fn CreateWithProperties(&mut self, extraproperties: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayWireFormatStatics {

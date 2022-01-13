@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackPressedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackPressedEventArgs {
@@ -52,8 +52,8 @@ impl ICameraEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHardwareButtonsStaticsImpl: Sized {
-    fn BackPressed(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<BackPressedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBackPressed(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BackPressed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<BackPressedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBackPressed(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHardwareButtonsStatics {
@@ -89,12 +89,12 @@ impl IHardwareButtonsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHardwareButtonsStatics2Impl: Sized {
-    fn CameraHalfPressed(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<CameraEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCameraHalfPressed(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CameraPressed(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<CameraEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCameraPressed(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CameraReleased(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<CameraEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCameraReleased(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CameraHalfPressed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<CameraEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCameraHalfPressed(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CameraPressed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<CameraEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCameraPressed(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CameraReleased(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<CameraEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCameraReleased(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHardwareButtonsStatics2 {

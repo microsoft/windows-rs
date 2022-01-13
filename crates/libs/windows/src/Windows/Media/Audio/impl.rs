@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IAudioDeviceInputNodeImpl: Sized + IAudioInputNodeImpl + IAudioNodeImpl + IClosableImpl {
-    fn Device(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
+    fn Device(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioDeviceInputNode {
@@ -28,7 +28,7 @@ impl IAudioDeviceInputNodeVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IAudioDeviceOutputNodeImpl: Sized + IAudioNodeImpl + IClosableImpl {
-    fn Device(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
+    fn Device(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioDeviceOutputNode {
@@ -56,20 +56,20 @@ impl IAudioDeviceOutputNodeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAudioFileInputNodeImpl: Sized + IAudioInputNodeImpl + IAudioNodeImpl + IClosableImpl {
-    fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::core::Result<()>;
-    fn PlaybackSpeedFactor(&self) -> ::windows::core::Result<f64>;
-    fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Seek(&self, position: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetStartTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetEndTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn LoopCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetLoopCount(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SourceFile(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
-    fn FileCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioFileInputNode, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFileCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetPlaybackSpeedFactor(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn PlaybackSpeedFactor(&mut self) -> ::windows::core::Result<f64>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Seek(&mut self, position: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetStartTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn EndTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetEndTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn LoopCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetLoopCount(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SourceFile(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn FileCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioFileInputNode, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFileCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioFileInputNode {
@@ -214,9 +214,9 @@ impl IAudioFileInputNodeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAudioFileOutputNodeImpl: Sized + IAudioNodeImpl + IClosableImpl {
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
-    fn FileEncodingProfile(&self) -> ::windows::core::Result<super::MediaProperties::MediaEncodingProfile>;
-    fn FinalizeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Transcoding::TranscodeFailureReason>>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
+    fn FileEncodingProfile(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaEncodingProfile>;
+    fn FinalizeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Transcoding::TranscodeFailureReason>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioFileOutputNode {
@@ -271,7 +271,7 @@ impl IAudioFileOutputNodeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioFrameCompletedEventArgsImpl: Sized {
-    fn Frame(&self) -> ::windows::core::Result<super::AudioFrame>;
+    fn Frame(&mut self) -> ::windows::core::Result<super::AudioFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioFrameCompletedEventArgs {
@@ -299,15 +299,15 @@ impl IAudioFrameCompletedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IAudioFrameInputNodeImpl: Sized + IAudioInputNodeImpl + IAudioNodeImpl + IClosableImpl {
-    fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::core::Result<()>;
-    fn PlaybackSpeedFactor(&self) -> ::windows::core::Result<f64>;
-    fn AddFrame(&self, frame: &::core::option::Option<super::AudioFrame>) -> ::windows::core::Result<()>;
-    fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
-    fn QueuedSampleCount(&self) -> ::windows::core::Result<u64>;
-    fn AudioFrameCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioFrameCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn QuantumStarted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveQuantumStarted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetPlaybackSpeedFactor(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn PlaybackSpeedFactor(&mut self) -> ::windows::core::Result<f64>;
+    fn AddFrame(&mut self, frame: &::core::option::Option<super::AudioFrame>) -> ::windows::core::Result<()>;
+    fn DiscardQueuedFrames(&mut self) -> ::windows::core::Result<()>;
+    fn QueuedSampleCount(&mut self) -> ::windows::core::Result<u64>;
+    fn AudioFrameCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioFrameCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn QuantumStarted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveQuantumStarted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioFrameInputNode {
@@ -399,7 +399,7 @@ impl IAudioFrameInputNodeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IAudioFrameOutputNodeImpl: Sized + IAudioNodeImpl + IClosableImpl {
-    fn GetFrame(&self) -> ::windows::core::Result<super::AudioFrame>;
+    fn GetFrame(&mut self) -> ::windows::core::Result<super::AudioFrame>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioFrameOutputNode {
@@ -427,34 +427,34 @@ impl IAudioFrameOutputNodeVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAudioGraphImpl: Sized + IClosableImpl {
-    fn CreateFrameInputNode(&self) -> ::windows::core::Result<AudioFrameInputNode>;
-    fn CreateFrameInputNodeWithFormat(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioFrameInputNode>;
-    fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
-    fn CreateDeviceInputNodeWithFormatAsync(&self, category: super::Capture::MediaCategory, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
-    fn CreateDeviceInputNodeWithFormatOnDeviceAsync(&self, category: super::Capture::MediaCategory, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
-    fn CreateFrameOutputNode(&self) -> ::windows::core::Result<AudioFrameOutputNode>;
-    fn CreateFrameOutputNodeWithFormat(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioFrameOutputNode>;
-    fn CreateDeviceOutputNodeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceOutputNodeResult>>;
-    fn CreateFileInputNodeAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>;
-    fn CreateFileOutputNodeAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>;
-    fn CreateFileOutputNodeWithFileProfileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>, fileencodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>;
-    fn CreateSubmixNode(&self) -> ::windows::core::Result<AudioSubmixNode>;
-    fn CreateSubmixNodeWithFormat(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioSubmixNode>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn ResetAllNodes(&self) -> ::windows::core::Result<()>;
-    fn QuantumStarted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveQuantumStarted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn QuantumProcessed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveQuantumProcessed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UnrecoverableErrorOccurred(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUnrecoverableErrorOccurred(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CompletedQuantumCount(&self) -> ::windows::core::Result<u64>;
-    fn EncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
-    fn LatencyInSamples(&self) -> ::windows::core::Result<i32>;
-    fn PrimaryRenderDevice(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
-    fn RenderDeviceAudioProcessing(&self) -> ::windows::core::Result<super::AudioProcessing>;
-    fn SamplesPerQuantum(&self) -> ::windows::core::Result<i32>;
+    fn CreateFrameInputNode(&mut self) -> ::windows::core::Result<AudioFrameInputNode>;
+    fn CreateFrameInputNodeWithFormat(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioFrameInputNode>;
+    fn CreateDeviceInputNodeAsync(&mut self, category: super::Capture::MediaCategory) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
+    fn CreateDeviceInputNodeWithFormatAsync(&mut self, category: super::Capture::MediaCategory, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
+    fn CreateDeviceInputNodeWithFormatOnDeviceAsync(&mut self, category: super::Capture::MediaCategory, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
+    fn CreateFrameOutputNode(&mut self) -> ::windows::core::Result<AudioFrameOutputNode>;
+    fn CreateFrameOutputNodeWithFormat(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioFrameOutputNode>;
+    fn CreateDeviceOutputNodeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceOutputNodeResult>>;
+    fn CreateFileInputNodeAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>;
+    fn CreateFileOutputNodeAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>;
+    fn CreateFileOutputNodeWithFileProfileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>, fileencodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>;
+    fn CreateSubmixNode(&mut self) -> ::windows::core::Result<AudioSubmixNode>;
+    fn CreateSubmixNodeWithFormat(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioSubmixNode>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn ResetAllNodes(&mut self) -> ::windows::core::Result<()>;
+    fn QuantumStarted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveQuantumStarted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn QuantumProcessed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveQuantumProcessed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UnrecoverableErrorOccurred(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUnrecoverableErrorOccurred(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CompletedQuantumCount(&mut self) -> ::windows::core::Result<u64>;
+    fn EncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn LatencyInSamples(&mut self) -> ::windows::core::Result<i32>;
+    fn PrimaryRenderDevice(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
+    fn RenderDeviceAudioProcessing(&mut self) -> ::windows::core::Result<super::AudioProcessing>;
+    fn SamplesPerQuantum(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioGraph {
@@ -767,11 +767,11 @@ impl IAudioGraphVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAudioGraph2Impl: Sized + IAudioGraphImpl + IClosableImpl {
-    fn CreateFrameInputNodeWithFormatAndEmitter(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<AudioFrameInputNode>;
-    fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync(&self, category: super::Capture::MediaCategory, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
-    fn CreateFileInputNodeWithEmitterAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>;
-    fn CreateSubmixNodeWithFormatAndEmitter(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<AudioSubmixNode>;
-    fn CreateBatchUpdater(&self) -> ::windows::core::Result<AudioGraphBatchUpdater>;
+    fn CreateFrameInputNodeWithFormatAndEmitter(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<AudioFrameInputNode>;
+    fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync(&mut self, category: super::Capture::MediaCategory, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>;
+    fn CreateFileInputNodeWithEmitterAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>;
+    fn CreateSubmixNodeWithFormatAndEmitter(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<AudioSubmixNode>;
+    fn CreateBatchUpdater(&mut self) -> ::windows::core::Result<AudioGraphBatchUpdater>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioGraph2 {
@@ -855,8 +855,8 @@ impl IAudioGraph2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
 pub trait IAudioGraph3Impl: Sized {
-    fn CreateMediaSourceAudioInputNodeAsync(&self, mediasource: &::core::option::Option<super::Core::MediaSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>;
-    fn CreateMediaSourceAudioInputNodeWithEmitterAsync(&self, mediasource: &::core::option::Option<super::Core::MediaSource>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>;
+    fn CreateMediaSourceAudioInputNodeAsync(&mut self, mediasource: &::core::option::Option<super::Core::MediaSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>;
+    fn CreateMediaSourceAudioInputNodeWithEmitterAsync(&mut self, mediasource: &::core::option::Option<super::Core::MediaSource>, emitter: &::core::option::Option<AudioNodeEmitter>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioGraph3 {
@@ -899,9 +899,9 @@ impl IAudioGraph3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioGraphConnectionImpl: Sized {
-    fn Destination(&self) -> ::windows::core::Result<IAudioNode>;
-    fn SetGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Gain(&self) -> ::windows::core::Result<f64>;
+    fn Destination(&mut self) -> ::windows::core::Result<IAudioNode>;
+    fn SetGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Gain(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioGraphConnection {
@@ -949,18 +949,18 @@ impl IAudioGraphConnectionVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Media_MediaProperties", feature = "Media_Render", feature = "implement_exclusive"))]
 pub trait IAudioGraphSettingsImpl: Sized {
-    fn EncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
-    fn SetEncodingProperties(&self, value: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
-    fn PrimaryRenderDevice(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
-    fn SetPrimaryRenderDevice(&self, value: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<()>;
-    fn QuantumSizeSelectionMode(&self) -> ::windows::core::Result<QuantumSizeSelectionMode>;
-    fn SetQuantumSizeSelectionMode(&self, value: QuantumSizeSelectionMode) -> ::windows::core::Result<()>;
-    fn DesiredSamplesPerQuantum(&self) -> ::windows::core::Result<i32>;
-    fn SetDesiredSamplesPerQuantum(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AudioRenderCategory(&self) -> ::windows::core::Result<super::Render::AudioRenderCategory>;
-    fn SetAudioRenderCategory(&self, value: super::Render::AudioRenderCategory) -> ::windows::core::Result<()>;
-    fn DesiredRenderDeviceAudioProcessing(&self) -> ::windows::core::Result<super::AudioProcessing>;
-    fn SetDesiredRenderDeviceAudioProcessing(&self, value: super::AudioProcessing) -> ::windows::core::Result<()>;
+    fn EncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn SetEncodingProperties(&mut self, value: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
+    fn PrimaryRenderDevice(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
+    fn SetPrimaryRenderDevice(&mut self, value: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<()>;
+    fn QuantumSizeSelectionMode(&mut self) -> ::windows::core::Result<QuantumSizeSelectionMode>;
+    fn SetQuantumSizeSelectionMode(&mut self, value: QuantumSizeSelectionMode) -> ::windows::core::Result<()>;
+    fn DesiredSamplesPerQuantum(&mut self) -> ::windows::core::Result<i32>;
+    fn SetDesiredSamplesPerQuantum(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AudioRenderCategory(&mut self) -> ::windows::core::Result<super::Render::AudioRenderCategory>;
+    fn SetAudioRenderCategory(&mut self, value: super::Render::AudioRenderCategory) -> ::windows::core::Result<()>;
+    fn DesiredRenderDeviceAudioProcessing(&mut self) -> ::windows::core::Result<super::AudioProcessing>;
+    fn SetDesiredRenderDeviceAudioProcessing(&mut self, value: super::AudioProcessing) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Media_MediaProperties", feature = "Media_Render", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioGraphSettings {
@@ -1081,8 +1081,8 @@ impl IAudioGraphSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioGraphSettings2Impl: Sized {
-    fn SetMaxPlaybackSpeedFactor(&self, value: f64) -> ::windows::core::Result<()>;
-    fn MaxPlaybackSpeedFactor(&self) -> ::windows::core::Result<f64>;
+    fn SetMaxPlaybackSpeedFactor(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn MaxPlaybackSpeedFactor(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioGraphSettings2 {
@@ -1118,7 +1118,7 @@ impl IAudioGraphSettings2Vtbl {
 }
 #[cfg(all(feature = "Media_Render", feature = "implement_exclusive"))]
 pub trait IAudioGraphSettingsFactoryImpl: Sized {
-    fn Create(&self, audiorendercategory: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioGraphSettings>;
+    fn Create(&mut self, audiorendercategory: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioGraphSettings>;
 }
 #[cfg(all(feature = "Media_Render", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioGraphSettingsFactory {
@@ -1146,7 +1146,7 @@ impl IAudioGraphSettingsFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAudioGraphStaticsImpl: Sized {
-    fn CreateAsync(&self, settings: &::core::option::Option<AudioGraphSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioGraphResult>>;
+    fn CreateAsync(&mut self, settings: &::core::option::Option<AudioGraphSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioGraphResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioGraphStatics {
@@ -1174,7 +1174,7 @@ impl IAudioGraphStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioGraphUnrecoverableErrorOccurredEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<AudioGraphUnrecoverableError>;
+    fn Error(&mut self) -> ::windows::core::Result<AudioGraphUnrecoverableError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioGraphUnrecoverableErrorOccurredEventArgs {
@@ -1205,10 +1205,10 @@ impl IAudioGraphUnrecoverableErrorOccurredEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioInputNodeImpl: Sized + IAudioNodeImpl + IClosableImpl {
-    fn OutgoingConnections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>;
-    fn AddOutgoingConnection(&self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
-    fn AddOutgoingConnectionWithGain(&self, destination: &::core::option::Option<IAudioNode>, gain: f64) -> ::windows::core::Result<()>;
-    fn RemoveOutgoingConnection(&self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
+    fn OutgoingConnections(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>;
+    fn AddOutgoingConnection(&mut self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
+    fn AddOutgoingConnectionWithGain(&mut self, destination: &::core::option::Option<IAudioNode>, gain: f64) -> ::windows::core::Result<()>;
+    fn RemoveOutgoingConnection(&mut self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioInputNode {
@@ -1254,7 +1254,7 @@ impl IAudioInputNodeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioInputNode2Impl: Sized + IAudioInputNodeImpl + IAudioNodeImpl + IClosableImpl {
-    fn Emitter(&self) -> ::windows::core::Result<AudioNodeEmitter>;
+    fn Emitter(&mut self) -> ::windows::core::Result<AudioNodeEmitter>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioInputNode2 {
@@ -1282,17 +1282,17 @@ impl IAudioInputNode2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioNodeImpl: Sized + IClosableImpl {
-    fn EffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
-    fn SetOutgoingGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn OutgoingGain(&self) -> ::windows::core::Result<f64>;
-    fn EncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
-    fn ConsumeInput(&self) -> ::windows::core::Result<bool>;
-    fn SetConsumeInput(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
-    fn DisableEffectsByDefinition(&self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
-    fn EnableEffectsByDefinition(&self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
+    fn EffectDefinitions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
+    fn SetOutgoingGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn OutgoingGain(&mut self) -> ::windows::core::Result<f64>;
+    fn EncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn ConsumeInput(&mut self) -> ::windows::core::Result<bool>;
+    fn SetConsumeInput(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn DisableEffectsByDefinition(&mut self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
+    fn EnableEffectsByDefinition(&mut self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioNode {
@@ -1394,21 +1394,21 @@ impl IAudioNodeVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IAudioNodeEmitterImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetPosition(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Direction(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetDirection(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Shape(&self) -> ::windows::core::Result<AudioNodeEmitterShape>;
-    fn DecayModel(&self) -> ::windows::core::Result<AudioNodeEmitterDecayModel>;
-    fn Gain(&self) -> ::windows::core::Result<f64>;
-    fn SetGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DistanceScale(&self) -> ::windows::core::Result<f64>;
-    fn SetDistanceScale(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DopplerScale(&self) -> ::windows::core::Result<f64>;
-    fn SetDopplerScale(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DopplerVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetDopplerVelocity(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn IsDopplerDisabled(&self) -> ::windows::core::Result<bool>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetPosition(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Direction(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetDirection(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Shape(&mut self) -> ::windows::core::Result<AudioNodeEmitterShape>;
+    fn DecayModel(&mut self) -> ::windows::core::Result<AudioNodeEmitterDecayModel>;
+    fn Gain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DistanceScale(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDistanceScale(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DopplerScale(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDopplerScale(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DopplerVelocity(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetDopplerVelocity(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn IsDopplerDisabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioNodeEmitter {
@@ -1565,8 +1565,8 @@ impl IAudioNodeEmitterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitter2Impl: Sized {
-    fn SpatialAudioModel(&self) -> ::windows::core::Result<SpatialAudioModel>;
-    fn SetSpatialAudioModel(&self, value: SpatialAudioModel) -> ::windows::core::Result<()>;
+    fn SpatialAudioModel(&mut self) -> ::windows::core::Result<SpatialAudioModel>;
+    fn SetSpatialAudioModel(&mut self, value: SpatialAudioModel) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitter2 {
@@ -1602,9 +1602,9 @@ impl IAudioNodeEmitter2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitterConePropertiesImpl: Sized {
-    fn InnerAngle(&self) -> ::windows::core::Result<f64>;
-    fn OuterAngle(&self) -> ::windows::core::Result<f64>;
-    fn OuterAngleGain(&self) -> ::windows::core::Result<f64>;
+    fn InnerAngle(&mut self) -> ::windows::core::Result<f64>;
+    fn OuterAngle(&mut self) -> ::windows::core::Result<f64>;
+    fn OuterAngleGain(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitterConeProperties {
@@ -1659,10 +1659,10 @@ impl IAudioNodeEmitterConePropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitterDecayModelImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<AudioNodeEmitterDecayKind>;
-    fn MinGain(&self) -> ::windows::core::Result<f64>;
-    fn MaxGain(&self) -> ::windows::core::Result<f64>;
-    fn NaturalProperties(&self) -> ::windows::core::Result<AudioNodeEmitterNaturalDecayModelProperties>;
+    fn Kind(&mut self) -> ::windows::core::Result<AudioNodeEmitterDecayKind>;
+    fn MinGain(&mut self) -> ::windows::core::Result<f64>;
+    fn MaxGain(&mut self) -> ::windows::core::Result<f64>;
+    fn NaturalProperties(&mut self) -> ::windows::core::Result<AudioNodeEmitterNaturalDecayModelProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitterDecayModel {
@@ -1729,8 +1729,8 @@ impl IAudioNodeEmitterDecayModelVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitterDecayModelStaticsImpl: Sized {
-    fn CreateNatural(&self, mingain: f64, maxgain: f64, unitygaindistance: f64, cutoffdistance: f64) -> ::windows::core::Result<AudioNodeEmitterDecayModel>;
-    fn CreateCustom(&self, mingain: f64, maxgain: f64) -> ::windows::core::Result<AudioNodeEmitterDecayModel>;
+    fn CreateNatural(&mut self, mingain: f64, maxgain: f64, unitygaindistance: f64, cutoffdistance: f64) -> ::windows::core::Result<AudioNodeEmitterDecayModel>;
+    fn CreateCustom(&mut self, mingain: f64, maxgain: f64) -> ::windows::core::Result<AudioNodeEmitterDecayModel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitterDecayModelStatics {
@@ -1773,7 +1773,7 @@ impl IAudioNodeEmitterDecayModelStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitterFactoryImpl: Sized {
-    fn CreateAudioNodeEmitter(&self, shape: &::core::option::Option<AudioNodeEmitterShape>, decaymodel: &::core::option::Option<AudioNodeEmitterDecayModel>, settings: AudioNodeEmitterSettings) -> ::windows::core::Result<AudioNodeEmitter>;
+    fn CreateAudioNodeEmitter(&mut self, shape: &::core::option::Option<AudioNodeEmitterShape>, decaymodel: &::core::option::Option<AudioNodeEmitterDecayModel>, settings: AudioNodeEmitterSettings) -> ::windows::core::Result<AudioNodeEmitter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitterFactory {
@@ -1804,8 +1804,8 @@ impl IAudioNodeEmitterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitterNaturalDecayModelPropertiesImpl: Sized {
-    fn UnityGainDistance(&self) -> ::windows::core::Result<f64>;
-    fn CutoffDistance(&self) -> ::windows::core::Result<f64>;
+    fn UnityGainDistance(&mut self) -> ::windows::core::Result<f64>;
+    fn CutoffDistance(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitterNaturalDecayModelProperties {
@@ -1848,8 +1848,8 @@ impl IAudioNodeEmitterNaturalDecayModelPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitterShapeImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<AudioNodeEmitterShapeKind>;
-    fn ConeProperties(&self) -> ::windows::core::Result<AudioNodeEmitterConeProperties>;
+    fn Kind(&mut self) -> ::windows::core::Result<AudioNodeEmitterShapeKind>;
+    fn ConeProperties(&mut self) -> ::windows::core::Result<AudioNodeEmitterConeProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitterShape {
@@ -1892,8 +1892,8 @@ impl IAudioNodeEmitterShapeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioNodeEmitterShapeStaticsImpl: Sized {
-    fn CreateCone(&self, innerangle: f64, outerangle: f64, outeranglegain: f64) -> ::windows::core::Result<AudioNodeEmitterShape>;
-    fn CreateOmnidirectional(&self) -> ::windows::core::Result<AudioNodeEmitterShape>;
+    fn CreateCone(&mut self, innerangle: f64, outerangle: f64, outeranglegain: f64) -> ::windows::core::Result<AudioNodeEmitterShape>;
+    fn CreateOmnidirectional(&mut self) -> ::windows::core::Result<AudioNodeEmitterShape>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioNodeEmitterShapeStatics {
@@ -1936,14 +1936,14 @@ impl IAudioNodeEmitterShapeStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IAudioNodeListenerImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetPosition(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
-    fn SetOrientation(&self, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
-    fn SpeedOfSound(&self) -> ::windows::core::Result<f64>;
-    fn SetSpeedOfSound(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DopplerVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetDopplerVelocity(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetPosition(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Orientation(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
+    fn SetOrientation(&mut self, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn SpeedOfSound(&mut self) -> ::windows::core::Result<f64>;
+    fn SetSpeedOfSound(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DopplerVelocity(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetDopplerVelocity(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioNodeListener {
@@ -2030,8 +2030,8 @@ impl IAudioNodeListenerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioNodeWithListenerImpl: Sized + IAudioNodeImpl + IClosableImpl {
-    fn SetListener(&self, value: &::core::option::Option<AudioNodeListener>) -> ::windows::core::Result<()>;
-    fn Listener(&self) -> ::windows::core::Result<AudioNodeListener>;
+    fn SetListener(&mut self, value: &::core::option::Option<AudioNodeListener>) -> ::windows::core::Result<()>;
+    fn Listener(&mut self) -> ::windows::core::Result<AudioNodeListener>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioNodeWithListener {
@@ -2067,14 +2067,14 @@ impl IAudioNodeWithListenerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAudioPlaybackConnectionImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&self) -> ::windows::core::Result<AudioPlaybackConnectionState>;
-    fn Open(&self) -> ::windows::core::Result<AudioPlaybackConnectionOpenResult>;
-    fn OpenAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AudioPlaybackConnectionOpenResult>>;
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<AudioPlaybackConnectionState>;
+    fn Open(&mut self) -> ::windows::core::Result<AudioPlaybackConnectionOpenResult>;
+    fn OpenAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AudioPlaybackConnectionOpenResult>>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioPlaybackConnection {
@@ -2175,8 +2175,8 @@ impl IAudioPlaybackConnectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioPlaybackConnectionOpenResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AudioPlaybackConnectionOpenResultStatus>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Status(&mut self) -> ::windows::core::Result<AudioPlaybackConnectionOpenResultStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioPlaybackConnectionOpenResult {
@@ -2219,8 +2219,8 @@ impl IAudioPlaybackConnectionOpenResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioPlaybackConnectionStaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TryCreateFromId(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<AudioPlaybackConnection>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TryCreateFromId(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<AudioPlaybackConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioPlaybackConnectionStatics {
@@ -2263,9 +2263,9 @@ impl IAudioPlaybackConnectionStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAudioStateMonitorImpl: Sized {
-    fn SoundLevelChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioStateMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSoundLevelChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SoundLevel(&self) -> ::windows::core::Result<super::SoundLevel>;
+    fn SoundLevelChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioStateMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSoundLevelChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SoundLevel(&mut self) -> ::windows::core::Result<super::SoundLevel>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioStateMonitor {
@@ -2313,14 +2313,14 @@ impl IAudioStateMonitorVtbl {
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_Render", feature = "implement_exclusive"))]
 pub trait IAudioStateMonitorStaticsImpl: Sized {
-    fn CreateForRenderMonitoring(&self) -> ::windows::core::Result<AudioStateMonitor>;
-    fn CreateForRenderMonitoringWithCategory(&self, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioStateMonitor>;
-    fn CreateForRenderMonitoringWithCategoryAndDeviceRole(&self, category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> ::windows::core::Result<AudioStateMonitor>;
-    fn CreateForRenderMonitoringWithCategoryAndDeviceId(&self, category: super::Render::AudioRenderCategory, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioStateMonitor>;
-    fn CreateForCaptureMonitoring(&self) -> ::windows::core::Result<AudioStateMonitor>;
-    fn CreateForCaptureMonitoringWithCategory(&self, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioStateMonitor>;
-    fn CreateForCaptureMonitoringWithCategoryAndDeviceRole(&self, category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> ::windows::core::Result<AudioStateMonitor>;
-    fn CreateForCaptureMonitoringWithCategoryAndDeviceId(&self, category: super::Capture::MediaCategory, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForRenderMonitoring(&mut self) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForRenderMonitoringWithCategory(&mut self, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForRenderMonitoringWithCategoryAndDeviceRole(&mut self, category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForRenderMonitoringWithCategoryAndDeviceId(&mut self, category: super::Render::AudioRenderCategory, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForCaptureMonitoring(&mut self) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForCaptureMonitoringWithCategory(&mut self, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForCaptureMonitoringWithCategoryAndDeviceRole(&mut self, category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> ::windows::core::Result<AudioStateMonitor>;
+    fn CreateForCaptureMonitoringWithCategoryAndDeviceId(&mut self, category: super::Capture::MediaCategory, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioStateMonitor>;
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_Render", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioStateMonitorStatics {
@@ -2435,8 +2435,8 @@ impl IAudioStateMonitorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioDeviceInputNodeResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AudioDeviceNodeCreationStatus>;
-    fn DeviceInputNode(&self) -> ::windows::core::Result<AudioDeviceInputNode>;
+    fn Status(&mut self) -> ::windows::core::Result<AudioDeviceNodeCreationStatus>;
+    fn DeviceInputNode(&mut self) -> ::windows::core::Result<AudioDeviceInputNode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioDeviceInputNodeResult {
@@ -2479,7 +2479,7 @@ impl ICreateAudioDeviceInputNodeResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioDeviceInputNodeResult2Impl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioDeviceInputNodeResult2 {
@@ -2510,8 +2510,8 @@ impl ICreateAudioDeviceInputNodeResult2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioDeviceOutputNodeResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AudioDeviceNodeCreationStatus>;
-    fn DeviceOutputNode(&self) -> ::windows::core::Result<AudioDeviceOutputNode>;
+    fn Status(&mut self) -> ::windows::core::Result<AudioDeviceNodeCreationStatus>;
+    fn DeviceOutputNode(&mut self) -> ::windows::core::Result<AudioDeviceOutputNode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioDeviceOutputNodeResult {
@@ -2554,7 +2554,7 @@ impl ICreateAudioDeviceOutputNodeResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioDeviceOutputNodeResult2Impl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioDeviceOutputNodeResult2 {
@@ -2585,8 +2585,8 @@ impl ICreateAudioDeviceOutputNodeResult2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioFileInputNodeResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AudioFileNodeCreationStatus>;
-    fn FileInputNode(&self) -> ::windows::core::Result<AudioFileInputNode>;
+    fn Status(&mut self) -> ::windows::core::Result<AudioFileNodeCreationStatus>;
+    fn FileInputNode(&mut self) -> ::windows::core::Result<AudioFileInputNode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioFileInputNodeResult {
@@ -2629,7 +2629,7 @@ impl ICreateAudioFileInputNodeResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioFileInputNodeResult2Impl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioFileInputNodeResult2 {
@@ -2660,8 +2660,8 @@ impl ICreateAudioFileInputNodeResult2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioFileOutputNodeResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AudioFileNodeCreationStatus>;
-    fn FileOutputNode(&self) -> ::windows::core::Result<AudioFileOutputNode>;
+    fn Status(&mut self) -> ::windows::core::Result<AudioFileNodeCreationStatus>;
+    fn FileOutputNode(&mut self) -> ::windows::core::Result<AudioFileOutputNode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioFileOutputNodeResult {
@@ -2704,7 +2704,7 @@ impl ICreateAudioFileOutputNodeResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioFileOutputNodeResult2Impl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioFileOutputNodeResult2 {
@@ -2735,8 +2735,8 @@ impl ICreateAudioFileOutputNodeResult2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioGraphResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AudioGraphCreationStatus>;
-    fn Graph(&self) -> ::windows::core::Result<AudioGraph>;
+    fn Status(&mut self) -> ::windows::core::Result<AudioGraphCreationStatus>;
+    fn Graph(&mut self) -> ::windows::core::Result<AudioGraph>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioGraphResult {
@@ -2779,7 +2779,7 @@ impl ICreateAudioGraphResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateAudioGraphResult2Impl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateAudioGraphResult2 {
@@ -2810,8 +2810,8 @@ impl ICreateAudioGraphResult2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateMediaSourceAudioInputNodeResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<MediaSourceAudioInputNodeCreationStatus>;
-    fn Node(&self) -> ::windows::core::Result<MediaSourceAudioInputNode>;
+    fn Status(&mut self) -> ::windows::core::Result<MediaSourceAudioInputNodeCreationStatus>;
+    fn Node(&mut self) -> ::windows::core::Result<MediaSourceAudioInputNode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateMediaSourceAudioInputNodeResult {
@@ -2854,7 +2854,7 @@ impl ICreateMediaSourceAudioInputNodeResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICreateMediaSourceAudioInputNodeResult2Impl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICreateMediaSourceAudioInputNodeResult2 {
@@ -2885,12 +2885,12 @@ impl ICreateMediaSourceAudioInputNodeResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IEchoEffectDefinitionImpl: Sized + IAudioEffectDefinitionImpl {
-    fn SetWetDryMix(&self, value: f64) -> ::windows::core::Result<()>;
-    fn WetDryMix(&self) -> ::windows::core::Result<f64>;
-    fn SetFeedback(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Feedback(&self) -> ::windows::core::Result<f64>;
-    fn SetDelay(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Delay(&self) -> ::windows::core::Result<f64>;
+    fn SetWetDryMix(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn WetDryMix(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFeedback(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Feedback(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDelay(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Delay(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEchoEffectDefinition {
@@ -2960,7 +2960,7 @@ impl IEchoEffectDefinitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEchoEffectDefinitionFactoryImpl: Sized {
-    fn Create(&self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<EchoEffectDefinition>;
+    fn Create(&mut self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<EchoEffectDefinition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEchoEffectDefinitionFactory {
@@ -2988,12 +2988,12 @@ impl IEchoEffectDefinitionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEqualizerBandImpl: Sized {
-    fn Bandwidth(&self) -> ::windows::core::Result<f64>;
-    fn SetBandwidth(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FrequencyCenter(&self) -> ::windows::core::Result<f64>;
-    fn SetFrequencyCenter(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Gain(&self) -> ::windows::core::Result<f64>;
-    fn SetGain(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Bandwidth(&mut self) -> ::windows::core::Result<f64>;
+    fn SetBandwidth(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FrequencyCenter(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFrequencyCenter(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Gain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetGain(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEqualizerBand {
@@ -3063,7 +3063,7 @@ impl IEqualizerBandVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IEqualizerEffectDefinitionImpl: Sized + IAudioEffectDefinitionImpl {
-    fn Bands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EqualizerBand>>;
+    fn Bands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EqualizerBand>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEqualizerEffectDefinition {
@@ -3091,7 +3091,7 @@ impl IEqualizerEffectDefinitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEqualizerEffectDefinitionFactoryImpl: Sized {
-    fn Create(&self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<EqualizerEffectDefinition>;
+    fn Create(&mut self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<EqualizerEffectDefinition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEqualizerEffectDefinitionFactory {
@@ -3119,7 +3119,7 @@ impl IEqualizerEffectDefinitionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFrameInputNodeQuantumStartedEventArgsImpl: Sized {
-    fn RequiredSamples(&self) -> ::windows::core::Result<i32>;
+    fn RequiredSamples(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFrameInputNodeQuantumStartedEventArgs {
@@ -3150,10 +3150,10 @@ impl IFrameInputNodeQuantumStartedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait ILimiterEffectDefinitionImpl: Sized + IAudioEffectDefinitionImpl {
-    fn SetRelease(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Release(&self) -> ::windows::core::Result<u32>;
-    fn SetLoudness(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Loudness(&self) -> ::windows::core::Result<u32>;
+    fn SetRelease(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Release(&mut self) -> ::windows::core::Result<u32>;
+    fn SetLoudness(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Loudness(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILimiterEffectDefinition {
@@ -3206,7 +3206,7 @@ impl ILimiterEffectDefinitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILimiterEffectDefinitionFactoryImpl: Sized {
-    fn Create(&self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<LimiterEffectDefinition>;
+    fn Create(&mut self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<LimiterEffectDefinition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILimiterEffectDefinitionFactory {
@@ -3234,20 +3234,20 @@ impl ILimiterEffectDefinitionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IMediaSourceAudioInputNodeImpl: Sized + IAudioInputNodeImpl + IAudioInputNode2Impl + IAudioNodeImpl + IClosableImpl {
-    fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::core::Result<()>;
-    fn PlaybackSpeedFactor(&self) -> ::windows::core::Result<f64>;
-    fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Seek(&self, position: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetStartTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetEndTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn LoopCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetLoopCount(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn MediaSource(&self) -> ::windows::core::Result<super::Core::MediaSource>;
-    fn MediaSourceCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMediaSourceCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetPlaybackSpeedFactor(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn PlaybackSpeedFactor(&mut self) -> ::windows::core::Result<f64>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Seek(&mut self, position: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetStartTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn EndTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetEndTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn LoopCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetLoopCount(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn MediaSource(&mut self) -> ::windows::core::Result<super::Core::MediaSource>;
+    fn MediaSourceCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMediaSourceCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSourceAudioInputNode {
@@ -3392,52 +3392,52 @@ impl IMediaSourceAudioInputNodeVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IReverbEffectDefinitionImpl: Sized + IAudioEffectDefinitionImpl {
-    fn SetWetDryMix(&self, value: f64) -> ::windows::core::Result<()>;
-    fn WetDryMix(&self) -> ::windows::core::Result<f64>;
-    fn SetReflectionsDelay(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ReflectionsDelay(&self) -> ::windows::core::Result<u32>;
-    fn SetReverbDelay(&self, value: u8) -> ::windows::core::Result<()>;
-    fn ReverbDelay(&self) -> ::windows::core::Result<u8>;
-    fn SetRearDelay(&self, value: u8) -> ::windows::core::Result<()>;
-    fn RearDelay(&self) -> ::windows::core::Result<u8>;
-    fn SetPositionLeft(&self, value: u8) -> ::windows::core::Result<()>;
-    fn PositionLeft(&self) -> ::windows::core::Result<u8>;
-    fn SetPositionRight(&self, value: u8) -> ::windows::core::Result<()>;
-    fn PositionRight(&self) -> ::windows::core::Result<u8>;
-    fn SetPositionMatrixLeft(&self, value: u8) -> ::windows::core::Result<()>;
-    fn PositionMatrixLeft(&self) -> ::windows::core::Result<u8>;
-    fn SetPositionMatrixRight(&self, value: u8) -> ::windows::core::Result<()>;
-    fn PositionMatrixRight(&self) -> ::windows::core::Result<u8>;
-    fn SetEarlyDiffusion(&self, value: u8) -> ::windows::core::Result<()>;
-    fn EarlyDiffusion(&self) -> ::windows::core::Result<u8>;
-    fn SetLateDiffusion(&self, value: u8) -> ::windows::core::Result<()>;
-    fn LateDiffusion(&self) -> ::windows::core::Result<u8>;
-    fn SetLowEQGain(&self, value: u8) -> ::windows::core::Result<()>;
-    fn LowEQGain(&self) -> ::windows::core::Result<u8>;
-    fn SetLowEQCutoff(&self, value: u8) -> ::windows::core::Result<()>;
-    fn LowEQCutoff(&self) -> ::windows::core::Result<u8>;
-    fn SetHighEQGain(&self, value: u8) -> ::windows::core::Result<()>;
-    fn HighEQGain(&self) -> ::windows::core::Result<u8>;
-    fn SetHighEQCutoff(&self, value: u8) -> ::windows::core::Result<()>;
-    fn HighEQCutoff(&self) -> ::windows::core::Result<u8>;
-    fn SetRoomFilterFreq(&self, value: f64) -> ::windows::core::Result<()>;
-    fn RoomFilterFreq(&self) -> ::windows::core::Result<f64>;
-    fn SetRoomFilterMain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn RoomFilterMain(&self) -> ::windows::core::Result<f64>;
-    fn SetRoomFilterHF(&self, value: f64) -> ::windows::core::Result<()>;
-    fn RoomFilterHF(&self) -> ::windows::core::Result<f64>;
-    fn SetReflectionsGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ReflectionsGain(&self) -> ::windows::core::Result<f64>;
-    fn SetReverbGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ReverbGain(&self) -> ::windows::core::Result<f64>;
-    fn SetDecayTime(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DecayTime(&self) -> ::windows::core::Result<f64>;
-    fn SetDensity(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Density(&self) -> ::windows::core::Result<f64>;
-    fn SetRoomSize(&self, value: f64) -> ::windows::core::Result<()>;
-    fn RoomSize(&self) -> ::windows::core::Result<f64>;
-    fn SetDisableLateField(&self, value: bool) -> ::windows::core::Result<()>;
-    fn DisableLateField(&self) -> ::windows::core::Result<bool>;
+    fn SetWetDryMix(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn WetDryMix(&mut self) -> ::windows::core::Result<f64>;
+    fn SetReflectionsDelay(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ReflectionsDelay(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReverbDelay(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn ReverbDelay(&mut self) -> ::windows::core::Result<u8>;
+    fn SetRearDelay(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn RearDelay(&mut self) -> ::windows::core::Result<u8>;
+    fn SetPositionLeft(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn PositionLeft(&mut self) -> ::windows::core::Result<u8>;
+    fn SetPositionRight(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn PositionRight(&mut self) -> ::windows::core::Result<u8>;
+    fn SetPositionMatrixLeft(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn PositionMatrixLeft(&mut self) -> ::windows::core::Result<u8>;
+    fn SetPositionMatrixRight(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn PositionMatrixRight(&mut self) -> ::windows::core::Result<u8>;
+    fn SetEarlyDiffusion(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn EarlyDiffusion(&mut self) -> ::windows::core::Result<u8>;
+    fn SetLateDiffusion(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn LateDiffusion(&mut self) -> ::windows::core::Result<u8>;
+    fn SetLowEQGain(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn LowEQGain(&mut self) -> ::windows::core::Result<u8>;
+    fn SetLowEQCutoff(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn LowEQCutoff(&mut self) -> ::windows::core::Result<u8>;
+    fn SetHighEQGain(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn HighEQGain(&mut self) -> ::windows::core::Result<u8>;
+    fn SetHighEQCutoff(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn HighEQCutoff(&mut self) -> ::windows::core::Result<u8>;
+    fn SetRoomFilterFreq(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn RoomFilterFreq(&mut self) -> ::windows::core::Result<f64>;
+    fn SetRoomFilterMain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn RoomFilterMain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetRoomFilterHF(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn RoomFilterHF(&mut self) -> ::windows::core::Result<f64>;
+    fn SetReflectionsGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ReflectionsGain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetReverbGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ReverbGain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDecayTime(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DecayTime(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDensity(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Density(&mut self) -> ::windows::core::Result<f64>;
+    fn SetRoomSize(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn RoomSize(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDisableLateField(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn DisableLateField(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IReverbEffectDefinition {
@@ -3847,7 +3847,7 @@ impl IReverbEffectDefinitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IReverbEffectDefinitionFactoryImpl: Sized {
-    fn Create(&self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<ReverbEffectDefinition>;
+    fn Create(&mut self, audiograph: &::core::option::Option<AudioGraph>) -> ::windows::core::Result<ReverbEffectDefinition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IReverbEffectDefinitionFactory {
@@ -3875,7 +3875,7 @@ impl IReverbEffectDefinitionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISetDefaultSpatialAudioFormatResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<SetDefaultSpatialAudioFormatStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<SetDefaultSpatialAudioFormatStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISetDefaultSpatialAudioFormatResult {
@@ -3906,14 +3906,14 @@ impl ISetDefaultSpatialAudioFormatResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialAudioDeviceConfigurationImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsSpatialAudioSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsSpatialAudioFormatSupported(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn ActiveSpatialAudioFormat(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DefaultSpatialAudioFormat(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDefaultSpatialAudioFormatAsync(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>>;
-    fn ConfigurationChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveConfigurationChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsSpatialAudioSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSpatialAudioFormatSupported(&mut self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ActiveSpatialAudioFormat(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DefaultSpatialAudioFormat(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDefaultSpatialAudioFormatAsync(&mut self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>>;
+    fn ConfigurationChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveConfigurationChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAudioDeviceConfiguration {
@@ -4021,7 +4021,7 @@ impl ISpatialAudioDeviceConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialAudioDeviceConfigurationStaticsImpl: Sized {
-    fn GetForDeviceId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<SpatialAudioDeviceConfiguration>;
+    fn GetForDeviceId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<SpatialAudioDeviceConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialAudioDeviceConfigurationStatics {
@@ -4052,10 +4052,10 @@ impl ISpatialAudioDeviceConfigurationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialAudioFormatConfigurationImpl: Sized {
-    fn ReportLicenseChangedAsync(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ReportConfigurationChangedAsync(&self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MixedRealityExclusiveModePolicy(&self) -> ::windows::core::Result<MixedRealitySpatialAudioFormatPolicy>;
-    fn SetMixedRealityExclusiveModePolicy(&self, value: MixedRealitySpatialAudioFormatPolicy) -> ::windows::core::Result<()>;
+    fn ReportLicenseChangedAsync(&mut self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ReportConfigurationChangedAsync(&mut self, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MixedRealityExclusiveModePolicy(&mut self) -> ::windows::core::Result<MixedRealitySpatialAudioFormatPolicy>;
+    fn SetMixedRealityExclusiveModePolicy(&mut self, value: MixedRealitySpatialAudioFormatPolicy) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialAudioFormatConfiguration {
@@ -4115,7 +4115,7 @@ impl ISpatialAudioFormatConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialAudioFormatConfigurationStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<SpatialAudioFormatConfiguration>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<SpatialAudioFormatConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialAudioFormatConfigurationStatics {
@@ -4146,12 +4146,12 @@ impl ISpatialAudioFormatConfigurationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialAudioFormatSubtypeStaticsImpl: Sized {
-    fn WindowsSonic(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DolbyAtmosForHeadphones(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DolbyAtmosForHomeTheater(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DolbyAtmosForSpeakers(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DTSHeadphoneX(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DTSXUltra(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WindowsSonic(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DolbyAtmosForHeadphones(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DolbyAtmosForHomeTheater(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DolbyAtmosForSpeakers(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DTSHeadphoneX(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DTSXUltra(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialAudioFormatSubtypeStatics {
@@ -4242,7 +4242,7 @@ impl ISpatialAudioFormatSubtypeStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialAudioFormatSubtypeStatics2Impl: Sized {
-    fn DTSXForHomeTheater(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DTSXForHomeTheater(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialAudioFormatSubtypeStatics2 {

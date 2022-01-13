@@ -1,15 +1,15 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpCacheDirectiveHeaderValueCollectionImpl: Sized {
-    fn MaxAge(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
-    fn SetMaxAge(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn MaxStale(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
-    fn SetMaxStale(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn MinFresh(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
-    fn SetMinFresh(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn SharedMaxAge(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
-    fn SetSharedMaxAge(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn MaxAge(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
+    fn SetMaxAge(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn MaxStale(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
+    fn SetMaxStale(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn MinFresh(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
+    fn SetMinFresh(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn SharedMaxAge(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
+    fn SetSharedMaxAge(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpCacheDirectiveHeaderValueCollection {
@@ -113,9 +113,9 @@ impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpChallengeHeaderValueImpl: Sized {
-    fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
-    fn Scheme(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
+    fn Scheme(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Token(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpChallengeHeaderValue {
@@ -170,8 +170,8 @@ impl IHttpChallengeHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpChallengeHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpChallengeHeaderValueCollection {
@@ -207,8 +207,8 @@ impl IHttpChallengeHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpChallengeHeaderValueFactoryImpl: Sized {
-    fn CreateFromScheme(&self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
-    fn CreateFromSchemeWithToken(&self, scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
+    fn CreateFromScheme(&mut self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
+    fn CreateFromSchemeWithToken(&mut self, scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpChallengeHeaderValueFactory {
@@ -251,8 +251,8 @@ impl IHttpChallengeHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpChallengeHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, challengeheadervalue: &mut ::core::option::Option<HttpChallengeHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, challengeheadervalue: &mut ::core::option::Option<HttpChallengeHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpChallengeHeaderValueStatics {
@@ -295,7 +295,7 @@ impl IHttpChallengeHeaderValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpConnectionOptionHeaderValueImpl: Sized {
-    fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Token(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValue {
@@ -323,8 +323,8 @@ impl IHttpConnectionOptionHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpConnectionOptionHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValueCollection {
@@ -360,7 +360,7 @@ impl IHttpConnectionOptionHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpConnectionOptionHeaderValueFactoryImpl: Sized {
-    fn Create(&self, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>;
+    fn Create(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValueFactory {
@@ -391,8 +391,8 @@ impl IHttpConnectionOptionHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpConnectionOptionHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, connectionoptionheadervalue: &mut ::core::option::Option<HttpConnectionOptionHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, connectionoptionheadervalue: &mut ::core::option::Option<HttpConnectionOptionHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValueStatics {
@@ -435,7 +435,7 @@ impl IHttpConnectionOptionHeaderValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentCodingHeaderValueImpl: Sized {
-    fn ContentCoding(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContentCoding(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValue {
@@ -466,8 +466,8 @@ impl IHttpContentCodingHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentCodingHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValueCollection {
@@ -503,7 +503,7 @@ impl IHttpContentCodingHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentCodingHeaderValueFactoryImpl: Sized {
-    fn Create(&self, contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue>;
+    fn Create(&mut self, contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValueFactory {
@@ -534,8 +534,8 @@ impl IHttpContentCodingHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentCodingHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, contentcodingheadervalue: &mut ::core::option::Option<HttpContentCodingHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, contentcodingheadervalue: &mut ::core::option::Option<HttpContentCodingHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValueStatics {
@@ -578,8 +578,8 @@ impl IHttpContentCodingHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpContentCodingWithQualityHeaderValueImpl: Sized {
-    fn ContentCoding(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Quality(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
+    fn ContentCoding(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Quality(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValue {
@@ -622,8 +622,8 @@ impl IHttpContentCodingWithQualityHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentCodingWithQualityHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValueCollection {
@@ -659,8 +659,8 @@ impl IHttpContentCodingWithQualityHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentCodingWithQualityHeaderValueFactoryImpl: Sized {
-    fn CreateFromValue(&self, contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
-    fn CreateFromValueWithQuality(&self, contentcoding: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
+    fn CreateFromValue(&mut self, contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
+    fn CreateFromValueWithQuality(&mut self, contentcoding: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValueFactory {
@@ -703,8 +703,8 @@ impl IHttpContentCodingWithQualityHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentCodingWithQualityHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, contentcodingwithqualityheadervalue: &mut ::core::option::Option<HttpContentCodingWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, contentcodingwithqualityheadervalue: &mut ::core::option::Option<HttpContentCodingWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValueStatics {
@@ -747,17 +747,17 @@ impl IHttpContentCodingWithQualityHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpContentDispositionHeaderValueImpl: Sized {
-    fn DispositionType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDispositionType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FileNameStar(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFileNameStar(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
-    fn Size(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
-    fn SetSize(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<u64>>) -> ::windows::core::Result<()>;
+    fn DispositionType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDispositionType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFileName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FileNameStar(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFileNameStar(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
+    fn SetSize(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<u64>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpContentDispositionHeaderValue {
@@ -873,7 +873,7 @@ impl IHttpContentDispositionHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentDispositionHeaderValueFactoryImpl: Sized {
-    fn Create(&self, dispositiontype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
+    fn Create(&mut self, dispositiontype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentDispositionHeaderValueFactory {
@@ -904,8 +904,8 @@ impl IHttpContentDispositionHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentDispositionHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, contentdispositionheadervalue: &mut ::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, contentdispositionheadervalue: &mut ::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentDispositionHeaderValueStatics {
@@ -948,26 +948,26 @@ impl IHttpContentDispositionHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHttpContentHeaderCollectionImpl: Sized {
-    fn ContentDisposition(&self) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
-    fn SetContentDisposition(&self, value: &::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<()>;
-    fn ContentEncoding(&self) -> ::windows::core::Result<HttpContentCodingHeaderValueCollection>;
-    fn ContentLanguage(&self) -> ::windows::core::Result<HttpLanguageHeaderValueCollection>;
-    fn ContentLength(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
-    fn SetContentLength(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<u64>>) -> ::windows::core::Result<()>;
-    fn ContentLocation(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SetContentLocation(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ContentMD5(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetContentMD5(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn ContentRange(&self) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
-    fn SetContentRange(&self, value: &::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<()>;
-    fn ContentType(&self) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
-    fn SetContentType(&self, value: &::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<()>;
-    fn Expires(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SetExpires(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn LastModified(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SetLastModified(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn Append(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryAppendWithoutValidation(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ContentDisposition(&mut self) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
+    fn SetContentDisposition(&mut self, value: &::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<()>;
+    fn ContentEncoding(&mut self) -> ::windows::core::Result<HttpContentCodingHeaderValueCollection>;
+    fn ContentLanguage(&mut self) -> ::windows::core::Result<HttpLanguageHeaderValueCollection>;
+    fn ContentLength(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
+    fn SetContentLength(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<u64>>) -> ::windows::core::Result<()>;
+    fn ContentLocation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SetContentLocation(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ContentMD5(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetContentMD5(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn ContentRange(&mut self) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
+    fn SetContentRange(&mut self, value: &::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<()>;
+    fn ContentType(&mut self) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
+    fn SetContentType(&mut self, value: &::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<()>;
+    fn Expires(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SetExpires(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn LastModified(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SetLastModified(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn Append(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryAppendWithoutValidation(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpContentHeaderCollection {
@@ -1163,11 +1163,11 @@ impl IHttpContentHeaderCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpContentRangeHeaderValueImpl: Sized {
-    fn FirstBytePosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
-    fn LastBytePosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
-    fn Length(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
-    fn Unit(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetUnit(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FirstBytePosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
+    fn LastBytePosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
+    fn Length(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
+    fn Unit(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetUnit(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpContentRangeHeaderValue {
@@ -1239,9 +1239,9 @@ impl IHttpContentRangeHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentRangeHeaderValueFactoryImpl: Sized {
-    fn CreateFromLength(&self, length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
-    fn CreateFromRange(&self, from: u64, to: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
-    fn CreateFromRangeWithLength(&self, from: u64, to: u64, length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
+    fn CreateFromLength(&mut self, length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
+    fn CreateFromRange(&mut self, from: u64, to: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
+    fn CreateFromRangeWithLength(&mut self, from: u64, to: u64, length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentRangeHeaderValueFactory {
@@ -1296,8 +1296,8 @@ impl IHttpContentRangeHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpContentRangeHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, contentrangeheadervalue: &mut ::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, contentrangeheadervalue: &mut ::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpContentRangeHeaderValueStatics {
@@ -1340,9 +1340,9 @@ impl IHttpContentRangeHeaderValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpCookiePairHeaderValueImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValue {
@@ -1390,8 +1390,8 @@ impl IHttpCookiePairHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpCookiePairHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValueCollection {
@@ -1427,8 +1427,8 @@ impl IHttpCookiePairHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpCookiePairHeaderValueFactoryImpl: Sized {
-    fn CreateFromName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
-    fn CreateFromNameWithValue(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
+    fn CreateFromName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
+    fn CreateFromNameWithValue(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValueFactory {
@@ -1471,8 +1471,8 @@ impl IHttpCookiePairHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpCookiePairHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, cookiepairheadervalue: &mut ::core::option::Option<HttpCookiePairHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, cookiepairheadervalue: &mut ::core::option::Option<HttpCookiePairHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValueStatics {
@@ -1515,9 +1515,9 @@ impl IHttpCookiePairHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpCredentialsHeaderValueImpl: Sized {
-    fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
-    fn Scheme(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
+    fn Scheme(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Token(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpCredentialsHeaderValue {
@@ -1572,8 +1572,8 @@ impl IHttpCredentialsHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpCredentialsHeaderValueFactoryImpl: Sized {
-    fn CreateFromScheme(&self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
-    fn CreateFromSchemeWithToken(&self, scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
+    fn CreateFromScheme(&mut self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
+    fn CreateFromSchemeWithToken(&mut self, scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpCredentialsHeaderValueFactory {
@@ -1616,8 +1616,8 @@ impl IHttpCredentialsHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpCredentialsHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, credentialsheadervalue: &mut ::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, credentialsheadervalue: &mut ::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpCredentialsHeaderValueStatics {
@@ -1660,8 +1660,8 @@ impl IHttpCredentialsHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpDateOrDeltaHeaderValueImpl: Sized {
-    fn Date(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn Delta(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
+    fn Date(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn Delta(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpDateOrDeltaHeaderValue {
@@ -1704,8 +1704,8 @@ impl IHttpDateOrDeltaHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpDateOrDeltaHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, dateordeltaheadervalue: &mut ::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, dateordeltaheadervalue: &mut ::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpDateOrDeltaHeaderValueStatics {
@@ -1748,10 +1748,10 @@ impl IHttpDateOrDeltaHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpExpectationHeaderValueImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpExpectationHeaderValue {
@@ -1811,8 +1811,8 @@ impl IHttpExpectationHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpExpectationHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpExpectationHeaderValueCollection {
@@ -1848,8 +1848,8 @@ impl IHttpExpectationHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpExpectationHeaderValueFactoryImpl: Sized {
-    fn CreateFromName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
-    fn CreateFromNameWithValue(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
+    fn CreateFromName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
+    fn CreateFromNameWithValue(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpExpectationHeaderValueFactory {
@@ -1892,8 +1892,8 @@ impl IHttpExpectationHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpExpectationHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, expectationheadervalue: &mut ::core::option::Option<HttpExpectationHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, expectationheadervalue: &mut ::core::option::Option<HttpExpectationHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpExpectationHeaderValueStatics {
@@ -1936,8 +1936,8 @@ impl IHttpExpectationHeaderValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpLanguageHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpLanguageHeaderValueCollection {
@@ -1973,8 +1973,8 @@ impl IHttpLanguageHeaderValueCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpLanguageRangeWithQualityHeaderValueImpl: Sized {
-    fn LanguageRange(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Quality(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
+    fn LanguageRange(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Quality(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValue {
@@ -2017,8 +2017,8 @@ impl IHttpLanguageRangeWithQualityHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpLanguageRangeWithQualityHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValueCollection {
@@ -2054,8 +2054,8 @@ impl IHttpLanguageRangeWithQualityHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpLanguageRangeWithQualityHeaderValueFactoryImpl: Sized {
-    fn CreateFromLanguageRange(&self, languagerange: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
-    fn CreateFromLanguageRangeWithQuality(&self, languagerange: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
+    fn CreateFromLanguageRange(&mut self, languagerange: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
+    fn CreateFromLanguageRangeWithQuality(&mut self, languagerange: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValueFactory {
@@ -2098,8 +2098,8 @@ impl IHttpLanguageRangeWithQualityHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpLanguageRangeWithQualityHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, languagerangewithqualityheadervalue: &mut ::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, languagerangewithqualityheadervalue: &mut ::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValueStatics {
@@ -2142,11 +2142,11 @@ impl IHttpLanguageRangeWithQualityHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpMediaTypeHeaderValueImpl: Sized {
-    fn CharSet(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCharSet(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn MediaType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMediaType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
+    fn CharSet(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCharSet(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn MediaType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMediaType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpMediaTypeHeaderValue {
@@ -2211,7 +2211,7 @@ impl IHttpMediaTypeHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpMediaTypeHeaderValueFactoryImpl: Sized {
-    fn Create(&self, mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
+    fn Create(&mut self, mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpMediaTypeHeaderValueFactory {
@@ -2239,8 +2239,8 @@ impl IHttpMediaTypeHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpMediaTypeHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, mediatypeheadervalue: &mut ::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, mediatypeheadervalue: &mut ::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpMediaTypeHeaderValueStatics {
@@ -2283,13 +2283,13 @@ impl IHttpMediaTypeHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpMediaTypeWithQualityHeaderValueImpl: Sized {
-    fn CharSet(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCharSet(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn MediaType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMediaType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
-    fn Quality(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
-    fn SetQuality(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
+    fn CharSet(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCharSet(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn MediaType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMediaType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
+    fn Quality(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
+    fn SetQuality(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValue {
@@ -2371,8 +2371,8 @@ impl IHttpMediaTypeWithQualityHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpMediaTypeWithQualityHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValueCollection {
@@ -2408,8 +2408,8 @@ impl IHttpMediaTypeWithQualityHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpMediaTypeWithQualityHeaderValueFactoryImpl: Sized {
-    fn CreateFromMediaType(&self, mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
-    fn CreateFromMediaTypeWithQuality(&self, mediatype: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
+    fn CreateFromMediaType(&mut self, mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
+    fn CreateFromMediaTypeWithQuality(&mut self, mediatype: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValueFactory {
@@ -2452,8 +2452,8 @@ impl IHttpMediaTypeWithQualityHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpMediaTypeWithQualityHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, mediatypewithqualityheadervalue: &mut ::core::option::Option<HttpMediaTypeWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, mediatypewithqualityheadervalue: &mut ::core::option::Option<HttpMediaTypeWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValueStatics {
@@ -2496,8 +2496,8 @@ impl IHttpMediaTypeWithQualityHeaderValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpMethodHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpMethodHeaderValueCollection {
@@ -2533,9 +2533,9 @@ impl IHttpMethodHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpNameValueHeaderValueImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpNameValueHeaderValue {
@@ -2583,8 +2583,8 @@ impl IHttpNameValueHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpNameValueHeaderValueFactoryImpl: Sized {
-    fn CreateFromName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
-    fn CreateFromNameWithValue(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
+    fn CreateFromName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
+    fn CreateFromNameWithValue(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpNameValueHeaderValueFactory {
@@ -2627,8 +2627,8 @@ impl IHttpNameValueHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpNameValueHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, namevalueheadervalue: &mut ::core::option::Option<HttpNameValueHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, namevalueheadervalue: &mut ::core::option::Option<HttpNameValueHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpNameValueHeaderValueStatics {
@@ -2671,8 +2671,8 @@ impl IHttpNameValueHeaderValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpProductHeaderValueImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Version(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpProductHeaderValue {
@@ -2715,8 +2715,8 @@ impl IHttpProductHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpProductHeaderValueFactoryImpl: Sized {
-    fn CreateFromName(&self, productname: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
-    fn CreateFromNameWithVersion(&self, productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
+    fn CreateFromName(&mut self, productname: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
+    fn CreateFromNameWithVersion(&mut self, productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpProductHeaderValueFactory {
@@ -2759,8 +2759,8 @@ impl IHttpProductHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpProductHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, productheadervalue: &mut ::core::option::Option<HttpProductHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, productheadervalue: &mut ::core::option::Option<HttpProductHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpProductHeaderValueStatics {
@@ -2803,8 +2803,8 @@ impl IHttpProductHeaderValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpProductInfoHeaderValueImpl: Sized {
-    fn Product(&self) -> ::windows::core::Result<HttpProductHeaderValue>;
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Product(&mut self) -> ::windows::core::Result<HttpProductHeaderValue>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValue {
@@ -2847,8 +2847,8 @@ impl IHttpProductInfoHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpProductInfoHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValueCollection {
@@ -2884,8 +2884,8 @@ impl IHttpProductInfoHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpProductInfoHeaderValueFactoryImpl: Sized {
-    fn CreateFromComment(&self, productcomment: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
-    fn CreateFromNameWithVersion(&self, productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
+    fn CreateFromComment(&mut self, productcomment: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
+    fn CreateFromNameWithVersion(&mut self, productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValueFactory {
@@ -2928,8 +2928,8 @@ impl IHttpProductInfoHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpProductInfoHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, productinfoheadervalue: &mut ::core::option::Option<HttpProductInfoHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, productinfoheadervalue: &mut ::core::option::Option<HttpProductInfoHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValueStatics {
@@ -2972,35 +2972,35 @@ impl IHttpProductInfoHeaderValueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IHttpRequestHeaderCollectionImpl: Sized {
-    fn Accept(&self) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValueCollection>;
-    fn AcceptEncoding(&self) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValueCollection>;
-    fn AcceptLanguage(&self) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValueCollection>;
-    fn Authorization(&self) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
-    fn SetAuthorization(&self, value: &::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<()>;
-    fn CacheControl(&self) -> ::windows::core::Result<HttpCacheDirectiveHeaderValueCollection>;
-    fn Connection(&self) -> ::windows::core::Result<HttpConnectionOptionHeaderValueCollection>;
-    fn Cookie(&self) -> ::windows::core::Result<HttpCookiePairHeaderValueCollection>;
-    fn Date(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SetDate(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn Expect(&self) -> ::windows::core::Result<HttpExpectationHeaderValueCollection>;
-    fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFrom(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Host(&self) -> ::windows::core::Result<super::super::super::Networking::HostName>;
-    fn SetHost(&self, value: &::core::option::Option<super::super::super::Networking::HostName>) -> ::windows::core::Result<()>;
-    fn IfModifiedSince(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SetIfModifiedSince(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn IfUnmodifiedSince(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SetIfUnmodifiedSince(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn MaxForwards(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
-    fn SetMaxForwards(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn ProxyAuthorization(&self) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
-    fn SetProxyAuthorization(&self, value: &::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<()>;
-    fn Referer(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SetReferer(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn TransferEncoding(&self) -> ::windows::core::Result<HttpTransferCodingHeaderValueCollection>;
-    fn UserAgent(&self) -> ::windows::core::Result<HttpProductInfoHeaderValueCollection>;
-    fn Append(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryAppendWithoutValidation(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn Accept(&mut self) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValueCollection>;
+    fn AcceptEncoding(&mut self) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValueCollection>;
+    fn AcceptLanguage(&mut self) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValueCollection>;
+    fn Authorization(&mut self) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
+    fn SetAuthorization(&mut self, value: &::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<()>;
+    fn CacheControl(&mut self) -> ::windows::core::Result<HttpCacheDirectiveHeaderValueCollection>;
+    fn Connection(&mut self) -> ::windows::core::Result<HttpConnectionOptionHeaderValueCollection>;
+    fn Cookie(&mut self) -> ::windows::core::Result<HttpCookiePairHeaderValueCollection>;
+    fn Date(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SetDate(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn Expect(&mut self) -> ::windows::core::Result<HttpExpectationHeaderValueCollection>;
+    fn From(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFrom(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Host(&mut self) -> ::windows::core::Result<super::super::super::Networking::HostName>;
+    fn SetHost(&mut self, value: &::core::option::Option<super::super::super::Networking::HostName>) -> ::windows::core::Result<()>;
+    fn IfModifiedSince(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SetIfModifiedSince(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn IfUnmodifiedSince(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SetIfUnmodifiedSince(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn MaxForwards(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
+    fn SetMaxForwards(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn ProxyAuthorization(&mut self) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
+    fn SetProxyAuthorization(&mut self, value: &::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<()>;
+    fn Referer(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SetReferer(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn TransferEncoding(&mut self) -> ::windows::core::Result<HttpTransferCodingHeaderValueCollection>;
+    fn UserAgent(&mut self) -> ::windows::core::Result<HttpProductInfoHeaderValueCollection>;
+    fn Append(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryAppendWithoutValidation(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpRequestHeaderCollection {
@@ -3297,22 +3297,22 @@ impl IHttpRequestHeaderCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpResponseHeaderCollectionImpl: Sized {
-    fn Age(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
-    fn SetAge(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn Allow(&self) -> ::windows::core::Result<HttpMethodHeaderValueCollection>;
-    fn CacheControl(&self) -> ::windows::core::Result<HttpCacheDirectiveHeaderValueCollection>;
-    fn Connection(&self) -> ::windows::core::Result<HttpConnectionOptionHeaderValueCollection>;
-    fn Date(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn SetDate(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn Location(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SetLocation(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ProxyAuthenticate(&self) -> ::windows::core::Result<HttpChallengeHeaderValueCollection>;
-    fn RetryAfter(&self) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue>;
-    fn SetRetryAfter(&self, value: &::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<()>;
-    fn TransferEncoding(&self) -> ::windows::core::Result<HttpTransferCodingHeaderValueCollection>;
-    fn WwwAuthenticate(&self) -> ::windows::core::Result<HttpChallengeHeaderValueCollection>;
-    fn Append(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryAppendWithoutValidation(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn Age(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
+    fn SetAge(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn Allow(&mut self) -> ::windows::core::Result<HttpMethodHeaderValueCollection>;
+    fn CacheControl(&mut self) -> ::windows::core::Result<HttpCacheDirectiveHeaderValueCollection>;
+    fn Connection(&mut self) -> ::windows::core::Result<HttpConnectionOptionHeaderValueCollection>;
+    fn Date(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn SetDate(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn Location(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SetLocation(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ProxyAuthenticate(&mut self) -> ::windows::core::Result<HttpChallengeHeaderValueCollection>;
+    fn RetryAfter(&mut self) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue>;
+    fn SetRetryAfter(&mut self, value: &::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<()>;
+    fn TransferEncoding(&mut self) -> ::windows::core::Result<HttpTransferCodingHeaderValueCollection>;
+    fn WwwAuthenticate(&mut self) -> ::windows::core::Result<HttpChallengeHeaderValueCollection>;
+    fn Append(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryAppendWithoutValidation(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpResponseHeaderCollection {
@@ -3488,8 +3488,8 @@ impl IHttpResponseHeaderCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHttpTransferCodingHeaderValueImpl: Sized {
-    fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValue {
@@ -3532,8 +3532,8 @@ impl IHttpTransferCodingHeaderValueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpTransferCodingHeaderValueCollectionImpl: Sized {
-    fn ParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TryParseAdd(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValueCollection {
@@ -3569,7 +3569,7 @@ impl IHttpTransferCodingHeaderValueCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpTransferCodingHeaderValueFactoryImpl: Sized {
-    fn Create(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue>;
+    fn Create(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValueFactory {
@@ -3600,8 +3600,8 @@ impl IHttpTransferCodingHeaderValueFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpTransferCodingHeaderValueStaticsImpl: Sized {
-    fn Parse(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue>;
-    fn TryParse(&self, input: &::windows::core::HSTRING, transfercodingheadervalue: &mut ::core::option::Option<HttpTransferCodingHeaderValue>) -> ::windows::core::Result<bool>;
+    fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue>;
+    fn TryParse(&mut self, input: &::windows::core::HSTRING, transfercodingheadervalue: &mut ::core::option::Option<HttpTransferCodingHeaderValue>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValueStatics {

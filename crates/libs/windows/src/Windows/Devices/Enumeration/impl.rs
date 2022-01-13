@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceAccessChangedEventArgsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<DeviceAccessStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<DeviceAccessStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceAccessChangedEventArgs {
@@ -28,7 +28,7 @@ impl IDeviceAccessChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceAccessChangedEventArgs2Impl: Sized + IDeviceAccessChangedEventArgsImpl {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceAccessChangedEventArgs2 {
@@ -56,9 +56,9 @@ impl IDeviceAccessChangedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceAccessInformationImpl: Sized {
-    fn AccessChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccessChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CurrentStatus(&self) -> ::windows::core::Result<DeviceAccessStatus>;
+    fn AccessChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccessChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CurrentStatus(&mut self) -> ::windows::core::Result<DeviceAccessStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceAccessInformation {
@@ -106,9 +106,9 @@ impl IDeviceAccessInformationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceAccessInformationStaticsImpl: Sized {
-    fn CreateFromId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<DeviceAccessInformation>;
-    fn CreateFromDeviceClassId(&self, deviceclassid: &::windows::core::GUID) -> ::windows::core::Result<DeviceAccessInformation>;
-    fn CreateFromDeviceClass(&self, deviceclass: DeviceClass) -> ::windows::core::Result<DeviceAccessInformation>;
+    fn CreateFromId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<DeviceAccessInformation>;
+    fn CreateFromDeviceClassId(&mut self, deviceclassid: &::windows::core::GUID) -> ::windows::core::Result<DeviceAccessInformation>;
+    fn CreateFromDeviceClass(&mut self, deviceclass: DeviceClass) -> ::windows::core::Result<DeviceAccessInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceAccessInformationStatics {
@@ -163,7 +163,7 @@ impl IDeviceAccessInformationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceConnectionChangeTriggerDetailsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceConnectionChangeTriggerDetails {
@@ -194,7 +194,7 @@ impl IDeviceConnectionChangeTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceDisconnectButtonClickedEventArgsImpl: Sized {
-    fn Device(&self) -> ::windows::core::Result<DeviceInformation>;
+    fn Device(&mut self) -> ::windows::core::Result<DeviceInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceDisconnectButtonClickedEventArgs {
@@ -225,15 +225,15 @@ impl IDeviceDisconnectButtonClickedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDeviceInformationImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsDefault(&self) -> ::windows::core::Result<bool>;
-    fn EnclosureLocation(&self) -> ::windows::core::Result<EnclosureLocation>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
-    fn Update(&self, updateinfo: &::core::option::Option<DeviceInformationUpdate>) -> ::windows::core::Result<()>;
-    fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>;
-    fn GetGlyphThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDefault(&mut self) -> ::windows::core::Result<bool>;
+    fn EnclosureLocation(&mut self) -> ::windows::core::Result<EnclosureLocation>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn Update(&mut self, updateinfo: &::core::option::Option<DeviceInformationUpdate>) -> ::windows::core::Result<()>;
+    fn GetThumbnailAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>;
+    fn GetGlyphThumbnailAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceInformation {
@@ -353,8 +353,8 @@ impl IDeviceInformationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceInformation2Impl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<DeviceInformationKind>;
-    fn Pairing(&self) -> ::windows::core::Result<DeviceInformationPairing>;
+    fn Kind(&mut self) -> ::windows::core::Result<DeviceInformationKind>;
+    fn Pairing(&mut self) -> ::windows::core::Result<DeviceInformationPairing>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceInformation2 {
@@ -397,11 +397,11 @@ impl IDeviceInformation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceInformationCustomPairingImpl: Sized {
-    fn PairAsync(&self, pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
-    fn PairWithProtectionLevelAsync(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
-    fn PairWithProtectionLevelAndSettingsAsync(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: &::core::option::Option<IDevicePairingSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
-    fn PairingRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePairingRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PairAsync(&mut self, pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
+    fn PairWithProtectionLevelAsync(&mut self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
+    fn PairWithProtectionLevelAndSettingsAsync(&mut self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: &::core::option::Option<IDevicePairingSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
+    fn PairingRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePairingRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceInformationCustomPairing {
@@ -473,10 +473,10 @@ impl IDeviceInformationCustomPairingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceInformationPairingImpl: Sized {
-    fn IsPaired(&self) -> ::windows::core::Result<bool>;
-    fn CanPair(&self) -> ::windows::core::Result<bool>;
-    fn PairAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
-    fn PairWithProtectionLevelAsync(&self, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
+    fn IsPaired(&mut self) -> ::windows::core::Result<bool>;
+    fn CanPair(&mut self) -> ::windows::core::Result<bool>;
+    fn PairAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
+    fn PairWithProtectionLevelAsync(&mut self, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceInformationPairing {
@@ -543,10 +543,10 @@ impl IDeviceInformationPairingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceInformationPairing2Impl: Sized {
-    fn ProtectionLevel(&self) -> ::windows::core::Result<DevicePairingProtectionLevel>;
-    fn Custom(&self) -> ::windows::core::Result<DeviceInformationCustomPairing>;
-    fn PairWithProtectionLevelAndSettingsAsync(&self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: &::core::option::Option<IDevicePairingSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
-    fn UnpairAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>>;
+    fn ProtectionLevel(&mut self) -> ::windows::core::Result<DevicePairingProtectionLevel>;
+    fn Custom(&mut self) -> ::windows::core::Result<DeviceInformationCustomPairing>;
+    fn PairWithProtectionLevelAndSettingsAsync(&mut self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: &::core::option::Option<IDevicePairingSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
+    fn UnpairAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceInformationPairing2 {
@@ -613,7 +613,7 @@ impl IDeviceInformationPairing2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceInformationPairingStaticsImpl: Sized {
-    fn TryRegisterForAllInboundPairingRequests(&self, pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<bool>;
+    fn TryRegisterForAllInboundPairingRequests(&mut self, pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceInformationPairingStatics {
@@ -644,7 +644,7 @@ impl IDeviceInformationPairingStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceInformationPairingStatics2Impl: Sized {
-    fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<bool>;
+    fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel(&mut self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceInformationPairingStatics2 {
@@ -675,16 +675,16 @@ impl IDeviceInformationPairingStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDeviceInformationStaticsImpl: Sized {
-    fn CreateFromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
-    fn CreateFromIdAsyncAdditionalProperties(&self, deviceid: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
-    fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
-    fn FindAllAsyncDeviceClass(&self, deviceclass: DeviceClass) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
-    fn FindAllAsyncAqsFilter(&self, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
-    fn FindAllAsyncAqsFilterAndAdditionalProperties(&self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
-    fn CreateWatcher(&self) -> ::windows::core::Result<DeviceWatcher>;
-    fn CreateWatcherDeviceClass(&self, deviceclass: DeviceClass) -> ::windows::core::Result<DeviceWatcher>;
-    fn CreateWatcherAqsFilter(&self, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<DeviceWatcher>;
-    fn CreateWatcherAqsFilterAndAdditionalProperties(&self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DeviceWatcher>;
+    fn CreateFromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
+    fn CreateFromIdAsyncAdditionalProperties(&mut self, deviceid: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
+    fn FindAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
+    fn FindAllAsyncDeviceClass(&mut self, deviceclass: DeviceClass) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
+    fn FindAllAsyncAqsFilter(&mut self, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
+    fn FindAllAsyncAqsFilterAndAdditionalProperties(&mut self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
+    fn CreateWatcher(&mut self) -> ::windows::core::Result<DeviceWatcher>;
+    fn CreateWatcherDeviceClass(&mut self, deviceclass: DeviceClass) -> ::windows::core::Result<DeviceWatcher>;
+    fn CreateWatcherAqsFilter(&mut self, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<DeviceWatcher>;
+    fn CreateWatcherAqsFilterAndAdditionalProperties(&mut self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DeviceWatcher>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceInformationStatics {
@@ -823,10 +823,10 @@ impl IDeviceInformationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDeviceInformationStatics2Impl: Sized {
-    fn GetAqsFilterFromDeviceClass(&self, deviceclass: DeviceClass) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CreateFromIdAsyncWithKindAndAdditionalProperties(&self, deviceid: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
-    fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties(&self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
-    fn CreateWatcherWithKindAqsFilterAndAdditionalProperties(&self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<DeviceWatcher>;
+    fn GetAqsFilterFromDeviceClass(&mut self, deviceclass: DeviceClass) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CreateFromIdAsyncWithKindAndAdditionalProperties(&mut self, deviceid: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
+    fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties(&mut self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
+    fn CreateWatcherWithKindAqsFilterAndAdditionalProperties(&mut self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<DeviceWatcher>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceInformationStatics2 {
@@ -893,8 +893,8 @@ impl IDeviceInformationStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDeviceInformationUpdateImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceInformationUpdate {
@@ -937,7 +937,7 @@ impl IDeviceInformationUpdateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceInformationUpdate2Impl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<DeviceInformationKind>;
+    fn Kind(&mut self) -> ::windows::core::Result<DeviceInformationKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceInformationUpdate2 {
@@ -965,12 +965,12 @@ impl IDeviceInformationUpdate2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDevicePairingRequestedEventArgsImpl: Sized {
-    fn DeviceInformation(&self) -> ::windows::core::Result<DeviceInformation>;
-    fn PairingKind(&self) -> ::windows::core::Result<DevicePairingKinds>;
-    fn Pin(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Accept(&self) -> ::windows::core::Result<()>;
-    fn AcceptWithPin(&self, pin: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn DeviceInformation(&mut self) -> ::windows::core::Result<DeviceInformation>;
+    fn PairingKind(&mut self) -> ::windows::core::Result<DevicePairingKinds>;
+    fn Pin(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Accept(&mut self) -> ::windows::core::Result<()>;
+    fn AcceptWithPin(&mut self, pin: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePairingRequestedEventArgs {
@@ -1047,7 +1047,7 @@ impl IDevicePairingRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IDevicePairingRequestedEventArgs2Impl: Sized {
-    fn AcceptWithPasswordCredential(&self, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn AcceptWithPasswordCredential(&mut self, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePairingRequestedEventArgs2 {
@@ -1071,8 +1071,8 @@ impl IDevicePairingRequestedEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDevicePairingResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<DevicePairingResultStatus>;
-    fn ProtectionLevelUsed(&self) -> ::windows::core::Result<DevicePairingProtectionLevel>;
+    fn Status(&mut self) -> ::windows::core::Result<DevicePairingResultStatus>;
+    fn ProtectionLevelUsed(&mut self) -> ::windows::core::Result<DevicePairingProtectionLevel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDevicePairingResult {
@@ -1127,21 +1127,21 @@ impl IDevicePairingSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IDevicePickerImpl: Sized {
-    fn Filter(&self) -> ::windows::core::Result<DevicePickerFilter>;
-    fn Appearance(&self) -> ::windows::core::Result<DevicePickerAppearance>;
-    fn RequestedProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn DeviceSelected(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDeviceSelected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DisconnectButtonClicked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDisconnectButtonClicked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DevicePickerDismissed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DevicePicker, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDevicePickerDismissed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Show(&self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn ShowWithPlacement(&self, selection: &super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
-    fn PickSingleDeviceAsync(&self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
-    fn PickSingleDeviceAsyncWithPlacement(&self, selection: &super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
-    fn Hide(&self) -> ::windows::core::Result<()>;
-    fn SetDisplayStatus(&self, device: &::core::option::Option<DeviceInformation>, status: &::windows::core::HSTRING, options: DevicePickerDisplayStatusOptions) -> ::windows::core::Result<()>;
+    fn Filter(&mut self) -> ::windows::core::Result<DevicePickerFilter>;
+    fn Appearance(&mut self) -> ::windows::core::Result<DevicePickerAppearance>;
+    fn RequestedProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn DeviceSelected(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDeviceSelected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DisconnectButtonClicked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDisconnectButtonClicked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DevicePickerDismissed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DevicePicker, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDevicePickerDismissed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Show(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn ShowWithPlacement(&mut self, selection: &super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
+    fn PickSingleDeviceAsync(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
+    fn PickSingleDeviceAsyncWithPlacement(&mut self, selection: &super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
+    fn Hide(&mut self) -> ::windows::core::Result<()>;
+    fn SetDisplayStatus(&mut self, device: &::core::option::Option<DeviceInformation>, status: &::windows::core::HSTRING, options: DevicePickerDisplayStatusOptions) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePicker {
@@ -1291,20 +1291,20 @@ impl IDevicePickerVtbl {
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait IDevicePickerAppearanceImpl: Sized {
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ForegroundColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetForegroundColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetBackgroundColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn AccentColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetAccentColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn SelectedForegroundColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetSelectedForegroundColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn SelectedBackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetSelectedBackgroundColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn SelectedAccentColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetSelectedAccentColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ForegroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetForegroundColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetBackgroundColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn AccentColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetAccentColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn SelectedForegroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetSelectedForegroundColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn SelectedBackgroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetSelectedBackgroundColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn SelectedAccentColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetSelectedAccentColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePickerAppearance {
@@ -1442,8 +1442,8 @@ impl IDevicePickerAppearanceVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDevicePickerFilterImpl: Sized {
-    fn SupportedDeviceClasses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<DeviceClass>>;
-    fn SupportedDeviceSelectors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn SupportedDeviceClasses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<DeviceClass>>;
+    fn SupportedDeviceSelectors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDevicePickerFilter {
@@ -1486,7 +1486,7 @@ impl IDevicePickerFilterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceSelectedEventArgsImpl: Sized {
-    fn SelectedDevice(&self) -> ::windows::core::Result<DeviceInformation>;
+    fn SelectedDevice(&mut self) -> ::windows::core::Result<DeviceInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceSelectedEventArgs {
@@ -1517,7 +1517,7 @@ impl IDeviceSelectedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceUnpairingResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<DeviceUnpairingResultStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<DeviceUnpairingResultStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceUnpairingResult {
@@ -1545,19 +1545,19 @@ impl IDeviceUnpairingResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceWatcherImpl: Sized {
-    fn Added(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Updated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Removed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<DeviceWatcherStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Added(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Updated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Removed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<DeviceWatcherStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceWatcher {
@@ -1683,7 +1683,7 @@ impl IDeviceWatcherVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDeviceWatcher2Impl: Sized {
-    fn GetBackgroundTrigger(&self, requestedeventkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind>>) -> ::windows::core::Result<super::super::ApplicationModel::Background::DeviceWatcherTrigger>;
+    fn GetBackgroundTrigger(&mut self, requestedeventkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind>>) -> ::windows::core::Result<super::super::ApplicationModel::Background::DeviceWatcherTrigger>;
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceWatcher2 {
@@ -1714,9 +1714,9 @@ impl IDeviceWatcher2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceWatcherEventImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<DeviceWatcherEventKind>;
-    fn DeviceInformation(&self) -> ::windows::core::Result<DeviceInformation>;
-    fn DeviceInformationUpdate(&self) -> ::windows::core::Result<DeviceInformationUpdate>;
+    fn Kind(&mut self) -> ::windows::core::Result<DeviceWatcherEventKind>;
+    fn DeviceInformation(&mut self) -> ::windows::core::Result<DeviceInformation>;
+    fn DeviceInformationUpdate(&mut self) -> ::windows::core::Result<DeviceInformationUpdate>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceWatcherEvent {
@@ -1771,7 +1771,7 @@ impl IDeviceWatcherEventVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDeviceWatcherTriggerDetailsImpl: Sized {
-    fn DeviceWatcherEvents(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DeviceWatcherEvent>>;
+    fn DeviceWatcherEvents(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DeviceWatcherEvent>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceWatcherTriggerDetails {
@@ -1802,9 +1802,9 @@ impl IDeviceWatcherTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEnclosureLocationImpl: Sized {
-    fn InDock(&self) -> ::windows::core::Result<bool>;
-    fn InLid(&self) -> ::windows::core::Result<bool>;
-    fn Panel(&self) -> ::windows::core::Result<Panel>;
+    fn InDock(&mut self) -> ::windows::core::Result<bool>;
+    fn InLid(&mut self) -> ::windows::core::Result<bool>;
+    fn Panel(&mut self) -> ::windows::core::Result<Panel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEnclosureLocation {
@@ -1859,7 +1859,7 @@ impl IEnclosureLocationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEnclosureLocation2Impl: Sized + IEnclosureLocationImpl {
-    fn RotationAngleInDegreesClockwise(&self) -> ::windows::core::Result<u32>;
+    fn RotationAngleInDegreesClockwise(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEnclosureLocation2 {

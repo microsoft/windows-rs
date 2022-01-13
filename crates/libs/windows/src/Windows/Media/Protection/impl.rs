@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IComponentLoadFailedEventArgsImpl: Sized {
-    fn Information(&self) -> ::windows::core::Result<RevocationAndRenewalInformation>;
-    fn Completion(&self) -> ::windows::core::Result<MediaProtectionServiceCompletion>;
+    fn Information(&mut self) -> ::windows::core::Result<RevocationAndRenewalInformation>;
+    fn Completion(&mut self) -> ::windows::core::Result<MediaProtectionServiceCompletion>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IComponentLoadFailedEventArgs {
@@ -44,7 +44,7 @@ impl IComponentLoadFailedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IComponentRenewalStaticsImpl: Sized {
-    fn RenewSystemComponentsAsync(&self, information: &::core::option::Option<RevocationAndRenewalInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>;
+    fn RenewSystemComponentsAsync(&mut self, information: &::core::option::Option<RevocationAndRenewalInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IComponentRenewalStatics {
@@ -75,11 +75,11 @@ impl IComponentRenewalStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHdcpSessionImpl: Sized + IClosableImpl {
-    fn IsEffectiveProtectionAtLeast(&self, protection: HdcpProtection) -> ::windows::core::Result<bool>;
-    fn GetEffectiveProtection(&self) -> ::windows::core::Result<super::super::Foundation::IReference<HdcpProtection>>;
-    fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>;
-    fn ProtectionChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProtectionChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsEffectiveProtectionAtLeast(&mut self, protection: HdcpProtection) -> ::windows::core::Result<bool>;
+    fn GetEffectiveProtection(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<HdcpProtection>>;
+    fn SetDesiredMinProtectionAsync(&mut self, protection: HdcpProtection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>;
+    fn ProtectionChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProtectionChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHdcpSession {
@@ -151,13 +151,13 @@ impl IHdcpSessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProtectionManagerImpl: Sized {
-    fn ServiceRequested(&self, handler: &::core::option::Option<ServiceRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveServiceRequested(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RebootNeeded(&self, handler: &::core::option::Option<RebootNeededEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRebootNeeded(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ComponentLoadFailed(&self, handler: &::core::option::Option<ComponentLoadFailedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveComponentLoadFailed(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ServiceRequested(&mut self, handler: &::core::option::Option<ServiceRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveServiceRequested(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RebootNeeded(&mut self, handler: &::core::option::Option<RebootNeededEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRebootNeeded(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ComponentLoadFailed(&mut self, handler: &::core::option::Option<ComponentLoadFailedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveComponentLoadFailed(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProtectionManager {
@@ -239,7 +239,7 @@ impl IMediaProtectionManagerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProtectionPMPServerImpl: Sized {
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProtectionPMPServer {
@@ -267,7 +267,7 @@ impl IMediaProtectionPMPServerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProtectionPMPServerFactoryImpl: Sized {
-    fn CreatePMPServer(&self, pproperties: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<MediaProtectionPMPServer>;
+    fn CreatePMPServer(&mut self, pproperties: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<MediaProtectionPMPServer>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProtectionPMPServerFactory {
@@ -298,7 +298,7 @@ impl IMediaProtectionPMPServerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaProtectionServiceCompletionImpl: Sized {
-    fn Complete(&self, success: bool) -> ::windows::core::Result<()>;
+    fn Complete(&mut self, success: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaProtectionServiceCompletion {
@@ -321,8 +321,8 @@ impl IMediaProtectionServiceCompletionVtbl {
     }
 }
 pub trait IMediaProtectionServiceRequestImpl: Sized {
-    fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Type(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ProtectionSystem(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Type(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl ::windows::core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
@@ -363,7 +363,7 @@ impl IMediaProtectionServiceRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProtectionCapabilitiesImpl: Sized {
-    fn IsTypeSupported(&self, r#type: &::windows::core::HSTRING, keysystem: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionCapabilityResult>;
+    fn IsTypeSupported(&mut self, r#type: &::windows::core::HSTRING, keysystem: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionCapabilityResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProtectionCapabilities {
@@ -394,7 +394,7 @@ impl IProtectionCapabilitiesVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRevocationAndRenewalInformationImpl: Sized {
-    fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>>;
+    fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRevocationAndRenewalInformation {
@@ -422,11 +422,11 @@ impl IRevocationAndRenewalInformationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRevocationAndRenewalItemImpl: Sized {
-    fn Reasons(&self) -> ::windows::core::Result<RevocationAndRenewalReasons>;
-    fn HeaderHash(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublicKeyHash(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RenewalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Reasons(&mut self) -> ::windows::core::Result<RevocationAndRenewalReasons>;
+    fn HeaderHash(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublicKeyHash(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RenewalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRevocationAndRenewalItem {
@@ -505,8 +505,8 @@ impl IRevocationAndRenewalItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IServiceRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<IMediaProtectionServiceRequest>;
-    fn Completion(&self) -> ::windows::core::Result<MediaProtectionServiceCompletion>;
+    fn Request(&mut self) -> ::windows::core::Result<IMediaProtectionServiceRequest>;
+    fn Completion(&mut self) -> ::windows::core::Result<MediaProtectionServiceCompletion>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IServiceRequestedEventArgs {
@@ -549,7 +549,7 @@ impl IServiceRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait IServiceRequestedEventArgs2Impl: Sized {
-    fn MediaPlaybackItem(&self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
+    fn MediaPlaybackItem(&mut self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
 }
 #[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IServiceRequestedEventArgs2 {

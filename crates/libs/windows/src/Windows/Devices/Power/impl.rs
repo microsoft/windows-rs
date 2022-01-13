@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBatteryImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetReport(&self) -> ::windows::core::Result<BatteryReport>;
-    fn ReportUpdated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Battery, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReportUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetReport(&mut self) -> ::windows::core::Result<BatteryReport>;
+    fn ReportUpdated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Battery, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReportUpdated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBattery {
@@ -63,11 +63,11 @@ impl IBatteryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System_Power", feature = "implement_exclusive"))]
 pub trait IBatteryReportImpl: Sized {
-    fn ChargeRateInMilliwatts(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn DesignCapacityInMilliwattHours(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn FullChargeCapacityInMilliwattHours(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn RemainingCapacityInMilliwattHours(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn Status(&self) -> ::windows::core::Result<super::super::System::Power::BatteryStatus>;
+    fn ChargeRateInMilliwatts(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn DesignCapacityInMilliwattHours(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn FullChargeCapacityInMilliwattHours(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn RemainingCapacityInMilliwattHours(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn Status(&mut self) -> ::windows::core::Result<super::super::System::Power::BatteryStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "System_Power", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBatteryReport {
@@ -146,9 +146,9 @@ impl IBatteryReportVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBatteryStaticsImpl: Sized {
-    fn AggregateBattery(&self) -> ::windows::core::Result<Battery>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Battery>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AggregateBattery(&mut self) -> ::windows::core::Result<Battery>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Battery>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBatteryStatics {

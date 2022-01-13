@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemProtectionStaticsImpl: Sized {
-    fn ScreenLocked(&self) -> ::windows::core::Result<bool>;
+    fn ScreenLocked(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemProtectionStatics {
@@ -31,7 +31,7 @@ impl ISystemProtectionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemProtectionUnlockStaticsImpl: Sized {
-    fn RequestScreenUnlock(&self) -> ::windows::core::Result<()>;
+    fn RequestScreenUnlock(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemProtectionUnlockStatics {

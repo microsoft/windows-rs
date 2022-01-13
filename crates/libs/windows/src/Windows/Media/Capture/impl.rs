@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
 pub trait IAdvancedCapturedPhotoImpl: Sized {
-    fn Frame(&self) -> ::windows::core::Result<CapturedFrame>;
-    fn Mode(&self) -> ::windows::core::Result<super::Devices::AdvancedPhotoMode>;
-    fn Context(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
+    fn Mode(&mut self) -> ::windows::core::Result<super::Devices::AdvancedPhotoMode>;
+    fn Context(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdvancedCapturedPhoto {
@@ -57,7 +57,7 @@ impl IAdvancedCapturedPhotoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAdvancedCapturedPhoto2Impl: Sized {
-    fn FrameBoundsRelativeToReferencePhoto(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>>;
+    fn FrameBoundsRelativeToReferencePhoto(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdvancedCapturedPhoto2 {
@@ -88,13 +88,13 @@ impl IAdvancedCapturedPhoto2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAdvancedPhotoCaptureImpl: Sized {
-    fn CaptureAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>;
-    fn CaptureWithContextAsync(&self, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>;
-    fn OptionalReferencePhotoCaptured(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOptionalReferencePhotoCaptured(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AllPhotosCaptured(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAllPhotosCaptured(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn FinishAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CaptureAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>;
+    fn CaptureWithContextAsync(&mut self, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>;
+    fn OptionalReferencePhotoCaptured(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOptionalReferencePhotoCaptured(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AllPhotosCaptured(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAllPhotosCaptured(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdvancedPhotoCapture {
@@ -183,20 +183,20 @@ impl IAdvancedPhotoCaptureVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastBackgroundServiceImpl: Sized {
-    fn SetPlugInState(&self, value: AppBroadcastPlugInState) -> ::windows::core::Result<()>;
-    fn PlugInState(&self) -> ::windows::core::Result<AppBroadcastPlugInState>;
-    fn SetSignInInfo(&self, value: &::core::option::Option<AppBroadcastBackgroundServiceSignInInfo>) -> ::windows::core::Result<()>;
-    fn SignInInfo(&self) -> ::windows::core::Result<AppBroadcastBackgroundServiceSignInInfo>;
-    fn SetStreamInfo(&self, value: &::core::option::Option<AppBroadcastBackgroundServiceStreamInfo>) -> ::windows::core::Result<()>;
-    fn StreamInfo(&self) -> ::windows::core::Result<AppBroadcastBackgroundServiceStreamInfo>;
-    fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BroadcastTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetViewerCount(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ViewerCount(&self) -> ::windows::core::Result<u32>;
-    fn TerminateBroadcast(&self, reason: AppBroadcastTerminationReason, providerspecificreason: u32) -> ::windows::core::Result<()>;
-    fn HeartbeatRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHeartbeatRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TitleId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPlugInState(&mut self, value: AppBroadcastPlugInState) -> ::windows::core::Result<()>;
+    fn PlugInState(&mut self) -> ::windows::core::Result<AppBroadcastPlugInState>;
+    fn SetSignInInfo(&mut self, value: &::core::option::Option<AppBroadcastBackgroundServiceSignInInfo>) -> ::windows::core::Result<()>;
+    fn SignInInfo(&mut self) -> ::windows::core::Result<AppBroadcastBackgroundServiceSignInInfo>;
+    fn SetStreamInfo(&mut self, value: &::core::option::Option<AppBroadcastBackgroundServiceStreamInfo>) -> ::windows::core::Result<()>;
+    fn StreamInfo(&mut self) -> ::windows::core::Result<AppBroadcastBackgroundServiceStreamInfo>;
+    fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BroadcastTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetViewerCount(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ViewerCount(&mut self) -> ::windows::core::Result<u32>;
+    fn TerminateBroadcast(&mut self, reason: AppBroadcastTerminationReason, providerspecificreason: u32) -> ::windows::core::Result<()>;
+    fn HeartbeatRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHeartbeatRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TitleId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastBackgroundService {
@@ -341,17 +341,17 @@ impl IAppBroadcastBackgroundServiceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastBackgroundService2Impl: Sized {
-    fn SetBroadcastTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BroadcastLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBroadcastLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BroadcastChannel(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBroadcastChannel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BroadcastTitleChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBroadcastTitleChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn BroadcastLanguageChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBroadcastLanguageChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn BroadcastChannelChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBroadcastChannelChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetBroadcastTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BroadcastLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBroadcastLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BroadcastChannel(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBroadcastChannel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BroadcastTitleChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBroadcastTitleChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BroadcastLanguageChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBroadcastLanguageChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BroadcastChannelChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBroadcastChannelChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastBackgroundService2 {
@@ -460,16 +460,16 @@ impl IAppBroadcastBackgroundService2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
 pub trait IAppBroadcastBackgroundServiceSignInInfoImpl: Sized {
-    fn SignInState(&self) -> ::windows::core::Result<AppBroadcastSignInState>;
-    fn SetOAuthRequestUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn OAuthRequestUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetOAuthCallbackUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn OAuthCallbackUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn AuthenticationResult(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult>;
-    fn SetUserName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SignInStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSignInStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SignInState(&mut self) -> ::windows::core::Result<AppBroadcastSignInState>;
+    fn SetOAuthRequestUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn OAuthRequestUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetOAuthCallbackUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn OAuthCallbackUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn AuthenticationResult(&mut self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult>;
+    fn SetUserName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UserName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SignInStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSignInStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceSignInInfo {
@@ -580,8 +580,8 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastBackgroundServiceSignInInfo2Impl: Sized {
-    fn UserNameChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUserNameChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UserNameChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUserNameChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceSignInInfo2 {
@@ -617,20 +617,20 @@ impl IAppBroadcastBackgroundServiceSignInInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastBackgroundServiceStreamInfoImpl: Sized {
-    fn StreamState(&self) -> ::windows::core::Result<AppBroadcastStreamState>;
-    fn SetDesiredVideoEncodingBitrate(&self, value: u64) -> ::windows::core::Result<()>;
-    fn DesiredVideoEncodingBitrate(&self) -> ::windows::core::Result<u64>;
-    fn SetBandwidthTestBitrate(&self, value: u64) -> ::windows::core::Result<()>;
-    fn BandwidthTestBitrate(&self) -> ::windows::core::Result<u64>;
-    fn SetAudioCodec(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AudioCodec(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BroadcastStreamReader(&self) -> ::windows::core::Result<AppBroadcastStreamReader>;
-    fn StreamStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStreamStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn VideoEncodingResolutionChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVideoEncodingResolutionChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn VideoEncodingBitrateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVideoEncodingBitrateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StreamState(&mut self) -> ::windows::core::Result<AppBroadcastStreamState>;
+    fn SetDesiredVideoEncodingBitrate(&mut self, value: u64) -> ::windows::core::Result<()>;
+    fn DesiredVideoEncodingBitrate(&mut self) -> ::windows::core::Result<u64>;
+    fn SetBandwidthTestBitrate(&mut self, value: u64) -> ::windows::core::Result<()>;
+    fn BandwidthTestBitrate(&mut self) -> ::windows::core::Result<u64>;
+    fn SetAudioCodec(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AudioCodec(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BroadcastStreamReader(&mut self) -> ::windows::core::Result<AppBroadcastStreamReader>;
+    fn StreamStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStreamStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VideoEncodingResolutionChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVideoEncodingResolutionChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VideoEncodingBitrateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVideoEncodingBitrateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceStreamInfo {
@@ -775,7 +775,7 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastBackgroundServiceStreamInfo2Impl: Sized {
-    fn ReportProblemWithStream(&self) -> ::windows::core::Result<()>;
+    fn ReportProblemWithStream(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceStreamInfo2 {
@@ -799,8 +799,8 @@ impl IAppBroadcastBackgroundServiceStreamInfo2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastCameraCaptureStateChangedEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<AppBroadcastCameraCaptureState>;
-    fn ErrorCode(&self) -> ::windows::core::Result<u32>;
+    fn State(&mut self) -> ::windows::core::Result<AppBroadcastCameraCaptureState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastCameraCaptureStateChangedEventArgs {
@@ -843,30 +843,30 @@ impl IAppBroadcastCameraCaptureStateChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastGlobalSettingsImpl: Sized {
-    fn IsBroadcastEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsDisabledByPolicy(&self) -> ::windows::core::Result<bool>;
-    fn IsGpuConstrained(&self) -> ::windows::core::Result<bool>;
-    fn HasHardwareEncoder(&self) -> ::windows::core::Result<bool>;
-    fn SetIsAudioCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsAudioCaptureEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsMicrophoneCaptureEnabledByDefault(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsMicrophoneCaptureEnabledByDefault(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEchoCancellationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsEchoCancellationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetSystemAudioGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn SystemAudioGain(&self) -> ::windows::core::Result<f64>;
-    fn SetMicrophoneGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn MicrophoneGain(&self) -> ::windows::core::Result<f64>;
-    fn SetIsCameraCaptureEnabledByDefault(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsCameraCaptureEnabledByDefault(&self) -> ::windows::core::Result<bool>;
-    fn SetSelectedCameraId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SelectedCameraId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCameraOverlayLocation(&self, value: AppBroadcastCameraOverlayLocation) -> ::windows::core::Result<()>;
-    fn CameraOverlayLocation(&self) -> ::windows::core::Result<AppBroadcastCameraOverlayLocation>;
-    fn SetCameraOverlaySize(&self, value: AppBroadcastCameraOverlaySize) -> ::windows::core::Result<()>;
-    fn CameraOverlaySize(&self) -> ::windows::core::Result<AppBroadcastCameraOverlaySize>;
-    fn SetIsCursorImageCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsCursorImageCaptureEnabled(&self) -> ::windows::core::Result<bool>;
+    fn IsBroadcastEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDisabledByPolicy(&mut self) -> ::windows::core::Result<bool>;
+    fn IsGpuConstrained(&mut self) -> ::windows::core::Result<bool>;
+    fn HasHardwareEncoder(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsAudioCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsAudioCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsMicrophoneCaptureEnabledByDefault(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsMicrophoneCaptureEnabledByDefault(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEchoCancellationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsEchoCancellationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSystemAudioGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn SystemAudioGain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetMicrophoneGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn MicrophoneGain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetIsCameraCaptureEnabledByDefault(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsCameraCaptureEnabledByDefault(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSelectedCameraId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SelectedCameraId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCameraOverlayLocation(&mut self, value: AppBroadcastCameraOverlayLocation) -> ::windows::core::Result<()>;
+    fn CameraOverlayLocation(&mut self) -> ::windows::core::Result<AppBroadcastCameraOverlayLocation>;
+    fn SetCameraOverlaySize(&mut self, value: AppBroadcastCameraOverlaySize) -> ::windows::core::Result<()>;
+    fn CameraOverlaySize(&mut self) -> ::windows::core::Result<AppBroadcastCameraOverlaySize>;
+    fn SetIsCursorImageCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsCursorImageCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastGlobalSettings {
@@ -1103,8 +1103,8 @@ impl IAppBroadcastGlobalSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastHeartbeatRequestedEventArgsImpl: Sized {
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastHeartbeatRequestedEventArgs {
@@ -1140,10 +1140,10 @@ impl IAppBroadcastHeartbeatRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastManagerStaticsImpl: Sized {
-    fn GetGlobalSettings(&self) -> ::windows::core::Result<AppBroadcastGlobalSettings>;
-    fn ApplyGlobalSettings(&self, value: &::core::option::Option<AppBroadcastGlobalSettings>) -> ::windows::core::Result<()>;
-    fn GetProviderSettings(&self) -> ::windows::core::Result<AppBroadcastProviderSettings>;
-    fn ApplyProviderSettings(&self, value: &::core::option::Option<AppBroadcastProviderSettings>) -> ::windows::core::Result<()>;
+    fn GetGlobalSettings(&mut self) -> ::windows::core::Result<AppBroadcastGlobalSettings>;
+    fn ApplyGlobalSettings(&mut self, value: &::core::option::Option<AppBroadcastGlobalSettings>) -> ::windows::core::Result<()>;
+    fn GetProviderSettings(&mut self) -> ::windows::core::Result<AppBroadcastProviderSettings>;
+    fn ApplyProviderSettings(&mut self, value: &::core::option::Option<AppBroadcastProviderSettings>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastManagerStatics {
@@ -1196,8 +1196,8 @@ impl IAppBroadcastManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastMicrophoneCaptureStateChangedEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<AppBroadcastMicrophoneCaptureState>;
-    fn ErrorCode(&self) -> ::windows::core::Result<u32>;
+    fn State(&mut self) -> ::windows::core::Result<AppBroadcastMicrophoneCaptureState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastMicrophoneCaptureStateChangedEventArgs {
@@ -1240,10 +1240,10 @@ impl IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAppBroadcastPlugInImpl: Sized {
-    fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProviderSettings(&self) -> ::windows::core::Result<AppBroadcastProviderSettings>;
-    fn Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProviderSettings(&mut self) -> ::windows::core::Result<AppBroadcastProviderSettings>;
+    fn Logo(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastPlugIn {
@@ -1310,10 +1310,10 @@ impl IAppBroadcastPlugInVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppBroadcastPlugInManagerImpl: Sized {
-    fn IsBroadcastProviderAvailable(&self) -> ::windows::core::Result<bool>;
-    fn PlugInList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppBroadcastPlugIn>>;
-    fn DefaultPlugIn(&self) -> ::windows::core::Result<AppBroadcastPlugIn>;
-    fn SetDefaultPlugIn(&self, value: &::core::option::Option<AppBroadcastPlugIn>) -> ::windows::core::Result<()>;
+    fn IsBroadcastProviderAvailable(&mut self) -> ::windows::core::Result<bool>;
+    fn PlugInList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppBroadcastPlugIn>>;
+    fn DefaultPlugIn(&mut self) -> ::windows::core::Result<AppBroadcastPlugIn>;
+    fn SetDefaultPlugIn(&mut self, value: &::core::option::Option<AppBroadcastPlugIn>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastPlugInManager {
@@ -1373,8 +1373,8 @@ impl IAppBroadcastPlugInManagerVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppBroadcastPlugInManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<AppBroadcastPlugInManager>;
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<AppBroadcastPlugInManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<AppBroadcastPlugInManager>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<AppBroadcastPlugInManager>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastPlugInManagerStatics {
@@ -1417,7 +1417,7 @@ impl IAppBroadcastPlugInManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastPlugInStateChangedEventArgsImpl: Sized {
-    fn PlugInState(&self) -> ::windows::core::Result<AppBroadcastPlugInState>;
+    fn PlugInState(&mut self) -> ::windows::core::Result<AppBroadcastPlugInState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastPlugInStateChangedEventArgs {
@@ -1448,12 +1448,12 @@ impl IAppBroadcastPlugInStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastPreviewImpl: Sized {
-    fn StopPreview(&self) -> ::windows::core::Result<()>;
-    fn PreviewState(&self) -> ::windows::core::Result<AppBroadcastPreviewState>;
-    fn ErrorCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn PreviewStateChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePreviewStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PreviewStreamReader(&self) -> ::windows::core::Result<AppBroadcastPreviewStreamReader>;
+    fn StopPreview(&mut self) -> ::windows::core::Result<()>;
+    fn PreviewState(&mut self) -> ::windows::core::Result<AppBroadcastPreviewState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn PreviewStateChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePreviewStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PreviewStreamReader(&mut self) -> ::windows::core::Result<AppBroadcastPreviewStreamReader>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastPreview {
@@ -1530,8 +1530,8 @@ impl IAppBroadcastPreviewVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastPreviewStateChangedEventArgsImpl: Sized {
-    fn PreviewState(&self) -> ::windows::core::Result<AppBroadcastPreviewState>;
-    fn ErrorCode(&self) -> ::windows::core::Result<u32>;
+    fn PreviewState(&mut self) -> ::windows::core::Result<AppBroadcastPreviewState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastPreviewStateChangedEventArgs {
@@ -1574,14 +1574,14 @@ impl IAppBroadcastPreviewStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IAppBroadcastPreviewStreamReaderImpl: Sized {
-    fn VideoWidth(&self) -> ::windows::core::Result<u32>;
-    fn VideoHeight(&self) -> ::windows::core::Result<u32>;
-    fn VideoStride(&self) -> ::windows::core::Result<u32>;
-    fn VideoBitmapPixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPixelFormat>;
-    fn VideoBitmapAlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapAlphaMode>;
-    fn TryGetNextVideoFrame(&self) -> ::windows::core::Result<AppBroadcastPreviewStreamVideoFrame>;
-    fn VideoFrameArrived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVideoFrameArrived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VideoWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn VideoHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn VideoStride(&mut self) -> ::windows::core::Result<u32>;
+    fn VideoBitmapPixelFormat(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPixelFormat>;
+    fn VideoBitmapAlphaMode(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapAlphaMode>;
+    fn TryGetNextVideoFrame(&mut self) -> ::windows::core::Result<AppBroadcastPreviewStreamVideoFrame>;
+    fn VideoFrameArrived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVideoFrameArrived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastPreviewStreamReader {
@@ -1689,8 +1689,8 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAppBroadcastPreviewStreamVideoFrameImpl: Sized {
-    fn VideoHeader(&self) -> ::windows::core::Result<AppBroadcastPreviewStreamVideoHeader>;
-    fn VideoBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn VideoHeader(&mut self) -> ::windows::core::Result<AppBroadcastPreviewStreamVideoHeader>;
+    fn VideoBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastPreviewStreamVideoFrame {
@@ -1733,10 +1733,10 @@ impl IAppBroadcastPreviewStreamVideoFrameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastPreviewStreamVideoHeaderImpl: Sized {
-    fn AbsoluteTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn RelativeTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn FrameId(&self) -> ::windows::core::Result<u64>;
+    fn AbsoluteTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn RelativeTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn FrameId(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastPreviewStreamVideoHeader {
@@ -1803,20 +1803,20 @@ impl IAppBroadcastPreviewStreamVideoHeaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastProviderSettingsImpl: Sized {
-    fn SetDefaultBroadcastTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DefaultBroadcastTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAudioEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn AudioEncodingBitrate(&self) -> ::windows::core::Result<u32>;
-    fn SetCustomVideoEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CustomVideoEncodingBitrate(&self) -> ::windows::core::Result<u32>;
-    fn SetCustomVideoEncodingHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CustomVideoEncodingHeight(&self) -> ::windows::core::Result<u32>;
-    fn SetCustomVideoEncodingWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CustomVideoEncodingWidth(&self) -> ::windows::core::Result<u32>;
-    fn SetVideoEncodingBitrateMode(&self, value: AppBroadcastVideoEncodingBitrateMode) -> ::windows::core::Result<()>;
-    fn VideoEncodingBitrateMode(&self) -> ::windows::core::Result<AppBroadcastVideoEncodingBitrateMode>;
-    fn SetVideoEncodingResolutionMode(&self, value: AppBroadcastVideoEncodingResolutionMode) -> ::windows::core::Result<()>;
-    fn VideoEncodingResolutionMode(&self) -> ::windows::core::Result<AppBroadcastVideoEncodingResolutionMode>;
+    fn SetDefaultBroadcastTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DefaultBroadcastTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAudioEncodingBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn AudioEncodingBitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetCustomVideoEncodingBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CustomVideoEncodingBitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetCustomVideoEncodingHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CustomVideoEncodingHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn SetCustomVideoEncodingWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CustomVideoEncodingWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn SetVideoEncodingBitrateMode(&mut self, value: AppBroadcastVideoEncodingBitrateMode) -> ::windows::core::Result<()>;
+    fn VideoEncodingBitrateMode(&mut self) -> ::windows::core::Result<AppBroadcastVideoEncodingBitrateMode>;
+    fn SetVideoEncodingResolutionMode(&mut self, value: AppBroadcastVideoEncodingResolutionMode) -> ::windows::core::Result<()>;
+    fn VideoEncodingResolutionMode(&mut self) -> ::windows::core::Result<AppBroadcastVideoEncodingResolutionMode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastProviderSettings {
@@ -1954,21 +1954,21 @@ impl IAppBroadcastProviderSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastServicesImpl: Sized {
-    fn CaptureTargetType(&self) -> ::windows::core::Result<AppBroadcastCaptureTargetType>;
-    fn SetCaptureTargetType(&self, value: AppBroadcastCaptureTargetType) -> ::windows::core::Result<()>;
-    fn BroadcastTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBroadcastTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BroadcastLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBroadcastLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CanCapture(&self) -> ::windows::core::Result<bool>;
-    fn EnterBroadcastModeAsync(&self, plugin: &::core::option::Option<AppBroadcastPlugIn>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn ExitBroadcastMode(&self, reason: AppBroadcastExitBroadcastModeReason) -> ::windows::core::Result<()>;
-    fn StartBroadcast(&self) -> ::windows::core::Result<()>;
-    fn PauseBroadcast(&self) -> ::windows::core::Result<()>;
-    fn ResumeBroadcast(&self) -> ::windows::core::Result<()>;
-    fn StartPreview(&self, desiredsize: &super::super::Foundation::Size) -> ::windows::core::Result<AppBroadcastPreview>;
-    fn State(&self) -> ::windows::core::Result<AppBroadcastState>;
+    fn CaptureTargetType(&mut self) -> ::windows::core::Result<AppBroadcastCaptureTargetType>;
+    fn SetCaptureTargetType(&mut self, value: AppBroadcastCaptureTargetType) -> ::windows::core::Result<()>;
+    fn BroadcastTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBroadcastTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BroadcastLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBroadcastLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UserName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CanCapture(&mut self) -> ::windows::core::Result<bool>;
+    fn EnterBroadcastModeAsync(&mut self, plugin: &::core::option::Option<AppBroadcastPlugIn>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn ExitBroadcastMode(&mut self, reason: AppBroadcastExitBroadcastModeReason) -> ::windows::core::Result<()>;
+    fn StartBroadcast(&mut self) -> ::windows::core::Result<()>;
+    fn PauseBroadcast(&mut self) -> ::windows::core::Result<()>;
+    fn ResumeBroadcast(&mut self) -> ::windows::core::Result<()>;
+    fn StartPreview(&mut self, desiredsize: &super::super::Foundation::Size) -> ::windows::core::Result<AppBroadcastPreview>;
+    fn State(&mut self) -> ::windows::core::Result<AppBroadcastState>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastServices {
@@ -2118,8 +2118,8 @@ impl IAppBroadcastServicesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastSignInStateChangedEventArgsImpl: Sized {
-    fn SignInState(&self) -> ::windows::core::Result<AppBroadcastSignInState>;
-    fn Result(&self) -> ::windows::core::Result<AppBroadcastSignInResult>;
+    fn SignInState(&mut self) -> ::windows::core::Result<AppBroadcastSignInState>;
+    fn Result(&mut self) -> ::windows::core::Result<AppBroadcastSignInResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastSignInStateChangedEventArgs {
@@ -2162,41 +2162,41 @@ impl IAppBroadcastSignInStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
 pub trait IAppBroadcastStateImpl: Sized {
-    fn IsCaptureTargetRunning(&self) -> ::windows::core::Result<bool>;
-    fn ViewerCount(&self) -> ::windows::core::Result<u32>;
-    fn ShouldCaptureMicrophone(&self) -> ::windows::core::Result<bool>;
-    fn SetShouldCaptureMicrophone(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RestartMicrophoneCapture(&self) -> ::windows::core::Result<()>;
-    fn ShouldCaptureCamera(&self) -> ::windows::core::Result<bool>;
-    fn SetShouldCaptureCamera(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RestartCameraCapture(&self) -> ::windows::core::Result<()>;
-    fn EncodedVideoSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn MicrophoneCaptureState(&self) -> ::windows::core::Result<AppBroadcastMicrophoneCaptureState>;
-    fn MicrophoneCaptureError(&self) -> ::windows::core::Result<u32>;
-    fn CameraCaptureState(&self) -> ::windows::core::Result<AppBroadcastCameraCaptureState>;
-    fn CameraCaptureError(&self) -> ::windows::core::Result<u32>;
-    fn StreamState(&self) -> ::windows::core::Result<AppBroadcastStreamState>;
-    fn PlugInState(&self) -> ::windows::core::Result<AppBroadcastPlugInState>;
-    fn OAuthRequestUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn OAuthCallbackUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn AuthenticationResult(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult>;
-    fn SetAuthenticationResult(&self, value: &::core::option::Option<super::super::Security::Authentication::Web::WebAuthenticationResult>) -> ::windows::core::Result<()>;
-    fn SetSignInState(&self, value: AppBroadcastSignInState) -> ::windows::core::Result<()>;
-    fn SignInState(&self) -> ::windows::core::Result<AppBroadcastSignInState>;
-    fn TerminationReason(&self) -> ::windows::core::Result<AppBroadcastTerminationReason>;
-    fn TerminationReasonPlugInSpecific(&self) -> ::windows::core::Result<u32>;
-    fn ViewerCountChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveViewerCountChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MicrophoneCaptureStateChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMicrophoneCaptureStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CameraCaptureStateChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCameraCaptureStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PlugInStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePlugInStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StreamStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStreamStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CaptureTargetClosed(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCaptureTargetClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsCaptureTargetRunning(&mut self) -> ::windows::core::Result<bool>;
+    fn ViewerCount(&mut self) -> ::windows::core::Result<u32>;
+    fn ShouldCaptureMicrophone(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShouldCaptureMicrophone(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RestartMicrophoneCapture(&mut self) -> ::windows::core::Result<()>;
+    fn ShouldCaptureCamera(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShouldCaptureCamera(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RestartCameraCapture(&mut self) -> ::windows::core::Result<()>;
+    fn EncodedVideoSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn MicrophoneCaptureState(&mut self) -> ::windows::core::Result<AppBroadcastMicrophoneCaptureState>;
+    fn MicrophoneCaptureError(&mut self) -> ::windows::core::Result<u32>;
+    fn CameraCaptureState(&mut self) -> ::windows::core::Result<AppBroadcastCameraCaptureState>;
+    fn CameraCaptureError(&mut self) -> ::windows::core::Result<u32>;
+    fn StreamState(&mut self) -> ::windows::core::Result<AppBroadcastStreamState>;
+    fn PlugInState(&mut self) -> ::windows::core::Result<AppBroadcastPlugInState>;
+    fn OAuthRequestUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn OAuthCallbackUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn AuthenticationResult(&mut self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult>;
+    fn SetAuthenticationResult(&mut self, value: &::core::option::Option<super::super::Security::Authentication::Web::WebAuthenticationResult>) -> ::windows::core::Result<()>;
+    fn SetSignInState(&mut self, value: AppBroadcastSignInState) -> ::windows::core::Result<()>;
+    fn SignInState(&mut self) -> ::windows::core::Result<AppBroadcastSignInState>;
+    fn TerminationReason(&mut self) -> ::windows::core::Result<AppBroadcastTerminationReason>;
+    fn TerminationReasonPlugInSpecific(&mut self) -> ::windows::core::Result<u32>;
+    fn ViewerCountChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveViewerCountChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MicrophoneCaptureStateChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMicrophoneCaptureStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CameraCaptureStateChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCameraCaptureStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PlugInStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePlugInStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StreamStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStreamStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CaptureTargetClosed(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastState, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCaptureTargetClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastState {
@@ -2551,8 +2551,8 @@ impl IAppBroadcastStateVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAppBroadcastStreamAudioFrameImpl: Sized {
-    fn AudioHeader(&self) -> ::windows::core::Result<AppBroadcastStreamAudioHeader>;
-    fn AudioBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn AudioHeader(&mut self) -> ::windows::core::Result<AppBroadcastStreamAudioHeader>;
+    fn AudioBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastStreamAudioFrame {
@@ -2595,11 +2595,11 @@ impl IAppBroadcastStreamAudioFrameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastStreamAudioHeaderImpl: Sized {
-    fn AbsoluteTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn RelativeTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn HasDiscontinuity(&self) -> ::windows::core::Result<bool>;
-    fn FrameId(&self) -> ::windows::core::Result<u64>;
+    fn AbsoluteTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn RelativeTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn HasDiscontinuity(&mut self) -> ::windows::core::Result<bool>;
+    fn FrameId(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastStreamAudioHeader {
@@ -2678,19 +2678,19 @@ impl IAppBroadcastStreamAudioHeaderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAppBroadcastStreamReaderImpl: Sized {
-    fn AudioChannels(&self) -> ::windows::core::Result<u32>;
-    fn AudioSampleRate(&self) -> ::windows::core::Result<u32>;
-    fn AudioAacSequence(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn AudioBitrate(&self) -> ::windows::core::Result<u32>;
-    fn TryGetNextAudioFrame(&self) -> ::windows::core::Result<AppBroadcastStreamAudioFrame>;
-    fn VideoWidth(&self) -> ::windows::core::Result<u32>;
-    fn VideoHeight(&self) -> ::windows::core::Result<u32>;
-    fn VideoBitrate(&self) -> ::windows::core::Result<u32>;
-    fn TryGetNextVideoFrame(&self) -> ::windows::core::Result<AppBroadcastStreamVideoFrame>;
-    fn AudioFrameArrived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioFrameArrived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn VideoFrameArrived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVideoFrameArrived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AudioChannels(&mut self) -> ::windows::core::Result<u32>;
+    fn AudioSampleRate(&mut self) -> ::windows::core::Result<u32>;
+    fn AudioAacSequence(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn AudioBitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn TryGetNextAudioFrame(&mut self) -> ::windows::core::Result<AppBroadcastStreamAudioFrame>;
+    fn VideoWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn VideoHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn VideoBitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn TryGetNextVideoFrame(&mut self) -> ::windows::core::Result<AppBroadcastStreamVideoFrame>;
+    fn AudioFrameArrived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioFrameArrived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VideoFrameArrived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVideoFrameArrived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastStreamReader {
@@ -2851,7 +2851,7 @@ impl IAppBroadcastStreamReaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastStreamStateChangedEventArgsImpl: Sized {
-    fn StreamState(&self) -> ::windows::core::Result<AppBroadcastStreamState>;
+    fn StreamState(&mut self) -> ::windows::core::Result<AppBroadcastStreamState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastStreamStateChangedEventArgs {
@@ -2882,8 +2882,8 @@ impl IAppBroadcastStreamStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAppBroadcastStreamVideoFrameImpl: Sized {
-    fn VideoHeader(&self) -> ::windows::core::Result<AppBroadcastStreamVideoHeader>;
-    fn VideoBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn VideoHeader(&mut self) -> ::windows::core::Result<AppBroadcastStreamVideoHeader>;
+    fn VideoBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastStreamVideoFrame {
@@ -2926,12 +2926,12 @@ impl IAppBroadcastStreamVideoFrameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastStreamVideoHeaderImpl: Sized {
-    fn AbsoluteTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn RelativeTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn IsKeyFrame(&self) -> ::windows::core::Result<bool>;
-    fn HasDiscontinuity(&self) -> ::windows::core::Result<bool>;
-    fn FrameId(&self) -> ::windows::core::Result<u64>;
+    fn AbsoluteTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn RelativeTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn IsKeyFrame(&mut self) -> ::windows::core::Result<bool>;
+    fn HasDiscontinuity(&mut self) -> ::windows::core::Result<bool>;
+    fn FrameId(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastStreamVideoHeader {
@@ -3022,7 +3022,7 @@ impl IAppBroadcastStreamVideoHeaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastTriggerDetailsImpl: Sized {
-    fn BackgroundService(&self) -> ::windows::core::Result<AppBroadcastBackgroundService>;
+    fn BackgroundService(&mut self) -> ::windows::core::Result<AppBroadcastBackgroundService>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastTriggerDetails {
@@ -3053,7 +3053,7 @@ impl IAppBroadcastTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastViewerCountChangedEventArgsImpl: Sized {
-    fn ViewerCount(&self) -> ::windows::core::Result<u32>;
+    fn ViewerCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastViewerCountChangedEventArgs {
@@ -3084,10 +3084,10 @@ impl IAppBroadcastViewerCountChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppCaptureImpl: Sized {
-    fn IsCapturingAudio(&self) -> ::windows::core::Result<bool>;
-    fn IsCapturingVideo(&self) -> ::windows::core::Result<bool>;
-    fn CapturingChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCapturingChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsCapturingAudio(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCapturingVideo(&mut self) -> ::windows::core::Result<bool>;
+    fn CapturingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCapturingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCapture {
@@ -3147,26 +3147,26 @@ impl IAppCaptureVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppCaptureAlternateShortcutKeysImpl: Sized {
-    fn SetToggleGameBarKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn ToggleGameBarKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetToggleGameBarKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn ToggleGameBarKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
-    fn SetSaveHistoricalVideoKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn SaveHistoricalVideoKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetSaveHistoricalVideoKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn SaveHistoricalVideoKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
-    fn SetToggleRecordingKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn ToggleRecordingKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetToggleRecordingKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn ToggleRecordingKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
-    fn SetTakeScreenshotKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn TakeScreenshotKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetTakeScreenshotKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn TakeScreenshotKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
-    fn SetToggleRecordingIndicatorKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn ToggleRecordingIndicatorKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetToggleRecordingIndicatorKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn ToggleRecordingIndicatorKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetToggleGameBarKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn ToggleGameBarKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetToggleGameBarKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn ToggleGameBarKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetSaveHistoricalVideoKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn SaveHistoricalVideoKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetSaveHistoricalVideoKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn SaveHistoricalVideoKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetToggleRecordingKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn ToggleRecordingKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetToggleRecordingKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn ToggleRecordingKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetTakeScreenshotKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn TakeScreenshotKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetTakeScreenshotKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn TakeScreenshotKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetToggleRecordingIndicatorKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn ToggleRecordingIndicatorKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetToggleRecordingIndicatorKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn ToggleRecordingIndicatorKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureAlternateShortcutKeys {
@@ -3355,10 +3355,10 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppCaptureAlternateShortcutKeys2Impl: Sized {
-    fn SetToggleMicrophoneCaptureKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn ToggleMicrophoneCaptureKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetToggleMicrophoneCaptureKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn ToggleMicrophoneCaptureKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetToggleMicrophoneCaptureKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn ToggleMicrophoneCaptureKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetToggleMicrophoneCaptureKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn ToggleMicrophoneCaptureKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureAlternateShortcutKeys2 {
@@ -3411,14 +3411,14 @@ impl IAppCaptureAlternateShortcutKeys2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppCaptureAlternateShortcutKeys3Impl: Sized {
-    fn SetToggleCameraCaptureKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn ToggleCameraCaptureKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetToggleCameraCaptureKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn ToggleCameraCaptureKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
-    fn SetToggleBroadcastKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
-    fn ToggleBroadcastKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn SetToggleBroadcastKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
-    fn ToggleBroadcastKeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetToggleCameraCaptureKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn ToggleCameraCaptureKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetToggleCameraCaptureKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn ToggleCameraCaptureKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn SetToggleBroadcastKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
+    fn ToggleBroadcastKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn SetToggleBroadcastKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
+    fn ToggleBroadcastKeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureAlternateShortcutKeys3 {
@@ -3505,7 +3505,7 @@ impl IAppCaptureAlternateShortcutKeys3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppCaptureDurationGeneratedEventArgsImpl: Sized {
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureDurationGeneratedEventArgs {
@@ -3536,7 +3536,7 @@ impl IAppCaptureDurationGeneratedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAppCaptureFileGeneratedEventArgsImpl: Sized {
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureFileGeneratedEventArgs {
@@ -3564,8 +3564,8 @@ impl IAppCaptureFileGeneratedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureManagerStaticsImpl: Sized {
-    fn GetCurrentSettings(&self) -> ::windows::core::Result<AppCaptureSettings>;
-    fn ApplySettings(&self, appcapturesettings: &::core::option::Option<AppCaptureSettings>) -> ::windows::core::Result<()>;
+    fn GetCurrentSettings(&mut self) -> ::windows::core::Result<AppCaptureSettings>;
+    fn ApplySettings(&mut self, appcapturesettings: &::core::option::Option<AppCaptureSettings>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureManagerStatics {
@@ -3601,17 +3601,17 @@ impl IAppCaptureManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppCaptureMetadataWriterImpl: Sized {
-    fn AddStringEvent(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
-    fn AddInt32Event(&self, name: &::windows::core::HSTRING, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
-    fn AddDoubleEvent(&self, name: &::windows::core::HSTRING, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
-    fn StartStringState(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
-    fn StartInt32State(&self, name: &::windows::core::HSTRING, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
-    fn StartDoubleState(&self, name: &::windows::core::HSTRING, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
-    fn StopState(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn StopAllStates(&self) -> ::windows::core::Result<()>;
-    fn RemainingStorageBytesAvailable(&self) -> ::windows::core::Result<u64>;
-    fn MetadataPurged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMetadataPurged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AddStringEvent(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
+    fn AddInt32Event(&mut self, name: &::windows::core::HSTRING, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
+    fn AddDoubleEvent(&mut self, name: &::windows::core::HSTRING, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
+    fn StartStringState(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
+    fn StartInt32State(&mut self, name: &::windows::core::HSTRING, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
+    fn StartDoubleState(&mut self, name: &::windows::core::HSTRING, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
+    fn StopState(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StopAllStates(&mut self) -> ::windows::core::Result<()>;
+    fn RemainingStorageBytesAvailable(&mut self) -> ::windows::core::Result<u64>;
+    fn MetadataPurged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMetadataPurged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureMetadataWriter {
@@ -3699,8 +3699,8 @@ impl IAppCaptureMetadataWriterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureMicrophoneCaptureStateChangedEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<AppCaptureMicrophoneCaptureState>;
-    fn ErrorCode(&self) -> ::windows::core::Result<u32>;
+    fn State(&mut self) -> ::windows::core::Result<AppCaptureMicrophoneCaptureState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureMicrophoneCaptureStateChangedEventArgs {
@@ -3743,18 +3743,18 @@ impl IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAppCaptureRecordOperationImpl: Sized {
-    fn StopRecording(&self) -> ::windows::core::Result<()>;
-    fn State(&self) -> ::windows::core::Result<AppCaptureRecordingState>;
-    fn ErrorCode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
-    fn IsFileTruncated(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
-    fn StateChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DurationGenerated(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDurationGenerated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn FileGenerated(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFileGenerated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StopRecording(&mut self) -> ::windows::core::Result<()>;
+    fn State(&mut self) -> ::windows::core::Result<AppCaptureRecordingState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn IsFileTruncated(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
+    fn StateChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DurationGenerated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDurationGenerated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn FileGenerated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFileGenerated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureRecordOperation {
@@ -3889,8 +3889,8 @@ impl IAppCaptureRecordOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureRecordingStateChangedEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<AppCaptureRecordingState>;
-    fn ErrorCode(&self) -> ::windows::core::Result<u32>;
+    fn State(&mut self) -> ::windows::core::Result<AppCaptureRecordingState>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureRecordingStateChangedEventArgs {
@@ -3933,10 +3933,10 @@ impl IAppCaptureRecordingStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppCaptureServicesImpl: Sized {
-    fn Record(&self) -> ::windows::core::Result<AppCaptureRecordOperation>;
-    fn RecordTimeSpan(&self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<AppCaptureRecordOperation>;
-    fn CanCapture(&self) -> ::windows::core::Result<bool>;
-    fn State(&self) -> ::windows::core::Result<AppCaptureState>;
+    fn Record(&mut self) -> ::windows::core::Result<AppCaptureRecordOperation>;
+    fn RecordTimeSpan(&mut self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<AppCaptureRecordOperation>;
+    fn CanCapture(&mut self) -> ::windows::core::Result<bool>;
+    fn State(&mut self) -> ::windows::core::Result<AppCaptureState>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureServices {
@@ -4003,42 +4003,42 @@ impl IAppCaptureServicesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IAppCaptureSettingsImpl: Sized {
-    fn SetAppCaptureDestinationFolder(&self, value: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<()>;
-    fn AppCaptureDestinationFolder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
-    fn SetAudioEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn AudioEncodingBitrate(&self) -> ::windows::core::Result<u32>;
-    fn SetIsAudioCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsAudioCaptureEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetCustomVideoEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CustomVideoEncodingBitrate(&self) -> ::windows::core::Result<u32>;
-    fn SetCustomVideoEncodingHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CustomVideoEncodingHeight(&self) -> ::windows::core::Result<u32>;
-    fn SetCustomVideoEncodingWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CustomVideoEncodingWidth(&self) -> ::windows::core::Result<u32>;
-    fn SetHistoricalBufferLength(&self, value: u32) -> ::windows::core::Result<()>;
-    fn HistoricalBufferLength(&self) -> ::windows::core::Result<u32>;
-    fn SetHistoricalBufferLengthUnit(&self, value: AppCaptureHistoricalBufferLengthUnit) -> ::windows::core::Result<()>;
-    fn HistoricalBufferLengthUnit(&self) -> ::windows::core::Result<AppCaptureHistoricalBufferLengthUnit>;
-    fn SetIsHistoricalCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsHistoricalCaptureEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsHistoricalCaptureOnBatteryAllowed(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsHistoricalCaptureOnBatteryAllowed(&self) -> ::windows::core::Result<bool>;
-    fn SetIsHistoricalCaptureOnWirelessDisplayAllowed(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsHistoricalCaptureOnWirelessDisplayAllowed(&self) -> ::windows::core::Result<bool>;
-    fn SetMaximumRecordLength(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn MaximumRecordLength(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetScreenshotDestinationFolder(&self, value: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<()>;
-    fn ScreenshotDestinationFolder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
-    fn SetVideoEncodingBitrateMode(&self, value: AppCaptureVideoEncodingBitrateMode) -> ::windows::core::Result<()>;
-    fn VideoEncodingBitrateMode(&self) -> ::windows::core::Result<AppCaptureVideoEncodingBitrateMode>;
-    fn SetVideoEncodingResolutionMode(&self, value: AppCaptureVideoEncodingResolutionMode) -> ::windows::core::Result<()>;
-    fn VideoEncodingResolutionMode(&self) -> ::windows::core::Result<AppCaptureVideoEncodingResolutionMode>;
-    fn SetIsAppCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsAppCaptureEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsCpuConstrained(&self) -> ::windows::core::Result<bool>;
-    fn IsDisabledByPolicy(&self) -> ::windows::core::Result<bool>;
-    fn IsMemoryConstrained(&self) -> ::windows::core::Result<bool>;
-    fn HasHardwareEncoder(&self) -> ::windows::core::Result<bool>;
+    fn SetAppCaptureDestinationFolder(&mut self, value: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<()>;
+    fn AppCaptureDestinationFolder(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
+    fn SetAudioEncodingBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn AudioEncodingBitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetIsAudioCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsAudioCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCustomVideoEncodingBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CustomVideoEncodingBitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetCustomVideoEncodingHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CustomVideoEncodingHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn SetCustomVideoEncodingWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CustomVideoEncodingWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn SetHistoricalBufferLength(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn HistoricalBufferLength(&mut self) -> ::windows::core::Result<u32>;
+    fn SetHistoricalBufferLengthUnit(&mut self, value: AppCaptureHistoricalBufferLengthUnit) -> ::windows::core::Result<()>;
+    fn HistoricalBufferLengthUnit(&mut self) -> ::windows::core::Result<AppCaptureHistoricalBufferLengthUnit>;
+    fn SetIsHistoricalCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsHistoricalCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsHistoricalCaptureOnBatteryAllowed(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsHistoricalCaptureOnBatteryAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsHistoricalCaptureOnWirelessDisplayAllowed(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsHistoricalCaptureOnWirelessDisplayAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn SetMaximumRecordLength(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn MaximumRecordLength(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetScreenshotDestinationFolder(&mut self, value: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<()>;
+    fn ScreenshotDestinationFolder(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
+    fn SetVideoEncodingBitrateMode(&mut self, value: AppCaptureVideoEncodingBitrateMode) -> ::windows::core::Result<()>;
+    fn VideoEncodingBitrateMode(&mut self) -> ::windows::core::Result<AppCaptureVideoEncodingBitrateMode>;
+    fn SetVideoEncodingResolutionMode(&mut self, value: AppCaptureVideoEncodingResolutionMode) -> ::windows::core::Result<()>;
+    fn VideoEncodingResolutionMode(&mut self) -> ::windows::core::Result<AppCaptureVideoEncodingResolutionMode>;
+    fn SetIsAppCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsAppCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCpuConstrained(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDisabledByPolicy(&mut self) -> ::windows::core::Result<bool>;
+    fn IsMemoryConstrained(&mut self) -> ::windows::core::Result<bool>;
+    fn HasHardwareEncoder(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureSettings {
@@ -4377,8 +4377,8 @@ impl IAppCaptureSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureSettings2Impl: Sized {
-    fn IsGpuConstrained(&self) -> ::windows::core::Result<bool>;
-    fn AlternateShortcutKeys(&self) -> ::windows::core::Result<AppCaptureAlternateShortcutKeys>;
+    fn IsGpuConstrained(&mut self) -> ::windows::core::Result<bool>;
+    fn AlternateShortcutKeys(&mut self) -> ::windows::core::Result<AppCaptureAlternateShortcutKeys>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureSettings2 {
@@ -4421,8 +4421,8 @@ impl IAppCaptureSettings2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureSettings3Impl: Sized {
-    fn SetIsMicrophoneCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsMicrophoneCaptureEnabled(&self) -> ::windows::core::Result<bool>;
+    fn SetIsMicrophoneCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsMicrophoneCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureSettings3 {
@@ -4458,14 +4458,14 @@ impl IAppCaptureSettings3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureSettings4Impl: Sized {
-    fn SetIsMicrophoneCaptureEnabledByDefault(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsMicrophoneCaptureEnabledByDefault(&self) -> ::windows::core::Result<bool>;
-    fn SetSystemAudioGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn SystemAudioGain(&self) -> ::windows::core::Result<f64>;
-    fn SetMicrophoneGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn MicrophoneGain(&self) -> ::windows::core::Result<f64>;
-    fn SetVideoEncodingFrameRateMode(&self, value: AppCaptureVideoEncodingFrameRateMode) -> ::windows::core::Result<()>;
-    fn VideoEncodingFrameRateMode(&self) -> ::windows::core::Result<AppCaptureVideoEncodingFrameRateMode>;
+    fn SetIsMicrophoneCaptureEnabledByDefault(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsMicrophoneCaptureEnabledByDefault(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSystemAudioGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn SystemAudioGain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetMicrophoneGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn MicrophoneGain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetVideoEncodingFrameRateMode(&mut self, value: AppCaptureVideoEncodingFrameRateMode) -> ::windows::core::Result<()>;
+    fn VideoEncodingFrameRateMode(&mut self) -> ::windows::core::Result<AppCaptureVideoEncodingFrameRateMode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureSettings4 {
@@ -4552,10 +4552,10 @@ impl IAppCaptureSettings4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureSettings5Impl: Sized {
-    fn SetIsEchoCancellationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsEchoCancellationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsCursorImageCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsCursorImageCaptureEnabled(&self) -> ::windows::core::Result<bool>;
+    fn SetIsEchoCancellationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsEchoCancellationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsCursorImageCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsCursorImageCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureSettings5 {
@@ -4608,17 +4608,17 @@ impl IAppCaptureSettings5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppCaptureStateImpl: Sized {
-    fn IsTargetRunning(&self) -> ::windows::core::Result<bool>;
-    fn IsHistoricalCaptureEnabled(&self) -> ::windows::core::Result<bool>;
-    fn ShouldCaptureMicrophone(&self) -> ::windows::core::Result<bool>;
-    fn SetShouldCaptureMicrophone(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RestartMicrophoneCapture(&self) -> ::windows::core::Result<()>;
-    fn MicrophoneCaptureState(&self) -> ::windows::core::Result<AppCaptureMicrophoneCaptureState>;
-    fn MicrophoneCaptureError(&self) -> ::windows::core::Result<u32>;
-    fn MicrophoneCaptureStateChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMicrophoneCaptureStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CaptureTargetClosed(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureState, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCaptureTargetClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsTargetRunning(&mut self) -> ::windows::core::Result<bool>;
+    fn IsHistoricalCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn ShouldCaptureMicrophone(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShouldCaptureMicrophone(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RestartMicrophoneCapture(&mut self) -> ::windows::core::Result<()>;
+    fn MicrophoneCaptureState(&mut self) -> ::windows::core::Result<AppCaptureMicrophoneCaptureState>;
+    fn MicrophoneCaptureError(&mut self) -> ::windows::core::Result<u32>;
+    fn MicrophoneCaptureStateChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMicrophoneCaptureStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CaptureTargetClosed(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCaptureState, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCaptureTargetClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureState {
@@ -4741,7 +4741,7 @@ impl IAppCaptureStateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppCaptureStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<AppCapture>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<AppCapture>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppCaptureStatics {
@@ -4772,7 +4772,7 @@ impl IAppCaptureStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppCaptureStatics2Impl: Sized {
-    fn SetAllowedAsync(&self, allowed: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetAllowedAsync(&mut self, allowed: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppCaptureStatics2 {
@@ -4803,9 +4803,9 @@ impl IAppCaptureStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait ICameraCaptureUIImpl: Sized {
-    fn PhotoSettings(&self) -> ::windows::core::Result<CameraCaptureUIPhotoCaptureSettings>;
-    fn VideoSettings(&self) -> ::windows::core::Result<CameraCaptureUIVideoCaptureSettings>;
-    fn CaptureFileAsync(&self, mode: CameraCaptureUIMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>;
+    fn PhotoSettings(&mut self) -> ::windows::core::Result<CameraCaptureUIPhotoCaptureSettings>;
+    fn VideoSettings(&mut self) -> ::windows::core::Result<CameraCaptureUIVideoCaptureSettings>;
+    fn CaptureFileAsync(&mut self, mode: CameraCaptureUIMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICameraCaptureUI {
@@ -4860,16 +4860,16 @@ impl ICameraCaptureUIVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICameraCaptureUIPhotoCaptureSettingsImpl: Sized {
-    fn Format(&self) -> ::windows::core::Result<CameraCaptureUIPhotoFormat>;
-    fn SetFormat(&self, value: CameraCaptureUIPhotoFormat) -> ::windows::core::Result<()>;
-    fn MaxResolution(&self) -> ::windows::core::Result<CameraCaptureUIMaxPhotoResolution>;
-    fn SetMaxResolution(&self, value: CameraCaptureUIMaxPhotoResolution) -> ::windows::core::Result<()>;
-    fn CroppedSizeInPixels(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn SetCroppedSizeInPixels(&self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
-    fn CroppedAspectRatio(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn SetCroppedAspectRatio(&self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
-    fn AllowCropping(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowCropping(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Format(&mut self) -> ::windows::core::Result<CameraCaptureUIPhotoFormat>;
+    fn SetFormat(&mut self, value: CameraCaptureUIPhotoFormat) -> ::windows::core::Result<()>;
+    fn MaxResolution(&mut self) -> ::windows::core::Result<CameraCaptureUIMaxPhotoResolution>;
+    fn SetMaxResolution(&mut self, value: CameraCaptureUIMaxPhotoResolution) -> ::windows::core::Result<()>;
+    fn CroppedSizeInPixels(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn SetCroppedSizeInPixels(&mut self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
+    fn CroppedAspectRatio(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn SetCroppedAspectRatio(&mut self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
+    fn AllowCropping(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowCropping(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICameraCaptureUIPhotoCaptureSettings {
@@ -4973,14 +4973,14 @@ impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICameraCaptureUIVideoCaptureSettingsImpl: Sized {
-    fn Format(&self) -> ::windows::core::Result<CameraCaptureUIVideoFormat>;
-    fn SetFormat(&self, value: CameraCaptureUIVideoFormat) -> ::windows::core::Result<()>;
-    fn MaxResolution(&self) -> ::windows::core::Result<CameraCaptureUIMaxVideoResolution>;
-    fn SetMaxResolution(&self, value: CameraCaptureUIMaxVideoResolution) -> ::windows::core::Result<()>;
-    fn MaxDurationInSeconds(&self) -> ::windows::core::Result<f32>;
-    fn SetMaxDurationInSeconds(&self, value: f32) -> ::windows::core::Result<()>;
-    fn AllowTrimming(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowTrimming(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Format(&mut self) -> ::windows::core::Result<CameraCaptureUIVideoFormat>;
+    fn SetFormat(&mut self, value: CameraCaptureUIVideoFormat) -> ::windows::core::Result<()>;
+    fn MaxResolution(&mut self) -> ::windows::core::Result<CameraCaptureUIMaxVideoResolution>;
+    fn SetMaxResolution(&mut self, value: CameraCaptureUIMaxVideoResolution) -> ::windows::core::Result<()>;
+    fn MaxDurationInSeconds(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMaxDurationInSeconds(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn AllowTrimming(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowTrimming(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICameraCaptureUIVideoCaptureSettings {
@@ -5067,7 +5067,7 @@ impl ICameraCaptureUIVideoCaptureSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICameraOptionsUIStaticsImpl: Sized {
-    fn Show(&self, mediacapture: &::core::option::Option<MediaCapture>) -> ::windows::core::Result<()>;
+    fn Show(&mut self, mediacapture: &::core::option::Option<MediaCapture>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICameraOptionsUIStatics {
@@ -5088,8 +5088,8 @@ impl ICameraOptionsUIStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICapturedFrameImpl: Sized + IClosableImpl + IContentTypeProviderImpl + IInputStreamImpl + IOutputStreamImpl + IRandomAccessStreamImpl + IRandomAccessStreamWithContentTypeImpl {
-    fn Width(&self) -> ::windows::core::Result<u32>;
-    fn Height(&self) -> ::windows::core::Result<u32>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICapturedFrame {
@@ -5132,8 +5132,8 @@ impl ICapturedFrameVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICapturedFrame2Impl: Sized {
-    fn ControlValues(&self) -> ::windows::core::Result<CapturedFrameControlValues>;
-    fn BitmapProperties(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPropertySet>;
+    fn ControlValues(&mut self) -> ::windows::core::Result<CapturedFrameControlValues>;
+    fn BitmapProperties(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPropertySet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICapturedFrame2 {
@@ -5176,15 +5176,15 @@ impl ICapturedFrame2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICapturedFrameControlValuesImpl: Sized {
-    fn Exposure(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn ExposureCompensation(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
-    fn IsoSpeed(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn Focus(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SceneMode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Devices::CaptureSceneMode>>;
-    fn Flashed(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
-    fn FlashPowerPercent(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
-    fn WhiteBalance(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn ZoomFactor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
+    fn Exposure(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn ExposureCompensation(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
+    fn IsoSpeed(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn Focus(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SceneMode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Devices::CaptureSceneMode>>;
+    fn Flashed(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
+    fn FlashPowerPercent(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
+    fn WhiteBalance(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn ZoomFactor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICapturedFrameControlValues {
@@ -5311,11 +5311,11 @@ impl ICapturedFrameControlValuesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait ICapturedFrameControlValues2Impl: Sized {
-    fn FocusState(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Devices::MediaCaptureFocusState>>;
-    fn IsoDigitalGain(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn IsoAnalogGain(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn SensorFrameRate(&self) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
-    fn WhiteBalanceGain(&self) -> ::windows::core::Result<super::super::Foundation::IReference<WhiteBalanceGain>>;
+    fn FocusState(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Devices::MediaCaptureFocusState>>;
+    fn IsoDigitalGain(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn IsoAnalogGain(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn SensorFrameRate(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
+    fn WhiteBalanceGain(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<WhiteBalanceGain>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICapturedFrameControlValues2 {
@@ -5394,7 +5394,7 @@ impl ICapturedFrameControlValues2Vtbl {
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICapturedFrameWithSoftwareBitmapImpl: Sized {
-    fn SoftwareBitmap(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::SoftwareBitmap>;
+    fn SoftwareBitmap(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::SoftwareBitmap>;
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICapturedFrameWithSoftwareBitmap {
@@ -5425,8 +5425,8 @@ impl ICapturedFrameWithSoftwareBitmapVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICapturedPhotoImpl: Sized {
-    fn Frame(&self) -> ::windows::core::Result<CapturedFrame>;
-    fn Thumbnail(&self) -> ::windows::core::Result<CapturedFrame>;
+    fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<CapturedFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICapturedPhoto {
@@ -5469,15 +5469,15 @@ impl ICapturedPhotoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGameBarServicesImpl: Sized {
-    fn TargetCapturePolicy(&self) -> ::windows::core::Result<GameBarTargetCapturePolicy>;
-    fn EnableCapture(&self) -> ::windows::core::Result<()>;
-    fn DisableCapture(&self) -> ::windows::core::Result<()>;
-    fn TargetInfo(&self) -> ::windows::core::Result<GameBarServicesTargetInfo>;
-    fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppBroadcastServices(&self) -> ::windows::core::Result<AppBroadcastServices>;
-    fn AppCaptureServices(&self) -> ::windows::core::Result<AppCaptureServices>;
-    fn CommandReceived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCommandReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TargetCapturePolicy(&mut self) -> ::windows::core::Result<GameBarTargetCapturePolicy>;
+    fn EnableCapture(&mut self) -> ::windows::core::Result<()>;
+    fn DisableCapture(&mut self) -> ::windows::core::Result<()>;
+    fn TargetInfo(&mut self) -> ::windows::core::Result<GameBarServicesTargetInfo>;
+    fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppBroadcastServices(&mut self) -> ::windows::core::Result<AppBroadcastServices>;
+    fn AppCaptureServices(&mut self) -> ::windows::core::Result<AppCaptureServices>;
+    fn CommandReceived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCommandReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameBarServices {
@@ -5583,8 +5583,8 @@ impl IGameBarServicesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGameBarServicesCommandEventArgsImpl: Sized {
-    fn Command(&self) -> ::windows::core::Result<GameBarCommand>;
-    fn Origin(&self) -> ::windows::core::Result<GameBarCommandOrigin>;
+    fn Command(&mut self) -> ::windows::core::Result<GameBarCommand>;
+    fn Origin(&mut self) -> ::windows::core::Result<GameBarCommandOrigin>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGameBarServicesCommandEventArgs {
@@ -5627,8 +5627,8 @@ impl IGameBarServicesCommandEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGameBarServicesManagerImpl: Sized {
-    fn GameBarServicesCreated(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGameBarServicesCreated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GameBarServicesCreated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGameBarServicesCreated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameBarServicesManager {
@@ -5664,7 +5664,7 @@ impl IGameBarServicesManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGameBarServicesManagerGameBarServicesCreatedEventArgsImpl: Sized {
-    fn GameBarServices(&self) -> ::windows::core::Result<GameBarServices>;
+    fn GameBarServices(&mut self) -> ::windows::core::Result<GameBarServices>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGameBarServicesManagerGameBarServicesCreatedEventArgs {
@@ -5695,7 +5695,7 @@ impl IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGameBarServicesManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<GameBarServicesManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<GameBarServicesManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGameBarServicesManagerStatics {
@@ -5726,10 +5726,10 @@ impl IGameBarServicesManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGameBarServicesTargetInfoImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TitleId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayMode(&self) -> ::windows::core::Result<GameBarServicesDisplayMode>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TitleId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayMode(&mut self) -> ::windows::core::Result<GameBarServicesDisplayMode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGameBarServicesTargetInfo {
@@ -5796,9 +5796,9 @@ impl IGameBarServicesTargetInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILowLagMediaRecordingImpl: Sized {
-    fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StopAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn FinishAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StopAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLagMediaRecording {
@@ -5853,8 +5853,8 @@ impl ILowLagMediaRecordingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
 pub trait ILowLagMediaRecording2Impl: Sized {
-    fn PauseAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ResumeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PauseAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ResumeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLagMediaRecording2 {
@@ -5897,8 +5897,8 @@ impl ILowLagMediaRecording2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
 pub trait ILowLagMediaRecording3Impl: Sized {
-    fn PauseWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>;
-    fn StopWithResultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>;
+    fn PauseWithResultAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>;
+    fn StopWithResultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLagMediaRecording3 {
@@ -5941,8 +5941,8 @@ impl ILowLagMediaRecording3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILowLagPhotoCaptureImpl: Sized {
-    fn CaptureAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CapturedPhoto>>;
-    fn FinishAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CaptureAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CapturedPhoto>>;
+    fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLagPhotoCapture {
@@ -5985,11 +5985,11 @@ impl ILowLagPhotoCaptureVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILowLagPhotoSequenceCaptureImpl: Sized {
-    fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StopAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn FinishAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn PhotoCaptured(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePhotoCaptured(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StopAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PhotoCaptured(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePhotoCaptured(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLagPhotoSequenceCapture {
@@ -6061,32 +6061,32 @@ impl ILowLagPhotoSequenceCaptureVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaCaptureImpl: Sized {
-    fn InitializeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn InitializeWithSettingsAsync(&self, mediacaptureinitializationsettings: &::core::option::Option<MediaCaptureInitializationSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartRecordToStorageFileAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartRecordToStreamAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartRecordToCustomSinkAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartRecordToCustomSinkIdAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StopRecordAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CapturePhotoToStorageFileAsync(&self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CapturePhotoToStreamAsync(&self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn AddEffectAsync(&self, mediastreamtype: MediaStreamType, effectactivationid: &::windows::core::HSTRING, effectsettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ClearEffectsAsync(&self, mediastreamtype: MediaStreamType) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetEncoderProperty(&self, mediastreamtype: MediaStreamType, propertyid: &::windows::core::GUID, propertyvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetEncoderProperty(&self, mediastreamtype: MediaStreamType, propertyid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Failed(&self, erroreventhandler: &::core::option::Option<MediaCaptureFailedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFailed(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RecordLimitationExceeded(&self, recordlimitationexceededeventhandler: &::core::option::Option<RecordLimitationExceededEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecordLimitationExceeded(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MediaCaptureSettings(&self) -> ::windows::core::Result<MediaCaptureSettings>;
-    fn AudioDeviceController(&self) -> ::windows::core::Result<super::Devices::AudioDeviceController>;
-    fn VideoDeviceController(&self) -> ::windows::core::Result<super::Devices::VideoDeviceController>;
-    fn SetPreviewMirroring(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetPreviewMirroring(&self) -> ::windows::core::Result<bool>;
-    fn SetPreviewRotation(&self, value: VideoRotation) -> ::windows::core::Result<()>;
-    fn GetPreviewRotation(&self) -> ::windows::core::Result<VideoRotation>;
-    fn SetRecordRotation(&self, value: VideoRotation) -> ::windows::core::Result<()>;
-    fn GetRecordRotation(&self) -> ::windows::core::Result<VideoRotation>;
+    fn InitializeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn InitializeWithSettingsAsync(&mut self, mediacaptureinitializationsettings: &::core::option::Option<MediaCaptureInitializationSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartRecordToStorageFileAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartRecordToStreamAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartRecordToCustomSinkAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartRecordToCustomSinkIdAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StopRecordAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CapturePhotoToStorageFileAsync(&mut self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CapturePhotoToStreamAsync(&mut self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn AddEffectAsync(&mut self, mediastreamtype: MediaStreamType, effectactivationid: &::windows::core::HSTRING, effectsettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ClearEffectsAsync(&mut self, mediastreamtype: MediaStreamType) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetEncoderProperty(&mut self, mediastreamtype: MediaStreamType, propertyid: &::windows::core::GUID, propertyvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetEncoderProperty(&mut self, mediastreamtype: MediaStreamType, propertyid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Failed(&mut self, erroreventhandler: &::core::option::Option<MediaCaptureFailedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFailed(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RecordLimitationExceeded(&mut self, recordlimitationexceededeventhandler: &::core::option::Option<RecordLimitationExceededEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecordLimitationExceeded(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MediaCaptureSettings(&mut self) -> ::windows::core::Result<MediaCaptureSettings>;
+    fn AudioDeviceController(&mut self) -> ::windows::core::Result<super::Devices::AudioDeviceController>;
+    fn VideoDeviceController(&mut self) -> ::windows::core::Result<super::Devices::VideoDeviceController>;
+    fn SetPreviewMirroring(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetPreviewMirroring(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPreviewRotation(&mut self, value: VideoRotation) -> ::windows::core::Result<()>;
+    fn GetPreviewRotation(&mut self) -> ::windows::core::Result<VideoRotation>;
+    fn SetRecordRotation(&mut self, value: VideoRotation) -> ::windows::core::Result<()>;
+    fn GetRecordRotation(&mut self) -> ::windows::core::Result<VideoRotation>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapture {
@@ -6379,13 +6379,13 @@ impl IMediaCaptureVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaCapture2Impl: Sized {
-    fn PrepareLowLagRecordToStorageFileAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
-    fn PrepareLowLagRecordToStreamAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
-    fn PrepareLowLagRecordToCustomSinkAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
-    fn PrepareLowLagRecordToCustomSinkIdAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
-    fn PrepareLowLagPhotoCaptureAsync(&self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>>;
-    fn PrepareLowLagPhotoSequenceCaptureAsync(&self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>>;
-    fn SetEncodingPropertiesAsync(&self, mediastreamtype: MediaStreamType, mediaencodingproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>, encoderproperties: &::core::option::Option<super::MediaProperties::MediaPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PrepareLowLagRecordToStorageFileAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
+    fn PrepareLowLagRecordToStreamAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
+    fn PrepareLowLagRecordToCustomSinkAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
+    fn PrepareLowLagRecordToCustomSinkIdAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
+    fn PrepareLowLagPhotoCaptureAsync(&mut self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>>;
+    fn PrepareLowLagPhotoSequenceCaptureAsync(&mut self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>>;
+    fn SetEncodingPropertiesAsync(&mut self, mediastreamtype: MediaStreamType, mediaencodingproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>, encoderproperties: &::core::option::Option<super::MediaProperties::MediaPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapture2 {
@@ -6492,11 +6492,11 @@ impl IMediaCapture2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IMediaCapture3Impl: Sized {
-    fn PrepareVariablePhotoSequenceCaptureAsync(&self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>;
-    fn FocusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFocusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PhotoConfirmationCaptured(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePhotoConfirmationCaptured(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PrepareVariablePhotoSequenceCaptureAsync(&mut self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>;
+    fn FocusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFocusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PhotoConfirmationCaptured(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePhotoConfirmationCaptured(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapture3 {
@@ -6561,19 +6561,19 @@ impl IMediaCapture3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IMediaCapture4Impl: Sized {
-    fn AddAudioEffectAsync(&self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>;
-    fn AddVideoEffectAsync(&self, definition: &::core::option::Option<super::Effects::IVideoEffectDefinition>, mediastreamtype: MediaStreamType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>;
-    fn PauseRecordAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ResumeRecordAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CameraStreamStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCameraStreamStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CameraStreamState(&self) -> ::windows::core::Result<super::Devices::CameraStreamState>;
-    fn GetPreviewFrameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>>;
-    fn GetPreviewFrameCopyAsync(&self, destination: &::core::option::Option<super::VideoFrame>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>>;
-    fn ThermalStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveThermalStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ThermalStatus(&self) -> ::windows::core::Result<MediaCaptureThermalStatus>;
-    fn PrepareAdvancedPhotoCaptureAsync(&self, encodingproperties: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedPhotoCapture>>;
+    fn AddAudioEffectAsync(&mut self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>;
+    fn AddVideoEffectAsync(&mut self, definition: &::core::option::Option<super::Effects::IVideoEffectDefinition>, mediastreamtype: MediaStreamType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>;
+    fn PauseRecordAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ResumeRecordAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CameraStreamStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCameraStreamStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CameraStreamState(&mut self) -> ::windows::core::Result<super::Devices::CameraStreamState>;
+    fn GetPreviewFrameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>>;
+    fn GetPreviewFrameCopyAsync(&mut self, destination: &::core::option::Option<super::VideoFrame>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>>;
+    fn ThermalStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveThermalStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ThermalStatus(&mut self) -> ::windows::core::Result<MediaCaptureThermalStatus>;
+    fn PrepareAdvancedPhotoCaptureAsync(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedPhotoCapture>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapture4 {
@@ -6734,13 +6734,13 @@ impl IMediaCapture4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Capture_Frames", feature = "Media_Devices", feature = "implement_exclusive"))]
 pub trait IMediaCapture5Impl: Sized {
-    fn RemoveEffectAsync(&self, effect: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn PauseRecordWithResultAsync(&self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>;
-    fn StopRecordWithResultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>;
-    fn FrameSources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, Frames::MediaFrameSource>>;
-    fn CreateFrameReaderAsync(&self, inputsource: &::core::option::Option<Frames::MediaFrameSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>;
-    fn CreateFrameReaderWithSubtypeAsync(&self, inputsource: &::core::option::Option<Frames::MediaFrameSource>, outputsubtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>;
-    fn CreateFrameReaderWithSubtypeAndSizeAsync(&self, inputsource: &::core::option::Option<Frames::MediaFrameSource>, outputsubtype: &::windows::core::HSTRING, outputsize: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>;
+    fn RemoveEffectAsync(&mut self, effect: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PauseRecordWithResultAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>;
+    fn StopRecordWithResultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>;
+    fn FrameSources(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, Frames::MediaFrameSource>>;
+    fn CreateFrameReaderAsync(&mut self, inputsource: &::core::option::Option<Frames::MediaFrameSource>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>;
+    fn CreateFrameReaderWithSubtypeAsync(&mut self, inputsource: &::core::option::Option<Frames::MediaFrameSource>, outputsubtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>;
+    fn CreateFrameReaderWithSubtypeAndSizeAsync(&mut self, inputsource: &::core::option::Option<Frames::MediaFrameSource>, outputsubtype: &::windows::core::HSTRING, outputsize: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Capture_Frames", feature = "Media_Devices", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapture5 {
@@ -6847,9 +6847,9 @@ impl IMediaCapture5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 pub trait IMediaCapture6Impl: Sized {
-    fn CaptureDeviceExclusiveControlStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCaptureDeviceExclusiveControlStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CreateMultiSourceFrameReaderAsync(&self, inputsources: &::core::option::Option<super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>;
+    fn CaptureDeviceExclusiveControlStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCaptureDeviceExclusiveControlStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateMultiSourceFrameReaderAsync(&mut self, inputsources: &::core::option::Option<super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapture6 {
@@ -6897,7 +6897,7 @@ impl IMediaCapture6Vtbl {
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 pub trait IMediaCapture7Impl: Sized {
-    fn CreateRelativePanelWatcher(&self, capturemode: StreamingCaptureMode, displayregion: &::core::option::Option<super::super::UI::WindowManagement::DisplayRegion>) -> ::windows::core::Result<MediaCaptureRelativePanelWatcher>;
+    fn CreateRelativePanelWatcher(&mut self, capturemode: StreamingCaptureMode, displayregion: &::core::option::Option<super::super::UI::WindowManagement::DisplayRegion>) -> ::windows::core::Result<MediaCaptureRelativePanelWatcher>;
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapture7 {
@@ -6928,8 +6928,8 @@ impl IMediaCapture7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Status(&self) -> ::windows::core::Result<MediaCaptureDeviceExclusiveControlStatus>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<MediaCaptureDeviceExclusiveControlStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
@@ -6972,8 +6972,8 @@ impl IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureFailedEventArgsImpl: Sized {
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Code(&self) -> ::windows::core::Result<u32>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Code(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureFailedEventArgs {
@@ -7016,7 +7016,7 @@ impl IMediaCaptureFailedEventArgsVtbl {
 }
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
 pub trait IMediaCaptureFocusChangedEventArgsImpl: Sized {
-    fn FocusState(&self) -> ::windows::core::Result<super::Devices::MediaCaptureFocusState>;
+    fn FocusState(&mut self) -> ::windows::core::Result<super::Devices::MediaCaptureFocusState>;
 }
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureFocusChangedEventArgs {
@@ -7047,14 +7047,14 @@ impl IMediaCaptureFocusChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureInitializationSettingsImpl: Sized {
-    fn SetAudioDeviceId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AudioDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetVideoDeviceId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetStreamingCaptureMode(&self, value: StreamingCaptureMode) -> ::windows::core::Result<()>;
-    fn StreamingCaptureMode(&self) -> ::windows::core::Result<StreamingCaptureMode>;
-    fn SetPhotoCaptureSource(&self, value: PhotoCaptureSource) -> ::windows::core::Result<()>;
-    fn PhotoCaptureSource(&self) -> ::windows::core::Result<PhotoCaptureSource>;
+    fn SetAudioDeviceId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AudioDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetVideoDeviceId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn VideoDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetStreamingCaptureMode(&mut self, value: StreamingCaptureMode) -> ::windows::core::Result<()>;
+    fn StreamingCaptureMode(&mut self) -> ::windows::core::Result<StreamingCaptureMode>;
+    fn SetPhotoCaptureSource(&mut self, value: PhotoCaptureSource) -> ::windows::core::Result<()>;
+    fn PhotoCaptureSource(&mut self) -> ::windows::core::Result<PhotoCaptureSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings {
@@ -7141,10 +7141,10 @@ impl IMediaCaptureInitializationSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureInitializationSettings2Impl: Sized {
-    fn SetMediaCategory(&self, value: MediaCategory) -> ::windows::core::Result<()>;
-    fn MediaCategory(&self) -> ::windows::core::Result<MediaCategory>;
-    fn SetAudioProcessing(&self, value: super::AudioProcessing) -> ::windows::core::Result<()>;
-    fn AudioProcessing(&self) -> ::windows::core::Result<super::AudioProcessing>;
+    fn SetMediaCategory(&mut self, value: MediaCategory) -> ::windows::core::Result<()>;
+    fn MediaCategory(&mut self) -> ::windows::core::Result<MediaCategory>;
+    fn SetAudioProcessing(&mut self, value: super::AudioProcessing) -> ::windows::core::Result<()>;
+    fn AudioProcessing(&mut self) -> ::windows::core::Result<super::AudioProcessing>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings2 {
@@ -7197,10 +7197,10 @@ impl IMediaCaptureInitializationSettings2Vtbl {
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
 pub trait IMediaCaptureInitializationSettings3Impl: Sized {
-    fn SetAudioSource(&self, value: &::core::option::Option<super::Core::IMediaSource>) -> ::windows::core::Result<()>;
-    fn AudioSource(&self) -> ::windows::core::Result<super::Core::IMediaSource>;
-    fn SetVideoSource(&self, value: &::core::option::Option<super::Core::IMediaSource>) -> ::windows::core::Result<()>;
-    fn VideoSource(&self) -> ::windows::core::Result<super::Core::IMediaSource>;
+    fn SetAudioSource(&mut self, value: &::core::option::Option<super::Core::IMediaSource>) -> ::windows::core::Result<()>;
+    fn AudioSource(&mut self) -> ::windows::core::Result<super::Core::IMediaSource>;
+    fn SetVideoSource(&mut self, value: &::core::option::Option<super::Core::IMediaSource>) -> ::windows::core::Result<()>;
+    fn VideoSource(&mut self) -> ::windows::core::Result<super::Core::IMediaSource>;
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings3 {
@@ -7253,14 +7253,14 @@ impl IMediaCaptureInitializationSettings3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureInitializationSettings4Impl: Sized {
-    fn VideoProfile(&self) -> ::windows::core::Result<MediaCaptureVideoProfile>;
-    fn SetVideoProfile(&self, value: &::core::option::Option<MediaCaptureVideoProfile>) -> ::windows::core::Result<()>;
-    fn PreviewMediaDescription(&self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription>;
-    fn SetPreviewMediaDescription(&self, value: &::core::option::Option<MediaCaptureVideoProfileMediaDescription>) -> ::windows::core::Result<()>;
-    fn RecordMediaDescription(&self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription>;
-    fn SetRecordMediaDescription(&self, value: &::core::option::Option<MediaCaptureVideoProfileMediaDescription>) -> ::windows::core::Result<()>;
-    fn PhotoMediaDescription(&self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription>;
-    fn SetPhotoMediaDescription(&self, value: &::core::option::Option<MediaCaptureVideoProfileMediaDescription>) -> ::windows::core::Result<()>;
+    fn VideoProfile(&mut self) -> ::windows::core::Result<MediaCaptureVideoProfile>;
+    fn SetVideoProfile(&mut self, value: &::core::option::Option<MediaCaptureVideoProfile>) -> ::windows::core::Result<()>;
+    fn PreviewMediaDescription(&mut self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription>;
+    fn SetPreviewMediaDescription(&mut self, value: &::core::option::Option<MediaCaptureVideoProfileMediaDescription>) -> ::windows::core::Result<()>;
+    fn RecordMediaDescription(&mut self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription>;
+    fn SetRecordMediaDescription(&mut self, value: &::core::option::Option<MediaCaptureVideoProfileMediaDescription>) -> ::windows::core::Result<()>;
+    fn PhotoMediaDescription(&mut self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription>;
+    fn SetPhotoMediaDescription(&mut self, value: &::core::option::Option<MediaCaptureVideoProfileMediaDescription>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings4 {
@@ -7347,12 +7347,12 @@ impl IMediaCaptureInitializationSettings4Vtbl {
 }
 #[cfg(all(feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 pub trait IMediaCaptureInitializationSettings5Impl: Sized {
-    fn SourceGroup(&self) -> ::windows::core::Result<Frames::MediaFrameSourceGroup>;
-    fn SetSourceGroup(&self, value: &::core::option::Option<Frames::MediaFrameSourceGroup>) -> ::windows::core::Result<()>;
-    fn SharingMode(&self) -> ::windows::core::Result<MediaCaptureSharingMode>;
-    fn SetSharingMode(&self, value: MediaCaptureSharingMode) -> ::windows::core::Result<()>;
-    fn MemoryPreference(&self) -> ::windows::core::Result<MediaCaptureMemoryPreference>;
-    fn SetMemoryPreference(&self, value: MediaCaptureMemoryPreference) -> ::windows::core::Result<()>;
+    fn SourceGroup(&mut self) -> ::windows::core::Result<Frames::MediaFrameSourceGroup>;
+    fn SetSourceGroup(&mut self, value: &::core::option::Option<Frames::MediaFrameSourceGroup>) -> ::windows::core::Result<()>;
+    fn SharingMode(&mut self) -> ::windows::core::Result<MediaCaptureSharingMode>;
+    fn SetSharingMode(&mut self, value: MediaCaptureSharingMode) -> ::windows::core::Result<()>;
+    fn MemoryPreference(&mut self) -> ::windows::core::Result<MediaCaptureMemoryPreference>;
+    fn SetMemoryPreference(&mut self, value: MediaCaptureMemoryPreference) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings5 {
@@ -7422,8 +7422,8 @@ impl IMediaCaptureInitializationSettings5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureInitializationSettings6Impl: Sized {
-    fn AlwaysPlaySystemShutterSound(&self) -> ::windows::core::Result<bool>;
-    fn SetAlwaysPlaySystemShutterSound(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AlwaysPlaySystemShutterSound(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAlwaysPlaySystemShutterSound(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings6 {
@@ -7459,10 +7459,10 @@ impl IMediaCaptureInitializationSettings6Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IMediaCaptureInitializationSettings7Impl: Sized {
-    fn DeviceUriPasswordCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetDeviceUriPasswordCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn DeviceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetDeviceUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn DeviceUriPasswordCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetDeviceUriPasswordCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn DeviceUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetDeviceUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings7 {
@@ -7515,8 +7515,8 @@ impl IMediaCaptureInitializationSettings7Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaCapturePauseResultImpl: Sized {
-    fn LastFrame(&self) -> ::windows::core::Result<super::VideoFrame>;
-    fn RecordDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn LastFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
+    fn RecordDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCapturePauseResult {
@@ -7559,11 +7559,11 @@ impl IMediaCapturePauseResultVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaCaptureRelativePanelWatcherImpl: Sized {
-    fn RelativePanel(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::Panel>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn RelativePanel(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::Panel>;
+    fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureRelativePanelWatcher {
@@ -7621,11 +7621,11 @@ impl IMediaCaptureRelativePanelWatcherVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureSettingsImpl: Sized {
-    fn AudioDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn StreamingCaptureMode(&self) -> ::windows::core::Result<StreamingCaptureMode>;
-    fn PhotoCaptureSource(&self) -> ::windows::core::Result<PhotoCaptureSource>;
-    fn VideoDeviceCharacteristic(&self) -> ::windows::core::Result<VideoDeviceCharacteristic>;
+    fn AudioDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StreamingCaptureMode(&mut self) -> ::windows::core::Result<StreamingCaptureMode>;
+    fn PhotoCaptureSource(&mut self) -> ::windows::core::Result<PhotoCaptureSource>;
+    fn VideoDeviceCharacteristic(&mut self) -> ::windows::core::Result<VideoDeviceCharacteristic>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureSettings {
@@ -7704,14 +7704,14 @@ impl IMediaCaptureSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaCaptureSettings2Impl: Sized {
-    fn ConcurrentRecordAndPhotoSupported(&self) -> ::windows::core::Result<bool>;
-    fn ConcurrentRecordAndPhotoSequenceSupported(&self) -> ::windows::core::Result<bool>;
-    fn CameraSoundRequiredForRegion(&self) -> ::windows::core::Result<bool>;
-    fn Horizontal35mmEquivalentFocalLength(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn PitchOffsetDegrees(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn Vertical35mmEquivalentFocalLength(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn MediaCategory(&self) -> ::windows::core::Result<MediaCategory>;
-    fn AudioProcessing(&self) -> ::windows::core::Result<super::AudioProcessing>;
+    fn ConcurrentRecordAndPhotoSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn ConcurrentRecordAndPhotoSequenceSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn CameraSoundRequiredForRegion(&mut self) -> ::windows::core::Result<bool>;
+    fn Horizontal35mmEquivalentFocalLength(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn PitchOffsetDegrees(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn Vertical35mmEquivalentFocalLength(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn MediaCategory(&mut self) -> ::windows::core::Result<MediaCategory>;
+    fn AudioProcessing(&mut self) -> ::windows::core::Result<super::AudioProcessing>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureSettings2 {
@@ -7826,7 +7826,7 @@ impl IMediaCaptureSettings2Vtbl {
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IMediaCaptureSettings3Impl: Sized {
-    fn Direct3D11Device(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>;
+    fn Direct3D11Device(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>;
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureSettings3 {
@@ -7857,10 +7857,10 @@ impl IMediaCaptureSettings3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaCaptureStaticsImpl: Sized {
-    fn IsVideoProfileSupported(&self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn FindAllVideoProfiles(&self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
-    fn FindConcurrentProfiles(&self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
-    fn FindKnownVideoProfiles(&self, videodeviceid: &::windows::core::HSTRING, name: KnownVideoProfile) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
+    fn IsVideoProfileSupported(&mut self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn FindAllVideoProfiles(&mut self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
+    fn FindConcurrentProfiles(&mut self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
+    fn FindKnownVideoProfiles(&mut self, videodeviceid: &::windows::core::HSTRING, name: KnownVideoProfile) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureStatics {
@@ -7927,8 +7927,8 @@ impl IMediaCaptureStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaCaptureStopResultImpl: Sized {
-    fn LastFrame(&self) -> ::windows::core::Result<super::VideoFrame>;
-    fn RecordDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn LastFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
+    fn RecordDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureStopResult {
@@ -7971,10 +7971,10 @@ impl IMediaCaptureStopResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IMediaCaptureVideoPreviewImpl: Sized {
-    fn StartPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartPreviewToCustomSinkAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StartPreviewToCustomSinkIdAsync(&self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn StopPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartPreviewAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartPreviewToCustomSinkAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StartPreviewToCustomSinkIdAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn StopPreviewAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureVideoPreview {
@@ -8045,12 +8045,12 @@ impl IMediaCaptureVideoPreviewVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaCaptureVideoProfileImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SupportedPreviewMediaDescription(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>;
-    fn SupportedRecordMediaDescription(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>;
-    fn SupportedPhotoMediaDescription(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>;
-    fn GetConcurrency(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportedPreviewMediaDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>;
+    fn SupportedRecordMediaDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>;
+    fn SupportedPhotoMediaDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>;
+    fn GetConcurrency(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureVideoProfile {
@@ -8141,8 +8141,8 @@ impl IMediaCaptureVideoProfileVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 pub trait IMediaCaptureVideoProfile2Impl: Sized {
-    fn FrameSourceInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Frames::MediaFrameSourceInfo>>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn FrameSourceInfos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Frames::MediaFrameSourceInfo>>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureVideoProfile2 {
@@ -8185,11 +8185,11 @@ impl IMediaCaptureVideoProfile2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCaptureVideoProfileMediaDescriptionImpl: Sized {
-    fn Width(&self) -> ::windows::core::Result<u32>;
-    fn Height(&self) -> ::windows::core::Result<u32>;
-    fn FrameRate(&self) -> ::windows::core::Result<f64>;
-    fn IsVariablePhotoSequenceSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsHdrVideoSupported(&self) -> ::windows::core::Result<bool>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
+    fn FrameRate(&mut self) -> ::windows::core::Result<f64>;
+    fn IsVariablePhotoSequenceSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsHdrVideoSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCaptureVideoProfileMediaDescription {
@@ -8268,8 +8268,8 @@ impl IMediaCaptureVideoProfileMediaDescriptionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaCaptureVideoProfileMediaDescription2Impl: Sized {
-    fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
+    fn Subtype(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaCaptureVideoProfileMediaDescription2 {
@@ -8312,8 +8312,8 @@ impl IMediaCaptureVideoProfileMediaDescription2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOptionalReferencePhotoCapturedEventArgsImpl: Sized {
-    fn Frame(&self) -> ::windows::core::Result<CapturedFrame>;
-    fn Context(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
+    fn Context(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOptionalReferencePhotoCapturedEventArgs {
@@ -8356,9 +8356,9 @@ impl IOptionalReferencePhotoCapturedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoCapturedEventArgsImpl: Sized {
-    fn Frame(&self) -> ::windows::core::Result<CapturedFrame>;
-    fn Thumbnail(&self) -> ::windows::core::Result<CapturedFrame>;
-    fn CaptureTimeOffset(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<CapturedFrame>;
+    fn CaptureTimeOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoCapturedEventArgs {
@@ -8413,8 +8413,8 @@ impl IPhotoCapturedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPhotoConfirmationCapturedEventArgsImpl: Sized {
-    fn Frame(&self) -> ::windows::core::Result<CapturedFrame>;
-    fn CaptureTimeOffset(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
+    fn CaptureTimeOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoConfirmationCapturedEventArgs {
@@ -8457,12 +8457,12 @@ impl IPhotoConfirmationCapturedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
 pub trait IScreenCaptureImpl: Sized {
-    fn AudioSource(&self) -> ::windows::core::Result<super::Core::IMediaSource>;
-    fn VideoSource(&self) -> ::windows::core::Result<super::Core::IMediaSource>;
-    fn IsAudioSuspended(&self) -> ::windows::core::Result<bool>;
-    fn IsVideoSuspended(&self) -> ::windows::core::Result<bool>;
-    fn SourceSuspensionChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ScreenCapture, SourceSuspensionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourceSuspensionChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AudioSource(&mut self) -> ::windows::core::Result<super::Core::IMediaSource>;
+    fn VideoSource(&mut self) -> ::windows::core::Result<super::Core::IMediaSource>;
+    fn IsAudioSuspended(&mut self) -> ::windows::core::Result<bool>;
+    fn IsVideoSuspended(&mut self) -> ::windows::core::Result<bool>;
+    fn SourceSuspensionChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ScreenCapture, SourceSuspensionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourceSuspensionChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScreenCapture {
@@ -8546,7 +8546,7 @@ impl IScreenCaptureVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IScreenCaptureStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<ScreenCapture>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<ScreenCapture>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScreenCaptureStatics {
@@ -8577,8 +8577,8 @@ impl IScreenCaptureStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISourceSuspensionChangedEventArgsImpl: Sized {
-    fn IsAudioSuspended(&self) -> ::windows::core::Result<bool>;
-    fn IsVideoSuspended(&self) -> ::windows::core::Result<bool>;
+    fn IsAudioSuspended(&mut self) -> ::windows::core::Result<bool>;
+    fn IsVideoSuspended(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISourceSuspensionChangedEventArgs {
@@ -8621,8 +8621,8 @@ impl ISourceSuspensionChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IVideoStreamConfigurationImpl: Sized {
-    fn InputProperties(&self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
-    fn OutputProperties(&self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
+    fn InputProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
+    fn OutputProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoStreamConfiguration {

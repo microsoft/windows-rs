@@ -1,30 +1,30 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentImpl: Sized {
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetStartTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Location(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLocation(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSubject(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Details(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDetails(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Reminder(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetReminder(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn Organizer(&self) -> ::windows::core::Result<AppointmentOrganizer>;
-    fn SetOrganizer(&self, value: &::core::option::Option<AppointmentOrganizer>) -> ::windows::core::Result<()>;
-    fn Invitees(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<AppointmentInvitee>>;
-    fn Recurrence(&self) -> ::windows::core::Result<AppointmentRecurrence>;
-    fn SetRecurrence(&self, value: &::core::option::Option<AppointmentRecurrence>) -> ::windows::core::Result<()>;
-    fn BusyStatus(&self) -> ::windows::core::Result<AppointmentBusyStatus>;
-    fn SetBusyStatus(&self, value: AppointmentBusyStatus) -> ::windows::core::Result<()>;
-    fn AllDay(&self) -> ::windows::core::Result<bool>;
-    fn SetAllDay(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Sensitivity(&self) -> ::windows::core::Result<AppointmentSensitivity>;
-    fn SetSensitivity(&self, value: AppointmentSensitivity) -> ::windows::core::Result<()>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetStartTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Location(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLocation(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSubject(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Details(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDetails(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Reminder(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetReminder(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn Organizer(&mut self) -> ::windows::core::Result<AppointmentOrganizer>;
+    fn SetOrganizer(&mut self, value: &::core::option::Option<AppointmentOrganizer>) -> ::windows::core::Result<()>;
+    fn Invitees(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<AppointmentInvitee>>;
+    fn Recurrence(&mut self) -> ::windows::core::Result<AppointmentRecurrence>;
+    fn SetRecurrence(&mut self, value: &::core::option::Option<AppointmentRecurrence>) -> ::windows::core::Result<()>;
+    fn BusyStatus(&mut self) -> ::windows::core::Result<AppointmentBusyStatus>;
+    fn SetBusyStatus(&mut self, value: AppointmentBusyStatus) -> ::windows::core::Result<()>;
+    fn AllDay(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllDay(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Sensitivity(&mut self) -> ::windows::core::Result<AppointmentSensitivity>;
+    fn SetSensitivity(&mut self, value: AppointmentSensitivity) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointment {
@@ -259,26 +259,26 @@ impl IAppointmentVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointment2Impl: Sized + IAppointmentImpl {
-    fn LocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CalendarId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RoamingId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRoamingId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn OriginalStartTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn IsResponseRequested(&self) -> ::windows::core::Result<bool>;
-    fn SetIsResponseRequested(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AllowNewTimeProposal(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowNewTimeProposal(&self, value: bool) -> ::windows::core::Result<()>;
-    fn OnlineMeetingLink(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetOnlineMeetingLink(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ReplyTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetReplyTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn UserResponse(&self) -> ::windows::core::Result<AppointmentParticipantResponse>;
-    fn SetUserResponse(&self, value: AppointmentParticipantResponse) -> ::windows::core::Result<()>;
-    fn HasInvitees(&self) -> ::windows::core::Result<bool>;
-    fn IsCanceledMeeting(&self) -> ::windows::core::Result<bool>;
-    fn SetIsCanceledMeeting(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsOrganizedByUser(&self) -> ::windows::core::Result<bool>;
-    fn SetIsOrganizedByUser(&self, value: bool) -> ::windows::core::Result<()>;
+    fn LocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CalendarId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RoamingId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRoamingId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn OriginalStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn IsResponseRequested(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsResponseRequested(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowNewTimeProposal(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowNewTimeProposal(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn OnlineMeetingLink(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetOnlineMeetingLink(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ReplyTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetReplyTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn UserResponse(&mut self) -> ::windows::core::Result<AppointmentParticipantResponse>;
+    fn SetUserResponse(&mut self, value: AppointmentParticipantResponse) -> ::windows::core::Result<()>;
+    fn HasInvitees(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCanceledMeeting(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsCanceledMeeting(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsOrganizedByUser(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsOrganizedByUser(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointment2 {
@@ -481,11 +481,11 @@ impl IAppointment2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointment3Impl: Sized + IAppointmentImpl + IAppointment2Impl {
-    fn ChangeNumber(&self) -> ::windows::core::Result<u64>;
-    fn RemoteChangeNumber(&self) -> ::windows::core::Result<u64>;
-    fn SetRemoteChangeNumber(&self, value: u64) -> ::windows::core::Result<()>;
-    fn DetailsKind(&self) -> ::windows::core::Result<AppointmentDetailsKind>;
-    fn SetDetailsKind(&self, value: AppointmentDetailsKind) -> ::windows::core::Result<()>;
+    fn ChangeNumber(&mut self) -> ::windows::core::Result<u64>;
+    fn RemoteChangeNumber(&mut self) -> ::windows::core::Result<u64>;
+    fn SetRemoteChangeNumber(&mut self, value: u64) -> ::windows::core::Result<()>;
+    fn DetailsKind(&mut self) -> ::windows::core::Result<AppointmentDetailsKind>;
+    fn SetDetailsKind(&mut self, value: AppointmentDetailsKind) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointment3 {
@@ -550,32 +550,32 @@ impl IAppointment3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarImpl: Sized {
-    fn DisplayColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsHidden(&self) -> ::windows::core::Result<bool>;
-    fn OtherAppReadAccess(&self) -> ::windows::core::Result<AppointmentCalendarOtherAppReadAccess>;
-    fn SetOtherAppReadAccess(&self, value: AppointmentCalendarOtherAppReadAccess) -> ::windows::core::Result<()>;
-    fn OtherAppWriteAccess(&self) -> ::windows::core::Result<AppointmentCalendarOtherAppWriteAccess>;
-    fn SetOtherAppWriteAccess(&self, value: AppointmentCalendarOtherAppWriteAccess) -> ::windows::core::Result<()>;
-    fn SourceDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SummaryCardView(&self) -> ::windows::core::Result<AppointmentSummaryCardView>;
-    fn SetSummaryCardView(&self, value: AppointmentSummaryCardView) -> ::windows::core::Result<()>;
-    fn FindAppointmentsAsync(&self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn FindAppointmentsAsyncWithOptions(&self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan, options: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn FindExceptionsFromMasterAsync(&self, masterlocalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentException>>>;
-    fn FindAllInstancesAsync(&self, masterlocalid: &::windows::core::HSTRING, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn FindAllInstancesAsyncWithOptions(&self, masterlocalid: &::windows::core::HSTRING, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan, poptions: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn GetAppointmentAsync(&self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
-    fn GetAppointmentInstanceAsync(&self, localid: &::windows::core::HSTRING, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
-    fn FindUnexpandedAppointmentsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn FindUnexpandedAppointmentsAsyncWithOptions(&self, options: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteAppointmentAsync(&self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteAppointmentInstanceAsync(&self, localid: &::windows::core::HSTRING, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SaveAppointmentAsync(&self, pappointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DisplayColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsHidden(&mut self) -> ::windows::core::Result<bool>;
+    fn OtherAppReadAccess(&mut self) -> ::windows::core::Result<AppointmentCalendarOtherAppReadAccess>;
+    fn SetOtherAppReadAccess(&mut self, value: AppointmentCalendarOtherAppReadAccess) -> ::windows::core::Result<()>;
+    fn OtherAppWriteAccess(&mut self) -> ::windows::core::Result<AppointmentCalendarOtherAppWriteAccess>;
+    fn SetOtherAppWriteAccess(&mut self, value: AppointmentCalendarOtherAppWriteAccess) -> ::windows::core::Result<()>;
+    fn SourceDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SummaryCardView(&mut self) -> ::windows::core::Result<AppointmentSummaryCardView>;
+    fn SetSummaryCardView(&mut self, value: AppointmentSummaryCardView) -> ::windows::core::Result<()>;
+    fn FindAppointmentsAsync(&mut self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn FindAppointmentsAsyncWithOptions(&mut self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan, options: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn FindExceptionsFromMasterAsync(&mut self, masterlocalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentException>>>;
+    fn FindAllInstancesAsync(&mut self, masterlocalid: &::windows::core::HSTRING, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn FindAllInstancesAsyncWithOptions(&mut self, masterlocalid: &::windows::core::HSTRING, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan, poptions: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn GetAppointmentAsync(&mut self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
+    fn GetAppointmentInstanceAsync(&mut self, localid: &::windows::core::HSTRING, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
+    fn FindUnexpandedAppointmentsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn FindUnexpandedAppointmentsAsyncWithOptions(&mut self, options: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn DeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteAppointmentAsync(&mut self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteAppointmentInstanceAsync(&mut self, localid: &::windows::core::HSTRING, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SaveAppointmentAsync(&mut self, pappointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendar {
@@ -891,31 +891,31 @@ impl IAppointmentCalendarVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendar2Impl: Sized + IAppointmentCalendarImpl {
-    fn SyncManager(&self) -> ::windows::core::Result<AppointmentCalendarSyncManager>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetDisplayColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn SetIsHidden(&self, value: bool) -> ::windows::core::Result<()>;
-    fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CanCreateOrUpdateAppointments(&self) -> ::windows::core::Result<bool>;
-    fn SetCanCreateOrUpdateAppointments(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanCancelMeetings(&self) -> ::windows::core::Result<bool>;
-    fn SetCanCancelMeetings(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanForwardMeetings(&self) -> ::windows::core::Result<bool>;
-    fn SetCanForwardMeetings(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanProposeNewTimeForMeetings(&self) -> ::windows::core::Result<bool>;
-    fn SetCanProposeNewTimeForMeetings(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanUpdateMeetingResponses(&self) -> ::windows::core::Result<bool>;
-    fn SetCanUpdateMeetingResponses(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanNotifyInvitees(&self) -> ::windows::core::Result<bool>;
-    fn SetCanNotifyInvitees(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MustNofityInvitees(&self) -> ::windows::core::Result<bool>;
-    fn SetMustNofityInvitees(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TryCreateOrUpdateAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>, notifyinvitees: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryCancelMeetingAsync(&self, meeting: &::core::option::Option<Appointment>, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING, notifyinvitees: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryForwardMeetingAsync(&self, meeting: &::core::option::Option<Appointment>, invitees: &::core::option::Option<super::super::Foundation::Collections::IIterable<AppointmentInvitee>>, subject: &::windows::core::HSTRING, forwardheader: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryProposeNewTimeForMeetingAsync(&self, meeting: &::core::option::Option<Appointment>, newstarttime: &super::super::Foundation::DateTime, newduration: &super::super::Foundation::TimeSpan, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryUpdateMeetingResponseAsync(&self, meeting: &::core::option::Option<Appointment>, response: AppointmentParticipantResponse, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING, sendupdate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SyncManager(&mut self) -> ::windows::core::Result<AppointmentCalendarSyncManager>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetDisplayColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn SetIsHidden(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn UserDataAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CanCreateOrUpdateAppointments(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanCreateOrUpdateAppointments(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanCancelMeetings(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanCancelMeetings(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanForwardMeetings(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanForwardMeetings(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanProposeNewTimeForMeetings(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanProposeNewTimeForMeetings(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanUpdateMeetingResponses(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanUpdateMeetingResponses(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanNotifyInvitees(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanNotifyInvitees(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MustNofityInvitees(&mut self) -> ::windows::core::Result<bool>;
+    fn SetMustNofityInvitees(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TryCreateOrUpdateAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>, notifyinvitees: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryCancelMeetingAsync(&mut self, meeting: &::core::option::Option<Appointment>, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING, notifyinvitees: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryForwardMeetingAsync(&mut self, meeting: &::core::option::Option<Appointment>, invitees: &::core::option::Option<super::super::Foundation::Collections::IIterable<AppointmentInvitee>>, subject: &::windows::core::HSTRING, forwardheader: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryProposeNewTimeForMeetingAsync(&mut self, meeting: &::core::option::Option<Appointment>, newstarttime: &super::super::Foundation::DateTime, newduration: &super::super::Foundation::TimeSpan, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryUpdateMeetingResponseAsync(&mut self, meeting: &::core::option::Option<Appointment>, response: AppointmentParticipantResponse, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING, sendupdate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendar2 {
@@ -1176,7 +1176,7 @@ impl IAppointmentCalendar2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendar3Impl: Sized {
-    fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RegisterSyncManagerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendar3 {
@@ -1207,12 +1207,12 @@ impl IAppointmentCalendar3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarSyncManagerImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AppointmentCalendarSyncStatus>;
-    fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn LastAttemptedSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SyncStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppointmentCalendarSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSyncStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<AppointmentCalendarSyncStatus>;
+    fn LastSuccessfulSyncTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn LastAttemptedSyncTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SyncAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SyncStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppointmentCalendarSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSyncStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManager {
@@ -1296,9 +1296,9 @@ impl IAppointmentCalendarSyncManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarSyncManager2Impl: Sized {
-    fn SetStatus(&self, value: AppointmentCalendarSyncStatus) -> ::windows::core::Result<()>;
-    fn SetLastSuccessfulSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn SetLastAttemptedSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetStatus(&mut self, value: AppointmentCalendarSyncStatus) -> ::windows::core::Result<()>;
+    fn SetLastSuccessfulSyncTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetLastAttemptedSyncTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManager2 {
@@ -1332,8 +1332,8 @@ impl IAppointmentCalendarSyncManager2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentConflictResultImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<AppointmentConflictType>;
-    fn Date(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Type(&mut self) -> ::windows::core::Result<AppointmentConflictType>;
+    fn Date(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentConflictResult {
@@ -1376,9 +1376,9 @@ impl IAppointmentConflictResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentExceptionImpl: Sized {
-    fn Appointment(&self) -> ::windows::core::Result<Appointment>;
-    fn ExceptionProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn IsDeleted(&self) -> ::windows::core::Result<bool>;
+    fn Appointment(&mut self) -> ::windows::core::Result<Appointment>;
+    fn ExceptionProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn IsDeleted(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentException {
@@ -1433,10 +1433,10 @@ impl IAppointmentExceptionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentInviteeImpl: Sized + IAppointmentParticipantImpl {
-    fn Role(&self) -> ::windows::core::Result<AppointmentParticipantRole>;
-    fn SetRole(&self, value: AppointmentParticipantRole) -> ::windows::core::Result<()>;
-    fn Response(&self) -> ::windows::core::Result<AppointmentParticipantResponse>;
-    fn SetResponse(&self, value: AppointmentParticipantResponse) -> ::windows::core::Result<()>;
+    fn Role(&mut self) -> ::windows::core::Result<AppointmentParticipantRole>;
+    fn SetRole(&mut self, value: AppointmentParticipantRole) -> ::windows::core::Result<()>;
+    fn Response(&mut self) -> ::windows::core::Result<AppointmentParticipantResponse>;
+    fn SetResponse(&mut self, value: AppointmentParticipantResponse) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentInvitee {
@@ -1489,20 +1489,20 @@ impl IAppointmentInviteeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IAppointmentManagerForUserImpl: Sized {
-    fn ShowAddAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowAddAppointmentWithPlacementAsync(&self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentAsync(&self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentWithPlacementAsync(&self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentWithPlacementAndDateAsync(&self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowRemoveAppointmentAsync(&self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowRemoveAppointmentWithPlacementAsync(&self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowTimeFrameAsync(&self, timetoshow: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowAppointmentDetailsAsync(&self, appointmentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowAppointmentDetailsWithDateAsync(&self, appointmentid: &::windows::core::HSTRING, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowEditNewAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn RequestStoreAsync(&self, options: AppointmentStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentStore>>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn ShowAddAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowAddAppointmentWithPlacementAsync(&mut self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentAsync(&mut self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentWithPlacementAsync(&mut self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentWithPlacementAndDateAsync(&mut self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowRemoveAppointmentAsync(&mut self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowRemoveAppointmentWithPlacementAsync(&mut self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowRemoveAppointmentWithPlacementAndDateAsync(&mut self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowTimeFrameAsync(&mut self, timetoshow: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAppointmentDetailsAsync(&mut self, appointmentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAppointmentDetailsWithDateAsync(&mut self, appointmentid: &::windows::core::HSTRING, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowEditNewAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn RequestStoreAsync(&mut self, options: AppointmentStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentStore>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentManagerForUser {
@@ -1709,15 +1709,15 @@ impl IAppointmentManagerForUserVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IAppointmentManagerStaticsImpl: Sized {
-    fn ShowAddAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowAddAppointmentWithPlacementAsync(&self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentAsync(&self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentWithPlacementAsync(&self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentWithPlacementAndDateAsync(&self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowRemoveAppointmentAsync(&self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowRemoveAppointmentWithPlacementAsync(&self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowTimeFrameAsync(&self, timetoshow: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAddAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowAddAppointmentWithPlacementAsync(&mut self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentAsync(&mut self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentWithPlacementAsync(&mut self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentWithPlacementAndDateAsync(&mut self, appointmentid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowRemoveAppointmentAsync(&mut self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowRemoveAppointmentWithPlacementAsync(&mut self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowRemoveAppointmentWithPlacementAndDateAsync(&mut self, appointmentid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowTimeFrameAsync(&mut self, timetoshow: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentManagerStatics {
@@ -1864,10 +1864,10 @@ impl IAppointmentManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentManagerStatics2Impl: Sized {
-    fn ShowAppointmentDetailsAsync(&self, appointmentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowAppointmentDetailsWithDateAsync(&self, appointmentid: &::windows::core::HSTRING, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowEditNewAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn RequestStoreAsync(&self, options: AppointmentStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentStore>>;
+    fn ShowAppointmentDetailsAsync(&mut self, appointmentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAppointmentDetailsWithDateAsync(&mut self, appointmentid: &::windows::core::HSTRING, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowEditNewAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn RequestStoreAsync(&mut self, options: AppointmentStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentStore>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentManagerStatics2 {
@@ -1934,7 +1934,7 @@ impl IAppointmentManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppointmentManagerStatics3Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<AppointmentManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<AppointmentManagerForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentManagerStatics3 {
@@ -1964,10 +1964,10 @@ impl IAppointmentManagerStatics3Vtbl {
     }
 }
 pub trait IAppointmentParticipantImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Address(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Address(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAppointmentParticipant {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.IAppointmentParticipant";
@@ -2018,29 +2018,29 @@ impl IAppointmentParticipantVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentPropertiesStaticsImpl: Sized {
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Location(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn StartTime(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Duration(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Reminder(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BusyStatus(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sensitivity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OriginalStartTime(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsResponseRequested(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AllowNewTimeProposal(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AllDay(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Details(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OnlineMeetingLink(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReplyTime(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Organizer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UserResponse(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasInvitees(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsCanceledMeeting(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsOrganizedByUser(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Recurrence(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Uri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Invitees(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DefaultProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Location(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StartTime(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Duration(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Reminder(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BusyStatus(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sensitivity(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OriginalStartTime(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsResponseRequested(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllowNewTimeProposal(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllDay(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Details(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OnlineMeetingLink(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReplyTime(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Organizer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UserResponse(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasInvitees(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsCanceledMeeting(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsOrganizedByUser(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Recurrence(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uri(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Invitees(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DefaultProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentPropertiesStatics {
@@ -2335,9 +2335,9 @@ impl IAppointmentPropertiesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentPropertiesStatics2Impl: Sized + IAppointmentPropertiesStaticsImpl {
-    fn ChangeNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteChangeNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DetailsKind(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ChangeNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteChangeNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DetailsKind(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentPropertiesStatics2 {
@@ -2392,22 +2392,22 @@ impl IAppointmentPropertiesStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentRecurrenceImpl: Sized {
-    fn Unit(&self) -> ::windows::core::Result<AppointmentRecurrenceUnit>;
-    fn SetUnit(&self, value: AppointmentRecurrenceUnit) -> ::windows::core::Result<()>;
-    fn Occurrences(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetOccurrences(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn Until(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetUntil(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn Interval(&self) -> ::windows::core::Result<u32>;
-    fn SetInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn DaysOfWeek(&self) -> ::windows::core::Result<AppointmentDaysOfWeek>;
-    fn SetDaysOfWeek(&self, value: AppointmentDaysOfWeek) -> ::windows::core::Result<()>;
-    fn WeekOfMonth(&self) -> ::windows::core::Result<AppointmentWeekOfMonth>;
-    fn SetWeekOfMonth(&self, value: AppointmentWeekOfMonth) -> ::windows::core::Result<()>;
-    fn Month(&self) -> ::windows::core::Result<u32>;
-    fn SetMonth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Day(&self) -> ::windows::core::Result<u32>;
-    fn SetDay(&self, value: u32) -> ::windows::core::Result<()>;
+    fn Unit(&mut self) -> ::windows::core::Result<AppointmentRecurrenceUnit>;
+    fn SetUnit(&mut self, value: AppointmentRecurrenceUnit) -> ::windows::core::Result<()>;
+    fn Occurrences(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetOccurrences(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn Until(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetUntil(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn Interval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn DaysOfWeek(&mut self) -> ::windows::core::Result<AppointmentDaysOfWeek>;
+    fn SetDaysOfWeek(&mut self, value: AppointmentDaysOfWeek) -> ::windows::core::Result<()>;
+    fn WeekOfMonth(&mut self) -> ::windows::core::Result<AppointmentWeekOfMonth>;
+    fn SetWeekOfMonth(&mut self, value: AppointmentWeekOfMonth) -> ::windows::core::Result<()>;
+    fn Month(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMonth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Day(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDay(&mut self, value: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentRecurrence {
@@ -2562,9 +2562,9 @@ impl IAppointmentRecurrenceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentRecurrence2Impl: Sized + IAppointmentRecurrenceImpl {
-    fn RecurrenceType(&self) -> ::windows::core::Result<RecurrenceType>;
-    fn TimeZone(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTimeZone(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RecurrenceType(&mut self) -> ::windows::core::Result<RecurrenceType>;
+    fn TimeZone(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTimeZone(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentRecurrence2 {
@@ -2612,7 +2612,7 @@ impl IAppointmentRecurrence2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentRecurrence3Impl: Sized + IAppointmentRecurrenceImpl + IAppointmentRecurrence2Impl {
-    fn CalendarIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CalendarIdentifier(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentRecurrence3 {
@@ -2643,27 +2643,27 @@ impl IAppointmentRecurrence3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IAppointmentStoreImpl: Sized {
-    fn ChangeTracker(&self) -> ::windows::core::Result<AppointmentStoreChangeTracker>;
-    fn CreateAppointmentCalendarAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>>;
-    fn GetAppointmentCalendarAsync(&self, calendarid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>>;
-    fn GetAppointmentAsync(&self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
-    fn GetAppointmentInstanceAsync(&self, localid: &::windows::core::HSTRING, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
-    fn FindAppointmentCalendarsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>>;
-    fn FindAppointmentCalendarsAsyncWithOptions(&self, options: FindAppointmentCalendarsOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>>;
-    fn FindAppointmentsAsync(&self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn FindAppointmentsAsyncWithOptions(&self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan, options: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
-    fn FindConflictAsync(&self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentConflictResult>>;
-    fn FindConflictAsyncWithInstanceStart(&self, appointment: &::core::option::Option<Appointment>, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentConflictResult>>;
-    fn MoveAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>, destinationcalendar: &::core::option::Option<AppointmentCalendar>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowAddAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentAsync(&self, localid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowReplaceAppointmentWithPlacementAndDateAsync(&self, localid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ShowRemoveAppointmentAsync(&self, localid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, localid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowAppointmentDetailsAsync(&self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowAppointmentDetailsWithDateAsync(&self, localid: &::windows::core::HSTRING, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowEditNewAppointmentAsync(&self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn FindLocalIdsFromRoamingIdAsync(&self, roamingid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn ChangeTracker(&mut self) -> ::windows::core::Result<AppointmentStoreChangeTracker>;
+    fn CreateAppointmentCalendarAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>>;
+    fn GetAppointmentCalendarAsync(&mut self, calendarid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>>;
+    fn GetAppointmentAsync(&mut self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
+    fn GetAppointmentInstanceAsync(&mut self, localid: &::windows::core::HSTRING, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Appointment>>;
+    fn FindAppointmentCalendarsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>>;
+    fn FindAppointmentCalendarsAsyncWithOptions(&mut self, options: FindAppointmentCalendarsOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>>;
+    fn FindAppointmentsAsync(&mut self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn FindAppointmentsAsyncWithOptions(&mut self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan, options: &::core::option::Option<FindAppointmentsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>>;
+    fn FindConflictAsync(&mut self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentConflictResult>>;
+    fn FindConflictAsyncWithInstanceStart(&mut self, appointment: &::core::option::Option<Appointment>, instancestarttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentConflictResult>>;
+    fn MoveAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>, destinationcalendar: &::core::option::Option<AppointmentCalendar>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAddAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentAsync(&mut self, localid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowReplaceAppointmentWithPlacementAndDateAsync(&mut self, localid: &::windows::core::HSTRING, appointment: &::core::option::Option<Appointment>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ShowRemoveAppointmentAsync(&mut self, localid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowRemoveAppointmentWithPlacementAndDateAsync(&mut self, localid: &::windows::core::HSTRING, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowAppointmentDetailsAsync(&mut self, localid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAppointmentDetailsWithDateAsync(&mut self, localid: &::windows::core::HSTRING, instancestartdate: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowEditNewAppointmentAsync(&mut self, appointment: &::core::option::Option<Appointment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn FindLocalIdsFromRoamingIdAsync(&mut self, roamingid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentStore {
@@ -2949,9 +2949,9 @@ impl IAppointmentStoreVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IAppointmentStore2Impl: Sized + IAppointmentStoreImpl {
-    fn StoreChanged(&self, phandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppointmentStore, AppointmentStoreChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStoreChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CreateAppointmentCalendarInAccountAsync(&self, name: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>>;
+    fn StoreChanged(&mut self, phandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppointmentStore, AppointmentStoreChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStoreChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateAppointmentCalendarInAccountAsync(&mut self, name: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppointmentCalendar>>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentStore2 {
@@ -2999,7 +2999,7 @@ impl IAppointmentStore2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentStore3Impl: Sized {
-    fn GetChangeTracker(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<AppointmentStoreChangeTracker>;
+    fn GetChangeTracker(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<AppointmentStoreChangeTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentStore3 {
@@ -3030,8 +3030,8 @@ impl IAppointmentStore3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentStoreChangeImpl: Sized {
-    fn Appointment(&self) -> ::windows::core::Result<Appointment>;
-    fn ChangeType(&self) -> ::windows::core::Result<AppointmentStoreChangeType>;
+    fn Appointment(&mut self) -> ::windows::core::Result<Appointment>;
+    fn ChangeType(&mut self) -> ::windows::core::Result<AppointmentStoreChangeType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentStoreChange {
@@ -3074,7 +3074,7 @@ impl IAppointmentStoreChangeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentStoreChange2Impl: Sized + IAppointmentStoreChangeImpl {
-    fn AppointmentCalendar(&self) -> ::windows::core::Result<AppointmentCalendar>;
+    fn AppointmentCalendar(&mut self) -> ::windows::core::Result<AppointmentCalendar>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentStoreChange2 {
@@ -3105,9 +3105,9 @@ impl IAppointmentStoreChange2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentStoreChangeReaderImpl: Sized {
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentStoreChange>>>;
-    fn AcceptChanges(&self) -> ::windows::core::Result<()>;
-    fn AcceptChangesThrough(&self, lastchangetoaccept: &::core::option::Option<AppointmentStoreChange>) -> ::windows::core::Result<()>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentStoreChange>>>;
+    fn AcceptChanges(&mut self) -> ::windows::core::Result<()>;
+    fn AcceptChangesThrough(&mut self, lastchangetoaccept: &::core::option::Option<AppointmentStoreChange>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentStoreChangeReader {
@@ -3148,9 +3148,9 @@ impl IAppointmentStoreChangeReaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentStoreChangeTrackerImpl: Sized {
-    fn GetChangeReader(&self) -> ::windows::core::Result<AppointmentStoreChangeReader>;
-    fn Enable(&self) -> ::windows::core::Result<()>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn GetChangeReader(&mut self) -> ::windows::core::Result<AppointmentStoreChangeReader>;
+    fn Enable(&mut self) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentStoreChangeTracker {
@@ -3191,7 +3191,7 @@ impl IAppointmentStoreChangeTrackerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentStoreChangeTracker2Impl: Sized {
-    fn IsTracking(&self) -> ::windows::core::Result<bool>;
+    fn IsTracking(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentStoreChangeTracker2 {
@@ -3222,7 +3222,7 @@ impl IAppointmentStoreChangeTracker2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentStoreChangedDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentStoreChangedDeferral {
@@ -3246,7 +3246,7 @@ impl IAppointmentStoreChangedDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentStoreChangedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<AppointmentStoreChangedDeferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<AppointmentStoreChangedDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentStoreChangedEventArgs {
@@ -3292,12 +3292,12 @@ impl IAppointmentStoreNotificationTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFindAppointmentsOptionsImpl: Sized {
-    fn CalendarIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn FetchProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn IncludeHidden(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeHidden(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MaxCount(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxCount(&self, value: u32) -> ::windows::core::Result<()>;
+    fn CalendarIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn FetchProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn IncludeHidden(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeHidden(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MaxCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxCount(&mut self, value: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFindAppointmentsOptions {

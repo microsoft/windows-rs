@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAnimationDescriptionImpl: Sized {
-    fn Animations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>;
-    fn StaggerDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn StaggerDelayFactor(&self) -> ::windows::core::Result<f32>;
-    fn DelayLimit(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn ZOrder(&self) -> ::windows::core::Result<i32>;
+    fn Animations(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>;
+    fn StaggerDelay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn StaggerDelayFactor(&mut self) -> ::windows::core::Result<f32>;
+    fn DelayLimit(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn ZOrder(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAnimationDescription {
@@ -83,7 +83,7 @@ impl IAnimationDescriptionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnimationDescriptionFactoryImpl: Sized {
-    fn CreateInstance(&self, effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription>;
+    fn CreateInstance(&mut self, effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnimationDescriptionFactory {
@@ -114,8 +114,8 @@ impl IAnimationDescriptionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOpacityAnimationImpl: Sized + IPropertyAnimationImpl {
-    fn InitialOpacity(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
-    fn FinalOpacity(&self) -> ::windows::core::Result<f32>;
+    fn InitialOpacity(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
+    fn FinalOpacity(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOpacityAnimation {
@@ -158,11 +158,11 @@ impl IOpacityAnimationVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPropertyAnimationImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<PropertyAnimationType>;
-    fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
-    fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn Type(&mut self) -> ::windows::core::Result<PropertyAnimationType>;
+    fn Delay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Control1(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn Control2(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPropertyAnimation {
@@ -241,11 +241,11 @@ impl IPropertyAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScaleAnimationImpl: Sized + IPropertyAnimationImpl {
-    fn InitialScaleX(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
-    fn InitialScaleY(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
-    fn FinalScaleX(&self) -> ::windows::core::Result<f32>;
-    fn FinalScaleY(&self) -> ::windows::core::Result<f32>;
-    fn NormalizedOrigin(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn InitialScaleX(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
+    fn InitialScaleY(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
+    fn FinalScaleX(&mut self) -> ::windows::core::Result<f32>;
+    fn FinalScaleY(&mut self) -> ::windows::core::Result<f32>;
+    fn NormalizedOrigin(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScaleAnimation {

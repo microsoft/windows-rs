@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockApplicationHostImpl: Sized {
-    fn RequestUnlock(&self) -> ::windows::core::Result<()>;
-    fn Unlocking(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUnlocking(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RequestUnlock(&mut self) -> ::windows::core::Result<()>;
+    fn Unlocking(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUnlocking(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockApplicationHost {
@@ -43,7 +43,7 @@ impl ILockApplicationHostVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILockApplicationHostStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<LockApplicationHost>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<LockApplicationHost>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILockApplicationHostStatics {
@@ -74,11 +74,11 @@ impl ILockApplicationHostStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ILockScreenBadgeImpl: Sized {
-    fn Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
-    fn Glyph(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
-    fn Number(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn AutomationName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LaunchApp(&self) -> ::windows::core::Result<()>;
+    fn Logo(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
+    fn Glyph(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
+    fn Number(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn AutomationName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LaunchApp(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenBadge {
@@ -150,18 +150,18 @@ impl ILockScreenBadgeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ILockScreenInfoImpl: Sized {
-    fn LockScreenImageChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLockScreenImageChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LockScreenImage(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
-    fn BadgesChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBadgesChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Badges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<LockScreenBadge>>;
-    fn DetailTextChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDetailTextChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DetailText(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn AlarmIconChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAlarmIconChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AlarmIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
+    fn LockScreenImageChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLockScreenImageChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LockScreenImage(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
+    fn BadgesChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBadgesChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Badges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<LockScreenBadge>>;
+    fn DetailTextChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDetailTextChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DetailText(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn AlarmIconChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAlarmIconChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AlarmIcon(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenInfo {
@@ -296,7 +296,7 @@ impl ILockScreenInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILockScreenUnlockingDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILockScreenUnlockingDeferral {
@@ -317,8 +317,8 @@ impl ILockScreenUnlockingDeferralVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockScreenUnlockingEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<LockScreenUnlockingDeferral>;
-    fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<LockScreenUnlockingDeferral>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenUnlockingEventArgs {

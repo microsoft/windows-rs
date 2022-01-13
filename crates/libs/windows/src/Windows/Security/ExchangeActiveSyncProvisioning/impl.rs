@@ -1,11 +1,11 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasClientDeviceInformationImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn OperatingSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemManufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemSku(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn OperatingSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemManufacturer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemProductName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemSku(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasClientDeviceInformation {
@@ -96,8 +96,8 @@ impl IEasClientDeviceInformationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasClientDeviceInformation2Impl: Sized + IEasClientDeviceInformationImpl {
-    fn SystemHardwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemFirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemHardwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemFirmwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasClientDeviceInformation2 {
@@ -140,24 +140,24 @@ impl IEasClientDeviceInformation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEasClientSecurityPolicyImpl: Sized {
-    fn RequireEncryption(&self) -> ::windows::core::Result<bool>;
-    fn SetRequireEncryption(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MinPasswordLength(&self) -> ::windows::core::Result<u8>;
-    fn SetMinPasswordLength(&self, value: u8) -> ::windows::core::Result<()>;
-    fn DisallowConvenienceLogon(&self) -> ::windows::core::Result<bool>;
-    fn SetDisallowConvenienceLogon(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MinPasswordComplexCharacters(&self) -> ::windows::core::Result<u8>;
-    fn SetMinPasswordComplexCharacters(&self, value: u8) -> ::windows::core::Result<()>;
-    fn PasswordExpiration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetPasswordExpiration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn PasswordHistory(&self) -> ::windows::core::Result<u32>;
-    fn SetPasswordHistory(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MaxPasswordFailedAttempts(&self) -> ::windows::core::Result<u8>;
-    fn SetMaxPasswordFailedAttempts(&self, value: u8) -> ::windows::core::Result<()>;
-    fn MaxInactivityTimeLock(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetMaxInactivityTimeLock(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn CheckCompliance(&self) -> ::windows::core::Result<EasComplianceResults>;
-    fn ApplyAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>>;
+    fn RequireEncryption(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRequireEncryption(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MinPasswordLength(&mut self) -> ::windows::core::Result<u8>;
+    fn SetMinPasswordLength(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn DisallowConvenienceLogon(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDisallowConvenienceLogon(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MinPasswordComplexCharacters(&mut self) -> ::windows::core::Result<u8>;
+    fn SetMinPasswordComplexCharacters(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn PasswordExpiration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetPasswordExpiration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn PasswordHistory(&mut self) -> ::windows::core::Result<u32>;
+    fn SetPasswordHistory(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MaxPasswordFailedAttempts(&mut self) -> ::windows::core::Result<u8>;
+    fn SetMaxPasswordFailedAttempts(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn MaxInactivityTimeLock(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetMaxInactivityTimeLock(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CheckCompliance(&mut self) -> ::windows::core::Result<EasComplianceResults>;
+    fn ApplyAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEasClientSecurityPolicy {
@@ -336,15 +336,15 @@ impl IEasClientSecurityPolicyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasComplianceResultsImpl: Sized {
-    fn Compliant(&self) -> ::windows::core::Result<bool>;
-    fn RequireEncryptionResult(&self) -> ::windows::core::Result<EasRequireEncryptionResult>;
-    fn MinPasswordLengthResult(&self) -> ::windows::core::Result<EasMinPasswordLengthResult>;
-    fn DisallowConvenienceLogonResult(&self) -> ::windows::core::Result<EasDisallowConvenienceLogonResult>;
-    fn MinPasswordComplexCharactersResult(&self) -> ::windows::core::Result<EasMinPasswordComplexCharactersResult>;
-    fn PasswordExpirationResult(&self) -> ::windows::core::Result<EasPasswordExpirationResult>;
-    fn PasswordHistoryResult(&self) -> ::windows::core::Result<EasPasswordHistoryResult>;
-    fn MaxPasswordFailedAttemptsResult(&self) -> ::windows::core::Result<EasMaxPasswordFailedAttemptsResult>;
-    fn MaxInactivityTimeLockResult(&self) -> ::windows::core::Result<EasMaxInactivityTimeLockResult>;
+    fn Compliant(&mut self) -> ::windows::core::Result<bool>;
+    fn RequireEncryptionResult(&mut self) -> ::windows::core::Result<EasRequireEncryptionResult>;
+    fn MinPasswordLengthResult(&mut self) -> ::windows::core::Result<EasMinPasswordLengthResult>;
+    fn DisallowConvenienceLogonResult(&mut self) -> ::windows::core::Result<EasDisallowConvenienceLogonResult>;
+    fn MinPasswordComplexCharactersResult(&mut self) -> ::windows::core::Result<EasMinPasswordComplexCharactersResult>;
+    fn PasswordExpirationResult(&mut self) -> ::windows::core::Result<EasPasswordExpirationResult>;
+    fn PasswordHistoryResult(&mut self) -> ::windows::core::Result<EasPasswordHistoryResult>;
+    fn MaxPasswordFailedAttemptsResult(&mut self) -> ::windows::core::Result<EasMaxPasswordFailedAttemptsResult>;
+    fn MaxInactivityTimeLockResult(&mut self) -> ::windows::core::Result<EasMaxInactivityTimeLockResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasComplianceResults {
@@ -471,7 +471,7 @@ impl IEasComplianceResultsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasComplianceResults2Impl: Sized + IEasComplianceResultsImpl {
-    fn EncryptionProviderType(&self) -> ::windows::core::Result<EasEncryptionProviderType>;
+    fn EncryptionProviderType(&mut self) -> ::windows::core::Result<EasEncryptionProviderType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasComplianceResults2 {

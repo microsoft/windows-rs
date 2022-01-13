@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IApplicationLanguagesStaticsImpl: Sized {
-    fn PrimaryLanguageOverride(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPrimaryLanguageOverride(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Languages(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn ManifestLanguages(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn PrimaryLanguageOverride(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPrimaryLanguageOverride(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn ManifestLanguages(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationLanguagesStatics {
@@ -63,7 +63,7 @@ impl IApplicationLanguagesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IApplicationLanguagesStatics2Impl: Sized {
-    fn GetLanguagesForUser(&self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn GetLanguagesForUser(&mut self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationLanguagesStatics2 {
@@ -94,104 +94,104 @@ impl IApplicationLanguagesStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICalendarImpl: Sized {
-    fn Clone(&self) -> ::windows::core::Result<Calendar>;
-    fn SetToMin(&self) -> ::windows::core::Result<()>;
-    fn SetToMax(&self) -> ::windows::core::Result<()>;
-    fn Languages(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn NumeralSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNumeralSystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetCalendarSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ChangeCalendarSystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetClock(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ChangeClock(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetDateTime(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
-    fn SetDateTime(&self, value: &super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn SetToNow(&self) -> ::windows::core::Result<()>;
-    fn FirstEra(&self) -> ::windows::core::Result<i32>;
-    fn LastEra(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfEras(&self) -> ::windows::core::Result<i32>;
-    fn Era(&self) -> ::windows::core::Result<i32>;
-    fn SetEra(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddEras(&self, eras: i32) -> ::windows::core::Result<()>;
-    fn EraAsFullString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EraAsString(&self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirstYearInThisEra(&self) -> ::windows::core::Result<i32>;
-    fn LastYearInThisEra(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfYearsInThisEra(&self) -> ::windows::core::Result<i32>;
-    fn Year(&self) -> ::windows::core::Result<i32>;
-    fn SetYear(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddYears(&self, years: i32) -> ::windows::core::Result<()>;
-    fn YearAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn YearAsTruncatedString(&self, remainingdigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn YearAsPaddedString(&self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirstMonthInThisYear(&self) -> ::windows::core::Result<i32>;
-    fn LastMonthInThisYear(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfMonthsInThisYear(&self) -> ::windows::core::Result<i32>;
-    fn Month(&self) -> ::windows::core::Result<i32>;
-    fn SetMonth(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddMonths(&self, months: i32) -> ::windows::core::Result<()>;
-    fn MonthAsFullString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MonthAsString(&self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MonthAsFullSoloString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MonthAsSoloString(&self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MonthAsNumericString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MonthAsPaddedNumericString(&self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AddWeeks(&self, weeks: i32) -> ::windows::core::Result<()>;
-    fn FirstDayInThisMonth(&self) -> ::windows::core::Result<i32>;
-    fn LastDayInThisMonth(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfDaysInThisMonth(&self) -> ::windows::core::Result<i32>;
-    fn Day(&self) -> ::windows::core::Result<i32>;
-    fn SetDay(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddDays(&self, days: i32) -> ::windows::core::Result<()>;
-    fn DayAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DayAsPaddedString(&self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DayOfWeek(&self) -> ::windows::core::Result<DayOfWeek>;
-    fn DayOfWeekAsFullString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DayOfWeekAsString(&self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DayOfWeekAsFullSoloString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DayOfWeekAsSoloString(&self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirstPeriodInThisDay(&self) -> ::windows::core::Result<i32>;
-    fn LastPeriodInThisDay(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfPeriodsInThisDay(&self) -> ::windows::core::Result<i32>;
-    fn Period(&self) -> ::windows::core::Result<i32>;
-    fn SetPeriod(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddPeriods(&self, periods: i32) -> ::windows::core::Result<()>;
-    fn PeriodAsFullString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PeriodAsString(&self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirstHourInThisPeriod(&self) -> ::windows::core::Result<i32>;
-    fn LastHourInThisPeriod(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfHoursInThisPeriod(&self) -> ::windows::core::Result<i32>;
-    fn Hour(&self) -> ::windows::core::Result<i32>;
-    fn SetHour(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddHours(&self, hours: i32) -> ::windows::core::Result<()>;
-    fn HourAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HourAsPaddedString(&self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Minute(&self) -> ::windows::core::Result<i32>;
-    fn SetMinute(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddMinutes(&self, minutes: i32) -> ::windows::core::Result<()>;
-    fn MinuteAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MinuteAsPaddedString(&self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Second(&self) -> ::windows::core::Result<i32>;
-    fn SetSecond(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddSeconds(&self, seconds: i32) -> ::windows::core::Result<()>;
-    fn SecondAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecondAsPaddedString(&self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Nanosecond(&self) -> ::windows::core::Result<i32>;
-    fn SetNanosecond(&self, value: i32) -> ::windows::core::Result<()>;
-    fn AddNanoseconds(&self, nanoseconds: i32) -> ::windows::core::Result<()>;
-    fn NanosecondAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NanosecondAsPaddedString(&self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Compare(&self, other: &::core::option::Option<Calendar>) -> ::windows::core::Result<i32>;
-    fn CompareDateTime(&self, other: &super::Foundation::DateTime) -> ::windows::core::Result<i32>;
-    fn CopyTo(&self, other: &::core::option::Option<Calendar>) -> ::windows::core::Result<()>;
-    fn FirstMinuteInThisHour(&self) -> ::windows::core::Result<i32>;
-    fn LastMinuteInThisHour(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfMinutesInThisHour(&self) -> ::windows::core::Result<i32>;
-    fn FirstSecondInThisMinute(&self) -> ::windows::core::Result<i32>;
-    fn LastSecondInThisMinute(&self) -> ::windows::core::Result<i32>;
-    fn NumberOfSecondsInThisMinute(&self) -> ::windows::core::Result<i32>;
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsDaylightSavingTime(&self) -> ::windows::core::Result<bool>;
+    fn Clone(&mut self) -> ::windows::core::Result<Calendar>;
+    fn SetToMin(&mut self) -> ::windows::core::Result<()>;
+    fn SetToMax(&mut self) -> ::windows::core::Result<()>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn NumeralSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNumeralSystem(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetCalendarSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ChangeCalendarSystem(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetClock(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ChangeClock(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetDateTime(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn SetDateTime(&mut self, value: &super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetToNow(&mut self) -> ::windows::core::Result<()>;
+    fn FirstEra(&mut self) -> ::windows::core::Result<i32>;
+    fn LastEra(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfEras(&mut self) -> ::windows::core::Result<i32>;
+    fn Era(&mut self) -> ::windows::core::Result<i32>;
+    fn SetEra(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddEras(&mut self, eras: i32) -> ::windows::core::Result<()>;
+    fn EraAsFullString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EraAsString(&mut self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirstYearInThisEra(&mut self) -> ::windows::core::Result<i32>;
+    fn LastYearInThisEra(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfYearsInThisEra(&mut self) -> ::windows::core::Result<i32>;
+    fn Year(&mut self) -> ::windows::core::Result<i32>;
+    fn SetYear(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddYears(&mut self, years: i32) -> ::windows::core::Result<()>;
+    fn YearAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn YearAsTruncatedString(&mut self, remainingdigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn YearAsPaddedString(&mut self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirstMonthInThisYear(&mut self) -> ::windows::core::Result<i32>;
+    fn LastMonthInThisYear(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfMonthsInThisYear(&mut self) -> ::windows::core::Result<i32>;
+    fn Month(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMonth(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddMonths(&mut self, months: i32) -> ::windows::core::Result<()>;
+    fn MonthAsFullString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MonthAsString(&mut self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MonthAsFullSoloString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MonthAsSoloString(&mut self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MonthAsNumericString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MonthAsPaddedNumericString(&mut self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AddWeeks(&mut self, weeks: i32) -> ::windows::core::Result<()>;
+    fn FirstDayInThisMonth(&mut self) -> ::windows::core::Result<i32>;
+    fn LastDayInThisMonth(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfDaysInThisMonth(&mut self) -> ::windows::core::Result<i32>;
+    fn Day(&mut self) -> ::windows::core::Result<i32>;
+    fn SetDay(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddDays(&mut self, days: i32) -> ::windows::core::Result<()>;
+    fn DayAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DayAsPaddedString(&mut self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DayOfWeek(&mut self) -> ::windows::core::Result<DayOfWeek>;
+    fn DayOfWeekAsFullString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DayOfWeekAsString(&mut self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DayOfWeekAsFullSoloString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DayOfWeekAsSoloString(&mut self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirstPeriodInThisDay(&mut self) -> ::windows::core::Result<i32>;
+    fn LastPeriodInThisDay(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfPeriodsInThisDay(&mut self) -> ::windows::core::Result<i32>;
+    fn Period(&mut self) -> ::windows::core::Result<i32>;
+    fn SetPeriod(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddPeriods(&mut self, periods: i32) -> ::windows::core::Result<()>;
+    fn PeriodAsFullString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PeriodAsString(&mut self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirstHourInThisPeriod(&mut self) -> ::windows::core::Result<i32>;
+    fn LastHourInThisPeriod(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfHoursInThisPeriod(&mut self) -> ::windows::core::Result<i32>;
+    fn Hour(&mut self) -> ::windows::core::Result<i32>;
+    fn SetHour(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddHours(&mut self, hours: i32) -> ::windows::core::Result<()>;
+    fn HourAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HourAsPaddedString(&mut self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Minute(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMinute(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddMinutes(&mut self, minutes: i32) -> ::windows::core::Result<()>;
+    fn MinuteAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MinuteAsPaddedString(&mut self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Second(&mut self) -> ::windows::core::Result<i32>;
+    fn SetSecond(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddSeconds(&mut self, seconds: i32) -> ::windows::core::Result<()>;
+    fn SecondAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecondAsPaddedString(&mut self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Nanosecond(&mut self) -> ::windows::core::Result<i32>;
+    fn SetNanosecond(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn AddNanoseconds(&mut self, nanoseconds: i32) -> ::windows::core::Result<()>;
+    fn NanosecondAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NanosecondAsPaddedString(&mut self, mindigits: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Compare(&mut self, other: &::core::option::Option<Calendar>) -> ::windows::core::Result<i32>;
+    fn CompareDateTime(&mut self, other: &super::Foundation::DateTime) -> ::windows::core::Result<i32>;
+    fn CopyTo(&mut self, other: &::core::option::Option<Calendar>) -> ::windows::core::Result<()>;
+    fn FirstMinuteInThisHour(&mut self) -> ::windows::core::Result<i32>;
+    fn LastMinuteInThisHour(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfMinutesInThisHour(&mut self) -> ::windows::core::Result<i32>;
+    fn FirstSecondInThisMinute(&mut self) -> ::windows::core::Result<i32>;
+    fn LastSecondInThisMinute(&mut self) -> ::windows::core::Result<i32>;
+    fn NumberOfSecondsInThisMinute(&mut self) -> ::windows::core::Result<i32>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsDaylightSavingTime(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendar {
@@ -1197,8 +1197,8 @@ impl ICalendarVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICalendarFactoryImpl: Sized {
-    fn CreateCalendarDefaultCalendarAndClock(&self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<Calendar>;
-    fn CreateCalendar(&self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>;
+    fn CreateCalendarDefaultCalendarAndClock(&mut self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<Calendar>;
+    fn CreateCalendar(&mut self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendarFactory {
@@ -1245,7 +1245,7 @@ impl ICalendarFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICalendarFactory2Impl: Sized {
-    fn CreateCalendarWithTimeZone(&self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>;
+    fn CreateCalendarWithTimeZone(&mut self, languages: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendarFactory2 {
@@ -1281,15 +1281,15 @@ impl ICalendarFactory2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICalendarIdentifiersStaticsImpl: Sized {
-    fn Gregorian(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Hebrew(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Hijri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Japanese(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Julian(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Korean(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Taiwan(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Thai(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UmAlQura(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Gregorian(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Hebrew(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Hijri(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Japanese(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Julian(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Korean(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Taiwan(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Thai(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UmAlQura(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICalendarIdentifiersStatics {
@@ -1416,7 +1416,7 @@ impl ICalendarIdentifiersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICalendarIdentifiersStatics2Impl: Sized {
-    fn Persian(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Persian(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICalendarIdentifiersStatics2 {
@@ -1444,11 +1444,11 @@ impl ICalendarIdentifiersStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICalendarIdentifiersStatics3Impl: Sized {
-    fn ChineseLunar(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JapaneseLunar(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KoreanLunar(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TaiwanLunar(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VietnameseLunar(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ChineseLunar(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JapaneseLunar(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KoreanLunar(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TaiwanLunar(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VietnameseLunar(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICalendarIdentifiersStatics3 {
@@ -1527,8 +1527,8 @@ impl ICalendarIdentifiersStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IClockIdentifiersStaticsImpl: Sized {
-    fn TwelveHour(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TwentyFourHour(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TwelveHour(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TwentyFourHour(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClockIdentifiersStatics {
@@ -1571,8 +1571,8 @@ impl IClockIdentifiersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrencyAmountImpl: Sized {
-    fn Amount(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Currency(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Amount(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Currency(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrencyAmount {
@@ -1615,7 +1615,7 @@ impl ICurrencyAmountVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrencyAmountFactoryImpl: Sized {
-    fn Create(&self, amount: &::windows::core::HSTRING, currency: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyAmount>;
+    fn Create(&mut self, amount: &::windows::core::HSTRING, currency: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyAmount>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrencyAmountFactory {
@@ -1643,163 +1643,163 @@ impl ICurrencyAmountFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrencyIdentifiersStaticsImpl: Sized {
-    fn AED(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AFN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ALL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AMD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ANG(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AOA(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ARS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AUD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AWG(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AZN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BAM(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BBD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BDT(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BGN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BHD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BIF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BMD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BND(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BOB(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BRL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BSD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BTN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BWP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BYR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BZD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CAD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CDF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CHF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CLP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CNY(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn COP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CRC(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CUP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CVE(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CZK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DJF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DKK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DOP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DZD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EGP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ERN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ETB(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EUR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FJD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FKP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GBP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GEL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GHS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GIP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GMD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GNF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GTQ(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GYD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HKD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HNL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HRK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HTG(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HUF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IDR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ILS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn INR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IQD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IRR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ISK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JMD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JOD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JPY(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KES(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KGS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KHR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KMF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KPW(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KRW(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KWD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KYD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KZT(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LAK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LBP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LKR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LRD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LSL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LTL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LVL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LYD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MAD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MDL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MGA(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MKD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MMK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MNT(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MOP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MRO(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MUR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MVR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MWK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MXN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MYR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MZN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NAD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NGN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NIO(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NOK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NPR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NZD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OMR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PAB(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PEN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PGK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PHP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PKR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PLN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PYG(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn QAR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RON(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RSD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RUB(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RWF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SAR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SBD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SCR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SDG(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SEK(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SGD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SHP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SLL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SOS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SRD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn STD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SYP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SZL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn THB(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TJS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TMT(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TND(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TOP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TRY(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TTD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TWD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TZS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UAH(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UGX(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn USD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UYU(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UZS(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VEF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VND(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VUV(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WST(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XAF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XCD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XOF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XPF(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XXX(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn YER(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZAR(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZMW(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZWL(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AED(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AFN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ALL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AMD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ANG(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AOA(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ARS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AUD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AWG(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AZN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BAM(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BBD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BDT(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BGN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BHD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BIF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BMD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BND(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BOB(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BRL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BSD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BTN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BWP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BYR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BZD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CAD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CDF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CHF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CLP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CNY(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn COP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CRC(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CUP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CVE(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CZK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DJF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DKK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DOP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DZD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EGP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ERN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ETB(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EUR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FJD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FKP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GBP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GEL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GHS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GIP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GMD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GNF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GTQ(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GYD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HKD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HNL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HRK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HTG(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HUF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IDR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ILS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn INR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IQD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IRR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ISK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JMD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JOD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JPY(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KES(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KGS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KHR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KMF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KPW(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KRW(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KWD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KYD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KZT(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LAK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LBP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LKR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LRD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LSL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LTL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LVL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LYD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MAD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MDL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MGA(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MKD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MMK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MNT(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MOP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MRO(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MUR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MVR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MWK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MXN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MYR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MZN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NAD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NGN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NIO(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NOK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NPR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NZD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OMR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PAB(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PEN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PGK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PHP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PKR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PLN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PYG(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn QAR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RON(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RSD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RUB(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RWF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SAR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SBD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SCR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SDG(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SEK(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SGD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SHP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SLL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SOS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SRD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn STD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SYP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SZL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn THB(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TJS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TMT(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TND(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TOP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TRY(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TTD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TWD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TZS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UAH(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UGX(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn USD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UYU(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UZS(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VEF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VND(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VUV(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WST(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XAF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XCD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XOF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XPF(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XXX(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn YER(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZAR(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZMW(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZWL(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrencyIdentifiersStatics {
@@ -3702,7 +3702,7 @@ impl ICurrencyIdentifiersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrencyIdentifiersStatics2Impl: Sized {
-    fn BYN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BYN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrencyIdentifiersStatics2 {
@@ -3730,10 +3730,10 @@ impl ICurrencyIdentifiersStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrencyIdentifiersStatics3Impl: Sized {
-    fn MRU(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SSP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn STN(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VES(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MRU(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SSP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn STN(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VES(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrencyIdentifiersStatics3 {
@@ -3800,13 +3800,13 @@ impl ICurrencyIdentifiersStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeographicRegionImpl: Sized {
-    fn Code(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CodeTwoLetter(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CodeThreeLetter(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CodeThreeDigit(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NativeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CurrenciesInUse(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Code(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CodeTwoLetter(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CodeThreeLetter(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CodeThreeDigit(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NativeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CurrenciesInUse(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeographicRegion {
@@ -3909,7 +3909,7 @@ impl IGeographicRegionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeographicRegionFactoryImpl: Sized {
-    fn CreateGeographicRegion(&self, geographicregioncode: &::windows::core::HSTRING) -> ::windows::core::Result<GeographicRegion>;
+    fn CreateGeographicRegion(&mut self, geographicregioncode: &::windows::core::HSTRING) -> ::windows::core::Result<GeographicRegion>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeographicRegionFactory {
@@ -3940,7 +3940,7 @@ impl IGeographicRegionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeographicRegionStaticsImpl: Sized {
-    fn IsSupported(&self, geographicregioncode: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self, geographicregioncode: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeographicRegionStatics {
@@ -3968,9 +3968,9 @@ impl IGeographicRegionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IJapanesePhonemeImpl: Sized {
-    fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn YomiText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsPhraseStart(&self) -> ::windows::core::Result<bool>;
+    fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn YomiText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsPhraseStart(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IJapanesePhoneme {
@@ -4025,8 +4025,8 @@ impl IJapanesePhonemeVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IJapanesePhoneticAnalyzerStaticsImpl: Sized {
-    fn GetWords(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>>;
-    fn GetWordsWithMonoRubyOption(&self, input: &::windows::core::HSTRING, monoruby: bool) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>>;
+    fn GetWords(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>>;
+    fn GetWordsWithMonoRubyOption(&mut self, input: &::windows::core::HSTRING, monoruby: bool) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJapanesePhoneticAnalyzerStatics {
@@ -4069,10 +4069,10 @@ impl IJapanesePhoneticAnalyzerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguageImpl: Sized {
-    fn LanguageTag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NativeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Script(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LanguageTag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NativeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Script(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguage {
@@ -4139,7 +4139,7 @@ impl ILanguageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguage2Impl: Sized {
-    fn LayoutDirection(&self) -> ::windows::core::Result<LanguageLayoutDirection>;
+    fn LayoutDirection(&mut self) -> ::windows::core::Result<LanguageLayoutDirection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguage2 {
@@ -4167,7 +4167,7 @@ impl ILanguage2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguage3Impl: Sized {
-    fn AbbreviatedName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AbbreviatedName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguage3 {
@@ -4195,7 +4195,7 @@ impl ILanguage3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILanguageExtensionSubtagsImpl: Sized {
-    fn GetExtensionSubtags(&self, singleton: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn GetExtensionSubtags(&mut self, singleton: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILanguageExtensionSubtags {
@@ -4226,7 +4226,7 @@ impl ILanguageExtensionSubtagsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguageFactoryImpl: Sized {
-    fn CreateLanguage(&self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<Language>;
+    fn CreateLanguage(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<Language>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguageFactory {
@@ -4254,8 +4254,8 @@ impl ILanguageFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguageStaticsImpl: Sized {
-    fn IsWellFormed(&self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn CurrentInputMethodLanguageTag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsWellFormed(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn CurrentInputMethodLanguageTag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguageStatics {
@@ -4298,7 +4298,7 @@ impl ILanguageStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguageStatics2Impl: Sized {
-    fn TrySetInputMethodLanguageTag(&self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn TrySetInputMethodLanguageTag(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguageStatics2 {
@@ -4329,7 +4329,7 @@ impl ILanguageStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILanguageStatics3Impl: Sized {
-    fn GetMuiCompatibleLanguageListFromLanguageTags(&self, languagetags: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetMuiCompatibleLanguageListFromLanguageTags(&mut self, languagetags: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILanguageStatics3 {
@@ -4360,42 +4360,42 @@ impl ILanguageStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INumeralSystemIdentifiersStaticsImpl: Sized {
-    fn Arab(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ArabExt(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Bali(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Beng(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Cham(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Deva(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FullWide(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Gujr(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Guru(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HaniDec(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Java(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Kali(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Khmr(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Knda(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Lana(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LanaTham(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Laoo(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Latn(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Lepc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Limb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mlym(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mong(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mtei(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mymr(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MymrShan(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Nkoo(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Olck(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Orya(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Saur(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sund(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Talu(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TamlDec(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Telu(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Thai(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Tibt(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Vaii(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Arab(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ArabExt(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Bali(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Beng(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Cham(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Deva(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FullWide(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Gujr(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Guru(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HaniDec(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Java(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Kali(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Khmr(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Knda(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Lana(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LanaTham(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Laoo(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Latn(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Lepc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Limb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mlym(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mong(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mtei(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mymr(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MymrShan(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Nkoo(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Olck(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Orya(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Saur(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sund(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Talu(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TamlDec(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Telu(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Thai(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Tibt(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Vaii(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INumeralSystemIdentifiersStatics {
@@ -4846,18 +4846,18 @@ impl INumeralSystemIdentifiersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INumeralSystemIdentifiersStatics2Impl: Sized {
-    fn Brah(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Osma(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MathBold(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MathDbl(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MathSans(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MathSanb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MathMono(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZmthBold(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZmthDbl(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZmthSans(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZmthSanb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ZmthMono(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Brah(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Osma(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MathBold(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MathDbl(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MathSans(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MathSanb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MathMono(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZmthBold(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZmthDbl(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZmthSans(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZmthSanb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ZmthMono(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INumeralSystemIdentifiersStatics2 {
@@ -5020,10 +5020,10 @@ impl INumeralSystemIdentifiersStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimeZoneOnCalendarImpl: Sized {
-    fn GetTimeZone(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ChangeTimeZone(&self, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TimeZoneAsFullString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TimeZoneAsString(&self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetTimeZone(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ChangeTimeZone(&mut self, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TimeZoneAsFullString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TimeZoneAsString(&mut self, ideallength: i32) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimeZoneOnCalendar {

@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILampArrayBitmapEffectImpl: Sized {
-    fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetStartDelay(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn UpdateInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetUpdateInterval(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SuggestedBitmapSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size>;
-    fn BitmapRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBitmapRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartDelay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetStartDelay(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn UpdateInterval(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetUpdateInterval(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SuggestedBitmapSize(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Size>;
+    fn BitmapRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBitmapRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayBitmapEffect {
@@ -107,7 +107,7 @@ impl ILampArrayBitmapEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILampArrayBitmapEffectFactoryImpl: Sized {
-    fn CreateInstance(&self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayBitmapEffect>;
+    fn CreateInstance(&mut self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayBitmapEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILampArrayBitmapEffectFactory {
@@ -138,8 +138,8 @@ impl ILampArrayBitmapEffectFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ILampArrayBitmapRequestedEventArgsImpl: Sized {
-    fn SinceStarted(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn UpdateBitmap(&self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
+    fn SinceStarted(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn UpdateBitmap(&mut self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayBitmapRequestedEventArgs {
@@ -175,22 +175,22 @@ impl ILampArrayBitmapRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArrayBlinkEffectImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color>;
-    fn SetColor(&self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn AttackDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetAttackDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SustainDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetSustainDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn DecayDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetDecayDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn RepetitionDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetRepetitionDelay(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetStartDelay(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Occurrences(&self) -> ::windows::core::Result<i32>;
-    fn SetOccurrences(&self, value: i32) -> ::windows::core::Result<()>;
-    fn RepetitionMode(&self) -> ::windows::core::Result<LampArrayRepetitionMode>;
-    fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::super::super::UI::Color>;
+    fn SetColor(&mut self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn AttackDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetAttackDuration(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SustainDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetSustainDuration(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DecayDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetDecayDuration(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn RepetitionDelay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetRepetitionDelay(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartDelay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetStartDelay(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Occurrences(&mut self) -> ::windows::core::Result<i32>;
+    fn SetOccurrences(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn RepetitionMode(&mut self) -> ::windows::core::Result<LampArrayRepetitionMode>;
+    fn SetRepetitionMode(&mut self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayBlinkEffect {
@@ -345,7 +345,7 @@ impl ILampArrayBlinkEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILampArrayBlinkEffectFactoryImpl: Sized {
-    fn CreateInstance(&self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayBlinkEffect>;
+    fn CreateInstance(&mut self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayBlinkEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILampArrayBlinkEffectFactory {
@@ -376,14 +376,14 @@ impl ILampArrayBlinkEffectFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArrayColorRampEffectImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color>;
-    fn SetColor(&self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn RampDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetRampDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetStartDelay(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn CompletionBehavior(&self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior>;
-    fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::super::super::UI::Color>;
+    fn SetColor(&mut self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn RampDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetRampDuration(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartDelay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetStartDelay(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CompletionBehavior(&mut self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior>;
+    fn SetCompletionBehavior(&mut self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayColorRampEffect {
@@ -470,7 +470,7 @@ impl ILampArrayColorRampEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILampArrayColorRampEffectFactoryImpl: Sized {
-    fn CreateInstance(&self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayColorRampEffect>;
+    fn CreateInstance(&mut self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayColorRampEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILampArrayColorRampEffectFactory {
@@ -501,12 +501,12 @@ impl ILampArrayColorRampEffectFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILampArrayCustomEffectImpl: Sized {
-    fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn UpdateInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetUpdateInterval(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn UpdateRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdateRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn UpdateInterval(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetUpdateInterval(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn UpdateRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdateRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayCustomEffect {
@@ -576,7 +576,7 @@ impl ILampArrayCustomEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILampArrayCustomEffectFactoryImpl: Sized {
-    fn CreateInstance(&self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayCustomEffect>;
+    fn CreateInstance(&mut self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayCustomEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILampArrayCustomEffectFactory {
@@ -606,8 +606,8 @@ impl ILampArrayCustomEffectFactoryVtbl {
     }
 }
 pub trait ILampArrayEffectImpl: Sized {
-    fn ZIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()>;
+    fn ZIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetZIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";
@@ -641,17 +641,17 @@ impl ILampArrayEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILampArrayEffectPlaylistImpl: Sized {
-    fn Append(&self, effect: &::core::option::Option<ILampArrayEffect>) -> ::windows::core::Result<()>;
-    fn OverrideZIndex(&self, zindex: i32) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Pause(&self) -> ::windows::core::Result<()>;
-    fn EffectStartMode(&self) -> ::windows::core::Result<LampArrayEffectStartMode>;
-    fn SetEffectStartMode(&self, value: LampArrayEffectStartMode) -> ::windows::core::Result<()>;
-    fn Occurrences(&self) -> ::windows::core::Result<i32>;
-    fn SetOccurrences(&self, value: i32) -> ::windows::core::Result<()>;
-    fn RepetitionMode(&self) -> ::windows::core::Result<LampArrayRepetitionMode>;
-    fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()>;
+    fn Append(&mut self, effect: &::core::option::Option<ILampArrayEffect>) -> ::windows::core::Result<()>;
+    fn OverrideZIndex(&mut self, zindex: i32) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Pause(&mut self) -> ::windows::core::Result<()>;
+    fn EffectStartMode(&mut self) -> ::windows::core::Result<LampArrayEffectStartMode>;
+    fn SetEffectStartMode(&mut self, value: LampArrayEffectStartMode) -> ::windows::core::Result<()>;
+    fn Occurrences(&mut self) -> ::windows::core::Result<i32>;
+    fn SetOccurrences(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn RepetitionMode(&mut self) -> ::windows::core::Result<LampArrayRepetitionMode>;
+    fn SetRepetitionMode(&mut self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILampArrayEffectPlaylist {
@@ -746,9 +746,9 @@ impl ILampArrayEffectPlaylistVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILampArrayEffectPlaylistStaticsImpl: Sized {
-    fn StartAll(&self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
-    fn StopAll(&self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
-    fn PauseAll(&self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
+    fn StartAll(&mut self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
+    fn StopAll(&mut self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
+    fn PauseAll(&mut self, value: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayEffectPlaylistStatics {
@@ -782,14 +782,14 @@ impl ILampArrayEffectPlaylistStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArraySolidEffectImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color>;
-    fn SetColor(&self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetStartDelay(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn CompletionBehavior(&self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior>;
-    fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::super::super::UI::Color>;
+    fn SetColor(&mut self, value: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartDelay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetStartDelay(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CompletionBehavior(&mut self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior>;
+    fn SetCompletionBehavior(&mut self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArraySolidEffect {
@@ -876,7 +876,7 @@ impl ILampArraySolidEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILampArraySolidEffectFactoryImpl: Sized {
-    fn CreateInstance(&self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArraySolidEffect>;
+    fn CreateInstance(&mut self, lamparray: &::core::option::Option<super::LampArray>, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArraySolidEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILampArraySolidEffectFactory {
@@ -907,11 +907,11 @@ impl ILampArraySolidEffectFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait ILampArrayUpdateRequestedEventArgsImpl: Sized {
-    fn SinceStarted(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetColor(&self, desiredcolor: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn SetColorForIndex(&self, lampindex: i32, desiredcolor: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn SetSingleColorForIndices(&self, desiredcolor: &super::super::super::UI::Color, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn SetColorsForIndices(&self, desiredcolors: &[<super::super::super::UI::Color as ::windows::core::DefaultType>::DefaultType], lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn SinceStarted(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetColor(&mut self, desiredcolor: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn SetColorForIndex(&mut self, lampindex: i32, desiredcolor: &super::super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn SetSingleColorForIndices(&mut self, desiredcolor: &super::super::super::UI::Color, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn SetColorsForIndices(&mut self, desiredcolors: &[<super::super::super::UI::Color as ::windows::core::DefaultType>::DefaultType], lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILampArrayUpdateRequestedEventArgs {

@@ -392,7 +392,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
         let this = if is_delegate{
             quote! {}
         } else {
-            quote! { &self, }
+            quote! { &mut self, }
         };
 
         quote! { (#this #(#params),*) -> ::windows::core::Result<#return_sig> }

@@ -1,18 +1,18 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileOpenPickerUIImpl: Sized {
-    fn AddFile(&self, id: &::windows::core::HSTRING, file: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<AddFileResult>;
-    fn RemoveFile(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContainsFile(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn CanAddFile(&self, file: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<bool>;
-    fn AllowedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SelectionMode(&self) -> ::windows::core::Result<FileSelectionMode>;
-    fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FileRemoved(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFileRemoved(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closing(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosing(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AddFile(&mut self, id: &::windows::core::HSTRING, file: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<AddFileResult>;
+    fn RemoveFile(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContainsFile(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn CanAddFile(&mut self, file: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<bool>;
+    fn AllowedFileTypes(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SelectionMode(&mut self) -> ::windows::core::Result<FileSelectionMode>;
+    fn SettingsIdentifier(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FileRemoved(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFileRemoved(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closing(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosing(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileOpenPickerUI {
@@ -159,7 +159,7 @@ impl IFileOpenPickerUIVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IFileRemovedEventArgsImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileRemovedEventArgs {
@@ -187,16 +187,16 @@ impl IFileRemovedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileSavePickerUIImpl: Sized {
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AllowedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TrySetFileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<SetFileNameResult>;
-    fn FileNameChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFileNameChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TargetFileRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTargetFileRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AllowedFileTypes(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SettingsIdentifier(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TrySetFileName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<SetFileNameResult>;
+    fn FileNameChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFileNameChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TargetFileRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTargetFileRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileSavePickerUI {
@@ -314,7 +314,7 @@ impl IFileSavePickerUIVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPickerClosingDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPickerClosingDeferral {
@@ -335,8 +335,8 @@ impl IPickerClosingDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPickerClosingEventArgsImpl: Sized {
-    fn ClosingOperation(&self) -> ::windows::core::Result<PickerClosingOperation>;
-    fn IsCanceled(&self) -> ::windows::core::Result<bool>;
+    fn ClosingOperation(&mut self) -> ::windows::core::Result<PickerClosingOperation>;
+    fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPickerClosingEventArgs {
@@ -379,8 +379,8 @@ impl IPickerClosingEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPickerClosingOperationImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<PickerClosingDeferral>;
-    fn Deadline(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<PickerClosingDeferral>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPickerClosingOperation {
@@ -423,9 +423,9 @@ impl IPickerClosingOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITargetFileRequestImpl: Sized {
-    fn TargetFile(&self) -> ::windows::core::Result<super::super::IStorageFile>;
-    fn SetTargetFile(&self, value: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<TargetFileRequestDeferral>;
+    fn TargetFile(&mut self) -> ::windows::core::Result<super::super::IStorageFile>;
+    fn SetTargetFile(&mut self, value: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<TargetFileRequestDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITargetFileRequest {
@@ -473,7 +473,7 @@ impl ITargetFileRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITargetFileRequestDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITargetFileRequestDeferral {
@@ -494,7 +494,7 @@ impl ITargetFileRequestDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITargetFileRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<TargetFileRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<TargetFileRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITargetFileRequestedEventArgs {

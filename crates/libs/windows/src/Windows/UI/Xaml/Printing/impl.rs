@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IAddPagesEventArgsImpl: Sized {
-    fn PrintTaskOptions(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions>;
+    fn PrintTaskOptions(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions>;
 }
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAddPagesEventArgs {
@@ -31,7 +31,7 @@ impl IAddPagesEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGetPreviewPageEventArgsImpl: Sized {
-    fn PageNumber(&self) -> ::windows::core::Result<i32>;
+    fn PageNumber(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGetPreviewPageEventArgs {
@@ -59,8 +59,8 @@ impl IGetPreviewPageEventArgsVtbl {
 }
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IPaginateEventArgsImpl: Sized {
-    fn PrintTaskOptions(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions>;
-    fn CurrentPreviewPageNumber(&self) -> ::windows::core::Result<i32>;
+    fn PrintTaskOptions(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions>;
+    fn CurrentPreviewPageNumber(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaginateEventArgs {
@@ -103,18 +103,18 @@ impl IPaginateEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IPrintDocumentImpl: Sized {
-    fn DocumentSource(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrintDocumentSource>;
-    fn Paginate(&self, handler: &::core::option::Option<PaginateEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePaginate(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetPreviewPage(&self, handler: &::core::option::Option<GetPreviewPageEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGetPreviewPage(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AddPages(&self, handler: &::core::option::Option<AddPagesEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAddPages(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AddPage(&self, pagevisual: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn AddPagesComplete(&self) -> ::windows::core::Result<()>;
-    fn SetPreviewPageCount(&self, count: i32, r#type: PreviewPageCountType) -> ::windows::core::Result<()>;
-    fn SetPreviewPage(&self, pagenumber: i32, pagevisual: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn InvalidatePreview(&self) -> ::windows::core::Result<()>;
+    fn DocumentSource(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrintDocumentSource>;
+    fn Paginate(&mut self, handler: &::core::option::Option<PaginateEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePaginate(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetPreviewPage(&mut self, handler: &::core::option::Option<GetPreviewPageEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGetPreviewPage(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AddPages(&mut self, handler: &::core::option::Option<AddPagesEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAddPages(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AddPage(&mut self, pagevisual: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn AddPagesComplete(&mut self) -> ::windows::core::Result<()>;
+    fn SetPreviewPageCount(&mut self, count: i32, r#type: PreviewPageCountType) -> ::windows::core::Result<()>;
+    fn SetPreviewPage(&mut self, pagenumber: i32, pagevisual: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn InvalidatePreview(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintDocument {
@@ -221,7 +221,7 @@ impl IPrintDocumentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintDocumentFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PrintDocument>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PrintDocument>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintDocumentFactory {
@@ -252,7 +252,7 @@ impl IPrintDocumentFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintDocumentStaticsImpl: Sized {
-    fn DocumentSourceProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn DocumentSourceProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintDocumentStatics {

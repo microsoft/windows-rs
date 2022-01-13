@@ -15,7 +15,7 @@ impl IWindowManagementPreviewVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWindowManagementPreviewStaticsImpl: Sized {
-    fn SetPreferredMinSize(&self, window: &::core::option::Option<super::AppWindow>, preferredframeminsize: &super::super::super::Foundation::Size) -> ::windows::core::Result<()>;
+    fn SetPreferredMinSize(&mut self, window: &::core::option::Option<super::AppWindow>, preferredframeminsize: &super::super::super::Foundation::Size) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowManagementPreviewStatics {

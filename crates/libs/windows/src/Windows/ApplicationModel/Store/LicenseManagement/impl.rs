@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ILicenseManagerStaticsImpl: Sized {
-    fn AddLicenseAsync(&self, license: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn GetSatisfactionInfosAsync(&self, contentids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, keyids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>;
+    fn AddLicenseAsync(&mut self, license: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn GetSatisfactionInfosAsync(&mut self, contentids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, keyids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILicenseManagerStatics {
@@ -47,7 +47,7 @@ impl ILicenseManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILicenseManagerStatics2Impl: Sized {
-    fn RefreshLicensesAsync(&self, refreshoption: LicenseRefreshOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn RefreshLicensesAsync(&mut self, refreshoption: LicenseRefreshOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILicenseManagerStatics2 {
@@ -78,13 +78,13 @@ impl ILicenseManagerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILicenseSatisfactionInfoImpl: Sized {
-    fn SatisfiedByDevice(&self) -> ::windows::core::Result<bool>;
-    fn SatisfiedByOpenLicense(&self) -> ::windows::core::Result<bool>;
-    fn SatisfiedByTrial(&self) -> ::windows::core::Result<bool>;
-    fn SatisfiedByPass(&self) -> ::windows::core::Result<bool>;
-    fn SatisfiedByInstallMedia(&self) -> ::windows::core::Result<bool>;
-    fn SatisfiedBySignedInUser(&self) -> ::windows::core::Result<bool>;
-    fn IsSatisfied(&self) -> ::windows::core::Result<bool>;
+    fn SatisfiedByDevice(&mut self) -> ::windows::core::Result<bool>;
+    fn SatisfiedByOpenLicense(&mut self) -> ::windows::core::Result<bool>;
+    fn SatisfiedByTrial(&mut self) -> ::windows::core::Result<bool>;
+    fn SatisfiedByPass(&mut self) -> ::windows::core::Result<bool>;
+    fn SatisfiedByInstallMedia(&mut self) -> ::windows::core::Result<bool>;
+    fn SatisfiedBySignedInUser(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSatisfied(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILicenseSatisfactionInfo {
@@ -187,8 +187,8 @@ impl ILicenseSatisfactionInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILicenseSatisfactionResultImpl: Sized {
-    fn LicenseSatisfactionInfos(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, LicenseSatisfactionInfo>>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn LicenseSatisfactionInfos(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, LicenseSatisfactionInfo>>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILicenseSatisfactionResult {

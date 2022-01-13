@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IDisplayRequestImpl: Sized {
-    fn RequestActive(&self) -> ::windows::core::Result<()>;
-    fn RequestRelease(&self) -> ::windows::core::Result<()>;
+    fn RequestActive(&mut self) -> ::windows::core::Result<()>;
+    fn RequestRelease(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDisplayRequest {

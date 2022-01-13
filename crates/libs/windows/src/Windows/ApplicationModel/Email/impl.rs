@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailAttachmentImpl: Sized {
-    fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SetData(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn FileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFileName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SetData(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailAttachment {
@@ -56,20 +56,20 @@ impl IEmailAttachmentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailAttachment2Impl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContentLocation(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentLocation(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DownloadState(&self) -> ::windows::core::Result<EmailAttachmentDownloadState>;
-    fn SetDownloadState(&self, value: EmailAttachmentDownloadState) -> ::windows::core::Result<()>;
-    fn EstimatedDownloadSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn SetEstimatedDownloadSizeInBytes(&self, value: u64) -> ::windows::core::Result<()>;
-    fn IsFromBaseMessage(&self) -> ::windows::core::Result<bool>;
-    fn IsInline(&self) -> ::windows::core::Result<bool>;
-    fn SetIsInline(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MimeType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMimeType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContentLocation(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentLocation(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DownloadState(&mut self) -> ::windows::core::Result<EmailAttachmentDownloadState>;
+    fn SetDownloadState(&mut self, value: EmailAttachmentDownloadState) -> ::windows::core::Result<()>;
+    fn EstimatedDownloadSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn SetEstimatedDownloadSizeInBytes(&mut self, value: u64) -> ::windows::core::Result<()>;
+    fn IsFromBaseMessage(&mut self) -> ::windows::core::Result<bool>;
+    fn IsInline(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsInline(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MimeType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMimeType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailAttachment2 {
@@ -214,7 +214,7 @@ impl IEmailAttachment2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailAttachmentFactoryImpl: Sized {
-    fn Create(&self, filename: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<EmailAttachment>;
+    fn Create(&mut self, filename: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<EmailAttachment>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailAttachmentFactory {
@@ -242,7 +242,7 @@ impl IEmailAttachmentFactoryVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailAttachmentFactory2Impl: Sized {
-    fn Create(&self, filename: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<EmailAttachment>;
+    fn Create(&mut self, filename: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<EmailAttachment>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailAttachmentFactory2 {
@@ -274,21 +274,21 @@ impl IEmailAttachmentFactory2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailConversationImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FlagState(&self) -> ::windows::core::Result<EmailFlagState>;
-    fn HasAttachment(&self) -> ::windows::core::Result<bool>;
-    fn Importance(&self) -> ::windows::core::Result<EmailImportance>;
-    fn LastEmailResponseKind(&self) -> ::windows::core::Result<EmailMessageResponseKind>;
-    fn MessageCount(&self) -> ::windows::core::Result<u32>;
-    fn MostRecentMessageId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MostRecentMessageTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Preview(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LatestSender(&self) -> ::windows::core::Result<EmailRecipient>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UnreadMessageCount(&self) -> ::windows::core::Result<u32>;
-    fn FindMessagesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>>;
-    fn FindMessagesWithCountAsync(&self, count: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FlagState(&mut self) -> ::windows::core::Result<EmailFlagState>;
+    fn HasAttachment(&mut self) -> ::windows::core::Result<bool>;
+    fn Importance(&mut self) -> ::windows::core::Result<EmailImportance>;
+    fn LastEmailResponseKind(&mut self) -> ::windows::core::Result<EmailMessageResponseKind>;
+    fn MessageCount(&mut self) -> ::windows::core::Result<u32>;
+    fn MostRecentMessageId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MostRecentMessageTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Preview(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LatestSender(&mut self) -> ::windows::core::Result<EmailRecipient>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UnreadMessageCount(&mut self) -> ::windows::core::Result<u32>;
+    fn FindMessagesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>>;
+    fn FindMessagesWithCountAsync(&mut self, count: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailConversation {
@@ -487,8 +487,8 @@ impl IEmailConversationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailConversationBatchImpl: Sized {
-    fn Conversations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmailConversation>>;
-    fn Status(&self) -> ::windows::core::Result<EmailBatchStatus>;
+    fn Conversations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmailConversation>>;
+    fn Status(&mut self) -> ::windows::core::Result<EmailBatchStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailConversationBatch {
@@ -531,7 +531,7 @@ impl IEmailConversationBatchVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailConversationReaderImpl: Sized {
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversationBatch>>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversationBatch>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailConversationReader {
@@ -562,31 +562,31 @@ impl IEmailConversationReaderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailFolderImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn MailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ParentFolderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsSyncEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSyncEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetLastSuccessfulSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn Kind(&self) -> ::windows::core::Result<EmailSpecialFolderKind>;
-    fn CreateFolderAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
-    fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn FindChildFoldersAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailFolder>>>;
-    fn GetConversationReader(&self) -> ::windows::core::Result<EmailConversationReader>;
-    fn GetConversationReaderWithOptions(&self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailConversationReader>;
-    fn GetMessageAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
-    fn GetMessageReader(&self) -> ::windows::core::Result<EmailMessageReader>;
-    fn GetMessageReaderWithOptions(&self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailMessageReader>;
-    fn GetMessageCountsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailItemCounts>>;
-    fn TryMoveAsync(&self, newparentfolder: &::core::option::Option<EmailFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryMoveWithNewNameAsync(&self, newparentfolder: &::core::option::Option<EmailFolder>, newfoldername: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TrySaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SaveMessageAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn MailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ParentFolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsSyncEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSyncEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn LastSuccessfulSyncTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetLastSuccessfulSyncTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<EmailSpecialFolderKind>;
+    fn CreateFolderAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
+    fn DeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn FindChildFoldersAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailFolder>>>;
+    fn GetConversationReader(&mut self) -> ::windows::core::Result<EmailConversationReader>;
+    fn GetConversationReaderWithOptions(&mut self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailConversationReader>;
+    fn GetMessageAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
+    fn GetMessageReader(&mut self) -> ::windows::core::Result<EmailMessageReader>;
+    fn GetMessageReaderWithOptions(&mut self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailMessageReader>;
+    fn GetMessageCountsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailItemCounts>>;
+    fn TryMoveAsync(&mut self, newparentfolder: &::core::option::Option<EmailFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryMoveWithNewNameAsync(&mut self, newparentfolder: &::core::option::Option<EmailFolder>, newfoldername: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TrySaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SaveMessageAsync(&mut self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailFolder {
@@ -877,30 +877,30 @@ impl IEmailFolderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailIrmInfoImpl: Sized {
-    fn CanEdit(&self) -> ::windows::core::Result<bool>;
-    fn SetCanEdit(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanExtractData(&self) -> ::windows::core::Result<bool>;
-    fn SetCanExtractData(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanForward(&self) -> ::windows::core::Result<bool>;
-    fn SetCanForward(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanModifyRecipientsOnResponse(&self) -> ::windows::core::Result<bool>;
-    fn SetCanModifyRecipientsOnResponse(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanPrintData(&self) -> ::windows::core::Result<bool>;
-    fn SetCanPrintData(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanRemoveIrmOnResponse(&self) -> ::windows::core::Result<bool>;
-    fn SetCanRemoveIrmOnResponse(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanReply(&self) -> ::windows::core::Result<bool>;
-    fn SetCanReply(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanReplyAll(&self) -> ::windows::core::Result<bool>;
-    fn SetCanReplyAll(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetExpirationDate(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn IsIrmOriginator(&self) -> ::windows::core::Result<bool>;
-    fn SetIsIrmOriginator(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsProgramaticAccessAllowed(&self) -> ::windows::core::Result<bool>;
-    fn SetIsProgramaticAccessAllowed(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Template(&self) -> ::windows::core::Result<EmailIrmTemplate>;
-    fn SetTemplate(&self, value: &::core::option::Option<EmailIrmTemplate>) -> ::windows::core::Result<()>;
+    fn CanEdit(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanEdit(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanExtractData(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanExtractData(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanForward(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanForward(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanModifyRecipientsOnResponse(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanModifyRecipientsOnResponse(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanPrintData(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanPrintData(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanRemoveIrmOnResponse(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanRemoveIrmOnResponse(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanReply(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanReply(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanReplyAll(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanReplyAll(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetExpirationDate(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn IsIrmOriginator(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsIrmOriginator(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsProgramaticAccessAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsProgramaticAccessAllowed(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Template(&mut self) -> ::windows::core::Result<EmailIrmTemplate>;
+    fn SetTemplate(&mut self, value: &::core::option::Option<EmailIrmTemplate>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailIrmInfo {
@@ -1123,7 +1123,7 @@ impl IEmailIrmInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailIrmInfoFactoryImpl: Sized {
-    fn Create(&self, expiration: &super::super::Foundation::DateTime, irmtemplate: &::core::option::Option<EmailIrmTemplate>) -> ::windows::core::Result<EmailIrmInfo>;
+    fn Create(&mut self, expiration: &super::super::Foundation::DateTime, irmtemplate: &::core::option::Option<EmailIrmTemplate>) -> ::windows::core::Result<EmailIrmInfo>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailIrmInfoFactory {
@@ -1151,12 +1151,12 @@ impl IEmailIrmInfoFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailIrmTemplateImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailIrmTemplate {
@@ -1226,7 +1226,7 @@ impl IEmailIrmTemplateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailIrmTemplateFactoryImpl: Sized {
-    fn Create(&self, id: &::windows::core::HSTRING, name: &::windows::core::HSTRING, description: &::windows::core::HSTRING) -> ::windows::core::Result<EmailIrmTemplate>;
+    fn Create(&mut self, id: &::windows::core::HSTRING, name: &::windows::core::HSTRING, description: &::windows::core::HSTRING) -> ::windows::core::Result<EmailIrmTemplate>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailIrmTemplateFactory {
@@ -1254,10 +1254,10 @@ impl IEmailIrmTemplateFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailItemCountsImpl: Sized {
-    fn Flagged(&self) -> ::windows::core::Result<u32>;
-    fn Important(&self) -> ::windows::core::Result<u32>;
-    fn Total(&self) -> ::windows::core::Result<u32>;
-    fn Unread(&self) -> ::windows::core::Result<u32>;
+    fn Flagged(&mut self) -> ::windows::core::Result<u32>;
+    fn Important(&mut self) -> ::windows::core::Result<u32>;
+    fn Total(&mut self) -> ::windows::core::Result<u32>;
+    fn Unread(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailItemCounts {
@@ -1324,56 +1324,56 @@ impl IEmailItemCountsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailboxImpl: Sized {
-    fn Capabilities(&self) -> ::windows::core::Result<EmailMailboxCapabilities>;
-    fn ChangeTracker(&self) -> ::windows::core::Result<EmailMailboxChangeTracker>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsOwnedByCurrentApp(&self) -> ::windows::core::Result<bool>;
-    fn IsDataEncryptedUnderLock(&self) -> ::windows::core::Result<bool>;
-    fn MailAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMailAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn MailAddressAliases(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn OtherAppReadAccess(&self) -> ::windows::core::Result<EmailMailboxOtherAppReadAccess>;
-    fn SetOtherAppReadAccess(&self, value: EmailMailboxOtherAppReadAccess) -> ::windows::core::Result<()>;
-    fn OtherAppWriteAccess(&self) -> ::windows::core::Result<EmailMailboxOtherAppWriteAccess>;
-    fn SetOtherAppWriteAccess(&self, value: EmailMailboxOtherAppWriteAccess) -> ::windows::core::Result<()>;
-    fn Policies(&self) -> ::windows::core::Result<EmailMailboxPolicies>;
-    fn SourceDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SyncManager(&self) -> ::windows::core::Result<EmailMailboxSyncManager>;
-    fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetConversationReader(&self) -> ::windows::core::Result<EmailConversationReader>;
-    fn GetConversationReaderWithOptions(&self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailConversationReader>;
-    fn GetMessageReader(&self) -> ::windows::core::Result<EmailMessageReader>;
-    fn GetMessageReaderWithOptions(&self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailMessageReader>;
-    fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetConversationAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>>;
-    fn GetFolderAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
-    fn GetMessageAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
-    fn GetSpecialFolderAsync(&self, foldertype: EmailSpecialFolderKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
-    fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MarkMessageAsSeenAsync(&self, messageid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MarkFolderAsSeenAsync(&self, folderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MarkMessageReadAsync(&self, messageid: &::windows::core::HSTRING, isread: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ChangeMessageFlagStateAsync(&self, messageid: &::windows::core::HSTRING, flagstate: EmailFlagState) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn TryMoveMessageAsync(&self, messageid: &::windows::core::HSTRING, newparentfolderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryMoveFolderAsync(&self, folderid: &::windows::core::HSTRING, newparentfolderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryMoveFolderWithNewNameAsync(&self, folderid: &::windows::core::HSTRING, newparentfolderid: &::windows::core::HSTRING, newfoldername: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn DeleteMessageAsync(&self, messageid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MarkFolderSyncEnabledAsync(&self, folderid: &::windows::core::HSTRING, issyncenabled: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SendMessageAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SaveDraftAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DownloadMessageAsync(&self, messageid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DownloadAttachmentAsync(&self, attachmentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CreateResponseMessageAsync(&self, messageid: &::windows::core::HSTRING, responsetype: EmailMessageResponseKind, subject: &::windows::core::HSTRING, responseheadertype: EmailMessageBodyKind, responseheader: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
-    fn TryUpdateMeetingResponseAsync(&self, meeting: &::core::option::Option<EmailMessage>, response: EmailMeetingResponseType, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING, sendupdate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryForwardMeetingAsync(&self, meeting: &::core::option::Option<EmailMessage>, recipients: &::core::option::Option<super::super::Foundation::Collections::IIterable<EmailRecipient>>, subject: &::windows::core::HSTRING, forwardheadertype: EmailMessageBodyKind, forwardheader: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryProposeNewTimeForMeetingAsync(&self, meeting: &::core::option::Option<EmailMessage>, newstarttime: &super::super::Foundation::DateTime, newduration: &super::super::Foundation::TimeSpan, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn MailboxChanged(&self, phandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMailboxChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SmartSendMessageAsync(&self, message: &::core::option::Option<EmailMessage>, smartsend: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn TrySetAutoReplySettingsAsync(&self, autoreplysettings: &::core::option::Option<EmailMailboxAutoReplySettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryGetAutoReplySettingsAsync(&self, requestedformat: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>>;
+    fn Capabilities(&mut self) -> ::windows::core::Result<EmailMailboxCapabilities>;
+    fn ChangeTracker(&mut self) -> ::windows::core::Result<EmailMailboxChangeTracker>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsOwnedByCurrentApp(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDataEncryptedUnderLock(&mut self) -> ::windows::core::Result<bool>;
+    fn MailAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMailAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn MailAddressAliases(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn OtherAppReadAccess(&mut self) -> ::windows::core::Result<EmailMailboxOtherAppReadAccess>;
+    fn SetOtherAppReadAccess(&mut self, value: EmailMailboxOtherAppReadAccess) -> ::windows::core::Result<()>;
+    fn OtherAppWriteAccess(&mut self) -> ::windows::core::Result<EmailMailboxOtherAppWriteAccess>;
+    fn SetOtherAppWriteAccess(&mut self, value: EmailMailboxOtherAppWriteAccess) -> ::windows::core::Result<()>;
+    fn Policies(&mut self) -> ::windows::core::Result<EmailMailboxPolicies>;
+    fn SourceDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SyncManager(&mut self) -> ::windows::core::Result<EmailMailboxSyncManager>;
+    fn UserDataAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetConversationReader(&mut self) -> ::windows::core::Result<EmailConversationReader>;
+    fn GetConversationReaderWithOptions(&mut self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailConversationReader>;
+    fn GetMessageReader(&mut self) -> ::windows::core::Result<EmailMessageReader>;
+    fn GetMessageReaderWithOptions(&mut self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailMessageReader>;
+    fn DeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetConversationAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>>;
+    fn GetFolderAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
+    fn GetMessageAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
+    fn GetSpecialFolderAsync(&mut self, foldertype: EmailSpecialFolderKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
+    fn SaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MarkMessageAsSeenAsync(&mut self, messageid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MarkFolderAsSeenAsync(&mut self, folderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MarkMessageReadAsync(&mut self, messageid: &::windows::core::HSTRING, isread: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ChangeMessageFlagStateAsync(&mut self, messageid: &::windows::core::HSTRING, flagstate: EmailFlagState) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn TryMoveMessageAsync(&mut self, messageid: &::windows::core::HSTRING, newparentfolderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryMoveFolderAsync(&mut self, folderid: &::windows::core::HSTRING, newparentfolderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryMoveFolderWithNewNameAsync(&mut self, folderid: &::windows::core::HSTRING, newparentfolderid: &::windows::core::HSTRING, newfoldername: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn DeleteMessageAsync(&mut self, messageid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MarkFolderSyncEnabledAsync(&mut self, folderid: &::windows::core::HSTRING, issyncenabled: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SendMessageAsync(&mut self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SaveDraftAsync(&mut self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DownloadMessageAsync(&mut self, messageid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DownloadAttachmentAsync(&mut self, attachmentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CreateResponseMessageAsync(&mut self, messageid: &::windows::core::HSTRING, responsetype: EmailMessageResponseKind, subject: &::windows::core::HSTRING, responseheadertype: EmailMessageBodyKind, responseheader: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
+    fn TryUpdateMeetingResponseAsync(&mut self, meeting: &::core::option::Option<EmailMessage>, response: EmailMeetingResponseType, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING, sendupdate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryForwardMeetingAsync(&mut self, meeting: &::core::option::Option<EmailMessage>, recipients: &::core::option::Option<super::super::Foundation::Collections::IIterable<EmailRecipient>>, subject: &::windows::core::HSTRING, forwardheadertype: EmailMessageBodyKind, forwardheader: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryProposeNewTimeForMeetingAsync(&mut self, meeting: &::core::option::Option<EmailMessage>, newstarttime: &super::super::Foundation::DateTime, newduration: &super::super::Foundation::TimeSpan, subject: &::windows::core::HSTRING, comment: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn MailboxChanged(&mut self, phandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMailboxChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SmartSendMessageAsync(&mut self, message: &::core::option::Option<EmailMessage>, smartsend: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn TrySetAutoReplySettingsAsync(&mut self, autoreplysettings: &::core::option::Option<EmailMailboxAutoReplySettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryGetAutoReplySettingsAsync(&mut self, requestedformat: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox {
@@ -1986,9 +1986,9 @@ impl IEmailMailboxVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailbox2Impl: Sized + IEmailMailboxImpl {
-    fn LinkedMailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NetworkId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LinkedMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NetworkAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NetworkId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox2 {
@@ -2043,11 +2043,11 @@ impl IEmailMailbox2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailbox3Impl: Sized + IEmailMailboxImpl + IEmailMailbox2Impl {
-    fn ResolveRecipientsAsync(&self, recipients: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>>;
-    fn ValidateCertificatesAsync(&self, certificates: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>>;
-    fn TryEmptyFolderAsync(&self, folderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>>;
-    fn TryCreateFolderAsync(&self, parentfolderid: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>>;
-    fn TryDeleteFolderAsync(&self, folderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>>;
+    fn ResolveRecipientsAsync(&mut self, recipients: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>>;
+    fn ValidateCertificatesAsync(&mut self, certificates: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>>;
+    fn TryEmptyFolderAsync(&mut self, folderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>>;
+    fn TryCreateFolderAsync(&mut self, parentfolderid: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>>;
+    fn TryDeleteFolderAsync(&mut self, folderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox3 {
@@ -2126,7 +2126,7 @@ impl IEmailMailbox3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailbox4Impl: Sized {
-    fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RegisterSyncManagerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailbox4 {
@@ -2157,7 +2157,7 @@ impl IEmailMailbox4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailbox5Impl: Sized {
-    fn GetChangeTracker(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<EmailMailboxChangeTracker>;
+    fn GetChangeTracker(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<EmailMailboxChangeTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailbox5 {
@@ -2185,8 +2185,8 @@ impl IEmailMailbox5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxActionImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<EmailMailboxActionKind>;
-    fn ChangeNumber(&self) -> ::windows::core::Result<u64>;
+    fn Kind(&mut self) -> ::windows::core::Result<EmailMailboxActionKind>;
+    fn ChangeNumber(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxAction {
@@ -2229,10 +2229,10 @@ impl IEmailMailboxActionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxAutoReplyImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Response(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetResponse(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Response(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetResponse(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxAutoReply {
@@ -2285,17 +2285,17 @@ impl IEmailMailboxAutoReplyVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxAutoReplySettingsImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ResponseKind(&self) -> ::windows::core::Result<EmailMailboxAutoReplyMessageResponseKind>;
-    fn SetResponseKind(&self, value: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::Result<()>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetStartTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetEndTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn InternalReply(&self) -> ::windows::core::Result<EmailMailboxAutoReply>;
-    fn KnownExternalReply(&self) -> ::windows::core::Result<EmailMailboxAutoReply>;
-    fn UnknownExternalReply(&self) -> ::windows::core::Result<EmailMailboxAutoReply>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ResponseKind(&mut self) -> ::windows::core::Result<EmailMailboxAutoReplyMessageResponseKind>;
+    fn SetResponseKind(&mut self, value: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetStartTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn EndTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetEndTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn InternalReply(&mut self) -> ::windows::core::Result<EmailMailboxAutoReply>;
+    fn KnownExternalReply(&mut self) -> ::windows::core::Result<EmailMailboxAutoReply>;
+    fn UnknownExternalReply(&mut self) -> ::windows::core::Result<EmailMailboxAutoReply>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxAutoReplySettings {
@@ -2418,14 +2418,14 @@ impl IEmailMailboxAutoReplySettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxCapabilitiesImpl: Sized {
-    fn CanForwardMeetings(&self) -> ::windows::core::Result<bool>;
-    fn CanGetAndSetExternalAutoReplies(&self) -> ::windows::core::Result<bool>;
-    fn CanGetAndSetInternalAutoReplies(&self) -> ::windows::core::Result<bool>;
-    fn CanUpdateMeetingResponses(&self) -> ::windows::core::Result<bool>;
-    fn CanServerSearchFolders(&self) -> ::windows::core::Result<bool>;
-    fn CanServerSearchMailbox(&self) -> ::windows::core::Result<bool>;
-    fn CanProposeNewTimeForMeetings(&self) -> ::windows::core::Result<bool>;
-    fn CanSmartSend(&self) -> ::windows::core::Result<bool>;
+    fn CanForwardMeetings(&mut self) -> ::windows::core::Result<bool>;
+    fn CanGetAndSetExternalAutoReplies(&mut self) -> ::windows::core::Result<bool>;
+    fn CanGetAndSetInternalAutoReplies(&mut self) -> ::windows::core::Result<bool>;
+    fn CanUpdateMeetingResponses(&mut self) -> ::windows::core::Result<bool>;
+    fn CanServerSearchFolders(&mut self) -> ::windows::core::Result<bool>;
+    fn CanServerSearchMailbox(&mut self) -> ::windows::core::Result<bool>;
+    fn CanProposeNewTimeForMeetings(&mut self) -> ::windows::core::Result<bool>;
+    fn CanSmartSend(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxCapabilities {
@@ -2540,12 +2540,12 @@ impl IEmailMailboxCapabilitiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxCapabilities2Impl: Sized {
-    fn CanResolveRecipients(&self) -> ::windows::core::Result<bool>;
-    fn CanValidateCertificates(&self) -> ::windows::core::Result<bool>;
-    fn CanEmptyFolder(&self) -> ::windows::core::Result<bool>;
-    fn CanCreateFolder(&self) -> ::windows::core::Result<bool>;
-    fn CanDeleteFolder(&self) -> ::windows::core::Result<bool>;
-    fn CanMoveFolder(&self) -> ::windows::core::Result<bool>;
+    fn CanResolveRecipients(&mut self) -> ::windows::core::Result<bool>;
+    fn CanValidateCertificates(&mut self) -> ::windows::core::Result<bool>;
+    fn CanEmptyFolder(&mut self) -> ::windows::core::Result<bool>;
+    fn CanCreateFolder(&mut self) -> ::windows::core::Result<bool>;
+    fn CanDeleteFolder(&mut self) -> ::windows::core::Result<bool>;
+    fn CanMoveFolder(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxCapabilities2 {
@@ -2636,20 +2636,20 @@ impl IEmailMailboxCapabilities2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxCapabilities3Impl: Sized {
-    fn SetCanForwardMeetings(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanGetAndSetExternalAutoReplies(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanGetAndSetInternalAutoReplies(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanUpdateMeetingResponses(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanServerSearchFolders(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanServerSearchMailbox(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanProposeNewTimeForMeetings(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanSmartSend(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanResolveRecipients(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanValidateCertificates(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanEmptyFolder(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanCreateFolder(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanDeleteFolder(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetCanMoveFolder(&self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanForwardMeetings(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanGetAndSetExternalAutoReplies(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanGetAndSetInternalAutoReplies(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanUpdateMeetingResponses(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanServerSearchFolders(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanServerSearchMailbox(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanProposeNewTimeForMeetings(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanSmartSend(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanResolveRecipients(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanValidateCertificates(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanEmptyFolder(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanCreateFolder(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanDeleteFolder(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetCanMoveFolder(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxCapabilities3 {
@@ -2738,10 +2738,10 @@ impl IEmailMailboxCapabilities3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailboxChangeImpl: Sized {
-    fn ChangeType(&self) -> ::windows::core::Result<EmailMailboxChangeType>;
-    fn MailboxActions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailMailboxAction>>;
-    fn Message(&self) -> ::windows::core::Result<EmailMessage>;
-    fn Folder(&self) -> ::windows::core::Result<EmailFolder>;
+    fn ChangeType(&mut self) -> ::windows::core::Result<EmailMailboxChangeType>;
+    fn MailboxActions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailMailboxAction>>;
+    fn Message(&mut self) -> ::windows::core::Result<EmailMessage>;
+    fn Folder(&mut self) -> ::windows::core::Result<EmailFolder>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxChange {
@@ -2808,9 +2808,9 @@ impl IEmailMailboxChangeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMailboxChangeReaderImpl: Sized {
-    fn AcceptChanges(&self) -> ::windows::core::Result<()>;
-    fn AcceptChangesThrough(&self, lastchangetoacknowledge: &::core::option::Option<EmailMailboxChange>) -> ::windows::core::Result<()>;
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailboxChange>>>;
+    fn AcceptChanges(&mut self) -> ::windows::core::Result<()>;
+    fn AcceptChangesThrough(&mut self, lastchangetoacknowledge: &::core::option::Option<EmailMailboxChange>) -> ::windows::core::Result<()>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailboxChange>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxChangeReader {
@@ -2851,10 +2851,10 @@ impl IEmailMailboxChangeReaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxChangeTrackerImpl: Sized {
-    fn IsTracking(&self) -> ::windows::core::Result<bool>;
-    fn Enable(&self) -> ::windows::core::Result<()>;
-    fn GetChangeReader(&self) -> ::windows::core::Result<EmailMailboxChangeReader>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn IsTracking(&mut self) -> ::windows::core::Result<bool>;
+    fn Enable(&mut self) -> ::windows::core::Result<()>;
+    fn GetChangeReader(&mut self) -> ::windows::core::Result<EmailMailboxChangeReader>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxChangeTracker {
@@ -2907,7 +2907,7 @@ impl IEmailMailboxChangeTrackerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxChangedDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxChangedDeferral {
@@ -2928,7 +2928,7 @@ impl IEmailMailboxChangedDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxChangedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<EmailMailboxChangedDeferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<EmailMailboxChangedDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxChangedEventArgs {
@@ -2959,8 +2959,8 @@ impl IEmailMailboxChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxCreateFolderResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<EmailMailboxCreateFolderStatus>;
-    fn Folder(&self) -> ::windows::core::Result<EmailFolder>;
+    fn Status(&mut self) -> ::windows::core::Result<EmailMailboxCreateFolderStatus>;
+    fn Folder(&mut self) -> ::windows::core::Result<EmailFolder>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxCreateFolderResult {
@@ -3003,10 +3003,10 @@ impl IEmailMailboxCreateFolderResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxPoliciesImpl: Sized {
-    fn AllowedSmimeEncryptionAlgorithmNegotiation(&self) -> ::windows::core::Result<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation>;
-    fn AllowSmimeSoftCertificates(&self) -> ::windows::core::Result<bool>;
-    fn RequiredSmimeEncryptionAlgorithm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>;
-    fn RequiredSmimeSigningAlgorithm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>;
+    fn AllowedSmimeEncryptionAlgorithmNegotiation(&mut self) -> ::windows::core::Result<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation>;
+    fn AllowSmimeSoftCertificates(&mut self) -> ::windows::core::Result<bool>;
+    fn RequiredSmimeEncryptionAlgorithm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>;
+    fn RequiredSmimeSigningAlgorithm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxPolicies {
@@ -3073,8 +3073,8 @@ impl IEmailMailboxPoliciesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMailboxPolicies2Impl: Sized {
-    fn MustEncryptSmimeMessages(&self) -> ::windows::core::Result<bool>;
-    fn MustSignSmimeMessages(&self) -> ::windows::core::Result<bool>;
+    fn MustEncryptSmimeMessages(&mut self) -> ::windows::core::Result<bool>;
+    fn MustSignSmimeMessages(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMailboxPolicies2 {
@@ -3117,12 +3117,12 @@ impl IEmailMailboxPolicies2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxPolicies3Impl: Sized {
-    fn SetAllowedSmimeEncryptionAlgorithmNegotiation(&self, value: EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation) -> ::windows::core::Result<()>;
-    fn SetAllowSmimeSoftCertificates(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetRequiredSmimeEncryptionAlgorithm(&self, value: &::core::option::Option<super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>) -> ::windows::core::Result<()>;
-    fn SetRequiredSmimeSigningAlgorithm(&self, value: &::core::option::Option<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>) -> ::windows::core::Result<()>;
-    fn SetMustEncryptSmimeMessages(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetMustSignSmimeMessages(&self, value: bool) -> ::windows::core::Result<()>;
+    fn SetAllowedSmimeEncryptionAlgorithmNegotiation(&mut self, value: EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation) -> ::windows::core::Result<()>;
+    fn SetAllowSmimeSoftCertificates(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetRequiredSmimeEncryptionAlgorithm(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>) -> ::windows::core::Result<()>;
+    fn SetRequiredSmimeSigningAlgorithm(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>) -> ::windows::core::Result<()>;
+    fn SetMustEncryptSmimeMessages(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetMustSignSmimeMessages(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxPolicies3 {
@@ -3171,12 +3171,12 @@ impl IEmailMailboxPolicies3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxSyncManagerImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<EmailMailboxSyncStatus>;
-    fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn LastAttemptedSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SyncStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSyncStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<EmailMailboxSyncStatus>;
+    fn LastSuccessfulSyncTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn LastAttemptedSyncTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SyncAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SyncStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSyncStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxSyncManager {
@@ -3260,9 +3260,9 @@ impl IEmailMailboxSyncManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMailboxSyncManager2Impl: Sized {
-    fn SetStatus(&self, value: EmailMailboxSyncStatus) -> ::windows::core::Result<()>;
-    fn SetLastSuccessfulSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn SetLastAttemptedSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetStatus(&mut self, value: EmailMailboxSyncStatus) -> ::windows::core::Result<()>;
+    fn SetLastSuccessfulSyncTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetLastAttemptedSyncTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMailboxSyncManager2 {
@@ -3296,9 +3296,9 @@ impl IEmailMailboxSyncManager2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IEmailManagerForUserImpl: Sized {
-    fn ShowComposeNewEmailAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RequestStoreAsync(&self, accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn ShowComposeNewEmailAsync(&mut self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RequestStoreAsync(&mut self, accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerForUser {
@@ -3353,7 +3353,7 @@ impl IEmailManagerForUserVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailManagerStaticsImpl: Sized {
-    fn ShowComposeNewEmailAsync(&self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowComposeNewEmailAsync(&mut self, message: &::core::option::Option<EmailMessage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerStatics {
@@ -3384,7 +3384,7 @@ impl IEmailManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailManagerStatics2Impl: Sized {
-    fn RequestStoreAsync(&self, accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>>;
+    fn RequestStoreAsync(&mut self, accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerStatics2 {
@@ -3415,7 +3415,7 @@ impl IEmailManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IEmailManagerStatics3Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<EmailManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<EmailManagerForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailManagerStatics3 {
@@ -3443,32 +3443,32 @@ impl IEmailManagerStatics3Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMeetingInfoImpl: Sized {
-    fn AllowNewTimeProposal(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowNewTimeProposal(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AppointmentRoamingId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAppointmentRoamingId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetAppointmentOriginalStartTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn IsAllDay(&self) -> ::windows::core::Result<bool>;
-    fn SetIsAllDay(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsResponseRequested(&self) -> ::windows::core::Result<bool>;
-    fn SetIsResponseRequested(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Location(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLocation(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ProposedStartTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetProposedStartTime(&self, proposedstarttime: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn ProposedDuration(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetProposedDuration(&self, duration: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn RecurrenceStartTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetRecurrenceStartTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn Recurrence(&self) -> ::windows::core::Result<super::Appointments::AppointmentRecurrence>;
-    fn SetRecurrence(&self, value: &::core::option::Option<super::Appointments::AppointmentRecurrence>) -> ::windows::core::Result<()>;
-    fn RemoteChangeNumber(&self) -> ::windows::core::Result<u64>;
-    fn SetRemoteChangeNumber(&self, value: u64) -> ::windows::core::Result<()>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetStartTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn AllowNewTimeProposal(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowNewTimeProposal(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AppointmentRoamingId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAppointmentRoamingId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AppointmentOriginalStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetAppointmentOriginalStartTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn IsAllDay(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsAllDay(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsResponseRequested(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsResponseRequested(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Location(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLocation(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ProposedStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetProposedStartTime(&mut self, proposedstarttime: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn ProposedDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetProposedDuration(&mut self, duration: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn RecurrenceStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetRecurrenceStartTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn Recurrence(&mut self) -> ::windows::core::Result<super::Appointments::AppointmentRecurrence>;
+    fn SetRecurrence(&mut self, value: &::core::option::Option<super::Appointments::AppointmentRecurrence>) -> ::windows::core::Result<()>;
+    fn RemoteChangeNumber(&mut self) -> ::windows::core::Result<u64>;
+    fn SetRemoteChangeNumber(&mut self, value: u64) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetStartTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMeetingInfo {
@@ -3708,7 +3708,7 @@ impl IEmailMeetingInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailMeetingInfo2Impl: Sized {
-    fn IsReportedOutOfDateByServer(&self) -> ::windows::core::Result<bool>;
+    fn IsReportedOutOfDateByServer(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailMeetingInfo2 {
@@ -3739,14 +3739,14 @@ impl IEmailMeetingInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMessageImpl: Sized {
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSubject(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBody(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn To(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
-    fn CC(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
-    fn Bcc(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
-    fn Attachments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailAttachment>>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSubject(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBody(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn To(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
+    fn CC(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
+    fn Bcc(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
+    fn Attachments(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailAttachment>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage {
@@ -3847,51 +3847,51 @@ impl IEmailMessageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailMessage2Impl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn MailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ConversationId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FolderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AllowInternetImages(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowInternetImages(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ChangeNumber(&self) -> ::windows::core::Result<u64>;
-    fn DownloadState(&self) -> ::windows::core::Result<EmailMessageDownloadState>;
-    fn SetDownloadState(&self, value: EmailMessageDownloadState) -> ::windows::core::Result<()>;
-    fn EstimatedDownloadSizeInBytes(&self) -> ::windows::core::Result<u32>;
-    fn SetEstimatedDownloadSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
-    fn FlagState(&self) -> ::windows::core::Result<EmailFlagState>;
-    fn SetFlagState(&self, value: EmailFlagState) -> ::windows::core::Result<()>;
-    fn HasPartialBodies(&self) -> ::windows::core::Result<bool>;
-    fn Importance(&self) -> ::windows::core::Result<EmailImportance>;
-    fn SetImportance(&self, value: EmailImportance) -> ::windows::core::Result<()>;
-    fn InResponseToMessageId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IrmInfo(&self) -> ::windows::core::Result<EmailIrmInfo>;
-    fn SetIrmInfo(&self, value: &::core::option::Option<EmailIrmInfo>) -> ::windows::core::Result<()>;
-    fn IsDraftMessage(&self) -> ::windows::core::Result<bool>;
-    fn IsRead(&self) -> ::windows::core::Result<bool>;
-    fn SetIsRead(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsSeen(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSeen(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsServerSearchMessage(&self) -> ::windows::core::Result<bool>;
-    fn IsSmartSendable(&self) -> ::windows::core::Result<bool>;
-    fn MessageClass(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMessageClass(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn NormalizedSubject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OriginalCodePage(&self) -> ::windows::core::Result<i32>;
-    fn SetOriginalCodePage(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Preview(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPreview(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LastResponseKind(&self) -> ::windows::core::Result<EmailMessageResponseKind>;
-    fn SetLastResponseKind(&self, value: EmailMessageResponseKind) -> ::windows::core::Result<()>;
-    fn Sender(&self) -> ::windows::core::Result<EmailRecipient>;
-    fn SetSender(&self, value: &::core::option::Option<EmailRecipient>) -> ::windows::core::Result<()>;
-    fn SentTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn SetSentTime(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
-    fn MeetingInfo(&self) -> ::windows::core::Result<EmailMeetingInfo>;
-    fn SetMeetingInfo(&self, value: &::core::option::Option<EmailMeetingInfo>) -> ::windows::core::Result<()>;
-    fn GetBodyStream(&self, r#type: EmailMessageBodyKind) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SetBodyStream(&self, r#type: EmailMessageBodyKind, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn MailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConversationId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllowInternetImages(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowInternetImages(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ChangeNumber(&mut self) -> ::windows::core::Result<u64>;
+    fn DownloadState(&mut self) -> ::windows::core::Result<EmailMessageDownloadState>;
+    fn SetDownloadState(&mut self, value: EmailMessageDownloadState) -> ::windows::core::Result<()>;
+    fn EstimatedDownloadSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
+    fn SetEstimatedDownloadSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn FlagState(&mut self) -> ::windows::core::Result<EmailFlagState>;
+    fn SetFlagState(&mut self, value: EmailFlagState) -> ::windows::core::Result<()>;
+    fn HasPartialBodies(&mut self) -> ::windows::core::Result<bool>;
+    fn Importance(&mut self) -> ::windows::core::Result<EmailImportance>;
+    fn SetImportance(&mut self, value: EmailImportance) -> ::windows::core::Result<()>;
+    fn InResponseToMessageId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IrmInfo(&mut self) -> ::windows::core::Result<EmailIrmInfo>;
+    fn SetIrmInfo(&mut self, value: &::core::option::Option<EmailIrmInfo>) -> ::windows::core::Result<()>;
+    fn IsDraftMessage(&mut self) -> ::windows::core::Result<bool>;
+    fn IsRead(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsRead(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsSeen(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSeen(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsServerSearchMessage(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSmartSendable(&mut self) -> ::windows::core::Result<bool>;
+    fn MessageClass(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMessageClass(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NormalizedSubject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OriginalCodePage(&mut self) -> ::windows::core::Result<i32>;
+    fn SetOriginalCodePage(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Preview(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPreview(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LastResponseKind(&mut self) -> ::windows::core::Result<EmailMessageResponseKind>;
+    fn SetLastResponseKind(&mut self, value: EmailMessageResponseKind) -> ::windows::core::Result<()>;
+    fn Sender(&mut self) -> ::windows::core::Result<EmailRecipient>;
+    fn SetSender(&mut self, value: &::core::option::Option<EmailRecipient>) -> ::windows::core::Result<()>;
+    fn SentTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn SetSentTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::DateTime>>) -> ::windows::core::Result<()>;
+    fn MeetingInfo(&mut self) -> ::windows::core::Result<EmailMeetingInfo>;
+    fn SetMeetingInfo(&mut self, value: &::core::option::Option<EmailMeetingInfo>) -> ::windows::core::Result<()>;
+    fn GetBodyStream(&mut self, r#type: EmailMessageBodyKind) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SetBodyStream(&mut self, r#type: EmailMessageBodyKind, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage2 {
@@ -4331,10 +4331,10 @@ impl IEmailMessage2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEmailMessage3Impl: Sized {
-    fn SmimeData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SetSmimeData(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
-    fn SmimeKind(&self) -> ::windows::core::Result<EmailMessageSmimeKind>;
-    fn SetSmimeKind(&self, value: EmailMessageSmimeKind) -> ::windows::core::Result<()>;
+    fn SmimeData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SetSmimeData(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn SmimeKind(&mut self) -> ::windows::core::Result<EmailMessageSmimeKind>;
+    fn SetSmimeKind(&mut self, value: EmailMessageSmimeKind) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage3 {
@@ -4387,9 +4387,9 @@ impl IEmailMessage3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMessage4Impl: Sized {
-    fn ReplyTo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
-    fn SentRepresenting(&self) -> ::windows::core::Result<EmailRecipient>;
-    fn SetSentRepresenting(&self, value: &::core::option::Option<EmailRecipient>) -> ::windows::core::Result<()>;
+    fn ReplyTo(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<EmailRecipient>>;
+    fn SentRepresenting(&mut self) -> ::windows::core::Result<EmailRecipient>;
+    fn SetSentRepresenting(&mut self, value: &::core::option::Option<EmailRecipient>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessage4 {
@@ -4437,8 +4437,8 @@ impl IEmailMessage4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailMessageBatchImpl: Sized {
-    fn Messages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
-    fn Status(&self) -> ::windows::core::Result<EmailBatchStatus>;
+    fn Messages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
+    fn Status(&mut self) -> ::windows::core::Result<EmailBatchStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessageBatch {
@@ -4481,7 +4481,7 @@ impl IEmailMessageBatchVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEmailMessageReaderImpl: Sized {
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessageBatch>>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessageBatch>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailMessageReader {
@@ -4512,14 +4512,14 @@ impl IEmailMessageReaderVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailQueryOptionsImpl: Sized {
-    fn TextSearch(&self) -> ::windows::core::Result<EmailQueryTextSearch>;
-    fn SortDirection(&self) -> ::windows::core::Result<EmailQuerySortDirection>;
-    fn SetSortDirection(&self, value: EmailQuerySortDirection) -> ::windows::core::Result<()>;
-    fn SortProperty(&self) -> ::windows::core::Result<EmailQuerySortProperty>;
-    fn SetSortProperty(&self, value: EmailQuerySortProperty) -> ::windows::core::Result<()>;
-    fn Kind(&self) -> ::windows::core::Result<EmailQueryKind>;
-    fn SetKind(&self, value: EmailQueryKind) -> ::windows::core::Result<()>;
-    fn FolderIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn TextSearch(&mut self) -> ::windows::core::Result<EmailQueryTextSearch>;
+    fn SortDirection(&mut self) -> ::windows::core::Result<EmailQuerySortDirection>;
+    fn SetSortDirection(&mut self, value: EmailQuerySortDirection) -> ::windows::core::Result<()>;
+    fn SortProperty(&mut self) -> ::windows::core::Result<EmailQuerySortProperty>;
+    fn SetSortProperty(&mut self, value: EmailQuerySortProperty) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<EmailQueryKind>;
+    fn SetKind(&mut self, value: EmailQueryKind) -> ::windows::core::Result<()>;
+    fn FolderIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailQueryOptions {
@@ -4613,8 +4613,8 @@ impl IEmailQueryOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailQueryOptionsFactoryImpl: Sized {
-    fn CreateWithText(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<EmailQueryOptions>;
-    fn CreateWithTextAndFields(&self, text: &::windows::core::HSTRING, fields: EmailQuerySearchFields) -> ::windows::core::Result<EmailQueryOptions>;
+    fn CreateWithText(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<EmailQueryOptions>;
+    fn CreateWithTextAndFields(&mut self, text: &::windows::core::HSTRING, fields: EmailQuerySearchFields) -> ::windows::core::Result<EmailQueryOptions>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailQueryOptionsFactory {
@@ -4657,12 +4657,12 @@ impl IEmailQueryOptionsFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailQueryTextSearchImpl: Sized {
-    fn Fields(&self) -> ::windows::core::Result<EmailQuerySearchFields>;
-    fn SetFields(&self, value: EmailQuerySearchFields) -> ::windows::core::Result<()>;
-    fn SearchScope(&self) -> ::windows::core::Result<EmailQuerySearchScope>;
-    fn SetSearchScope(&self, value: EmailQuerySearchScope) -> ::windows::core::Result<()>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Fields(&mut self) -> ::windows::core::Result<EmailQuerySearchFields>;
+    fn SetFields(&mut self, value: EmailQuerySearchFields) -> ::windows::core::Result<()>;
+    fn SearchScope(&mut self) -> ::windows::core::Result<EmailQuerySearchScope>;
+    fn SetSearchScope(&mut self, value: EmailQuerySearchScope) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailQueryTextSearch {
@@ -4732,10 +4732,10 @@ impl IEmailQueryTextSearchVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailRecipientImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Address(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Address(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailRecipient {
@@ -4788,8 +4788,8 @@ impl IEmailRecipientVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEmailRecipientFactoryImpl: Sized {
-    fn Create(&self, address: &::windows::core::HSTRING) -> ::windows::core::Result<EmailRecipient>;
-    fn CreateWithName(&self, address: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<EmailRecipient>;
+    fn Create(&mut self, address: &::windows::core::HSTRING) -> ::windows::core::Result<EmailRecipient>;
+    fn CreateWithName(&mut self, address: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<EmailRecipient>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEmailRecipientFactory {
@@ -4832,8 +4832,8 @@ impl IEmailRecipientFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IEmailRecipientResolutionResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<EmailRecipientResolutionStatus>;
-    fn PublicKeys(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
+    fn Status(&mut self) -> ::windows::core::Result<EmailRecipientResolutionStatus>;
+    fn PublicKeys(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailRecipientResolutionResult {
@@ -4876,8 +4876,8 @@ impl IEmailRecipientResolutionResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IEmailRecipientResolutionResult2Impl: Sized {
-    fn SetStatus(&self, value: EmailRecipientResolutionStatus) -> ::windows::core::Result<()>;
-    fn SetPublicKeys(&self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>) -> ::windows::core::Result<()>;
+    fn SetStatus(&mut self, value: EmailRecipientResolutionStatus) -> ::windows::core::Result<()>;
+    fn SetPublicKeys(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailRecipientResolutionResult2 {
@@ -4906,17 +4906,17 @@ impl IEmailRecipientResolutionResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEmailStoreImpl: Sized {
-    fn FindMailboxesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>>;
-    fn GetConversationReader(&self) -> ::windows::core::Result<EmailConversationReader>;
-    fn GetConversationReaderWithOptions(&self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailConversationReader>;
-    fn GetMessageReader(&self) -> ::windows::core::Result<EmailMessageReader>;
-    fn GetMessageReaderWithOptions(&self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailMessageReader>;
-    fn GetMailboxAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
-    fn GetConversationAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>>;
-    fn GetFolderAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
-    fn GetMessageAsync(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
-    fn CreateMailboxAsync(&self, accountname: &::windows::core::HSTRING, accountaddress: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
-    fn CreateMailboxInAccountAsync(&self, accountname: &::windows::core::HSTRING, accountaddress: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
+    fn FindMailboxesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>>;
+    fn GetConversationReader(&mut self) -> ::windows::core::Result<EmailConversationReader>;
+    fn GetConversationReaderWithOptions(&mut self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailConversationReader>;
+    fn GetMessageReader(&mut self) -> ::windows::core::Result<EmailMessageReader>;
+    fn GetMessageReaderWithOptions(&mut self, options: &::core::option::Option<EmailQueryOptions>) -> ::windows::core::Result<EmailMessageReader>;
+    fn GetMailboxAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
+    fn GetConversationAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>>;
+    fn GetFolderAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>>;
+    fn GetMessageAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>>;
+    fn CreateMailboxAsync(&mut self, accountname: &::windows::core::HSTRING, accountaddress: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
+    fn CreateMailboxInAccountAsync(&mut self, accountname: &::windows::core::HSTRING, accountaddress: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEmailStore {

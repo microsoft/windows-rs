@@ -1,21 +1,21 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IBindingImpl: Sized {
-    fn Path(&self) -> ::windows::core::Result<super::PropertyPath>;
-    fn SetPath(&self, value: &::core::option::Option<super::PropertyPath>) -> ::windows::core::Result<()>;
-    fn Mode(&self) -> ::windows::core::Result<BindingMode>;
-    fn SetMode(&self, value: BindingMode) -> ::windows::core::Result<()>;
-    fn Source(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetSource(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn RelativeSource(&self) -> ::windows::core::Result<RelativeSource>;
-    fn SetRelativeSource(&self, value: &::core::option::Option<RelativeSource>) -> ::windows::core::Result<()>;
-    fn ElementName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetElementName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Converter(&self) -> ::windows::core::Result<IValueConverter>;
-    fn SetConverter(&self, value: &::core::option::Option<IValueConverter>) -> ::windows::core::Result<()>;
-    fn ConverterParameter(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetConverterParameter(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn ConverterLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetConverterLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Path(&mut self) -> ::windows::core::Result<super::PropertyPath>;
+    fn SetPath(&mut self, value: &::core::option::Option<super::PropertyPath>) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<BindingMode>;
+    fn SetMode(&mut self, value: BindingMode) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetSource(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn RelativeSource(&mut self) -> ::windows::core::Result<RelativeSource>;
+    fn SetRelativeSource(&mut self, value: &::core::option::Option<RelativeSource>) -> ::windows::core::Result<()>;
+    fn ElementName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetElementName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Converter(&mut self) -> ::windows::core::Result<IValueConverter>;
+    fn SetConverter(&mut self, value: &::core::option::Option<IValueConverter>) -> ::windows::core::Result<()>;
+    fn ConverterParameter(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetConverterParameter(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn ConverterLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetConverterLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBinding {
@@ -170,12 +170,12 @@ impl IBindingVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBinding2Impl: Sized {
-    fn FallbackValue(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetFallbackValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn TargetNullValue(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetTargetNullValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn UpdateSourceTrigger(&self) -> ::windows::core::Result<UpdateSourceTrigger>;
-    fn SetUpdateSourceTrigger(&self, value: UpdateSourceTrigger) -> ::windows::core::Result<()>;
+    fn FallbackValue(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetFallbackValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn TargetNullValue(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetTargetNullValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn UpdateSourceTrigger(&mut self) -> ::windows::core::Result<UpdateSourceTrigger>;
+    fn SetUpdateSourceTrigger(&mut self, value: UpdateSourceTrigger) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBinding2 {
@@ -260,7 +260,7 @@ impl IBindingBaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBindingBaseFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BindingBase>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BindingBase>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBindingBaseFactory {
@@ -291,9 +291,9 @@ impl IBindingBaseFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBindingExpressionImpl: Sized {
-    fn DataItem(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn ParentBinding(&self) -> ::windows::core::Result<Binding>;
-    fn UpdateSource(&self) -> ::windows::core::Result<()>;
+    fn DataItem(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ParentBinding(&mut self) -> ::windows::core::Result<Binding>;
+    fn UpdateSource(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBindingExpression {
@@ -386,7 +386,7 @@ impl IBindingExpressionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBindingFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Binding>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Binding>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBindingFactory {
@@ -429,7 +429,7 @@ impl IBindingOperationsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBindingOperationsStaticsImpl: Sized {
-    fn SetBinding(&self, target: &::core::option::Option<super::DependencyObject>, dp: &::core::option::Option<super::DependencyProperty>, binding: &::core::option::Option<BindingBase>) -> ::windows::core::Result<()>;
+    fn SetBinding(&mut self, target: &::core::option::Option<super::DependencyObject>, dp: &::core::option::Option<super::DependencyProperty>, binding: &::core::option::Option<BindingBase>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBindingOperationsStatics {
@@ -450,23 +450,23 @@ impl IBindingOperationsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ICollectionViewImpl: Sized + IIterableImpl<::windows::core::IInspectable> + IObservableVectorImpl<::windows::core::IInspectable> + IVectorImpl<::windows::core::IInspectable> {
-    fn CurrentItem(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn CurrentPosition(&self) -> ::windows::core::Result<i32>;
-    fn IsCurrentAfterLast(&self) -> ::windows::core::Result<bool>;
-    fn IsCurrentBeforeFirst(&self) -> ::windows::core::Result<bool>;
-    fn CollectionGroups(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
-    fn HasMoreItems(&self) -> ::windows::core::Result<bool>;
-    fn CurrentChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCurrentChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CurrentChanging(&self, handler: &::core::option::Option<CurrentChangingEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCurrentChanging(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MoveCurrentTo(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToPosition(&self, index: i32) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToFirst(&self) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToLast(&self) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToNext(&self) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToPrevious(&self) -> ::windows::core::Result<bool>;
-    fn LoadMoreItemsAsync(&self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
+    fn CurrentItem(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CurrentPosition(&mut self) -> ::windows::core::Result<i32>;
+    fn IsCurrentAfterLast(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCurrentBeforeFirst(&mut self) -> ::windows::core::Result<bool>;
+    fn CollectionGroups(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
+    fn HasMoreItems(&mut self) -> ::windows::core::Result<bool>;
+    fn CurrentChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCurrentChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CurrentChanging(&mut self, handler: &::core::option::Option<CurrentChangingEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCurrentChanging(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MoveCurrentTo(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToPosition(&mut self, index: i32) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToFirst(&mut self) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToLast(&mut self) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToNext(&mut self) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToPrevious(&mut self) -> ::windows::core::Result<bool>;
+    fn LoadMoreItemsAsync(&mut self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ICollectionView {
@@ -674,7 +674,7 @@ impl ICollectionViewVtbl {
     }
 }
 pub trait ICollectionViewFactoryImpl: Sized {
-    fn CreateView(&self) -> ::windows::core::Result<ICollectionView>;
+    fn CreateView(&mut self) -> ::windows::core::Result<ICollectionView>;
 }
 impl ::windows::core::RuntimeName for ICollectionViewFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Data.ICollectionViewFactory";
@@ -700,8 +700,8 @@ impl ICollectionViewFactoryVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICollectionViewGroupImpl: Sized {
-    fn Group(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GroupItems(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
+    fn Group(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GroupItems(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ICollectionViewGroup {
@@ -744,13 +744,13 @@ impl ICollectionViewGroupVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICollectionViewSourceImpl: Sized {
-    fn Source(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetSource(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn View(&self) -> ::windows::core::Result<ICollectionView>;
-    fn IsSourceGrouped(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSourceGrouped(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ItemsPath(&self) -> ::windows::core::Result<super::PropertyPath>;
-    fn SetItemsPath(&self, value: &::core::option::Option<super::PropertyPath>) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetSource(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn View(&mut self) -> ::windows::core::Result<ICollectionView>;
+    fn IsSourceGrouped(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSourceGrouped(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ItemsPath(&mut self) -> ::windows::core::Result<super::PropertyPath>;
+    fn SetItemsPath(&mut self, value: &::core::option::Option<super::PropertyPath>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICollectionViewSource {
@@ -832,10 +832,10 @@ impl ICollectionViewSourceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICollectionViewSourceStaticsImpl: Sized {
-    fn SourceProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ViewProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn IsSourceGroupedProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ItemsPathProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn SourceProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ViewProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IsSourceGroupedProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ItemsPathProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICollectionViewSourceStatics {
@@ -902,9 +902,9 @@ impl ICollectionViewSourceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrentChangingEventArgsImpl: Sized {
-    fn Cancel(&self) -> ::windows::core::Result<bool>;
-    fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsCancelable(&self) -> ::windows::core::Result<bool>;
+    fn Cancel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCancel(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsCancelable(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrentChangingEventArgs {
@@ -952,8 +952,8 @@ impl ICurrentChangingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrentChangingEventArgsFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CurrentChangingEventArgs>;
-    fn CreateWithCancelableParameter(&self, iscancelable: bool, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CurrentChangingEventArgs>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CurrentChangingEventArgs>;
+    fn CreateWithCancelableParameter(&mut self, iscancelable: bool, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CurrentChangingEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrentChangingEventArgsFactory {
@@ -996,14 +996,14 @@ impl ICurrentChangingEventArgsFactoryVtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait ICustomPropertyImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<super::Interop::TypeName>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetValue(&self, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetValue(&self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetIndexedValue(&self, target: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetIndexedValue(&self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn CanWrite(&self) -> ::windows::core::Result<bool>;
-    fn CanRead(&self) -> ::windows::core::Result<bool>;
+    fn Type(&mut self) -> ::windows::core::Result<super::Interop::TypeName>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetIndexedValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetIndexedValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn CanWrite(&mut self) -> ::windows::core::Result<bool>;
+    fn CanRead(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for ICustomProperty {
@@ -1110,10 +1110,10 @@ impl ICustomPropertyVtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait ICustomPropertyProviderImpl: Sized {
-    fn GetCustomProperty(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ICustomProperty>;
-    fn GetIndexedProperty(&self, name: &::windows::core::HSTRING, r#type: &super::Interop::TypeName) -> ::windows::core::Result<ICustomProperty>;
-    fn GetStringRepresentation(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Type(&self) -> ::windows::core::Result<super::Interop::TypeName>;
+    fn GetCustomProperty(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ICustomProperty>;
+    fn GetIndexedProperty(&mut self, name: &::windows::core::HSTRING, r#type: &super::Interop::TypeName) -> ::windows::core::Result<ICustomProperty>;
+    fn GetStringRepresentation(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Type(&mut self) -> ::windows::core::Result<super::Interop::TypeName>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for ICustomPropertyProvider {
@@ -1180,9 +1180,9 @@ impl ICustomPropertyProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IItemIndexRangeImpl: Sized {
-    fn FirstIndex(&self) -> ::windows::core::Result<i32>;
-    fn Length(&self) -> ::windows::core::Result<u32>;
-    fn LastIndex(&self) -> ::windows::core::Result<i32>;
+    fn FirstIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn Length(&mut self) -> ::windows::core::Result<u32>;
+    fn LastIndex(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IItemIndexRange {
@@ -1237,7 +1237,7 @@ impl IItemIndexRangeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IItemIndexRangeFactoryImpl: Sized {
-    fn CreateInstance(&self, firstindex: i32, length: u32, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemIndexRange>;
+    fn CreateInstance(&mut self, firstindex: i32, length: u32, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemIndexRange>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IItemIndexRangeFactory {
@@ -1268,7 +1268,7 @@ impl IItemIndexRangeFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IItemsRangeInfoImpl: Sized + IClosableImpl {
-    fn RangesChanged(&self, visiblerange: &::core::option::Option<ItemIndexRange>, trackeditems: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>) -> ::windows::core::Result<()>;
+    fn RangesChanged(&mut self, visiblerange: &::core::option::Option<ItemIndexRange>, trackeditems: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IItemsRangeInfo {
@@ -1289,8 +1289,8 @@ impl IItemsRangeInfoVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait INotifyPropertyChangedImpl: Sized {
-    fn PropertyChanged(&self, handler: &::core::option::Option<PropertyChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePropertyChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PropertyChanged(&mut self, handler: &::core::option::Option<PropertyChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePropertyChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for INotifyPropertyChanged {
@@ -1326,7 +1326,7 @@ impl INotifyPropertyChangedVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPropertyChangedEventArgsImpl: Sized {
-    fn PropertyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PropertyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPropertyChangedEventArgs {
@@ -1357,7 +1357,7 @@ impl IPropertyChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPropertyChangedEventArgsFactoryImpl: Sized {
-    fn CreateInstance(&self, name: &::windows::core::HSTRING, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PropertyChangedEventArgs>;
+    fn CreateInstance(&mut self, name: &::windows::core::HSTRING, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PropertyChangedEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPropertyChangedEventArgsFactory {
@@ -1388,8 +1388,8 @@ impl IPropertyChangedEventArgsFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRelativeSourceImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<RelativeSourceMode>;
-    fn SetMode(&self, value: RelativeSourceMode) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<RelativeSourceMode>;
+    fn SetMode(&mut self, value: RelativeSourceMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRelativeSource {
@@ -1425,7 +1425,7 @@ impl IRelativeSourceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRelativeSourceFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RelativeSource>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RelativeSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRelativeSourceFactory {
@@ -1456,10 +1456,10 @@ impl IRelativeSourceFactoryVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ISelectionInfoImpl: Sized {
-    fn SelectRange(&self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
-    fn DeselectRange(&self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
-    fn IsSelected(&self, index: i32) -> ::windows::core::Result<bool>;
-    fn GetSelectedRanges(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>;
+    fn SelectRange(&mut self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
+    fn DeselectRange(&mut self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
+    fn IsSelected(&mut self, index: i32) -> ::windows::core::Result<bool>;
+    fn GetSelectedRanges(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ISelectionInfo {
@@ -1512,8 +1512,8 @@ impl ISelectionInfoVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISupportIncrementalLoadingImpl: Sized {
-    fn LoadMoreItemsAsync(&self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
-    fn HasMoreItems(&self) -> ::windows::core::Result<bool>;
+    fn LoadMoreItemsAsync(&mut self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
+    fn HasMoreItems(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISupportIncrementalLoading {
@@ -1556,8 +1556,8 @@ impl ISupportIncrementalLoadingVtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait IValueConverterImpl: Sized {
-    fn Convert(&self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn ConvertBack(&self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Convert(&mut self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ConvertBack(&mut self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for IValueConverter {

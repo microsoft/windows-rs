@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDualSimTileImpl: Sized {
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsPinnedToStart(&self) -> ::windows::core::Result<bool>;
-    fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn UpdateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsPinnedToStart(&mut self) -> ::windows::core::Result<bool>;
+    fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn UpdateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn DeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDualSimTile {
@@ -89,14 +89,14 @@ impl IDualSimTileVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Notifications", feature = "implement_exclusive"))]
 pub trait IDualSimTileStaticsImpl: Sized {
-    fn GetTileForSim2(&self) -> ::windows::core::Result<DualSimTile>;
-    fn UpdateDisplayNameForSim1Async(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn CreateTileUpdaterForSim1(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater>;
-    fn CreateTileUpdaterForSim2(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater>;
-    fn CreateBadgeUpdaterForSim1(&self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater>;
-    fn CreateBadgeUpdaterForSim2(&self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater>;
-    fn CreateToastNotifierForSim1(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
-    fn CreateToastNotifierForSim2(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
+    fn GetTileForSim2(&mut self) -> ::windows::core::Result<DualSimTile>;
+    fn UpdateDisplayNameForSim1Async(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn CreateTileUpdaterForSim1(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater>;
+    fn CreateTileUpdaterForSim2(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater>;
+    fn CreateBadgeUpdaterForSim1(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater>;
+    fn CreateBadgeUpdaterForSim2(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater>;
+    fn CreateToastNotifierForSim1(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
+    fn CreateToastNotifierForSim2(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDualSimTileStatics {
@@ -211,7 +211,7 @@ impl IDualSimTileStaticsVtbl {
 }
 #[cfg(feature = "UI_Notifications")]
 pub trait IToastNotificationManagerStatics3Impl: Sized {
-    fn CreateToastNotifierForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
+    fn CreateToastNotifierForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
 #[cfg(feature = "UI_Notifications")]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics3 {

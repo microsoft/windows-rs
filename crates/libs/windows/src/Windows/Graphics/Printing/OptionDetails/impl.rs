@@ -1,9 +1,9 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintBindingOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintBindingOptionDetails {
@@ -56,10 +56,10 @@ impl IPrintBindingOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintBorderingOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintBorderingOptionDetails {
@@ -112,10 +112,10 @@ impl IPrintBorderingOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintCollationOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintCollationOptionDetails {
@@ -168,10 +168,10 @@ impl IPrintCollationOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintColorModeOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintColorModeOptionDetails {
@@ -224,10 +224,10 @@ impl IPrintColorModeOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintCopiesOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintCopiesOptionDetails {
@@ -280,9 +280,9 @@ impl IPrintCopiesOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintCustomItemDetailsImpl: Sized {
-    fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetItemDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ItemDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ItemId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetItemDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ItemDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintCustomItemDetails {
@@ -330,7 +330,7 @@ impl IPrintCustomItemDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrintCustomItemListOptionDetailsImpl: Sized + IPrintCustomOptionDetailsImpl + IPrintItemListOptionDetailsImpl + IPrintOptionDetailsImpl {
-    fn AddItem(&self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AddItem(&mut self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintCustomItemListOptionDetails {
@@ -354,7 +354,7 @@ impl IPrintCustomItemListOptionDetailsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintCustomItemListOptionDetails2Impl: Sized {
-    fn AddItem(&self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, description: &::windows::core::HSTRING, icon: &::core::option::Option<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<()>;
+    fn AddItem(&mut self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, description: &::windows::core::HSTRING, icon: &::core::option::Option<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintCustomItemListOptionDetails2 {
@@ -385,10 +385,10 @@ impl IPrintCustomItemListOptionDetails2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintCustomItemListOptionDetails3Impl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintCustomItemListOptionDetails3 {
@@ -440,8 +440,8 @@ impl IPrintCustomItemListOptionDetails3Vtbl {
     }
 }
 pub trait IPrintCustomOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IPrintCustomOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintCustomOptionDetails";
@@ -475,8 +475,8 @@ impl IPrintCustomOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintCustomTextOptionDetailsImpl: Sized + IPrintCustomOptionDetailsImpl + IPrintOptionDetailsImpl {
-    fn SetMaxCharacters(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MaxCharacters(&self) -> ::windows::core::Result<u32>;
+    fn SetMaxCharacters(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MaxCharacters(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintCustomTextOptionDetails {
@@ -512,10 +512,10 @@ impl IPrintCustomTextOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintCustomTextOptionDetails2Impl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintCustomTextOptionDetails2 {
@@ -568,10 +568,10 @@ impl IPrintCustomTextOptionDetails2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintCustomToggleOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintCustomToggleOptionDetails {
@@ -624,10 +624,10 @@ impl IPrintCustomToggleOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintDuplexOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintDuplexOptionDetails {
@@ -680,10 +680,10 @@ impl IPrintDuplexOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintHolePunchOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintHolePunchOptionDetails {
@@ -736,7 +736,7 @@ impl IPrintHolePunchOptionDetailsVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintItemListOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
-    fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>;
+    fn Items(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPrintItemListOptionDetails {
@@ -764,10 +764,10 @@ impl IPrintItemListOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintMediaSizeOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintMediaSizeOptionDetails {
@@ -820,10 +820,10 @@ impl IPrintMediaSizeOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintMediaTypeOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintMediaTypeOptionDetails {
@@ -875,8 +875,8 @@ impl IPrintMediaTypeOptionDetailsVtbl {
     }
 }
 pub trait IPrintNumberOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
-    fn MinValue(&self) -> ::windows::core::Result<u32>;
-    fn MaxValue(&self) -> ::windows::core::Result<u32>;
+    fn MinValue(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxValue(&mut self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IPrintNumberOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintNumberOptionDetails";
@@ -916,14 +916,14 @@ impl IPrintNumberOptionDetailsVtbl {
     }
 }
 pub trait IPrintOptionDetailsImpl: Sized {
-    fn OptionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OptionType(&self) -> ::windows::core::Result<PrintOptionType>;
-    fn SetErrorText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ErrorText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()>;
-    fn State(&self) -> ::windows::core::Result<PrintOptionStates>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn TrySetValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn OptionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OptionType(&mut self) -> ::windows::core::Result<PrintOptionType>;
+    fn SetErrorText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ErrorText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetState(&mut self, value: PrintOptionStates) -> ::windows::core::Result<()>;
+    fn State(&mut self) -> ::windows::core::Result<PrintOptionStates>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn TrySetValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IPrintOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
@@ -1022,10 +1022,10 @@ impl IPrintOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintOrientationOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintOrientationOptionDetails {
@@ -1078,10 +1078,10 @@ impl IPrintOrientationOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintPageRangeOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintPageRangeOptionDetails {
@@ -1134,10 +1134,10 @@ impl IPrintPageRangeOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintQualityOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintQualityOptionDetails {
@@ -1190,10 +1190,10 @@ impl IPrintQualityOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintStapleOptionDetailsImpl: Sized {
-    fn SetWarningText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn WarningText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWarningText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn WarningText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintStapleOptionDetails {
@@ -1246,7 +1246,7 @@ impl IPrintStapleOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintTaskOptionChangedEventArgsImpl: Sized {
-    fn OptionId(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn OptionId(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintTaskOptionChangedEventArgs {
@@ -1277,13 +1277,13 @@ impl IPrintTaskOptionChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrintTaskOptionDetailsImpl: Sized {
-    fn Options(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IPrintOptionDetails>>;
-    fn CreateItemListOption(&self, optionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PrintCustomItemListOptionDetails>;
-    fn CreateTextOption(&self, optionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PrintCustomTextOptionDetails>;
-    fn OptionChanged(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOptionChanged(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn BeginValidation(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBeginValidation(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Options(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IPrintOptionDetails>>;
+    fn CreateItemListOption(&mut self, optionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PrintCustomItemListOptionDetails>;
+    fn CreateTextOption(&mut self, optionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PrintCustomTextOptionDetails>;
+    fn OptionChanged(&mut self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOptionChanged(&mut self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BeginValidation(&mut self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBeginValidation(&mut self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTaskOptionDetails {
@@ -1372,7 +1372,7 @@ impl IPrintTaskOptionDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintTaskOptionDetails2Impl: Sized {
-    fn CreateToggleOption(&self, optionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PrintCustomToggleOptionDetails>;
+    fn CreateToggleOption(&mut self, optionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PrintCustomToggleOptionDetails>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintTaskOptionDetails2 {
@@ -1403,7 +1403,7 @@ impl IPrintTaskOptionDetails2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintTaskOptionDetailsStaticImpl: Sized {
-    fn GetFromPrintTaskOptions(&self, printtaskoptions: &::core::option::Option<super::PrintTaskOptions>) -> ::windows::core::Result<PrintTaskOptionDetails>;
+    fn GetFromPrintTaskOptions(&mut self, printtaskoptions: &::core::option::Option<super::PrintTaskOptions>) -> ::windows::core::Result<PrintTaskOptionDetails>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintTaskOptionDetailsStatic {
@@ -1433,7 +1433,7 @@ impl IPrintTaskOptionDetailsStaticVtbl {
     }
 }
 pub trait IPrintTextOptionDetailsImpl: Sized + IPrintOptionDetailsImpl {
-    fn MaxCharacters(&self) -> ::windows::core::Result<u32>;
+    fn MaxCharacters(&mut self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IPrintTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintTextOptionDetails";

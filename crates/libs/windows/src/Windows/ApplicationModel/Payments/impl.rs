@@ -1,28 +1,28 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentAddressImpl: Sized {
-    fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCountry(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AddressLines(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SetAddressLines(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
-    fn Region(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRegion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn City(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCity(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DependentLocality(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDependentLocality(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PostalCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPostalCode(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SortingCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSortingCode(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LanguageCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguageCode(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Organization(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetOrganization(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Recipient(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRecipient(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPhoneNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Country(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCountry(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AddressLines(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SetAddressLines(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn Region(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRegion(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn City(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCity(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DependentLocality(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDependentLocality(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PostalCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPostalCode(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SortingCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSortingCode(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LanguageCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguageCode(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Organization(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetOrganization(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Recipient(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRecipient(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPhoneNumber(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentAddress {
@@ -240,7 +240,7 @@ impl IPaymentAddressVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentCanMakePaymentResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<PaymentCanMakePaymentResultStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<PaymentCanMakePaymentResultStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentCanMakePaymentResult {
@@ -268,7 +268,7 @@ impl IPaymentCanMakePaymentResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentCanMakePaymentResultFactoryImpl: Sized {
-    fn Create(&self, value: PaymentCanMakePaymentResultStatus) -> ::windows::core::Result<PaymentCanMakePaymentResult>;
+    fn Create(&mut self, value: PaymentCanMakePaymentResultStatus) -> ::windows::core::Result<PaymentCanMakePaymentResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentCanMakePaymentResultFactory {
@@ -299,12 +299,12 @@ impl IPaymentCanMakePaymentResultFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentCurrencyAmountImpl: Sized {
-    fn Currency(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCurrency(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CurrencySystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCurrencySystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Currency(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCurrency(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CurrencySystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCurrencySystem(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentCurrencyAmount {
@@ -374,8 +374,8 @@ impl IPaymentCurrencyAmountVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentCurrencyAmountFactoryImpl: Sized {
-    fn Create(&self, value: &::windows::core::HSTRING, currency: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentCurrencyAmount>;
-    fn CreateWithCurrencySystem(&self, value: &::windows::core::HSTRING, currency: &::windows::core::HSTRING, currencysystem: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentCurrencyAmount>;
+    fn Create(&mut self, value: &::windows::core::HSTRING, currency: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentCurrencyAmount>;
+    fn CreateWithCurrencySystem(&mut self, value: &::windows::core::HSTRING, currency: &::windows::core::HSTRING, currencysystem: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentCurrencyAmount>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentCurrencyAmountFactory {
@@ -422,14 +422,14 @@ impl IPaymentCurrencyAmountFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsImpl: Sized {
-    fn Total(&self) -> ::windows::core::Result<PaymentItem>;
-    fn SetTotal(&self, value: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<()>;
-    fn DisplayItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>>;
-    fn SetDisplayItems(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<PaymentItem>>) -> ::windows::core::Result<()>;
-    fn ShippingOptions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>;
-    fn SetShippingOptions(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>) -> ::windows::core::Result<()>;
-    fn Modifiers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>;
-    fn SetModifiers(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>) -> ::windows::core::Result<()>;
+    fn Total(&mut self) -> ::windows::core::Result<PaymentItem>;
+    fn SetTotal(&mut self, value: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<()>;
+    fn DisplayItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>>;
+    fn SetDisplayItems(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<PaymentItem>>) -> ::windows::core::Result<()>;
+    fn ShippingOptions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>;
+    fn SetShippingOptions(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>) -> ::windows::core::Result<()>;
+    fn Modifiers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>;
+    fn SetModifiers(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetails {
@@ -516,8 +516,8 @@ impl IPaymentDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsFactoryImpl: Sized {
-    fn Create(&self, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetails>;
-    fn CreateWithDisplayItems(&self, total: &::core::option::Option<PaymentItem>, displayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetails>;
+    fn Create(&mut self, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetails>;
+    fn CreateWithDisplayItems(&mut self, total: &::core::option::Option<PaymentItem>, displayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetails>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetailsFactory {
@@ -560,10 +560,10 @@ impl IPaymentDetailsFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsModifierImpl: Sized {
-    fn JsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SupportedMethodIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Total(&self) -> ::windows::core::Result<PaymentItem>;
-    fn AdditionalDisplayItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>>;
+    fn JsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportedMethodIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Total(&mut self) -> ::windows::core::Result<PaymentItem>;
+    fn AdditionalDisplayItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetailsModifier {
@@ -630,9 +630,9 @@ impl IPaymentDetailsModifierVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentDetailsModifierFactoryImpl: Sized {
-    fn Create(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetailsModifier>;
-    fn CreateWithAdditionalDisplayItems(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetailsModifier>;
-    fn CreateWithAdditionalDisplayItemsAndJsonData(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>;
+    fn Create(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetailsModifier>;
+    fn CreateWithAdditionalDisplayItems(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetailsModifier>;
+    fn CreateWithAdditionalDisplayItemsAndJsonData(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentDetailsModifierFactory {
@@ -696,12 +696,12 @@ impl IPaymentDetailsModifierFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentItemImpl: Sized {
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Amount(&self) -> ::windows::core::Result<PaymentCurrencyAmount>;
-    fn SetAmount(&self, value: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<()>;
-    fn Pending(&self) -> ::windows::core::Result<bool>;
-    fn SetPending(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Amount(&mut self) -> ::windows::core::Result<PaymentCurrencyAmount>;
+    fn SetAmount(&mut self, value: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<()>;
+    fn Pending(&mut self) -> ::windows::core::Result<bool>;
+    fn SetPending(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentItem {
@@ -771,7 +771,7 @@ impl IPaymentItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentItemFactoryImpl: Sized {
-    fn Create(&self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<PaymentItem>;
+    fn Create(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<PaymentItem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentItemFactory {
@@ -799,9 +799,9 @@ impl IPaymentItemFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentMediatorImpl: Sized {
-    fn GetSupportedMethodIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn SubmitPaymentRequestAsync(&self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
-    fn SubmitPaymentRequestWithChangeHandlerAsync(&self, paymentrequest: &::core::option::Option<PaymentRequest>, changehandler: &::core::option::Option<PaymentRequestChangedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
+    fn GetSupportedMethodIdsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn SubmitPaymentRequestAsync(&mut self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
+    fn SubmitPaymentRequestWithChangeHandlerAsync(&mut self, paymentrequest: &::core::option::Option<PaymentRequest>, changehandler: &::core::option::Option<PaymentRequestChangedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMediator {
@@ -856,7 +856,7 @@ impl IPaymentMediatorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentMediator2Impl: Sized {
-    fn CanMakePaymentAsync(&self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>;
+    fn CanMakePaymentAsync(&mut self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMediator2 {
@@ -887,8 +887,8 @@ impl IPaymentMediator2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentMerchantInfoImpl: Sized {
-    fn PackageFullName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn PackageFullName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMerchantInfo {
@@ -931,7 +931,7 @@ impl IPaymentMerchantInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentMerchantInfoFactoryImpl: Sized {
-    fn Create(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<PaymentMerchantInfo>;
+    fn Create(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<PaymentMerchantInfo>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMerchantInfoFactory {
@@ -959,8 +959,8 @@ impl IPaymentMerchantInfoFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentMethodDataImpl: Sized {
-    fn SupportedMethodIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn JsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportedMethodIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn JsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMethodData {
@@ -1003,8 +1003,8 @@ impl IPaymentMethodDataVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentMethodDataFactoryImpl: Sized {
-    fn Create(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PaymentMethodData>;
-    fn CreateWithJsonData(&self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentMethodData>;
+    fn Create(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PaymentMethodData>;
+    fn CreateWithJsonData(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentMethodData>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentMethodDataFactory {
@@ -1047,16 +1047,16 @@ impl IPaymentMethodDataFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentOptionsImpl: Sized {
-    fn RequestPayerEmail(&self) -> ::windows::core::Result<PaymentOptionPresence>;
-    fn SetRequestPayerEmail(&self, value: PaymentOptionPresence) -> ::windows::core::Result<()>;
-    fn RequestPayerName(&self) -> ::windows::core::Result<PaymentOptionPresence>;
-    fn SetRequestPayerName(&self, value: PaymentOptionPresence) -> ::windows::core::Result<()>;
-    fn RequestPayerPhoneNumber(&self) -> ::windows::core::Result<PaymentOptionPresence>;
-    fn SetRequestPayerPhoneNumber(&self, value: PaymentOptionPresence) -> ::windows::core::Result<()>;
-    fn RequestShipping(&self) -> ::windows::core::Result<bool>;
-    fn SetRequestShipping(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShippingType(&self) -> ::windows::core::Result<PaymentShippingType>;
-    fn SetShippingType(&self, value: PaymentShippingType) -> ::windows::core::Result<()>;
+    fn RequestPayerEmail(&mut self) -> ::windows::core::Result<PaymentOptionPresence>;
+    fn SetRequestPayerEmail(&mut self, value: PaymentOptionPresence) -> ::windows::core::Result<()>;
+    fn RequestPayerName(&mut self) -> ::windows::core::Result<PaymentOptionPresence>;
+    fn SetRequestPayerName(&mut self, value: PaymentOptionPresence) -> ::windows::core::Result<()>;
+    fn RequestPayerPhoneNumber(&mut self) -> ::windows::core::Result<PaymentOptionPresence>;
+    fn SetRequestPayerPhoneNumber(&mut self, value: PaymentOptionPresence) -> ::windows::core::Result<()>;
+    fn RequestShipping(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRequestShipping(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShippingType(&mut self) -> ::windows::core::Result<PaymentShippingType>;
+    fn SetShippingType(&mut self, value: PaymentShippingType) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentOptions {
@@ -1160,10 +1160,10 @@ impl IPaymentOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentRequestImpl: Sized {
-    fn MerchantInfo(&self) -> ::windows::core::Result<PaymentMerchantInfo>;
-    fn Details(&self) -> ::windows::core::Result<PaymentDetails>;
-    fn MethodData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentMethodData>>;
-    fn Options(&self) -> ::windows::core::Result<PaymentOptions>;
+    fn MerchantInfo(&mut self) -> ::windows::core::Result<PaymentMerchantInfo>;
+    fn Details(&mut self) -> ::windows::core::Result<PaymentDetails>;
+    fn MethodData(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentMethodData>>;
+    fn Options(&mut self) -> ::windows::core::Result<PaymentOptions>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentRequest {
@@ -1230,7 +1230,7 @@ impl IPaymentRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentRequest2Impl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentRequest2 {
@@ -1258,10 +1258,10 @@ impl IPaymentRequest2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentRequestChangedArgsImpl: Sized {
-    fn ChangeKind(&self) -> ::windows::core::Result<PaymentRequestChangeKind>;
-    fn ShippingAddress(&self) -> ::windows::core::Result<PaymentAddress>;
-    fn SelectedShippingOption(&self) -> ::windows::core::Result<PaymentShippingOption>;
-    fn Acknowledge(&self, changeresult: &::core::option::Option<PaymentRequestChangedResult>) -> ::windows::core::Result<()>;
+    fn ChangeKind(&mut self) -> ::windows::core::Result<PaymentRequestChangeKind>;
+    fn ShippingAddress(&mut self) -> ::windows::core::Result<PaymentAddress>;
+    fn SelectedShippingOption(&mut self) -> ::windows::core::Result<PaymentShippingOption>;
+    fn Acknowledge(&mut self, changeresult: &::core::option::Option<PaymentRequestChangedResult>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentRequestChangedArgs {
@@ -1321,12 +1321,12 @@ impl IPaymentRequestChangedArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentRequestChangedResultImpl: Sized {
-    fn ChangeAcceptedByMerchant(&self) -> ::windows::core::Result<bool>;
-    fn SetChangeAcceptedByMerchant(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UpdatedPaymentDetails(&self) -> ::windows::core::Result<PaymentDetails>;
-    fn SetUpdatedPaymentDetails(&self, value: &::core::option::Option<PaymentDetails>) -> ::windows::core::Result<()>;
+    fn ChangeAcceptedByMerchant(&mut self) -> ::windows::core::Result<bool>;
+    fn SetChangeAcceptedByMerchant(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMessage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UpdatedPaymentDetails(&mut self) -> ::windows::core::Result<PaymentDetails>;
+    fn SetUpdatedPaymentDetails(&mut self, value: &::core::option::Option<PaymentDetails>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentRequestChangedResult {
@@ -1396,8 +1396,8 @@ impl IPaymentRequestChangedResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentRequestChangedResultFactoryImpl: Sized {
-    fn Create(&self, changeacceptedbymerchant: bool) -> ::windows::core::Result<PaymentRequestChangedResult>;
-    fn CreateWithPaymentDetails(&self, changeacceptedbymerchant: bool, updatedpaymentdetails: &::core::option::Option<PaymentDetails>) -> ::windows::core::Result<PaymentRequestChangedResult>;
+    fn Create(&mut self, changeacceptedbymerchant: bool) -> ::windows::core::Result<PaymentRequestChangedResult>;
+    fn CreateWithPaymentDetails(&mut self, changeacceptedbymerchant: bool, updatedpaymentdetails: &::core::option::Option<PaymentDetails>) -> ::windows::core::Result<PaymentRequestChangedResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentRequestChangedResultFactory {
@@ -1440,9 +1440,9 @@ impl IPaymentRequestChangedResultFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentRequestFactoryImpl: Sized {
-    fn Create(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>) -> ::windows::core::Result<PaymentRequest>;
-    fn CreateWithMerchantInfo(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>) -> ::windows::core::Result<PaymentRequest>;
-    fn CreateWithMerchantInfoAndOptions(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>) -> ::windows::core::Result<PaymentRequest>;
+    fn Create(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>) -> ::windows::core::Result<PaymentRequest>;
+    fn CreateWithMerchantInfo(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>) -> ::windows::core::Result<PaymentRequest>;
+    fn CreateWithMerchantInfoAndOptions(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>) -> ::windows::core::Result<PaymentRequest>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentRequestFactory {
@@ -1506,7 +1506,7 @@ impl IPaymentRequestFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPaymentRequestFactory2Impl: Sized {
-    fn CreateWithMerchantInfoOptionsAndId(&self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>;
+    fn CreateWithMerchantInfoOptionsAndId(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentRequestFactory2 {
@@ -1543,8 +1543,8 @@ impl IPaymentRequestFactory2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentRequestSubmitResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<PaymentRequestStatus>;
-    fn Response(&self) -> ::windows::core::Result<PaymentResponse>;
+    fn Status(&mut self) -> ::windows::core::Result<PaymentRequestStatus>;
+    fn Response(&mut self) -> ::windows::core::Result<PaymentResponse>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentRequestSubmitResult {
@@ -1587,13 +1587,13 @@ impl IPaymentRequestSubmitResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPaymentResponseImpl: Sized {
-    fn PaymentToken(&self) -> ::windows::core::Result<PaymentToken>;
-    fn ShippingOption(&self) -> ::windows::core::Result<PaymentShippingOption>;
-    fn ShippingAddress(&self) -> ::windows::core::Result<PaymentAddress>;
-    fn PayerEmail(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PayerName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PayerPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PaymentToken(&mut self) -> ::windows::core::Result<PaymentToken>;
+    fn ShippingOption(&mut self) -> ::windows::core::Result<PaymentShippingOption>;
+    fn ShippingAddress(&mut self) -> ::windows::core::Result<PaymentAddress>;
+    fn PayerEmail(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PayerName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PayerPhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CompleteAsync(&mut self, status: PaymentRequestCompletionStatus) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaymentResponse {
@@ -1696,14 +1696,14 @@ impl IPaymentResponseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentShippingOptionImpl: Sized {
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Amount(&self) -> ::windows::core::Result<PaymentCurrencyAmount>;
-    fn SetAmount(&self, value: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<()>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsSelected(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSelected(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Amount(&mut self) -> ::windows::core::Result<PaymentCurrencyAmount>;
+    fn SetAmount(&mut self, value: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<()>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsSelected(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSelected(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentShippingOption {
@@ -1790,9 +1790,9 @@ impl IPaymentShippingOptionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentShippingOptionFactoryImpl: Sized {
-    fn Create(&self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<PaymentShippingOption>;
-    fn CreateWithSelected(&self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>, selected: bool) -> ::windows::core::Result<PaymentShippingOption>;
-    fn CreateWithSelectedAndTag(&self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>, selected: bool, tag: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentShippingOption>;
+    fn Create(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<PaymentShippingOption>;
+    fn CreateWithSelected(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>, selected: bool) -> ::windows::core::Result<PaymentShippingOption>;
+    fn CreateWithSelectedAndTag(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>, selected: bool, tag: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentShippingOption>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentShippingOptionFactory {
@@ -1852,8 +1852,8 @@ impl IPaymentShippingOptionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentTokenImpl: Sized {
-    fn PaymentMethodId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JsonDetails(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PaymentMethodId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JsonDetails(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentToken {
@@ -1896,8 +1896,8 @@ impl IPaymentTokenVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaymentTokenFactoryImpl: Sized {
-    fn Create(&self, paymentmethodid: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentToken>;
-    fn CreateWithJsonDetails(&self, paymentmethodid: &::windows::core::HSTRING, jsondetails: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentToken>;
+    fn Create(&mut self, paymentmethodid: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentToken>;
+    fn CreateWithJsonDetails(&mut self, paymentmethodid: &::windows::core::HSTRING, jsondetails: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentToken>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaymentTokenFactory {

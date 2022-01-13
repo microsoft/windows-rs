@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IOcrEngineImpl: Sized {
-    fn RecognizeAsync(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>;
-    fn RecognizerLanguage(&self) -> ::windows::core::Result<super::super::Globalization::Language>;
+    fn RecognizeAsync(&mut self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>;
+    fn RecognizerLanguage(&mut self) -> ::windows::core::Result<super::super::Globalization::Language>;
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOcrEngine {
@@ -44,11 +44,11 @@ impl IOcrEngineVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait IOcrEngineStaticsImpl: Sized {
-    fn MaxImageDimension(&self) -> ::windows::core::Result<u32>;
-    fn AvailableRecognizerLanguages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>;
-    fn IsLanguageSupported(&self, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<bool>;
-    fn TryCreateFromLanguage(&self, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<OcrEngine>;
-    fn TryCreateFromUserProfileLanguages(&self) -> ::windows::core::Result<OcrEngine>;
+    fn MaxImageDimension(&mut self) -> ::windows::core::Result<u32>;
+    fn AvailableRecognizerLanguages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>;
+    fn IsLanguageSupported(&mut self, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<bool>;
+    fn TryCreateFromLanguage(&mut self, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<OcrEngine>;
+    fn TryCreateFromUserProfileLanguages(&mut self) -> ::windows::core::Result<OcrEngine>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOcrEngineStatics {
@@ -127,8 +127,8 @@ impl IOcrEngineStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOcrLineImpl: Sized {
-    fn Words(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OcrWord>>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Words(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OcrWord>>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOcrLine {
@@ -171,9 +171,9 @@ impl IOcrLineVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOcrResultImpl: Sized {
-    fn Lines(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OcrLine>>;
-    fn TextAngle(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Lines(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OcrLine>>;
+    fn TextAngle(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOcrResult {
@@ -228,8 +228,8 @@ impl IOcrResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOcrWordImpl: Sized {
-    fn BoundingRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BoundingRect(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOcrWord {

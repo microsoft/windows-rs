@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactDataProviderConnectionImpl: Sized {
-    fn SyncRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSyncRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ServerSearchReadBatchRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveServerSearchReadBatchRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn SyncRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSyncRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ServerSearchReadBatchRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveServerSearchReadBatchRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactDataProviderConnection {
@@ -62,10 +62,10 @@ impl IContactDataProviderConnectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactDataProviderConnection2Impl: Sized {
-    fn CreateOrUpdateContactRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCreateOrUpdateContactRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DeleteContactRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDeleteContactRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateOrUpdateContactRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCreateOrUpdateContactRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeleteContactRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDeleteContactRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactDataProviderConnection2 {
@@ -118,7 +118,7 @@ impl IContactDataProviderConnection2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactDataProviderTriggerDetailsImpl: Sized {
-    fn Connection(&self) -> ::windows::core::Result<ContactDataProviderConnection>;
+    fn Connection(&mut self) -> ::windows::core::Result<ContactDataProviderConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactDataProviderTriggerDetails {
@@ -149,10 +149,10 @@ impl IContactDataProviderTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListCreateOrUpdateContactRequestImpl: Sized {
-    fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contact>;
-    fn ReportCompletedAsync(&self, createdorupdatedcontact: &::core::option::Option<super::Contact>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ContactListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contact>;
+    fn ReportCompletedAsync(&mut self, createdorupdatedcontact: &::core::option::Option<super::Contact>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListCreateOrUpdateContactRequest {
@@ -219,8 +219,8 @@ impl IContactListCreateOrUpdateContactRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListCreateOrUpdateContactRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<ContactListCreateOrUpdateContactRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<ContactListCreateOrUpdateContactRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListCreateOrUpdateContactRequestEventArgs {
@@ -263,10 +263,10 @@ impl IContactListCreateOrUpdateContactRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListDeleteContactRequestImpl: Sized {
-    fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ContactListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContactId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListDeleteContactRequest {
@@ -333,8 +333,8 @@ impl IContactListDeleteContactRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListDeleteContactRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<ContactListDeleteContactRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<ContactListDeleteContactRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListDeleteContactRequestEventArgs {
@@ -377,13 +377,13 @@ impl IContactListDeleteContactRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListServerSearchReadBatchRequestImpl: Sized {
-    fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Options(&self) -> ::windows::core::Result<super::ContactQueryOptions>;
-    fn SuggestedBatchSize(&self) -> ::windows::core::Result<u32>;
-    fn SaveContactAsync(&self, contact: &::core::option::Option<super::Contact>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContactListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Options(&mut self) -> ::windows::core::Result<super::ContactQueryOptions>;
+    fn SuggestedBatchSize(&mut self) -> ::windows::core::Result<u32>;
+    fn SaveContactAsync(&mut self, contact: &::core::option::Option<super::Contact>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self, batchstatus: super::ContactBatchStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListServerSearchReadBatchRequest {
@@ -486,8 +486,8 @@ impl IContactListServerSearchReadBatchRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListServerSearchReadBatchRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<ContactListServerSearchReadBatchRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<ContactListServerSearchReadBatchRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListServerSearchReadBatchRequestEventArgs {
@@ -530,9 +530,9 @@ impl IContactListServerSearchReadBatchRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncManagerSyncRequestImpl: Sized {
-    fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ContactListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncManagerSyncRequest {
@@ -587,8 +587,8 @@ impl IContactListSyncManagerSyncRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncManagerSyncRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<ContactListSyncManagerSyncRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<ContactListSyncManagerSyncRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncManagerSyncRequestEventArgs {

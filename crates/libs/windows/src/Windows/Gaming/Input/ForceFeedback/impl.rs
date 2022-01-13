@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IConditionForceEffectImpl: Sized + IForceFeedbackEffectImpl {
-    fn Kind(&self) -> ::windows::core::Result<ConditionForceEffectKind>;
-    fn SetParameters(&self, direction: &super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<ConditionForceEffectKind>;
+    fn SetParameters(&mut self, direction: &super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConditionForceEffect {
@@ -37,7 +37,7 @@ impl IConditionForceEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IConditionForceEffectFactoryImpl: Sized {
-    fn CreateInstance(&self, effectkind: ConditionForceEffectKind) -> ::windows::core::Result<ConditionForceEffect>;
+    fn CreateInstance(&mut self, effectkind: ConditionForceEffectKind) -> ::windows::core::Result<ConditionForceEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConditionForceEffectFactory {
@@ -68,8 +68,8 @@ impl IConditionForceEffectFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IConstantForceEffectImpl: Sized + IForceFeedbackEffectImpl {
-    fn SetParameters(&self, vector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SetParametersWithEnvelope(&self, vector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
+    fn SetParameters(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SetParametersWithEnvelope(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConstantForceEffect {
@@ -109,11 +109,11 @@ impl IConstantForceEffectVtbl {
     }
 }
 pub trait IForceFeedbackEffectImpl: Sized {
-    fn Gain(&self) -> ::windows::core::Result<f64>;
-    fn SetGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Gain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn State(&mut self) -> ::windows::core::Result<ForceFeedbackEffectState>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IForceFeedbackEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
@@ -169,19 +169,19 @@ impl IForceFeedbackEffectVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IForceFeedbackMotorImpl: Sized {
-    fn AreEffectsPaused(&self) -> ::windows::core::Result<bool>;
-    fn MasterGain(&self) -> ::windows::core::Result<f64>;
-    fn SetMasterGain(&self, value: f64) -> ::windows::core::Result<()>;
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SupportedAxes(&self) -> ::windows::core::Result<ForceFeedbackEffectAxes>;
-    fn LoadEffectAsync(&self, effect: &::core::option::Option<IForceFeedbackEffect>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>;
-    fn PauseAllEffects(&self) -> ::windows::core::Result<()>;
-    fn ResumeAllEffects(&self) -> ::windows::core::Result<()>;
-    fn StopAllEffects(&self) -> ::windows::core::Result<()>;
-    fn TryDisableAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryEnableAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryResetAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryUnloadEffectAsync(&self, effect: &::core::option::Option<IForceFeedbackEffect>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn AreEffectsPaused(&mut self) -> ::windows::core::Result<bool>;
+    fn MasterGain(&mut self) -> ::windows::core::Result<f64>;
+    fn SetMasterGain(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedAxes(&mut self) -> ::windows::core::Result<ForceFeedbackEffectAxes>;
+    fn LoadEffectAsync(&mut self, effect: &::core::option::Option<IForceFeedbackEffect>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>;
+    fn PauseAllEffects(&mut self) -> ::windows::core::Result<()>;
+    fn ResumeAllEffects(&mut self) -> ::windows::core::Result<()>;
+    fn StopAllEffects(&mut self) -> ::windows::core::Result<()>;
+    fn TryDisableAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryEnableAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryResetAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryUnloadEffectAsync(&mut self, effect: &::core::option::Option<IForceFeedbackEffect>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IForceFeedbackMotor {
@@ -328,9 +328,9 @@ impl IForceFeedbackMotorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IPeriodicForceEffectImpl: Sized + IForceFeedbackEffectImpl {
-    fn Kind(&self) -> ::windows::core::Result<PeriodicForceEffectKind>;
-    fn SetParameters(&self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SetParametersWithEnvelope(&self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<PeriodicForceEffectKind>;
+    fn SetParameters(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SetParametersWithEnvelope(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPeriodicForceEffect {
@@ -386,7 +386,7 @@ impl IPeriodicForceEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPeriodicForceEffectFactoryImpl: Sized {
-    fn CreateInstance(&self, effectkind: PeriodicForceEffectKind) -> ::windows::core::Result<PeriodicForceEffect>;
+    fn CreateInstance(&mut self, effectkind: PeriodicForceEffectKind) -> ::windows::core::Result<PeriodicForceEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPeriodicForceEffectFactory {
@@ -417,8 +417,8 @@ impl IPeriodicForceEffectFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IRampForceEffectImpl: Sized + IForceFeedbackEffectImpl {
-    fn SetParameters(&self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SetParametersWithEnvelope(&self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
+    fn SetParameters(&mut self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SetParametersWithEnvelope(&mut self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRampForceEffect {

@@ -1,14 +1,14 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppDataPathsImpl: Sized {
-    fn Cookies(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Desktop(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Documents(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Favorites(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn History(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InternetCache(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LocalAppData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProgramData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RoamingAppData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Cookies(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Desktop(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Documents(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Favorites(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn History(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InternetCache(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAppData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProgramData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RoamingAppData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppDataPaths {
@@ -135,8 +135,8 @@ impl IAppDataPathsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppDataPathsStaticsImpl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<AppDataPaths>;
-    fn GetDefault(&self) -> ::windows::core::Result<AppDataPaths>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<AppDataPaths>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<AppDataPaths>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDataPathsStatics {
@@ -179,19 +179,19 @@ impl IAppDataPathsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IApplicationDataImpl: Sized {
-    fn Version(&self) -> ::windows::core::Result<u32>;
-    fn SetVersionAsync(&self, desiredversion: u32, handler: &::core::option::Option<ApplicationDataSetVersionHandler>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn ClearAllAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn ClearAsync(&self, locality: ApplicationDataLocality) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn LocalSettings(&self) -> ::windows::core::Result<ApplicationDataContainer>;
-    fn RoamingSettings(&self) -> ::windows::core::Result<ApplicationDataContainer>;
-    fn LocalFolder(&self) -> ::windows::core::Result<StorageFolder>;
-    fn RoamingFolder(&self) -> ::windows::core::Result<StorageFolder>;
-    fn TemporaryFolder(&self) -> ::windows::core::Result<StorageFolder>;
-    fn DataChanged(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<ApplicationData, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveDataChanged(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SignalDataChanged(&self) -> ::windows::core::Result<()>;
-    fn RoamingStorageQuota(&self) -> ::windows::core::Result<u64>;
+    fn Version(&mut self) -> ::windows::core::Result<u32>;
+    fn SetVersionAsync(&mut self, desiredversion: u32, handler: &::core::option::Option<ApplicationDataSetVersionHandler>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ClearAllAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ClearAsync(&mut self, locality: ApplicationDataLocality) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn LocalSettings(&mut self) -> ::windows::core::Result<ApplicationDataContainer>;
+    fn RoamingSettings(&mut self) -> ::windows::core::Result<ApplicationDataContainer>;
+    fn LocalFolder(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn RoamingFolder(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn TemporaryFolder(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn DataChanged(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<ApplicationData, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveDataChanged(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SignalDataChanged(&mut self) -> ::windows::core::Result<()>;
+    fn RoamingStorageQuota(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationData {
@@ -352,7 +352,7 @@ impl IApplicationDataVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationData2Impl: Sized {
-    fn LocalCacheFolder(&self) -> ::windows::core::Result<StorageFolder>;
+    fn LocalCacheFolder(&mut self) -> ::windows::core::Result<StorageFolder>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IApplicationData2 {
@@ -383,9 +383,9 @@ impl IApplicationData2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IApplicationData3Impl: Sized {
-    fn GetPublisherCacheFolder(&self, foldername: &::windows::core::HSTRING) -> ::windows::core::Result<StorageFolder>;
-    fn ClearPublisherCacheFolderAsync(&self, foldername: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn SharedLocalFolder(&self) -> ::windows::core::Result<StorageFolder>;
+    fn GetPublisherCacheFolder(&mut self, foldername: &::windows::core::HSTRING) -> ::windows::core::Result<StorageFolder>;
+    fn ClearPublisherCacheFolderAsync(&mut self, foldername: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn SharedLocalFolder(&mut self) -> ::windows::core::Result<StorageFolder>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationData3 {
@@ -440,12 +440,12 @@ impl IApplicationData3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IApplicationDataContainerImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Locality(&self) -> ::windows::core::Result<ApplicationDataLocality>;
-    fn Values(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet>;
-    fn Containers(&self) -> ::windows::core::Result<super::Foundation::Collections::IMapView<::windows::core::HSTRING, ApplicationDataContainer>>;
-    fn CreateContainer(&self, name: &::windows::core::HSTRING, disposition: ApplicationDataCreateDisposition) -> ::windows::core::Result<ApplicationDataContainer>;
-    fn DeleteContainer(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Locality(&mut self) -> ::windows::core::Result<ApplicationDataLocality>;
+    fn Values(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet>;
+    fn Containers(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IMapView<::windows::core::HSTRING, ApplicationDataContainer>>;
+    fn CreateContainer(&mut self, name: &::windows::core::HSTRING, disposition: ApplicationDataCreateDisposition) -> ::windows::core::Result<ApplicationDataContainer>;
+    fn DeleteContainer(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationDataContainer {
@@ -529,7 +529,7 @@ impl IApplicationDataContainerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IApplicationDataStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<ApplicationData>;
+    fn Current(&mut self) -> ::windows::core::Result<ApplicationData>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IApplicationDataStatics {
@@ -557,7 +557,7 @@ impl IApplicationDataStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IApplicationDataStatics2Impl: Sized {
-    fn GetForUserAsync(&self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ApplicationData>>;
+    fn GetForUserAsync(&mut self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ApplicationData>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationDataStatics2 {
@@ -588,8 +588,8 @@ impl IApplicationDataStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Provider", feature = "implement_exclusive"))]
 pub trait ICachedFileManagerStaticsImpl: Sized {
-    fn DeferUpdates(&self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<()>;
-    fn CompleteUpdatesAsync(&self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Provider::FileUpdateStatus>>;
+    fn DeferUpdates(&mut self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<()>;
+    fn CompleteUpdatesAsync(&mut self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Provider::FileUpdateStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Provider", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICachedFileManagerStatics {
@@ -625,10 +625,10 @@ impl ICachedFileManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDownloadsFolderStaticsImpl: Sized {
-    fn CreateFileAsync(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFolderAsync(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn CreateFileWithCollisionOptionAsync(&self, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFolderWithCollisionOptionAsync(&self, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn CreateFileAsync(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFolderAsync(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn CreateFileWithCollisionOptionAsync(&mut self, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFolderWithCollisionOptionAsync(&mut self, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDownloadsFolderStatics {
@@ -695,10 +695,10 @@ impl IDownloadsFolderStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IDownloadsFolderStatics2Impl: Sized {
-    fn CreateFileForUserAsync(&self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFolderForUserAsync(&self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn CreateFileForUserWithCollisionOptionAsync(&self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFolderForUserWithCollisionOptionAsync(&self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn CreateFileForUserAsync(&mut self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFolderForUserAsync(&mut self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn CreateFileForUserWithCollisionOptionAsync(&mut self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFolderForUserWithCollisionOptionAsync(&mut self, user: &::core::option::Option<super::System::User>, desiredname: &::windows::core::HSTRING, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDownloadsFolderStatics2 {
@@ -765,21 +765,21 @@ impl IDownloadsFolderStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IFileIOStaticsImpl: Sized {
-    fn ReadTextAsync(&self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ReadTextWithEncodingAsync(&self, file: &::core::option::Option<IStorageFile>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn WriteTextAsync(&self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn WriteTextWithEncodingAsync(&self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendTextAsync(&self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendTextWithEncodingAsync(&self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn ReadLinesAsync(&self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
-    fn ReadLinesWithEncodingAsync(&self, file: &::core::option::Option<IStorageFile>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
-    fn WriteLinesAsync(&self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn WriteLinesWithEncodingAsync(&self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendLinesAsync(&self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendLinesWithEncodingAsync(&self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn ReadBufferAsync(&self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>>;
-    fn WriteBufferAsync(&self, file: &::core::option::Option<IStorageFile>, buffer: &::core::option::Option<Streams::IBuffer>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn WriteBytesAsync(&self, file: &::core::option::Option<IStorageFile>, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ReadTextAsync(&mut self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ReadTextWithEncodingAsync(&mut self, file: &::core::option::Option<IStorageFile>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn WriteTextAsync(&mut self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn WriteTextWithEncodingAsync(&mut self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendTextAsync(&mut self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendTextWithEncodingAsync(&mut self, file: &::core::option::Option<IStorageFile>, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ReadLinesAsync(&mut self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
+    fn ReadLinesWithEncodingAsync(&mut self, file: &::core::option::Option<IStorageFile>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
+    fn WriteLinesAsync(&mut self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn WriteLinesWithEncodingAsync(&mut self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendLinesAsync(&mut self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendLinesWithEncodingAsync(&mut self, file: &::core::option::Option<IStorageFile>, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ReadBufferAsync(&mut self, file: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>>;
+    fn WriteBufferAsync(&mut self, file: &::core::option::Option<IStorageFile>, buffer: &::core::option::Option<Streams::IBuffer>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn WriteBytesAsync(&mut self, file: &::core::option::Option<IStorageFile>, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileIOStatics {
@@ -978,7 +978,7 @@ impl IFileIOStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownFoldersCameraRollStaticsImpl: Sized {
-    fn CameraRoll(&self) -> ::windows::core::Result<StorageFolder>;
+    fn CameraRoll(&mut self) -> ::windows::core::Result<StorageFolder>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownFoldersCameraRollStatics {
@@ -1009,7 +1009,7 @@ impl IKnownFoldersCameraRollStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownFoldersPlaylistsStaticsImpl: Sized {
-    fn Playlists(&self) -> ::windows::core::Result<StorageFolder>;
+    fn Playlists(&mut self) -> ::windows::core::Result<StorageFolder>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownFoldersPlaylistsStatics {
@@ -1040,7 +1040,7 @@ impl IKnownFoldersPlaylistsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownFoldersSavedPicturesStaticsImpl: Sized {
-    fn SavedPictures(&self) -> ::windows::core::Result<StorageFolder>;
+    fn SavedPictures(&mut self) -> ::windows::core::Result<StorageFolder>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownFoldersSavedPicturesStatics {
@@ -1071,13 +1071,13 @@ impl IKnownFoldersSavedPicturesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownFoldersStaticsImpl: Sized {
-    fn MusicLibrary(&self) -> ::windows::core::Result<StorageFolder>;
-    fn PicturesLibrary(&self) -> ::windows::core::Result<StorageFolder>;
-    fn VideosLibrary(&self) -> ::windows::core::Result<StorageFolder>;
-    fn DocumentsLibrary(&self) -> ::windows::core::Result<StorageFolder>;
-    fn HomeGroup(&self) -> ::windows::core::Result<StorageFolder>;
-    fn RemovableDevices(&self) -> ::windows::core::Result<StorageFolder>;
-    fn MediaServerDevices(&self) -> ::windows::core::Result<StorageFolder>;
+    fn MusicLibrary(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn PicturesLibrary(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn VideosLibrary(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn DocumentsLibrary(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn HomeGroup(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn RemovableDevices(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn MediaServerDevices(&mut self) -> ::windows::core::Result<StorageFolder>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownFoldersStatics {
@@ -1180,9 +1180,9 @@ impl IKnownFoldersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownFoldersStatics2Impl: Sized {
-    fn Objects3D(&self) -> ::windows::core::Result<StorageFolder>;
-    fn AppCaptures(&self) -> ::windows::core::Result<StorageFolder>;
-    fn RecordedCalls(&self) -> ::windows::core::Result<StorageFolder>;
+    fn Objects3D(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn AppCaptures(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn RecordedCalls(&mut self) -> ::windows::core::Result<StorageFolder>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownFoldersStatics2 {
@@ -1237,7 +1237,7 @@ impl IKnownFoldersStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IKnownFoldersStatics3Impl: Sized {
-    fn GetFolderForUserAsync(&self, user: &::core::option::Option<super::System::User>, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn GetFolderForUserAsync(&mut self, user: &::core::option::Option<super::System::User>, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownFoldersStatics3 {
@@ -1268,9 +1268,9 @@ impl IKnownFoldersStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IKnownFoldersStatics4Impl: Sized {
-    fn RequestAccessAsync(&self, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>;
-    fn RequestAccessForUserAsync(&self, user: &::core::option::Option<super::System::User>, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>;
-    fn GetFolderAsync(&self, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn RequestAccessAsync(&mut self, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>;
+    fn RequestAccessForUserAsync(&mut self, user: &::core::option::Option<super::System::User>, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>;
+    fn GetFolderAsync(&mut self, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownFoldersStatics4 {
@@ -1325,21 +1325,21 @@ impl IKnownFoldersStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPathIOStaticsImpl: Sized {
-    fn ReadTextAsync(&self, absolutepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ReadTextWithEncodingAsync(&self, absolutepath: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn WriteTextAsync(&self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn WriteTextWithEncodingAsync(&self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendTextAsync(&self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendTextWithEncodingAsync(&self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn ReadLinesAsync(&self, absolutepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
-    fn ReadLinesWithEncodingAsync(&self, absolutepath: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
-    fn WriteLinesAsync(&self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn WriteLinesWithEncodingAsync(&self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendLinesAsync(&self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn AppendLinesWithEncodingAsync(&self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn ReadBufferAsync(&self, absolutepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>>;
-    fn WriteBufferAsync(&self, absolutepath: &::windows::core::HSTRING, buffer: &::core::option::Option<Streams::IBuffer>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn WriteBytesAsync(&self, absolutepath: &::windows::core::HSTRING, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ReadTextAsync(&mut self, absolutepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ReadTextWithEncodingAsync(&mut self, absolutepath: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn WriteTextAsync(&mut self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn WriteTextWithEncodingAsync(&mut self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendTextAsync(&mut self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendTextWithEncodingAsync(&mut self, absolutepath: &::windows::core::HSTRING, contents: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ReadLinesAsync(&mut self, absolutepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
+    fn ReadLinesWithEncodingAsync(&mut self, absolutepath: &::windows::core::HSTRING, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
+    fn WriteLinesAsync(&mut self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn WriteLinesWithEncodingAsync(&mut self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendLinesAsync(&mut self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn AppendLinesWithEncodingAsync(&mut self, absolutepath: &::windows::core::HSTRING, lines: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ReadBufferAsync(&mut self, absolutepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IBuffer>>;
+    fn WriteBufferAsync(&mut self, absolutepath: &::windows::core::HSTRING, buffer: &::core::option::Option<Streams::IBuffer>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn WriteBytesAsync(&mut self, absolutepath: &::windows::core::HSTRING, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPathIOStatics {
@@ -1538,7 +1538,7 @@ impl IPathIOStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISetVersionDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISetVersionDeferral {
@@ -1559,9 +1559,9 @@ impl ISetVersionDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISetVersionRequestImpl: Sized {
-    fn CurrentVersion(&self) -> ::windows::core::Result<u32>;
-    fn DesiredVersion(&self) -> ::windows::core::Result<u32>;
-    fn GetDeferral(&self) -> ::windows::core::Result<SetVersionDeferral>;
+    fn CurrentVersion(&mut self) -> ::windows::core::Result<u32>;
+    fn DesiredVersion(&mut self) -> ::windows::core::Result<u32>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<SetVersionDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISetVersionRequest {
@@ -1616,18 +1616,18 @@ impl ISetVersionRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IStorageFileImpl: Sized + IInputStreamReferenceImpl + IRandomAccessStreamReferenceImpl + IStorageItemImpl {
-    fn FileType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OpenAsync(&self, accessmode: FileAccessMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
-    fn OpenTransactedWriteAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
-    fn CopyOverloadDefaultNameAndOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyOverloadDefaultOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyOverload(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyAndReplaceAsync(&self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverloadDefaultNameAndOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverloadDefaultOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverload(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveAndReplaceAsync(&self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn FileType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OpenAsync(&mut self, accessmode: FileAccessMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
+    fn OpenTransactedWriteAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
+    fn CopyOverloadDefaultNameAndOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyOverloadDefaultOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyOverload(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyAndReplaceAsync(&mut self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverloadDefaultNameAndOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverloadDefaultOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverload(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveAndReplaceAsync(&mut self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageFile {
@@ -1790,8 +1790,8 @@ impl IStorageFileVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IStorageFile2Impl: Sized {
-    fn OpenWithOptionsAsync(&self, accessmode: FileAccessMode, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
-    fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
+    fn OpenWithOptionsAsync(&mut self, accessmode: FileAccessMode, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
+    fn OpenTransactedWriteWithOptionsAsync(&mut self, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageFile2 {
@@ -1833,7 +1833,7 @@ impl IStorageFile2Vtbl {
     }
 }
 pub trait IStorageFilePropertiesWithAvailabilityImpl: Sized {
-    fn IsAvailable(&self) -> ::windows::core::Result<bool>;
+    fn IsAvailable(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IStorageFilePropertiesWithAvailability {
     const NAME: &'static str = "Windows.Storage.IStorageFilePropertiesWithAvailability";
@@ -1862,12 +1862,12 @@ impl IStorageFilePropertiesWithAvailabilityVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStorageFileStaticsImpl: Sized {
-    fn GetFileFromPathAsync(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn GetFileFromApplicationUriAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateStreamedFileAsync(&self, displaynamewithextension: &::windows::core::HSTRING, datarequested: &::core::option::Option<StreamedFileDataRequestedHandler>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn ReplaceWithStreamedFileAsync(&self, filetoreplace: &::core::option::Option<IStorageFile>, datarequested: &::core::option::Option<StreamedFileDataRequestedHandler>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateStreamedFileFromUriAsync(&self, displaynamewithextension: &::windows::core::HSTRING, uri: &::core::option::Option<super::Foundation::Uri>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn ReplaceWithStreamedFileFromUriAsync(&self, filetoreplace: &::core::option::Option<IStorageFile>, uri: &::core::option::Option<super::Foundation::Uri>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn GetFileFromPathAsync(&mut self, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn GetFileFromApplicationUriAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateStreamedFileAsync(&mut self, displaynamewithextension: &::windows::core::HSTRING, datarequested: &::core::option::Option<StreamedFileDataRequestedHandler>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn ReplaceWithStreamedFileAsync(&mut self, filetoreplace: &::core::option::Option<IStorageFile>, datarequested: &::core::option::Option<StreamedFileDataRequestedHandler>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateStreamedFileFromUriAsync(&mut self, displaynamewithextension: &::windows::core::HSTRING, uri: &::core::option::Option<super::Foundation::Uri>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn ReplaceWithStreamedFileFromUriAsync(&mut self, filetoreplace: &::core::option::Option<IStorageFile>, uri: &::core::option::Option<super::Foundation::Uri>, thumbnail: &::core::option::Option<Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFileStatics {
@@ -1974,7 +1974,7 @@ impl IStorageFileStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IStorageFileStatics2Impl: Sized {
-    fn GetFileFromPathForUserAsync(&self, user: &::core::option::Option<super::System::User>, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn GetFileFromPathForUserAsync(&mut self, user: &::core::option::Option<super::System::User>, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFileStatics2 {
@@ -2005,16 +2005,16 @@ impl IStorageFileStatics2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageFolderImpl: Sized + IStorageItemImpl {
-    fn CreateFileAsyncOverloadDefaultOptions(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFileAsync(&self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFolderAsyncOverloadDefaultOptions(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn CreateFolderAsync(&self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn GetFileAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn GetFolderAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn GetItemAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
-    fn GetFilesAsyncOverloadDefaultOptionsStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>;
-    fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>;
-    fn GetItemsAsyncOverloadDefaultStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>>;
+    fn CreateFileAsyncOverloadDefaultOptions(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFileAsync(&mut self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFolderAsyncOverloadDefaultOptions(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn CreateFolderAsync(&mut self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn GetFileAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn GetFolderAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn GetItemAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
+    fn GetFilesAsyncOverloadDefaultOptionsStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>;
+    fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>;
+    fn GetItemsAsyncOverloadDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageFolder {
@@ -2153,7 +2153,7 @@ impl IStorageFolderVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageFolder2Impl: Sized {
-    fn TryGetItemAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
+    fn TryGetItemAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageFolder2 {
@@ -2181,7 +2181,7 @@ impl IStorageFolder2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageFolder3Impl: Sized {
-    fn TryGetChangeTracker(&self) -> ::windows::core::Result<StorageLibraryChangeTracker>;
+    fn TryGetChangeTracker(&mut self) -> ::windows::core::Result<StorageLibraryChangeTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageFolder3 {
@@ -2212,7 +2212,7 @@ impl IStorageFolder3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageFolderStaticsImpl: Sized {
-    fn GetFolderFromPathAsync(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn GetFolderFromPathAsync(&mut self, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFolderStatics {
@@ -2243,7 +2243,7 @@ impl IStorageFolderStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IStorageFolderStatics2Impl: Sized {
-    fn GetFolderFromPathForUserAsync(&self, user: &::core::option::Option<super::System::User>, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn GetFolderFromPathForUserAsync(&mut self, user: &::core::option::Option<super::System::User>, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFolderStatics2 {
@@ -2274,16 +2274,16 @@ impl IStorageFolderStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 pub trait IStorageItemImpl: Sized {
-    fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn RenameAsync(&self, desiredname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn DeleteAsyncOverloadDefaultOptions(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn GetBasicPropertiesAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Attributes(&self) -> ::windows::core::Result<FileAttributes>;
-    fn DateCreated(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
-    fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool>;
+    fn RenameAsyncOverloadDefaultOptions(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn RenameAsync(&mut self, desiredname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn DeleteAsyncOverloadDefaultOptions(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn DeleteAsync(&mut self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn GetBasicPropertiesAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Attributes(&mut self) -> ::windows::core::Result<FileAttributes>;
+    fn DateCreated(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn IsOfType(&mut self, r#type: StorageItemTypes) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 impl ::windows::core::RuntimeName for IStorageItem {
@@ -2422,8 +2422,8 @@ impl IStorageItemVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageItem2Impl: Sized + IStorageItemImpl {
-    fn GetParentAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn IsEqual(&self, item: &::core::option::Option<IStorageItem>) -> ::windows::core::Result<bool>;
+    fn GetParentAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn IsEqual(&mut self, item: &::core::option::Option<IStorageItem>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageItem2 {
@@ -2466,13 +2466,13 @@ impl IStorageItem2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemPropertiesImpl: Sized {
-    fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FolderRelativeId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<FileProperties::StorageItemContentProperties>;
+    fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetThumbnailAsyncOverloadDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetThumbnailAsync(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FolderRelativeId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<FileProperties::StorageItemContentProperties>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemProperties {
@@ -2575,9 +2575,9 @@ impl IStorageItemPropertiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemProperties2Impl: Sized + IStorageItemPropertiesImpl {
-    fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetScaledImageAsThumbnailAsync(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemProperties2 {
@@ -2632,7 +2632,7 @@ impl IStorageItemProperties2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemPropertiesWithProviderImpl: Sized + IStorageItemPropertiesImpl {
-    fn Provider(&self) -> ::windows::core::Result<StorageProvider>;
+    fn Provider(&mut self) -> ::windows::core::Result<StorageProvider>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemPropertiesWithProvider {
@@ -2663,12 +2663,12 @@ impl IStorageItemPropertiesWithProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageLibraryImpl: Sized {
-    fn RequestAddFolderAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn RequestRemoveFolderAsync(&self, folder: &::core::option::Option<StorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn Folders(&self) -> ::windows::core::Result<super::Foundation::Collections::IObservableVector<StorageFolder>>;
-    fn SaveFolder(&self) -> ::windows::core::Result<StorageFolder>;
-    fn DefinitionChanged(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<StorageLibrary, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveDefinitionChanged(&self, eventcookie: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RequestAddFolderAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn RequestRemoveFolderAsync(&mut self, folder: &::core::option::Option<StorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn Folders(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IObservableVector<StorageFolder>>;
+    fn SaveFolder(&mut self) -> ::windows::core::Result<StorageFolder>;
+    fn DefinitionChanged(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<StorageLibrary, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveDefinitionChanged(&mut self, eventcookie: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibrary {
@@ -2752,7 +2752,7 @@ impl IStorageLibraryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageLibrary2Impl: Sized {
-    fn ChangeTracker(&self) -> ::windows::core::Result<StorageLibraryChangeTracker>;
+    fn ChangeTracker(&mut self) -> ::windows::core::Result<StorageLibraryChangeTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageLibrary2 {
@@ -2780,7 +2780,7 @@ impl IStorageLibrary2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageLibrary3Impl: Sized {
-    fn AreFolderSuggestionsAvailableAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn AreFolderSuggestionsAvailableAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibrary3 {
@@ -2811,11 +2811,11 @@ impl IStorageLibrary3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageLibraryChangeImpl: Sized {
-    fn ChangeType(&self) -> ::windows::core::Result<StorageLibraryChangeType>;
-    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PreviousPath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool>;
-    fn GetStorageItemAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
+    fn ChangeType(&mut self) -> ::windows::core::Result<StorageLibraryChangeType>;
+    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PreviousPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsOfType(&mut self, r#type: StorageItemTypes) -> ::windows::core::Result<bool>;
+    fn GetStorageItemAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryChange {
@@ -2894,8 +2894,8 @@ impl IStorageLibraryChangeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageLibraryChangeReaderImpl: Sized {
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageLibraryChange>>>;
-    fn AcceptChangesAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageLibraryChange>>>;
+    fn AcceptChangesAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeReader {
@@ -2938,7 +2938,7 @@ impl IStorageLibraryChangeReaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageLibraryChangeReader2Impl: Sized {
-    fn GetLastChangeId(&self) -> ::windows::core::Result<u64>;
+    fn GetLastChangeId(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeReader2 {
@@ -2969,9 +2969,9 @@ impl IStorageLibraryChangeReader2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageLibraryChangeTrackerImpl: Sized {
-    fn GetChangeReader(&self) -> ::windows::core::Result<StorageLibraryChangeReader>;
-    fn Enable(&self) -> ::windows::core::Result<()>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn GetChangeReader(&mut self) -> ::windows::core::Result<StorageLibraryChangeReader>;
+    fn Enable(&mut self) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeTracker {
@@ -3012,8 +3012,8 @@ impl IStorageLibraryChangeTrackerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageLibraryChangeTracker2Impl: Sized {
-    fn EnableWithOptions(&self, options: &::core::option::Option<StorageLibraryChangeTrackerOptions>) -> ::windows::core::Result<()>;
-    fn Disable(&self) -> ::windows::core::Result<()>;
+    fn EnableWithOptions(&mut self, options: &::core::option::Option<StorageLibraryChangeTrackerOptions>) -> ::windows::core::Result<()>;
+    fn Disable(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeTracker2 {
@@ -3042,8 +3042,8 @@ impl IStorageLibraryChangeTracker2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageLibraryChangeTrackerOptionsImpl: Sized {
-    fn TrackChangeDetails(&self) -> ::windows::core::Result<bool>;
-    fn SetTrackChangeDetails(&self, value: bool) -> ::windows::core::Result<()>;
+    fn TrackChangeDetails(&mut self) -> ::windows::core::Result<bool>;
+    fn SetTrackChangeDetails(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeTrackerOptions {
@@ -3094,7 +3094,7 @@ impl IStorageLibraryLastChangeIdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageLibraryLastChangeIdStaticsImpl: Sized {
-    fn Unknown(&self) -> ::windows::core::Result<u64>;
+    fn Unknown(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageLibraryLastChangeIdStatics {
@@ -3125,7 +3125,7 @@ impl IStorageLibraryLastChangeIdStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageLibraryStaticsImpl: Sized {
-    fn GetLibraryAsync(&self, libraryid: KnownLibraryId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>;
+    fn GetLibraryAsync(&mut self, libraryid: KnownLibraryId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryStatics {
@@ -3156,7 +3156,7 @@ impl IStorageLibraryStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IStorageLibraryStatics2Impl: Sized {
-    fn GetLibraryForUserAsync(&self, user: &::core::option::Option<super::System::User>, libraryid: KnownLibraryId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>;
+    fn GetLibraryForUserAsync(&mut self, user: &::core::option::Option<super::System::User>, libraryid: KnownLibraryId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryStatics2 {
@@ -3187,8 +3187,8 @@ impl IStorageLibraryStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProvider {
@@ -3231,7 +3231,7 @@ impl IStorageProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageProvider2Impl: Sized + IStorageProviderImpl {
-    fn IsPropertySupportedForPartialFileAsync(&self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn IsPropertySupportedForPartialFileAsync(&mut self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProvider2 {
@@ -3262,8 +3262,8 @@ impl IStorageProvider2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStorageStreamTransactionImpl: Sized + IClosableImpl {
-    fn Stream(&self) -> ::windows::core::Result<Streams::IRandomAccessStream>;
-    fn CommitAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn Stream(&mut self) -> ::windows::core::Result<Streams::IRandomAccessStream>;
+    fn CommitAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageStreamTransaction {
@@ -3305,7 +3305,7 @@ impl IStorageStreamTransactionVtbl {
     }
 }
 pub trait IStreamedFileDataRequestImpl: Sized {
-    fn FailAndClose(&self, failuremode: StreamedFileFailureMode) -> ::windows::core::Result<()>;
+    fn FailAndClose(&mut self, failuremode: StreamedFileFailureMode) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IStreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.IStreamedFileDataRequest";
@@ -3327,7 +3327,7 @@ impl IStreamedFileDataRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemAudioPropertiesImpl: Sized {
-    fn EncodingBitrate(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EncodingBitrate(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemAudioProperties {
@@ -3358,22 +3358,22 @@ impl ISystemAudioPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemDataPathsImpl: Sized {
-    fn Fonts(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProgramData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Public(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublicDesktop(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublicDocuments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublicDownloads(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublicMusic(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublicPictures(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublicVideos(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn System(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemHost(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemX86(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemX64(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemArm(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UserProfiles(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Windows(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Fonts(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProgramData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Public(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublicDesktop(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublicDocuments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublicDownloads(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublicMusic(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublicPictures(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublicVideos(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn System(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemHost(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemX86(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemX64(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemArm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UserProfiles(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Windows(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemDataPaths {
@@ -3584,7 +3584,7 @@ impl ISystemDataPathsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemDataPathsStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<SystemDataPaths>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<SystemDataPaths>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemDataPathsStatics {
@@ -3612,8 +3612,8 @@ impl ISystemDataPathsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemGPSPropertiesImpl: Sized {
-    fn LatitudeDecimal(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LongitudeDecimal(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LatitudeDecimal(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LongitudeDecimal(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemGPSProperties {
@@ -3656,8 +3656,8 @@ impl ISystemGPSPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemImagePropertiesImpl: Sized {
-    fn HorizontalSize(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VerticalSize(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HorizontalSize(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VerticalSize(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemImageProperties {
@@ -3700,12 +3700,12 @@ impl ISystemImagePropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemMediaPropertiesImpl: Sized {
-    fn Duration(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Producer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SubTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Writer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Year(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Duration(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Producer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Publisher(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SubTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Writer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Year(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemMediaProperties {
@@ -3796,14 +3796,14 @@ impl ISystemMediaPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemMusicPropertiesImpl: Sized {
-    fn AlbumArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AlbumTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Composer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Conductor(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Genre(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TrackNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AlbumArtist(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AlbumTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Artist(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Composer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Conductor(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayArtist(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Genre(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TrackNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemMusicProperties {
@@ -3918,11 +3918,11 @@ impl ISystemMusicPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemPhotoPropertiesImpl: Sized {
-    fn CameraManufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CameraModel(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DateTaken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Orientation(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PeopleNames(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CameraManufacturer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CameraModel(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DateTaken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Orientation(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PeopleNames(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemPhotoProperties {
@@ -4001,19 +4001,19 @@ impl ISystemPhotoPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemPropertiesImpl: Sized {
-    fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ItemNameDisplay(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Keywords(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rating(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Audio(&self) -> ::windows::core::Result<SystemAudioProperties>;
-    fn GPS(&self) -> ::windows::core::Result<SystemGPSProperties>;
-    fn Media(&self) -> ::windows::core::Result<SystemMediaProperties>;
-    fn Music(&self) -> ::windows::core::Result<SystemMusicProperties>;
-    fn Photo(&self) -> ::windows::core::Result<SystemPhotoProperties>;
-    fn Video(&self) -> ::windows::core::Result<SystemVideoProperties>;
-    fn Image(&self) -> ::windows::core::Result<SystemImageProperties>;
+    fn Author(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ItemNameDisplay(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Keywords(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rating(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Audio(&mut self) -> ::windows::core::Result<SystemAudioProperties>;
+    fn GPS(&mut self) -> ::windows::core::Result<SystemGPSProperties>;
+    fn Media(&mut self) -> ::windows::core::Result<SystemMediaProperties>;
+    fn Music(&mut self) -> ::windows::core::Result<SystemMusicProperties>;
+    fn Photo(&mut self) -> ::windows::core::Result<SystemPhotoProperties>;
+    fn Video(&mut self) -> ::windows::core::Result<SystemVideoProperties>;
+    fn Image(&mut self) -> ::windows::core::Result<SystemImageProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemProperties {
@@ -4188,11 +4188,11 @@ impl ISystemPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemVideoPropertiesImpl: Sized {
-    fn Director(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FrameHeight(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FrameWidth(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Orientation(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TotalBitrate(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Director(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FrameHeight(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FrameWidth(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Orientation(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TotalBitrate(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemVideoProperties {
@@ -4271,25 +4271,25 @@ impl ISystemVideoPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserDataPathsImpl: Sized {
-    fn CameraRoll(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Cookies(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Desktop(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Documents(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Downloads(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Favorites(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn History(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InternetCache(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LocalAppData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LocalAppDataLow(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Music(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Pictures(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Profile(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Recent(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RoamingAppData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SavedPictures(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Screenshots(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Templates(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Videos(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CameraRoll(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Cookies(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Desktop(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Documents(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Downloads(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Favorites(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn History(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InternetCache(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAppData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAppDataLow(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Music(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pictures(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Profile(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Recent(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RoamingAppData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SavedPictures(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Screenshots(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Templates(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Videos(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserDataPaths {
@@ -4536,8 +4536,8 @@ impl IUserDataPathsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IUserDataPathsStaticsImpl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<UserDataPaths>;
-    fn GetDefault(&self) -> ::windows::core::Result<UserDataPaths>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::System::User>) -> ::windows::core::Result<UserDataPaths>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<UserDataPaths>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataPathsStatics {

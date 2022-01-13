@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAccountsSettingsPaneImpl: Sized {
-    fn AccountCommandsRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AccountsSettingsPane, AccountsSettingsPaneCommandsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccountCommandsRequested(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AccountCommandsRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AccountsSettingsPane, AccountsSettingsPaneCommandsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccountCommandsRequested(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccountsSettingsPane {
@@ -37,13 +37,13 @@ impl IAccountsSettingsPaneVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAccountsSettingsPaneCommandsRequestedEventArgsImpl: Sized {
-    fn WebAccountProviderCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<WebAccountProviderCommand>>;
-    fn WebAccountCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<WebAccountCommand>>;
-    fn CredentialCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<CredentialCommand>>;
-    fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>>;
-    fn HeaderText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHeaderText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<AccountsSettingsPaneEventDeferral>;
+    fn WebAccountProviderCommands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<WebAccountProviderCommand>>;
+    fn WebAccountCommands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<WebAccountCommand>>;
+    fn CredentialCommands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<CredentialCommand>>;
+    fn Commands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>>;
+    fn HeaderText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHeaderText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<AccountsSettingsPaneEventDeferral>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccountsSettingsPaneCommandsRequestedEventArgs {
@@ -139,7 +139,7 @@ impl IAccountsSettingsPaneCommandsRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAccountsSettingsPaneCommandsRequestedEventArgs2Impl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccountsSettingsPaneCommandsRequestedEventArgs2 {
@@ -170,7 +170,7 @@ impl IAccountsSettingsPaneCommandsRequestedEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccountsSettingsPaneEventDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccountsSettingsPaneEventDeferral {
@@ -194,8 +194,8 @@ impl IAccountsSettingsPaneEventDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAccountsSettingsPaneStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<AccountsSettingsPane>;
-    fn Show(&self) -> ::windows::core::Result<()>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<AccountsSettingsPane>;
+    fn Show(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAccountsSettingsPaneStatics {
@@ -231,8 +231,8 @@ impl IAccountsSettingsPaneStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAccountsSettingsPaneStatics2Impl: Sized + IAccountsSettingsPaneStaticsImpl {
-    fn ShowManageAccountsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowAddAccountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowManageAccountsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAddAccountAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccountsSettingsPaneStatics2 {
@@ -275,8 +275,8 @@ impl IAccountsSettingsPaneStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IAccountsSettingsPaneStatics3Impl: Sized {
-    fn ShowManageAccountsForUserAsync(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowAddAccountForUserAsync(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowManageAccountsForUserAsync(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowAddAccountForUserAsync(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAccountsSettingsPaneStatics3 {
@@ -319,8 +319,8 @@ impl IAccountsSettingsPaneStatics3Vtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait ICredentialCommandImpl: Sized {
-    fn PasswordCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn CredentialDeleted(&self) -> ::windows::core::Result<CredentialCommandCredentialDeletedHandler>;
+    fn PasswordCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn CredentialDeleted(&mut self) -> ::windows::core::Result<CredentialCommandCredentialDeletedHandler>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialCommand {
@@ -363,8 +363,8 @@ impl ICredentialCommandVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait ICredentialCommandFactoryImpl: Sized {
-    fn CreateCredentialCommand(&self, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<CredentialCommand>;
-    fn CreateCredentialCommandWithHandler(&self, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, deleted: &::core::option::Option<CredentialCommandCredentialDeletedHandler>) -> ::windows::core::Result<CredentialCommand>;
+    fn CreateCredentialCommand(&mut self, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<CredentialCommand>;
+    fn CreateCredentialCommandWithHandler(&mut self, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, deleted: &::core::option::Option<CredentialCommandCredentialDeletedHandler>) -> ::windows::core::Result<CredentialCommand>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICredentialCommandFactory {
@@ -407,7 +407,7 @@ impl ICredentialCommandFactoryVtbl {
 }
 #[cfg(all(feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ISettingsCommandFactoryImpl: Sized {
-    fn CreateSettingsCommand(&self, settingscommandid: &::core::option::Option<::windows::core::IInspectable>, label: &::windows::core::HSTRING, handler: &::core::option::Option<super::Popups::UICommandInvokedHandler>) -> ::windows::core::Result<SettingsCommand>;
+    fn CreateSettingsCommand(&mut self, settingscommandid: &::core::option::Option<::windows::core::IInspectable>, label: &::windows::core::HSTRING, handler: &::core::option::Option<super::Popups::UICommandInvokedHandler>) -> ::windows::core::Result<SettingsCommand>;
 }
 #[cfg(all(feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsCommandFactory {
@@ -442,7 +442,7 @@ impl ISettingsCommandFactoryVtbl {
 }
 #[cfg(all(feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ISettingsCommandStaticsImpl: Sized {
-    fn AccountsCommand(&self) -> ::windows::core::Result<SettingsCommand>;
+    fn AccountsCommand(&mut self) -> ::windows::core::Result<SettingsCommand>;
 }
 #[cfg(all(feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsCommandStatics {
@@ -473,8 +473,8 @@ impl ISettingsCommandStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISettingsPaneImpl: Sized {
-    fn CommandsRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCommandsRequested(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CommandsRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCommandsRequested(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsPane {
@@ -510,7 +510,7 @@ impl ISettingsPaneVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISettingsPaneCommandsRequestImpl: Sized {
-    fn ApplicationCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>>;
+    fn ApplicationCommands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsPaneCommandsRequest {
@@ -541,7 +541,7 @@ impl ISettingsPaneCommandsRequestVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISettingsPaneCommandsRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<SettingsPaneCommandsRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<SettingsPaneCommandsRequest>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsPaneCommandsRequestedEventArgs {
@@ -572,9 +572,9 @@ impl ISettingsPaneCommandsRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISettingsPaneStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<SettingsPane>;
-    fn Show(&self) -> ::windows::core::Result<()>;
-    fn Edge(&self) -> ::windows::core::Result<SettingsEdgeLocation>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<SettingsPane>;
+    fn Show(&mut self) -> ::windows::core::Result<()>;
+    fn Edge(&mut self) -> ::windows::core::Result<SettingsEdgeLocation>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsPaneStatics {
@@ -622,9 +622,9 @@ impl ISettingsPaneStaticsVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountCommandImpl: Sized {
-    fn WebAccount(&self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccount>;
-    fn Invoked(&self) -> ::windows::core::Result<WebAccountCommandInvokedHandler>;
-    fn Actions(&self) -> ::windows::core::Result<SupportedWebAccountActions>;
+    fn WebAccount(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccount>;
+    fn Invoked(&mut self) -> ::windows::core::Result<WebAccountCommandInvokedHandler>;
+    fn Actions(&mut self) -> ::windows::core::Result<SupportedWebAccountActions>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountCommand {
@@ -679,7 +679,7 @@ impl IWebAccountCommandVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountCommandFactoryImpl: Sized {
-    fn CreateWebAccountCommand(&self, webaccount: &::core::option::Option<super::super::Security::Credentials::WebAccount>, invoked: &::core::option::Option<WebAccountCommandInvokedHandler>, actions: SupportedWebAccountActions) -> ::windows::core::Result<WebAccountCommand>;
+    fn CreateWebAccountCommand(&mut self, webaccount: &::core::option::Option<super::super::Security::Credentials::WebAccount>, invoked: &::core::option::Option<WebAccountCommandInvokedHandler>, actions: SupportedWebAccountActions) -> ::windows::core::Result<WebAccountCommand>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountCommandFactory {
@@ -710,7 +710,7 @@ impl IWebAccountCommandFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebAccountInvokedArgsImpl: Sized {
-    fn Action(&self) -> ::windows::core::Result<WebAccountAction>;
+    fn Action(&mut self) -> ::windows::core::Result<WebAccountAction>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebAccountInvokedArgs {
@@ -738,8 +738,8 @@ impl IWebAccountInvokedArgsVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderCommandImpl: Sized {
-    fn WebAccountProvider(&self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccountProvider>;
-    fn Invoked(&self) -> ::windows::core::Result<WebAccountProviderCommandInvokedHandler>;
+    fn WebAccountProvider(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccountProvider>;
+    fn Invoked(&mut self) -> ::windows::core::Result<WebAccountProviderCommandInvokedHandler>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderCommand {
@@ -782,7 +782,7 @@ impl IWebAccountProviderCommandVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderCommandFactoryImpl: Sized {
-    fn CreateWebAccountProviderCommand(&self, webaccountprovider: &::core::option::Option<super::super::Security::Credentials::WebAccountProvider>, invoked: &::core::option::Option<WebAccountProviderCommandInvokedHandler>) -> ::windows::core::Result<WebAccountProviderCommand>;
+    fn CreateWebAccountProviderCommand(&mut self, webaccountprovider: &::core::option::Option<super::super::Security::Credentials::WebAccountProvider>, invoked: &::core::option::Option<WebAccountProviderCommandInvokedHandler>) -> ::windows::core::Result<WebAccountProviderCommand>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderCommandFactory {

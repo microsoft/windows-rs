@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOfflineMapPackageImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<OfflineMapPackageStatus>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EnclosingRegionName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EstimatedSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn RemoveStatusChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StatusChanged(&self, value: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RequestStartDownloadAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>;
+    fn Status(&mut self) -> ::windows::core::Result<OfflineMapPackageStatus>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EnclosingRegionName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EstimatedSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StatusChanged(&mut self, value: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RequestStartDownloadAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOfflineMapPackage {
@@ -102,8 +102,8 @@ impl IOfflineMapPackageVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOfflineMapPackageQueryResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<OfflineMapPackageQueryStatus>;
-    fn Packages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>>;
+    fn Status(&mut self) -> ::windows::core::Result<OfflineMapPackageQueryStatus>;
+    fn Packages(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOfflineMapPackageQueryResult {
@@ -146,7 +146,7 @@ impl IOfflineMapPackageQueryResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOfflineMapPackageStartDownloadResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<OfflineMapPackageStartDownloadStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<OfflineMapPackageStartDownloadStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOfflineMapPackageStartDownloadResult {
@@ -177,9 +177,9 @@ impl IOfflineMapPackageStartDownloadResultVtbl {
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOfflineMapPackageStaticsImpl: Sized {
-    fn FindPackagesAsync(&self, querypoint: &::core::option::Option<super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
-    fn FindPackagesInBoundingBoxAsync(&self, queryboundingbox: &::core::option::Option<super::super::super::Devices::Geolocation::GeoboundingBox>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
-    fn FindPackagesInGeocircleAsync(&self, querycircle: &::core::option::Option<super::super::super::Devices::Geolocation::Geocircle>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
+    fn FindPackagesAsync(&mut self, querypoint: &::core::option::Option<super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
+    fn FindPackagesInBoundingBoxAsync(&mut self, queryboundingbox: &::core::option::Option<super::super::super::Devices::Geolocation::GeoboundingBox>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
+    fn FindPackagesInGeocircleAsync(&mut self, querycircle: &::core::option::Option<super::super::super::Devices::Geolocation::Geocircle>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>;
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOfflineMapPackageStatics {

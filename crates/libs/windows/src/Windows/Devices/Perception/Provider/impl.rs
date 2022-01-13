@@ -1,8 +1,8 @@
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IKnownPerceptionFrameKindStaticsImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Depth(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Infrared(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Color(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Depth(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Infrared(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownPerceptionFrameKindStatics {
@@ -57,7 +57,7 @@ impl IKnownPerceptionFrameKindStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionControlGroupImpl: Sized {
-    fn FrameProviderIds(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn FrameProviderIds(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionControlGroup {
@@ -88,7 +88,7 @@ impl IPerceptionControlGroupVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionControlGroupFactoryImpl: Sized {
-    fn Create(&self, ids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PerceptionControlGroup>;
+    fn Create(&mut self, ids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PerceptionControlGroup>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionControlGroupFactory {
@@ -116,9 +116,9 @@ impl IPerceptionControlGroupFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationImpl: Sized {
-    fn TargetId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn Orientation(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Quaternion>;
+    fn TargetId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn Orientation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Quaternion>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelation {
@@ -173,7 +173,7 @@ impl IPerceptionCorrelationVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationFactoryImpl: Sized {
-    fn Create(&self, targetid: &::windows::core::HSTRING, position: &super::super::super::Foundation::Numerics::Vector3, orientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<PerceptionCorrelation>;
+    fn Create(&mut self, targetid: &::windows::core::HSTRING, position: &super::super::super::Foundation::Numerics::Vector3, orientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<PerceptionCorrelation>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelationFactory {
@@ -205,7 +205,7 @@ impl IPerceptionCorrelationFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationGroupImpl: Sized {
-    fn RelativeLocations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PerceptionCorrelation>>;
+    fn RelativeLocations(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PerceptionCorrelation>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelationGroup {
@@ -236,7 +236,7 @@ impl IPerceptionCorrelationGroupVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionCorrelationGroupFactoryImpl: Sized {
-    fn Create(&self, relativelocations: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<PerceptionCorrelation>>) -> ::windows::core::Result<PerceptionCorrelationGroup>;
+    fn Create(&mut self, relativelocations: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<PerceptionCorrelation>>) -> ::windows::core::Result<PerceptionCorrelationGroup>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionCorrelationGroupFactory {
@@ -264,7 +264,7 @@ impl IPerceptionCorrelationGroupFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFaceAuthenticationGroupImpl: Sized {
-    fn FrameProviderIds(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn FrameProviderIds(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFaceAuthenticationGroup {
@@ -295,7 +295,7 @@ impl IPerceptionFaceAuthenticationGroupVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFaceAuthenticationGroupFactoryImpl: Sized {
-    fn Create(&self, ids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, starthandler: &::core::option::Option<PerceptionStartFaceAuthenticationHandler>, stophandler: &::core::option::Option<PerceptionStopFaceAuthenticationHandler>) -> ::windows::core::Result<PerceptionFaceAuthenticationGroup>;
+    fn Create(&mut self, ids: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, starthandler: &::core::option::Option<PerceptionStartFaceAuthenticationHandler>, stophandler: &::core::option::Option<PerceptionStopFaceAuthenticationHandler>) -> ::windows::core::Result<PerceptionFaceAuthenticationGroup>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFaceAuthenticationGroupFactory {
@@ -330,10 +330,10 @@ impl IPerceptionFaceAuthenticationGroupFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFrameImpl: Sized {
-    fn RelativeTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetRelativeTime(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::ValueSet>;
-    fn FrameData(&self) -> ::windows::core::Result<super::super::super::Foundation::IMemoryBuffer>;
+    fn RelativeTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetRelativeTime(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::ValueSet>;
+    fn FrameData(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IMemoryBuffer>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFrame {
@@ -393,12 +393,12 @@ impl IPerceptionFrameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait IPerceptionFrameProviderImpl: Sized + IClosableImpl {
-    fn FrameProviderInfo(&self) -> ::windows::core::Result<PerceptionFrameProviderInfo>;
-    fn Available(&self) -> ::windows::core::Result<bool>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IPropertySet>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn SetProperty(&self, value: &::core::option::Option<PerceptionPropertyChangeRequest>) -> ::windows::core::Result<()>;
+    fn FrameProviderInfo(&mut self) -> ::windows::core::Result<PerceptionFrameProviderInfo>;
+    fn Available(&mut self) -> ::windows::core::Result<bool>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IPropertySet>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn SetProperty(&mut self, value: &::core::option::Option<PerceptionPropertyChangeRequest>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProvider {
@@ -468,16 +468,16 @@ impl IPerceptionFrameProviderVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFrameProviderInfoImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DeviceKind(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDeviceKind(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FrameKind(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFrameKind(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Hidden(&self) -> ::windows::core::Result<bool>;
-    fn SetHidden(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DeviceKind(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDeviceKind(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FrameKind(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFrameKind(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Hidden(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHidden(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProviderInfo {
@@ -581,7 +581,7 @@ impl IPerceptionFrameProviderInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait IPerceptionFrameProviderManagerImpl: Sized + IClosableImpl {
-    fn GetFrameProvider(&self, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<IPerceptionFrameProvider>;
+    fn GetFrameProvider(&mut self, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<IPerceptionFrameProvider>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProviderManager {
@@ -612,16 +612,16 @@ impl IPerceptionFrameProviderManagerVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionFrameProviderManagerServiceStaticsImpl: Sized {
-    fn RegisterFrameProviderInfo(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<()>;
-    fn UnregisterFrameProviderInfo(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<()>;
-    fn RegisterFaceAuthenticationGroup(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, faceauthenticationgroup: &::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()>;
-    fn UnregisterFaceAuthenticationGroup(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, faceauthenticationgroup: &::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()>;
-    fn RegisterControlGroup(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, controlgroup: &::core::option::Option<PerceptionControlGroup>) -> ::windows::core::Result<()>;
-    fn UnregisterControlGroup(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, controlgroup: &::core::option::Option<PerceptionControlGroup>) -> ::windows::core::Result<()>;
-    fn RegisterCorrelationGroup(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, correlationgroup: &::core::option::Option<PerceptionCorrelationGroup>) -> ::windows::core::Result<()>;
-    fn UnregisterCorrelationGroup(&self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, correlationgroup: &::core::option::Option<PerceptionCorrelationGroup>) -> ::windows::core::Result<()>;
-    fn UpdateAvailabilityForProvider(&self, provider: &::core::option::Option<IPerceptionFrameProvider>, available: bool) -> ::windows::core::Result<()>;
-    fn PublishFrameForProvider(&self, provider: &::core::option::Option<IPerceptionFrameProvider>, frame: &::core::option::Option<PerceptionFrame>) -> ::windows::core::Result<()>;
+    fn RegisterFrameProviderInfo(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<()>;
+    fn UnregisterFrameProviderInfo(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<()>;
+    fn RegisterFaceAuthenticationGroup(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, faceauthenticationgroup: &::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()>;
+    fn UnregisterFaceAuthenticationGroup(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, faceauthenticationgroup: &::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()>;
+    fn RegisterControlGroup(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, controlgroup: &::core::option::Option<PerceptionControlGroup>) -> ::windows::core::Result<()>;
+    fn UnregisterControlGroup(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, controlgroup: &::core::option::Option<PerceptionControlGroup>) -> ::windows::core::Result<()>;
+    fn RegisterCorrelationGroup(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, correlationgroup: &::core::option::Option<PerceptionCorrelationGroup>) -> ::windows::core::Result<()>;
+    fn UnregisterCorrelationGroup(&mut self, manager: &::core::option::Option<IPerceptionFrameProviderManager>, correlationgroup: &::core::option::Option<PerceptionCorrelationGroup>) -> ::windows::core::Result<()>;
+    fn UpdateAvailabilityForProvider(&mut self, provider: &::core::option::Option<IPerceptionFrameProvider>, available: bool) -> ::windows::core::Result<()>;
+    fn PublishFrameForProvider(&mut self, provider: &::core::option::Option<IPerceptionFrameProvider>, frame: &::core::option::Option<PerceptionFrame>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProviderManagerServiceStatics {
@@ -690,11 +690,11 @@ impl IPerceptionFrameProviderManagerServiceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionPropertyChangeRequestImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Status(&self) -> ::windows::core::Result<super::PerceptionFrameSourcePropertyChangeStatus>;
-    fn SetStatus(&self, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Status(&mut self) -> ::windows::core::Result<super::PerceptionFrameSourcePropertyChangeStatus>;
+    fn SetStatus(&mut self, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionPropertyChangeRequest {
@@ -766,8 +766,8 @@ impl IPerceptionPropertyChangeRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionVideoFrameAllocatorImpl: Sized + IClosableImpl {
-    fn AllocateFrame(&self) -> ::windows::core::Result<PerceptionFrame>;
-    fn CopyFromVideoFrame(&self, frame: &::core::option::Option<super::super::super::Media::VideoFrame>) -> ::windows::core::Result<PerceptionFrame>;
+    fn AllocateFrame(&mut self) -> ::windows::core::Result<PerceptionFrame>;
+    fn CopyFromVideoFrame(&mut self, frame: &::core::option::Option<super::super::super::Media::VideoFrame>) -> ::windows::core::Result<PerceptionFrame>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionVideoFrameAllocator {
@@ -810,7 +810,7 @@ impl IPerceptionVideoFrameAllocatorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IPerceptionVideoFrameAllocatorFactoryImpl: Sized {
-    fn Create(&self, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: &super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<PerceptionVideoFrameAllocator>;
+    fn Create(&mut self, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: &super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<PerceptionVideoFrameAllocator>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionVideoFrameAllocatorFactory {

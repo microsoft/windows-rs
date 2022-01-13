@@ -1,16 +1,16 @@
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IControlChannelTriggerImpl: Sized + IClosableImpl {
-    fn ControlChannelTriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServerKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32>;
-    fn SetServerKeepAliveIntervalInMinutes(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CurrentKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32>;
-    fn TransportObject(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn KeepAliveTrigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger>;
-    fn PushNotificationTrigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger>;
-    fn UsingTransport(&self, transport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn WaitForPushEnabled(&self) -> ::windows::core::Result<ControlChannelTriggerStatus>;
-    fn DecreaseNetworkKeepAliveInterval(&self) -> ::windows::core::Result<()>;
-    fn FlushTransport(&self) -> ::windows::core::Result<()>;
+    fn ControlChannelTriggerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServerKeepAliveIntervalInMinutes(&mut self) -> ::windows::core::Result<u32>;
+    fn SetServerKeepAliveIntervalInMinutes(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CurrentKeepAliveIntervalInMinutes(&mut self) -> ::windows::core::Result<u32>;
+    fn TransportObject(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn KeepAliveTrigger(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger>;
+    fn PushNotificationTrigger(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger>;
+    fn UsingTransport(&mut self, transport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn WaitForPushEnabled(&mut self) -> ::windows::core::Result<ControlChannelTriggerStatus>;
+    fn DecreaseNetworkKeepAliveInterval(&mut self) -> ::windows::core::Result<()>;
+    fn FlushTransport(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IControlChannelTrigger {
@@ -133,7 +133,7 @@ impl IControlChannelTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IControlChannelTrigger2Impl: Sized {
-    fn IsWakeFromLowPowerSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsWakeFromLowPowerSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IControlChannelTrigger2 {
@@ -163,7 +163,7 @@ impl IControlChannelTrigger2Vtbl {
     }
 }
 pub trait IControlChannelTriggerEventDetailsImpl: Sized {
-    fn ControlChannelTrigger(&self) -> ::windows::core::Result<ControlChannelTrigger>;
+    fn ControlChannelTrigger(&mut self) -> ::windows::core::Result<ControlChannelTrigger>;
 }
 impl ::windows::core::RuntimeName for IControlChannelTriggerEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerEventDetails";
@@ -192,8 +192,8 @@ impl IControlChannelTriggerEventDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IControlChannelTriggerFactoryImpl: Sized {
-    fn CreateControlChannelTrigger(&self, channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32) -> ::windows::core::Result<ControlChannelTrigger>;
-    fn CreateControlChannelTriggerEx(&self, channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> ::windows::core::Result<ControlChannelTrigger>;
+    fn CreateControlChannelTrigger(&mut self, channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32) -> ::windows::core::Result<ControlChannelTrigger>;
+    fn CreateControlChannelTriggerEx(&mut self, channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> ::windows::core::Result<ControlChannelTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IControlChannelTriggerFactory {
@@ -235,9 +235,9 @@ impl IControlChannelTriggerFactoryVtbl {
     }
 }
 pub trait IControlChannelTriggerResetEventDetailsImpl: Sized {
-    fn ResetReason(&self) -> ::windows::core::Result<ControlChannelTriggerResetReason>;
-    fn HardwareSlotReset(&self) -> ::windows::core::Result<bool>;
-    fn SoftwareSlotReset(&self) -> ::windows::core::Result<bool>;
+    fn ResetReason(&mut self) -> ::windows::core::Result<ControlChannelTriggerResetReason>;
+    fn HardwareSlotReset(&mut self) -> ::windows::core::Result<bool>;
+    fn SoftwareSlotReset(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IControlChannelTriggerResetEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails";
@@ -290,18 +290,18 @@ impl IControlChannelTriggerResetEventDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDatagramSocketImpl: Sized + IClosableImpl {
-    fn Control(&self) -> ::windows::core::Result<DatagramSocketControl>;
-    fn Information(&self) -> ::windows::core::Result<DatagramSocketInformation>;
-    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn ConnectAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ConnectWithEndpointPairAsync(&self, endpointpair: &::core::option::Option<super::EndpointPair>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn BindServiceNameAsync(&self, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn BindEndpointAsync(&self, localhostname: &::core::option::Option<super::HostName>, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn JoinMulticastGroup(&self, host: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
-    fn GetOutputStreamAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>;
-    fn GetOutputStreamWithEndpointPairAsync(&self, endpointpair: &::core::option::Option<super::EndpointPair>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>;
-    fn MessageReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Control(&mut self) -> ::windows::core::Result<DatagramSocketControl>;
+    fn Information(&mut self) -> ::windows::core::Result<DatagramSocketInformation>;
+    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn ConnectAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectWithEndpointPairAsync(&mut self, endpointpair: &::core::option::Option<super::EndpointPair>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn BindServiceNameAsync(&mut self, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn BindEndpointAsync(&mut self, localhostname: &::core::option::Option<super::HostName>, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn JoinMulticastGroup(&mut self, host: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
+    fn GetOutputStreamAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>;
+    fn GetOutputStreamWithEndpointPairAsync(&mut self, endpointpair: &::core::option::Option<super::EndpointPair>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>;
+    fn MessageReceived(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMessageReceived(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocket {
@@ -450,7 +450,7 @@ impl IDatagramSocketVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IDatagramSocket2Impl: Sized + IClosableImpl {
-    fn BindServiceNameAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn BindServiceNameAndAdapterAsync(&mut self, localservicename: &::windows::core::HSTRING, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocket2 {
@@ -481,12 +481,12 @@ impl IDatagramSocket2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDatagramSocket3Impl: Sized {
-    fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn EnableTransferOwnership(&self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
-    fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
-    fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>, keepalivetime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CancelIOAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn EnableTransferOwnership(&mut self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EnableTransferOwnershipWithConnectedStandbyAction(&mut self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
+    fn TransferOwnership(&mut self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TransferOwnershipWithContext(&mut self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
+    fn TransferOwnershipWithContextAndKeepAliveTime(&mut self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>, keepalivetime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocket3 {
@@ -548,10 +548,10 @@ impl IDatagramSocket3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDatagramSocketControlImpl: Sized {
-    fn QualityOfService(&self) -> ::windows::core::Result<SocketQualityOfService>;
-    fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
-    fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8>;
-    fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()>;
+    fn QualityOfService(&mut self) -> ::windows::core::Result<SocketQualityOfService>;
+    fn SetQualityOfService(&mut self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
+    fn OutboundUnicastHopLimit(&mut self) -> ::windows::core::Result<u8>;
+    fn SetOutboundUnicastHopLimit(&mut self, value: u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDatagramSocketControl {
@@ -604,10 +604,10 @@ impl IDatagramSocketControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDatagramSocketControl2Impl: Sized {
-    fn InboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32>;
-    fn SetInboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
-    fn DontFragment(&self) -> ::windows::core::Result<bool>;
-    fn SetDontFragment(&self, value: bool) -> ::windows::core::Result<()>;
+    fn InboundBufferSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
+    fn SetInboundBufferSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn DontFragment(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDontFragment(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDatagramSocketControl2 {
@@ -660,8 +660,8 @@ impl IDatagramSocketControl2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDatagramSocketControl3Impl: Sized {
-    fn MulticastOnly(&self) -> ::windows::core::Result<bool>;
-    fn SetMulticastOnly(&self, value: bool) -> ::windows::core::Result<()>;
+    fn MulticastOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn SetMulticastOnly(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDatagramSocketControl3 {
@@ -697,10 +697,10 @@ impl IDatagramSocketControl3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDatagramSocketInformationImpl: Sized {
-    fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
-    fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName>;
-    fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn LocalPort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteAddress(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn RemotePort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDatagramSocketInformation {
@@ -767,11 +767,11 @@ impl IDatagramSocketInformationVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDatagramSocketMessageReceivedEventArgsImpl: Sized {
-    fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName>;
-    fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
-    fn GetDataReader(&self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader>;
-    fn GetDataStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn RemoteAddress(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn RemotePort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn GetDataReader(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader>;
+    fn GetDataStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocketMessageReceivedEventArgs {
@@ -850,8 +850,8 @@ impl IDatagramSocketMessageReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDatagramSocketStaticsImpl: Sized {
-    fn GetEndpointPairsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
-    fn GetEndpointPairsWithSortOptionsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
+    fn GetEndpointPairsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
+    fn GetEndpointPairsWithSortOptionsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatagramSocketStatics {
@@ -894,10 +894,10 @@ impl IDatagramSocketStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketImpl: Sized + IClosableImpl + IWebSocketImpl {
-    fn Control(&self) -> ::windows::core::Result<MessageWebSocketControl>;
-    fn Information(&self) -> ::windows::core::Result<MessageWebSocketInformation>;
-    fn MessageReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Control(&mut self) -> ::windows::core::Result<MessageWebSocketControl>;
+    fn Information(&mut self) -> ::windows::core::Result<MessageWebSocketInformation>;
+    fn MessageReceived(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMessageReceived(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocket {
@@ -957,8 +957,8 @@ impl IMessageWebSocketVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocket2Impl: Sized + IClosableImpl + IMessageWebSocketImpl + IWebSocketImpl {
-    fn ServerCustomValidationRequested(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveServerCustomValidationRequested(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ServerCustomValidationRequested(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveServerCustomValidationRequested(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocket2 {
@@ -994,8 +994,8 @@ impl IMessageWebSocket2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocket3Impl: Sized {
-    fn SendNonfinalFrameAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
-    fn SendFinalFrameAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn SendNonfinalFrameAsync(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn SendFinalFrameAsync(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocket3 {
@@ -1038,10 +1038,10 @@ impl IMessageWebSocket3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketControlImpl: Sized + IWebSocketControlImpl {
-    fn MaxMessageSize(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxMessageSize(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MessageType(&self) -> ::windows::core::Result<SocketMessageType>;
-    fn SetMessageType(&self, value: SocketMessageType) -> ::windows::core::Result<()>;
+    fn MaxMessageSize(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxMessageSize(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MessageType(&mut self) -> ::windows::core::Result<SocketMessageType>;
+    fn SetMessageType(&mut self, value: SocketMessageType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketControl {
@@ -1094,13 +1094,13 @@ impl IMessageWebSocketControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketControl2Impl: Sized {
-    fn DesiredUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDesiredUnsolicitedPongInterval(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn ActualUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn ReceiveMode(&self) -> ::windows::core::Result<MessageWebSocketReceiveMode>;
-    fn SetReceiveMode(&self, value: MessageWebSocketReceiveMode) -> ::windows::core::Result<()>;
-    fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn SetClientCertificate(&self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
+    fn DesiredUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDesiredUnsolicitedPongInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn ActualUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn ReceiveMode(&mut self) -> ::windows::core::Result<MessageWebSocketReceiveMode>;
+    fn SetReceiveMode(&mut self, value: MessageWebSocketReceiveMode) -> ::windows::core::Result<()>;
+    fn ClientCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn SetClientCertificate(&mut self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketControl2 {
@@ -1182,9 +1182,9 @@ impl IMessageWebSocketControl2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketMessageReceivedEventArgsImpl: Sized {
-    fn MessageType(&self) -> ::windows::core::Result<SocketMessageType>;
-    fn GetDataReader(&self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader>;
-    fn GetDataStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn MessageType(&mut self) -> ::windows::core::Result<SocketMessageType>;
+    fn GetDataReader(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader>;
+    fn GetDataStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketMessageReceivedEventArgs {
@@ -1239,7 +1239,7 @@ impl IMessageWebSocketMessageReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMessageWebSocketMessageReceivedEventArgs2Impl: Sized + IMessageWebSocketMessageReceivedEventArgsImpl {
-    fn IsMessageComplete(&self) -> ::windows::core::Result<bool>;
+    fn IsMessageComplete(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMessageWebSocketMessageReceivedEventArgs2 {
@@ -1270,14 +1270,14 @@ impl IMessageWebSocketMessageReceivedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IServerMessageWebSocketImpl: Sized + IClosableImpl {
-    fn MessageReceived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMessageReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Control(&self) -> ::windows::core::Result<ServerMessageWebSocketControl>;
-    fn Information(&self) -> ::windows::core::Result<ServerMessageWebSocketInformation>;
-    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn Closed(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn MessageReceived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMessageReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Control(&mut self) -> ::windows::core::Result<ServerMessageWebSocketControl>;
+    fn Information(&mut self) -> ::windows::core::Result<ServerMessageWebSocketInformation>;
+    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn Closed(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CloseWithStatus(&mut self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IServerMessageWebSocket {
@@ -1371,8 +1371,8 @@ impl IServerMessageWebSocketVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IServerMessageWebSocketControlImpl: Sized {
-    fn MessageType(&self) -> ::windows::core::Result<SocketMessageType>;
-    fn SetMessageType(&self, value: SocketMessageType) -> ::windows::core::Result<()>;
+    fn MessageType(&mut self) -> ::windows::core::Result<SocketMessageType>;
+    fn SetMessageType(&mut self, value: SocketMessageType) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IServerMessageWebSocketControl {
@@ -1408,9 +1408,9 @@ impl IServerMessageWebSocketControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IServerMessageWebSocketInformationImpl: Sized {
-    fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics>;
-    fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
+    fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
+    fn Protocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IServerMessageWebSocketInformation {
@@ -1465,12 +1465,12 @@ impl IServerMessageWebSocketInformationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IServerStreamWebSocketImpl: Sized + IClosableImpl {
-    fn Information(&self) -> ::windows::core::Result<ServerStreamWebSocketInformation>;
-    fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
-    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn Closed(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Information(&mut self) -> ::windows::core::Result<ServerStreamWebSocketInformation>;
+    fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn Closed(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CloseWithStatus(&mut self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IServerStreamWebSocket {
@@ -1547,9 +1547,9 @@ impl IServerStreamWebSocketVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IServerStreamWebSocketInformationImpl: Sized {
-    fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics>;
-    fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
+    fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
+    fn Protocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IServerStreamWebSocketInformation {
@@ -1604,7 +1604,7 @@ impl IServerStreamWebSocketInformationVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISocketActivityContextImpl: Sized {
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocketActivityContext {
@@ -1632,7 +1632,7 @@ impl ISocketActivityContextVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISocketActivityContextFactoryImpl: Sized {
-    fn Create(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SocketActivityContext>;
+    fn Create(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SocketActivityContext>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocketActivityContextFactory {
@@ -1660,13 +1660,13 @@ impl ISocketActivityContextFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISocketActivityInformationImpl: Sized {
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SocketKind(&self) -> ::windows::core::Result<SocketActivityKind>;
-    fn Context(&self) -> ::windows::core::Result<SocketActivityContext>;
-    fn DatagramSocket(&self) -> ::windows::core::Result<DatagramSocket>;
-    fn StreamSocket(&self) -> ::windows::core::Result<StreamSocket>;
-    fn StreamSocketListener(&self) -> ::windows::core::Result<StreamSocketListener>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SocketKind(&mut self) -> ::windows::core::Result<SocketActivityKind>;
+    fn Context(&mut self) -> ::windows::core::Result<SocketActivityContext>;
+    fn DatagramSocket(&mut self) -> ::windows::core::Result<DatagramSocket>;
+    fn StreamSocket(&mut self) -> ::windows::core::Result<StreamSocket>;
+    fn StreamSocketListener(&mut self) -> ::windows::core::Result<StreamSocketListener>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISocketActivityInformation {
@@ -1769,7 +1769,7 @@ impl ISocketActivityInformationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISocketActivityInformationStaticsImpl: Sized {
-    fn AllSockets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SocketActivityInformation>>;
+    fn AllSockets(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SocketActivityInformation>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISocketActivityInformationStatics {
@@ -1800,8 +1800,8 @@ impl ISocketActivityInformationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISocketActivityTriggerDetailsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<SocketActivityTriggerReason>;
-    fn SocketInformation(&self) -> ::windows::core::Result<SocketActivityInformation>;
+    fn Reason(&mut self) -> ::windows::core::Result<SocketActivityTriggerReason>;
+    fn SocketInformation(&mut self) -> ::windows::core::Result<SocketActivityInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISocketActivityTriggerDetails {
@@ -1844,7 +1844,7 @@ impl ISocketActivityTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISocketErrorStaticsImpl: Sized {
-    fn GetStatus(&self, hresult: i32) -> ::windows::core::Result<SocketErrorStatus>;
+    fn GetStatus(&mut self, hresult: i32) -> ::windows::core::Result<SocketErrorStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISocketErrorStatics {
@@ -1872,15 +1872,15 @@ impl ISocketErrorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamSocketImpl: Sized + IClosableImpl {
-    fn Control(&self) -> ::windows::core::Result<StreamSocketControl>;
-    fn Information(&self) -> ::windows::core::Result<StreamSocketInformation>;
-    fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
-    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn ConnectWithEndpointPairAsync(&self, endpointpair: &::core::option::Option<super::EndpointPair>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ConnectAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ConnectWithEndpointPairAndProtectionLevelAsync(&self, endpointpair: &::core::option::Option<super::EndpointPair>, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ConnectWithProtectionLevelAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn UpgradeToSslAsync(&self, protectionlevel: SocketProtectionLevel, validationhostname: &::core::option::Option<super::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Control(&mut self) -> ::windows::core::Result<StreamSocketControl>;
+    fn Information(&mut self) -> ::windows::core::Result<StreamSocketInformation>;
+    fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn ConnectWithEndpointPairAsync(&mut self, endpointpair: &::core::option::Option<super::EndpointPair>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectWithEndpointPairAndProtectionLevelAsync(&mut self, endpointpair: &::core::option::Option<super::EndpointPair>, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectWithProtectionLevelAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn UpgradeToSslAsync(&mut self, protectionlevel: SocketProtectionLevel, validationhostname: &::core::option::Option<super::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocket {
@@ -2007,7 +2007,7 @@ impl IStreamSocketVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IStreamSocket2Impl: Sized + IClosableImpl {
-    fn ConnectWithProtectionLevelAndAdapterAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectWithProtectionLevelAndAdapterAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocket2 {
@@ -2043,12 +2043,12 @@ impl IStreamSocket2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStreamSocket3Impl: Sized {
-    fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn EnableTransferOwnership(&self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
-    fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
-    fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>, keepalivetime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CancelIOAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn EnableTransferOwnership(&mut self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EnableTransferOwnershipWithConnectedStandbyAction(&mut self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
+    fn TransferOwnership(&mut self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TransferOwnershipWithContext(&mut self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
+    fn TransferOwnershipWithContextAndKeepAliveTime(&mut self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>, keepalivetime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocket3 {
@@ -2110,16 +2110,16 @@ impl IStreamSocket3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStreamSocketControlImpl: Sized {
-    fn NoDelay(&self) -> ::windows::core::Result<bool>;
-    fn SetNoDelay(&self, value: bool) -> ::windows::core::Result<()>;
-    fn KeepAlive(&self) -> ::windows::core::Result<bool>;
-    fn SetKeepAlive(&self, value: bool) -> ::windows::core::Result<()>;
-    fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32>;
-    fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
-    fn QualityOfService(&self) -> ::windows::core::Result<SocketQualityOfService>;
-    fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
-    fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8>;
-    fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()>;
+    fn NoDelay(&mut self) -> ::windows::core::Result<bool>;
+    fn SetNoDelay(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn KeepAlive(&mut self) -> ::windows::core::Result<bool>;
+    fn SetKeepAlive(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn OutboundBufferSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
+    fn SetOutboundBufferSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn QualityOfService(&mut self) -> ::windows::core::Result<SocketQualityOfService>;
+    fn SetQualityOfService(&mut self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
+    fn OutboundUnicastHopLimit(&mut self) -> ::windows::core::Result<u8>;
+    fn SetOutboundUnicastHopLimit(&mut self, value: u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStreamSocketControl {
@@ -2223,7 +2223,7 @@ impl IStreamSocketControlVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamSocketControl2Impl: Sized {
-    fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn IgnorableServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketControl2 {
@@ -2254,10 +2254,10 @@ impl IStreamSocketControl2Vtbl {
 }
 #[cfg(all(feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamSocketControl3Impl: Sized {
-    fn SerializeConnectionAttempts(&self) -> ::windows::core::Result<bool>;
-    fn SetSerializeConnectionAttempts(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn SetClientCertificate(&self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
+    fn SerializeConnectionAttempts(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSerializeConnectionAttempts(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ClientCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn SetClientCertificate(&mut self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketControl3 {
@@ -2310,8 +2310,8 @@ impl IStreamSocketControl3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStreamSocketControl4Impl: Sized {
-    fn MinProtectionLevel(&self) -> ::windows::core::Result<SocketProtectionLevel>;
-    fn SetMinProtectionLevel(&self, value: SocketProtectionLevel) -> ::windows::core::Result<()>;
+    fn MinProtectionLevel(&mut self) -> ::windows::core::Result<SocketProtectionLevel>;
+    fn SetMinProtectionLevel(&mut self, value: SocketProtectionLevel) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStreamSocketControl4 {
@@ -2347,16 +2347,16 @@ impl IStreamSocketControl4Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamSocketInformationImpl: Sized {
-    fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
-    fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteHostName(&self) -> ::windows::core::Result<super::HostName>;
-    fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName>;
-    fn RemoteServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RoundTripTimeStatistics(&self) -> ::windows::core::Result<RoundTripTimeStatistics>;
-    fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics>;
-    fn ProtectionLevel(&self) -> ::windows::core::Result<SocketProtectionLevel>;
-    fn SessionKey(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn LocalPort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteHostName(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn RemoteAddress(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn RemoteServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemotePort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RoundTripTimeStatistics(&mut self) -> ::windows::core::Result<RoundTripTimeStatistics>;
+    fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
+    fn ProtectionLevel(&mut self) -> ::windows::core::Result<SocketProtectionLevel>;
+    fn SessionKey(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketInformation {
@@ -2495,10 +2495,10 @@ impl IStreamSocketInformationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamSocketInformation2Impl: Sized {
-    fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity>;
-    fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
-    fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
+    fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<SocketSslErrorSeverity>;
+    fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn ServerIntermediateCertificates(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketInformation2 {
@@ -2565,12 +2565,12 @@ impl IStreamSocketInformation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStreamSocketListenerImpl: Sized + IClosableImpl {
-    fn Control(&self) -> ::windows::core::Result<StreamSocketListenerControl>;
-    fn Information(&self) -> ::windows::core::Result<StreamSocketListenerInformation>;
-    fn BindServiceNameAsync(&self, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn BindEndpointAsync(&self, localhostname: &::core::option::Option<super::HostName>, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ConnectionReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveConnectionReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Control(&mut self) -> ::windows::core::Result<StreamSocketListenerControl>;
+    fn Information(&mut self) -> ::windows::core::Result<StreamSocketListenerInformation>;
+    fn BindServiceNameAsync(&mut self, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn BindEndpointAsync(&mut self, localhostname: &::core::option::Option<super::HostName>, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectionReceived(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveConnectionReceived(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketListener {
@@ -2654,8 +2654,8 @@ impl IStreamSocketListenerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IStreamSocketListener2Impl: Sized + IClosableImpl {
-    fn BindServiceNameWithProtectionLevelAsync(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn BindServiceNameWithProtectionLevelAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn BindServiceNameWithProtectionLevelAsync(&mut self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn BindServiceNameWithProtectionLevelAndAdapterAsync(&mut self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketListener2 {
@@ -2698,11 +2698,11 @@ impl IStreamSocketListener2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStreamSocketListener3Impl: Sized {
-    fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn EnableTransferOwnership(&self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
-    fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
+    fn CancelIOAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn EnableTransferOwnership(&mut self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EnableTransferOwnershipWithConnectedStandbyAction(&mut self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
+    fn TransferOwnership(&mut self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TransferOwnershipWithContext(&mut self, socketid: &::windows::core::HSTRING, data: &::core::option::Option<SocketActivityContext>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketListener3 {
@@ -2753,7 +2753,7 @@ impl IStreamSocketListener3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStreamSocketListenerConnectionReceivedEventArgsImpl: Sized {
-    fn Socket(&self) -> ::windows::core::Result<StreamSocket>;
+    fn Socket(&mut self) -> ::windows::core::Result<StreamSocket>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStreamSocketListenerConnectionReceivedEventArgs {
@@ -2784,8 +2784,8 @@ impl IStreamSocketListenerConnectionReceivedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStreamSocketListenerControlImpl: Sized {
-    fn QualityOfService(&self) -> ::windows::core::Result<SocketQualityOfService>;
-    fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
+    fn QualityOfService(&mut self) -> ::windows::core::Result<SocketQualityOfService>;
+    fn SetQualityOfService(&mut self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStreamSocketListenerControl {
@@ -2821,14 +2821,14 @@ impl IStreamSocketListenerControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStreamSocketListenerControl2Impl: Sized {
-    fn NoDelay(&self) -> ::windows::core::Result<bool>;
-    fn SetNoDelay(&self, value: bool) -> ::windows::core::Result<()>;
-    fn KeepAlive(&self) -> ::windows::core::Result<bool>;
-    fn SetKeepAlive(&self, value: bool) -> ::windows::core::Result<()>;
-    fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32>;
-    fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
-    fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8>;
-    fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()>;
+    fn NoDelay(&mut self) -> ::windows::core::Result<bool>;
+    fn SetNoDelay(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn KeepAlive(&mut self) -> ::windows::core::Result<bool>;
+    fn SetKeepAlive(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn OutboundBufferSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
+    fn SetOutboundBufferSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn OutboundUnicastHopLimit(&mut self) -> ::windows::core::Result<u8>;
+    fn SetOutboundUnicastHopLimit(&mut self, value: u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStreamSocketListenerControl2 {
@@ -2915,7 +2915,7 @@ impl IStreamSocketListenerControl2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStreamSocketListenerInformationImpl: Sized {
-    fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalPort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStreamSocketListenerInformation {
@@ -2946,8 +2946,8 @@ impl IStreamSocketListenerInformationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStreamSocketStaticsImpl: Sized {
-    fn GetEndpointPairsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
-    fn GetEndpointPairsWithSortOptionsAsync(&self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
+    fn GetEndpointPairsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
+    fn GetEndpointPairsWithSortOptionsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamSocketStatics {
@@ -2990,9 +2990,9 @@ impl IStreamSocketStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamWebSocketImpl: Sized + IClosableImpl + IWebSocketImpl {
-    fn Control(&self) -> ::windows::core::Result<StreamWebSocketControl>;
-    fn Information(&self) -> ::windows::core::Result<StreamWebSocketInformation>;
-    fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn Control(&mut self) -> ::windows::core::Result<StreamWebSocketControl>;
+    fn Information(&mut self) -> ::windows::core::Result<StreamWebSocketInformation>;
+    fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocket {
@@ -3047,8 +3047,8 @@ impl IStreamWebSocketVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStreamWebSocket2Impl: Sized + IClosableImpl + IStreamWebSocketImpl + IWebSocketImpl {
-    fn ServerCustomValidationRequested(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveServerCustomValidationRequested(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ServerCustomValidationRequested(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveServerCustomValidationRequested(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocket2 {
@@ -3084,8 +3084,8 @@ impl IStreamWebSocket2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IStreamWebSocketControlImpl: Sized + IWebSocketControlImpl {
-    fn NoDelay(&self) -> ::windows::core::Result<bool>;
-    fn SetNoDelay(&self, value: bool) -> ::windows::core::Result<()>;
+    fn NoDelay(&mut self) -> ::windows::core::Result<bool>;
+    fn SetNoDelay(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocketControl {
@@ -3121,11 +3121,11 @@ impl IStreamWebSocketControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IStreamWebSocketControl2Impl: Sized {
-    fn DesiredUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDesiredUnsolicitedPongInterval(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn ActualUnsolicitedPongInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn ClientCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn SetClientCertificate(&self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
+    fn DesiredUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDesiredUnsolicitedPongInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn ActualUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn ClientCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn SetClientCertificate(&mut self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStreamWebSocketControl2 {
@@ -3190,12 +3190,12 @@ impl IStreamWebSocketControl2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IWebSocketImpl: Sized + IClosableImpl {
-    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn ConnectAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Closed(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn ConnectAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetRequestHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CloseWithStatus(&mut self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IWebSocket {
@@ -3265,8 +3265,8 @@ impl IWebSocketVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebSocketClosedEventArgsImpl: Sized {
-    fn Code(&self) -> ::windows::core::Result<u16>;
-    fn Reason(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Code(&mut self) -> ::windows::core::Result<u16>;
+    fn Reason(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebSocketClosedEventArgs {
@@ -3309,13 +3309,13 @@ impl IWebSocketClosedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 pub trait IWebSocketControlImpl: Sized {
-    fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32>;
-    fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn SupportedProtocols(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn OutboundBufferSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
+    fn SetOutboundBufferSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetServerCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn ProxyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetProxyCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SupportedProtocols(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 impl ::windows::core::RuntimeName for IWebSocketControl {
@@ -3397,7 +3397,7 @@ impl IWebSocketControlVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketControl2Impl: Sized + IWebSocketControlImpl {
-    fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn IgnorableServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IWebSocketControl2 {
@@ -3428,7 +3428,7 @@ impl IWebSocketControl2Vtbl {
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
 pub trait IWebSocketErrorStaticsImpl: Sized {
-    fn GetStatus(&self, hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus>;
+    fn GetStatus(&mut self, hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus>;
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebSocketErrorStatics {
@@ -3455,9 +3455,9 @@ impl IWebSocketErrorStaticsVtbl {
     }
 }
 pub trait IWebSocketInformationImpl: Sized {
-    fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
-    fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics>;
-    fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
+    fn Protocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation";
@@ -3510,10 +3510,10 @@ impl IWebSocketInformationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketInformation2Impl: Sized + IWebSocketInformationImpl {
-    fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity>;
-    fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
-    fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
+    fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<SocketSslErrorSeverity>;
+    fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn ServerIntermediateCertificates(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IWebSocketInformation2 {
@@ -3580,12 +3580,12 @@ impl IWebSocketInformation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IWebSocketServerCustomValidationRequestedEventArgsImpl: Sized {
-    fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity>;
-    fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
-    fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
-    fn Reject(&self) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<SocketSslErrorSeverity>;
+    fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn ServerIntermediateCertificates(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
+    fn Reject(&mut self) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebSocketServerCustomValidationRequestedEventArgs {

@@ -1,9 +1,9 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IInstalledDesktopAppImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Publisher(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInstalledDesktopApp {
@@ -70,7 +70,7 @@ impl IInstalledDesktopAppVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInstalledDesktopAppStaticsImpl: Sized {
-    fn GetInventoryAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>>;
+    fn GetInventoryAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInstalledDesktopAppStatics {

@@ -1,5 +1,5 @@
 pub trait II2cControllerProviderImpl: Sized {
-    fn GetDeviceProvider(&self, settings: &::core::option::Option<ProviderI2cConnectionSettings>) -> ::windows::core::Result<II2cDeviceProvider>;
+    fn GetDeviceProvider(&mut self, settings: &::core::option::Option<ProviderI2cConnectionSettings>) -> ::windows::core::Result<II2cDeviceProvider>;
 }
 impl ::windows::core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
@@ -28,13 +28,13 @@ impl II2cControllerProviderVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait II2cDeviceProviderImpl: Sized + IClosableImpl {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Write(&self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn WritePartial(&self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
-    fn Read(&self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn ReadPartial(&self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
-    fn WriteRead(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn WriteReadPartial(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Write(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn WritePartial(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn Read(&mut self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn ReadPartial(&mut self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn WriteRead(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn WriteReadPartial(&mut self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for II2cDeviceProvider {
@@ -116,7 +116,7 @@ impl II2cDeviceProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait II2cProviderImpl: Sized {
-    fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
+    fn GetControllersAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for II2cProvider {
@@ -147,12 +147,12 @@ impl II2cProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProviderI2cConnectionSettingsImpl: Sized {
-    fn SlaveAddress(&self) -> ::windows::core::Result<i32>;
-    fn SetSlaveAddress(&self, value: i32) -> ::windows::core::Result<()>;
-    fn BusSpeed(&self) -> ::windows::core::Result<ProviderI2cBusSpeed>;
-    fn SetBusSpeed(&self, value: ProviderI2cBusSpeed) -> ::windows::core::Result<()>;
-    fn SharingMode(&self) -> ::windows::core::Result<ProviderI2cSharingMode>;
-    fn SetSharingMode(&self, value: ProviderI2cSharingMode) -> ::windows::core::Result<()>;
+    fn SlaveAddress(&mut self) -> ::windows::core::Result<i32>;
+    fn SetSlaveAddress(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn BusSpeed(&mut self) -> ::windows::core::Result<ProviderI2cBusSpeed>;
+    fn SetBusSpeed(&mut self, value: ProviderI2cBusSpeed) -> ::windows::core::Result<()>;
+    fn SharingMode(&mut self) -> ::windows::core::Result<ProviderI2cSharingMode>;
+    fn SetSharingMode(&mut self, value: ProviderI2cSharingMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProviderI2cConnectionSettings {

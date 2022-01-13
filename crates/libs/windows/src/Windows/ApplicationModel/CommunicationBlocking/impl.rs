@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICommunicationBlockingAccessManagerStaticsImpl: Sized {
-    fn IsBlockingActive(&self) -> ::windows::core::Result<bool>;
-    fn IsBlockedNumberAsync(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowBlockNumbersUI(&self, phonenumbers: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
-    fn ShowUnblockNumbersUI(&self, phonenumbers: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
-    fn ShowBlockedCallsUI(&self) -> ::windows::core::Result<()>;
-    fn ShowBlockedMessagesUI(&self) -> ::windows::core::Result<()>;
+    fn IsBlockingActive(&mut self) -> ::windows::core::Result<bool>;
+    fn IsBlockedNumberAsync(&mut self, number: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowBlockNumbersUI(&mut self, phonenumbers: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
+    fn ShowUnblockNumbersUI(&mut self, phonenumbers: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
+    fn ShowBlockedCallsUI(&mut self) -> ::windows::core::Result<()>;
+    fn ShowBlockedMessagesUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICommunicationBlockingAccessManagerStatics {
@@ -82,8 +82,8 @@ impl ICommunicationBlockingAccessManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommunicationBlockingAppManagerStaticsImpl: Sized {
-    fn IsCurrentAppActiveBlockingApp(&self) -> ::windows::core::Result<bool>;
-    fn ShowCommunicationBlockingSettingsUI(&self) -> ::windows::core::Result<()>;
+    fn IsCurrentAppActiveBlockingApp(&mut self) -> ::windows::core::Result<bool>;
+    fn ShowCommunicationBlockingSettingsUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommunicationBlockingAppManagerStatics {
@@ -119,7 +119,7 @@ impl ICommunicationBlockingAppManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICommunicationBlockingAppManagerStatics2Impl: Sized + ICommunicationBlockingAppManagerStaticsImpl {
-    fn RequestSetAsActiveBlockingAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestSetAsActiveBlockingAppAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICommunicationBlockingAppManagerStatics2 {

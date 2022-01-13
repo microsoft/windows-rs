@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Gaming_Input_Custom", feature = "implement_exclusive"))]
 pub trait IGameControllerProviderInfoStaticsImpl: Sized {
-    fn GetParentProviderId(&self, provider: &::core::option::Option<super::Custom::IGameControllerProvider>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetProviderId(&self, provider: &::core::option::Option<super::Custom::IGameControllerProvider>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetParentProviderId(&mut self, provider: &::core::option::Option<super::Custom::IGameControllerProvider>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetProviderId(&mut self, provider: &::core::option::Option<super::Custom::IGameControllerProvider>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Gaming_Input_Custom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameControllerProviderInfoStatics {

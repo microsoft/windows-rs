@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementImpl: Sized {
-    fn Flags(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>;
-    fn SetFlags(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>) -> ::windows::core::Result<()>;
-    fn LocalName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLocalName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ServiceUuids(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::GUID>>;
-    fn ManufacturerData(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEManufacturerData>>;
-    fn DataSections(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementDataSection>>;
-    fn GetManufacturerDataByCompanyId(&self, companyid: u16) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEManufacturerData>>;
-    fn GetSectionsByType(&self, r#type: u8) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEAdvertisementDataSection>>;
+    fn Flags(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>;
+    fn SetFlags(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>) -> ::windows::core::Result<()>;
+    fn LocalName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLocalName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ServiceUuids(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::GUID>>;
+    fn ManufacturerData(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEManufacturerData>>;
+    fn DataSections(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementDataSection>>;
+    fn GetManufacturerDataByCompanyId(&mut self, companyid: u16) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEManufacturerData>>;
+    fn GetSectionsByType(&mut self, r#type: u8) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEAdvertisementDataSection>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisement {
@@ -121,12 +121,12 @@ impl IBluetoothLEAdvertisementVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementBytePatternImpl: Sized {
-    fn DataType(&self) -> ::windows::core::Result<u8>;
-    fn SetDataType(&self, value: u8) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<i16>;
-    fn SetOffset(&self, value: i16) -> ::windows::core::Result<()>;
-    fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetData(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn DataType(&mut self) -> ::windows::core::Result<u8>;
+    fn SetDataType(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<i16>;
+    fn SetOffset(&mut self, value: i16) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetData(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementBytePattern {
@@ -196,7 +196,7 @@ impl IBluetoothLEAdvertisementBytePatternVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementBytePatternFactoryImpl: Sized {
-    fn Create(&self, datatype: u8, offset: i16, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEAdvertisementBytePattern>;
+    fn Create(&mut self, datatype: u8, offset: i16, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEAdvertisementBytePattern>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementBytePatternFactory {
@@ -227,10 +227,10 @@ impl IBluetoothLEAdvertisementBytePatternFactoryVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementDataSectionImpl: Sized {
-    fn DataType(&self) -> ::windows::core::Result<u8>;
-    fn SetDataType(&self, value: u8) -> ::windows::core::Result<()>;
-    fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetData(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn DataType(&mut self) -> ::windows::core::Result<u8>;
+    fn SetDataType(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetData(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementDataSection {
@@ -283,7 +283,7 @@ impl IBluetoothLEAdvertisementDataSectionVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementDataSectionFactoryImpl: Sized {
-    fn Create(&self, datatype: u8, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEAdvertisementDataSection>;
+    fn Create(&mut self, datatype: u8, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEAdvertisementDataSection>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementDataSectionFactory {
@@ -314,28 +314,28 @@ impl IBluetoothLEAdvertisementDataSectionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBluetoothLEAdvertisementDataTypesStaticsImpl: Sized {
-    fn Flags(&self) -> ::windows::core::Result<u8>;
-    fn IncompleteService16BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn CompleteService16BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn IncompleteService32BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn CompleteService32BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn IncompleteService128BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn CompleteService128BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn ShortenedLocalName(&self) -> ::windows::core::Result<u8>;
-    fn CompleteLocalName(&self) -> ::windows::core::Result<u8>;
-    fn TxPowerLevel(&self) -> ::windows::core::Result<u8>;
-    fn SlaveConnectionIntervalRange(&self) -> ::windows::core::Result<u8>;
-    fn ServiceSolicitation16BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn ServiceSolicitation32BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn ServiceSolicitation128BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn ServiceData16BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn ServiceData32BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn ServiceData128BitUuids(&self) -> ::windows::core::Result<u8>;
-    fn PublicTargetAddress(&self) -> ::windows::core::Result<u8>;
-    fn RandomTargetAddress(&self) -> ::windows::core::Result<u8>;
-    fn Appearance(&self) -> ::windows::core::Result<u8>;
-    fn AdvertisingInterval(&self) -> ::windows::core::Result<u8>;
-    fn ManufacturerSpecificData(&self) -> ::windows::core::Result<u8>;
+    fn Flags(&mut self) -> ::windows::core::Result<u8>;
+    fn IncompleteService16BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn CompleteService16BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn IncompleteService32BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn CompleteService32BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn IncompleteService128BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn CompleteService128BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn ShortenedLocalName(&mut self) -> ::windows::core::Result<u8>;
+    fn CompleteLocalName(&mut self) -> ::windows::core::Result<u8>;
+    fn TxPowerLevel(&mut self) -> ::windows::core::Result<u8>;
+    fn SlaveConnectionIntervalRange(&mut self) -> ::windows::core::Result<u8>;
+    fn ServiceSolicitation16BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn ServiceSolicitation32BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn ServiceSolicitation128BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn ServiceData16BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn ServiceData32BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn ServiceData128BitUuids(&mut self) -> ::windows::core::Result<u8>;
+    fn PublicTargetAddress(&mut self) -> ::windows::core::Result<u8>;
+    fn RandomTargetAddress(&mut self) -> ::windows::core::Result<u8>;
+    fn Appearance(&mut self) -> ::windows::core::Result<u8>;
+    fn AdvertisingInterval(&mut self) -> ::windows::core::Result<u8>;
+    fn ManufacturerSpecificData(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementDataTypesStatics {
@@ -618,9 +618,9 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementFilterImpl: Sized {
-    fn Advertisement(&self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
-    fn SetAdvertisement(&self, value: &::core::option::Option<BluetoothLEAdvertisement>) -> ::windows::core::Result<()>;
-    fn BytePatterns(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementBytePattern>>;
+    fn Advertisement(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
+    fn SetAdvertisement(&mut self, value: &::core::option::Option<BluetoothLEAdvertisement>) -> ::windows::core::Result<()>;
+    fn BytePatterns(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementBytePattern>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementFilter {
@@ -668,12 +668,12 @@ impl IBluetoothLEAdvertisementFilterVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus>;
-    fn Advertisement(&self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn StatusChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementPublisher, BluetoothLEAdvertisementPublisherStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStatusChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus>;
+    fn Advertisement(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn StatusChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementPublisher, BluetoothLEAdvertisementPublisherStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisher {
@@ -743,14 +743,14 @@ impl IBluetoothLEAdvertisementPublisherVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisher2Impl: Sized {
-    fn PreferredTransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
-    fn SetPreferredTransmitPowerLevelInDBm(&self, value: &::core::option::Option<super::super::super::Foundation::IReference<i16>>) -> ::windows::core::Result<()>;
-    fn UseExtendedAdvertisement(&self) -> ::windows::core::Result<bool>;
-    fn SetUseExtendedAdvertisement(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsAnonymous(&self) -> ::windows::core::Result<bool>;
-    fn SetIsAnonymous(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IncludeTransmitPowerLevel(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeTransmitPowerLevel(&self, value: bool) -> ::windows::core::Result<()>;
+    fn PreferredTransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
+    fn SetPreferredTransmitPowerLevelInDBm(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<i16>>) -> ::windows::core::Result<()>;
+    fn UseExtendedAdvertisement(&mut self) -> ::windows::core::Result<bool>;
+    fn SetUseExtendedAdvertisement(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsAnonymous(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsAnonymous(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IncludeTransmitPowerLevel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeTransmitPowerLevel(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisher2 {
@@ -837,7 +837,7 @@ impl IBluetoothLEAdvertisementPublisher2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBluetoothLEAdvertisementPublisherFactoryImpl: Sized {
-    fn Create(&self, advertisement: &::core::option::Option<BluetoothLEAdvertisement>) -> ::windows::core::Result<BluetoothLEAdvertisementPublisher>;
+    fn Create(&mut self, advertisement: &::core::option::Option<BluetoothLEAdvertisement>) -> ::windows::core::Result<BluetoothLEAdvertisementPublisher>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherFactory {
@@ -868,8 +868,8 @@ impl IBluetoothLEAdvertisementPublisherFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus>;
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Status(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherStatusChangedEventArgs {
@@ -912,7 +912,7 @@ impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Impl: Sized {
-    fn SelectedTransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
+    fn SelectedTransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2 {
@@ -943,11 +943,11 @@ impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementReceivedEventArgsImpl: Sized {
-    fn RawSignalStrengthInDBm(&self) -> ::windows::core::Result<i16>;
-    fn BluetoothAddress(&self) -> ::windows::core::Result<u64>;
-    fn AdvertisementType(&self) -> ::windows::core::Result<BluetoothLEAdvertisementType>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn Advertisement(&self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
+    fn RawSignalStrengthInDBm(&mut self) -> ::windows::core::Result<i16>;
+    fn BluetoothAddress(&mut self) -> ::windows::core::Result<u64>;
+    fn AdvertisementType(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementType>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn Advertisement(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementReceivedEventArgs {
@@ -1026,13 +1026,13 @@ impl IBluetoothLEAdvertisementReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementReceivedEventArgs2Impl: Sized {
-    fn BluetoothAddressType(&self) -> ::windows::core::Result<super::BluetoothAddressType>;
-    fn TransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
-    fn IsAnonymous(&self) -> ::windows::core::Result<bool>;
-    fn IsConnectable(&self) -> ::windows::core::Result<bool>;
-    fn IsScannable(&self) -> ::windows::core::Result<bool>;
-    fn IsDirected(&self) -> ::windows::core::Result<bool>;
-    fn IsScanResponse(&self) -> ::windows::core::Result<bool>;
+    fn BluetoothAddressType(&mut self) -> ::windows::core::Result<super::BluetoothAddressType>;
+    fn TransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
+    fn IsAnonymous(&mut self) -> ::windows::core::Result<bool>;
+    fn IsConnectable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsScannable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDirected(&mut self) -> ::windows::core::Result<bool>;
+    fn IsScanResponse(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementReceivedEventArgs2 {
@@ -1135,23 +1135,23 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementWatcherImpl: Sized {
-    fn MinSamplingInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn MaxSamplingInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn MinOutOfRangeTimeout(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn MaxOutOfRangeTimeout(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Status(&self) -> ::windows::core::Result<BluetoothLEAdvertisementWatcherStatus>;
-    fn ScanningMode(&self) -> ::windows::core::Result<BluetoothLEScanningMode>;
-    fn SetScanningMode(&self, value: BluetoothLEScanningMode) -> ::windows::core::Result<()>;
-    fn SignalStrengthFilter(&self) -> ::windows::core::Result<super::BluetoothSignalStrengthFilter>;
-    fn SetSignalStrengthFilter(&self, value: &::core::option::Option<super::BluetoothSignalStrengthFilter>) -> ::windows::core::Result<()>;
-    fn AdvertisementFilter(&self) -> ::windows::core::Result<BluetoothLEAdvertisementFilter>;
-    fn SetAdvertisementFilter(&self, value: &::core::option::Option<BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Received(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReceived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementWatcherStoppedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MinSamplingInterval(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn MaxSamplingInterval(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn MinOutOfRangeTimeout(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn MaxOutOfRangeTimeout(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Status(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementWatcherStatus>;
+    fn ScanningMode(&mut self) -> ::windows::core::Result<BluetoothLEScanningMode>;
+    fn SetScanningMode(&mut self, value: BluetoothLEScanningMode) -> ::windows::core::Result<()>;
+    fn SignalStrengthFilter(&mut self) -> ::windows::core::Result<super::BluetoothSignalStrengthFilter>;
+    fn SetSignalStrengthFilter(&mut self, value: &::core::option::Option<super::BluetoothSignalStrengthFilter>) -> ::windows::core::Result<()>;
+    fn AdvertisementFilter(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementFilter>;
+    fn SetAdvertisementFilter(&mut self, value: &::core::option::Option<BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Received(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReceived(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementWatcherStoppedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcher {
@@ -1325,8 +1325,8 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBluetoothLEAdvertisementWatcher2Impl: Sized {
-    fn AllowExtendedAdvertisements(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowExtendedAdvertisements(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowExtendedAdvertisements(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowExtendedAdvertisements(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcher2 {
@@ -1362,7 +1362,7 @@ impl IBluetoothLEAdvertisementWatcher2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBluetoothLEAdvertisementWatcherFactoryImpl: Sized {
-    fn Create(&self, advertisementfilter: &::core::option::Option<BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<BluetoothLEAdvertisementWatcher>;
+    fn Create(&mut self, advertisementfilter: &::core::option::Option<BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<BluetoothLEAdvertisementWatcher>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherFactory {
@@ -1393,7 +1393,7 @@ impl IBluetoothLEAdvertisementWatcherFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBluetoothLEAdvertisementWatcherStoppedEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherStoppedEventArgs {
@@ -1424,10 +1424,10 @@ impl IBluetoothLEAdvertisementWatcherStoppedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBluetoothLEManufacturerDataImpl: Sized {
-    fn CompanyId(&self) -> ::windows::core::Result<u16>;
-    fn SetCompanyId(&self, value: u16) -> ::windows::core::Result<()>;
-    fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetData(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn CompanyId(&mut self) -> ::windows::core::Result<u16>;
+    fn SetCompanyId(&mut self, value: u16) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetData(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEManufacturerData {
@@ -1480,7 +1480,7 @@ impl IBluetoothLEManufacturerDataVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBluetoothLEManufacturerDataFactoryImpl: Sized {
-    fn Create(&self, companyid: u16, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEManufacturerData>;
+    fn Create(&mut self, companyid: u16, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEManufacturerData>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEManufacturerDataFactory {

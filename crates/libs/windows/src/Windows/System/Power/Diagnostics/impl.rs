@@ -1,8 +1,8 @@
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IBackgroundEnergyDiagnosticsStaticsImpl: Sized {
-    fn DeviceSpecificConversionFactor(&self) -> ::windows::core::Result<f64>;
-    fn ComputeTotalEnergyUsage(&self) -> ::windows::core::Result<u64>;
-    fn ResetTotalEnergyUsage(&self) -> ::windows::core::Result<()>;
+    fn DeviceSpecificConversionFactor(&mut self) -> ::windows::core::Result<f64>;
+    fn ComputeTotalEnergyUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn ResetTotalEnergyUsage(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundEnergyDiagnosticsStatics {
@@ -50,9 +50,9 @@ impl IBackgroundEnergyDiagnosticsStaticsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IForegroundEnergyDiagnosticsStaticsImpl: Sized {
-    fn DeviceSpecificConversionFactor(&self) -> ::windows::core::Result<f64>;
-    fn ComputeTotalEnergyUsage(&self) -> ::windows::core::Result<u64>;
-    fn ResetTotalEnergyUsage(&self) -> ::windows::core::Result<()>;
+    fn DeviceSpecificConversionFactor(&mut self) -> ::windows::core::Result<f64>;
+    fn ComputeTotalEnergyUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn ResetTotalEnergyUsage(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IForegroundEnergyDiagnosticsStatics {

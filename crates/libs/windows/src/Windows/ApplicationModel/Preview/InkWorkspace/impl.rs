@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IInkWorkspaceHostedAppManagerImpl: Sized {
-    fn SetThumbnailAsync(&self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn SetThumbnailAsync(&mut self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInkWorkspaceHostedAppManager {
@@ -31,7 +31,7 @@ impl IInkWorkspaceHostedAppManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInkWorkspaceHostedAppManagerStaticsImpl: Sized {
-    fn GetForCurrentApp(&self) -> ::windows::core::Result<InkWorkspaceHostedAppManager>;
+    fn GetForCurrentApp(&mut self) -> ::windows::core::Result<InkWorkspaceHostedAppManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInkWorkspaceHostedAppManagerStatics {

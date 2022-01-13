@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContentIndexerImpl: Sized {
-    fn AddAsync(&self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn UpdateAsync(&self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteAsync(&self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteMultipleAsync(&self, contentids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RetrievePropertiesAsync(&self, contentid: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>;
-    fn Revision(&self) -> ::windows::core::Result<u64>;
+    fn AddAsync(&mut self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn UpdateAsync(&mut self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteAsync(&mut self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteMultipleAsync(&mut self, contentids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RetrievePropertiesAsync(&mut self, contentid: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>;
+    fn Revision(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentIndexer {
@@ -109,12 +109,12 @@ impl IContentIndexerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentIndexerQueryImpl: Sized {
-    fn GetCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn GetPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>;
-    fn GetPropertiesRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>;
-    fn GetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>;
-    fn GetRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>;
-    fn QueryFolder(&self) -> ::windows::core::Result<super::StorageFolder>;
+    fn GetCountAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn GetPropertiesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>;
+    fn GetPropertiesRangeAsync(&mut self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>;
+    fn GetAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>;
+    fn GetRangeAsync(&mut self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>;
+    fn QueryFolder(&mut self) -> ::windows::core::Result<super::StorageFolder>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentIndexerQuery {
@@ -205,9 +205,9 @@ impl IContentIndexerQueryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContentIndexerQueryOperationsImpl: Sized {
-    fn CreateQueryWithSortOrderAndLanguage(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>, searchfilterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexerQuery>;
-    fn CreateQueryWithSortOrder(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>) -> ::windows::core::Result<ContentIndexerQuery>;
-    fn CreateQuery(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<ContentIndexerQuery>;
+    fn CreateQueryWithSortOrderAndLanguage(&mut self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>, searchfilterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexerQuery>;
+    fn CreateQueryWithSortOrder(&mut self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>) -> ::windows::core::Result<ContentIndexerQuery>;
+    fn CreateQuery(&mut self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<ContentIndexerQuery>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentIndexerQueryOperations {
@@ -271,8 +271,8 @@ impl IContentIndexerQueryOperationsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContentIndexerStaticsImpl: Sized {
-    fn GetIndexerWithName(&self, indexname: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexer>;
-    fn GetIndexer(&self) -> ::windows::core::Result<ContentIndexer>;
+    fn GetIndexerWithName(&mut self, indexname: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexer>;
+    fn GetIndexer(&mut self) -> ::windows::core::Result<ContentIndexer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContentIndexerStatics {
@@ -315,13 +315,13 @@ impl IContentIndexerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IIndexableContentImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>;
-    fn Stream(&self) -> ::windows::core::Result<super::Streams::IRandomAccessStream>;
-    fn SetStream(&self, value: &::core::option::Option<super::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
-    fn StreamContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetStreamContentType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn Stream(&mut self) -> ::windows::core::Result<super::Streams::IRandomAccessStream>;
+    fn SetStream(&mut self, value: &::core::option::Option<super::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
+    fn StreamContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetStreamContentType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IIndexableContent {
@@ -403,24 +403,24 @@ impl IIndexableContentVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "implement_exclusive"))]
 pub trait IQueryOptionsImpl: Sized {
-    fn FileTypeFilter(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn FolderDepth(&self) -> ::windows::core::Result<FolderDepth>;
-    fn SetFolderDepth(&self, value: FolderDepth) -> ::windows::core::Result<()>;
-    fn ApplicationSearchFilter(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetApplicationSearchFilter(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UserSearchFilter(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetUserSearchFilter(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IndexerOption(&self) -> ::windows::core::Result<IndexerOption>;
-    fn SetIndexerOption(&self, value: IndexerOption) -> ::windows::core::Result<()>;
-    fn SortOrder(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SortEntry>>;
-    fn GroupPropertyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DateStackOption(&self) -> ::windows::core::Result<DateStackOption>;
-    fn SaveToString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LoadFromString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetThumbnailPrefetch(&self, mode: super::FileProperties::ThumbnailMode, requestedsize: u32, options: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<()>;
-    fn SetPropertyPrefetch(&self, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn FileTypeFilter(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn FolderDepth(&mut self) -> ::windows::core::Result<FolderDepth>;
+    fn SetFolderDepth(&mut self, value: FolderDepth) -> ::windows::core::Result<()>;
+    fn ApplicationSearchFilter(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetApplicationSearchFilter(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UserSearchFilter(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetUserSearchFilter(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IndexerOption(&mut self) -> ::windows::core::Result<IndexerOption>;
+    fn SetIndexerOption(&mut self, value: IndexerOption) -> ::windows::core::Result<()>;
+    fn SortOrder(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SortEntry>>;
+    fn GroupPropertyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DateStackOption(&mut self) -> ::windows::core::Result<DateStackOption>;
+    fn SaveToString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LoadFromString(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetThumbnailPrefetch(&mut self, mode: super::FileProperties::ThumbnailMode, requestedsize: u32, options: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<()>;
+    fn SetPropertyPrefetch(&mut self, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQueryOptions {
@@ -599,8 +599,8 @@ impl IQueryOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IQueryOptionsFactoryImpl: Sized {
-    fn CreateCommonFileQuery(&self, query: CommonFileQuery, filetypefilter: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<QueryOptions>;
-    fn CreateCommonFolderQuery(&self, query: CommonFolderQuery) -> ::windows::core::Result<QueryOptions>;
+    fn CreateCommonFileQuery(&mut self, query: CommonFileQuery, filetypefilter: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<QueryOptions>;
+    fn CreateCommonFolderQuery(&mut self, query: CommonFolderQuery) -> ::windows::core::Result<QueryOptions>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQueryOptionsFactory {
@@ -643,7 +643,7 @@ impl IQueryOptionsFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IQueryOptionsWithProviderFilterImpl: Sized {
-    fn StorageProviderIdFilter(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn StorageProviderIdFilter(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQueryOptionsWithProviderFilter {
@@ -674,8 +674,8 @@ impl IQueryOptionsWithProviderFilterVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageFileQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
-    fn GetFilesAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
-    fn GetFilesAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
+    fn GetFilesAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
+    fn GetFilesAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFileQueryResult {
@@ -718,7 +718,7 @@ impl IStorageFileQueryResultVtbl {
 }
 #[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageFileQueryResult2Impl: Sized + IStorageQueryResultBaseImpl {
-    fn GetMatchingPropertiesWithRanges(&self, file: &::core::option::Option<super::StorageFile>) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>;
+    fn GetMatchingPropertiesWithRanges(&mut self, file: &::core::option::Option<super::StorageFile>) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>;
 }
 #[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFileQueryResult2 {
@@ -749,23 +749,23 @@ impl IStorageFileQueryResult2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageFolderQueryOperationsImpl: Sized {
-    fn GetIndexedStateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
-    fn CreateFileQueryOverloadDefault(&self) -> ::windows::core::Result<StorageFileQueryResult>;
-    fn CreateFileQuery(&self, query: CommonFileQuery) -> ::windows::core::Result<StorageFileQueryResult>;
-    fn CreateFileQueryWithOptions(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageFileQueryResult>;
-    fn CreateFolderQueryOverloadDefault(&self) -> ::windows::core::Result<StorageFolderQueryResult>;
-    fn CreateFolderQuery(&self, query: CommonFolderQuery) -> ::windows::core::Result<StorageFolderQueryResult>;
-    fn CreateFolderQueryWithOptions(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageFolderQueryResult>;
-    fn CreateItemQuery(&self) -> ::windows::core::Result<StorageItemQueryResult>;
-    fn CreateItemQueryWithOptions(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageItemQueryResult>;
-    fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
-    fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
-    fn GetFoldersAsync(&self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
-    fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
-    fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
-    fn AreQueryOptionsSupported(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<bool>;
-    fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> ::windows::core::Result<bool>;
-    fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> ::windows::core::Result<bool>;
+    fn GetIndexedStateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
+    fn CreateFileQueryOverloadDefault(&mut self) -> ::windows::core::Result<StorageFileQueryResult>;
+    fn CreateFileQuery(&mut self, query: CommonFileQuery) -> ::windows::core::Result<StorageFileQueryResult>;
+    fn CreateFileQueryWithOptions(&mut self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageFileQueryResult>;
+    fn CreateFolderQueryOverloadDefault(&mut self) -> ::windows::core::Result<StorageFolderQueryResult>;
+    fn CreateFolderQuery(&mut self, query: CommonFolderQuery) -> ::windows::core::Result<StorageFolderQueryResult>;
+    fn CreateFolderQueryWithOptions(&mut self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageFolderQueryResult>;
+    fn CreateItemQuery(&mut self) -> ::windows::core::Result<StorageItemQueryResult>;
+    fn CreateItemQueryWithOptions(&mut self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageItemQueryResult>;
+    fn GetFilesAsync(&mut self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
+    fn GetFilesAsyncOverloadDefaultStartAndCount(&mut self, query: CommonFileQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
+    fn GetFoldersAsync(&mut self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
+    fn GetFoldersAsyncOverloadDefaultStartAndCount(&mut self, query: CommonFolderQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
+    fn GetItemsAsync(&mut self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
+    fn AreQueryOptionsSupported(&mut self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<bool>;
+    fn IsCommonFolderQuerySupported(&mut self, query: CommonFolderQuery) -> ::windows::core::Result<bool>;
+    fn IsCommonFileQuerySupported(&mut self, query: CommonFileQuery) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageFolderQueryOperations {
@@ -988,8 +988,8 @@ impl IStorageFolderQueryOperationsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageFolderQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
-    fn GetFoldersAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
-    fn GetFoldersAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
+    fn GetFoldersAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
+    fn GetFoldersAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageFolderQueryResult {
@@ -1032,8 +1032,8 @@ impl IStorageFolderQueryResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageItemQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
-    fn GetItemsAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
-    fn GetItemsAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
+    fn GetItemsAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
+    fn GetItemsAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageItemQueryResult {
@@ -1076,8 +1076,8 @@ impl IStorageItemQueryResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageLibraryChangeTrackerTriggerDetailsImpl: Sized {
-    fn Folder(&self) -> ::windows::core::Result<super::StorageFolder>;
-    fn ChangeTracker(&self) -> ::windows::core::Result<super::StorageLibraryChangeTracker>;
+    fn Folder(&mut self) -> ::windows::core::Result<super::StorageFolder>;
+    fn ChangeTracker(&mut self) -> ::windows::core::Result<super::StorageLibraryChangeTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeTrackerTriggerDetails {
@@ -1120,8 +1120,8 @@ impl IStorageLibraryChangeTrackerTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageLibraryContentChangedTriggerDetailsImpl: Sized {
-    fn Folder(&self) -> ::windows::core::Result<super::StorageFolder>;
-    fn CreateModifiedSinceQuery(&self, lastquerytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<StorageItemQueryResult>;
+    fn Folder(&mut self) -> ::windows::core::Result<super::StorageFolder>;
+    fn CreateModifiedSinceQuery(&mut self, lastquerytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<StorageItemQueryResult>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryContentChangedTriggerDetails {
@@ -1164,15 +1164,15 @@ impl IStorageLibraryContentChangedTriggerDetailsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageQueryResultBaseImpl: Sized {
-    fn GetItemCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn Folder(&self) -> ::windows::core::Result<super::StorageFolder>;
-    fn ContentsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveContentsChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn OptionsChanged(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOptionsChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn FindStartIndexAsync(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn GetCurrentQueryOptions(&self) -> ::windows::core::Result<QueryOptions>;
-    fn ApplyNewQueryOptions(&self, newqueryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<()>;
+    fn GetItemCountAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn Folder(&mut self) -> ::windows::core::Result<super::StorageFolder>;
+    fn ContentsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveContentsChanged(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn OptionsChanged(&mut self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOptionsChanged(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn FindStartIndexAsync(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn GetCurrentQueryOptions(&mut self) -> ::windows::core::Result<QueryOptions>;
+    fn ApplyNewQueryOptions(&mut self, newqueryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageQueryResultBase {
@@ -1278,10 +1278,10 @@ impl IStorageQueryResultBaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IValueAndLanguageImpl: Sized {
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IValueAndLanguage {

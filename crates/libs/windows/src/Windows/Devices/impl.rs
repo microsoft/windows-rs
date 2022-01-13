@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 pub trait ILowLevelDevicesAggregateProviderImpl: Sized {
-    fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider>;
-    fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider>;
-    fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider>;
-    fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider>;
-    fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider>;
+    fn AdcControllerProvider(&mut self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider>;
+    fn PwmControllerProvider(&mut self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider>;
+    fn GpioControllerProvider(&mut self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider>;
+    fn I2cControllerProvider(&mut self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider>;
+    fn SpiControllerProvider(&mut self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider>;
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 impl ::windows::core::RuntimeName for ILowLevelDevicesAggregateProvider {
@@ -83,7 +83,7 @@ impl ILowLevelDevicesAggregateProviderVtbl {
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider", feature = "implement_exclusive"))]
 pub trait ILowLevelDevicesAggregateProviderFactoryImpl: Sized {
-    fn Create(&self, adc: &::core::option::Option<Adc::Provider::IAdcControllerProvider>, pwm: &::core::option::Option<Pwm::Provider::IPwmControllerProvider>, gpio: &::core::option::Option<Gpio::Provider::IGpioControllerProvider>, i2c: &::core::option::Option<I2c::Provider::II2cControllerProvider>, spi: &::core::option::Option<Spi::Provider::ISpiControllerProvider>) -> ::windows::core::Result<LowLevelDevicesAggregateProvider>;
+    fn Create(&mut self, adc: &::core::option::Option<Adc::Provider::IAdcControllerProvider>, pwm: &::core::option::Option<Pwm::Provider::IPwmControllerProvider>, gpio: &::core::option::Option<Gpio::Provider::IGpioControllerProvider>, i2c: &::core::option::Option<I2c::Provider::II2cControllerProvider>, spi: &::core::option::Option<Spi::Provider::ISpiControllerProvider>) -> ::windows::core::Result<LowLevelDevicesAggregateProvider>;
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLevelDevicesAggregateProviderFactory {
@@ -135,8 +135,8 @@ impl ILowLevelDevicesControllerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILowLevelDevicesControllerStaticsImpl: Sized {
-    fn DefaultProvider(&self) -> ::windows::core::Result<ILowLevelDevicesAggregateProvider>;
-    fn SetDefaultProvider(&self, value: &::core::option::Option<ILowLevelDevicesAggregateProvider>) -> ::windows::core::Result<()>;
+    fn DefaultProvider(&mut self) -> ::windows::core::Result<ILowLevelDevicesAggregateProvider>;
+    fn SetDefaultProvider(&mut self, value: &::core::option::Option<ILowLevelDevicesAggregateProvider>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILowLevelDevicesControllerStatics {

@@ -1,13 +1,13 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IEndpointPairImpl: Sized {
-    fn LocalHostName(&self) -> ::windows::core::Result<HostName>;
-    fn SetLocalHostName(&self, value: &::core::option::Option<HostName>) -> ::windows::core::Result<()>;
-    fn LocalServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLocalServiceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RemoteHostName(&self) -> ::windows::core::Result<HostName>;
-    fn SetRemoteHostName(&self, value: &::core::option::Option<HostName>) -> ::windows::core::Result<()>;
-    fn RemoteServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteServiceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LocalHostName(&mut self) -> ::windows::core::Result<HostName>;
+    fn SetLocalHostName(&mut self, value: &::core::option::Option<HostName>) -> ::windows::core::Result<()>;
+    fn LocalServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLocalServiceName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RemoteHostName(&mut self) -> ::windows::core::Result<HostName>;
+    fn SetRemoteHostName(&mut self, value: &::core::option::Option<HostName>) -> ::windows::core::Result<()>;
+    fn RemoteServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteServiceName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEndpointPair {
@@ -94,7 +94,7 @@ impl IEndpointPairVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEndpointPairFactoryImpl: Sized {
-    fn CreateEndpointPair(&self, localhostname: &::core::option::Option<HostName>, localservicename: &::windows::core::HSTRING, remotehostname: &::core::option::Option<HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<EndpointPair>;
+    fn CreateEndpointPair(&mut self, localhostname: &::core::option::Option<HostName>, localservicename: &::windows::core::HSTRING, remotehostname: &::core::option::Option<HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<EndpointPair>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEndpointPairFactory {
@@ -130,12 +130,12 @@ impl IEndpointPairFactoryVtbl {
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IHostNameImpl: Sized {
-    fn IPInformation(&self) -> ::windows::core::Result<Connectivity::IPInformation>;
-    fn RawName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CanonicalName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Type(&self) -> ::windows::core::Result<HostNameType>;
-    fn IsEqual(&self, hostname: &::core::option::Option<HostName>) -> ::windows::core::Result<bool>;
+    fn IPInformation(&mut self) -> ::windows::core::Result<Connectivity::IPInformation>;
+    fn RawName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CanonicalName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Type(&mut self) -> ::windows::core::Result<HostNameType>;
+    fn IsEqual(&mut self, hostname: &::core::option::Option<HostName>) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHostName {
@@ -226,7 +226,7 @@ impl IHostNameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHostNameFactoryImpl: Sized {
-    fn CreateHostName(&self, hostname: &::windows::core::HSTRING) -> ::windows::core::Result<HostName>;
+    fn CreateHostName(&mut self, hostname: &::windows::core::HSTRING) -> ::windows::core::Result<HostName>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHostNameFactory {
@@ -254,7 +254,7 @@ impl IHostNameFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHostNameStaticsImpl: Sized {
-    fn Compare(&self, value1: &::windows::core::HSTRING, value2: &::windows::core::HSTRING) -> ::windows::core::Result<i32>;
+    fn Compare(&mut self, value1: &::windows::core::HSTRING, value2: &::windows::core::HSTRING) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHostNameStatics {

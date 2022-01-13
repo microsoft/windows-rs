@@ -1,29 +1,29 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetectionConfigurationImpl: Sized {
-    fn SignalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetEnabledAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn AvailabilityInfo(&self) -> ::windows::core::Result<DetectionConfigurationAvailabilityInfo>;
-    fn AvailabilityChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAvailabilityChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SetModelData(&self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<()>;
-    fn SetModelDataAsync(&self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetModelDataType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetModelDataTypeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetModelData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
-    fn GetModelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>>;
-    fn ClearModelData(&self) -> ::windows::core::Result<()>;
-    fn ClearModelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn TrainingStepsCompleted(&self) -> ::windows::core::Result<u32>;
-    fn TrainingStepsRemaining(&self) -> ::windows::core::Result<u32>;
-    fn TrainingDataFormat(&self) -> ::windows::core::Result<ActivationSignalDetectionTrainingDataFormat>;
-    fn ApplyTrainingData(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<DetectionConfigurationTrainingStatus>;
-    fn ApplyTrainingDataAsync(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>;
-    fn ClearTrainingData(&self) -> ::windows::core::Result<()>;
-    fn ClearTrainingDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SignalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetEnabledAsync(&mut self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn AvailabilityInfo(&mut self) -> ::windows::core::Result<DetectionConfigurationAvailabilityInfo>;
+    fn AvailabilityChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAvailabilityChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetModelData(&mut self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<()>;
+    fn SetModelDataAsync(&mut self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetModelDataType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetModelDataTypeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetModelData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn GetModelDataAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>>;
+    fn ClearModelData(&mut self) -> ::windows::core::Result<()>;
+    fn ClearModelDataAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn TrainingStepsCompleted(&mut self) -> ::windows::core::Result<u32>;
+    fn TrainingStepsRemaining(&mut self) -> ::windows::core::Result<u32>;
+    fn TrainingDataFormat(&mut self) -> ::windows::core::Result<ActivationSignalDetectionTrainingDataFormat>;
+    fn ApplyTrainingData(&mut self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<DetectionConfigurationTrainingStatus>;
+    fn ApplyTrainingDataAsync(&mut self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>;
+    fn ClearTrainingData(&mut self) -> ::windows::core::Result<()>;
+    fn ClearTrainingDataAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetectionConfiguration {
@@ -295,11 +295,11 @@ impl IActivationSignalDetectionConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetectionConfiguration2Impl: Sized {
-    fn SetModelDataWithResult(&self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<ActivationSignalDetectionConfigurationSetModelDataResult>;
-    fn SetModelDataWithResultAsync(&self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>;
-    fn SetEnabledWithResultAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>;
-    fn SetEnabledWithResult(&self, value: bool) -> ::windows::core::Result<ActivationSignalDetectionConfigurationStateChangeResult>;
-    fn TrainingStepCompletionMaxAllowedTime(&self) -> ::windows::core::Result<u32>;
+    fn SetModelDataWithResult(&mut self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<ActivationSignalDetectionConfigurationSetModelDataResult>;
+    fn SetModelDataWithResultAsync(&mut self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>;
+    fn SetEnabledWithResultAsync(&mut self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>;
+    fn SetEnabledWithResult(&mut self, value: bool) -> ::windows::core::Result<ActivationSignalDetectionConfigurationStateChangeResult>;
+    fn TrainingStepCompletionMaxAllowedTime(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetectionConfiguration2 {
@@ -378,8 +378,8 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IActivationSignalDetectionConfigurationCreationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<ActivationSignalDetectionConfigurationCreationStatus>;
-    fn Configuration(&self) -> ::windows::core::Result<ActivationSignalDetectionConfiguration>;
+    fn Status(&mut self) -> ::windows::core::Result<ActivationSignalDetectionConfigurationCreationStatus>;
+    fn Configuration(&mut self) -> ::windows::core::Result<ActivationSignalDetectionConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IActivationSignalDetectionConfigurationCreationResult {
@@ -422,22 +422,22 @@ impl IActivationSignalDetectionConfigurationCreationResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetectorImpl: Sized {
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Kind(&self) -> ::windows::core::Result<ActivationSignalDetectorKind>;
-    fn CanCreateConfigurations(&self) -> ::windows::core::Result<bool>;
-    fn SupportedModelDataTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SupportedTrainingDataFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>>;
-    fn SupportedPowerStates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>>;
-    fn GetSupportedModelIdsForSignalId(&self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn GetSupportedModelIdsForSignalIdAsync(&self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn CreateConfiguration(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CreateConfigurationAsync(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetConfigurations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>;
-    fn GetConfigurationsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>>;
-    fn GetConfiguration(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetectionConfiguration>;
-    fn GetConfigurationAsync(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>>;
-    fn RemoveConfiguration(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RemoveConfigurationAsync(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Kind(&mut self) -> ::windows::core::Result<ActivationSignalDetectorKind>;
+    fn CanCreateConfigurations(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedModelDataTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SupportedTrainingDataFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>>;
+    fn SupportedPowerStates(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>>;
+    fn GetSupportedModelIdsForSignalId(&mut self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn GetSupportedModelIdsForSignalIdAsync(&mut self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn CreateConfiguration(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CreateConfigurationAsync(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetConfigurations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>;
+    fn GetConfigurationsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>>;
+    fn GetConfiguration(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetectionConfiguration>;
+    fn GetConfigurationAsync(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>>;
+    fn RemoveConfiguration(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RemoveConfigurationAsync(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetector {
@@ -644,13 +644,13 @@ impl IActivationSignalDetectorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivationSignalDetector2Impl: Sized {
-    fn GetAvailableModelIdsForSignalIdAsync(&self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
-    fn GetAvailableModelIdsForSignalId(&self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn CreateConfigurationWithResultAsync(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>;
-    fn CreateConfigurationWithResult(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetectionConfigurationCreationResult>;
-    fn RemoveConfigurationWithResultAsync(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>>;
-    fn RemoveConfigurationWithResult(&self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetectionConfigurationRemovalResult>;
-    fn DetectorId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAvailableModelIdsForSignalIdAsync(&mut self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
+    fn GetAvailableModelIdsForSignalId(&mut self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn CreateConfigurationWithResultAsync(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>;
+    fn CreateConfigurationWithResult(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetectionConfigurationCreationResult>;
+    fn RemoveConfigurationWithResultAsync(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>>;
+    fn RemoveConfigurationWithResult(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetectionConfigurationRemovalResult>;
+    fn DetectorId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivationSignalDetector2 {
@@ -761,10 +761,10 @@ impl IActivationSignalDetector2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConversationalAgentDetectorManagerImpl: Sized {
-    fn GetAllActivationSignalDetectors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
-    fn GetAllActivationSignalDetectorsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>;
-    fn GetActivationSignalDetectors(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
-    fn GetActivationSignalDetectorsAsync(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>;
+    fn GetAllActivationSignalDetectors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
+    fn GetAllActivationSignalDetectorsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>;
+    fn GetActivationSignalDetectors(&mut self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
+    fn GetActivationSignalDetectorsAsync(&mut self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentDetectorManager {
@@ -831,8 +831,8 @@ impl IConversationalAgentDetectorManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConversationalAgentDetectorManager2Impl: Sized {
-    fn GetActivationSignalDetectorFromId(&self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetector>;
-    fn GetActivationSignalDetectorFromIdAsync(&self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>;
+    fn GetActivationSignalDetectorFromId(&mut self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetector>;
+    fn GetActivationSignalDetectorFromIdAsync(&mut self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentDetectorManager2 {
@@ -875,7 +875,7 @@ impl IConversationalAgentDetectorManager2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IConversationalAgentDetectorManagerStaticsImpl: Sized {
-    fn Default(&self) -> ::windows::core::Result<ConversationalAgentDetectorManager>;
+    fn Default(&mut self) -> ::windows::core::Result<ConversationalAgentDetectorManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConversationalAgentDetectorManagerStatics {
@@ -906,40 +906,40 @@ impl IConversationalAgentDetectorManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Audio", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSessionImpl: Sized {
-    fn SessionInterrupted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSessionInterrupted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SignalDetected(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSignalDetected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SystemStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSystemStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AgentState(&self) -> ::windows::core::Result<ConversationalAgentState>;
-    fn Signal(&self) -> ::windows::core::Result<ConversationalAgentSignal>;
-    fn IsIndicatorLightAvailable(&self) -> ::windows::core::Result<bool>;
-    fn IsScreenAvailable(&self) -> ::windows::core::Result<bool>;
-    fn IsUserAuthenticated(&self) -> ::windows::core::Result<bool>;
-    fn IsVoiceActivationAvailable(&self) -> ::windows::core::Result<bool>;
-    fn IsInterruptible(&self) -> ::windows::core::Result<bool>;
-    fn IsInterrupted(&self) -> ::windows::core::Result<bool>;
-    fn RequestInterruptibleAsync(&self, interruptible: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>;
-    fn RequestInterruptible(&self, interruptible: bool) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse>;
-    fn RequestAgentStateChangeAsync(&self, state: ConversationalAgentState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>;
-    fn RequestAgentStateChange(&self, state: ConversationalAgentState) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse>;
-    fn RequestForegroundActivationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>;
-    fn RequestForegroundActivation(&self) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse>;
-    fn GetAudioClientAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>;
-    fn GetAudioClient(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn CreateAudioDeviceInputNodeAsync(&self, graph: &::core::option::Option<super::super::Media::Audio::AudioGraph>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>;
-    fn CreateAudioDeviceInputNode(&self, graph: &::core::option::Option<super::super::Media::Audio::AudioGraph>) -> ::windows::core::Result<super::super::Media::Audio::AudioDeviceInputNode>;
-    fn GetAudioCaptureDeviceIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetAudioCaptureDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAudioRenderDeviceIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetAudioRenderDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetSignalModelIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn GetSignalModelId(&self) -> ::windows::core::Result<u32>;
-    fn SetSignalModelIdAsync(&self, signalmodelid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SetSignalModelId(&self, signalmodelid: u32) -> ::windows::core::Result<bool>;
-    fn GetSupportedSignalModelIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>;
-    fn GetSupportedSignalModelIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn SessionInterrupted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSessionInterrupted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SignalDetected(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSignalDetected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SystemStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSystemStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AgentState(&mut self) -> ::windows::core::Result<ConversationalAgentState>;
+    fn Signal(&mut self) -> ::windows::core::Result<ConversationalAgentSignal>;
+    fn IsIndicatorLightAvailable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsScreenAvailable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsUserAuthenticated(&mut self) -> ::windows::core::Result<bool>;
+    fn IsVoiceActivationAvailable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsInterruptible(&mut self) -> ::windows::core::Result<bool>;
+    fn IsInterrupted(&mut self) -> ::windows::core::Result<bool>;
+    fn RequestInterruptibleAsync(&mut self, interruptible: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>;
+    fn RequestInterruptible(&mut self, interruptible: bool) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse>;
+    fn RequestAgentStateChangeAsync(&mut self, state: ConversationalAgentState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>;
+    fn RequestAgentStateChange(&mut self, state: ConversationalAgentState) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse>;
+    fn RequestForegroundActivationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>;
+    fn RequestForegroundActivation(&mut self) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse>;
+    fn GetAudioClientAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>;
+    fn GetAudioClient(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateAudioDeviceInputNodeAsync(&mut self, graph: &::core::option::Option<super::super::Media::Audio::AudioGraph>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>;
+    fn CreateAudioDeviceInputNode(&mut self, graph: &::core::option::Option<super::super::Media::Audio::AudioGraph>) -> ::windows::core::Result<super::super::Media::Audio::AudioDeviceInputNode>;
+    fn GetAudioCaptureDeviceIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetAudioCaptureDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAudioRenderDeviceIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetAudioRenderDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetSignalModelIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn GetSignalModelId(&mut self) -> ::windows::core::Result<u32>;
+    fn SetSignalModelIdAsync(&mut self, signalmodelid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SetSignalModelId(&mut self, signalmodelid: u32) -> ::windows::core::Result<bool>;
+    fn GetSupportedSignalModelIdsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>;
+    fn GetSupportedSignalModelIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Audio", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSession {
@@ -1345,12 +1345,12 @@ impl IConversationalAgentSessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSession2Impl: Sized {
-    fn RequestActivationAsync(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>;
-    fn RequestActivation(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<ConversationalAgentActivationResult>;
-    fn SetSupportLockScreenActivationAsync(&self, lockscreenactivationsupported: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetSupportLockScreenActivation(&self, lockscreenactivationsupported: bool) -> ::windows::core::Result<()>;
-    fn GetMissingPrerequisites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>;
-    fn GetMissingPrerequisitesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>;
+    fn RequestActivationAsync(&mut self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>;
+    fn RequestActivation(&mut self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<ConversationalAgentActivationResult>;
+    fn SetSupportLockScreenActivationAsync(&mut self, lockscreenactivationsupported: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetSupportLockScreenActivation(&mut self, lockscreenactivationsupported: bool) -> ::windows::core::Result<()>;
+    fn GetMissingPrerequisites(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>;
+    fn GetMissingPrerequisitesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSession2 {
@@ -1449,8 +1449,8 @@ impl IConversationalAgentSessionInterruptedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSessionStaticsImpl: Sized {
-    fn GetCurrentSessionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>;
-    fn GetCurrentSessionSync(&self) -> ::windows::core::Result<ConversationalAgentSession>;
+    fn GetCurrentSessionAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>;
+    fn GetCurrentSessionSync(&mut self) -> ::windows::core::Result<ConversationalAgentSession>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSessionStatics {
@@ -1493,18 +1493,18 @@ impl IConversationalAgentSessionStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConversationalAgentSignalImpl: Sized {
-    fn IsSignalVerificationRequired(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSignalVerificationRequired(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SignalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSignalId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SignalName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSignalName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SignalContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetSignalContext(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn SignalStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetSignalStart(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SignalEnd(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetSignalEnd(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn IsSignalVerificationRequired(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSignalVerificationRequired(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SignalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSignalId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SignalName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSignalName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SignalContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetSignalContext(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SignalStart(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetSignalStart(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SignalEnd(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetSignalEnd(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConversationalAgentSignal {
@@ -1625,8 +1625,8 @@ impl IConversationalAgentSignalVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IConversationalAgentSignal2Impl: Sized {
-    fn DetectorId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DetectorKind(&self) -> ::windows::core::Result<ActivationSignalDetectorKind>;
+    fn DetectorId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DetectorKind(&mut self) -> ::windows::core::Result<ActivationSignalDetectorKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConversationalAgentSignal2 {
@@ -1684,7 +1684,7 @@ impl IConversationalAgentSignalDetectedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IConversationalAgentSystemStateChangedEventArgsImpl: Sized {
-    fn SystemStateChangeType(&self) -> ::windows::core::Result<ConversationalAgentSystemStateChangeType>;
+    fn SystemStateChangeType(&mut self) -> ::windows::core::Result<ConversationalAgentSystemStateChangeType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConversationalAgentSystemStateChangedEventArgs {
@@ -1715,7 +1715,7 @@ impl IConversationalAgentSystemStateChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDetectionConfigurationAvailabilityChangedEventArgsImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<DetectionConfigurationAvailabilityChangeKind>;
+    fn Kind(&mut self) -> ::windows::core::Result<DetectionConfigurationAvailabilityChangeKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityChangedEventArgs {
@@ -1746,10 +1746,10 @@ impl IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDetectionConfigurationAvailabilityInfoImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn HasSystemResourceAccess(&self) -> ::windows::core::Result<bool>;
-    fn HasPermission(&self) -> ::windows::core::Result<bool>;
-    fn HasLockScreenPermission(&self) -> ::windows::core::Result<bool>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn HasSystemResourceAccess(&mut self) -> ::windows::core::Result<bool>;
+    fn HasPermission(&mut self) -> ::windows::core::Result<bool>;
+    fn HasLockScreenPermission(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityInfo {
@@ -1816,7 +1816,7 @@ impl IDetectionConfigurationAvailabilityInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDetectionConfigurationAvailabilityInfo2Impl: Sized {
-    fn UnavailableSystemResources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>;
+    fn UnavailableSystemResources(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityInfo2 {

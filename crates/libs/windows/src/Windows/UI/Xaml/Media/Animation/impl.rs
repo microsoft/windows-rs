@@ -15,8 +15,8 @@ impl IAddDeleteThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackEaseImpl: Sized {
-    fn Amplitude(&self) -> ::windows::core::Result<f64>;
-    fn SetAmplitude(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Amplitude(&mut self) -> ::windows::core::Result<f64>;
+    fn SetAmplitude(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackEase {
@@ -52,7 +52,7 @@ impl IBackEaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackEaseStaticsImpl: Sized {
-    fn AmplitudeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn AmplitudeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackEaseStatics {
@@ -98,7 +98,7 @@ impl IBasicConnectedAnimationConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBasicConnectedAnimationConfigurationFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BasicConnectedAnimationConfiguration>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BasicConnectedAnimationConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBasicConnectedAnimationConfigurationFactory {
@@ -129,8 +129,8 @@ impl IBasicConnectedAnimationConfigurationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBeginStoryboardImpl: Sized {
-    fn Storyboard(&self) -> ::windows::core::Result<Storyboard>;
-    fn SetStoryboard(&self, value: &::core::option::Option<Storyboard>) -> ::windows::core::Result<()>;
+    fn Storyboard(&mut self) -> ::windows::core::Result<Storyboard>;
+    fn SetStoryboard(&mut self, value: &::core::option::Option<Storyboard>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBeginStoryboard {
@@ -166,7 +166,7 @@ impl IBeginStoryboardVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBeginStoryboardStaticsImpl: Sized {
-    fn StoryboardProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn StoryboardProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBeginStoryboardStatics {
@@ -197,10 +197,10 @@ impl IBeginStoryboardStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBounceEaseImpl: Sized {
-    fn Bounces(&self) -> ::windows::core::Result<i32>;
-    fn SetBounces(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Bounciness(&self) -> ::windows::core::Result<f64>;
-    fn SetBounciness(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Bounces(&mut self) -> ::windows::core::Result<i32>;
+    fn SetBounces(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Bounciness(&mut self) -> ::windows::core::Result<f64>;
+    fn SetBounciness(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBounceEase {
@@ -253,8 +253,8 @@ impl IBounceEaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBounceEaseStaticsImpl: Sized {
-    fn BouncesProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn BouncinessProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn BouncesProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn BouncinessProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBounceEaseStatics {
@@ -312,16 +312,16 @@ impl ICircleEaseVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IColorAnimationImpl: Sized {
-    fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
-    fn SetFrom(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
-    fn To(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
-    fn SetTo(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
-    fn By(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
-    fn SetBy(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
-    fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase>;
-    fn SetEasingFunction(&self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
-    fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn From(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
+    fn SetFrom(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
+    fn To(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
+    fn SetTo(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
+    fn By(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
+    fn SetBy(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
+    fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
+    fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
+    fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorAnimation {
@@ -425,11 +425,11 @@ impl IColorAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorAnimationStaticsImpl: Sized {
-    fn FromProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ToProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ByProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EasingFunctionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EnableDependentAnimationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ToProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ByProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorAnimationStatics {
@@ -508,9 +508,9 @@ impl IColorAnimationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IColorAnimationUsingKeyFramesImpl: Sized {
-    fn KeyFrames(&self) -> ::windows::core::Result<ColorKeyFrameCollection>;
-    fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyFrames(&mut self) -> ::windows::core::Result<ColorKeyFrameCollection>;
+    fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorAnimationUsingKeyFrames {
@@ -558,7 +558,7 @@ impl IColorAnimationUsingKeyFramesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorAnimationUsingKeyFramesStaticsImpl: Sized {
-    fn EnableDependentAnimationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorAnimationUsingKeyFramesStatics {
@@ -589,10 +589,10 @@ impl IColorAnimationUsingKeyFramesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IColorKeyFrameImpl: Sized {
-    fn Value(&self) -> ::windows::core::Result<super::super::super::Color>;
-    fn SetValue(&self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
-    fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
-    fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<super::super::super::Color>;
+    fn SetValue(&mut self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
+    fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
+    fn SetKeyTime(&mut self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorKeyFrame {
@@ -645,7 +645,7 @@ impl IColorKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorKeyFrameFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorKeyFrame>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorKeyFrameFactory {
@@ -676,8 +676,8 @@ impl IColorKeyFrameFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorKeyFrameStaticsImpl: Sized {
-    fn ValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn KeyTimeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorKeyFrameStatics {
@@ -720,8 +720,8 @@ impl IColorKeyFrameStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommonNavigationTransitionInfoImpl: Sized {
-    fn IsStaggeringEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsStaggeringEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsStaggeringEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsStaggeringEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommonNavigationTransitionInfo {
@@ -757,10 +757,10 @@ impl ICommonNavigationTransitionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommonNavigationTransitionInfoStaticsImpl: Sized {
-    fn IsStaggeringEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsStaggerElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetIsStaggerElement(&self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
-    fn SetIsStaggerElement(&self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
+    fn IsStaggeringEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsStaggerElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetIsStaggerElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
+    fn SetIsStaggerElement(&mut self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommonNavigationTransitionInfoStatics {
@@ -820,10 +820,10 @@ impl ICommonNavigationTransitionInfoStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IConnectedAnimationImpl: Sized {
-    fn Completed(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TryStart(&self, destination: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
-    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Completed(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TryStart(&mut self, destination: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
+    fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectedAnimation {
@@ -876,10 +876,10 @@ impl IConnectedAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IConnectedAnimation2Impl: Sized {
-    fn IsScaleAnimationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsScaleAnimationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TryStartWithCoordinatedElements(&self, destination: &::core::option::Option<super::super::UIElement>, coordinatedelements: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>>) -> ::windows::core::Result<bool>;
-    fn SetAnimationComponent(&self, component: ConnectedAnimationComponent, animation: &::core::option::Option<super::super::super::Composition::ICompositionAnimationBase>) -> ::windows::core::Result<()>;
+    fn IsScaleAnimationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsScaleAnimationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TryStartWithCoordinatedElements(&mut self, destination: &::core::option::Option<super::super::UIElement>, coordinatedelements: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>>) -> ::windows::core::Result<bool>;
+    fn SetAnimationComponent(&mut self, component: ConnectedAnimationComponent, animation: &::core::option::Option<super::super::super::Composition::ICompositionAnimationBase>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectedAnimation2 {
@@ -932,8 +932,8 @@ impl IConnectedAnimation2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IConnectedAnimation3Impl: Sized {
-    fn Configuration(&self) -> ::windows::core::Result<ConnectedAnimationConfiguration>;
-    fn SetConfiguration(&self, value: &::core::option::Option<ConnectedAnimationConfiguration>) -> ::windows::core::Result<()>;
+    fn Configuration(&mut self) -> ::windows::core::Result<ConnectedAnimationConfiguration>;
+    fn SetConfiguration(&mut self, value: &::core::option::Option<ConnectedAnimationConfiguration>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConnectedAnimation3 {
@@ -999,12 +999,12 @@ impl IConnectedAnimationConfigurationFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IConnectedAnimationServiceImpl: Sized {
-    fn DefaultDuration(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
-    fn SetDefaultDuration(&self, value: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn DefaultEasingFunction(&self) -> ::windows::core::Result<super::super::super::Composition::CompositionEasingFunction>;
-    fn SetDefaultEasingFunction(&self, value: &::core::option::Option<super::super::super::Composition::CompositionEasingFunction>) -> ::windows::core::Result<()>;
-    fn PrepareToAnimate(&self, key: &::windows::core::HSTRING, source: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<ConnectedAnimation>;
-    fn GetAnimation(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<ConnectedAnimation>;
+    fn DefaultDuration(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
+    fn SetDefaultDuration(&mut self, value: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DefaultEasingFunction(&mut self) -> ::windows::core::Result<super::super::super::Composition::CompositionEasingFunction>;
+    fn SetDefaultEasingFunction(&mut self, value: &::core::option::Option<super::super::super::Composition::CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn PrepareToAnimate(&mut self, key: &::windows::core::HSTRING, source: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<ConnectedAnimation>;
+    fn GetAnimation(&mut self, key: &::windows::core::HSTRING) -> ::windows::core::Result<ConnectedAnimation>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IConnectedAnimationService {
@@ -1081,7 +1081,7 @@ impl IConnectedAnimationServiceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IConnectedAnimationServiceStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<ConnectedAnimationService>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<ConnectedAnimationService>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConnectedAnimationServiceStatics {
@@ -1112,10 +1112,10 @@ impl IConnectedAnimationServiceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContentThemeTransitionImpl: Sized {
-    fn HorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn VerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn HorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn VerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContentThemeTransition {
@@ -1168,8 +1168,8 @@ impl IContentThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContentThemeTransitionStaticsImpl: Sized {
-    fn HorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn VerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn HorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn VerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContentThemeTransitionStatics {
@@ -1212,8 +1212,8 @@ impl IContentThemeTransitionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContinuumNavigationTransitionInfoImpl: Sized {
-    fn ExitElement(&self) -> ::windows::core::Result<super::super::UIElement>;
-    fn SetExitElement(&self, value: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<()>;
+    fn ExitElement(&mut self) -> ::windows::core::Result<super::super::UIElement>;
+    fn SetExitElement(&mut self, value: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContinuumNavigationTransitionInfo {
@@ -1249,16 +1249,16 @@ impl IContinuumNavigationTransitionInfoVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IContinuumNavigationTransitionInfoStaticsImpl: Sized {
-    fn ExitElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsEntranceElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetIsEntranceElement(&self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
-    fn SetIsEntranceElement(&self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
-    fn IsExitElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetIsExitElement(&self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
-    fn SetIsExitElement(&self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
-    fn ExitElementContainerProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetExitElementContainer(&self, element: &::core::option::Option<super::super::Controls::ListViewBase>) -> ::windows::core::Result<bool>;
-    fn SetExitElementContainer(&self, element: &::core::option::Option<super::super::Controls::ListViewBase>, value: bool) -> ::windows::core::Result<()>;
+    fn ExitElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsEntranceElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetIsEntranceElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
+    fn SetIsEntranceElement(&mut self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
+    fn IsExitElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetIsExitElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
+    fn SetIsExitElement(&mut self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
+    fn ExitElementContainerProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetExitElementContainer(&mut self, element: &::core::option::Option<super::super::Controls::ListViewBase>) -> ::windows::core::Result<bool>;
+    fn SetExitElementContainer(&mut self, element: &::core::option::Option<super::super::Controls::ListViewBase>, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContinuumNavigationTransitionInfoStatics {
@@ -1406,7 +1406,7 @@ impl IDirectConnectedAnimationConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDirectConnectedAnimationConfigurationFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DirectConnectedAnimationConfiguration>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DirectConnectedAnimationConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDirectConnectedAnimationConfigurationFactory {
@@ -1497,16 +1497,16 @@ impl IDiscretePointKeyFrameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDoubleAnimationImpl: Sized {
-    fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
-    fn SetFrom(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
-    fn To(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
-    fn SetTo(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
-    fn By(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
-    fn SetBy(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
-    fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase>;
-    fn SetEasingFunction(&self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
-    fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn From(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
+    fn SetFrom(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
+    fn To(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
+    fn SetTo(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
+    fn By(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
+    fn SetBy(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
+    fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
+    fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
+    fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDoubleAnimation {
@@ -1610,11 +1610,11 @@ impl IDoubleAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDoubleAnimationStaticsImpl: Sized {
-    fn FromProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ToProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ByProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EasingFunctionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EnableDependentAnimationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ToProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ByProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDoubleAnimationStatics {
@@ -1693,9 +1693,9 @@ impl IDoubleAnimationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDoubleAnimationUsingKeyFramesImpl: Sized {
-    fn KeyFrames(&self) -> ::windows::core::Result<DoubleKeyFrameCollection>;
-    fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyFrames(&mut self) -> ::windows::core::Result<DoubleKeyFrameCollection>;
+    fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDoubleAnimationUsingKeyFrames {
@@ -1743,7 +1743,7 @@ impl IDoubleAnimationUsingKeyFramesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDoubleAnimationUsingKeyFramesStaticsImpl: Sized {
-    fn EnableDependentAnimationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDoubleAnimationUsingKeyFramesStatics {
@@ -1774,10 +1774,10 @@ impl IDoubleAnimationUsingKeyFramesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDoubleKeyFrameImpl: Sized {
-    fn Value(&self) -> ::windows::core::Result<f64>;
-    fn SetValue(&self, value: f64) -> ::windows::core::Result<()>;
-    fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
-    fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<f64>;
+    fn SetValue(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
+    fn SetKeyTime(&mut self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDoubleKeyFrame {
@@ -1830,7 +1830,7 @@ impl IDoubleKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDoubleKeyFrameFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DoubleKeyFrame>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DoubleKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDoubleKeyFrameFactory {
@@ -1861,8 +1861,8 @@ impl IDoubleKeyFrameFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDoubleKeyFrameStaticsImpl: Sized {
-    fn ValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn KeyTimeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDoubleKeyFrameStatics {
@@ -1905,8 +1905,8 @@ impl IDoubleKeyFrameStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragItemThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragItemThemeAnimation {
@@ -1942,7 +1942,7 @@ impl IDragItemThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragItemThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragItemThemeAnimationStatics {
@@ -1973,12 +1973,12 @@ impl IDragItemThemeAnimationStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IDragOverThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ToOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetToOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Direction(&self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection>;
-    fn SetDirection(&self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ToOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetToOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Direction(&mut self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection>;
+    fn SetDirection(&mut self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDragOverThemeAnimation {
@@ -2048,9 +2048,9 @@ impl IDragOverThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragOverThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ToOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DirectionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ToOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DirectionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragOverThemeAnimationStatics {
@@ -2120,14 +2120,14 @@ impl IDrillInNavigationTransitionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDrillInThemeAnimationImpl: Sized {
-    fn EntranceTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetEntranceTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn EntranceTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetEntranceTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ExitTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExitTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ExitTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetExitTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn EntranceTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetEntranceTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn EntranceTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetEntranceTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ExitTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetExitTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ExitTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetExitTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDrillInThemeAnimation {
@@ -2214,10 +2214,10 @@ impl IDrillInThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDrillInThemeAnimationStaticsImpl: Sized {
-    fn EntranceTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EntranceTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ExitTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ExitTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EntranceTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EntranceTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ExitTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ExitTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDrillInThemeAnimationStatics {
@@ -2284,14 +2284,14 @@ impl IDrillInThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDrillOutThemeAnimationImpl: Sized {
-    fn EntranceTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetEntranceTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn EntranceTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetEntranceTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ExitTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExitTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ExitTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetExitTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn EntranceTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetEntranceTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn EntranceTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetEntranceTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ExitTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetExitTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ExitTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetExitTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDrillOutThemeAnimation {
@@ -2378,10 +2378,10 @@ impl IDrillOutThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDrillOutThemeAnimationStaticsImpl: Sized {
-    fn EntranceTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EntranceTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ExitTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ExitTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EntranceTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EntranceTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ExitTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ExitTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDrillOutThemeAnimationStatics {
@@ -2448,8 +2448,8 @@ impl IDrillOutThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDropTargetItemThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDropTargetItemThemeAnimation {
@@ -2485,7 +2485,7 @@ impl IDropTargetItemThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDropTargetItemThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDropTargetItemThemeAnimationStatics {
@@ -2516,8 +2516,8 @@ impl IDropTargetItemThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingColorKeyFrameImpl: Sized {
-    fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase>;
-    fn SetEasingFunction(&self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
+    fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
+    fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingColorKeyFrame {
@@ -2553,7 +2553,7 @@ impl IEasingColorKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingColorKeyFrameStaticsImpl: Sized {
-    fn EasingFunctionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingColorKeyFrameStatics {
@@ -2584,8 +2584,8 @@ impl IEasingColorKeyFrameStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingDoubleKeyFrameImpl: Sized {
-    fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase>;
-    fn SetEasingFunction(&self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
+    fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
+    fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingDoubleKeyFrame {
@@ -2621,7 +2621,7 @@ impl IEasingDoubleKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingDoubleKeyFrameStaticsImpl: Sized {
-    fn EasingFunctionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingDoubleKeyFrameStatics {
@@ -2652,9 +2652,9 @@ impl IEasingDoubleKeyFrameStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingFunctionBaseImpl: Sized {
-    fn EasingMode(&self) -> ::windows::core::Result<EasingMode>;
-    fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()>;
-    fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64>;
+    fn EasingMode(&mut self) -> ::windows::core::Result<EasingMode>;
+    fn SetEasingMode(&mut self, value: EasingMode) -> ::windows::core::Result<()>;
+    fn Ease(&mut self, normalizedtime: f64) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingFunctionBase {
@@ -2717,7 +2717,7 @@ impl IEasingFunctionBaseFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingFunctionBaseStaticsImpl: Sized {
-    fn EasingModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EasingModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingFunctionBaseStatics {
@@ -2748,8 +2748,8 @@ impl IEasingFunctionBaseStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingPointKeyFrameImpl: Sized {
-    fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase>;
-    fn SetEasingFunction(&self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
+    fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
+    fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingPointKeyFrame {
@@ -2785,7 +2785,7 @@ impl IEasingPointKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEasingPointKeyFrameStaticsImpl: Sized {
-    fn EasingFunctionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingPointKeyFrameStatics {
@@ -2816,8 +2816,8 @@ impl IEasingPointKeyFrameStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IEdgeUIThemeTransitionImpl: Sized {
-    fn Edge(&self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
-    fn SetEdge(&self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
+    fn Edge(&mut self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
+    fn SetEdge(&mut self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEdgeUIThemeTransition {
@@ -2853,7 +2853,7 @@ impl IEdgeUIThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEdgeUIThemeTransitionStaticsImpl: Sized {
-    fn EdgeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EdgeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEdgeUIThemeTransitionStatics {
@@ -2884,10 +2884,10 @@ impl IEdgeUIThemeTransitionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IElasticEaseImpl: Sized {
-    fn Oscillations(&self) -> ::windows::core::Result<i32>;
-    fn SetOscillations(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Springiness(&self) -> ::windows::core::Result<f64>;
-    fn SetSpringiness(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Oscillations(&mut self) -> ::windows::core::Result<i32>;
+    fn SetOscillations(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Springiness(&mut self) -> ::windows::core::Result<f64>;
+    fn SetSpringiness(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IElasticEase {
@@ -2940,8 +2940,8 @@ impl IElasticEaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IElasticEaseStaticsImpl: Sized {
-    fn OscillationsProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SpringinessProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OscillationsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SpringinessProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IElasticEaseStatics {
@@ -2999,9 +2999,9 @@ impl IEntranceNavigationTransitionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEntranceNavigationTransitionInfoStaticsImpl: Sized {
-    fn IsTargetElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetIsTargetElement(&self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
-    fn SetIsTargetElement(&self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
+    fn IsTargetElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetIsTargetElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
+    fn SetIsTargetElement(&mut self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEntranceNavigationTransitionInfoStatics {
@@ -3049,12 +3049,12 @@ impl IEntranceNavigationTransitionInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEntranceThemeTransitionImpl: Sized {
-    fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FromVerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn IsStaggeringEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsStaggeringEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn IsStaggeringEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsStaggeringEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEntranceThemeTransition {
@@ -3124,9 +3124,9 @@ impl IEntranceThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEntranceThemeTransitionStaticsImpl: Sized {
-    fn FromHorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromVerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsStaggeringEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsStaggeringEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEntranceThemeTransitionStatics {
@@ -3181,8 +3181,8 @@ impl IEntranceThemeTransitionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IExponentialEaseImpl: Sized {
-    fn Exponent(&self) -> ::windows::core::Result<f64>;
-    fn SetExponent(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Exponent(&mut self) -> ::windows::core::Result<f64>;
+    fn SetExponent(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExponentialEase {
@@ -3218,7 +3218,7 @@ impl IExponentialEaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IExponentialEaseStaticsImpl: Sized {
-    fn ExponentProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ExponentProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExponentialEaseStatics {
@@ -3249,8 +3249,8 @@ impl IExponentialEaseStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFadeInThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFadeInThemeAnimation {
@@ -3286,7 +3286,7 @@ impl IFadeInThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFadeInThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFadeInThemeAnimationStatics {
@@ -3317,8 +3317,8 @@ impl IFadeInThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFadeOutThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFadeOutThemeAnimation {
@@ -3354,7 +3354,7 @@ impl IFadeOutThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFadeOutThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFadeOutThemeAnimationStatics {
@@ -3400,8 +3400,8 @@ impl IGravityConnectedAnimationConfigurationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGravityConnectedAnimationConfiguration2Impl: Sized {
-    fn IsShadowEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsShadowEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsShadowEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsShadowEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfiguration2 {
@@ -3437,7 +3437,7 @@ impl IGravityConnectedAnimationConfiguration2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGravityConnectedAnimationConfigurationFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GravityConnectedAnimationConfiguration>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GravityConnectedAnimationConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfigurationFactory {
@@ -3468,10 +3468,10 @@ impl IGravityConnectedAnimationConfigurationFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeySplineImpl: Sized {
-    fn ControlPoint1(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
-    fn SetControlPoint1(&self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn ControlPoint2(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
-    fn SetControlPoint2(&self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn ControlPoint1(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
+    fn SetControlPoint1(&mut self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn ControlPoint2(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
+    fn SetControlPoint2(&mut self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeySpline {
@@ -3539,7 +3539,7 @@ impl IKeyTimeHelperVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeyTimeHelperStaticsImpl: Sized {
-    fn FromTimeSpan(&self, timespan: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<KeyTime>;
+    fn FromTimeSpan(&mut self, timespan: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<KeyTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyTimeHelperStatics {
@@ -3612,8 +3612,8 @@ impl ILinearPointKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INavigationThemeTransitionImpl: Sized {
-    fn DefaultNavigationTransitionInfo(&self) -> ::windows::core::Result<NavigationTransitionInfo>;
-    fn SetDefaultNavigationTransitionInfo(&self, value: &::core::option::Option<NavigationTransitionInfo>) -> ::windows::core::Result<()>;
+    fn DefaultNavigationTransitionInfo(&mut self) -> ::windows::core::Result<NavigationTransitionInfo>;
+    fn SetDefaultNavigationTransitionInfo(&mut self, value: &::core::option::Option<NavigationTransitionInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationThemeTransition {
@@ -3649,7 +3649,7 @@ impl INavigationThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INavigationThemeTransitionStaticsImpl: Sized {
-    fn DefaultNavigationTransitionInfoProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DefaultNavigationTransitionInfoProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationThemeTransitionStatics {
@@ -3695,7 +3695,7 @@ impl INavigationTransitionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INavigationTransitionInfoFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationTransitionInfo>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationTransitionInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationTransitionInfoFactory {
@@ -3726,8 +3726,8 @@ impl INavigationTransitionInfoFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INavigationTransitionInfoOverridesImpl: Sized {
-    fn GetNavigationStateCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNavigationStateCore(&self, navigationstate: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetNavigationStateCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNavigationStateCore(&mut self, navigationstate: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationTransitionInfoOverrides {
@@ -3763,9 +3763,9 @@ impl INavigationTransitionInfoOverridesVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IObjectAnimationUsingKeyFramesImpl: Sized {
-    fn KeyFrames(&self) -> ::windows::core::Result<ObjectKeyFrameCollection>;
-    fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyFrames(&mut self) -> ::windows::core::Result<ObjectKeyFrameCollection>;
+    fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IObjectAnimationUsingKeyFrames {
@@ -3813,7 +3813,7 @@ impl IObjectAnimationUsingKeyFramesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IObjectAnimationUsingKeyFramesStaticsImpl: Sized {
-    fn EnableDependentAnimationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IObjectAnimationUsingKeyFramesStatics {
@@ -3844,10 +3844,10 @@ impl IObjectAnimationUsingKeyFramesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IObjectKeyFrameImpl: Sized {
-    fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
-    fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
+    fn SetKeyTime(&mut self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IObjectKeyFrame {
@@ -3900,7 +3900,7 @@ impl IObjectKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IObjectKeyFrameFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ObjectKeyFrame>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ObjectKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IObjectKeyFrameFactory {
@@ -3931,8 +3931,8 @@ impl IObjectKeyFrameFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IObjectKeyFrameStaticsImpl: Sized {
-    fn ValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn KeyTimeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IObjectKeyFrameStatics {
@@ -3975,8 +3975,8 @@ impl IObjectKeyFrameStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IPaneThemeTransitionImpl: Sized {
-    fn Edge(&self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
-    fn SetEdge(&self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
+    fn Edge(&mut self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
+    fn SetEdge(&mut self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPaneThemeTransition {
@@ -4012,7 +4012,7 @@ impl IPaneThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPaneThemeTransitionStaticsImpl: Sized {
-    fn EdgeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EdgeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPaneThemeTransitionStatics {
@@ -4043,16 +4043,16 @@ impl IPaneThemeTransitionStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPointAnimationImpl: Sized {
-    fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
-    fn SetFrom(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
-    fn To(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
-    fn SetTo(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
-    fn By(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
-    fn SetBy(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
-    fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase>;
-    fn SetEasingFunction(&self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
-    fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn From(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
+    fn SetFrom(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
+    fn To(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
+    fn SetTo(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
+    fn By(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
+    fn SetBy(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
+    fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
+    fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
+    fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointAnimation {
@@ -4156,11 +4156,11 @@ impl IPointAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointAnimationStaticsImpl: Sized {
-    fn FromProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ToProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ByProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EasingFunctionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn EnableDependentAnimationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ToProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ByProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointAnimationStatics {
@@ -4239,9 +4239,9 @@ impl IPointAnimationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPointAnimationUsingKeyFramesImpl: Sized {
-    fn KeyFrames(&self) -> ::windows::core::Result<PointKeyFrameCollection>;
-    fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyFrames(&mut self) -> ::windows::core::Result<PointKeyFrameCollection>;
+    fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointAnimationUsingKeyFrames {
@@ -4289,7 +4289,7 @@ impl IPointAnimationUsingKeyFramesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointAnimationUsingKeyFramesStaticsImpl: Sized {
-    fn EnableDependentAnimationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointAnimationUsingKeyFramesStatics {
@@ -4320,10 +4320,10 @@ impl IPointAnimationUsingKeyFramesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPointKeyFrameImpl: Sized {
-    fn Value(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
-    fn SetValue(&self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn KeyTime(&self) -> ::windows::core::Result<KeyTime>;
-    fn SetKeyTime(&self, value: &KeyTime) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
+    fn SetValue(&mut self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
+    fn SetKeyTime(&mut self, value: &KeyTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointKeyFrame {
@@ -4376,7 +4376,7 @@ impl IPointKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointKeyFrameFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PointKeyFrame>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PointKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointKeyFrameFactory {
@@ -4407,8 +4407,8 @@ impl IPointKeyFrameFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointKeyFrameStaticsImpl: Sized {
-    fn ValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn KeyTimeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointKeyFrameStatics {
@@ -4451,8 +4451,8 @@ impl IPointKeyFrameStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointerDownThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointerDownThemeAnimation {
@@ -4488,7 +4488,7 @@ impl IPointerDownThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointerDownThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointerDownThemeAnimationStatics {
@@ -4519,8 +4519,8 @@ impl IPointerDownThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointerUpThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointerUpThemeAnimation {
@@ -4556,7 +4556,7 @@ impl IPointerUpThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointerUpThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointerUpThemeAnimationStatics {
@@ -4587,12 +4587,12 @@ impl IPointerUpThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopInThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FromVerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopInThemeAnimation {
@@ -4662,9 +4662,9 @@ impl IPopInThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopInThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromHorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromVerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopInThemeAnimationStatics {
@@ -4719,8 +4719,8 @@ impl IPopInThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopOutThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopOutThemeAnimation {
@@ -4756,7 +4756,7 @@ impl IPopOutThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopOutThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopOutThemeAnimationStatics {
@@ -4787,10 +4787,10 @@ impl IPopOutThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopupThemeTransitionImpl: Sized {
-    fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FromVerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopupThemeTransition {
@@ -4843,8 +4843,8 @@ impl IPopupThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopupThemeTransitionStaticsImpl: Sized {
-    fn FromHorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromVerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopupThemeTransitionStatics {
@@ -4887,8 +4887,8 @@ impl IPopupThemeTransitionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPowerEaseImpl: Sized {
-    fn Power(&self) -> ::windows::core::Result<f64>;
-    fn SetPower(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Power(&mut self) -> ::windows::core::Result<f64>;
+    fn SetPower(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPowerEase {
@@ -4924,7 +4924,7 @@ impl IPowerEaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPowerEaseStaticsImpl: Sized {
-    fn PowerProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PowerProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPowerEaseStatics {
@@ -5027,12 +5027,12 @@ impl IRepeatBehaviorHelperVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRepeatBehaviorHelperStaticsImpl: Sized {
-    fn Forever(&self) -> ::windows::core::Result<RepeatBehavior>;
-    fn FromCount(&self, count: f64) -> ::windows::core::Result<RepeatBehavior>;
-    fn FromDuration(&self, duration: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<RepeatBehavior>;
-    fn GetHasCount(&self, target: &RepeatBehavior) -> ::windows::core::Result<bool>;
-    fn GetHasDuration(&self, target: &RepeatBehavior) -> ::windows::core::Result<bool>;
-    fn Equals(&self, target: &RepeatBehavior, value: &RepeatBehavior) -> ::windows::core::Result<bool>;
+    fn Forever(&mut self) -> ::windows::core::Result<RepeatBehavior>;
+    fn FromCount(&mut self, count: f64) -> ::windows::core::Result<RepeatBehavior>;
+    fn FromDuration(&mut self, duration: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<RepeatBehavior>;
+    fn GetHasCount(&mut self, target: &RepeatBehavior) -> ::windows::core::Result<bool>;
+    fn GetHasDuration(&mut self, target: &RepeatBehavior) -> ::windows::core::Result<bool>;
+    fn Equals(&mut self, target: &RepeatBehavior, value: &RepeatBehavior) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRepeatBehaviorHelperStatics {
@@ -5123,12 +5123,12 @@ impl IRepeatBehaviorHelperStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRepositionThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FromVerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepositionThemeAnimation {
@@ -5198,9 +5198,9 @@ impl IRepositionThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRepositionThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromHorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromVerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepositionThemeAnimationStatics {
@@ -5270,8 +5270,8 @@ impl IRepositionThemeTransitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRepositionThemeTransition2Impl: Sized {
-    fn IsStaggeringEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsStaggeringEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsStaggeringEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsStaggeringEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepositionThemeTransition2 {
@@ -5307,7 +5307,7 @@ impl IRepositionThemeTransition2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRepositionThemeTransitionStatics2Impl: Sized {
-    fn IsStaggeringEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsStaggeringEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepositionThemeTransitionStatics2 {
@@ -5368,8 +5368,8 @@ impl ISlideNavigationTransitionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISlideNavigationTransitionInfo2Impl: Sized {
-    fn Effect(&self) -> ::windows::core::Result<SlideNavigationTransitionEffect>;
-    fn SetEffect(&self, value: SlideNavigationTransitionEffect) -> ::windows::core::Result<()>;
+    fn Effect(&mut self) -> ::windows::core::Result<SlideNavigationTransitionEffect>;
+    fn SetEffect(&mut self, value: SlideNavigationTransitionEffect) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfo2 {
@@ -5405,7 +5405,7 @@ impl ISlideNavigationTransitionInfo2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISlideNavigationTransitionInfoStatics2Impl: Sized {
-    fn EffectProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EffectProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfoStatics2 {
@@ -5436,8 +5436,8 @@ impl ISlideNavigationTransitionInfoStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplineColorKeyFrameImpl: Sized {
-    fn KeySpline(&self) -> ::windows::core::Result<KeySpline>;
-    fn SetKeySpline(&self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
+    fn KeySpline(&mut self) -> ::windows::core::Result<KeySpline>;
+    fn SetKeySpline(&mut self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplineColorKeyFrame {
@@ -5473,7 +5473,7 @@ impl ISplineColorKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplineColorKeyFrameStaticsImpl: Sized {
-    fn KeySplineProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn KeySplineProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplineColorKeyFrameStatics {
@@ -5504,8 +5504,8 @@ impl ISplineColorKeyFrameStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplineDoubleKeyFrameImpl: Sized {
-    fn KeySpline(&self) -> ::windows::core::Result<KeySpline>;
-    fn SetKeySpline(&self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
+    fn KeySpline(&mut self) -> ::windows::core::Result<KeySpline>;
+    fn SetKeySpline(&mut self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplineDoubleKeyFrame {
@@ -5541,7 +5541,7 @@ impl ISplineDoubleKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplineDoubleKeyFrameStaticsImpl: Sized {
-    fn KeySplineProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn KeySplineProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplineDoubleKeyFrameStatics {
@@ -5572,8 +5572,8 @@ impl ISplineDoubleKeyFrameStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplinePointKeyFrameImpl: Sized {
-    fn KeySpline(&self) -> ::windows::core::Result<KeySpline>;
-    fn SetKeySpline(&self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
+    fn KeySpline(&mut self) -> ::windows::core::Result<KeySpline>;
+    fn SetKeySpline(&mut self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplinePointKeyFrame {
@@ -5609,7 +5609,7 @@ impl ISplinePointKeyFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplinePointKeyFrameStaticsImpl: Sized {
-    fn KeySplineProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn KeySplineProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplinePointKeyFrameStatics {
@@ -5640,28 +5640,28 @@ impl ISplinePointKeyFrameStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait ISplitCloseThemeAnimationImpl: Sized {
-    fn OpenedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetOpenedTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn OpenedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetOpenedTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ClosedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetClosedTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ClosedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetClosedTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ContentTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContentTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetContentTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn OpenedLength(&self) -> ::windows::core::Result<f64>;
-    fn SetOpenedLength(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ClosedLength(&self) -> ::windows::core::Result<f64>;
-    fn SetClosedLength(&self, value: f64) -> ::windows::core::Result<()>;
-    fn OffsetFromCenter(&self) -> ::windows::core::Result<f64>;
-    fn SetOffsetFromCenter(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ContentTranslationDirection(&self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection>;
-    fn SetContentTranslationDirection(&self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()>;
-    fn ContentTranslationOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetContentTranslationOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn OpenedTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetOpenedTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn OpenedTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetOpenedTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ClosedTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetClosedTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ClosedTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetClosedTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ContentTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContentTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetContentTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn OpenedLength(&mut self) -> ::windows::core::Result<f64>;
+    fn SetOpenedLength(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ClosedLength(&mut self) -> ::windows::core::Result<f64>;
+    fn SetClosedLength(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn OffsetFromCenter(&mut self) -> ::windows::core::Result<f64>;
+    fn SetOffsetFromCenter(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ContentTranslationDirection(&mut self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection>;
+    fn SetContentTranslationDirection(&mut self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()>;
+    fn ContentTranslationOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetContentTranslationOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISplitCloseThemeAnimation {
@@ -5867,17 +5867,17 @@ impl ISplitCloseThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplitCloseThemeAnimationStaticsImpl: Sized {
-    fn OpenedTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn OpenedTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ClosedTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ClosedTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn OpenedLengthProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ClosedLengthProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn OffsetFromCenterProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTranslationDirectionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTranslationOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OpenedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OpenedTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ClosedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ClosedTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OpenedLengthProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ClosedLengthProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OffsetFromCenterProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTranslationDirectionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTranslationOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplitCloseThemeAnimationStatics {
@@ -6028,28 +6028,28 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait ISplitOpenThemeAnimationImpl: Sized {
-    fn OpenedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetOpenedTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn OpenedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetOpenedTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ClosedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetClosedTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ClosedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetClosedTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ContentTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContentTarget(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetContentTarget(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn OpenedLength(&self) -> ::windows::core::Result<f64>;
-    fn SetOpenedLength(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ClosedLength(&self) -> ::windows::core::Result<f64>;
-    fn SetClosedLength(&self, value: f64) -> ::windows::core::Result<()>;
-    fn OffsetFromCenter(&self) -> ::windows::core::Result<f64>;
-    fn SetOffsetFromCenter(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ContentTranslationDirection(&self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection>;
-    fn SetContentTranslationDirection(&self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()>;
-    fn ContentTranslationOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetContentTranslationOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn OpenedTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetOpenedTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn OpenedTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetOpenedTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ClosedTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetClosedTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ClosedTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetClosedTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ContentTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContentTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetContentTarget(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn OpenedLength(&mut self) -> ::windows::core::Result<f64>;
+    fn SetOpenedLength(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ClosedLength(&mut self) -> ::windows::core::Result<f64>;
+    fn SetClosedLength(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn OffsetFromCenter(&mut self) -> ::windows::core::Result<f64>;
+    fn SetOffsetFromCenter(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ContentTranslationDirection(&mut self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection>;
+    fn SetContentTranslationDirection(&mut self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()>;
+    fn ContentTranslationOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetContentTranslationOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISplitOpenThemeAnimation {
@@ -6255,17 +6255,17 @@ impl ISplitOpenThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplitOpenThemeAnimationStaticsImpl: Sized {
-    fn OpenedTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn OpenedTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ClosedTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ClosedTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn OpenedLengthProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ClosedLengthProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn OffsetFromCenterProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTranslationDirectionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentTranslationOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OpenedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OpenedTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ClosedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ClosedTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OpenedLengthProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ClosedLengthProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OffsetFromCenterProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTranslationDirectionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentTranslationOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplitOpenThemeAnimationStatics {
@@ -6416,16 +6416,16 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoryboardImpl: Sized {
-    fn Children(&self) -> ::windows::core::Result<TimelineCollection>;
-    fn Seek(&self, offset: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Begin(&self) -> ::windows::core::Result<()>;
-    fn Pause(&self) -> ::windows::core::Result<()>;
-    fn Resume(&self) -> ::windows::core::Result<()>;
-    fn GetCurrentState(&self) -> ::windows::core::Result<ClockState>;
-    fn GetCurrentTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
-    fn SeekAlignedToLastTick(&self, offset: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn SkipToFill(&self) -> ::windows::core::Result<()>;
+    fn Children(&mut self) -> ::windows::core::Result<TimelineCollection>;
+    fn Seek(&mut self, offset: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Begin(&mut self) -> ::windows::core::Result<()>;
+    fn Pause(&mut self) -> ::windows::core::Result<()>;
+    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn GetCurrentState(&mut self) -> ::windows::core::Result<ClockState>;
+    fn GetCurrentTime(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
+    fn SeekAlignedToLastTick(&mut self, offset: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn SkipToFill(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoryboard {
@@ -6515,13 +6515,13 @@ impl IStoryboardVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoryboardStaticsImpl: Sized {
-    fn TargetPropertyProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetTargetProperty(&self, element: &::core::option::Option<Timeline>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetProperty(&self, element: &::core::option::Option<Timeline>, path: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetTargetName(&self, element: &::core::option::Option<Timeline>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, element: &::core::option::Option<Timeline>, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetTarget(&self, timeline: &::core::option::Option<Timeline>, target: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn TargetPropertyProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetTargetProperty(&mut self, element: &::core::option::Option<Timeline>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetProperty(&mut self, element: &::core::option::Option<Timeline>, path: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetTargetName(&mut self, element: &::core::option::Option<Timeline>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, element: &::core::option::Option<Timeline>, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetTarget(&mut self, timeline: &::core::option::Option<Timeline>, target: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoryboardStatics {
@@ -6618,12 +6618,12 @@ impl ISuppressNavigationTransitionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISwipeBackThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FromVerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFromVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISwipeBackThemeAnimation {
@@ -6693,9 +6693,9 @@ impl ISwipeBackThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISwipeBackThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromHorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FromVerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISwipeBackThemeAnimationStatics {
@@ -6750,12 +6750,12 @@ impl ISwipeBackThemeAnimationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISwipeHintThemeAnimationImpl: Sized {
-    fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ToHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetToHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ToVerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetToVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
+    fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ToHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetToHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ToVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetToVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISwipeHintThemeAnimation {
@@ -6825,9 +6825,9 @@ impl ISwipeHintThemeAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISwipeHintThemeAnimationStaticsImpl: Sized {
-    fn TargetNameProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ToHorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ToVerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ToHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ToVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISwipeHintThemeAnimationStatics {
@@ -6882,20 +6882,20 @@ impl ISwipeHintThemeAnimationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITimelineImpl: Sized {
-    fn AutoReverse(&self) -> ::windows::core::Result<bool>;
-    fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()>;
-    fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>;
-    fn SetBeginTime(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Duration>;
-    fn SetDuration(&self, value: &super::super::Duration) -> ::windows::core::Result<()>;
-    fn SpeedRatio(&self) -> ::windows::core::Result<f64>;
-    fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior>;
-    fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()>;
-    fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior>;
-    fn SetRepeatBehavior(&self, value: &RepeatBehavior) -> ::windows::core::Result<()>;
-    fn Completed(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AutoReverse(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutoReverse(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn BeginTime(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>;
+    fn SetBeginTime(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Duration>;
+    fn SetDuration(&mut self, value: &super::super::Duration) -> ::windows::core::Result<()>;
+    fn SpeedRatio(&mut self) -> ::windows::core::Result<f64>;
+    fn SetSpeedRatio(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FillBehavior(&mut self) -> ::windows::core::Result<FillBehavior>;
+    fn SetFillBehavior(&mut self, value: FillBehavior) -> ::windows::core::Result<()>;
+    fn RepeatBehavior(&mut self) -> ::windows::core::Result<RepeatBehavior>;
+    fn SetRepeatBehavior(&mut self, value: &RepeatBehavior) -> ::windows::core::Result<()>;
+    fn Completed(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimeline {
@@ -7033,7 +7033,7 @@ impl ITimelineVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimelineFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Timeline>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Timeline>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimelineFactory {
@@ -7061,14 +7061,14 @@ impl ITimelineFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimelineStaticsImpl: Sized {
-    fn AllowDependentAnimations(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowDependentAnimations(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AutoReverseProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn BeginTimeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DurationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SpeedRatioProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FillBehaviorProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn RepeatBehaviorProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn AllowDependentAnimations(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowDependentAnimations(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AutoReverseProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn BeginTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DurationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SpeedRatioProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FillBehaviorProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn RepeatBehaviorProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimelineStatics {

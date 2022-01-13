@@ -1,13 +1,13 @@
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
-    fn IsAvailableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ShowInsightsForImageAsync(&self, imagestream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowInsightsForImageWithOptionsAsync(&self, imagestream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowInsightsForTextAsync(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowInsightsForTextWithOptionsAsync(&self, text: &::windows::core::HSTRING, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowInsightsAsync(&self, datapackage: &::core::option::Option<super::super::ApplicationModel::DataTransfer::DataPackage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ShowInsightsWithOptionsAsync(&self, datapackage: &::core::option::Option<super::super::ApplicationModel::DataTransfer::DataPackage>, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn IsAvailableAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ShowInsightsForImageAsync(&mut self, imagestream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowInsightsForImageWithOptionsAsync(&mut self, imagestream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowInsightsForTextAsync(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowInsightsForTextWithOptionsAsync(&mut self, text: &::windows::core::HSTRING, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowInsightsAsync(&mut self, datapackage: &::core::option::Option<super::super::ApplicationModel::DataTransfer::DataPackage>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ShowInsightsWithOptionsAsync(&mut self, datapackage: &::core::option::Option<super::super::ApplicationModel::DataTransfer::DataPackage>, options: &::core::option::Option<CortanaActionableInsightsOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaActionableInsights {
@@ -122,10 +122,10 @@ impl ICortanaActionableInsightsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsOptionsImpl: Sized {
-    fn ContentSourceWebLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetContentSourceWebLink(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn SurroundingText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSurroundingText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContentSourceWebLink(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetContentSourceWebLink(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn SurroundingText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSurroundingText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaActionableInsightsOptions {
@@ -178,8 +178,8 @@ impl ICortanaActionableInsightsOptionsVtbl {
 }
 #[cfg(all(feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaActionableInsightsStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<CortanaActionableInsights>;
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<CortanaActionableInsights>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<CortanaActionableInsights>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<CortanaActionableInsights>;
 }
 #[cfg(all(feature = "System", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaActionableInsightsStatics {
@@ -222,10 +222,10 @@ impl ICortanaActionableInsightsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaPermissionsManagerImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn ArePermissionsGrantedAsync(&self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn GrantPermissionsAsync(&self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>;
-    fn RevokePermissionsAsync(&self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn ArePermissionsGrantedAsync(&mut self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn GrantPermissionsAsync(&mut self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>;
+    fn RevokePermissionsAsync(&mut self, permissions: &::core::option::Option<super::super::Foundation::Collections::IIterable<CortanaPermission>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaPermissionsManager {
@@ -292,7 +292,7 @@ impl ICortanaPermissionsManagerVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaPermissionsManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<CortanaPermissionsManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<CortanaPermissionsManager>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaPermissionsManagerStatics {
@@ -323,9 +323,9 @@ impl ICortanaPermissionsManagerStaticsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaSettingsImpl: Sized {
-    fn HasUserConsentToVoiceActivation(&self) -> ::windows::core::Result<bool>;
-    fn IsVoiceActivationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsVoiceActivationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn HasUserConsentToVoiceActivation(&mut self) -> ::windows::core::Result<bool>;
+    fn IsVoiceActivationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsVoiceActivationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaSettings {
@@ -373,8 +373,8 @@ impl ICortanaSettingsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ICortanaSettingsStaticsImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn GetDefault(&self) -> ::windows::core::Result<CortanaSettings>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<CortanaSettings>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICortanaSettingsStatics {

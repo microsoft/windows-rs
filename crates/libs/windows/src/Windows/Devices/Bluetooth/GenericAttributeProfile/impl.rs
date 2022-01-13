@@ -1,21 +1,21 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicImpl: Sized {
-    fn GetDescriptors(&self, descriptoruuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
-    fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties>;
-    fn ProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn SetProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
-    fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AttributeHandle(&self) -> ::windows::core::Result<u16>;
-    fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>;
-    fn ReadValueAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
-    fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
-    fn WriteValueAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
-    fn WriteValueWithOptionAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
-    fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>>;
-    fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
-    fn ValueChanged(&self, valuechangedhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveValueChanged(&self, valuechangedeventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetDescriptors(&mut self, descriptoruuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
+    fn CharacteristicProperties(&mut self) -> ::windows::core::Result<GattCharacteristicProperties>;
+    fn ProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn SetProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
+    fn UserDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AttributeHandle(&mut self) -> ::windows::core::Result<u16>;
+    fn PresentationFormats(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>;
+    fn ReadValueAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
+    fn ReadValueWithCacheModeAsync(&mut self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
+    fn WriteValueAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
+    fn WriteValueWithOptionAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
+    fn ReadClientCharacteristicConfigurationDescriptorAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>>;
+    fn WriteClientCharacteristicConfigurationDescriptorAsync(&mut self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
+    fn ValueChanged(&mut self, valuechangedhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveValueChanged(&mut self, valuechangedeventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristic {
@@ -212,8 +212,8 @@ impl IGattCharacteristicVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattCharacteristic2Impl: Sized + IGattCharacteristicImpl {
-    fn Service(&self) -> ::windows::core::Result<GattDeviceService>;
-    fn GetAllDescriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
+    fn Service(&mut self) -> ::windows::core::Result<GattDeviceService>;
+    fn GetAllDescriptors(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristic2 {
@@ -256,13 +256,13 @@ impl IGattCharacteristic2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattCharacteristic3Impl: Sized {
-    fn GetDescriptorsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
-    fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
-    fn GetDescriptorsForUuidAsync(&self, descriptoruuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
-    fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
-    fn WriteValueWithResultAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
-    fn WriteValueWithResultAndOptionAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
-    fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
+    fn GetDescriptorsAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
+    fn GetDescriptorsWithCacheModeAsync(&mut self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
+    fn GetDescriptorsForUuidAsync(&mut self, descriptoruuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
+    fn GetDescriptorsForUuidWithCacheModeAsync(&mut self, descriptoruuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
+    fn WriteValueWithResultAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
+    fn WriteValueWithResultAndOptionAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
+    fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&mut self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristic3 {
@@ -365,7 +365,7 @@ impl IGattCharacteristic3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattCharacteristicStaticsImpl: Sized {
-    fn ConvertShortIdToUuid(&self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ConvertShortIdToUuid(&mut self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattCharacteristicStatics {
@@ -396,27 +396,27 @@ impl IGattCharacteristicStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattCharacteristicUuidsStaticsImpl: Sized {
-    fn BatteryLevel(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BloodPressureFeature(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BloodPressureMeasurement(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BodySensorLocation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CscFeature(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CscMeasurement(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GlucoseFeature(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GlucoseMeasurement(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GlucoseMeasurementContext(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HeartRateControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HeartRateMeasurement(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IntermediateCuffPressure(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IntermediateTemperature(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn MeasurementInterval(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RecordAccessControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RscFeature(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RscMeasurement(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SCControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SensorLocation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TemperatureMeasurement(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TemperatureType(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BatteryLevel(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BloodPressureFeature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BloodPressureMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BodySensorLocation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CscFeature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CscMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GlucoseFeature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GlucoseMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GlucoseMeasurementContext(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HeartRateControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HeartRateMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IntermediateCuffPressure(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IntermediateTemperature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn MeasurementInterval(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RecordAccessControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RscFeature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RscMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SCControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SensorLocation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TemperatureMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TemperatureType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattCharacteristicUuidsStatics {
@@ -687,66 +687,66 @@ impl IGattCharacteristicUuidsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattCharacteristicUuidsStatics2Impl: Sized {
-    fn AlertCategoryId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AlertCategoryIdBitMask(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AlertLevel(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AlertNotificationControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AlertStatus(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GapAppearance(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BootKeyboardInputReport(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BootKeyboardOutputReport(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BootMouseInputReport(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CurrentTime(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CyclingPowerControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CyclingPowerFeature(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CyclingPowerMeasurement(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CyclingPowerVector(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DateTime(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DayDateTime(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DayOfWeek(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GapDeviceName(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DstOffset(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ExactTime256(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn FirmwareRevisionString(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HardwareRevisionString(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HidControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HidInformation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Ieee1107320601RegulatoryCertificationDataList(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn LnControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn LnFeature(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn LocalTimeInformation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn LocationAndSpeed(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ManufacturerNameString(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ModelNumberString(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Navigation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn NewAlert(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GapPeripheralPreferredConnectionParameters(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GapPeripheralPrivacyFlag(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn PnpId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn PositionQuality(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ProtocolMode(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GapReconnectionAddress(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ReferenceTimeInformation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Report(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ReportMap(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RingerControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RingerSetting(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ScanIntervalWindow(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ScanRefresh(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SerialNumberString(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GattServiceChanged(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SoftwareRevisionString(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SupportedNewAlertCategory(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SupportUnreadAlertCategory(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SystemId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TimeAccuracy(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TimeSource(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TimeUpdateControlPoint(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TimeUpdateState(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TimeWithDst(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TimeZone(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TxPowerLevel(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn UnreadAlertStatus(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AlertCategoryId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AlertCategoryIdBitMask(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AlertLevel(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AlertNotificationControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AlertStatus(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GapAppearance(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BootKeyboardInputReport(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BootKeyboardOutputReport(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BootMouseInputReport(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CurrentTime(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CyclingPowerControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CyclingPowerFeature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CyclingPowerMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CyclingPowerVector(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DateTime(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DayDateTime(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DayOfWeek(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GapDeviceName(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DstOffset(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ExactTime256(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn FirmwareRevisionString(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HardwareRevisionString(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HidControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HidInformation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Ieee1107320601RegulatoryCertificationDataList(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LnControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LnFeature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LocalTimeInformation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LocationAndSpeed(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ManufacturerNameString(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ModelNumberString(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Navigation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn NewAlert(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GapPeripheralPreferredConnectionParameters(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GapPeripheralPrivacyFlag(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn PnpId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn PositionQuality(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ProtocolMode(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GapReconnectionAddress(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ReferenceTimeInformation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Report(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ReportMap(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RingerControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RingerSetting(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ScanIntervalWindow(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ScanRefresh(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SerialNumberString(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GattServiceChanged(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SoftwareRevisionString(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SupportedNewAlertCategory(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SupportUnreadAlertCategory(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SystemId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TimeAccuracy(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TimeSource(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TimeUpdateControlPoint(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TimeUpdateState(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TimeWithDst(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TimeZone(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TxPowerLevel(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn UnreadAlertStatus(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattCharacteristicUuidsStatics2 {
@@ -1485,9 +1485,9 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicsResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus>;
-    fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
-    fn Characteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
+    fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
+    fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
+    fn Characteristics(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicsResult {
@@ -1542,9 +1542,9 @@ impl IGattCharacteristicsResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattClientNotificationResultImpl: Sized {
-    fn SubscribedClient(&self) -> ::windows::core::Result<GattSubscribedClient>;
-    fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus>;
-    fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
+    fn SubscribedClient(&mut self) -> ::windows::core::Result<GattSubscribedClient>;
+    fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
+    fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattClientNotificationResult {
@@ -1599,7 +1599,7 @@ impl IGattClientNotificationResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattClientNotificationResult2Impl: Sized {
-    fn BytesSent(&self) -> ::windows::core::Result<u16>;
+    fn BytesSent(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattClientNotificationResult2 {
@@ -1630,13 +1630,13 @@ impl IGattClientNotificationResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattDescriptorImpl: Sized {
-    fn ProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn SetProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
-    fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AttributeHandle(&self) -> ::windows::core::Result<u16>;
-    fn ReadValueAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
-    fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
-    fn WriteValueAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
+    fn ProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn SetProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
+    fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AttributeHandle(&mut self) -> ::windows::core::Result<u16>;
+    fn ReadValueAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
+    fn ReadValueWithCacheModeAsync(&mut self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>;
+    fn WriteValueAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDescriptor {
@@ -1732,7 +1732,7 @@ impl IGattDescriptorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattDescriptor2Impl: Sized {
-    fn WriteValueWithResultAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
+    fn WriteValueWithResultAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDescriptor2 {
@@ -1763,7 +1763,7 @@ impl IGattDescriptor2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattDescriptorStaticsImpl: Sized {
-    fn ConvertShortIdToUuid(&self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ConvertShortIdToUuid(&mut self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattDescriptorStatics {
@@ -1794,12 +1794,12 @@ impl IGattDescriptorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattDescriptorUuidsStaticsImpl: Sized {
-    fn CharacteristicAggregateFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CharacteristicExtendedProperties(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CharacteristicPresentationFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CharacteristicUserDescription(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ClientCharacteristicConfiguration(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ServerCharacteristicConfiguration(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CharacteristicAggregateFormat(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CharacteristicExtendedProperties(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CharacteristicPresentationFormat(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CharacteristicUserDescription(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ClientCharacteristicConfiguration(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ServerCharacteristicConfiguration(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattDescriptorUuidsStatics {
@@ -1890,9 +1890,9 @@ impl IGattDescriptorUuidsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattDescriptorsResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus>;
-    fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
-    fn Descriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
+    fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
+    fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
+    fn Descriptors(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDescriptorsResult {
@@ -1947,11 +1947,11 @@ impl IGattDescriptorsResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattDeviceServiceImpl: Sized + IClosableImpl {
-    fn GetCharacteristics(&self, characteristicuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
-    fn GetIncludedServices(&self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn AttributeHandle(&self) -> ::windows::core::Result<u16>;
+    fn GetCharacteristics(&mut self, characteristicuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
+    fn GetIncludedServices(&mut self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AttributeHandle(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDeviceService {
@@ -2030,10 +2030,10 @@ impl IGattDeviceServiceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattDeviceService2Impl: Sized + IClosableImpl + IGattDeviceServiceImpl {
-    fn Device(&self) -> ::windows::core::Result<super::BluetoothLEDevice>;
-    fn ParentServices(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
-    fn GetAllCharacteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
-    fn GetAllIncludedServices(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
+    fn Device(&mut self) -> ::windows::core::Result<super::BluetoothLEDevice>;
+    fn ParentServices(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
+    fn GetAllCharacteristics(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
+    fn GetAllIncludedServices(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDeviceService2 {
@@ -2100,19 +2100,19 @@ impl IGattDeviceService2Vtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattDeviceService3Impl: Sized {
-    fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation>;
-    fn Session(&self) -> ::windows::core::Result<GattSession>;
-    fn SharingMode(&self) -> ::windows::core::Result<GattSharingMode>;
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>;
-    fn OpenAsync(&self, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>;
-    fn GetCharacteristicsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
-    fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
-    fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
-    fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
-    fn GetIncludedServicesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
-    fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
-    fn GetIncludedServicesForUuidAsync(&self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
-    fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
+    fn DeviceAccessInformation(&mut self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation>;
+    fn Session(&mut self) -> ::windows::core::Result<GattSession>;
+    fn SharingMode(&mut self) -> ::windows::core::Result<GattSharingMode>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>;
+    fn OpenAsync(&mut self, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>;
+    fn GetCharacteristicsAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
+    fn GetCharacteristicsWithCacheModeAsync(&mut self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
+    fn GetCharacteristicsForUuidAsync(&mut self, characteristicuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
+    fn GetCharacteristicsForUuidWithCacheModeAsync(&mut self, characteristicuuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>;
+    fn GetIncludedServicesAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
+    fn GetIncludedServicesWithCacheModeAsync(&mut self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
+    fn GetIncludedServicesForUuidAsync(&mut self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
+    fn GetIncludedServicesForUuidWithCacheModeAsync(&mut self, serviceuuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDeviceService3 {
@@ -2287,10 +2287,10 @@ impl IGattDeviceService3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattDeviceServiceStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>;
-    fn GetDeviceSelectorFromUuid(&self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorFromShortId(&self, serviceshortid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ConvertShortIdToUuid(&self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>;
+    fn GetDeviceSelectorFromUuid(&mut self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorFromShortId(&mut self, serviceshortid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConvertShortIdToUuid(&mut self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDeviceServiceStatics {
@@ -2357,11 +2357,11 @@ impl IGattDeviceServiceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattDeviceServiceStatics2Impl: Sized {
-    fn FromIdWithSharingModeAsync(&self, deviceid: &::windows::core::HSTRING, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>;
-    fn GetDeviceSelectorForBluetoothDeviceId(&self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(&self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorForBluetoothDeviceIdAndUuid(&self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode(&self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>, serviceuuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdWithSharingModeAsync(&mut self, deviceid: &::windows::core::HSTRING, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>;
+    fn GetDeviceSelectorForBluetoothDeviceId(&mut self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(&mut self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForBluetoothDeviceIdAndUuid(&mut self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode(&mut self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>, serviceuuid: &::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDeviceServiceStatics2 {
@@ -2440,9 +2440,9 @@ impl IGattDeviceServiceStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattDeviceServicesResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus>;
-    fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
-    fn Services(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
+    fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
+    fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
+    fn Services(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattDeviceServicesResult {
@@ -2497,24 +2497,24 @@ impl IGattDeviceServicesResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattLocalCharacteristicImpl: Sized {
-    fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties>;
-    fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn CreateDescriptorAsync(&self, descriptoruuid: &::windows::core::GUID, parameters: &::core::option::Option<GattLocalDescriptorParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>;
-    fn Descriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>>;
-    fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>;
-    fn SubscribedClients(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>>;
-    fn SubscribedClientsChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSubscribedClientsChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ReadRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn WriteRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveWriteRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NotifyValueAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>;
-    fn NotifyValueForSubscribedClientAsync(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, subscribedclient: &::core::option::Option<GattSubscribedClient>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>;
+    fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn CharacteristicProperties(&mut self) -> ::windows::core::Result<GattCharacteristicProperties>;
+    fn ReadProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn WriteProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn CreateDescriptorAsync(&mut self, descriptoruuid: &::windows::core::GUID, parameters: &::core::option::Option<GattLocalDescriptorParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>;
+    fn Descriptors(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>>;
+    fn UserDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PresentationFormats(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>;
+    fn SubscribedClients(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>>;
+    fn SubscribedClientsChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSubscribedClientsChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ReadRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn WriteRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveWriteRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NotifyValueAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>;
+    fn NotifyValueForSubscribedClientAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, subscribedclient: &::core::option::Option<GattSubscribedClient>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattLocalCharacteristic {
@@ -2728,17 +2728,17 @@ impl IGattLocalCharacteristicVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattLocalCharacteristicParametersImpl: Sized {
-    fn SetStaticValue(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetCharacteristicProperties(&self, value: GattCharacteristicProperties) -> ::windows::core::Result<()>;
-    fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties>;
-    fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
-    fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
-    fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn SetUserDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>>;
+    fn SetStaticValue(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetCharacteristicProperties(&mut self, value: GattCharacteristicProperties) -> ::windows::core::Result<()>;
+    fn CharacteristicProperties(&mut self) -> ::windows::core::Result<GattCharacteristicProperties>;
+    fn SetReadProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
+    fn ReadProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn SetWriteProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
+    fn WriteProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn SetUserDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UserDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PresentationFormats(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattLocalCharacteristicParameters {
@@ -2854,8 +2854,8 @@ impl IGattLocalCharacteristicParametersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattLocalCharacteristicResultImpl: Sized {
-    fn Characteristic(&self) -> ::windows::core::Result<GattLocalCharacteristic>;
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Characteristic(&mut self) -> ::windows::core::Result<GattLocalCharacteristic>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattLocalCharacteristicResult {
@@ -2898,14 +2898,14 @@ impl IGattLocalCharacteristicResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattLocalDescriptorImpl: Sized {
-    fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn ReadRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReadRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn WriteRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveWriteRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn ReadProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn WriteProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn ReadRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReadRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn WriteRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveWriteRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattLocalDescriptor {
@@ -3006,12 +3006,12 @@ impl IGattLocalDescriptorVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattLocalDescriptorParametersImpl: Sized {
-    fn SetStaticValue(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
-    fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
-    fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
-    fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn SetStaticValue(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetReadProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
+    fn ReadProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
+    fn SetWriteProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
+    fn WriteProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattLocalDescriptorParameters {
@@ -3081,8 +3081,8 @@ impl IGattLocalDescriptorParametersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattLocalDescriptorResultImpl: Sized {
-    fn Descriptor(&self) -> ::windows::core::Result<GattLocalDescriptor>;
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Descriptor(&mut self) -> ::windows::core::Result<GattLocalDescriptor>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattLocalDescriptorResult {
@@ -3125,9 +3125,9 @@ impl IGattLocalDescriptorResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattLocalServiceImpl: Sized {
-    fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CreateCharacteristicAsync(&self, characteristicuuid: &::windows::core::GUID, parameters: &::core::option::Option<GattLocalCharacteristicParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>;
-    fn Characteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>>;
+    fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CreateCharacteristicAsync(&mut self, characteristicuuid: &::windows::core::GUID, parameters: &::core::option::Option<GattLocalCharacteristicParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>;
+    fn Characteristics(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattLocalService {
@@ -3182,11 +3182,11 @@ impl IGattLocalServiceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattPresentationFormatImpl: Sized {
-    fn FormatType(&self) -> ::windows::core::Result<u8>;
-    fn Exponent(&self) -> ::windows::core::Result<i32>;
-    fn Unit(&self) -> ::windows::core::Result<u16>;
-    fn Namespace(&self) -> ::windows::core::Result<u8>;
-    fn Description(&self) -> ::windows::core::Result<u16>;
+    fn FormatType(&mut self) -> ::windows::core::Result<u8>;
+    fn Exponent(&mut self) -> ::windows::core::Result<i32>;
+    fn Unit(&mut self) -> ::windows::core::Result<u16>;
+    fn Namespace(&mut self) -> ::windows::core::Result<u8>;
+    fn Description(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattPresentationFormat {
@@ -3265,7 +3265,7 @@ impl IGattPresentationFormatVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattPresentationFormatStaticsImpl: Sized {
-    fn BluetoothSigAssignedNumbers(&self) -> ::windows::core::Result<u8>;
+    fn BluetoothSigAssignedNumbers(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattPresentationFormatStatics {
@@ -3296,7 +3296,7 @@ impl IGattPresentationFormatStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattPresentationFormatStatics2Impl: Sized + IGattPresentationFormatStaticsImpl {
-    fn FromParts(&self, formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> ::windows::core::Result<GattPresentationFormat>;
+    fn FromParts(&mut self, formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> ::windows::core::Result<GattPresentationFormat>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattPresentationFormatStatics2 {
@@ -3327,33 +3327,33 @@ impl IGattPresentationFormatStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattPresentationFormatTypesStaticsImpl: Sized {
-    fn Boolean(&self) -> ::windows::core::Result<u8>;
-    fn Bit2(&self) -> ::windows::core::Result<u8>;
-    fn Nibble(&self) -> ::windows::core::Result<u8>;
-    fn UInt8(&self) -> ::windows::core::Result<u8>;
-    fn UInt12(&self) -> ::windows::core::Result<u8>;
-    fn UInt16(&self) -> ::windows::core::Result<u8>;
-    fn UInt24(&self) -> ::windows::core::Result<u8>;
-    fn UInt32(&self) -> ::windows::core::Result<u8>;
-    fn UInt48(&self) -> ::windows::core::Result<u8>;
-    fn UInt64(&self) -> ::windows::core::Result<u8>;
-    fn UInt128(&self) -> ::windows::core::Result<u8>;
-    fn SInt8(&self) -> ::windows::core::Result<u8>;
-    fn SInt12(&self) -> ::windows::core::Result<u8>;
-    fn SInt16(&self) -> ::windows::core::Result<u8>;
-    fn SInt24(&self) -> ::windows::core::Result<u8>;
-    fn SInt32(&self) -> ::windows::core::Result<u8>;
-    fn SInt48(&self) -> ::windows::core::Result<u8>;
-    fn SInt64(&self) -> ::windows::core::Result<u8>;
-    fn SInt128(&self) -> ::windows::core::Result<u8>;
-    fn Float32(&self) -> ::windows::core::Result<u8>;
-    fn Float64(&self) -> ::windows::core::Result<u8>;
-    fn SFloat(&self) -> ::windows::core::Result<u8>;
-    fn Float(&self) -> ::windows::core::Result<u8>;
-    fn DUInt16(&self) -> ::windows::core::Result<u8>;
-    fn Utf8(&self) -> ::windows::core::Result<u8>;
-    fn Utf16(&self) -> ::windows::core::Result<u8>;
-    fn Struct(&self) -> ::windows::core::Result<u8>;
+    fn Boolean(&mut self) -> ::windows::core::Result<u8>;
+    fn Bit2(&mut self) -> ::windows::core::Result<u8>;
+    fn Nibble(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt8(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt12(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt16(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt24(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt32(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt48(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt64(&mut self) -> ::windows::core::Result<u8>;
+    fn UInt128(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt8(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt12(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt16(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt24(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt32(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt48(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt64(&mut self) -> ::windows::core::Result<u8>;
+    fn SInt128(&mut self) -> ::windows::core::Result<u8>;
+    fn Float32(&mut self) -> ::windows::core::Result<u8>;
+    fn Float64(&mut self) -> ::windows::core::Result<u8>;
+    fn SFloat(&mut self) -> ::windows::core::Result<u8>;
+    fn Float(&mut self) -> ::windows::core::Result<u8>;
+    fn DUInt16(&mut self) -> ::windows::core::Result<u8>;
+    fn Utf8(&mut self) -> ::windows::core::Result<u8>;
+    fn Utf16(&mut self) -> ::windows::core::Result<u8>;
+    fn Struct(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattPresentationFormatTypesStatics {
@@ -3696,23 +3696,23 @@ impl IGattPresentationFormatTypesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattProtocolErrorStaticsImpl: Sized {
-    fn InvalidHandle(&self) -> ::windows::core::Result<u8>;
-    fn ReadNotPermitted(&self) -> ::windows::core::Result<u8>;
-    fn WriteNotPermitted(&self) -> ::windows::core::Result<u8>;
-    fn InvalidPdu(&self) -> ::windows::core::Result<u8>;
-    fn InsufficientAuthentication(&self) -> ::windows::core::Result<u8>;
-    fn RequestNotSupported(&self) -> ::windows::core::Result<u8>;
-    fn InvalidOffset(&self) -> ::windows::core::Result<u8>;
-    fn InsufficientAuthorization(&self) -> ::windows::core::Result<u8>;
-    fn PrepareQueueFull(&self) -> ::windows::core::Result<u8>;
-    fn AttributeNotFound(&self) -> ::windows::core::Result<u8>;
-    fn AttributeNotLong(&self) -> ::windows::core::Result<u8>;
-    fn InsufficientEncryptionKeySize(&self) -> ::windows::core::Result<u8>;
-    fn InvalidAttributeValueLength(&self) -> ::windows::core::Result<u8>;
-    fn UnlikelyError(&self) -> ::windows::core::Result<u8>;
-    fn InsufficientEncryption(&self) -> ::windows::core::Result<u8>;
-    fn UnsupportedGroupType(&self) -> ::windows::core::Result<u8>;
-    fn InsufficientResources(&self) -> ::windows::core::Result<u8>;
+    fn InvalidHandle(&mut self) -> ::windows::core::Result<u8>;
+    fn ReadNotPermitted(&mut self) -> ::windows::core::Result<u8>;
+    fn WriteNotPermitted(&mut self) -> ::windows::core::Result<u8>;
+    fn InvalidPdu(&mut self) -> ::windows::core::Result<u8>;
+    fn InsufficientAuthentication(&mut self) -> ::windows::core::Result<u8>;
+    fn RequestNotSupported(&mut self) -> ::windows::core::Result<u8>;
+    fn InvalidOffset(&mut self) -> ::windows::core::Result<u8>;
+    fn InsufficientAuthorization(&mut self) -> ::windows::core::Result<u8>;
+    fn PrepareQueueFull(&mut self) -> ::windows::core::Result<u8>;
+    fn AttributeNotFound(&mut self) -> ::windows::core::Result<u8>;
+    fn AttributeNotLong(&mut self) -> ::windows::core::Result<u8>;
+    fn InsufficientEncryptionKeySize(&mut self) -> ::windows::core::Result<u8>;
+    fn InvalidAttributeValueLength(&mut self) -> ::windows::core::Result<u8>;
+    fn UnlikelyError(&mut self) -> ::windows::core::Result<u8>;
+    fn InsufficientEncryption(&mut self) -> ::windows::core::Result<u8>;
+    fn UnsupportedGroupType(&mut self) -> ::windows::core::Result<u8>;
+    fn InsufficientResources(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattProtocolErrorStatics {
@@ -3935,8 +3935,8 @@ impl IGattProtocolErrorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattReadClientCharacteristicConfigurationDescriptorResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus>;
-    fn ClientCharacteristicConfigurationDescriptor(&self) -> ::windows::core::Result<GattClientCharacteristicConfigurationDescriptorValue>;
+    fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
+    fn ClientCharacteristicConfigurationDescriptor(&mut self) -> ::windows::core::Result<GattClientCharacteristicConfigurationDescriptorValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattReadClientCharacteristicConfigurationDescriptorResult {
@@ -3979,7 +3979,7 @@ impl IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattReadClientCharacteristicConfigurationDescriptorResult2Impl: Sized {
-    fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
+    fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattReadClientCharacteristicConfigurationDescriptorResult2 {
@@ -4010,13 +4010,13 @@ impl IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattReadRequestImpl: Sized {
-    fn Offset(&self) -> ::windows::core::Result<u32>;
-    fn Length(&self) -> ::windows::core::Result<u32>;
-    fn State(&self) -> ::windows::core::Result<GattRequestState>;
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RespondWithValue(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn RespondWithProtocolError(&self, protocolerror: u8) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<u32>;
+    fn Length(&mut self) -> ::windows::core::Result<u32>;
+    fn State(&mut self) -> ::windows::core::Result<GattRequestState>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RespondWithValue(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn RespondWithProtocolError(&mut self, protocolerror: u8) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattReadRequest {
@@ -4098,9 +4098,9 @@ impl IGattReadRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattReadRequestedEventArgsImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<GattSession>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
-    fn GetRequestAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>>;
+    fn Session(&mut self) -> ::windows::core::Result<GattSession>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn GetRequestAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattReadRequestedEventArgs {
@@ -4155,8 +4155,8 @@ impl IGattReadRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattReadResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus>;
-    fn Value(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
+    fn Value(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattReadResult {
@@ -4199,7 +4199,7 @@ impl IGattReadResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattReadResult2Impl: Sized {
-    fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
+    fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattReadResult2 {
@@ -4227,8 +4227,8 @@ impl IGattReadResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattReliableWriteTransactionImpl: Sized {
-    fn WriteValue(&self, characteristic: &::core::option::Option<GattCharacteristic>, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn CommitAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
+    fn WriteValue(&mut self, characteristic: &::core::option::Option<GattCharacteristic>, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn CommitAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattReliableWriteTransaction {
@@ -4264,7 +4264,7 @@ impl IGattReliableWriteTransactionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattReliableWriteTransaction2Impl: Sized {
-    fn CommitWithResultAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
+    fn CommitWithResultAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattReliableWriteTransaction2 {
@@ -4295,8 +4295,8 @@ impl IGattReliableWriteTransaction2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattRequestStateChangedEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<GattRequestState>;
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
+    fn State(&mut self) -> ::windows::core::Result<GattRequestState>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattRequestStateChangedEventArgs {
@@ -4339,13 +4339,13 @@ impl IGattRequestStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderImpl: Sized {
-    fn Service(&self) -> ::windows::core::Result<GattLocalService>;
-    fn AdvertisementStatus(&self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus>;
-    fn AdvertisementStatusChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAdvertisementStatusChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StartAdvertising(&self) -> ::windows::core::Result<()>;
-    fn StartAdvertisingWithParameters(&self, parameters: &::core::option::Option<GattServiceProviderAdvertisingParameters>) -> ::windows::core::Result<()>;
-    fn StopAdvertising(&self) -> ::windows::core::Result<()>;
+    fn Service(&mut self) -> ::windows::core::Result<GattLocalService>;
+    fn AdvertisementStatus(&mut self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus>;
+    fn AdvertisementStatusChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAdvertisementStatusChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StartAdvertising(&mut self) -> ::windows::core::Result<()>;
+    fn StartAdvertisingWithParameters(&mut self, parameters: &::core::option::Option<GattServiceProviderAdvertisingParameters>) -> ::windows::core::Result<()>;
+    fn StopAdvertising(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProvider {
@@ -4420,8 +4420,8 @@ impl IGattServiceProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattServiceProviderAdvertisementStatusChangedEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
-    fn Status(&self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Status(&mut self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattServiceProviderAdvertisementStatusChangedEventArgs {
@@ -4464,10 +4464,10 @@ impl IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattServiceProviderAdvertisingParametersImpl: Sized {
-    fn SetIsConnectable(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsConnectable(&self) -> ::windows::core::Result<bool>;
-    fn SetIsDiscoverable(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsDiscoverable(&self) -> ::windows::core::Result<bool>;
+    fn SetIsConnectable(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsConnectable(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsDiscoverable(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsDiscoverable(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattServiceProviderAdvertisingParameters {
@@ -4520,8 +4520,8 @@ impl IGattServiceProviderAdvertisingParametersVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderAdvertisingParameters2Impl: Sized {
-    fn SetServiceData(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn ServiceData(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetServiceData(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn ServiceData(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderAdvertisingParameters2 {
@@ -4557,8 +4557,8 @@ impl IGattServiceProviderAdvertisingParameters2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattServiceProviderResultImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
-    fn ServiceProvider(&self) -> ::windows::core::Result<GattServiceProvider>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
+    fn ServiceProvider(&mut self) -> ::windows::core::Result<GattServiceProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattServiceProviderResult {
@@ -4601,7 +4601,7 @@ impl IGattServiceProviderResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderStaticsImpl: Sized {
-    fn CreateAsync(&self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>>;
+    fn CreateAsync(&mut self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderStatics {
@@ -4632,15 +4632,15 @@ impl IGattServiceProviderStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattServiceUuidsStaticsImpl: Sized {
-    fn Battery(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BloodPressure(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CyclingSpeedAndCadence(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GenericAccess(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GenericAttribute(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Glucose(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HealthThermometer(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HeartRate(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RunningSpeedAndCadence(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Battery(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BloodPressure(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CyclingSpeedAndCadence(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GenericAccess(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GenericAttribute(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Glucose(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HealthThermometer(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HeartRate(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RunningSpeedAndCadence(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattServiceUuidsStatics {
@@ -4767,19 +4767,19 @@ impl IGattServiceUuidsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattServiceUuidsStatics2Impl: Sized {
-    fn AlertNotification(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CurrentTime(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CyclingPower(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DeviceInformation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn HumanInterfaceDevice(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ImmediateAlert(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn LinkLoss(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn LocationAndNavigation(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn NextDstChange(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn PhoneAlertStatus(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ReferenceTimeUpdate(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ScanParameters(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TxPower(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn AlertNotification(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CurrentTime(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CyclingPower(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DeviceInformation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HumanInterfaceDevice(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ImmediateAlert(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LinkLoss(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LocationAndNavigation(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn NextDstChange(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn PhoneAlertStatus(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ReferenceTimeUpdate(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ScanParameters(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TxPower(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattServiceUuidsStatics2 {
@@ -4954,16 +4954,16 @@ impl IGattServiceUuidsStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattSessionImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<super::BluetoothDeviceId>;
-    fn CanMaintainConnection(&self) -> ::windows::core::Result<bool>;
-    fn SetMaintainConnection(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MaintainConnection(&self) -> ::windows::core::Result<bool>;
-    fn MaxPduSize(&self) -> ::windows::core::Result<u16>;
-    fn SessionStatus(&self) -> ::windows::core::Result<GattSessionStatus>;
-    fn MaxPduSizeChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMaxPduSizeChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SessionStatusChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSessionStatusChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<super::BluetoothDeviceId>;
+    fn CanMaintainConnection(&mut self) -> ::windows::core::Result<bool>;
+    fn SetMaintainConnection(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MaintainConnection(&mut self) -> ::windows::core::Result<bool>;
+    fn MaxPduSize(&mut self) -> ::windows::core::Result<u16>;
+    fn SessionStatus(&mut self) -> ::windows::core::Result<GattSessionStatus>;
+    fn MaxPduSizeChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMaxPduSizeChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SessionStatusChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSessionStatusChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattSession {
@@ -5081,7 +5081,7 @@ impl IGattSessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattSessionStaticsImpl: Sized {
-    fn FromDeviceIdAsync(&self, deviceid: &::core::option::Option<super::BluetoothDeviceId>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>;
+    fn FromDeviceIdAsync(&mut self, deviceid: &::core::option::Option<super::BluetoothDeviceId>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattSessionStatics {
@@ -5112,8 +5112,8 @@ impl IGattSessionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattSessionStatusChangedEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
-    fn Status(&self) -> ::windows::core::Result<GattSessionStatus>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Status(&mut self) -> ::windows::core::Result<GattSessionStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattSessionStatusChangedEventArgs {
@@ -5156,10 +5156,10 @@ impl IGattSessionStatusChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattSubscribedClientImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<GattSession>;
-    fn MaxNotificationSize(&self) -> ::windows::core::Result<u16>;
-    fn MaxNotificationSizeChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMaxNotificationSizeChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Session(&mut self) -> ::windows::core::Result<GattSession>;
+    fn MaxNotificationSize(&mut self) -> ::windows::core::Result<u16>;
+    fn MaxNotificationSizeChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMaxNotificationSizeChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattSubscribedClient {
@@ -5219,8 +5219,8 @@ impl IGattSubscribedClientVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattValueChangedEventArgsImpl: Sized {
-    fn CharacteristicValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn CharacteristicValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattValueChangedEventArgs {
@@ -5263,14 +5263,14 @@ impl IGattValueChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattWriteRequestImpl: Sized {
-    fn Value(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn Offset(&self) -> ::windows::core::Result<u32>;
-    fn Option(&self) -> ::windows::core::Result<GattWriteOption>;
-    fn State(&self) -> ::windows::core::Result<GattRequestState>;
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Respond(&self) -> ::windows::core::Result<()>;
-    fn RespondWithProtocolError(&self, protocolerror: u8) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Offset(&mut self) -> ::windows::core::Result<u32>;
+    fn Option(&mut self) -> ::windows::core::Result<GattWriteOption>;
+    fn State(&mut self) -> ::windows::core::Result<GattRequestState>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Respond(&mut self) -> ::windows::core::Result<()>;
+    fn RespondWithProtocolError(&mut self, protocolerror: u8) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattWriteRequest {
@@ -5364,9 +5364,9 @@ impl IGattWriteRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattWriteRequestedEventArgsImpl: Sized {
-    fn Session(&self) -> ::windows::core::Result<GattSession>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
-    fn GetRequestAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>>;
+    fn Session(&mut self) -> ::windows::core::Result<GattSession>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn GetRequestAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattWriteRequestedEventArgs {
@@ -5421,8 +5421,8 @@ impl IGattWriteRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattWriteResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus>;
-    fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
+    fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
+    fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattWriteResult {

@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IAudioStreamDescriptorImpl: Sized + IMediaStreamDescriptorImpl {
-    fn EncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn EncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioStreamDescriptor {
@@ -31,10 +31,10 @@ impl IAudioStreamDescriptorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAudioStreamDescriptor2Impl: Sized + IMediaStreamDescriptorImpl {
-    fn SetLeadingEncoderPadding(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn LeadingEncoderPadding(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetTrailingEncoderPadding(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn TrailingEncoderPadding(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetLeadingEncoderPadding(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn LeadingEncoderPadding(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetTrailingEncoderPadding(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn TrailingEncoderPadding(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioStreamDescriptor2 {
@@ -87,7 +87,7 @@ impl IAudioStreamDescriptor2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioStreamDescriptor3Impl: Sized {
-    fn Copy(&self) -> ::windows::core::Result<AudioStreamDescriptor>;
+    fn Copy(&mut self) -> ::windows::core::Result<AudioStreamDescriptor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioStreamDescriptor3 {
@@ -115,7 +115,7 @@ impl IAudioStreamDescriptor3Vtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IAudioStreamDescriptorFactoryImpl: Sized {
-    fn Create(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioStreamDescriptor>;
+    fn Create(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<AudioStreamDescriptor>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioStreamDescriptorFactory {
@@ -143,12 +143,12 @@ impl IAudioStreamDescriptorFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait IAudioTrackImpl: Sized {
-    fn OpenFailed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioTrack, AudioTrackOpenFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOpenFailed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
-    fn PlaybackItem(&self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SupportInfo(&self) -> ::windows::core::Result<AudioTrackSupportInfo>;
+    fn OpenFailed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioTrack, AudioTrackOpenFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOpenFailed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetEncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn PlaybackItem(&mut self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportInfo(&mut self) -> ::windows::core::Result<AudioTrackSupportInfo>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioTrack {
@@ -232,7 +232,7 @@ impl IAudioTrackVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioTrackOpenFailedEventArgsImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioTrackOpenFailedEventArgs {
@@ -263,10 +263,10 @@ impl IAudioTrackOpenFailedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioTrackSupportInfoImpl: Sized {
-    fn DecoderStatus(&self) -> ::windows::core::Result<MediaDecoderStatus>;
-    fn Degradation(&self) -> ::windows::core::Result<AudioDecoderDegradation>;
-    fn DegradationReason(&self) -> ::windows::core::Result<AudioDecoderDegradationReason>;
-    fn MediaSourceStatus(&self) -> ::windows::core::Result<MediaSourceStatus>;
+    fn DecoderStatus(&mut self) -> ::windows::core::Result<MediaDecoderStatus>;
+    fn Degradation(&mut self) -> ::windows::core::Result<AudioDecoderDegradation>;
+    fn DegradationReason(&mut self) -> ::windows::core::Result<AudioDecoderDegradationReason>;
+    fn MediaSourceStatus(&mut self) -> ::windows::core::Result<MediaSourceStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioTrackSupportInfo {
@@ -333,8 +333,8 @@ impl IAudioTrackSupportInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IChapterCueImpl: Sized + IMediaCueImpl {
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IChapterCue {
@@ -370,11 +370,11 @@ impl IChapterCueVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICodecInfoImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<CodecKind>;
-    fn Category(&self) -> ::windows::core::Result<CodecCategory>;
-    fn Subtypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsTrusted(&self) -> ::windows::core::Result<bool>;
+    fn Kind(&mut self) -> ::windows::core::Result<CodecKind>;
+    fn Category(&mut self) -> ::windows::core::Result<CodecCategory>;
+    fn Subtypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsTrusted(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICodecInfo {
@@ -453,7 +453,7 @@ impl ICodecInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICodecQueryImpl: Sized {
-    fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>;
+    fn FindAllAsync(&mut self, kind: CodecKind, category: CodecCategory, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICodecQuery {
@@ -481,57 +481,57 @@ impl ICodecQueryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICodecSubtypesStaticsImpl: Sized {
-    fn VideoFormatDV25(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatDV50(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatDvc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatDvh1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatDvhD(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatDvsd(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatDvsl(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatH263(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatH264(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatH265(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatH264ES(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatHevc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatHevcES(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatM4S2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMjpg(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMP43(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMP4S(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMP4V(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMpeg2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatVP80(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatVP90(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMpg1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMss1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatMss2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatWmv1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatWmv2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatWmv3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormatWvc1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoFormat420O(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatAac(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatAdts(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatAlac(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatAmrNB(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatAmrWB(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatAmrWP(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatDolbyAC3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatDolbyAC3Spdif(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatDolbyDDPlus(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatDrm(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatDts(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatFlac(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatFloat(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatMP3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatMPeg(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatMsp1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatOpus(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatPcm(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatWmaSpdif(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatWMAudioLossless(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatWMAudioV8(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AudioFormatWMAudioV9(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatDV25(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatDV50(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatDvc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatDvh1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatDvhD(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatDvsd(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatDvsl(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatH263(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatH264(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatH265(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatH264ES(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatHevc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatHevcES(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatM4S2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMjpg(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMP43(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMP4S(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMP4V(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMpeg2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatVP80(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatVP90(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMpg1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMss1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatMss2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatWmv1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatWmv2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatWmv3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormatWvc1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoFormat420O(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatAac(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatAdts(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatAlac(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatAmrNB(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatAmrWB(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatAmrWP(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatDolbyAC3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatDolbyAC3Spdif(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatDolbyDDPlus(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatDrm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatDts(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatFlac(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatFloat(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatMP3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatMPeg(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatMsp1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatOpus(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatPcm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatWmaSpdif(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatWMAudioLossless(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatWMAudioV8(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AudioFormatWMAudioV9(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICodecSubtypesStatics {
@@ -1162,8 +1162,8 @@ impl ICodecSubtypesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDataCueImpl: Sized + IMediaCueImpl {
-    fn SetData(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetData(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDataCue {
@@ -1199,7 +1199,7 @@ impl IDataCueVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDataCue2Impl: Sized + IDataCueImpl + IMediaCueImpl {
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::PropertySet>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::PropertySet>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDataCue2 {
@@ -1227,7 +1227,7 @@ impl IDataCue2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFaceDetectedEventArgsImpl: Sized {
-    fn ResultFrame(&self) -> ::windows::core::Result<FaceDetectionEffectFrame>;
+    fn ResultFrame(&mut self) -> ::windows::core::Result<FaceDetectionEffectFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFaceDetectedEventArgs {
@@ -1255,12 +1255,12 @@ impl IFaceDetectedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFaceDetectionEffectImpl: Sized + IMediaExtensionImpl {
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
-    fn SetDesiredDetectionInterval(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn DesiredDetectionInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn FaceDetected(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<FaceDetectionEffect, FaceDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFaceDetected(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDesiredDetectionInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DesiredDetectionInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn FaceDetected(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<FaceDetectionEffect, FaceDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFaceDetected(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceDetectionEffect {
@@ -1330,10 +1330,10 @@ impl IFaceDetectionEffectVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 pub trait IFaceDetectionEffectDefinitionImpl: Sized + IVideoEffectDefinitionImpl {
-    fn SetDetectionMode(&self, value: FaceDetectionMode) -> ::windows::core::Result<()>;
-    fn DetectionMode(&self) -> ::windows::core::Result<FaceDetectionMode>;
-    fn SetSynchronousDetectionEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SynchronousDetectionEnabled(&self) -> ::windows::core::Result<bool>;
+    fn SetDetectionMode(&mut self, value: FaceDetectionMode) -> ::windows::core::Result<()>;
+    fn DetectionMode(&mut self) -> ::windows::core::Result<FaceDetectionMode>;
+    fn SetSynchronousDetectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SynchronousDetectionEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceDetectionEffectDefinition {
@@ -1386,7 +1386,7 @@ impl IFaceDetectionEffectDefinitionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_FaceAnalysis", feature = "implement_exclusive"))]
 pub trait IFaceDetectionEffectFrameImpl: Sized + IClosableImpl + IMediaFrameImpl {
-    fn DetectedFaces(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>>;
+    fn DetectedFaces(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_FaceAnalysis", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceDetectionEffectFrame {
@@ -1417,8 +1417,8 @@ impl IFaceDetectionEffectFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHighDynamicRangeControlImpl: Sized {
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHighDynamicRangeControl {
@@ -1454,8 +1454,8 @@ impl IHighDynamicRangeControlVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core", feature = "implement_exclusive"))]
 pub trait IHighDynamicRangeOutputImpl: Sized {
-    fn Certainty(&self) -> ::windows::core::Result<f64>;
-    fn FrameControllers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>>;
+    fn Certainty(&mut self) -> ::windows::core::Result<f64>;
+    fn FrameControllers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHighDynamicRangeOutput {
@@ -1498,12 +1498,12 @@ impl IHighDynamicRangeOutputVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IImageCueImpl: Sized + IMediaCueImpl {
-    fn Position(&self) -> ::windows::core::Result<TimedTextPoint>;
-    fn SetPosition(&self, value: &TimedTextPoint) -> ::windows::core::Result<()>;
-    fn Extent(&self) -> ::windows::core::Result<TimedTextSize>;
-    fn SetExtent(&self, value: &TimedTextSize) -> ::windows::core::Result<()>;
-    fn SetSoftwareBitmap(&self, value: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
-    fn SoftwareBitmap(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::SoftwareBitmap>;
+    fn Position(&mut self) -> ::windows::core::Result<TimedTextPoint>;
+    fn SetPosition(&mut self, value: &TimedTextPoint) -> ::windows::core::Result<()>;
+    fn Extent(&mut self) -> ::windows::core::Result<TimedTextSize>;
+    fn SetExtent(&mut self, value: &TimedTextSize) -> ::windows::core::Result<()>;
+    fn SetSoftwareBitmap(&mut self, value: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
+    fn SoftwareBitmap(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::SoftwareBitmap>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageCue {
@@ -1573,9 +1573,9 @@ impl IImageCueVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IInitializeMediaStreamSourceRequestedEventArgsImpl: Sized {
-    fn Source(&self) -> ::windows::core::Result<MediaStreamSource>;
-    fn RandomAccessStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn Source(&mut self) -> ::windows::core::Result<MediaStreamSource>;
+    fn RandomAccessStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInitializeMediaStreamSourceRequestedEventArgs {
@@ -1630,7 +1630,7 @@ impl IInitializeMediaStreamSourceRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ILowLightFusionResultImpl: Sized {
-    fn Frame(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::SoftwareBitmap>;
+    fn Frame(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::SoftwareBitmap>;
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLightFusionResult {
@@ -1658,9 +1658,9 @@ impl ILowLightFusionResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ILowLightFusionStaticsImpl: Sized {
-    fn SupportedBitmapPixelFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
-    fn MaxSupportedFrameCount(&self) -> ::windows::core::Result<i32>;
-    fn FuseAsync(&self, frameset: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>;
+    fn SupportedBitmapPixelFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
+    fn MaxSupportedFrameCount(&mut self) -> ::windows::core::Result<i32>;
+    fn FuseAsync(&mut self, frameset: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLightFusionStatics {
@@ -1715,11 +1715,11 @@ impl ILowLightFusionStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaBinderImpl: Sized {
-    fn Binding(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaBinder, MediaBindingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBinding(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetToken(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Source(&self) -> ::windows::core::Result<MediaSource>;
+    fn Binding(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaBinder, MediaBindingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBinding(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Token(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetToken(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<MediaSource>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaBinder {
@@ -1784,13 +1784,13 @@ impl IMediaBinderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaBindingEventArgsImpl: Sized {
-    fn Canceled(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaBindingEventArgs, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCanceled(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MediaBinder(&self) -> ::windows::core::Result<MediaBinder>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
-    fn SetUri(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn SetStream(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetStreamReference(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Canceled(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaBindingEventArgs, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCanceled(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MediaBinder(&mut self) -> ::windows::core::Result<MediaBinder>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn SetUri(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn SetStream(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetStreamReference(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaBindingEventArgs {
@@ -1865,8 +1865,8 @@ impl IMediaBindingEventArgsVtbl {
 }
 #[cfg(all(feature = "Media_Streaming_Adaptive", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IMediaBindingEventArgs2Impl: Sized {
-    fn SetAdaptiveMediaSource(&self, mediasource: &::core::option::Option<super::Streaming::Adaptive::AdaptiveMediaSource>) -> ::windows::core::Result<()>;
-    fn SetStorageFile(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<()>;
+    fn SetAdaptiveMediaSource(&mut self, mediasource: &::core::option::Option<super::Streaming::Adaptive::AdaptiveMediaSource>) -> ::windows::core::Result<()>;
+    fn SetStorageFile(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Media_Streaming_Adaptive", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaBindingEventArgs2 {
@@ -1895,7 +1895,7 @@ impl IMediaBindingEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Networking_BackgroundTransfer", feature = "implement_exclusive"))]
 pub trait IMediaBindingEventArgs3Impl: Sized {
-    fn SetDownloadOperation(&self, downloadoperation: &::core::option::Option<super::super::Networking::BackgroundTransfer::DownloadOperation>) -> ::windows::core::Result<()>;
+    fn SetDownloadOperation(&mut self, downloadoperation: &::core::option::Option<super::super::Networking::BackgroundTransfer::DownloadOperation>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Networking_BackgroundTransfer", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaBindingEventArgs3 {
@@ -1919,12 +1919,12 @@ impl IMediaBindingEventArgs3Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IMediaCueImpl: Sized {
-    fn SetStartTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetStartTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IMediaCue {
@@ -1994,7 +1994,7 @@ impl IMediaCueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaCueEventArgsImpl: Sized {
-    fn Cue(&self) -> ::windows::core::Result<IMediaCue>;
+    fn Cue(&mut self) -> ::windows::core::Result<IMediaCue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaCueEventArgs {
@@ -2034,13 +2034,13 @@ impl IMediaSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait IMediaSource2Impl: Sized + IClosableImpl + IMediaPlaybackSourceImpl {
-    fn OpenOperationCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceOpenOperationCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOpenOperationCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CustomProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn IsOpen(&self) -> ::windows::core::Result<bool>;
-    fn ExternalTimedTextSources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IObservableVector<TimedTextSource>>;
-    fn ExternalTimedMetadataTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>>;
+    fn OpenOperationCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceOpenOperationCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOpenOperationCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CustomProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn IsOpen(&mut self) -> ::windows::core::Result<bool>;
+    fn ExternalTimedTextSources(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IObservableVector<TimedTextSource>>;
+    fn ExternalTimedMetadataTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSource2 {
@@ -2136,10 +2136,10 @@ impl IMediaSource2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait IMediaSource3Impl: Sized + IClosableImpl + IMediaPlaybackSourceImpl + IMediaSource2Impl {
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn State(&self) -> ::windows::core::Result<MediaSourceState>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn State(&mut self) -> ::windows::core::Result<MediaSourceState>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSource3 {
@@ -2192,11 +2192,11 @@ impl IMediaSource3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "Media_Streaming_Adaptive", feature = "implement_exclusive"))]
 pub trait IMediaSource4Impl: Sized + IClosableImpl + IMediaPlaybackSourceImpl + IMediaSource2Impl + IMediaSource3Impl {
-    fn AdaptiveMediaSource(&self) -> ::windows::core::Result<super::Streaming::Adaptive::AdaptiveMediaSource>;
-    fn MediaStreamSource(&self) -> ::windows::core::Result<MediaStreamSource>;
-    fn MseStreamSource(&self) -> ::windows::core::Result<MseStreamSource>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn OpenAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn AdaptiveMediaSource(&mut self) -> ::windows::core::Result<super::Streaming::Adaptive::AdaptiveMediaSource>;
+    fn MediaStreamSource(&mut self) -> ::windows::core::Result<MediaStreamSource>;
+    fn MseStreamSource(&mut self) -> ::windows::core::Result<MseStreamSource>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn OpenAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "Media_Streaming_Adaptive", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSource4 {
@@ -2275,7 +2275,7 @@ impl IMediaSource4Vtbl {
 }
 #[cfg(all(feature = "Networking_BackgroundTransfer", feature = "implement_exclusive"))]
 pub trait IMediaSource5Impl: Sized {
-    fn DownloadOperation(&self) -> ::windows::core::Result<super::super::Networking::BackgroundTransfer::DownloadOperation>;
+    fn DownloadOperation(&mut self) -> ::windows::core::Result<super::super::Networking::BackgroundTransfer::DownloadOperation>;
 }
 #[cfg(all(feature = "Networking_BackgroundTransfer", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSource5 {
@@ -2306,9 +2306,9 @@ impl IMediaSource5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaSourceAppServiceConnectionImpl: Sized {
-    fn InitializeMediaStreamSourceRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSourceAppServiceConnection, InitializeMediaStreamSourceRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInitializeMediaStreamSourceRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn InitializeMediaStreamSourceRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaSourceAppServiceConnection, InitializeMediaStreamSourceRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInitializeMediaStreamSourceRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSourceAppServiceConnection {
@@ -2349,7 +2349,7 @@ impl IMediaSourceAppServiceConnectionVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 pub trait IMediaSourceAppServiceConnectionFactoryImpl: Sized {
-    fn Create(&self, appserviceconnection: &::core::option::Option<super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<MediaSourceAppServiceConnection>;
+    fn Create(&mut self, appserviceconnection: &::core::option::Option<super::super::ApplicationModel::AppService::AppServiceConnection>) -> ::windows::core::Result<MediaSourceAppServiceConnection>;
 }
 #[cfg(all(feature = "ApplicationModel_AppService", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSourceAppServiceConnectionFactory {
@@ -2380,7 +2380,7 @@ impl IMediaSourceAppServiceConnectionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaSourceErrorImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaSourceError {
@@ -2408,7 +2408,7 @@ impl IMediaSourceErrorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaSourceOpenOperationCompletedEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<MediaSourceError>;
+    fn Error(&mut self) -> ::windows::core::Result<MediaSourceError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaSourceOpenOperationCompletedEventArgs {
@@ -2439,8 +2439,8 @@ impl IMediaSourceOpenOperationCompletedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaSourceStateChangedEventArgsImpl: Sized {
-    fn OldState(&self) -> ::windows::core::Result<MediaSourceState>;
-    fn NewState(&self) -> ::windows::core::Result<MediaSourceState>;
+    fn OldState(&mut self) -> ::windows::core::Result<MediaSourceState>;
+    fn NewState(&mut self) -> ::windows::core::Result<MediaSourceState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaSourceStateChangedEventArgs {
@@ -2483,14 +2483,14 @@ impl IMediaSourceStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Streaming_Adaptive", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaSourceStaticsImpl: Sized {
-    fn CreateFromAdaptiveMediaSource(&self, mediasource: &::core::option::Option<super::Streaming::Adaptive::AdaptiveMediaSource>) -> ::windows::core::Result<MediaSource>;
-    fn CreateFromMediaStreamSource(&self, mediasource: &::core::option::Option<MediaStreamSource>) -> ::windows::core::Result<MediaSource>;
-    fn CreateFromMseStreamSource(&self, mediasource: &::core::option::Option<MseStreamSource>) -> ::windows::core::Result<MediaSource>;
-    fn CreateFromIMediaSource(&self, mediasource: &::core::option::Option<IMediaSource>) -> ::windows::core::Result<MediaSource>;
-    fn CreateFromStorageFile(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<MediaSource>;
-    fn CreateFromStream(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>;
-    fn CreateFromStreamReference(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>;
-    fn CreateFromUri(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromAdaptiveMediaSource(&mut self, mediasource: &::core::option::Option<super::Streaming::Adaptive::AdaptiveMediaSource>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromMediaStreamSource(&mut self, mediasource: &::core::option::Option<MediaStreamSource>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromMseStreamSource(&mut self, mediasource: &::core::option::Option<MseStreamSource>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromIMediaSource(&mut self, mediasource: &::core::option::Option<IMediaSource>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromStorageFile(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromStream(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromStreamReference(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromUri(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<MediaSource>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Streaming_Adaptive", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSourceStatics {
@@ -2605,7 +2605,7 @@ impl IMediaSourceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaSourceStatics2Impl: Sized {
-    fn CreateFromMediaBinder(&self, binder: &::core::option::Option<MediaBinder>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromMediaBinder(&mut self, binder: &::core::option::Option<MediaBinder>) -> ::windows::core::Result<MediaSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaSourceStatics2 {
@@ -2636,7 +2636,7 @@ impl IMediaSourceStatics2Vtbl {
 }
 #[cfg(all(feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 pub trait IMediaSourceStatics3Impl: Sized {
-    fn CreateFromMediaFrameSource(&self, framesource: &::core::option::Option<super::Capture::Frames::MediaFrameSource>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromMediaFrameSource(&mut self, framesource: &::core::option::Option<super::Capture::Frames::MediaFrameSource>) -> ::windows::core::Result<MediaSource>;
 }
 #[cfg(all(feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSourceStatics3 {
@@ -2667,7 +2667,7 @@ impl IMediaSourceStatics3Vtbl {
 }
 #[cfg(all(feature = "Networking_BackgroundTransfer", feature = "implement_exclusive"))]
 pub trait IMediaSourceStatics4Impl: Sized {
-    fn CreateFromDownloadOperation(&self, downloadoperation: &::core::option::Option<super::super::Networking::BackgroundTransfer::DownloadOperation>) -> ::windows::core::Result<MediaSource>;
+    fn CreateFromDownloadOperation(&mut self, downloadoperation: &::core::option::Option<super::super::Networking::BackgroundTransfer::DownloadOperation>) -> ::windows::core::Result<MediaSource>;
 }
 #[cfg(all(feature = "Networking_BackgroundTransfer", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaSourceStatics4 {
@@ -2697,11 +2697,11 @@ impl IMediaSourceStatics4Vtbl {
     }
 }
 pub trait IMediaStreamDescriptorImpl: Sized {
-    fn IsSelected(&self) -> ::windows::core::Result<bool>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsSelected(&mut self) -> ::windows::core::Result<bool>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IMediaStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor";
@@ -2763,8 +2763,8 @@ impl IMediaStreamDescriptorVtbl {
     }
 }
 pub trait IMediaStreamDescriptor2Impl: Sized + IMediaStreamDescriptorImpl {
-    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IMediaStreamDescriptor2 {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor2";
@@ -2798,20 +2798,20 @@ impl IMediaStreamDescriptor2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaStreamSampleImpl: Sized {
-    fn Processed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSample, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProcessed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Buffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn ExtendedProperties(&self) -> ::windows::core::Result<MediaStreamSamplePropertySet>;
-    fn Protection(&self) -> ::windows::core::Result<MediaStreamSampleProtectionProperties>;
-    fn SetDecodeTimestamp(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn DecodeTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetKeyFrame(&self, value: bool) -> ::windows::core::Result<()>;
-    fn KeyFrame(&self) -> ::windows::core::Result<bool>;
-    fn SetDiscontinuous(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Discontinuous(&self) -> ::windows::core::Result<bool>;
+    fn Processed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSample, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProcessed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Buffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn ExtendedProperties(&mut self) -> ::windows::core::Result<MediaStreamSamplePropertySet>;
+    fn Protection(&mut self) -> ::windows::core::Result<MediaStreamSampleProtectionProperties>;
+    fn SetDecodeTimestamp(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DecodeTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetKeyFrame(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn KeyFrame(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDiscontinuous(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Discontinuous(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSample {
@@ -2963,7 +2963,7 @@ impl IMediaStreamSampleVtbl {
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IMediaStreamSample2Impl: Sized {
-    fn Direct3D11Surface(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>;
+    fn Direct3D11Surface(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>;
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSample2 {
@@ -2994,12 +2994,12 @@ impl IMediaStreamSample2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSampleProtectionPropertiesImpl: Sized {
-    fn SetKeyIdentifier(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GetKeyIdentifier(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
-    fn SetInitializationVector(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GetInitializationVector(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
-    fn SetSubSampleMapping(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GetSubSampleMapping(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn SetKeyIdentifier(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetKeyIdentifier(&mut self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn SetInitializationVector(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetInitializationVector(&mut self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn SetSubSampleMapping(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetSubSampleMapping(&mut self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSampleProtectionProperties {
@@ -3048,8 +3048,8 @@ impl IMediaStreamSampleProtectionPropertiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaStreamSampleStaticsImpl: Sized {
-    fn CreateFromBuffer(&self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, timestamp: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>;
-    fn CreateFromStreamAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, count: u32, timestamp: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaStreamSample>>;
+    fn CreateFromBuffer(&mut self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, timestamp: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>;
+    fn CreateFromStreamAsync(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, count: u32, timestamp: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaStreamSample>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSampleStatics {
@@ -3092,7 +3092,7 @@ impl IMediaStreamSampleStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IMediaStreamSampleStatics2Impl: Sized {
-    fn CreateFromDirect3D11Surface(&self, surface: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, timestamp: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>;
+    fn CreateFromDirect3D11Surface(&mut self, surface: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, timestamp: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaStreamSample>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSampleStatics2 {
@@ -3123,32 +3123,32 @@ impl IMediaStreamSampleStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaStreamSourceImpl: Sized + IMediaSourceImpl {
-    fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Starting(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceStartingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStarting(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Paused(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePaused(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SampleRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSampleRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SwitchStreamsRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSwitchStreamsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSwitchStreamsRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NotifyError(&self, errorstatus: MediaStreamSourceErrorStatus) -> ::windows::core::Result<()>;
-    fn AddStreamDescriptor(&self, descriptor: &::core::option::Option<IMediaStreamDescriptor>) -> ::windows::core::Result<()>;
-    fn SetMediaProtectionManager(&self, value: &::core::option::Option<super::Protection::MediaProtectionManager>) -> ::windows::core::Result<()>;
-    fn MediaProtectionManager(&self) -> ::windows::core::Result<super::Protection::MediaProtectionManager>;
-    fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetCanSeek(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanSeek(&self) -> ::windows::core::Result<bool>;
-    fn SetBufferTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn BufferTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetBufferedRange(&self, startoffset: &super::super::Foundation::TimeSpan, endoffset: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn MusicProperties(&self) -> ::windows::core::Result<super::super::Storage::FileProperties::MusicProperties>;
-    fn VideoProperties(&self) -> ::windows::core::Result<super::super::Storage::FileProperties::VideoProperties>;
-    fn SetThumbnail(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn AddProtectionKey(&self, streamdescriptor: &::core::option::Option<IMediaStreamDescriptor>, keyidentifier: &[<u8 as ::windows::core::DefaultType>::DefaultType], licensedata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Starting(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceStartingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStarting(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Paused(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePaused(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SampleRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSampleRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SwitchStreamsRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSwitchStreamsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSwitchStreamsRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NotifyError(&mut self, errorstatus: MediaStreamSourceErrorStatus) -> ::windows::core::Result<()>;
+    fn AddStreamDescriptor(&mut self, descriptor: &::core::option::Option<IMediaStreamDescriptor>) -> ::windows::core::Result<()>;
+    fn SetMediaProtectionManager(&mut self, value: &::core::option::Option<super::Protection::MediaProtectionManager>) -> ::windows::core::Result<()>;
+    fn MediaProtectionManager(&mut self) -> ::windows::core::Result<super::Protection::MediaProtectionManager>;
+    fn SetDuration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetCanSeek(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanSeek(&mut self) -> ::windows::core::Result<bool>;
+    fn SetBufferTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn BufferTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetBufferedRange(&mut self, startoffset: &super::super::Foundation::TimeSpan, endoffset: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn MusicProperties(&mut self) -> ::windows::core::Result<super::super::Storage::FileProperties::MusicProperties>;
+    fn VideoProperties(&mut self) -> ::windows::core::Result<super::super::Storage::FileProperties::VideoProperties>;
+    fn SetThumbnail(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn AddProtectionKey(&mut self, streamdescriptor: &::core::option::Option<IMediaStreamDescriptor>, keyidentifier: &[<u8 as ::windows::core::DefaultType>::DefaultType], licensedata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSource {
@@ -3381,8 +3381,8 @@ impl IMediaStreamSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaStreamSource2Impl: Sized + IMediaSourceImpl + IMediaStreamSourceImpl {
-    fn SampleRendered(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRenderedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSampleRendered(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SampleRendered(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRenderedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSampleRendered(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSource2 {
@@ -3418,8 +3418,8 @@ impl IMediaStreamSource2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaStreamSource3Impl: Sized + IMediaSourceImpl + IMediaStreamSourceImpl {
-    fn SetMaxSupportedPlaybackRate(&self, value: &::core::option::Option<super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
-    fn MaxSupportedPlaybackRate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn SetMaxSupportedPlaybackRate(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
+    fn MaxSupportedPlaybackRate(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSource3 {
@@ -3455,8 +3455,8 @@ impl IMediaStreamSource3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaStreamSource4Impl: Sized + IMediaSourceImpl + IMediaStreamSourceImpl {
-    fn SetIsLive(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsLive(&self) -> ::windows::core::Result<bool>;
+    fn SetIsLive(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsLive(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Protection", feature = "Storage_FileProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSource4 {
@@ -3492,7 +3492,7 @@ impl IMediaStreamSource4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceClosedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<MediaStreamSourceClosedRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<MediaStreamSourceClosedRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceClosedEventArgs {
@@ -3523,7 +3523,7 @@ impl IMediaStreamSourceClosedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceClosedRequestImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<MediaStreamSourceClosedReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<MediaStreamSourceClosedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceClosedRequest {
@@ -3551,8 +3551,8 @@ impl IMediaStreamSourceClosedRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceFactoryImpl: Sized {
-    fn CreateFromDescriptor(&self, descriptor: &::core::option::Option<IMediaStreamDescriptor>) -> ::windows::core::Result<MediaStreamSource>;
-    fn CreateFromDescriptors(&self, descriptor: &::core::option::Option<IMediaStreamDescriptor>, descriptor2: &::core::option::Option<IMediaStreamDescriptor>) -> ::windows::core::Result<MediaStreamSource>;
+    fn CreateFromDescriptor(&mut self, descriptor: &::core::option::Option<IMediaStreamDescriptor>) -> ::windows::core::Result<MediaStreamSource>;
+    fn CreateFromDescriptors(&mut self, descriptor: &::core::option::Option<IMediaStreamDescriptor>, descriptor2: &::core::option::Option<IMediaStreamDescriptor>) -> ::windows::core::Result<MediaStreamSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceFactory {
@@ -3595,7 +3595,7 @@ impl IMediaStreamSourceFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaStreamSourceSampleRenderedEventArgsImpl: Sized {
-    fn SampleLag(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SampleLag(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSourceSampleRenderedEventArgs {
@@ -3626,11 +3626,11 @@ impl IMediaStreamSourceSampleRenderedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceSampleRequestImpl: Sized {
-    fn StreamDescriptor(&self) -> ::windows::core::Result<IMediaStreamDescriptor>;
-    fn GetDeferral(&self) -> ::windows::core::Result<MediaStreamSourceSampleRequestDeferral>;
-    fn SetSample(&self, value: &::core::option::Option<MediaStreamSample>) -> ::windows::core::Result<()>;
-    fn Sample(&self) -> ::windows::core::Result<MediaStreamSample>;
-    fn ReportSampleProgress(&self, progress: u32) -> ::windows::core::Result<()>;
+    fn StreamDescriptor(&mut self) -> ::windows::core::Result<IMediaStreamDescriptor>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<MediaStreamSourceSampleRequestDeferral>;
+    fn SetSample(&mut self, value: &::core::option::Option<MediaStreamSample>) -> ::windows::core::Result<()>;
+    fn Sample(&mut self) -> ::windows::core::Result<MediaStreamSample>;
+    fn ReportSampleProgress(&mut self, progress: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceSampleRequest {
@@ -3695,7 +3695,7 @@ impl IMediaStreamSourceSampleRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceSampleRequestDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceSampleRequestDeferral {
@@ -3719,7 +3719,7 @@ impl IMediaStreamSourceSampleRequestDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceSampleRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<MediaStreamSourceSampleRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<MediaStreamSourceSampleRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceSampleRequestedEventArgs {
@@ -3750,7 +3750,7 @@ impl IMediaStreamSourceSampleRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceStartingEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<MediaStreamSourceStartingRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<MediaStreamSourceStartingRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceStartingEventArgs {
@@ -3781,9 +3781,9 @@ impl IMediaStreamSourceStartingEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaStreamSourceStartingRequestImpl: Sized {
-    fn StartPosition(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn GetDeferral(&self) -> ::windows::core::Result<MediaStreamSourceStartingRequestDeferral>;
-    fn SetActualStartPosition(&self, position: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<MediaStreamSourceStartingRequestDeferral>;
+    fn SetActualStartPosition(&mut self, position: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaStreamSourceStartingRequest {
@@ -3831,7 +3831,7 @@ impl IMediaStreamSourceStartingRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceStartingRequestDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceStartingRequestDeferral {
@@ -3855,9 +3855,9 @@ impl IMediaStreamSourceStartingRequestDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceSwitchStreamsRequestImpl: Sized {
-    fn OldStreamDescriptor(&self) -> ::windows::core::Result<IMediaStreamDescriptor>;
-    fn NewStreamDescriptor(&self) -> ::windows::core::Result<IMediaStreamDescriptor>;
-    fn GetDeferral(&self) -> ::windows::core::Result<MediaStreamSourceSwitchStreamsRequestDeferral>;
+    fn OldStreamDescriptor(&mut self) -> ::windows::core::Result<IMediaStreamDescriptor>;
+    fn NewStreamDescriptor(&mut self) -> ::windows::core::Result<IMediaStreamDescriptor>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<MediaStreamSourceSwitchStreamsRequestDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceSwitchStreamsRequest {
@@ -3912,7 +3912,7 @@ impl IMediaStreamSourceSwitchStreamsRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceSwitchStreamsRequestDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceSwitchStreamsRequestDeferral {
@@ -3936,7 +3936,7 @@ impl IMediaStreamSourceSwitchStreamsRequestDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaStreamSourceSwitchStreamsRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<MediaStreamSourceSwitchStreamsRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<MediaStreamSourceSwitchStreamsRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaStreamSourceSwitchStreamsRequestedEventArgs {
@@ -3966,11 +3966,11 @@ impl IMediaStreamSourceSwitchStreamsRequestedEventArgsVtbl {
     }
 }
 pub trait IMediaTrackImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TrackKind(&self) -> ::windows::core::Result<MediaTrackKind>;
-    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TrackKind(&mut self) -> ::windows::core::Result<MediaTrackKind>;
+    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IMediaTrack {
     const NAME: &'static str = "Windows.Media.Core.IMediaTrack";
@@ -4040,31 +4040,31 @@ impl IMediaTrackVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMseSourceBufferImpl: Sized {
-    fn UpdateStarting(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdateStarting(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Updated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UpdateEnded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdateEnded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ErrorOccurred(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveErrorOccurred(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Aborted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAborted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Mode(&self) -> ::windows::core::Result<MseAppendMode>;
-    fn SetMode(&self, value: MseAppendMode) -> ::windows::core::Result<()>;
-    fn IsUpdating(&self) -> ::windows::core::Result<bool>;
-    fn Buffered(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MseTimeRange>>;
-    fn TimestampOffset(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetTimestampOffset(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn AppendWindowStart(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetAppendWindowStart(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn AppendWindowEnd(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetAppendWindowEnd(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn AppendBuffer(&self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn AppendStream(&self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<()>;
-    fn AppendStreamMaxSize(&self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, maxsize: u64) -> ::windows::core::Result<()>;
-    fn Abort(&self) -> ::windows::core::Result<()>;
-    fn Remove(&self, start: &super::super::Foundation::TimeSpan, end: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn UpdateStarting(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdateStarting(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Updated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UpdateEnded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdateEnded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ErrorOccurred(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveErrorOccurred(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Aborted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAborted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<MseAppendMode>;
+    fn SetMode(&mut self, value: MseAppendMode) -> ::windows::core::Result<()>;
+    fn IsUpdating(&mut self) -> ::windows::core::Result<bool>;
+    fn Buffered(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MseTimeRange>>;
+    fn TimestampOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetTimestampOffset(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn AppendWindowStart(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetAppendWindowStart(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn AppendWindowEnd(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetAppendWindowEnd(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn AppendBuffer(&mut self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn AppendStream(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<()>;
+    fn AppendStreamMaxSize(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, maxsize: u64) -> ::windows::core::Result<()>;
+    fn Abort(&mut self) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, start: &super::super::Foundation::TimeSpan, end: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMseSourceBuffer {
@@ -4285,11 +4285,11 @@ impl IMseSourceBufferVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMseSourceBufferListImpl: Sized {
-    fn SourceBufferAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourceBufferAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SourceBufferRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourceBufferRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Buffers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MseSourceBuffer>>;
+    fn SourceBufferAdded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourceBufferAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SourceBufferRemoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourceBufferRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Buffers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MseSourceBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMseSourceBufferList {
@@ -4354,20 +4354,20 @@ impl IMseSourceBufferListVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMseStreamSourceImpl: Sized + IMediaSourceImpl {
-    fn Opened(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOpened(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Ended(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SourceBuffers(&self) -> ::windows::core::Result<MseSourceBufferList>;
-    fn ActiveSourceBuffers(&self) -> ::windows::core::Result<MseSourceBufferList>;
-    fn ReadyState(&self) -> ::windows::core::Result<MseReadyState>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
-    fn SetDuration(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn AddSourceBuffer(&self, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<MseSourceBuffer>;
-    fn RemoveSourceBuffer(&self, buffer: &::core::option::Option<MseSourceBuffer>) -> ::windows::core::Result<()>;
-    fn EndOfStream(&self, status: MseEndOfStreamStatus) -> ::windows::core::Result<()>;
+    fn Opened(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOpened(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Ended(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SourceBuffers(&mut self) -> ::windows::core::Result<MseSourceBufferList>;
+    fn ActiveSourceBuffers(&mut self) -> ::windows::core::Result<MseSourceBufferList>;
+    fn ReadyState(&mut self) -> ::windows::core::Result<MseReadyState>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
+    fn SetDuration(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn AddSourceBuffer(&mut self, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<MseSourceBuffer>;
+    fn RemoveSourceBuffer(&mut self, buffer: &::core::option::Option<MseSourceBuffer>) -> ::windows::core::Result<()>;
+    fn EndOfStream(&mut self, status: MseEndOfStreamStatus) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMseStreamSource {
@@ -4512,8 +4512,8 @@ impl IMseStreamSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMseStreamSource2Impl: Sized {
-    fn LiveSeekableRange(&self) -> ::windows::core::Result<super::super::Foundation::IReference<MseTimeRange>>;
-    fn SetLiveSeekableRange(&self, value: &::core::option::Option<super::super::Foundation::IReference<MseTimeRange>>) -> ::windows::core::Result<()>;
+    fn LiveSeekableRange(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<MseTimeRange>>;
+    fn SetLiveSeekableRange(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<MseTimeRange>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMseStreamSource2 {
@@ -4549,7 +4549,7 @@ impl IMseStreamSource2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMseStreamSourceStaticsImpl: Sized {
-    fn IsContentTypeSupported(&self, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn IsContentTypeSupported(&mut self, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMseStreamSourceStatics {
@@ -4580,11 +4580,11 @@ impl IMseStreamSourceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISceneAnalysisEffectImpl: Sized + IMediaExtensionImpl {
-    fn HighDynamicRangeAnalyzer(&self) -> ::windows::core::Result<HighDynamicRangeControl>;
-    fn SetDesiredAnalysisInterval(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn DesiredAnalysisInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SceneAnalyzed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SceneAnalysisEffect, SceneAnalyzedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSceneAnalyzed(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HighDynamicRangeAnalyzer(&mut self) -> ::windows::core::Result<HighDynamicRangeControl>;
+    fn SetDesiredAnalysisInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DesiredAnalysisInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SceneAnalyzed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SceneAnalysisEffect, SceneAnalyzedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSceneAnalyzed(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISceneAnalysisEffect {
@@ -4649,8 +4649,8 @@ impl ISceneAnalysisEffectVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "implement_exclusive"))]
 pub trait ISceneAnalysisEffectFrameImpl: Sized + IClosableImpl + IMediaFrameImpl {
-    fn FrameControlValues(&self) -> ::windows::core::Result<super::Capture::CapturedFrameControlValues>;
-    fn HighDynamicRange(&self) -> ::windows::core::Result<HighDynamicRangeOutput>;
+    fn FrameControlValues(&mut self) -> ::windows::core::Result<super::Capture::CapturedFrameControlValues>;
+    fn HighDynamicRange(&mut self) -> ::windows::core::Result<HighDynamicRangeOutput>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISceneAnalysisEffectFrame {
@@ -4693,7 +4693,7 @@ impl ISceneAnalysisEffectFrameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISceneAnalysisEffectFrame2Impl: Sized + IClosableImpl + IMediaFrameImpl {
-    fn AnalysisRecommendation(&self) -> ::windows::core::Result<SceneAnalysisRecommendation>;
+    fn AnalysisRecommendation(&mut self) -> ::windows::core::Result<SceneAnalysisRecommendation>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISceneAnalysisEffectFrame2 {
@@ -4724,7 +4724,7 @@ impl ISceneAnalysisEffectFrame2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISceneAnalyzedEventArgsImpl: Sized {
-    fn ResultFrame(&self) -> ::windows::core::Result<SceneAnalysisEffectFrame>;
+    fn ResultFrame(&mut self) -> ::windows::core::Result<SceneAnalysisEffectFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneAnalyzedEventArgs {
@@ -4752,10 +4752,10 @@ impl ISceneAnalyzedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISingleSelectMediaTrackListImpl: Sized {
-    fn SelectedIndexChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSelectedIndexChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SetSelectedIndex(&self, value: i32) -> ::windows::core::Result<()>;
-    fn SelectedIndex(&self) -> ::windows::core::Result<i32>;
+    fn SelectedIndexChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSelectedIndexChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetSelectedIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn SelectedIndex(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISingleSelectMediaTrackList {
@@ -4808,12 +4808,12 @@ impl ISingleSelectMediaTrackListVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpeechCueImpl: Sized + IMediaCueImpl {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn StartPositionInInput(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetStartPositionInInput(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn EndPositionInInput(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetEndPositionInInput(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StartPositionInInput(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetStartPositionInInput(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn EndPositionInInput(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetEndPositionInInput(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpeechCue {
@@ -4883,8 +4883,8 @@ impl ISpeechCueVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait ITimedMetadataStreamDescriptorImpl: Sized {
-    fn EncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::TimedMetadataEncodingProperties>;
-    fn Copy(&self) -> ::windows::core::Result<TimedMetadataStreamDescriptor>;
+    fn EncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::TimedMetadataEncodingProperties>;
+    fn Copy(&mut self) -> ::windows::core::Result<TimedMetadataStreamDescriptor>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedMetadataStreamDescriptor {
@@ -4927,7 +4927,7 @@ impl ITimedMetadataStreamDescriptorVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait ITimedMetadataStreamDescriptorFactoryImpl: Sized {
-    fn Create(&self, encodingproperties: &::core::option::Option<super::MediaProperties::TimedMetadataEncodingProperties>) -> ::windows::core::Result<TimedMetadataStreamDescriptor>;
+    fn Create(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::TimedMetadataEncodingProperties>) -> ::windows::core::Result<TimedMetadataStreamDescriptor>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedMetadataStreamDescriptorFactory {
@@ -4958,18 +4958,18 @@ impl ITimedMetadataStreamDescriptorFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITimedMetadataTrackImpl: Sized + IMediaTrackImpl {
-    fn CueEntered(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCueEntered(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CueExited(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCueExited(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TrackFailed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, TimedMetadataTrackFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTrackFailed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Cues(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>>;
-    fn ActiveCues(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>>;
-    fn TimedMetadataKind(&self) -> ::windows::core::Result<TimedMetadataKind>;
-    fn DispatchType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AddCue(&self, cue: &::core::option::Option<IMediaCue>) -> ::windows::core::Result<()>;
-    fn RemoveCue(&self, cue: &::core::option::Option<IMediaCue>) -> ::windows::core::Result<()>;
+    fn CueEntered(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCueEntered(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CueExited(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCueExited(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TrackFailed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, TimedMetadataTrackFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTrackFailed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Cues(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>>;
+    fn ActiveCues(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>>;
+    fn TimedMetadataKind(&mut self) -> ::windows::core::Result<TimedMetadataKind>;
+    fn DispatchType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AddCue(&mut self, cue: &::core::option::Option<IMediaCue>) -> ::windows::core::Result<()>;
+    fn RemoveCue(&mut self, cue: &::core::option::Option<IMediaCue>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedMetadataTrack {
@@ -5097,8 +5097,8 @@ impl ITimedMetadataTrackVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait ITimedMetadataTrack2Impl: Sized + IMediaTrackImpl + ITimedMetadataTrackImpl {
-    fn PlaybackItem(&self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PlaybackItem(&mut self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedMetadataTrack2 {
@@ -5141,8 +5141,8 @@ impl ITimedMetadataTrack2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedMetadataTrackErrorImpl: Sized {
-    fn ErrorCode(&self) -> ::windows::core::Result<TimedMetadataTrackErrorCode>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<TimedMetadataTrackErrorCode>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedMetadataTrackError {
@@ -5185,7 +5185,7 @@ impl ITimedMetadataTrackErrorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedMetadataTrackFactoryImpl: Sized {
-    fn Create(&self, id: &::windows::core::HSTRING, language: &::windows::core::HSTRING, kind: TimedMetadataKind) -> ::windows::core::Result<TimedMetadataTrack>;
+    fn Create(&mut self, id: &::windows::core::HSTRING, language: &::windows::core::HSTRING, kind: TimedMetadataKind) -> ::windows::core::Result<TimedMetadataTrack>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedMetadataTrackFactory {
@@ -5213,7 +5213,7 @@ impl ITimedMetadataTrackFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedMetadataTrackFailedEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<TimedMetadataTrackError>;
+    fn Error(&mut self) -> ::windows::core::Result<TimedMetadataTrackError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedMetadataTrackFailedEventArgs {
@@ -5241,7 +5241,7 @@ impl ITimedMetadataTrackFailedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITimedMetadataTrackProviderImpl: Sized {
-    fn TimedMetadataTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
+    fn TimedMetadataTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ITimedMetadataTrackProvider {
@@ -5272,12 +5272,12 @@ impl ITimedMetadataTrackProviderVtbl {
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait ITimedTextBoutenImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<TimedTextBoutenType>;
-    fn SetType(&self, value: TimedTextBoutenType) -> ::windows::core::Result<()>;
-    fn Color(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn Position(&self) -> ::windows::core::Result<TimedTextBoutenPosition>;
-    fn SetPosition(&self, value: TimedTextBoutenPosition) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<TimedTextBoutenType>;
+    fn SetType(&mut self, value: TimedTextBoutenType) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn Position(&mut self) -> ::windows::core::Result<TimedTextBoutenPosition>;
+    fn SetPosition(&mut self, value: TimedTextBoutenPosition) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextBouten {
@@ -5347,11 +5347,11 @@ impl ITimedTextBoutenVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITimedTextCueImpl: Sized + IMediaCueImpl {
-    fn CueRegion(&self) -> ::windows::core::Result<TimedTextRegion>;
-    fn SetCueRegion(&self, value: &::core::option::Option<TimedTextRegion>) -> ::windows::core::Result<()>;
-    fn CueStyle(&self) -> ::windows::core::Result<TimedTextStyle>;
-    fn SetCueStyle(&self, value: &::core::option::Option<TimedTextStyle>) -> ::windows::core::Result<()>;
-    fn Lines(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<TimedTextLine>>;
+    fn CueRegion(&mut self) -> ::windows::core::Result<TimedTextRegion>;
+    fn SetCueRegion(&mut self, value: &::core::option::Option<TimedTextRegion>) -> ::windows::core::Result<()>;
+    fn CueStyle(&mut self) -> ::windows::core::Result<TimedTextStyle>;
+    fn SetCueStyle(&mut self, value: &::core::option::Option<TimedTextStyle>) -> ::windows::core::Result<()>;
+    fn Lines(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<TimedTextLine>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextCue {
@@ -5416,9 +5416,9 @@ impl ITimedTextCueVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITimedTextLineImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Subformats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<TimedTextSubformat>>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Subformats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<TimedTextSubformat>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextLine {
@@ -5466,30 +5466,30 @@ impl ITimedTextLineVtbl {
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait ITimedTextRegionImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Position(&self) -> ::windows::core::Result<TimedTextPoint>;
-    fn SetPosition(&self, value: &TimedTextPoint) -> ::windows::core::Result<()>;
-    fn Extent(&self) -> ::windows::core::Result<TimedTextSize>;
-    fn SetExtent(&self, value: &TimedTextSize) -> ::windows::core::Result<()>;
-    fn Background(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetBackground(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn WritingMode(&self) -> ::windows::core::Result<TimedTextWritingMode>;
-    fn SetWritingMode(&self, value: TimedTextWritingMode) -> ::windows::core::Result<()>;
-    fn DisplayAlignment(&self) -> ::windows::core::Result<TimedTextDisplayAlignment>;
-    fn SetDisplayAlignment(&self, value: TimedTextDisplayAlignment) -> ::windows::core::Result<()>;
-    fn LineHeight(&self) -> ::windows::core::Result<TimedTextDouble>;
-    fn SetLineHeight(&self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
-    fn IsOverflowClipped(&self) -> ::windows::core::Result<bool>;
-    fn SetIsOverflowClipped(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Padding(&self) -> ::windows::core::Result<TimedTextPadding>;
-    fn SetPadding(&self, value: &TimedTextPadding) -> ::windows::core::Result<()>;
-    fn TextWrapping(&self) -> ::windows::core::Result<TimedTextWrapping>;
-    fn SetTextWrapping(&self, value: TimedTextWrapping) -> ::windows::core::Result<()>;
-    fn ZIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ScrollMode(&self) -> ::windows::core::Result<TimedTextScrollMode>;
-    fn SetScrollMode(&self, value: TimedTextScrollMode) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Position(&mut self) -> ::windows::core::Result<TimedTextPoint>;
+    fn SetPosition(&mut self, value: &TimedTextPoint) -> ::windows::core::Result<()>;
+    fn Extent(&mut self) -> ::windows::core::Result<TimedTextSize>;
+    fn SetExtent(&mut self, value: &TimedTextSize) -> ::windows::core::Result<()>;
+    fn Background(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetBackground(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn WritingMode(&mut self) -> ::windows::core::Result<TimedTextWritingMode>;
+    fn SetWritingMode(&mut self, value: TimedTextWritingMode) -> ::windows::core::Result<()>;
+    fn DisplayAlignment(&mut self) -> ::windows::core::Result<TimedTextDisplayAlignment>;
+    fn SetDisplayAlignment(&mut self, value: TimedTextDisplayAlignment) -> ::windows::core::Result<()>;
+    fn LineHeight(&mut self) -> ::windows::core::Result<TimedTextDouble>;
+    fn SetLineHeight(&mut self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
+    fn IsOverflowClipped(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsOverflowClipped(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Padding(&mut self) -> ::windows::core::Result<TimedTextPadding>;
+    fn SetPadding(&mut self, value: &TimedTextPadding) -> ::windows::core::Result<()>;
+    fn TextWrapping(&mut self) -> ::windows::core::Result<TimedTextWrapping>;
+    fn SetTextWrapping(&mut self, value: TimedTextWrapping) -> ::windows::core::Result<()>;
+    fn ZIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetZIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ScrollMode(&mut self) -> ::windows::core::Result<TimedTextScrollMode>;
+    fn SetScrollMode(&mut self, value: TimedTextScrollMode) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextRegion {
@@ -5712,14 +5712,14 @@ impl ITimedTextRegionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedTextRubyImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Position(&self) -> ::windows::core::Result<TimedTextRubyPosition>;
-    fn SetPosition(&self, value: TimedTextRubyPosition) -> ::windows::core::Result<()>;
-    fn Align(&self) -> ::windows::core::Result<TimedTextRubyAlign>;
-    fn SetAlign(&self, value: TimedTextRubyAlign) -> ::windows::core::Result<()>;
-    fn Reserve(&self) -> ::windows::core::Result<TimedTextRubyReserve>;
-    fn SetReserve(&self, value: TimedTextRubyReserve) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Position(&mut self) -> ::windows::core::Result<TimedTextRubyPosition>;
+    fn SetPosition(&mut self, value: TimedTextRubyPosition) -> ::windows::core::Result<()>;
+    fn Align(&mut self) -> ::windows::core::Result<TimedTextRubyAlign>;
+    fn SetAlign(&mut self, value: TimedTextRubyAlign) -> ::windows::core::Result<()>;
+    fn Reserve(&mut self) -> ::windows::core::Result<TimedTextRubyReserve>;
+    fn SetReserve(&mut self, value: TimedTextRubyReserve) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedTextRuby {
@@ -5806,8 +5806,8 @@ impl ITimedTextRubyVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITimedTextSourceImpl: Sized {
-    fn Resolved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedTextSource, TimedTextSourceResolveResultEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveResolved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Resolved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TimedTextSource, TimedTextSourceResolveResultEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveResolved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextSource {
@@ -5843,8 +5843,8 @@ impl ITimedTextSourceVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITimedTextSourceResolveResultEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<TimedMetadataTrackError>;
-    fn Tracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
+    fn Error(&mut self) -> ::windows::core::Result<TimedMetadataTrackError>;
+    fn Tracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextSourceResolveResultEventArgs {
@@ -5887,10 +5887,10 @@ impl ITimedTextSourceResolveResultEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ITimedTextSourceStaticsImpl: Sized {
-    fn CreateFromStream(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<TimedTextSource>;
-    fn CreateFromUri(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<TimedTextSource>;
-    fn CreateFromStreamWithLanguage(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
-    fn CreateFromUriWithLanguage(&self, uri: &::core::option::Option<super::super::Foundation::Uri>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromStream(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromUri(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromStreamWithLanguage(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromUriWithLanguage(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextSourceStatics {
@@ -5957,10 +5957,10 @@ impl ITimedTextSourceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ITimedTextSourceStatics2Impl: Sized {
-    fn CreateFromStreamWithIndex(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, indexstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<TimedTextSource>;
-    fn CreateFromUriWithIndex(&self, uri: &::core::option::Option<super::super::Foundation::Uri>, indexuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<TimedTextSource>;
-    fn CreateFromStreamWithIndexAndLanguage(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, indexstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
-    fn CreateFromUriWithIndexAndLanguage(&self, uri: &::core::option::Option<super::super::Foundation::Uri>, indexuri: &::core::option::Option<super::super::Foundation::Uri>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromStreamWithIndex(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, indexstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromUriWithIndex(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, indexuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromStreamWithIndexAndLanguage(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, indexstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
+    fn CreateFromUriWithIndexAndLanguage(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, indexuri: &::core::option::Option<super::super::Foundation::Uri>, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextSourceStatics2 {
@@ -6035,30 +6035,30 @@ impl ITimedTextSourceStatics2Vtbl {
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait ITimedTextStyleImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FontFamily(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFontFamily(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FontSize(&self) -> ::windows::core::Result<TimedTextDouble>;
-    fn SetFontSize(&self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
-    fn FontWeight(&self) -> ::windows::core::Result<TimedTextWeight>;
-    fn SetFontWeight(&self, value: TimedTextWeight) -> ::windows::core::Result<()>;
-    fn Foreground(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetForeground(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn Background(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetBackground(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn IsBackgroundAlwaysShown(&self) -> ::windows::core::Result<bool>;
-    fn SetIsBackgroundAlwaysShown(&self, value: bool) -> ::windows::core::Result<()>;
-    fn FlowDirection(&self) -> ::windows::core::Result<TimedTextFlowDirection>;
-    fn SetFlowDirection(&self, value: TimedTextFlowDirection) -> ::windows::core::Result<()>;
-    fn LineAlignment(&self) -> ::windows::core::Result<TimedTextLineAlignment>;
-    fn SetLineAlignment(&self, value: TimedTextLineAlignment) -> ::windows::core::Result<()>;
-    fn OutlineColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetOutlineColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn OutlineThickness(&self) -> ::windows::core::Result<TimedTextDouble>;
-    fn SetOutlineThickness(&self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
-    fn OutlineRadius(&self) -> ::windows::core::Result<TimedTextDouble>;
-    fn SetOutlineRadius(&self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FontFamily(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFontFamily(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FontSize(&mut self) -> ::windows::core::Result<TimedTextDouble>;
+    fn SetFontSize(&mut self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
+    fn FontWeight(&mut self) -> ::windows::core::Result<TimedTextWeight>;
+    fn SetFontWeight(&mut self, value: TimedTextWeight) -> ::windows::core::Result<()>;
+    fn Foreground(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetForeground(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn Background(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetBackground(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn IsBackgroundAlwaysShown(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsBackgroundAlwaysShown(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn FlowDirection(&mut self) -> ::windows::core::Result<TimedTextFlowDirection>;
+    fn SetFlowDirection(&mut self, value: TimedTextFlowDirection) -> ::windows::core::Result<()>;
+    fn LineAlignment(&mut self) -> ::windows::core::Result<TimedTextLineAlignment>;
+    fn SetLineAlignment(&mut self, value: TimedTextLineAlignment) -> ::windows::core::Result<()>;
+    fn OutlineColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetOutlineColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn OutlineThickness(&mut self) -> ::windows::core::Result<TimedTextDouble>;
+    fn SetOutlineThickness(&mut self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
+    fn OutlineRadius(&mut self) -> ::windows::core::Result<TimedTextDouble>;
+    fn SetOutlineRadius(&mut self, value: &TimedTextDouble) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimedTextStyle {
@@ -6281,14 +6281,14 @@ impl ITimedTextStyleVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedTextStyle2Impl: Sized {
-    fn FontStyle(&self) -> ::windows::core::Result<TimedTextFontStyle>;
-    fn SetFontStyle(&self, value: TimedTextFontStyle) -> ::windows::core::Result<()>;
-    fn IsUnderlineEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsUnderlineEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsLineThroughEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsLineThroughEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsOverlineEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsOverlineEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn FontStyle(&mut self) -> ::windows::core::Result<TimedTextFontStyle>;
+    fn SetFontStyle(&mut self, value: TimedTextFontStyle) -> ::windows::core::Result<()>;
+    fn IsUnderlineEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsUnderlineEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsLineThroughEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsLineThroughEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsOverlineEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsOverlineEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedTextStyle2 {
@@ -6375,12 +6375,12 @@ impl ITimedTextStyle2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedTextStyle3Impl: Sized {
-    fn Ruby(&self) -> ::windows::core::Result<TimedTextRuby>;
-    fn Bouten(&self) -> ::windows::core::Result<TimedTextBouten>;
-    fn IsTextCombined(&self) -> ::windows::core::Result<bool>;
-    fn SetIsTextCombined(&self, value: bool) -> ::windows::core::Result<()>;
-    fn FontAngleInDegrees(&self) -> ::windows::core::Result<f64>;
-    fn SetFontAngleInDegrees(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Ruby(&mut self) -> ::windows::core::Result<TimedTextRuby>;
+    fn Bouten(&mut self) -> ::windows::core::Result<TimedTextBouten>;
+    fn IsTextCombined(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsTextCombined(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn FontAngleInDegrees(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFontAngleInDegrees(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedTextStyle3 {
@@ -6457,12 +6457,12 @@ impl ITimedTextStyle3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedTextSubformatImpl: Sized {
-    fn StartIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetStartIndex(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Length(&self) -> ::windows::core::Result<i32>;
-    fn SetLength(&self, value: i32) -> ::windows::core::Result<()>;
-    fn SubformatStyle(&self) -> ::windows::core::Result<TimedTextStyle>;
-    fn SetSubformatStyle(&self, value: &::core::option::Option<TimedTextStyle>) -> ::windows::core::Result<()>;
+    fn StartIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetStartIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Length(&mut self) -> ::windows::core::Result<i32>;
+    fn SetLength(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn SubformatStyle(&mut self) -> ::windows::core::Result<TimedTextStyle>;
+    fn SetSubformatStyle(&mut self, value: &::core::option::Option<TimedTextStyle>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedTextSubformat {
@@ -6532,11 +6532,11 @@ impl ITimedTextSubformatVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IVideoStabilizationEffectImpl: Sized + IMediaExtensionImpl {
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
-    fn EnabledChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VideoStabilizationEffect, VideoStabilizationEffectEnabledChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnabledChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetRecommendedStreamConfiguration(&self, controller: &::core::option::Option<super::Devices::VideoDeviceController>, desiredproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>) -> ::windows::core::Result<super::Capture::VideoStreamConfiguration>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
+    fn EnabledChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VideoStabilizationEffect, VideoStabilizationEffectEnabledChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnabledChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetRecommendedStreamConfiguration(&mut self, controller: &::core::option::Option<super::Devices::VideoDeviceController>, desiredproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>) -> ::windows::core::Result<super::Capture::VideoStreamConfiguration>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoStabilizationEffect {
@@ -6601,7 +6601,7 @@ impl IVideoStabilizationEffectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoStabilizationEffectEnabledChangedEventArgsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<VideoStabilizationEffectEnabledChangedReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<VideoStabilizationEffectEnabledChangedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoStabilizationEffectEnabledChangedEventArgs {
@@ -6632,7 +6632,7 @@ impl IVideoStabilizationEffectEnabledChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IVideoStreamDescriptorImpl: Sized + IMediaStreamDescriptorImpl {
-    fn EncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
+    fn EncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoStreamDescriptor {
@@ -6663,7 +6663,7 @@ impl IVideoStreamDescriptorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoStreamDescriptor2Impl: Sized {
-    fn Copy(&self) -> ::windows::core::Result<VideoStreamDescriptor>;
+    fn Copy(&mut self) -> ::windows::core::Result<VideoStreamDescriptor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoStreamDescriptor2 {
@@ -6691,7 +6691,7 @@ impl IVideoStreamDescriptor2Vtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IVideoStreamDescriptorFactoryImpl: Sized {
-    fn Create(&self, encodingproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>) -> ::windows::core::Result<VideoStreamDescriptor>;
+    fn Create(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>) -> ::windows::core::Result<VideoStreamDescriptor>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoStreamDescriptorFactory {
@@ -6719,12 +6719,12 @@ impl IVideoStreamDescriptorFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait IVideoTrackImpl: Sized {
-    fn OpenFailed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VideoTrack, VideoTrackOpenFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOpenFailed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetEncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
-    fn PlaybackItem(&self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SupportInfo(&self) -> ::windows::core::Result<VideoTrackSupportInfo>;
+    fn OpenFailed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VideoTrack, VideoTrackOpenFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOpenFailed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetEncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
+    fn PlaybackItem(&mut self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportInfo(&mut self) -> ::windows::core::Result<VideoTrackSupportInfo>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoTrack {
@@ -6808,7 +6808,7 @@ impl IVideoTrackVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoTrackOpenFailedEventArgsImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoTrackOpenFailedEventArgs {
@@ -6839,8 +6839,8 @@ impl IVideoTrackOpenFailedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoTrackSupportInfoImpl: Sized {
-    fn DecoderStatus(&self) -> ::windows::core::Result<MediaDecoderStatus>;
-    fn MediaSourceStatus(&self) -> ::windows::core::Result<MediaSourceStatus>;
+    fn DecoderStatus(&mut self) -> ::windows::core::Result<MediaDecoderStatus>;
+    fn MediaSourceStatus(&mut self) -> ::windows::core::Result<MediaSourceStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoTrackSupportInfo {

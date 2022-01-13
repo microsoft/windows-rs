@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountClientViewImpl: Sized {
-    fn ApplicationCallbackUri(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
-    fn Type(&self) -> ::windows::core::Result<WebAccountClientViewType>;
-    fn AccountPairwiseId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ApplicationCallbackUri(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
+    fn Type(&mut self) -> ::windows::core::Result<WebAccountClientViewType>;
+    fn AccountPairwiseId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountClientView {
@@ -57,8 +57,8 @@ impl IWebAccountClientViewVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountClientViewFactoryImpl: Sized {
-    fn Create(&self, viewtype: WebAccountClientViewType, applicationcallbackuri: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<WebAccountClientView>;
-    fn CreateWithPairwiseId(&self, viewtype: WebAccountClientViewType, applicationcallbackuri: &::core::option::Option<super::super::super::super::Foundation::Uri>, accountpairwiseid: &::windows::core::HSTRING) -> ::windows::core::Result<WebAccountClientView>;
+    fn Create(&mut self, viewtype: WebAccountClientViewType, applicationcallbackuri: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<WebAccountClientView>;
+    fn CreateWithPairwiseId(&mut self, viewtype: WebAccountClientViewType, applicationcallbackuri: &::core::option::Option<super::super::super::super::Foundation::Uri>, accountpairwiseid: &::windows::core::HSTRING) -> ::windows::core::Result<WebAccountClientView>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountClientViewFactory {
@@ -101,16 +101,16 @@ impl IWebAccountClientViewFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Storage_Streams", feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IWebAccountManagerStaticsImpl: Sized {
-    fn UpdateWebAccountPropertiesAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, webaccountusername: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn AddWebAccountAsync(&self, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
-    fn DeleteWebAccountAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn FindAllProviderWebAccountsAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>>;
-    fn PushCookiesAsync(&self, uri: &::core::option::Option<super::super::super::super::Foundation::Uri>, cookies: &::core::option::Option<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Web::Http::HttpCookie>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn SetViewAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, view: &::core::option::Option<WebAccountClientView>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn ClearViewAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, applicationcallbackuri: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn GetViewsAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<WebAccountClientView>>>;
-    fn SetWebAccountPictureAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, webaccountpicture: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn ClearWebAccountPictureAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn UpdateWebAccountPropertiesAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, webaccountusername: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn AddWebAccountAsync(&mut self, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
+    fn DeleteWebAccountAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn FindAllProviderWebAccountsAsync(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>>;
+    fn PushCookiesAsync(&mut self, uri: &::core::option::Option<super::super::super::super::Foundation::Uri>, cookies: &::core::option::Option<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Web::Http::HttpCookie>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn SetViewAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, view: &::core::option::Option<WebAccountClientView>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn ClearViewAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, applicationcallbackuri: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn GetViewsAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<WebAccountClientView>>>;
+    fn SetWebAccountPictureAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, webaccountpicture: &::core::option::Option<super::super::super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn ClearWebAccountPictureAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Storage_Streams", feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountManagerStatics {
@@ -260,7 +260,7 @@ impl IWebAccountManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountManagerStatics2Impl: Sized {
-    fn PullCookiesAsync(&self, uristring: &::windows::core::HSTRING, callerpfn: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn PullCookiesAsync(&mut self, uristring: &::windows::core::HSTRING, callerpfn: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountManagerStatics2 {
@@ -291,10 +291,10 @@ impl IWebAccountManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System", feature = "implement_exclusive"))]
 pub trait IWebAccountManagerStatics3Impl: Sized {
-    fn FindAllProviderWebAccountsForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>>;
-    fn AddWebAccountForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
-    fn AddWebAccountWithScopeForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
-    fn AddWebAccountWithScopeAndMapForUserAsync(&self, user: &::core::option::Option<super::super::super::super::System::User>, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
+    fn FindAllProviderWebAccountsForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>>;
+    fn AddWebAccountForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
+    fn AddWebAccountWithScopeForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
+    fn AddWebAccountWithScopeAndMapForUserAsync(&mut self, user: &::core::option::Option<super::super::super::super::System::User>, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountManagerStatics3 {
@@ -379,8 +379,8 @@ impl IWebAccountManagerStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountManagerStatics4Impl: Sized {
-    fn InvalidateAppCacheForAllAccountsAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn InvalidateAppCacheForAccountAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn InvalidateAppCacheForAllAccountsAsync(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn InvalidateAppCacheForAccountAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountManagerStatics4 {
@@ -423,10 +423,10 @@ impl IWebAccountManagerStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountMapManagerStaticsImpl: Sized {
-    fn AddWebAccountWithScopeAndMapAsync(&self, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
-    fn SetPerAppToPerUserAccountAsync(&self, perappaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn GetPerUserFromPerAppAccountAsync(&self, perappaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
-    fn ClearPerUserFromPerAppAccountAsync(&self, perappaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn AddWebAccountWithScopeAndMapAsync(&mut self, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
+    fn SetPerAppToPerUserAccountAsync(&mut self, perappaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, peruserwebaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn GetPerUserFromPerAppAccountAsync(&mut self, perappaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
+    fn ClearPerUserFromPerAppAccountAsync(&mut self, perappaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountMapManagerStatics {
@@ -499,7 +499,7 @@ impl IWebAccountMapManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebAccountProviderAddAccountOperationImpl: Sized + IWebAccountProviderOperationImpl {
-    fn ReportCompleted(&self) -> ::windows::core::Result<()>;
+    fn ReportCompleted(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebAccountProviderAddAccountOperation {
@@ -523,8 +523,8 @@ impl IWebAccountProviderAddAccountOperationVtbl {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderBaseReportOperationImpl: Sized {
-    fn ReportCompleted(&self) -> ::windows::core::Result<()>;
-    fn ReportError(&self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
+    fn ReportCompleted(&mut self) -> ::windows::core::Result<()>;
+    fn ReportError(&mut self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderBaseReportOperation {
@@ -553,7 +553,7 @@ impl IWebAccountProviderBaseReportOperationVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderDeleteAccountOperationImpl: Sized + IWebAccountProviderOperationImpl {
-    fn WebAccount(&self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount>;
+    fn WebAccount(&mut self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderDeleteAccountOperation {
@@ -584,8 +584,8 @@ impl IWebAccountProviderDeleteAccountOperationVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderManageAccountOperationImpl: Sized + IWebAccountProviderOperationImpl {
-    fn WebAccount(&self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount>;
-    fn ReportCompleted(&self) -> ::windows::core::Result<()>;
+    fn WebAccount(&mut self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount>;
+    fn ReportCompleted(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderManageAccountOperation {
@@ -620,7 +620,7 @@ impl IWebAccountProviderManageAccountOperationVtbl {
     }
 }
 pub trait IWebAccountProviderOperationImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<WebAccountProviderOperationKind>;
+    fn Kind(&mut self) -> ::windows::core::Result<WebAccountProviderOperationKind>;
 }
 impl ::windows::core::RuntimeName for IWebAccountProviderOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation";
@@ -646,11 +646,11 @@ impl IWebAccountProviderOperationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderRetrieveCookiesOperationImpl: Sized + IWebAccountProviderOperationImpl {
-    fn Context(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
-    fn Cookies(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<super::super::super::super::Web::Http::HttpCookie>>;
-    fn SetUri(&self, uri: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
-    fn ApplicationCallbackUri(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
+    fn Context(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
+    fn Cookies(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<super::super::super::super::Web::Http::HttpCookie>>;
+    fn SetUri(&mut self, uri: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
+    fn ApplicationCallbackUri(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderRetrieveCookiesOperation {
@@ -722,9 +722,9 @@ impl IWebAccountProviderRetrieveCookiesOperationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderSignOutAccountOperationImpl: Sized + IWebAccountProviderOperationImpl {
-    fn WebAccount(&self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount>;
-    fn ApplicationCallbackUri(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
-    fn ClientId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WebAccount(&mut self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount>;
+    fn ApplicationCallbackUri(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
+    fn ClientId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderSignOutAccountOperation {
@@ -779,8 +779,8 @@ impl IWebAccountProviderSignOutAccountOperationVtbl {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderSilentReportOperationImpl: Sized + IWebAccountProviderBaseReportOperationImpl {
-    fn ReportUserInteractionRequired(&self) -> ::windows::core::Result<()>;
-    fn ReportUserInteractionRequiredWithError(&self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
+    fn ReportUserInteractionRequired(&mut self) -> ::windows::core::Result<()>;
+    fn ReportUserInteractionRequiredWithError(&mut self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderSilentReportOperation {
@@ -808,7 +808,7 @@ impl IWebAccountProviderSilentReportOperationVtbl {
     }
 }
 pub trait IWebAccountProviderTokenObjectsImpl: Sized {
-    fn Operation(&self) -> ::windows::core::Result<IWebAccountProviderOperation>;
+    fn Operation(&mut self) -> ::windows::core::Result<IWebAccountProviderOperation>;
 }
 impl ::windows::core::RuntimeName for IWebAccountProviderTokenObjects {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects";
@@ -837,7 +837,7 @@ impl IWebAccountProviderTokenObjectsVtbl {
 }
 #[cfg(feature = "System")]
 pub trait IWebAccountProviderTokenObjects2Impl: Sized + IWebAccountProviderTokenObjectsImpl {
-    fn User(&self) -> ::windows::core::Result<super::super::super::super::System::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::super::super::System::User>;
 }
 #[cfg(feature = "System")]
 impl ::windows::core::RuntimeName for IWebAccountProviderTokenObjects2 {
@@ -865,10 +865,10 @@ impl IWebAccountProviderTokenObjects2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IWebAccountProviderTokenOperationImpl: Sized + IWebAccountProviderOperationImpl {
-    fn ProviderRequest(&self) -> ::windows::core::Result<WebProviderTokenRequest>;
-    fn ProviderResponses(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<WebProviderTokenResponse>>;
-    fn SetCacheExpirationTime(&self, value: &super::super::super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn CacheExpirationTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
+    fn ProviderRequest(&mut self) -> ::windows::core::Result<WebProviderTokenRequest>;
+    fn ProviderResponses(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<WebProviderTokenResponse>>;
+    fn SetCacheExpirationTime(&mut self, value: &super::super::super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn CacheExpirationTime(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderTokenOperation {
@@ -928,7 +928,7 @@ impl IWebAccountProviderTokenOperationVtbl {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderUIReportOperationImpl: Sized + IWebAccountProviderBaseReportOperationImpl {
-    fn ReportUserCanceled(&self) -> ::windows::core::Result<()>;
+    fn ReportUserCanceled(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderUIReportOperation {
@@ -952,9 +952,9 @@ impl IWebAccountProviderUIReportOperationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWebAccountScopeManagerStaticsImpl: Sized {
-    fn AddWebAccountWithScopeAsync(&self, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
-    fn SetScopeAsync(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn GetScope(&self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<WebAccountScope>;
+    fn AddWebAccountWithScopeAsync(&mut self, webaccountid: &::windows::core::HSTRING, webaccountusername: &::windows::core::HSTRING, props: &::core::option::Option<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>;
+    fn SetScopeAsync(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>, scope: WebAccountScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn GetScope(&mut self, webaccount: &::core::option::Option<super::super::super::Credentials::WebAccount>) -> ::windows::core::Result<WebAccountScope>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountScopeManagerStatics {
@@ -1014,11 +1014,11 @@ impl IWebAccountScopeManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "Security_Cryptography_Core", feature = "implement_exclusive"))]
 pub trait IWebProviderTokenRequestImpl: Sized {
-    fn ClientRequest(&self) -> ::windows::core::Result<super::Core::WebTokenRequest>;
-    fn WebAccounts(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>;
-    fn WebAccountSelectionOptions(&self) -> ::windows::core::Result<WebAccountSelectionOptions>;
-    fn ApplicationCallbackUri(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
-    fn GetApplicationTokenBindingKeyAsync(&self, keytype: super::TokenBindingKeyType, target: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Cryptography::Core::CryptographicKey>>;
+    fn ClientRequest(&mut self) -> ::windows::core::Result<super::Core::WebTokenRequest>;
+    fn WebAccounts(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>;
+    fn WebAccountSelectionOptions(&mut self) -> ::windows::core::Result<WebAccountSelectionOptions>;
+    fn ApplicationCallbackUri(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri>;
+    fn GetApplicationTokenBindingKeyAsync(&mut self, keytype: super::TokenBindingKeyType, target: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Cryptography::Core::CryptographicKey>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "Security_Cryptography_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebProviderTokenRequest {
@@ -1097,7 +1097,7 @@ impl IWebProviderTokenRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWebProviderTokenRequest2Impl: Sized {
-    fn GetApplicationTokenBindingKeyIdAsync(&self, keytype: super::TokenBindingKeyType, target: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>;
+    fn GetApplicationTokenBindingKeyIdAsync(&mut self, keytype: super::TokenBindingKeyType, target: &::core::option::Option<super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebProviderTokenRequest2 {
@@ -1128,9 +1128,9 @@ impl IWebProviderTokenRequest2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebProviderTokenRequest3Impl: Sized {
-    fn ApplicationPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ApplicationProcessName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CheckApplicationForCapabilityAsync(&self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn ApplicationPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ApplicationProcessName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CheckApplicationForCapabilityAsync(&mut self, capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebProviderTokenRequest3 {
@@ -1185,7 +1185,7 @@ impl IWebProviderTokenRequest3Vtbl {
 }
 #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "implement_exclusive"))]
 pub trait IWebProviderTokenResponseImpl: Sized {
-    fn ClientResponse(&self) -> ::windows::core::Result<super::Core::WebTokenResponse>;
+    fn ClientResponse(&mut self) -> ::windows::core::Result<super::Core::WebTokenResponse>;
 }
 #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebProviderTokenResponse {
@@ -1216,7 +1216,7 @@ impl IWebProviderTokenResponseVtbl {
 }
 #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "implement_exclusive"))]
 pub trait IWebProviderTokenResponseFactoryImpl: Sized {
-    fn Create(&self, webtokenresponse: &::core::option::Option<super::Core::WebTokenResponse>) -> ::windows::core::Result<WebProviderTokenResponse>;
+    fn Create(&mut self, webtokenresponse: &::core::option::Option<super::Core::WebTokenResponse>) -> ::windows::core::Result<WebProviderTokenResponse>;
 }
 #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebProviderTokenResponseFactory {

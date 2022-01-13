@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherTriggerDetailsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<super::Advertisement::BluetoothLEAdvertisementPublisherStatus>;
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Status(&mut self) -> ::windows::core::Result<super::Advertisement::BluetoothLEAdvertisementPublisherStatus>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTriggerDetails {
@@ -44,7 +44,7 @@ impl IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherTriggerDetails2Impl: Sized {
-    fn SelectedTransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
+    fn SelectedTransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTriggerDetails2 {
@@ -75,9 +75,9 @@ impl IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementWatcherTriggerDetailsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
-    fn Advertisements(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>>;
-    fn SignalStrengthFilter(&self) -> ::windows::core::Result<super::BluetoothSignalStrengthFilter>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
+    fn Advertisements(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>>;
+    fn SignalStrengthFilter(&mut self) -> ::windows::core::Result<super::BluetoothSignalStrengthFilter>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherTriggerDetails {
@@ -132,8 +132,8 @@ impl IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerDetailsImpl: Sized {
-    fn Characteristic(&self) -> ::windows::core::Result<super::GenericAttributeProfile::GattCharacteristic>;
-    fn Value(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Characteristic(&mut self) -> ::windows::core::Result<super::GenericAttributeProfile::GattCharacteristic>;
+    fn Value(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerDetails {
@@ -176,9 +176,9 @@ impl IGattCharacteristicNotificationTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerDetails2Impl: Sized {
-    fn Error(&self) -> ::windows::core::Result<super::BluetoothError>;
-    fn EventTriggeringMode(&self) -> ::windows::core::Result<BluetoothEventTriggeringMode>;
-    fn ValueChangedEvents(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>>;
+    fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
+    fn EventTriggeringMode(&mut self) -> ::windows::core::Result<BluetoothEventTriggeringMode>;
+    fn ValueChangedEvents(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerDetails2 {
@@ -233,9 +233,9 @@ impl IGattCharacteristicNotificationTriggerDetails2Vtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderConnectionImpl: Sized {
-    fn TriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Service(&self) -> ::windows::core::Result<super::GenericAttributeProfile::GattLocalService>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn TriggerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Service(&mut self) -> ::windows::core::Result<super::GenericAttributeProfile::GattLocalService>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderConnection {
@@ -283,7 +283,7 @@ impl IGattServiceProviderConnectionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderConnectionStaticsImpl: Sized {
-    fn AllServices(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, GattServiceProviderConnection>>;
+    fn AllServices(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, GattServiceProviderConnection>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderConnectionStatics {
@@ -314,7 +314,7 @@ impl IGattServiceProviderConnectionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGattServiceProviderTriggerDetailsImpl: Sized {
-    fn Connection(&self) -> ::windows::core::Result<GattServiceProviderConnection>;
+    fn Connection(&mut self) -> ::windows::core::Result<GattServiceProviderConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGattServiceProviderTriggerDetails {
@@ -345,9 +345,9 @@ impl IGattServiceProviderTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IRfcommConnectionTriggerDetailsImpl: Sized {
-    fn Socket(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::StreamSocket>;
-    fn Incoming(&self) -> ::windows::core::Result<bool>;
-    fn RemoteDevice(&self) -> ::windows::core::Result<super::BluetoothDevice>;
+    fn Socket(&mut self) -> ::windows::core::Result<super::super::super::Networking::Sockets::StreamSocket>;
+    fn Incoming(&mut self) -> ::windows::core::Result<bool>;
+    fn RemoteDevice(&mut self) -> ::windows::core::Result<super::BluetoothDevice>;
 }
 #[cfg(all(feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommConnectionTriggerDetails {
@@ -402,12 +402,12 @@ impl IRfcommConnectionTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRfcommInboundConnectionInformationImpl: Sized {
-    fn SdpRecord(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetSdpRecord(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn LocalServiceId(&self) -> ::windows::core::Result<super::Rfcomm::RfcommServiceId>;
-    fn SetLocalServiceId(&self, value: &::core::option::Option<super::Rfcomm::RfcommServiceId>) -> ::windows::core::Result<()>;
-    fn ServiceCapabilities(&self) -> ::windows::core::Result<super::BluetoothServiceCapabilities>;
-    fn SetServiceCapabilities(&self, value: super::BluetoothServiceCapabilities) -> ::windows::core::Result<()>;
+    fn SdpRecord(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetSdpRecord(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn LocalServiceId(&mut self) -> ::windows::core::Result<super::Rfcomm::RfcommServiceId>;
+    fn SetLocalServiceId(&mut self, value: &::core::option::Option<super::Rfcomm::RfcommServiceId>) -> ::windows::core::Result<()>;
+    fn ServiceCapabilities(&mut self) -> ::windows::core::Result<super::BluetoothServiceCapabilities>;
+    fn SetServiceCapabilities(&mut self, value: super::BluetoothServiceCapabilities) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommInboundConnectionInformation {
@@ -477,8 +477,8 @@ impl IRfcommInboundConnectionInformationVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "implement_exclusive"))]
 pub trait IRfcommOutboundConnectionInformationImpl: Sized {
-    fn RemoteServiceId(&self) -> ::windows::core::Result<super::Rfcomm::RfcommServiceId>;
-    fn SetRemoteServiceId(&self, value: &::core::option::Option<super::Rfcomm::RfcommServiceId>) -> ::windows::core::Result<()>;
+    fn RemoteServiceId(&mut self) -> ::windows::core::Result<super::Rfcomm::RfcommServiceId>;
+    fn SetRemoteServiceId(&mut self, value: &::core::option::Option<super::Rfcomm::RfcommServiceId>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommOutboundConnectionInformation {

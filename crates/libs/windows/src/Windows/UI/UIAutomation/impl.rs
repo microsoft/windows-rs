@@ -1,8 +1,8 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationConnectionImpl: Sized {
-    fn IsRemoteSystem(&self) -> ::windows::core::Result<bool>;
-    fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsRemoteSystem(&mut self) -> ::windows::core::Result<bool>;
+    fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ExecutableFileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationConnection {
@@ -57,7 +57,7 @@ impl IAutomationConnectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationConnectionBoundObjectImpl: Sized {
-    fn Connection(&self) -> ::windows::core::Result<AutomationConnection>;
+    fn Connection(&mut self) -> ::windows::core::Result<AutomationConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationConnectionBoundObject {
@@ -88,9 +88,9 @@ impl IAutomationConnectionBoundObjectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationElementImpl: Sized {
-    fn IsRemoteSystem(&self) -> ::windows::core::Result<bool>;
-    fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsRemoteSystem(&mut self) -> ::windows::core::Result<bool>;
+    fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ExecutableFileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationElement {

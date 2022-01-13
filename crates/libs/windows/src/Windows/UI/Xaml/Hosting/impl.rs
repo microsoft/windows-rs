@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesignerAppExitedEventArgsImpl: Sized {
-    fn ExitCode(&self) -> ::windows::core::Result<u32>;
+    fn ExitCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesignerAppExitedEventArgs {
@@ -28,11 +28,11 @@ impl IDesignerAppExitedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDesignerAppManagerImpl: Sized {
-    fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DesignerAppExited(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DesignerAppManager, DesignerAppExitedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDesignerAppExited(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CreateNewViewAsync(&self, initialviewstate: DesignerAppViewState, initialviewsize: &super::super::super::Foundation::Size) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DesignerAppView>>;
-    fn LoadObjectIntoAppAsync(&self, dllname: &::windows::core::HSTRING, classid: &::windows::core::GUID, initializationdata: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DesignerAppExited(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DesignerAppManager, DesignerAppExitedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDesignerAppExited(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateNewViewAsync(&mut self, initialviewstate: DesignerAppViewState, initialviewsize: &super::super::super::Foundation::Size) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DesignerAppView>>;
+    fn LoadObjectIntoAppAsync(&mut self, dllname: &::windows::core::HSTRING, classid: &::windows::core::GUID, initializationdata: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDesignerAppManager {
@@ -108,7 +108,7 @@ impl IDesignerAppManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesignerAppManagerFactoryImpl: Sized {
-    fn Create(&self, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<DesignerAppManager>;
+    fn Create(&mut self, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<DesignerAppManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesignerAppManagerFactory {
@@ -136,11 +136,11 @@ impl IDesignerAppManagerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDesignerAppViewImpl: Sized {
-    fn ApplicationViewId(&self) -> ::windows::core::Result<i32>;
-    fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ViewState(&self) -> ::windows::core::Result<DesignerAppViewState>;
-    fn ViewSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size>;
-    fn UpdateViewAsync(&self, viewstate: DesignerAppViewState, viewsize: &super::super::super::Foundation::Size) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ApplicationViewId(&mut self) -> ::windows::core::Result<i32>;
+    fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ViewState(&mut self) -> ::windows::core::Result<DesignerAppViewState>;
+    fn ViewSize(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Size>;
+    fn UpdateViewAsync(&mut self, viewstate: DesignerAppViewState, viewsize: &super::super::super::Foundation::Size) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDesignerAppView {
@@ -219,14 +219,14 @@ impl IDesignerAppViewVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDesktopWindowXamlSourceImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::UIElement>;
-    fn SetContent(&self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn HasFocus(&self) -> ::windows::core::Result<bool>;
-    fn TakeFocusRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceTakeFocusRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTakeFocusRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GotFocus(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceGotFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGotFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NavigateFocus(&self, request: &::core::option::Option<XamlSourceFocusNavigationRequest>) -> ::windows::core::Result<XamlSourceFocusNavigationResult>;
+    fn Content(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn SetContent(&mut self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn HasFocus(&mut self) -> ::windows::core::Result<bool>;
+    fn TakeFocusRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceTakeFocusRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTakeFocusRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GotFocus(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceGotFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGotFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NavigateFocus(&mut self, request: &::core::option::Option<XamlSourceFocusNavigationRequest>) -> ::windows::core::Result<XamlSourceFocusNavigationResult>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDesktopWindowXamlSource {
@@ -320,7 +320,7 @@ impl IDesktopWindowXamlSourceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesktopWindowXamlSourceFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DesktopWindowXamlSource>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DesktopWindowXamlSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesktopWindowXamlSourceFactory {
@@ -351,7 +351,7 @@ impl IDesktopWindowXamlSourceFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesktopWindowXamlSourceGotFocusEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesktopWindowXamlSourceGotFocusEventArgs {
@@ -382,7 +382,7 @@ impl IDesktopWindowXamlSourceGotFocusEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesktopWindowXamlSourceTakeFocusRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesktopWindowXamlSourceTakeFocusRequestedEventArgs {
@@ -428,10 +428,10 @@ impl IElementCompositionPreviewVtbl {
 }
 #[cfg(all(feature = "UI_Composition", feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IElementCompositionPreviewStaticsImpl: Sized {
-    fn GetElementVisual(&self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Composition::Visual>;
-    fn GetElementChildVisual(&self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Composition::Visual>;
-    fn SetElementChildVisual(&self, element: &::core::option::Option<super::UIElement>, visual: &::core::option::Option<super::super::Composition::Visual>) -> ::windows::core::Result<()>;
-    fn GetScrollViewerManipulationPropertySet(&self, scrollviewer: &::core::option::Option<super::Controls::ScrollViewer>) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet>;
+    fn GetElementVisual(&mut self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Composition::Visual>;
+    fn GetElementChildVisual(&mut self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Composition::Visual>;
+    fn SetElementChildVisual(&mut self, element: &::core::option::Option<super::UIElement>, visual: &::core::option::Option<super::super::Composition::Visual>) -> ::windows::core::Result<()>;
+    fn GetScrollViewerManipulationPropertySet(&mut self, scrollviewer: &::core::option::Option<super::Controls::ScrollViewer>) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet>;
 }
 #[cfg(all(feature = "UI_Composition", feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IElementCompositionPreviewStatics {
@@ -491,10 +491,10 @@ impl IElementCompositionPreviewStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IElementCompositionPreviewStatics2Impl: Sized {
-    fn SetImplicitShowAnimation(&self, element: &::core::option::Option<super::UIElement>, animation: &::core::option::Option<super::super::Composition::ICompositionAnimationBase>) -> ::windows::core::Result<()>;
-    fn SetImplicitHideAnimation(&self, element: &::core::option::Option<super::UIElement>, animation: &::core::option::Option<super::super::Composition::ICompositionAnimationBase>) -> ::windows::core::Result<()>;
-    fn SetIsTranslationEnabled(&self, element: &::core::option::Option<super::UIElement>, value: bool) -> ::windows::core::Result<()>;
-    fn GetPointerPositionPropertySet(&self, targetelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet>;
+    fn SetImplicitShowAnimation(&mut self, element: &::core::option::Option<super::UIElement>, animation: &::core::option::Option<super::super::Composition::ICompositionAnimationBase>) -> ::windows::core::Result<()>;
+    fn SetImplicitHideAnimation(&mut self, element: &::core::option::Option<super::UIElement>, animation: &::core::option::Option<super::super::Composition::ICompositionAnimationBase>) -> ::windows::core::Result<()>;
+    fn SetIsTranslationEnabled(&mut self, element: &::core::option::Option<super::UIElement>, value: bool) -> ::windows::core::Result<()>;
+    fn GetPointerPositionPropertySet(&mut self, targetelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet>;
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IElementCompositionPreviewStatics2 {
@@ -540,8 +540,8 @@ impl IElementCompositionPreviewStatics2Vtbl {
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 pub trait IElementCompositionPreviewStatics3Impl: Sized {
-    fn SetAppWindowContent(&self, appwindow: &::core::option::Option<super::super::WindowManagement::AppWindow>, xamlcontent: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn GetAppWindowContent(&self, appwindow: &::core::option::Option<super::super::WindowManagement::AppWindow>) -> ::windows::core::Result<super::UIElement>;
+    fn SetAppWindowContent(&mut self, appwindow: &::core::option::Option<super::super::WindowManagement::AppWindow>, xamlcontent: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn GetAppWindowContent(&mut self, appwindow: &::core::option::Option<super::super::WindowManagement::AppWindow>) -> ::windows::core::Result<super::UIElement>;
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IElementCompositionPreviewStatics3 {
@@ -592,7 +592,7 @@ impl IWindowsXamlManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowsXamlManagerStaticsImpl: Sized {
-    fn InitializeForCurrentThread(&self) -> ::windows::core::Result<WindowsXamlManager>;
+    fn InitializeForCurrentThread(&mut self) -> ::windows::core::Result<WindowsXamlManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWindowsXamlManagerStatics {
@@ -623,9 +623,9 @@ impl IWindowsXamlManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IXamlSourceFocusNavigationRequestImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<XamlSourceFocusNavigationReason>;
-    fn HintRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Reason(&mut self) -> ::windows::core::Result<XamlSourceFocusNavigationReason>;
+    fn HintRect(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn CorrelationId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXamlSourceFocusNavigationRequest {
@@ -680,9 +680,9 @@ impl IXamlSourceFocusNavigationRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IXamlSourceFocusNavigationRequestFactoryImpl: Sized {
-    fn CreateInstance(&self, reason: XamlSourceFocusNavigationReason) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
-    fn CreateInstanceWithHintRect(&self, reason: XamlSourceFocusNavigationReason, hintrect: &super::super::super::Foundation::Rect) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
-    fn CreateInstanceWithHintRectAndCorrelationId(&self, reason: XamlSourceFocusNavigationReason, hintrect: &super::super::super::Foundation::Rect, correlationid: &::windows::core::GUID) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
+    fn CreateInstance(&mut self, reason: XamlSourceFocusNavigationReason) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
+    fn CreateInstanceWithHintRect(&mut self, reason: XamlSourceFocusNavigationReason, hintrect: &super::super::super::Foundation::Rect) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
+    fn CreateInstanceWithHintRectAndCorrelationId(&mut self, reason: XamlSourceFocusNavigationReason, hintrect: &super::super::super::Foundation::Rect, correlationid: &::windows::core::GUID) -> ::windows::core::Result<XamlSourceFocusNavigationRequest>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXamlSourceFocusNavigationRequestFactory {
@@ -737,7 +737,7 @@ impl IXamlSourceFocusNavigationRequestFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IXamlSourceFocusNavigationResultImpl: Sized {
-    fn WasFocusMoved(&self) -> ::windows::core::Result<bool>;
+    fn WasFocusMoved(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlSourceFocusNavigationResult {
@@ -768,7 +768,7 @@ impl IXamlSourceFocusNavigationResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IXamlSourceFocusNavigationResultFactoryImpl: Sized {
-    fn CreateInstance(&self, focusmoved: bool) -> ::windows::core::Result<XamlSourceFocusNavigationResult>;
+    fn CreateInstance(&mut self, focusmoved: bool) -> ::windows::core::Result<XamlSourceFocusNavigationResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlSourceFocusNavigationResultFactory {
@@ -799,15 +799,15 @@ impl IXamlSourceFocusNavigationResultFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IXamlUIPresenterImpl: Sized {
-    fn RootElement(&self) -> ::windows::core::Result<super::UIElement>;
-    fn SetRootElement(&self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn ThemeKey(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetThemeKey(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ThemeResourcesXaml(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetThemeResourcesXaml(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetSize(&self, width: i32, height: i32) -> ::windows::core::Result<()>;
-    fn Render(&self) -> ::windows::core::Result<()>;
-    fn Present(&self) -> ::windows::core::Result<()>;
+    fn RootElement(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn SetRootElement(&mut self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn ThemeKey(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetThemeKey(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ThemeResourcesXaml(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetThemeResourcesXaml(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetSize(&mut self, width: i32, height: i32) -> ::windows::core::Result<()>;
+    fn Render(&mut self) -> ::windows::core::Result<()>;
+    fn Present(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlUIPresenter {
@@ -891,7 +891,7 @@ impl IXamlUIPresenterVtbl {
     }
 }
 pub trait IXamlUIPresenterHostImpl: Sized {
-    fn ResolveFileResource(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ResolveFileResource(&mut self, path: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IXamlUIPresenterHost {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.IXamlUIPresenterHost";
@@ -919,7 +919,7 @@ impl IXamlUIPresenterHostVtbl {
     }
 }
 pub trait IXamlUIPresenterHost2Impl: Sized {
-    fn GetGenericXamlFilePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetGenericXamlFilePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IXamlUIPresenterHost2 {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.IXamlUIPresenterHost2";
@@ -947,7 +947,7 @@ impl IXamlUIPresenterHost2Vtbl {
     }
 }
 pub trait IXamlUIPresenterHost3Impl: Sized {
-    fn ResolveDictionaryResource(&self, dictionary: &::core::option::Option<super::ResourceDictionary>, dictionarykey: &::core::option::Option<::windows::core::IInspectable>, suggestedvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ResolveDictionaryResource(&mut self, dictionary: &::core::option::Option<super::ResourceDictionary>, dictionarykey: &::core::option::Option<::windows::core::IInspectable>, suggestedvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for IXamlUIPresenterHost3 {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.IXamlUIPresenterHost3";
@@ -980,10 +980,10 @@ impl IXamlUIPresenterHost3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IXamlUIPresenterStaticsImpl: Sized {
-    fn CompleteTimelinesAutomatically(&self) -> ::windows::core::Result<bool>;
-    fn SetCompleteTimelinesAutomatically(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SetHost(&self, host: &::core::option::Option<IXamlUIPresenterHost>) -> ::windows::core::Result<()>;
-    fn NotifyWindowSizeChanged(&self) -> ::windows::core::Result<()>;
+    fn CompleteTimelinesAutomatically(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCompleteTimelinesAutomatically(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SetHost(&mut self, host: &::core::option::Option<IXamlUIPresenterHost>) -> ::windows::core::Result<()>;
+    fn NotifyWindowSizeChanged(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlUIPresenterStatics {
@@ -1029,8 +1029,8 @@ impl IXamlUIPresenterStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IXamlUIPresenterStatics2Impl: Sized {
-    fn GetFlyoutPlacementTargetInfo(&self, placementtarget: &::core::option::Option<super::FrameworkElement>, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: &mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: &mut bool) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn GetFlyoutPlacement(&self, placementtargetbounds: &super::super::super::Foundation::Rect, controlsize: &super::super::super::Foundation::Size, mincontrolsize: &super::super::super::Foundation::Size, containerrect: &super::super::super::Foundation::Rect, targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: bool, chosenplacement: &mut super::Controls::Primitives::FlyoutPlacementMode) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn GetFlyoutPlacementTargetInfo(&mut self, placementtarget: &::core::option::Option<super::FrameworkElement>, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: &mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: &mut bool) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn GetFlyoutPlacement(&mut self, placementtargetbounds: &super::super::super::Foundation::Rect, controlsize: &super::super::super::Foundation::Size, mincontrolsize: &super::super::super::Foundation::Size, containerrect: &super::super::super::Foundation::Rect, targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: bool, chosenplacement: &mut super::Controls::Primitives::FlyoutPlacementMode) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IXamlUIPresenterStatics2 {

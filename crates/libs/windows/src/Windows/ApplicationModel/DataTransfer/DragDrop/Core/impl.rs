@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDragDropManagerImpl: Sized {
-    fn TargetRequested(&self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTargetRequested(&self, value: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AreConcurrentOperationsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAreConcurrentOperationsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn TargetRequested(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTargetRequested(&mut self, value: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AreConcurrentOperationsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAreConcurrentOperationsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragDropManager {
@@ -56,7 +56,7 @@ impl ICoreDragDropManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreDragDropManagerStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<CoreDragDropManager>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<CoreDragDropManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreDragDropManagerStatics {
@@ -87,9 +87,9 @@ impl ICoreDragDropManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDragInfoImpl: Sized {
-    fn Data(&self) -> ::windows::core::Result<super::super::DataPackageView>;
-    fn Modifiers(&self) -> ::windows::core::Result<super::DragDropModifiers>;
-    fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::DataPackageView>;
+    fn Modifiers(&mut self) -> ::windows::core::Result<super::DragDropModifiers>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragInfo {
@@ -144,7 +144,7 @@ impl ICoreDragInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDragInfo2Impl: Sized + ICoreDragInfoImpl {
-    fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation>;
+    fn AllowedOperations(&mut self) -> ::windows::core::Result<super::super::DataPackageOperation>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragInfo2 {
@@ -175,13 +175,13 @@ impl ICoreDragInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICoreDragOperationImpl: Sized {
-    fn Data(&self) -> ::windows::core::Result<super::super::DataPackage>;
-    fn SetPointerId(&self, pointerid: u32) -> ::windows::core::Result<()>;
-    fn SetDragUIContentFromSoftwareBitmap(&self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
-    fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint(&self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>, anchorpoint: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn DragUIContentMode(&self) -> ::windows::core::Result<CoreDragUIContentMode>;
-    fn SetDragUIContentMode(&self, value: CoreDragUIContentMode) -> ::windows::core::Result<()>;
-    fn StartAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::DataPackage>;
+    fn SetPointerId(&mut self, pointerid: u32) -> ::windows::core::Result<()>;
+    fn SetDragUIContentFromSoftwareBitmap(&mut self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
+    fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint(&mut self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>, anchorpoint: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn DragUIContentMode(&mut self) -> ::windows::core::Result<CoreDragUIContentMode>;
+    fn SetDragUIContentMode(&mut self, value: CoreDragUIContentMode) -> ::windows::core::Result<()>;
+    fn StartAsync(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragOperation {
@@ -258,8 +258,8 @@ impl ICoreDragOperationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICoreDragOperation2Impl: Sized + ICoreDragOperationImpl {
-    fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation>;
-    fn SetAllowedOperations(&self, value: super::super::DataPackageOperation) -> ::windows::core::Result<()>;
+    fn AllowedOperations(&mut self) -> ::windows::core::Result<super::super::DataPackageOperation>;
+    fn SetAllowedOperations(&mut self, value: super::super::DataPackageOperation) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragOperation2 {
@@ -295,17 +295,17 @@ impl ICoreDragOperation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait ICoreDragUIOverrideImpl: Sized {
-    fn SetContentFromSoftwareBitmap(&self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
-    fn SetContentFromSoftwareBitmapWithAnchorPoint(&self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>, anchorpoint: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn IsContentVisible(&self) -> ::windows::core::Result<bool>;
-    fn SetIsContentVisible(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCaption(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsCaptionVisible(&self) -> ::windows::core::Result<bool>;
-    fn SetIsCaptionVisible(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsGlyphVisible(&self) -> ::windows::core::Result<bool>;
-    fn SetIsGlyphVisible(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn SetContentFromSoftwareBitmap(&mut self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
+    fn SetContentFromSoftwareBitmapWithAnchorPoint(&mut self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>, anchorpoint: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn IsContentVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsContentVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Caption(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCaption(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsCaptionVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsCaptionVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsGlyphVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsGlyphVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Clear(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDragUIOverride {
@@ -409,10 +409,10 @@ impl ICoreDragUIOverrideVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ICoreDropOperationTargetImpl: Sized {
-    fn EnterAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn OverAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn LeaveAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
-    fn DropAsync(&self, draginfo: &::core::option::Option<CoreDragInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn EnterAsync(&mut self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn OverAsync(&mut self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn LeaveAsync(&mut self, draginfo: &::core::option::Option<CoreDragInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
+    fn DropAsync(&mut self, draginfo: &::core::option::Option<CoreDragInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICoreDropOperationTarget {
@@ -479,7 +479,7 @@ impl ICoreDropOperationTargetVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreDropOperationTargetRequestedEventArgsImpl: Sized {
-    fn SetTarget(&self, target: &::core::option::Option<ICoreDropOperationTarget>) -> ::windows::core::Result<()>;
+    fn SetTarget(&mut self, target: &::core::option::Option<ICoreDropOperationTarget>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreDropOperationTargetRequestedEventArgs {

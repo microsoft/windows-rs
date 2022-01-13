@@ -1,15 +1,15 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentLinkInfoImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn SetId(&self, value: u32) -> ::windows::core::Result<()>;
-    fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SecondaryText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSecondaryText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn LinkContentKind(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLinkContentKind(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn SetId(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SecondaryText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSecondaryText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn LinkContentKind(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLinkContentKind(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentLinkInfo {
@@ -128,17 +128,17 @@ impl IFontWeightsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFontWeightsStaticsImpl: Sized {
-    fn Black(&self) -> ::windows::core::Result<FontWeight>;
-    fn Bold(&self) -> ::windows::core::Result<FontWeight>;
-    fn ExtraBlack(&self) -> ::windows::core::Result<FontWeight>;
-    fn ExtraBold(&self) -> ::windows::core::Result<FontWeight>;
-    fn ExtraLight(&self) -> ::windows::core::Result<FontWeight>;
-    fn Light(&self) -> ::windows::core::Result<FontWeight>;
-    fn Medium(&self) -> ::windows::core::Result<FontWeight>;
-    fn Normal(&self) -> ::windows::core::Result<FontWeight>;
-    fn SemiBold(&self) -> ::windows::core::Result<FontWeight>;
-    fn SemiLight(&self) -> ::windows::core::Result<FontWeight>;
-    fn Thin(&self) -> ::windows::core::Result<FontWeight>;
+    fn Black(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn Bold(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn ExtraBlack(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn ExtraBold(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn ExtraLight(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn Light(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn Medium(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn Normal(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn SemiBold(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn SemiLight(&mut self) -> ::windows::core::Result<FontWeight>;
+    fn Thin(&mut self) -> ::windows::core::Result<FontWeight>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFontWeightsStatics {
@@ -289,8 +289,8 @@ impl IFontWeightsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRichEditTextRangeImpl: Sized {
-    fn ContentLinkInfo(&self) -> ::windows::core::Result<ContentLinkInfo>;
-    fn SetContentLinkInfo(&self, value: &::core::option::Option<ContentLinkInfo>) -> ::windows::core::Result<()>;
+    fn ContentLinkInfo(&mut self) -> ::windows::core::Result<ContentLinkInfo>;
+    fn SetContentLinkInfo(&mut self, value: &::core::option::Option<ContentLinkInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRichEditTextRange {
@@ -325,56 +325,56 @@ impl IRichEditTextRangeVtbl {
     }
 }
 pub trait ITextCharacterFormatImpl: Sized {
-    fn AllCaps(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetAllCaps(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn BackgroundColor(&self) -> ::windows::core::Result<super::Color>;
-    fn SetBackgroundColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn Bold(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetBold(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn FontStretch(&self) -> ::windows::core::Result<FontStretch>;
-    fn SetFontStretch(&self, value: FontStretch) -> ::windows::core::Result<()>;
-    fn FontStyle(&self) -> ::windows::core::Result<FontStyle>;
-    fn SetFontStyle(&self, value: FontStyle) -> ::windows::core::Result<()>;
-    fn ForegroundColor(&self) -> ::windows::core::Result<super::Color>;
-    fn SetForegroundColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn Hidden(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetHidden(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Italic(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetItalic(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Kerning(&self) -> ::windows::core::Result<f32>;
-    fn SetKerning(&self, value: f32) -> ::windows::core::Result<()>;
-    fn LanguageTag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguageTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LinkType(&self) -> ::windows::core::Result<LinkType>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Outline(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetOutline(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Position(&self) -> ::windows::core::Result<f32>;
-    fn SetPosition(&self, value: f32) -> ::windows::core::Result<()>;
-    fn ProtectedText(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetProtectedText(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Size(&self) -> ::windows::core::Result<f32>;
-    fn SetSize(&self, value: f32) -> ::windows::core::Result<()>;
-    fn SmallCaps(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetSmallCaps(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Spacing(&self) -> ::windows::core::Result<f32>;
-    fn SetSpacing(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Strikethrough(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetStrikethrough(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Subscript(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetSubscript(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Superscript(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetSuperscript(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn TextScript(&self) -> ::windows::core::Result<TextScript>;
-    fn SetTextScript(&self, value: TextScript) -> ::windows::core::Result<()>;
-    fn Underline(&self) -> ::windows::core::Result<UnderlineType>;
-    fn SetUnderline(&self, value: UnderlineType) -> ::windows::core::Result<()>;
-    fn Weight(&self) -> ::windows::core::Result<i32>;
-    fn SetWeight(&self, value: i32) -> ::windows::core::Result<()>;
-    fn SetClone(&self, value: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<()>;
-    fn GetClone(&self) -> ::windows::core::Result<ITextCharacterFormat>;
-    fn IsEqual(&self, format: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<bool>;
+    fn AllCaps(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetAllCaps(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetBackgroundColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn Bold(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetBold(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn FontStretch(&mut self) -> ::windows::core::Result<FontStretch>;
+    fn SetFontStretch(&mut self, value: FontStretch) -> ::windows::core::Result<()>;
+    fn FontStyle(&mut self) -> ::windows::core::Result<FontStyle>;
+    fn SetFontStyle(&mut self, value: FontStyle) -> ::windows::core::Result<()>;
+    fn ForegroundColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetForegroundColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn Hidden(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetHidden(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Italic(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetItalic(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Kerning(&mut self) -> ::windows::core::Result<f32>;
+    fn SetKerning(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn LanguageTag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguageTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LinkType(&mut self) -> ::windows::core::Result<LinkType>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Outline(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetOutline(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Position(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPosition(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn ProtectedText(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetProtectedText(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Size(&mut self) -> ::windows::core::Result<f32>;
+    fn SetSize(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn SmallCaps(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetSmallCaps(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Spacing(&mut self) -> ::windows::core::Result<f32>;
+    fn SetSpacing(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Strikethrough(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetStrikethrough(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Subscript(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetSubscript(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Superscript(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetSuperscript(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn TextScript(&mut self) -> ::windows::core::Result<TextScript>;
+    fn SetTextScript(&mut self, value: TextScript) -> ::windows::core::Result<()>;
+    fn Underline(&mut self) -> ::windows::core::Result<UnderlineType>;
+    fn SetUnderline(&mut self, value: UnderlineType) -> ::windows::core::Result<()>;
+    fn Weight(&mut self) -> ::windows::core::Result<i32>;
+    fn SetWeight(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn SetClone(&mut self, value: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<()>;
+    fn GetClone(&mut self) -> ::windows::core::Result<ITextCharacterFormat>;
+    fn IsEqual(&mut self, format: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ITextCharacterFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextCharacterFormat";
@@ -823,14 +823,14 @@ impl ITextCharacterFormatVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextConstantsStaticsImpl: Sized {
-    fn AutoColor(&self) -> ::windows::core::Result<super::Color>;
-    fn MinUnitCount(&self) -> ::windows::core::Result<i32>;
-    fn MaxUnitCount(&self) -> ::windows::core::Result<i32>;
-    fn UndefinedColor(&self) -> ::windows::core::Result<super::Color>;
-    fn UndefinedFloatValue(&self) -> ::windows::core::Result<f32>;
-    fn UndefinedInt32Value(&self) -> ::windows::core::Result<i32>;
-    fn UndefinedFontStretch(&self) -> ::windows::core::Result<FontStretch>;
-    fn UndefinedFontStyle(&self) -> ::windows::core::Result<FontStyle>;
+    fn AutoColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn MinUnitCount(&mut self) -> ::windows::core::Result<i32>;
+    fn MaxUnitCount(&mut self) -> ::windows::core::Result<i32>;
+    fn UndefinedColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn UndefinedFloatValue(&mut self) -> ::windows::core::Result<f32>;
+    fn UndefinedInt32Value(&mut self) -> ::windows::core::Result<i32>;
+    fn UndefinedFontStretch(&mut self) -> ::windows::core::Result<FontStretch>;
+    fn UndefinedFontStyle(&mut self) -> ::windows::core::Result<FontStyle>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextConstantsStatics {
@@ -945,33 +945,33 @@ impl ITextConstantsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextDocumentImpl: Sized {
-    fn CaretType(&self) -> ::windows::core::Result<CaretType>;
-    fn SetCaretType(&self, value: CaretType) -> ::windows::core::Result<()>;
-    fn DefaultTabStop(&self) -> ::windows::core::Result<f32>;
-    fn SetDefaultTabStop(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Selection(&self) -> ::windows::core::Result<ITextSelection>;
-    fn UndoLimit(&self) -> ::windows::core::Result<u32>;
-    fn SetUndoLimit(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CanCopy(&self) -> ::windows::core::Result<bool>;
-    fn CanPaste(&self) -> ::windows::core::Result<bool>;
-    fn CanRedo(&self) -> ::windows::core::Result<bool>;
-    fn CanUndo(&self) -> ::windows::core::Result<bool>;
-    fn ApplyDisplayUpdates(&self) -> ::windows::core::Result<i32>;
-    fn BatchDisplayUpdates(&self) -> ::windows::core::Result<i32>;
-    fn BeginUndoGroup(&self) -> ::windows::core::Result<()>;
-    fn EndUndoGroup(&self) -> ::windows::core::Result<()>;
-    fn GetDefaultCharacterFormat(&self) -> ::windows::core::Result<ITextCharacterFormat>;
-    fn GetDefaultParagraphFormat(&self) -> ::windows::core::Result<ITextParagraphFormat>;
-    fn GetRange(&self, startposition: i32, endposition: i32) -> ::windows::core::Result<ITextRange>;
-    fn GetRangeFromPoint(&self, point: &super::super::Foundation::Point, options: PointOptions) -> ::windows::core::Result<ITextRange>;
-    fn GetText(&self, options: TextGetOptions, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LoadFromStream(&self, options: TextSetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
-    fn Redo(&self) -> ::windows::core::Result<()>;
-    fn SaveToStream(&self, options: TextGetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
-    fn SetDefaultCharacterFormat(&self, value: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<()>;
-    fn SetDefaultParagraphFormat(&self, value: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<()>;
-    fn SetText(&self, options: TextSetOptions, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Undo(&self) -> ::windows::core::Result<()>;
+    fn CaretType(&mut self) -> ::windows::core::Result<CaretType>;
+    fn SetCaretType(&mut self, value: CaretType) -> ::windows::core::Result<()>;
+    fn DefaultTabStop(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDefaultTabStop(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Selection(&mut self) -> ::windows::core::Result<ITextSelection>;
+    fn UndoLimit(&mut self) -> ::windows::core::Result<u32>;
+    fn SetUndoLimit(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CanCopy(&mut self) -> ::windows::core::Result<bool>;
+    fn CanPaste(&mut self) -> ::windows::core::Result<bool>;
+    fn CanRedo(&mut self) -> ::windows::core::Result<bool>;
+    fn CanUndo(&mut self) -> ::windows::core::Result<bool>;
+    fn ApplyDisplayUpdates(&mut self) -> ::windows::core::Result<i32>;
+    fn BatchDisplayUpdates(&mut self) -> ::windows::core::Result<i32>;
+    fn BeginUndoGroup(&mut self) -> ::windows::core::Result<()>;
+    fn EndUndoGroup(&mut self) -> ::windows::core::Result<()>;
+    fn GetDefaultCharacterFormat(&mut self) -> ::windows::core::Result<ITextCharacterFormat>;
+    fn GetDefaultParagraphFormat(&mut self) -> ::windows::core::Result<ITextParagraphFormat>;
+    fn GetRange(&mut self, startposition: i32, endposition: i32) -> ::windows::core::Result<ITextRange>;
+    fn GetRangeFromPoint(&mut self, point: &super::super::Foundation::Point, options: PointOptions) -> ::windows::core::Result<ITextRange>;
+    fn GetText(&mut self, options: TextGetOptions, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LoadFromStream(&mut self, options: TextSetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
+    fn Redo(&mut self) -> ::windows::core::Result<()>;
+    fn SaveToStream(&mut self, options: TextGetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
+    fn SetDefaultCharacterFormat(&mut self, value: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<()>;
+    fn SetDefaultParagraphFormat(&mut self, value: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<()>;
+    fn SetText(&mut self, options: TextSetOptions, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Undo(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for ITextDocument {
@@ -1223,10 +1223,10 @@ impl ITextDocumentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextDocument2Impl: Sized {
-    fn AlignmentIncludesTrailingWhitespace(&self) -> ::windows::core::Result<bool>;
-    fn SetAlignmentIncludesTrailingWhitespace(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IgnoreTrailingCharacterSpacing(&self) -> ::windows::core::Result<bool>;
-    fn SetIgnoreTrailingCharacterSpacing(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AlignmentIncludesTrailingWhitespace(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAlignmentIncludesTrailingWhitespace(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IgnoreTrailingCharacterSpacing(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIgnoreTrailingCharacterSpacing(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextDocument2 {
@@ -1279,7 +1279,7 @@ impl ITextDocument2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextDocument3Impl: Sized {
-    fn ClearUndoRedoHistory(&self) -> ::windows::core::Result<()>;
+    fn ClearUndoRedoHistory(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextDocument3 {
@@ -1303,9 +1303,9 @@ impl ITextDocument3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextDocument4Impl: Sized {
-    fn SetMath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetMath(&self, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetMathMode(&self, mode: RichEditMathMode) -> ::windows::core::Result<()>;
+    fn SetMath(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetMath(&mut self, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetMathMode(&mut self, mode: RichEditMathMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextDocument4 {
@@ -1338,54 +1338,54 @@ impl ITextDocument4Vtbl {
     }
 }
 pub trait ITextParagraphFormatImpl: Sized {
-    fn Alignment(&self) -> ::windows::core::Result<ParagraphAlignment>;
-    fn SetAlignment(&self, value: ParagraphAlignment) -> ::windows::core::Result<()>;
-    fn FirstLineIndent(&self) -> ::windows::core::Result<f32>;
-    fn KeepTogether(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetKeepTogether(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn KeepWithNext(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetKeepWithNext(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn LeftIndent(&self) -> ::windows::core::Result<f32>;
-    fn LineSpacing(&self) -> ::windows::core::Result<f32>;
-    fn LineSpacingRule(&self) -> ::windows::core::Result<LineSpacingRule>;
-    fn ListAlignment(&self) -> ::windows::core::Result<MarkerAlignment>;
-    fn SetListAlignment(&self, value: MarkerAlignment) -> ::windows::core::Result<()>;
-    fn ListLevelIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetListLevelIndex(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ListStart(&self) -> ::windows::core::Result<i32>;
-    fn SetListStart(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ListStyle(&self) -> ::windows::core::Result<MarkerStyle>;
-    fn SetListStyle(&self, value: MarkerStyle) -> ::windows::core::Result<()>;
-    fn ListTab(&self) -> ::windows::core::Result<f32>;
-    fn SetListTab(&self, value: f32) -> ::windows::core::Result<()>;
-    fn ListType(&self) -> ::windows::core::Result<MarkerType>;
-    fn SetListType(&self, value: MarkerType) -> ::windows::core::Result<()>;
-    fn NoLineNumber(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetNoLineNumber(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn PageBreakBefore(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetPageBreakBefore(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn RightIndent(&self) -> ::windows::core::Result<f32>;
-    fn SetRightIndent(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RightToLeft(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetRightToLeft(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn Style(&self) -> ::windows::core::Result<ParagraphStyle>;
-    fn SetStyle(&self, value: ParagraphStyle) -> ::windows::core::Result<()>;
-    fn SpaceAfter(&self) -> ::windows::core::Result<f32>;
-    fn SetSpaceAfter(&self, value: f32) -> ::windows::core::Result<()>;
-    fn SpaceBefore(&self) -> ::windows::core::Result<f32>;
-    fn SetSpaceBefore(&self, value: f32) -> ::windows::core::Result<()>;
-    fn WidowControl(&self) -> ::windows::core::Result<FormatEffect>;
-    fn SetWidowControl(&self, value: FormatEffect) -> ::windows::core::Result<()>;
-    fn TabCount(&self) -> ::windows::core::Result<i32>;
-    fn AddTab(&self, position: f32, align: TabAlignment, leader: TabLeader) -> ::windows::core::Result<()>;
-    fn ClearAllTabs(&self) -> ::windows::core::Result<()>;
-    fn DeleteTab(&self, position: f32) -> ::windows::core::Result<()>;
-    fn GetClone(&self) -> ::windows::core::Result<ITextParagraphFormat>;
-    fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader) -> ::windows::core::Result<()>;
-    fn IsEqual(&self, format: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<bool>;
-    fn SetClone(&self, format: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<()>;
-    fn SetIndents(&self, start: f32, left: f32, right: f32) -> ::windows::core::Result<()>;
-    fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32) -> ::windows::core::Result<()>;
+    fn Alignment(&mut self) -> ::windows::core::Result<ParagraphAlignment>;
+    fn SetAlignment(&mut self, value: ParagraphAlignment) -> ::windows::core::Result<()>;
+    fn FirstLineIndent(&mut self) -> ::windows::core::Result<f32>;
+    fn KeepTogether(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetKeepTogether(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn KeepWithNext(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetKeepWithNext(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn LeftIndent(&mut self) -> ::windows::core::Result<f32>;
+    fn LineSpacing(&mut self) -> ::windows::core::Result<f32>;
+    fn LineSpacingRule(&mut self) -> ::windows::core::Result<LineSpacingRule>;
+    fn ListAlignment(&mut self) -> ::windows::core::Result<MarkerAlignment>;
+    fn SetListAlignment(&mut self, value: MarkerAlignment) -> ::windows::core::Result<()>;
+    fn ListLevelIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetListLevelIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ListStart(&mut self) -> ::windows::core::Result<i32>;
+    fn SetListStart(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ListStyle(&mut self) -> ::windows::core::Result<MarkerStyle>;
+    fn SetListStyle(&mut self, value: MarkerStyle) -> ::windows::core::Result<()>;
+    fn ListTab(&mut self) -> ::windows::core::Result<f32>;
+    fn SetListTab(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn ListType(&mut self) -> ::windows::core::Result<MarkerType>;
+    fn SetListType(&mut self, value: MarkerType) -> ::windows::core::Result<()>;
+    fn NoLineNumber(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetNoLineNumber(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn PageBreakBefore(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetPageBreakBefore(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn RightIndent(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRightIndent(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RightToLeft(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetRightToLeft(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn Style(&mut self) -> ::windows::core::Result<ParagraphStyle>;
+    fn SetStyle(&mut self, value: ParagraphStyle) -> ::windows::core::Result<()>;
+    fn SpaceAfter(&mut self) -> ::windows::core::Result<f32>;
+    fn SetSpaceAfter(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn SpaceBefore(&mut self) -> ::windows::core::Result<f32>;
+    fn SetSpaceBefore(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn WidowControl(&mut self) -> ::windows::core::Result<FormatEffect>;
+    fn SetWidowControl(&mut self, value: FormatEffect) -> ::windows::core::Result<()>;
+    fn TabCount(&mut self) -> ::windows::core::Result<i32>;
+    fn AddTab(&mut self, position: f32, align: TabAlignment, leader: TabLeader) -> ::windows::core::Result<()>;
+    fn ClearAllTabs(&mut self) -> ::windows::core::Result<()>;
+    fn DeleteTab(&mut self, position: f32) -> ::windows::core::Result<()>;
+    fn GetClone(&mut self) -> ::windows::core::Result<ITextParagraphFormat>;
+    fn GetTab(&mut self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader) -> ::windows::core::Result<()>;
+    fn IsEqual(&mut self, format: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<bool>;
+    fn SetClone(&mut self, format: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<()>;
+    fn SetIndents(&mut self, start: f32, left: f32, right: f32) -> ::windows::core::Result<()>;
+    fn SetLineSpacing(&mut self, rule: LineSpacingRule, spacing: f32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITextParagraphFormat {
     const NAME: &'static str = "Windows.UI.Text.ITextParagraphFormat";
@@ -1810,58 +1810,58 @@ impl ITextParagraphFormatVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextRangeImpl: Sized {
-    fn Character(&self) -> ::windows::core::Result<u16>;
-    fn SetCharacter(&self, value: u16) -> ::windows::core::Result<()>;
-    fn CharacterFormat(&self) -> ::windows::core::Result<ITextCharacterFormat>;
-    fn SetCharacterFormat(&self, value: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<()>;
-    fn FormattedText(&self) -> ::windows::core::Result<ITextRange>;
-    fn SetFormattedText(&self, value: &::core::option::Option<ITextRange>) -> ::windows::core::Result<()>;
-    fn EndPosition(&self) -> ::windows::core::Result<i32>;
-    fn SetEndPosition(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Gravity(&self) -> ::windows::core::Result<RangeGravity>;
-    fn SetGravity(&self, value: RangeGravity) -> ::windows::core::Result<()>;
-    fn Length(&self) -> ::windows::core::Result<i32>;
-    fn Link(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLink(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ParagraphFormat(&self) -> ::windows::core::Result<ITextParagraphFormat>;
-    fn SetParagraphFormat(&self, value: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<()>;
-    fn StartPosition(&self) -> ::windows::core::Result<i32>;
-    fn SetStartPosition(&self, value: i32) -> ::windows::core::Result<()>;
-    fn StoryLength(&self) -> ::windows::core::Result<i32>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CanPaste(&self, format: i32) -> ::windows::core::Result<bool>;
-    fn ChangeCase(&self, value: LetterCase) -> ::windows::core::Result<()>;
-    fn Collapse(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Copy(&self) -> ::windows::core::Result<()>;
-    fn Cut(&self) -> ::windows::core::Result<()>;
-    fn Delete(&self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
-    fn EndOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
-    fn Expand(&self, unit: TextRangeUnit) -> ::windows::core::Result<i32>;
-    fn FindText(&self, value: &::windows::core::HSTRING, scanlength: i32, options: FindOptions) -> ::windows::core::Result<i32>;
-    fn GetCharacterUtf32(&self, value: &mut u32, offset: i32) -> ::windows::core::Result<()>;
-    fn GetClone(&self) -> ::windows::core::Result<ITextRange>;
-    fn GetIndex(&self, unit: TextRangeUnit) -> ::windows::core::Result<i32>;
-    fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()>;
-    fn GetText(&self, options: TextGetOptions, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetTextViaStream(&self, options: TextGetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
-    fn InRange(&self, range: &::core::option::Option<ITextRange>) -> ::windows::core::Result<bool>;
-    fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
-    fn InStory(&self, range: &::core::option::Option<ITextRange>) -> ::windows::core::Result<bool>;
-    fn IsEqual(&self, range: &::core::option::Option<ITextRange>) -> ::windows::core::Result<bool>;
-    fn Move(&self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
-    fn Paste(&self, format: i32) -> ::windows::core::Result<()>;
-    fn ScrollIntoView(&self, value: PointOptions) -> ::windows::core::Result<()>;
-    fn MatchSelection(&self) -> ::windows::core::Result<()>;
-    fn SetIndex(&self, unit: TextRangeUnit, index: i32, extend: bool) -> ::windows::core::Result<()>;
-    fn SetPoint(&self, point: &super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows::core::Result<()>;
-    fn SetRange(&self, startposition: i32, endposition: i32) -> ::windows::core::Result<()>;
-    fn SetText(&self, options: TextSetOptions, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetTextViaStream(&self, options: TextSetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
-    fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
+    fn Character(&mut self) -> ::windows::core::Result<u16>;
+    fn SetCharacter(&mut self, value: u16) -> ::windows::core::Result<()>;
+    fn CharacterFormat(&mut self) -> ::windows::core::Result<ITextCharacterFormat>;
+    fn SetCharacterFormat(&mut self, value: &::core::option::Option<ITextCharacterFormat>) -> ::windows::core::Result<()>;
+    fn FormattedText(&mut self) -> ::windows::core::Result<ITextRange>;
+    fn SetFormattedText(&mut self, value: &::core::option::Option<ITextRange>) -> ::windows::core::Result<()>;
+    fn EndPosition(&mut self) -> ::windows::core::Result<i32>;
+    fn SetEndPosition(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Gravity(&mut self) -> ::windows::core::Result<RangeGravity>;
+    fn SetGravity(&mut self, value: RangeGravity) -> ::windows::core::Result<()>;
+    fn Length(&mut self) -> ::windows::core::Result<i32>;
+    fn Link(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLink(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ParagraphFormat(&mut self) -> ::windows::core::Result<ITextParagraphFormat>;
+    fn SetParagraphFormat(&mut self, value: &::core::option::Option<ITextParagraphFormat>) -> ::windows::core::Result<()>;
+    fn StartPosition(&mut self) -> ::windows::core::Result<i32>;
+    fn SetStartPosition(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn StoryLength(&mut self) -> ::windows::core::Result<i32>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CanPaste(&mut self, format: i32) -> ::windows::core::Result<bool>;
+    fn ChangeCase(&mut self, value: LetterCase) -> ::windows::core::Result<()>;
+    fn Collapse(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Copy(&mut self) -> ::windows::core::Result<()>;
+    fn Cut(&mut self) -> ::windows::core::Result<()>;
+    fn Delete(&mut self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
+    fn EndOf(&mut self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
+    fn Expand(&mut self, unit: TextRangeUnit) -> ::windows::core::Result<i32>;
+    fn FindText(&mut self, value: &::windows::core::HSTRING, scanlength: i32, options: FindOptions) -> ::windows::core::Result<i32>;
+    fn GetCharacterUtf32(&mut self, value: &mut u32, offset: i32) -> ::windows::core::Result<()>;
+    fn GetClone(&mut self) -> ::windows::core::Result<ITextRange>;
+    fn GetIndex(&mut self, unit: TextRangeUnit) -> ::windows::core::Result<i32>;
+    fn GetPoint(&mut self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn GetRect(&mut self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()>;
+    fn GetText(&mut self, options: TextGetOptions, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetTextViaStream(&mut self, options: TextGetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
+    fn InRange(&mut self, range: &::core::option::Option<ITextRange>) -> ::windows::core::Result<bool>;
+    fn InsertImage(&mut self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
+    fn InStory(&mut self, range: &::core::option::Option<ITextRange>) -> ::windows::core::Result<bool>;
+    fn IsEqual(&mut self, range: &::core::option::Option<ITextRange>) -> ::windows::core::Result<bool>;
+    fn Move(&mut self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveEnd(&mut self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveStart(&mut self, unit: TextRangeUnit, count: i32) -> ::windows::core::Result<i32>;
+    fn Paste(&mut self, format: i32) -> ::windows::core::Result<()>;
+    fn ScrollIntoView(&mut self, value: PointOptions) -> ::windows::core::Result<()>;
+    fn MatchSelection(&mut self) -> ::windows::core::Result<()>;
+    fn SetIndex(&mut self, unit: TextRangeUnit, index: i32, extend: bool) -> ::windows::core::Result<()>;
+    fn SetPoint(&mut self, point: &super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows::core::Result<()>;
+    fn SetRange(&mut self, startposition: i32, endposition: i32) -> ::windows::core::Result<()>;
+    fn SetText(&mut self, options: TextSetOptions, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetTextViaStream(&mut self, options: TextSetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
+    fn StartOf(&mut self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for ITextRange {
@@ -2315,16 +2315,16 @@ impl ITextRangeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait ITextSelectionImpl: Sized + ITextRangeImpl {
-    fn Options(&self) -> ::windows::core::Result<SelectionOptions>;
-    fn SetOptions(&self, value: SelectionOptions) -> ::windows::core::Result<()>;
-    fn Type(&self) -> ::windows::core::Result<SelectionType>;
-    fn EndKey(&self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
-    fn HomeKey(&self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
-    fn MoveDown(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
-    fn MoveLeft(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
-    fn MoveRight(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
-    fn MoveUp(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
-    fn TypeText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Options(&mut self) -> ::windows::core::Result<SelectionOptions>;
+    fn SetOptions(&mut self, value: SelectionOptions) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<SelectionType>;
+    fn EndKey(&mut self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
+    fn HomeKey(&mut self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
+    fn MoveDown(&mut self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
+    fn MoveLeft(&mut self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
+    fn MoveRight(&mut self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
+    fn MoveUp(&mut self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::core::Result<i32>;
+    fn TypeText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for ITextSelection {

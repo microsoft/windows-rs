@@ -1,27 +1,27 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmsAppMessageImpl: Sized + ISmsMessageBaseImpl {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTo(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBody(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CallbackNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCallbackNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsDeliveryNotificationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RetryAttemptCount(&self) -> ::windows::core::Result<i32>;
-    fn SetRetryAttemptCount(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Encoding(&self) -> ::windows::core::Result<SmsEncoding>;
-    fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()>;
-    fn PortNumber(&self) -> ::windows::core::Result<i32>;
-    fn SetPortNumber(&self, value: i32) -> ::windows::core::Result<()>;
-    fn TeleserviceId(&self) -> ::windows::core::Result<i32>;
-    fn SetTeleserviceId(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ProtocolId(&self) -> ::windows::core::Result<i32>;
-    fn SetProtocolId(&self, value: i32) -> ::windows::core::Result<()>;
-    fn BinaryBody(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetBinaryBody(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTo(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn From(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBody(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CallbackNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCallbackNumber(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsDeliveryNotificationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsDeliveryNotificationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RetryAttemptCount(&mut self) -> ::windows::core::Result<i32>;
+    fn SetRetryAttemptCount(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Encoding(&mut self) -> ::windows::core::Result<SmsEncoding>;
+    fn SetEncoding(&mut self, value: SmsEncoding) -> ::windows::core::Result<()>;
+    fn PortNumber(&mut self) -> ::windows::core::Result<i32>;
+    fn SetPortNumber(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn TeleserviceId(&mut self) -> ::windows::core::Result<i32>;
+    fn SetTeleserviceId(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ProtocolId(&mut self) -> ::windows::core::Result<i32>;
+    fn SetProtocolId(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn BinaryBody(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetBinaryBody(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsAppMessage {
@@ -234,10 +234,10 @@ impl ISmsAppMessageVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait ISmsBinaryMessageImpl: Sized + ISmsMessageImpl {
-    fn Format(&self) -> ::windows::core::Result<SmsDataFormat>;
-    fn SetFormat(&self, value: SmsDataFormat) -> ::windows::core::Result<()>;
-    fn GetData(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetData(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn Format(&mut self) -> ::windows::core::Result<SmsDataFormat>;
+    fn SetFormat(&mut self, value: SmsDataFormat) -> ::windows::core::Result<()>;
+    fn GetData(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SetData(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for ISmsBinaryMessage {
@@ -291,16 +291,16 @@ impl ISmsBinaryMessageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsBroadcastMessageImpl: Sized + ISmsMessageBaseImpl {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Channel(&self) -> ::windows::core::Result<i32>;
-    fn GeographicalScope(&self) -> ::windows::core::Result<SmsGeographicalScope>;
-    fn MessageCode(&self) -> ::windows::core::Result<i32>;
-    fn UpdateNumber(&self) -> ::windows::core::Result<i32>;
-    fn BroadcastType(&self) -> ::windows::core::Result<SmsBroadcastType>;
-    fn IsEmergencyAlert(&self) -> ::windows::core::Result<bool>;
-    fn IsUserPopupRequested(&self) -> ::windows::core::Result<bool>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Channel(&mut self) -> ::windows::core::Result<i32>;
+    fn GeographicalScope(&mut self) -> ::windows::core::Result<SmsGeographicalScope>;
+    fn MessageCode(&mut self) -> ::windows::core::Result<i32>;
+    fn UpdateNumber(&mut self) -> ::windows::core::Result<i32>;
+    fn BroadcastType(&mut self) -> ::windows::core::Result<SmsBroadcastType>;
+    fn IsEmergencyAlert(&mut self) -> ::windows::core::Result<bool>;
+    fn IsUserPopupRequested(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsBroadcastMessage {
@@ -439,16 +439,16 @@ impl ISmsBroadcastMessageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait ISmsDeviceImpl: Sized {
-    fn SendMessageAsync(&self, message: &::core::option::Option<ISmsMessage>) -> ::windows::core::Result<SendSmsMessageOperation>;
-    fn CalculateLength(&self, message: &::core::option::Option<SmsTextMessage>) -> ::windows::core::Result<SmsEncodedLength>;
-    fn AccountPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
-    fn MessageStore(&self) -> ::windows::core::Result<SmsDeviceMessageStore>;
-    fn DeviceStatus(&self) -> ::windows::core::Result<SmsDeviceStatus>;
-    fn SmsMessageReceived(&self, eventhandler: &::core::option::Option<SmsMessageReceivedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSmsMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SmsDeviceStatusChanged(&self, eventhandler: &::core::option::Option<SmsDeviceStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSmsDeviceStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SendMessageAsync(&mut self, message: &::core::option::Option<ISmsMessage>) -> ::windows::core::Result<SendSmsMessageOperation>;
+    fn CalculateLength(&mut self, message: &::core::option::Option<SmsTextMessage>) -> ::windows::core::Result<SmsEncodedLength>;
+    fn AccountPhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CellularClass(&mut self) -> ::windows::core::Result<CellularClass>;
+    fn MessageStore(&mut self) -> ::windows::core::Result<SmsDeviceMessageStore>;
+    fn DeviceStatus(&mut self) -> ::windows::core::Result<SmsDeviceStatus>;
+    fn SmsMessageReceived(&mut self, eventhandler: &::core::option::Option<SmsMessageReceivedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSmsMessageReceived(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SmsDeviceStatusChanged(&mut self, eventhandler: &::core::option::Option<SmsDeviceStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSmsDeviceStatusChanged(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for ISmsDevice {
@@ -573,17 +573,17 @@ impl ISmsDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsDevice2Impl: Sized {
-    fn SmscAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSmscAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ParentDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AccountPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
-    fn DeviceStatus(&self) -> ::windows::core::Result<SmsDeviceStatus>;
-    fn CalculateLength(&self, message: &::core::option::Option<ISmsMessageBase>) -> ::windows::core::Result<SmsEncodedLength>;
-    fn SendMessageAndGetResultAsync(&self, message: &::core::option::Option<ISmsMessageBase>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>>;
-    fn DeviceStatusChanged(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDeviceStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SmscAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSmscAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ParentDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AccountPhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CellularClass(&mut self) -> ::windows::core::Result<CellularClass>;
+    fn DeviceStatus(&mut self) -> ::windows::core::Result<SmsDeviceStatus>;
+    fn CalculateLength(&mut self, message: &::core::option::Option<ISmsMessageBase>) -> ::windows::core::Result<SmsEncodedLength>;
+    fn SendMessageAndGetResultAsync(&mut self, message: &::core::option::Option<ISmsMessageBase>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>>;
+    fn DeviceStatusChanged(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDeviceStatusChanged(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDevice2 {
@@ -720,10 +720,10 @@ impl ISmsDevice2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmsDevice2StaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<SmsDevice2>;
-    fn GetDefault(&self) -> ::windows::core::Result<SmsDevice2>;
-    fn FromParentId(&self, parentdeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<SmsDevice2>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<SmsDevice2>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<SmsDevice2>;
+    fn FromParentId(&mut self, parentdeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<SmsDevice2>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmsDevice2Statics {
@@ -790,11 +790,11 @@ impl ISmsDevice2StaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsDeviceMessageStoreImpl: Sized {
-    fn DeleteMessageAsync(&self, messageid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetMessageAsync(&self, messageid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ISmsMessage>>;
-    fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>;
-    fn MaxMessages(&self) -> ::windows::core::Result<u32>;
+    fn DeleteMessageAsync(&mut self, messageid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteMessagesAsync(&mut self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetMessageAsync(&mut self, messageid: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ISmsMessage>>;
+    fn GetMessagesAsync(&mut self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>;
+    fn MaxMessages(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDeviceMessageStore {
@@ -873,9 +873,9 @@ impl ISmsDeviceMessageStoreVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsDeviceStaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
-    fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
+    fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDeviceStatics {
@@ -930,7 +930,7 @@ impl ISmsDeviceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsDeviceStatics2Impl: Sized {
-    fn FromNetworkAccountIdAsync(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
+    fn FromNetworkAccountIdAsync(&mut self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsDeviceStatics2 {
@@ -961,20 +961,20 @@ impl ISmsDeviceStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsFilterRuleImpl: Sized {
-    fn MessageType(&self) -> ::windows::core::Result<SmsMessageType>;
-    fn ImsiPrefixes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn DeviceIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn SenderNumbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn TextMessagePrefixes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn PortNumbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
-    fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
-    fn SetCellularClass(&self, value: CellularClass) -> ::windows::core::Result<()>;
-    fn ProtocolIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
-    fn TeleserviceIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
-    fn WapApplicationIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn WapContentTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn BroadcastTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SmsBroadcastType>>;
-    fn BroadcastChannels(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
+    fn MessageType(&mut self) -> ::windows::core::Result<SmsMessageType>;
+    fn ImsiPrefixes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn DeviceIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn SenderNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn TextMessagePrefixes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn PortNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
+    fn CellularClass(&mut self) -> ::windows::core::Result<CellularClass>;
+    fn SetCellularClass(&mut self, value: CellularClass) -> ::windows::core::Result<()>;
+    fn ProtocolIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
+    fn TeleserviceIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
+    fn WapApplicationIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn WapContentTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn BroadcastTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SmsBroadcastType>>;
+    fn BroadcastChannels(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsFilterRule {
@@ -1154,7 +1154,7 @@ impl ISmsFilterRuleVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmsFilterRuleFactoryImpl: Sized {
-    fn CreateFilterRule(&self, messagetype: SmsMessageType) -> ::windows::core::Result<SmsFilterRule>;
+    fn CreateFilterRule(&mut self, messagetype: SmsMessageType) -> ::windows::core::Result<SmsFilterRule>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmsFilterRuleFactory {
@@ -1185,8 +1185,8 @@ impl ISmsFilterRuleFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsFilterRulesImpl: Sized {
-    fn ActionType(&self) -> ::windows::core::Result<SmsFilterActionType>;
-    fn Rules(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SmsFilterRule>>;
+    fn ActionType(&mut self) -> ::windows::core::Result<SmsFilterActionType>;
+    fn Rules(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SmsFilterRule>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsFilterRules {
@@ -1229,7 +1229,7 @@ impl ISmsFilterRulesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmsFilterRulesFactoryImpl: Sized {
-    fn CreateFilterRules(&self, actiontype: SmsFilterActionType) -> ::windows::core::Result<SmsFilterRules>;
+    fn CreateFilterRules(&mut self, actiontype: SmsFilterActionType) -> ::windows::core::Result<SmsFilterRules>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmsFilterRulesFactory {
@@ -1259,8 +1259,8 @@ impl ISmsFilterRulesFactoryVtbl {
     }
 }
 pub trait ISmsMessageImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn MessageClass(&self) -> ::windows::core::Result<SmsMessageClass>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn MessageClass(&mut self) -> ::windows::core::Result<SmsMessageClass>;
 }
 impl ::windows::core::RuntimeName for ISmsMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessage";
@@ -1300,11 +1300,11 @@ impl ISmsMessageVtbl {
     }
 }
 pub trait ISmsMessageBaseImpl: Sized {
-    fn MessageType(&self) -> ::windows::core::Result<SmsMessageType>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
-    fn MessageClass(&self) -> ::windows::core::Result<SmsMessageClass>;
-    fn SimIccId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MessageType(&mut self) -> ::windows::core::Result<SmsMessageType>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CellularClass(&mut self) -> ::windows::core::Result<CellularClass>;
+    fn MessageClass(&mut self) -> ::windows::core::Result<SmsMessageClass>;
+    fn SimIccId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for ISmsMessageBase {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageBase";
@@ -1381,8 +1381,8 @@ impl ISmsMessageBaseVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsMessageReceivedEventArgsImpl: Sized {
-    fn TextMessage(&self) -> ::windows::core::Result<SmsTextMessage>;
-    fn BinaryMessage(&self) -> ::windows::core::Result<SmsBinaryMessage>;
+    fn TextMessage(&mut self) -> ::windows::core::Result<SmsTextMessage>;
+    fn BinaryMessage(&mut self) -> ::windows::core::Result<SmsBinaryMessage>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsMessageReceivedEventArgs {
@@ -1425,15 +1425,15 @@ impl ISmsMessageReceivedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmsMessageReceivedTriggerDetailsImpl: Sized {
-    fn MessageType(&self) -> ::windows::core::Result<SmsMessageType>;
-    fn TextMessage(&self) -> ::windows::core::Result<SmsTextMessage2>;
-    fn WapMessage(&self) -> ::windows::core::Result<SmsWapMessage>;
-    fn AppMessage(&self) -> ::windows::core::Result<SmsAppMessage>;
-    fn BroadcastMessage(&self) -> ::windows::core::Result<SmsBroadcastMessage>;
-    fn VoicemailMessage(&self) -> ::windows::core::Result<SmsVoicemailMessage>;
-    fn StatusMessage(&self) -> ::windows::core::Result<SmsStatusMessage>;
-    fn Drop(&self) -> ::windows::core::Result<()>;
-    fn Accept(&self) -> ::windows::core::Result<()>;
+    fn MessageType(&mut self) -> ::windows::core::Result<SmsMessageType>;
+    fn TextMessage(&mut self) -> ::windows::core::Result<SmsTextMessage2>;
+    fn WapMessage(&mut self) -> ::windows::core::Result<SmsWapMessage>;
+    fn AppMessage(&mut self) -> ::windows::core::Result<SmsAppMessage>;
+    fn BroadcastMessage(&mut self) -> ::windows::core::Result<SmsBroadcastMessage>;
+    fn VoicemailMessage(&mut self) -> ::windows::core::Result<SmsVoicemailMessage>;
+    fn StatusMessage(&mut self) -> ::windows::core::Result<SmsStatusMessage>;
+    fn Drop(&mut self) -> ::windows::core::Result<()>;
+    fn Accept(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmsMessageReceivedTriggerDetails {
@@ -1546,10 +1546,10 @@ impl ISmsMessageReceivedTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsMessageRegistrationImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Unregister(&self) -> ::windows::core::Result<()>;
-    fn MessageReceived(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Unregister(&mut self) -> ::windows::core::Result<()>;
+    fn MessageReceived(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMessageReceived(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsMessageRegistration {
@@ -1602,8 +1602,8 @@ impl ISmsMessageRegistrationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsMessageRegistrationStaticsImpl: Sized {
-    fn AllRegistrations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmsMessageRegistration>>;
-    fn Register(&self, id: &::windows::core::HSTRING, filterrules: &::core::option::Option<SmsFilterRules>) -> ::windows::core::Result<SmsMessageRegistration>;
+    fn AllRegistrations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmsMessageRegistration>>;
+    fn Register(&mut self, id: &::windows::core::HSTRING, filterrules: &::core::option::Option<SmsFilterRules>) -> ::windows::core::Result<SmsMessageRegistration>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsMessageRegistrationStatics {
@@ -1646,8 +1646,8 @@ impl ISmsMessageRegistrationStaticsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsReceivedEventDetailsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MessageIndex(&self) -> ::windows::core::Result<u32>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MessageIndex(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsReceivedEventDetails {
@@ -1690,8 +1690,8 @@ impl ISmsReceivedEventDetailsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsReceivedEventDetails2Impl: Sized {
-    fn MessageClass(&self) -> ::windows::core::Result<SmsMessageClass>;
-    fn BinaryMessage(&self) -> ::windows::core::Result<SmsBinaryMessage>;
+    fn MessageClass(&mut self) -> ::windows::core::Result<SmsMessageClass>;
+    fn BinaryMessage(&mut self) -> ::windows::core::Result<SmsBinaryMessage>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsReceivedEventDetails2 {
@@ -1734,13 +1734,13 @@ impl ISmsReceivedEventDetails2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmsSendMessageResultImpl: Sized {
-    fn IsSuccessful(&self) -> ::windows::core::Result<bool>;
-    fn MessageReferenceNumbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>>;
-    fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
-    fn ModemErrorCode(&self) -> ::windows::core::Result<SmsModemErrorCode>;
-    fn IsErrorTransient(&self) -> ::windows::core::Result<bool>;
-    fn NetworkCauseCode(&self) -> ::windows::core::Result<i32>;
-    fn TransportFailureCause(&self) -> ::windows::core::Result<i32>;
+    fn IsSuccessful(&mut self) -> ::windows::core::Result<bool>;
+    fn MessageReferenceNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>>;
+    fn CellularClass(&mut self) -> ::windows::core::Result<CellularClass>;
+    fn ModemErrorCode(&mut self) -> ::windows::core::Result<SmsModemErrorCode>;
+    fn IsErrorTransient(&mut self) -> ::windows::core::Result<bool>;
+    fn NetworkCauseCode(&mut self) -> ::windows::core::Result<i32>;
+    fn TransportFailureCause(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsSendMessageResult {
@@ -1843,13 +1843,13 @@ impl ISmsSendMessageResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsStatusMessageImpl: Sized + ISmsMessageBaseImpl {
-    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Status(&self) -> ::windows::core::Result<i32>;
-    fn MessageReferenceNumber(&self) -> ::windows::core::Result<i32>;
-    fn ServiceCenterTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn DischargeTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn From(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<i32>;
+    fn MessageReferenceNumber(&mut self) -> ::windows::core::Result<i32>;
+    fn ServiceCenterTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn DischargeTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsStatusMessage {
@@ -1952,19 +1952,19 @@ impl ISmsStatusMessageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait ISmsTextMessageImpl: Sized + ISmsMessageImpl {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn PartReferenceId(&self) -> ::windows::core::Result<u32>;
-    fn PartNumber(&self) -> ::windows::core::Result<u32>;
-    fn PartCount(&self) -> ::windows::core::Result<u32>;
-    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTo(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFrom(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBody(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Encoding(&self) -> ::windows::core::Result<SmsEncoding>;
-    fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()>;
-    fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn PartReferenceId(&mut self) -> ::windows::core::Result<u32>;
+    fn PartNumber(&mut self) -> ::windows::core::Result<u32>;
+    fn PartCount(&mut self) -> ::windows::core::Result<u32>;
+    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTo(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn From(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFrom(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBody(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Encoding(&mut self) -> ::windows::core::Result<SmsEncoding>;
+    fn SetEncoding(&mut self, value: SmsEncoding) -> ::windows::core::Result<()>;
+    fn ToBinaryMessages(&mut self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for ISmsTextMessage {
@@ -2111,22 +2111,22 @@ impl ISmsTextMessageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsTextMessage2Impl: Sized + ISmsMessageBaseImpl {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTo(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBody(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Encoding(&self) -> ::windows::core::Result<SmsEncoding>;
-    fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()>;
-    fn CallbackNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCallbackNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsDeliveryNotificationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RetryAttemptCount(&self) -> ::windows::core::Result<i32>;
-    fn SetRetryAttemptCount(&self, value: i32) -> ::windows::core::Result<()>;
-    fn TeleserviceId(&self) -> ::windows::core::Result<i32>;
-    fn ProtocolId(&self) -> ::windows::core::Result<i32>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTo(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn From(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBody(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Encoding(&mut self) -> ::windows::core::Result<SmsEncoding>;
+    fn SetEncoding(&mut self, value: SmsEncoding) -> ::windows::core::Result<()>;
+    fn CallbackNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCallbackNumber(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsDeliveryNotificationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsDeliveryNotificationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RetryAttemptCount(&mut self) -> ::windows::core::Result<i32>;
+    fn SetRetryAttemptCount(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn TeleserviceId(&mut self) -> ::windows::core::Result<i32>;
+    fn ProtocolId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsTextMessage2 {
@@ -2295,8 +2295,8 @@ impl ISmsTextMessage2Vtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait ISmsTextMessageStaticsImpl: Sized {
-    fn FromBinaryMessage(&self, binarymessage: &::core::option::Option<SmsBinaryMessage>) -> ::windows::core::Result<SmsTextMessage>;
-    fn FromBinaryData(&self, format: SmsDataFormat, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<SmsTextMessage>;
+    fn FromBinaryMessage(&mut self, binarymessage: &::core::option::Option<SmsBinaryMessage>) -> ::windows::core::Result<SmsTextMessage>;
+    fn FromBinaryData(&mut self, format: SmsDataFormat, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<SmsTextMessage>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsTextMessageStatics {
@@ -2339,10 +2339,10 @@ impl ISmsTextMessageStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmsVoicemailMessageImpl: Sized + ISmsMessageBaseImpl {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MessageCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MessageCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsVoicemailMessage {
@@ -2409,13 +2409,13 @@ impl ISmsVoicemailMessageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmsWapMessageImpl: Sized + ISmsMessageBaseImpl {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BinaryBody(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Headers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn From(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ApplicationId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BinaryBody(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Headers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsWapMessage {

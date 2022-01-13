@@ -1,9 +1,9 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IMdmAllowPolicyStaticsImpl: Sized {
-    fn IsBrowserAllowed(&self) -> ::windows::core::Result<bool>;
-    fn IsCameraAllowed(&self) -> ::windows::core::Result<bool>;
-    fn IsMicrosoftAccountAllowed(&self) -> ::windows::core::Result<bool>;
-    fn IsStoreAllowed(&self) -> ::windows::core::Result<bool>;
+    fn IsBrowserAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn IsCameraAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn IsMicrosoftAccountAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn IsStoreAllowed(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMdmAllowPolicyStatics {
@@ -70,7 +70,7 @@ impl IMdmAllowPolicyStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMdmPolicyStatics2Impl: Sized {
-    fn GetMessagingSyncPolicy(&self) -> ::windows::core::Result<MessagingSyncPolicy>;
+    fn GetMessagingSyncPolicy(&mut self) -> ::windows::core::Result<MessagingSyncPolicy>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMdmPolicyStatics2 {
@@ -101,7 +101,7 @@ impl IMdmPolicyStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWorkplaceSettingsStaticsImpl: Sized {
-    fn IsMicrosoftAccountOptional(&self) -> ::windows::core::Result<bool>;
+    fn IsMicrosoftAccountOptional(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWorkplaceSettingsStatics {

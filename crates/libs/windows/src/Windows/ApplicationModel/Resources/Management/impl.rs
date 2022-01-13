@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIndexedResourceCandidateImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<IndexedResourceType>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn Metadata(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn Qualifiers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>;
-    fn ValueAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetQualifierValue(&self, qualifiername: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Type(&mut self) -> ::windows::core::Result<IndexedResourceType>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn Metadata(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Qualifiers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>;
+    fn ValueAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetQualifierValue(&mut self, qualifiername: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIndexedResourceCandidate {
@@ -96,8 +96,8 @@ impl IIndexedResourceCandidateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIndexedResourceQualifierImpl: Sized {
-    fn QualifierName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn QualifierValue(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn QualifierName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn QualifierValue(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIndexedResourceQualifier {
@@ -140,8 +140,8 @@ impl IIndexedResourceQualifierVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IResourceIndexerImpl: Sized {
-    fn IndexFilePath(&self, filepath: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<IndexedResourceCandidate>;
-    fn IndexFileContentsAsync(&self, file: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>;
+    fn IndexFilePath(&mut self, filepath: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<IndexedResourceCandidate>;
+    fn IndexFileContentsAsync(&mut self, file: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceIndexer {
@@ -184,7 +184,7 @@ impl IResourceIndexerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IResourceIndexerFactoryImpl: Sized {
-    fn CreateResourceIndexer(&self, projectroot: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<ResourceIndexer>;
+    fn CreateResourceIndexer(&mut self, projectroot: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<ResourceIndexer>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceIndexerFactory {
@@ -215,7 +215,7 @@ impl IResourceIndexerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IResourceIndexerFactory2Impl: Sized {
-    fn CreateResourceIndexerWithExtension(&self, projectroot: &::core::option::Option<super::super::super::Foundation::Uri>, extensiondllpath: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<ResourceIndexer>;
+    fn CreateResourceIndexerWithExtension(&mut self, projectroot: &::core::option::Option<super::super::super::Foundation::Uri>, extensiondllpath: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<ResourceIndexer>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceIndexerFactory2 {

@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICurrencyFormatterImpl: Sized + INumberFormatterImpl + INumberFormatter2Impl + INumberFormatterOptionsImpl + INumberParserImpl {
-    fn Currency(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCurrency(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Currency(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCurrency(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrencyFormatter {
@@ -37,9 +37,9 @@ impl ICurrencyFormatterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICurrencyFormatter2Impl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CurrencyFormatterMode>;
-    fn SetMode(&self, value: CurrencyFormatterMode) -> ::windows::core::Result<()>;
-    fn ApplyRoundingForCurrency(&self, roundingalgorithm: RoundingAlgorithm) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<CurrencyFormatterMode>;
+    fn SetMode(&mut self, value: CurrencyFormatterMode) -> ::windows::core::Result<()>;
+    fn ApplyRoundingForCurrency(&mut self, roundingalgorithm: RoundingAlgorithm) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrencyFormatter2 {
@@ -80,8 +80,8 @@ impl ICurrencyFormatter2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICurrencyFormatterFactoryImpl: Sized {
-    fn CreateCurrencyFormatterCode(&self, currencycode: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
-    fn CreateCurrencyFormatterCodeContext(&self, currencycode: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
+    fn CreateCurrencyFormatterCode(&mut self, currencycode: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
+    fn CreateCurrencyFormatterCodeContext(&mut self, currencycode: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrencyFormatterFactory {
@@ -128,7 +128,7 @@ impl ICurrencyFormatterFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDecimalFormatterFactoryImpl: Sized {
-    fn CreateDecimalFormatter(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<DecimalFormatter>;
+    fn CreateDecimalFormatter(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<DecimalFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDecimalFormatterFactory {
@@ -159,10 +159,10 @@ impl IDecimalFormatterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIncrementNumberRounderImpl: Sized {
-    fn RoundingAlgorithm(&self) -> ::windows::core::Result<RoundingAlgorithm>;
-    fn SetRoundingAlgorithm(&self, value: RoundingAlgorithm) -> ::windows::core::Result<()>;
-    fn Increment(&self) -> ::windows::core::Result<f64>;
-    fn SetIncrement(&self, value: f64) -> ::windows::core::Result<()>;
+    fn RoundingAlgorithm(&mut self) -> ::windows::core::Result<RoundingAlgorithm>;
+    fn SetRoundingAlgorithm(&mut self, value: RoundingAlgorithm) -> ::windows::core::Result<()>;
+    fn Increment(&mut self) -> ::windows::core::Result<f64>;
+    fn SetIncrement(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIncrementNumberRounder {
@@ -214,9 +214,9 @@ impl IIncrementNumberRounderVtbl {
     }
 }
 pub trait INumberFormatterImpl: Sized {
-    fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatUInt(&self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatDouble(&self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatInt(&mut self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatUInt(&mut self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatDouble(&mut self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for INumberFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter";
@@ -268,9 +268,9 @@ impl INumberFormatterVtbl {
     }
 }
 pub trait INumberFormatter2Impl: Sized {
-    fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatUInt(&self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatDouble(&self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatInt(&mut self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatUInt(&mut self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatDouble(&mut self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for INumberFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter2";
@@ -323,20 +323,20 @@ impl INumberFormatter2Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait INumberFormatterOptionsImpl: Sized {
-    fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IntegerDigits(&self) -> ::windows::core::Result<i32>;
-    fn SetIntegerDigits(&self, value: i32) -> ::windows::core::Result<()>;
-    fn FractionDigits(&self) -> ::windows::core::Result<i32>;
-    fn SetFractionDigits(&self, value: i32) -> ::windows::core::Result<()>;
-    fn IsGrouped(&self) -> ::windows::core::Result<bool>;
-    fn SetIsGrouped(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows::core::Result<bool>;
-    fn SetIsDecimalPointAlwaysDisplayed(&self, value: bool) -> ::windows::core::Result<()>;
-    fn NumeralSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNumeralSystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ResolvedGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn GeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IntegerDigits(&mut self) -> ::windows::core::Result<i32>;
+    fn SetIntegerDigits(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn FractionDigits(&mut self) -> ::windows::core::Result<i32>;
+    fn SetFractionDigits(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn IsGrouped(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsGrouped(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsDecimalPointAlwaysDisplayed(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsDecimalPointAlwaysDisplayed(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn NumeralSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNumeralSystem(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ResolvedGeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for INumberFormatterOptions {
@@ -488,9 +488,9 @@ impl INumberFormatterOptionsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait INumberParserImpl: Sized {
-    fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
-    fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>;
-    fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn ParseInt(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
+    fn ParseUInt(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>;
+    fn ParseDouble(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for INumberParser {
@@ -544,12 +544,12 @@ impl INumberParserVtbl {
     }
 }
 pub trait INumberRounderImpl: Sized {
-    fn RoundInt32(&self, value: i32) -> ::windows::core::Result<i32>;
-    fn RoundUInt32(&self, value: u32) -> ::windows::core::Result<u32>;
-    fn RoundInt64(&self, value: i64) -> ::windows::core::Result<i64>;
-    fn RoundUInt64(&self, value: u64) -> ::windows::core::Result<u64>;
-    fn RoundSingle(&self, value: f32) -> ::windows::core::Result<f32>;
-    fn RoundDouble(&self, value: f64) -> ::windows::core::Result<f64>;
+    fn RoundInt32(&mut self, value: i32) -> ::windows::core::Result<i32>;
+    fn RoundUInt32(&mut self, value: u32) -> ::windows::core::Result<u32>;
+    fn RoundInt64(&mut self, value: i64) -> ::windows::core::Result<i64>;
+    fn RoundUInt64(&mut self, value: u64) -> ::windows::core::Result<u64>;
+    fn RoundSingle(&mut self, value: f32) -> ::windows::core::Result<f32>;
+    fn RoundDouble(&mut self, value: f64) -> ::windows::core::Result<f64>;
 }
 impl ::windows::core::RuntimeName for INumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounder";
@@ -637,8 +637,8 @@ impl INumberRounderVtbl {
     }
 }
 pub trait INumberRounderOptionImpl: Sized {
-    fn NumberRounder(&self) -> ::windows::core::Result<INumberRounder>;
-    fn SetNumberRounder(&self, value: &::core::option::Option<INumberRounder>) -> ::windows::core::Result<()>;
+    fn NumberRounder(&mut self) -> ::windows::core::Result<INumberRounder>;
+    fn SetNumberRounder(&mut self, value: &::core::option::Option<INumberRounder>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
@@ -672,11 +672,11 @@ impl INumberRounderOptionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INumeralSystemTranslatorImpl: Sized {
-    fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NumeralSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNumeralSystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TranslateNumerals(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NumeralSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNumeralSystem(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TranslateNumerals(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INumeralSystemTranslator {
@@ -748,7 +748,7 @@ impl INumeralSystemTranslatorVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INumeralSystemTranslatorFactoryImpl: Sized {
-    fn Create(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<NumeralSystemTranslator>;
+    fn Create(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<NumeralSystemTranslator>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INumeralSystemTranslatorFactory {
@@ -776,7 +776,7 @@ impl INumeralSystemTranslatorFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPercentFormatterFactoryImpl: Sized {
-    fn CreatePercentFormatter(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PercentFormatter>;
+    fn CreatePercentFormatter(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PercentFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPercentFormatterFactory {
@@ -807,7 +807,7 @@ impl IPercentFormatterFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPermilleFormatterFactoryImpl: Sized {
-    fn CreatePermilleFormatter(&self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PermilleFormatter>;
+    fn CreatePermilleFormatter(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PermilleFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPermilleFormatterFactory {
@@ -837,8 +837,8 @@ impl IPermilleFormatterFactoryVtbl {
     }
 }
 pub trait ISignedZeroOptionImpl: Sized {
-    fn IsZeroSigned(&self) -> ::windows::core::Result<bool>;
-    fn SetIsZeroSigned(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsZeroSigned(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsZeroSigned(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISignedZeroOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignedZeroOption";
@@ -872,10 +872,10 @@ impl ISignedZeroOptionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISignificantDigitsNumberRounderImpl: Sized {
-    fn RoundingAlgorithm(&self) -> ::windows::core::Result<RoundingAlgorithm>;
-    fn SetRoundingAlgorithm(&self, value: RoundingAlgorithm) -> ::windows::core::Result<()>;
-    fn SignificantDigits(&self) -> ::windows::core::Result<u32>;
-    fn SetSignificantDigits(&self, value: u32) -> ::windows::core::Result<()>;
+    fn RoundingAlgorithm(&mut self) -> ::windows::core::Result<RoundingAlgorithm>;
+    fn SetRoundingAlgorithm(&mut self, value: RoundingAlgorithm) -> ::windows::core::Result<()>;
+    fn SignificantDigits(&mut self) -> ::windows::core::Result<u32>;
+    fn SetSignificantDigits(&mut self, value: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISignificantDigitsNumberRounder {
@@ -927,8 +927,8 @@ impl ISignificantDigitsNumberRounderVtbl {
     }
 }
 pub trait ISignificantDigitsOptionImpl: Sized {
-    fn SignificantDigits(&self) -> ::windows::core::Result<i32>;
-    fn SetSignificantDigits(&self, value: i32) -> ::windows::core::Result<()>;
+    fn SignificantDigits(&mut self) -> ::windows::core::Result<i32>;
+    fn SetSignificantDigits(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISignificantDigitsOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsOption";

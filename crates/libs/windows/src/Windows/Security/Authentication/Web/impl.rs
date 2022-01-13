@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAuthenticationBrokerStaticsImpl: Sized {
-    fn AuthenticateWithCallbackUriAsync(&self, options: WebAuthenticationOptions, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
-    fn AuthenticateWithoutCallbackUriAsync(&self, options: WebAuthenticationOptions, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
-    fn GetCurrentApplicationCallbackUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn AuthenticateWithCallbackUriAsync(&mut self, options: WebAuthenticationOptions, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
+    fn AuthenticateWithoutCallbackUriAsync(&mut self, options: WebAuthenticationOptions, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
+    fn GetCurrentApplicationCallbackUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAuthenticationBrokerStatics {
@@ -57,11 +57,11 @@ impl IWebAuthenticationBrokerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWebAuthenticationBrokerStatics2Impl: Sized {
-    fn AuthenticateAndContinue(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn AuthenticateWithCallbackUriAndContinue(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>, continuationdata: &::core::option::Option<super::super::super::Foundation::Collections::ValueSet>, options: WebAuthenticationOptions) -> ::windows::core::Result<()>;
-    fn AuthenticateSilentlyAsync(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
-    fn AuthenticateSilentlyWithOptionsAsync(&self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, options: WebAuthenticationOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
+    fn AuthenticateAndContinue(&mut self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn AuthenticateWithCallbackUriAndContinue(&mut self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue(&mut self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, callbackuri: &::core::option::Option<super::super::super::Foundation::Uri>, continuationdata: &::core::option::Option<super::super::super::Foundation::Collections::ValueSet>, options: WebAuthenticationOptions) -> ::windows::core::Result<()>;
+    fn AuthenticateSilentlyAsync(&mut self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
+    fn AuthenticateSilentlyWithOptionsAsync(&mut self, requesturi: &::core::option::Option<super::super::super::Foundation::Uri>, options: WebAuthenticationOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAuthenticationBrokerStatics2 {
@@ -126,9 +126,9 @@ impl IWebAuthenticationBrokerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebAuthenticationResultImpl: Sized {
-    fn ResponseData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ResponseStatus(&self) -> ::windows::core::Result<WebAuthenticationStatus>;
-    fn ResponseErrorDetail(&self) -> ::windows::core::Result<u32>;
+    fn ResponseData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ResponseStatus(&mut self) -> ::windows::core::Result<WebAuthenticationStatus>;
+    fn ResponseErrorDetail(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebAuthenticationResult {

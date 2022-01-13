@@ -1,24 +1,24 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IHttpBaseProtocolFilterImpl: Sized {
-    fn AllowAutoRedirect(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowAutoRedirect(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AllowUI(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowUI(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AutomaticDecompression(&self) -> ::windows::core::Result<bool>;
-    fn SetAutomaticDecompression(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CacheControl(&self) -> ::windows::core::Result<HttpCacheControl>;
-    fn CookieManager(&self) -> ::windows::core::Result<super::HttpCookieManager>;
-    fn ClientCertificate(&self) -> ::windows::core::Result<super::super::super::Security::Cryptography::Certificates::Certificate>;
-    fn SetClientCertificate(&self, value: &::core::option::Option<super::super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
-    fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
-    fn MaxConnectionsPerServer(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxConnectionsPerServer(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ProxyCredential(&self) -> ::windows::core::Result<super::super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, value: &::core::option::Option<super::super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn ServerCredential(&self) -> ::windows::core::Result<super::super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, value: &::core::option::Option<super::super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn UseProxy(&self) -> ::windows::core::Result<bool>;
-    fn SetUseProxy(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowAutoRedirect(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowAutoRedirect(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowUI(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowUI(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AutomaticDecompression(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutomaticDecompression(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CacheControl(&mut self) -> ::windows::core::Result<HttpCacheControl>;
+    fn CookieManager(&mut self) -> ::windows::core::Result<super::HttpCookieManager>;
+    fn ClientCertificate(&mut self) -> ::windows::core::Result<super::super::super::Security::Cryptography::Certificates::Certificate>;
+    fn SetClientCertificate(&mut self, value: &::core::option::Option<super::super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
+    fn IgnorableServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn MaxConnectionsPerServer(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxConnectionsPerServer(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ProxyCredential(&mut self) -> ::windows::core::Result<super::super::super::Security::Credentials::PasswordCredential>;
+    fn SetProxyCredential(&mut self, value: &::core::option::Option<super::super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::super::Security::Credentials::PasswordCredential>;
+    fn SetServerCredential(&mut self, value: &::core::option::Option<super::super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn UseProxy(&mut self) -> ::windows::core::Result<bool>;
+    fn SetUseProxy(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter {
@@ -209,8 +209,8 @@ impl IHttpBaseProtocolFilterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpBaseProtocolFilter2Impl: Sized {
-    fn MaxVersion(&self) -> ::windows::core::Result<super::HttpVersion>;
-    fn SetMaxVersion(&self, value: super::HttpVersion) -> ::windows::core::Result<()>;
+    fn MaxVersion(&mut self) -> ::windows::core::Result<super::HttpVersion>;
+    fn SetMaxVersion(&mut self, value: super::HttpVersion) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter2 {
@@ -246,8 +246,8 @@ impl IHttpBaseProtocolFilter2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpBaseProtocolFilter3Impl: Sized {
-    fn CookieUsageBehavior(&self) -> ::windows::core::Result<HttpCookieUsageBehavior>;
-    fn SetCookieUsageBehavior(&self, value: HttpCookieUsageBehavior) -> ::windows::core::Result<()>;
+    fn CookieUsageBehavior(&mut self) -> ::windows::core::Result<HttpCookieUsageBehavior>;
+    fn SetCookieUsageBehavior(&mut self, value: HttpCookieUsageBehavior) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter3 {
@@ -283,9 +283,9 @@ impl IHttpBaseProtocolFilter3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHttpBaseProtocolFilter4Impl: Sized {
-    fn ServerCustomValidationRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveServerCustomValidationRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ClearAuthenticationCache(&self) -> ::windows::core::Result<()>;
+    fn ServerCustomValidationRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveServerCustomValidationRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ClearAuthenticationCache(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter4 {
@@ -326,7 +326,7 @@ impl IHttpBaseProtocolFilter4Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IHttpBaseProtocolFilter5Impl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::super::System::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::super::System::User>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpBaseProtocolFilter5 {
@@ -354,7 +354,7 @@ impl IHttpBaseProtocolFilter5Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IHttpBaseProtocolFilterStaticsImpl: Sized {
-    fn CreateForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<HttpBaseProtocolFilter>;
+    fn CreateForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<HttpBaseProtocolFilter>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpBaseProtocolFilterStatics {
@@ -385,10 +385,10 @@ impl IHttpBaseProtocolFilterStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHttpCacheControlImpl: Sized {
-    fn ReadBehavior(&self) -> ::windows::core::Result<HttpCacheReadBehavior>;
-    fn SetReadBehavior(&self, value: HttpCacheReadBehavior) -> ::windows::core::Result<()>;
-    fn WriteBehavior(&self) -> ::windows::core::Result<HttpCacheWriteBehavior>;
-    fn SetWriteBehavior(&self, value: HttpCacheWriteBehavior) -> ::windows::core::Result<()>;
+    fn ReadBehavior(&mut self) -> ::windows::core::Result<HttpCacheReadBehavior>;
+    fn SetReadBehavior(&mut self, value: HttpCacheReadBehavior) -> ::windows::core::Result<()>;
+    fn WriteBehavior(&mut self) -> ::windows::core::Result<HttpCacheWriteBehavior>;
+    fn SetWriteBehavior(&mut self, value: HttpCacheWriteBehavior) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHttpCacheControl {
@@ -441,7 +441,7 @@ impl IHttpCacheControlVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IHttpFilterImpl: Sized + IClosableImpl {
-    fn SendRequestAsync(&self, request: &::core::option::Option<super::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
+    fn SendRequestAsync(&mut self, request: &::core::option::Option<super::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IHttpFilter {
@@ -469,13 +469,13 @@ impl IHttpFilterVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IHttpServerCustomValidationRequestedEventArgsImpl: Sized {
-    fn RequestMessage(&self) -> ::windows::core::Result<super::HttpRequestMessage>;
-    fn ServerCertificate(&self) -> ::windows::core::Result<super::super::super::Security::Cryptography::Certificates::Certificate>;
-    fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketSslErrorSeverity>;
-    fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
-    fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>;
-    fn Reject(&self) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn RequestMessage(&mut self) -> ::windows::core::Result<super::HttpRequestMessage>;
+    fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::super::Security::Cryptography::Certificates::Certificate>;
+    fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketSslErrorSeverity>;
+    fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn ServerIntermediateCertificates(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>;
+    fn Reject(&mut self) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHttpServerCustomValidationRequestedEventArgs {

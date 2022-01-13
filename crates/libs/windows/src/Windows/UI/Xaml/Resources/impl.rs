@@ -15,7 +15,7 @@ impl ICustomXamlResourceLoaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICustomXamlResourceLoaderFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CustomXamlResourceLoader>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CustomXamlResourceLoader>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderFactory {
@@ -46,7 +46,7 @@ impl ICustomXamlResourceLoaderFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICustomXamlResourceLoaderOverridesImpl: Sized {
-    fn GetResource(&self, resourceid: &::windows::core::HSTRING, objecttype: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING, propertytype: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetResource(&mut self, resourceid: &::windows::core::HSTRING, objecttype: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING, propertytype: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderOverrides {
@@ -82,8 +82,8 @@ impl ICustomXamlResourceLoaderOverridesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICustomXamlResourceLoaderStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<CustomXamlResourceLoader>;
-    fn SetCurrent(&self, value: &::core::option::Option<CustomXamlResourceLoader>) -> ::windows::core::Result<()>;
+    fn Current(&mut self) -> ::windows::core::Result<CustomXamlResourceLoader>;
+    fn SetCurrent(&mut self, value: &::core::option::Option<CustomXamlResourceLoader>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderStatics {

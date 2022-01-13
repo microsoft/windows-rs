@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IClassicAppManagerStaticsImpl: Sized {
-    fn FindInstalledApp(&self, appuninstallkey: &::windows::core::HSTRING) -> ::windows::core::Result<InstalledClassicAppInfo>;
+    fn FindInstalledApp(&mut self, appuninstallkey: &::windows::core::HSTRING) -> ::windows::core::Result<InstalledClassicAppInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClassicAppManagerStatics {
@@ -31,8 +31,8 @@ impl IClassicAppManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInstalledClassicAppInfoImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInstalledClassicAppInfo {

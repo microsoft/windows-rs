@@ -1,34 +1,34 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppWindowImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<super::UIContentRoot>;
-    fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
-    fn Frame(&self) -> ::windows::core::Result<AppWindowFrame>;
-    fn IsVisible(&self) -> ::windows::core::Result<bool>;
-    fn PersistedStateId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPersistedStateId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Presenter(&self) -> ::windows::core::Result<AppWindowPresenter>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TitleBar(&self) -> ::windows::core::Result<AppWindowTitleBar>;
-    fn UIContext(&self) -> ::windows::core::Result<super::UIContext>;
-    fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment>;
-    fn CloseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetPlacement(&self) -> ::windows::core::Result<AppWindowPlacement>;
-    fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>>;
-    fn RequestMoveToDisplayRegion(&self, displayregion: &::core::option::Option<DisplayRegion>) -> ::windows::core::Result<()>;
-    fn RequestMoveAdjacentToCurrentView(&self) -> ::windows::core::Result<()>;
-    fn RequestMoveAdjacentToWindow(&self, anchorwindow: &::core::option::Option<AppWindow>) -> ::windows::core::Result<()>;
-    fn RequestMoveRelativeToWindowContent(&self, anchorwindow: &::core::option::Option<AppWindow>, contentoffset: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn RequestMoveRelativeToCurrentViewContent(&self, contentoffset: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn RequestMoveRelativeToDisplayRegion(&self, displayregion: &::core::option::Option<DisplayRegion>, displayregionoffset: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
-    fn RequestSize(&self, framesize: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
-    fn TryShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CloseRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCloseRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Content(&mut self) -> ::windows::core::Result<super::UIContentRoot>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
+    fn Frame(&mut self) -> ::windows::core::Result<AppWindowFrame>;
+    fn IsVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn PersistedStateId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPersistedStateId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Presenter(&mut self) -> ::windows::core::Result<AppWindowPresenter>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TitleBar(&mut self) -> ::windows::core::Result<AppWindowTitleBar>;
+    fn UIContext(&mut self) -> ::windows::core::Result<super::UIContext>;
+    fn WindowingEnvironment(&mut self) -> ::windows::core::Result<WindowingEnvironment>;
+    fn CloseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetPlacement(&mut self) -> ::windows::core::Result<AppWindowPlacement>;
+    fn GetDisplayRegions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>>;
+    fn RequestMoveToDisplayRegion(&mut self, displayregion: &::core::option::Option<DisplayRegion>) -> ::windows::core::Result<()>;
+    fn RequestMoveAdjacentToCurrentView(&mut self) -> ::windows::core::Result<()>;
+    fn RequestMoveAdjacentToWindow(&mut self, anchorwindow: &::core::option::Option<AppWindow>) -> ::windows::core::Result<()>;
+    fn RequestMoveRelativeToWindowContent(&mut self, anchorwindow: &::core::option::Option<AppWindow>, contentoffset: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn RequestMoveRelativeToCurrentViewContent(&mut self, contentoffset: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn RequestMoveRelativeToDisplayRegion(&mut self, displayregion: &::core::option::Option<DisplayRegion>, displayregionoffset: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn RequestSize(&mut self, framesize: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
+    fn TryShowAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CloseRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCloseRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindow {
@@ -311,14 +311,14 @@ impl IAppWindowVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowChangedEventArgsImpl: Sized {
-    fn DidAvailableWindowPresentationsChange(&self) -> ::windows::core::Result<bool>;
-    fn DidDisplayRegionsChange(&self) -> ::windows::core::Result<bool>;
-    fn DidFrameChange(&self) -> ::windows::core::Result<bool>;
-    fn DidSizeChange(&self) -> ::windows::core::Result<bool>;
-    fn DidTitleBarChange(&self) -> ::windows::core::Result<bool>;
-    fn DidVisibilityChange(&self) -> ::windows::core::Result<bool>;
-    fn DidWindowingEnvironmentChange(&self) -> ::windows::core::Result<bool>;
-    fn DidWindowPresentationChange(&self) -> ::windows::core::Result<bool>;
+    fn DidAvailableWindowPresentationsChange(&mut self) -> ::windows::core::Result<bool>;
+    fn DidDisplayRegionsChange(&mut self) -> ::windows::core::Result<bool>;
+    fn DidFrameChange(&mut self) -> ::windows::core::Result<bool>;
+    fn DidSizeChange(&mut self) -> ::windows::core::Result<bool>;
+    fn DidTitleBarChange(&mut self) -> ::windows::core::Result<bool>;
+    fn DidVisibilityChange(&mut self) -> ::windows::core::Result<bool>;
+    fn DidWindowingEnvironmentChange(&mut self) -> ::windows::core::Result<bool>;
+    fn DidWindowPresentationChange(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppWindowChangedEventArgs {
@@ -433,9 +433,9 @@ impl IAppWindowChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowCloseRequestedEventArgsImpl: Sized {
-    fn Cancel(&self) -> ::windows::core::Result<bool>;
-    fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn Cancel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCancel(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowCloseRequestedEventArgs {
@@ -483,7 +483,7 @@ impl IAppWindowCloseRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowClosedEventArgsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<AppWindowClosedReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<AppWindowClosedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppWindowClosedEventArgs {
@@ -511,7 +511,7 @@ impl IAppWindowClosedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IAppWindowFrameImpl: Sized {
-    fn DragRegionVisuals(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>;
+    fn DragRegionVisuals(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowFrame {
@@ -542,8 +542,8 @@ impl IAppWindowFrameVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowFrameStyleImpl: Sized {
-    fn GetFrameStyle(&self) -> ::windows::core::Result<AppWindowFrameStyle>;
-    fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows::core::Result<()>;
+    fn GetFrameStyle(&mut self) -> ::windows::core::Result<AppWindowFrameStyle>;
+    fn SetFrameStyle(&mut self, framestyle: AppWindowFrameStyle) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppWindowFrameStyle {
@@ -579,9 +579,9 @@ impl IAppWindowFrameStyleVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowPlacementImpl: Sized {
-    fn DisplayRegion(&self) -> ::windows::core::Result<DisplayRegion>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn DisplayRegion(&mut self) -> ::windows::core::Result<DisplayRegion>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowPlacement {
@@ -636,7 +636,7 @@ impl IAppWindowPlacementVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowPresentationConfigurationImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind>;
+    fn Kind(&mut self) -> ::windows::core::Result<AppWindowPresentationKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppWindowPresentationConfiguration {
@@ -679,10 +679,10 @@ impl IAppWindowPresentationConfigurationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowPresenterImpl: Sized {
-    fn GetConfiguration(&self) -> ::windows::core::Result<AppWindowPresentationConfiguration>;
-    fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool>;
-    fn RequestPresentation(&self, configuration: &::core::option::Option<AppWindowPresentationConfiguration>) -> ::windows::core::Result<bool>;
-    fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool>;
+    fn GetConfiguration(&mut self) -> ::windows::core::Result<AppWindowPresentationConfiguration>;
+    fn IsPresentationSupported(&mut self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool>;
+    fn RequestPresentation(&mut self, configuration: &::core::option::Option<AppWindowPresentationConfiguration>) -> ::windows::core::Result<bool>;
+    fn RequestPresentationByKind(&mut self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppWindowPresenter {
@@ -749,9 +749,9 @@ impl IAppWindowPresenterVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowStaticsImpl: Sized {
-    fn TryCreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppWindow>>;
-    fn ClearAllPersistedState(&self) -> ::windows::core::Result<()>;
-    fn ClearPersistedState(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TryCreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppWindow>>;
+    fn ClearAllPersistedState(&mut self) -> ::windows::core::Result<()>;
+    fn ClearPersistedState(&mut self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowStatics {
@@ -792,34 +792,34 @@ impl IAppWindowStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppWindowTitleBarImpl: Sized {
-    fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetBackgroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonBackgroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonForegroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonHoverBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonHoverBackgroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonHoverForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonHoverForegroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonInactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonInactiveBackgroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonInactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonInactiveForegroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonPressedBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonPressedBackgroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ButtonPressedForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetButtonPressedForegroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn ExtendsContentIntoTitleBar(&self) -> ::windows::core::Result<bool>;
-    fn SetExtendsContentIntoTitleBar(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetForegroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn InactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetInactiveBackgroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn InactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
-    fn SetInactiveForegroundColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
-    fn IsVisible(&self) -> ::windows::core::Result<bool>;
-    fn GetTitleBarOcclusions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetBackgroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonBackgroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonBackgroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonForegroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonForegroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonHoverBackgroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonHoverBackgroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonHoverForegroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonHoverForegroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonInactiveBackgroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonInactiveBackgroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonInactiveForegroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonInactiveForegroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonPressedBackgroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonPressedBackgroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ButtonPressedForegroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetButtonPressedForegroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn ExtendsContentIntoTitleBar(&mut self) -> ::windows::core::Result<bool>;
+    fn SetExtendsContentIntoTitleBar(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ForegroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetForegroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn InactiveBackgroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetInactiveBackgroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn InactiveForegroundColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>>;
+    fn SetInactiveForegroundColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::Color>>) -> ::windows::core::Result<()>;
+    fn IsVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn GetTitleBarOcclusions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowTitleBar {
@@ -1083,7 +1083,7 @@ impl IAppWindowTitleBarVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppWindowTitleBarOcclusionImpl: Sized {
-    fn OccludingRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn OccludingRect(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppWindowTitleBarOcclusion {
@@ -1114,8 +1114,8 @@ impl IAppWindowTitleBarOcclusionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppWindowTitleBarVisibilityImpl: Sized {
-    fn GetPreferredVisibility(&self) -> ::windows::core::Result<AppWindowTitleBarVisibility>;
-    fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::Result<()>;
+    fn GetPreferredVisibility(&mut self) -> ::windows::core::Result<AppWindowTitleBarVisibility>;
+    fn SetPreferredVisibility(&mut self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppWindowTitleBarVisibility {
@@ -1181,13 +1181,13 @@ impl IDefaultPresentationConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDisplayRegionImpl: Sized {
-    fn DisplayMonitorDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsVisible(&self) -> ::windows::core::Result<bool>;
-    fn WorkAreaOffset(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
-    fn WorkAreaSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DisplayMonitorDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn WorkAreaOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
+    fn WorkAreaSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn WindowingEnvironment(&mut self) -> ::windows::core::Result<WindowingEnvironment>;
+    fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDisplayRegion {
@@ -1283,8 +1283,8 @@ impl IDisplayRegionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFullScreenPresentationConfigurationImpl: Sized {
-    fn IsExclusive(&self) -> ::windows::core::Result<bool>;
-    fn SetIsExclusive(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsExclusive(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsExclusive(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFullScreenPresentationConfiguration {
@@ -1320,7 +1320,7 @@ impl IFullScreenPresentationConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWindowServicesStaticsImpl: Sized {
-    fn FindAllTopLevelWindowIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>>;
+    fn FindAllTopLevelWindowIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowServicesStatics {
@@ -1351,11 +1351,11 @@ impl IWindowServicesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWindowingEnvironmentImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn Kind(&self) -> ::windows::core::Result<WindowingEnvironmentKind>;
-    fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn Kind(&mut self) -> ::windows::core::Result<WindowingEnvironmentKind>;
+    fn GetDisplayRegions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>>;
+    fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowingEnvironment {
@@ -1427,7 +1427,7 @@ impl IWindowingEnvironmentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowingEnvironmentAddedEventArgsImpl: Sized {
-    fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment>;
+    fn WindowingEnvironment(&mut self) -> ::windows::core::Result<WindowingEnvironment>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWindowingEnvironmentAddedEventArgs {
@@ -1473,7 +1473,7 @@ impl IWindowingEnvironmentChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowingEnvironmentRemovedEventArgsImpl: Sized {
-    fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment>;
+    fn WindowingEnvironment(&mut self) -> ::windows::core::Result<WindowingEnvironment>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWindowingEnvironmentRemovedEventArgs {
@@ -1504,8 +1504,8 @@ impl IWindowingEnvironmentRemovedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWindowingEnvironmentStaticsImpl: Sized {
-    fn FindAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
-    fn FindAllWithKind(&self, kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
+    fn FindAll(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
+    fn FindAllWithKind(&mut self, kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowingEnvironmentStatics {

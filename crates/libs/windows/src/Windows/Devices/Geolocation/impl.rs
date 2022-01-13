@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICivicAddressImpl: Sized {
-    fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn City(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PostalCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Country(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn City(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PostalCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICivicAddress {
@@ -83,11 +83,11 @@ impl ICivicAddressVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeoboundingBoxImpl: Sized + IGeoshapeImpl {
-    fn NorthwestCorner(&self) -> ::windows::core::Result<BasicGeoposition>;
-    fn SoutheastCorner(&self) -> ::windows::core::Result<BasicGeoposition>;
-    fn Center(&self) -> ::windows::core::Result<BasicGeoposition>;
-    fn MinAltitude(&self) -> ::windows::core::Result<f64>;
-    fn MaxAltitude(&self) -> ::windows::core::Result<f64>;
+    fn NorthwestCorner(&mut self) -> ::windows::core::Result<BasicGeoposition>;
+    fn SoutheastCorner(&mut self) -> ::windows::core::Result<BasicGeoposition>;
+    fn Center(&mut self) -> ::windows::core::Result<BasicGeoposition>;
+    fn MinAltitude(&mut self) -> ::windows::core::Result<f64>;
+    fn MaxAltitude(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeoboundingBox {
@@ -166,9 +166,9 @@ impl IGeoboundingBoxVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeoboundingBoxFactoryImpl: Sized {
-    fn Create(&self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition) -> ::windows::core::Result<GeoboundingBox>;
-    fn CreateWithAltitudeReference(&self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>;
-    fn CreateWithAltitudeReferenceAndSpatialReference(&self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>;
+    fn Create(&mut self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition) -> ::windows::core::Result<GeoboundingBox>;
+    fn CreateWithAltitudeReference(&mut self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>;
+    fn CreateWithAltitudeReferenceAndSpatialReference(&mut self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeoboundingBoxFactory {
@@ -223,9 +223,9 @@ impl IGeoboundingBoxFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeoboundingBoxStaticsImpl: Sized {
-    fn TryCompute(&self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>) -> ::windows::core::Result<GeoboundingBox>;
-    fn TryComputeWithAltitudeReference(&self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altituderefsystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>;
-    fn TryComputeWithAltitudeReferenceAndSpatialReference(&self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>;
+    fn TryCompute(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>) -> ::windows::core::Result<GeoboundingBox>;
+    fn TryComputeWithAltitudeReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altituderefsystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>;
+    fn TryComputeWithAltitudeReferenceAndSpatialReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeoboundingBoxStatics {
@@ -280,8 +280,8 @@ impl IGeoboundingBoxStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeocircleImpl: Sized + IGeoshapeImpl {
-    fn Center(&self) -> ::windows::core::Result<BasicGeoposition>;
-    fn Radius(&self) -> ::windows::core::Result<f64>;
+    fn Center(&mut self) -> ::windows::core::Result<BasicGeoposition>;
+    fn Radius(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeocircle {
@@ -324,9 +324,9 @@ impl IGeocircleVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeocircleFactoryImpl: Sized {
-    fn Create(&self, position: &BasicGeoposition, radius: f64) -> ::windows::core::Result<Geocircle>;
-    fn CreateWithAltitudeReferenceSystem(&self, position: &BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geocircle>;
-    fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, position: &BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geocircle>;
+    fn Create(&mut self, position: &BasicGeoposition, radius: f64) -> ::windows::core::Result<Geocircle>;
+    fn CreateWithAltitudeReferenceSystem(&mut self, position: &BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geocircle>;
+    fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&mut self, position: &BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geocircle>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeocircleFactory {
@@ -381,14 +381,14 @@ impl IGeocircleFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeocoordinateImpl: Sized {
-    fn Latitude(&self) -> ::windows::core::Result<f64>;
-    fn Longitude(&self) -> ::windows::core::Result<f64>;
-    fn Altitude(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn Accuracy(&self) -> ::windows::core::Result<f64>;
-    fn AltitudeAccuracy(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn Heading(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn Speed(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Latitude(&mut self) -> ::windows::core::Result<f64>;
+    fn Longitude(&mut self) -> ::windows::core::Result<f64>;
+    fn Altitude(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn Accuracy(&mut self) -> ::windows::core::Result<f64>;
+    fn AltitudeAccuracy(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn Heading(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn Speed(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeocoordinate {
@@ -503,9 +503,9 @@ impl IGeocoordinateVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeocoordinateSatelliteDataImpl: Sized {
-    fn PositionDilutionOfPrecision(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn HorizontalDilutionOfPrecision(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn VerticalDilutionOfPrecision(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn PositionDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn HorizontalDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn VerticalDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeocoordinateSatelliteData {
@@ -560,8 +560,8 @@ impl IGeocoordinateSatelliteDataVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeocoordinateSatelliteData2Impl: Sized {
-    fn GeometricDilutionOfPrecision(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn TimeDilutionOfPrecision(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn GeometricDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn TimeDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeocoordinateSatelliteData2 {
@@ -604,7 +604,7 @@ impl IGeocoordinateSatelliteData2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeocoordinateWithPointImpl: Sized {
-    fn Point(&self) -> ::windows::core::Result<Geopoint>;
+    fn Point(&mut self) -> ::windows::core::Result<Geopoint>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeocoordinateWithPoint {
@@ -632,8 +632,8 @@ impl IGeocoordinateWithPointVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeocoordinateWithPositionDataImpl: Sized + IGeocoordinateImpl {
-    fn PositionSource(&self) -> ::windows::core::Result<PositionSource>;
-    fn SatelliteData(&self) -> ::windows::core::Result<GeocoordinateSatelliteData>;
+    fn PositionSource(&mut self) -> ::windows::core::Result<PositionSource>;
+    fn SatelliteData(&mut self) -> ::windows::core::Result<GeocoordinateSatelliteData>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeocoordinateWithPositionData {
@@ -676,7 +676,7 @@ impl IGeocoordinateWithPositionDataVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeocoordinateWithPositionSourceTimestampImpl: Sized {
-    fn PositionSourceTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn PositionSourceTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeocoordinateWithPositionSourceTimestamp {
@@ -707,7 +707,7 @@ impl IGeocoordinateWithPositionSourceTimestampVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeocoordinateWithRemoteSourceImpl: Sized {
-    fn IsRemoteSource(&self) -> ::windows::core::Result<bool>;
+    fn IsRemoteSource(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeocoordinateWithRemoteSource {
@@ -738,19 +738,19 @@ impl IGeocoordinateWithRemoteSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeolocatorImpl: Sized {
-    fn DesiredAccuracy(&self) -> ::windows::core::Result<PositionAccuracy>;
-    fn SetDesiredAccuracy(&self, value: PositionAccuracy) -> ::windows::core::Result<()>;
-    fn MovementThreshold(&self) -> ::windows::core::Result<f64>;
-    fn SetMovementThreshold(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()>;
-    fn LocationStatus(&self) -> ::windows::core::Result<PositionStatus>;
-    fn GetGeopositionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geoposition>>;
-    fn GetGeopositionAsyncWithAgeAndTimeout(&self, maximumage: &super::super::Foundation::TimeSpan, timeout: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geoposition>>;
-    fn PositionChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePositionChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DesiredAccuracy(&mut self) -> ::windows::core::Result<PositionAccuracy>;
+    fn SetDesiredAccuracy(&mut self, value: PositionAccuracy) -> ::windows::core::Result<()>;
+    fn MovementThreshold(&mut self) -> ::windows::core::Result<f64>;
+    fn SetMovementThreshold(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn LocationStatus(&mut self) -> ::windows::core::Result<PositionStatus>;
+    fn GetGeopositionAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geoposition>>;
+    fn GetGeopositionAsyncWithAgeAndTimeout(&mut self, maximumage: &super::super::Foundation::TimeSpan, timeout: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geoposition>>;
+    fn PositionChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePositionChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeolocator {
@@ -890,7 +890,7 @@ impl IGeolocatorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeolocator2Impl: Sized {
-    fn AllowFallbackToConsentlessPositions(&self) -> ::windows::core::Result<()>;
+    fn AllowFallbackToConsentlessPositions(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeolocator2 {
@@ -914,9 +914,9 @@ impl IGeolocator2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeolocatorStaticsImpl: Sized {
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>>;
-    fn GetGeopositionHistoryAsync(&self, starttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>;
-    fn GetGeopositionHistoryWithDurationAsync(&self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>>;
+    fn GetGeopositionHistoryAsync(&mut self, starttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>;
+    fn GetGeopositionHistoryWithDurationAsync(&mut self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeolocatorStatics {
@@ -971,9 +971,9 @@ impl IGeolocatorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeolocatorStatics2Impl: Sized {
-    fn IsDefaultGeopositionRecommended(&self) -> ::windows::core::Result<bool>;
-    fn SetDefaultGeoposition(&self, value: &::core::option::Option<super::super::Foundation::IReference<BasicGeoposition>>) -> ::windows::core::Result<()>;
-    fn DefaultGeoposition(&self) -> ::windows::core::Result<super::super::Foundation::IReference<BasicGeoposition>>;
+    fn IsDefaultGeopositionRecommended(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDefaultGeoposition(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<BasicGeoposition>>) -> ::windows::core::Result<()>;
+    fn DefaultGeoposition(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<BasicGeoposition>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeolocatorStatics2 {
@@ -1021,8 +1021,8 @@ impl IGeolocatorStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeolocatorWithScalarAccuracyImpl: Sized + IGeolocatorImpl {
-    fn DesiredAccuracyInMeters(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetDesiredAccuracyInMeters(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn DesiredAccuracyInMeters(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetDesiredAccuracyInMeters(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeolocatorWithScalarAccuracy {
@@ -1058,7 +1058,7 @@ impl IGeolocatorWithScalarAccuracyVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeopathImpl: Sized + IGeoshapeImpl {
-    fn Positions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BasicGeoposition>>;
+    fn Positions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BasicGeoposition>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeopath {
@@ -1086,9 +1086,9 @@ impl IGeopathVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeopathFactoryImpl: Sized {
-    fn Create(&self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>) -> ::windows::core::Result<Geopath>;
-    fn CreateWithAltitudeReference(&self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopath>;
-    fn CreateWithAltitudeReferenceAndSpatialReference(&self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopath>;
+    fn Create(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>) -> ::windows::core::Result<Geopath>;
+    fn CreateWithAltitudeReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopath>;
+    fn CreateWithAltitudeReferenceAndSpatialReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopath>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeopathFactory {
@@ -1143,7 +1143,7 @@ impl IGeopathFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeopointImpl: Sized + IGeoshapeImpl {
-    fn Position(&self) -> ::windows::core::Result<BasicGeoposition>;
+    fn Position(&mut self) -> ::windows::core::Result<BasicGeoposition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeopoint {
@@ -1171,9 +1171,9 @@ impl IGeopointVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeopointFactoryImpl: Sized {
-    fn Create(&self, position: &BasicGeoposition) -> ::windows::core::Result<Geopoint>;
-    fn CreateWithAltitudeReferenceSystem(&self, position: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopoint>;
-    fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, position: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopoint>;
+    fn Create(&mut self, position: &BasicGeoposition) -> ::windows::core::Result<Geopoint>;
+    fn CreateWithAltitudeReferenceSystem(&mut self, position: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopoint>;
+    fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&mut self, position: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopoint>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeopointFactory {
@@ -1228,8 +1228,8 @@ impl IGeopointFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeopositionImpl: Sized {
-    fn Coordinate(&self) -> ::windows::core::Result<Geocoordinate>;
-    fn CivicAddress(&self) -> ::windows::core::Result<CivicAddress>;
+    fn Coordinate(&mut self) -> ::windows::core::Result<Geocoordinate>;
+    fn CivicAddress(&mut self) -> ::windows::core::Result<CivicAddress>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeoposition {
@@ -1272,7 +1272,7 @@ impl IGeopositionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeoposition2Impl: Sized + IGeopositionImpl {
-    fn VenueData(&self) -> ::windows::core::Result<VenueData>;
+    fn VenueData(&mut self) -> ::windows::core::Result<VenueData>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeoposition2 {
@@ -1299,9 +1299,9 @@ impl IGeoposition2Vtbl {
     }
 }
 pub trait IGeoshapeImpl: Sized {
-    fn GeoshapeType(&self) -> ::windows::core::Result<GeoshapeType>;
-    fn SpatialReferenceId(&self) -> ::windows::core::Result<u32>;
-    fn AltitudeReferenceSystem(&self) -> ::windows::core::Result<AltitudeReferenceSystem>;
+    fn GeoshapeType(&mut self) -> ::windows::core::Result<GeoshapeType>;
+    fn SpatialReferenceId(&mut self) -> ::windows::core::Result<u32>;
+    fn AltitudeReferenceSystem(&mut self) -> ::windows::core::Result<AltitudeReferenceSystem>;
 }
 impl ::windows::core::RuntimeName for IGeoshape {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoshape";
@@ -1354,9 +1354,9 @@ impl IGeoshapeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeovisitImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<Geoposition>;
-    fn StateChange(&self) -> ::windows::core::Result<VisitStateChange>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Position(&mut self) -> ::windows::core::Result<Geoposition>;
+    fn StateChange(&mut self) -> ::windows::core::Result<VisitStateChange>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeovisit {
@@ -1411,11 +1411,11 @@ impl IGeovisitVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeovisitMonitorImpl: Sized {
-    fn MonitoringScope(&self) -> ::windows::core::Result<VisitMonitoringScope>;
-    fn Start(&self, value: VisitMonitoringScope) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn VisitStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVisitStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MonitoringScope(&mut self) -> ::windows::core::Result<VisitMonitoringScope>;
+    fn Start(&mut self, value: VisitMonitoringScope) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn VisitStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVisitStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeovisitMonitor {
@@ -1473,7 +1473,7 @@ impl IGeovisitMonitorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGeovisitMonitorStaticsImpl: Sized {
-    fn GetLastReportAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geovisit>>;
+    fn GetLastReportAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geovisit>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeovisitMonitorStatics {
@@ -1504,7 +1504,7 @@ impl IGeovisitMonitorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeovisitStateChangedEventArgsImpl: Sized {
-    fn Visit(&self) -> ::windows::core::Result<Geovisit>;
+    fn Visit(&mut self) -> ::windows::core::Result<Geovisit>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeovisitStateChangedEventArgs {
@@ -1532,7 +1532,7 @@ impl IGeovisitStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGeovisitTriggerDetailsImpl: Sized {
-    fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Geovisit>>;
+    fn ReadReports(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Geovisit>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeovisitTriggerDetails {
@@ -1560,7 +1560,7 @@ impl IGeovisitTriggerDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPositionChangedEventArgsImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<Geoposition>;
+    fn Position(&mut self) -> ::windows::core::Result<Geoposition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPositionChangedEventArgs {
@@ -1588,7 +1588,7 @@ impl IPositionChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStatusChangedEventArgsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<PositionStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<PositionStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStatusChangedEventArgs {
@@ -1616,8 +1616,8 @@ impl IStatusChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVenueDataImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Level(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Level(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVenueData {

@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBarButtonTemplateSettingsImpl: Sized {
-    fn KeyboardAcceleratorTextMinWidth(&self) -> ::windows::core::Result<f64>;
+    fn KeyboardAcceleratorTextMinWidth(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBarButtonTemplateSettings {
@@ -31,13 +31,13 @@ impl IAppBarButtonTemplateSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBarTemplateSettingsImpl: Sized {
-    fn ClipRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn CompactVerticalDelta(&self) -> ::windows::core::Result<f64>;
-    fn CompactRootMargin(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn MinimalVerticalDelta(&self) -> ::windows::core::Result<f64>;
-    fn MinimalRootMargin(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn HiddenVerticalDelta(&self) -> ::windows::core::Result<f64>;
-    fn HiddenRootMargin(&self) -> ::windows::core::Result<super::super::Thickness>;
+    fn ClipRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn CompactVerticalDelta(&mut self) -> ::windows::core::Result<f64>;
+    fn CompactRootMargin(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn MinimalVerticalDelta(&mut self) -> ::windows::core::Result<f64>;
+    fn MinimalRootMargin(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn HiddenVerticalDelta(&mut self) -> ::windows::core::Result<f64>;
+    fn HiddenRootMargin(&mut self) -> ::windows::core::Result<super::super::Thickness>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBarTemplateSettings {
@@ -140,9 +140,9 @@ impl IAppBarTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBarTemplateSettings2Impl: Sized {
-    fn NegativeCompactVerticalDelta(&self) -> ::windows::core::Result<f64>;
-    fn NegativeMinimalVerticalDelta(&self) -> ::windows::core::Result<f64>;
-    fn NegativeHiddenVerticalDelta(&self) -> ::windows::core::Result<f64>;
+    fn NegativeCompactVerticalDelta(&mut self) -> ::windows::core::Result<f64>;
+    fn NegativeMinimalVerticalDelta(&mut self) -> ::windows::core::Result<f64>;
+    fn NegativeHiddenVerticalDelta(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBarTemplateSettings2 {
@@ -197,7 +197,7 @@ impl IAppBarTemplateSettings2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBarToggleButtonTemplateSettingsImpl: Sized {
-    fn KeyboardAcceleratorTextMinWidth(&self) -> ::windows::core::Result<f64>;
+    fn KeyboardAcceleratorTextMinWidth(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBarToggleButtonTemplateSettings {
@@ -228,16 +228,16 @@ impl IAppBarToggleButtonTemplateSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 pub trait IButtonBaseImpl: Sized {
-    fn ClickMode(&self) -> ::windows::core::Result<super::ClickMode>;
-    fn SetClickMode(&self, value: super::ClickMode) -> ::windows::core::Result<()>;
-    fn IsPointerOver(&self) -> ::windows::core::Result<bool>;
-    fn IsPressed(&self) -> ::windows::core::Result<bool>;
-    fn Command(&self) -> ::windows::core::Result<super::super::Input::ICommand>;
-    fn SetCommand(&self, value: &::core::option::Option<super::super::Input::ICommand>) -> ::windows::core::Result<()>;
-    fn CommandParameter(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetCommandParameter(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn Click(&self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClick(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ClickMode(&mut self) -> ::windows::core::Result<super::ClickMode>;
+    fn SetClickMode(&mut self, value: super::ClickMode) -> ::windows::core::Result<()>;
+    fn IsPointerOver(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPressed(&mut self) -> ::windows::core::Result<bool>;
+    fn Command(&mut self) -> ::windows::core::Result<super::super::Input::ICommand>;
+    fn SetCommand(&mut self, value: &::core::option::Option<super::super::Input::ICommand>) -> ::windows::core::Result<()>;
+    fn CommandParameter(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetCommandParameter(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn Click(&mut self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClick(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IButtonBase {
@@ -348,7 +348,7 @@ impl IButtonBaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IButtonBaseFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ButtonBase>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ButtonBase>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IButtonBaseFactory {
@@ -376,11 +376,11 @@ impl IButtonBaseFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IButtonBaseStaticsImpl: Sized {
-    fn ClickModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsPointerOverProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsPressedProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CommandProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CommandParameterProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ClickModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsPointerOverProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsPressedProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CommandProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CommandParameterProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IButtonBaseStatics {
@@ -474,21 +474,21 @@ impl ICalendarPanelVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICalendarViewTemplateSettingsImpl: Sized {
-    fn MinViewWidth(&self) -> ::windows::core::Result<f64>;
-    fn HeaderText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekDay1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekDay2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekDay3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekDay4(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekDay5(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekDay6(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekDay7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasMoreContentAfter(&self) -> ::windows::core::Result<bool>;
-    fn HasMoreContentBefore(&self) -> ::windows::core::Result<bool>;
-    fn HasMoreViews(&self) -> ::windows::core::Result<bool>;
-    fn ClipRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn CenterX(&self) -> ::windows::core::Result<f64>;
-    fn CenterY(&self) -> ::windows::core::Result<f64>;
+    fn MinViewWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn HeaderText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekDay1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekDay2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekDay3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekDay4(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekDay5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekDay6(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekDay7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasMoreContentAfter(&mut self) -> ::windows::core::Result<bool>;
+    fn HasMoreContentBefore(&mut self) -> ::windows::core::Result<bool>;
+    fn HasMoreViews(&mut self) -> ::windows::core::Result<bool>;
+    fn ClipRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn CenterX(&mut self) -> ::windows::core::Result<f64>;
+    fn CenterY(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendarViewTemplateSettings {
@@ -687,33 +687,33 @@ impl ICalendarViewTemplateSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICarouselPanelImpl: Sized {
-    fn CanVerticallyScroll(&self) -> ::windows::core::Result<bool>;
-    fn SetCanVerticallyScroll(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanHorizontallyScroll(&self) -> ::windows::core::Result<bool>;
-    fn SetCanHorizontallyScroll(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ExtentWidth(&self) -> ::windows::core::Result<f64>;
-    fn ExtentHeight(&self) -> ::windows::core::Result<f64>;
-    fn ViewportWidth(&self) -> ::windows::core::Result<f64>;
-    fn ViewportHeight(&self) -> ::windows::core::Result<f64>;
-    fn HorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn VerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn ScrollOwner(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetScrollOwner(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn LineUp(&self) -> ::windows::core::Result<()>;
-    fn LineDown(&self) -> ::windows::core::Result<()>;
-    fn LineLeft(&self) -> ::windows::core::Result<()>;
-    fn LineRight(&self) -> ::windows::core::Result<()>;
-    fn PageUp(&self) -> ::windows::core::Result<()>;
-    fn PageDown(&self) -> ::windows::core::Result<()>;
-    fn PageLeft(&self) -> ::windows::core::Result<()>;
-    fn PageRight(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelUp(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelDown(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelLeft(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelRight(&self) -> ::windows::core::Result<()>;
-    fn SetHorizontalOffset(&self, offset: f64) -> ::windows::core::Result<()>;
-    fn SetVerticalOffset(&self, offset: f64) -> ::windows::core::Result<()>;
-    fn MakeVisible(&self, visual: &::core::option::Option<super::super::UIElement>, rectangle: &super::super::super::super::Foundation::Rect) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn CanVerticallyScroll(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanVerticallyScroll(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanHorizontallyScroll(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanHorizontallyScroll(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ExtentWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn ExtentHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn ViewportWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn ViewportHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn HorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn ScrollOwner(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetScrollOwner(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn LineUp(&mut self) -> ::windows::core::Result<()>;
+    fn LineDown(&mut self) -> ::windows::core::Result<()>;
+    fn LineLeft(&mut self) -> ::windows::core::Result<()>;
+    fn LineRight(&mut self) -> ::windows::core::Result<()>;
+    fn PageUp(&mut self) -> ::windows::core::Result<()>;
+    fn PageDown(&mut self) -> ::windows::core::Result<()>;
+    fn PageLeft(&mut self) -> ::windows::core::Result<()>;
+    fn PageRight(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelUp(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelDown(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelLeft(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelRight(&mut self) -> ::windows::core::Result<()>;
+    fn SetHorizontalOffset(&mut self, offset: f64) -> ::windows::core::Result<()>;
+    fn SetVerticalOffset(&mut self, offset: f64) -> ::windows::core::Result<()>;
+    fn MakeVisible(&mut self, visual: &::core::option::Option<super::super::UIElement>, rectangle: &super::super::super::super::Foundation::Rect) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICarouselPanel {
@@ -937,7 +937,7 @@ impl ICarouselPanelVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICarouselPanelFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CarouselPanel>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CarouselPanel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICarouselPanelFactory {
@@ -968,8 +968,8 @@ impl ICarouselPanelFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorPickerSliderImpl: Sized {
-    fn ColorChannel(&self) -> ::windows::core::Result<super::ColorPickerHsvChannel>;
-    fn SetColorChannel(&self, value: super::ColorPickerHsvChannel) -> ::windows::core::Result<()>;
+    fn ColorChannel(&mut self) -> ::windows::core::Result<super::ColorPickerHsvChannel>;
+    fn SetColorChannel(&mut self, value: super::ColorPickerHsvChannel) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorPickerSlider {
@@ -1005,7 +1005,7 @@ impl IColorPickerSliderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorPickerSliderFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorPickerSlider>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorPickerSlider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorPickerSliderFactory {
@@ -1036,7 +1036,7 @@ impl IColorPickerSliderFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorPickerSliderStaticsImpl: Sized {
-    fn ColorChannelProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ColorChannelProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorPickerSliderStatics {
@@ -1067,28 +1067,28 @@ impl IColorPickerSliderStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IColorSpectrumImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::super::super::Color>;
-    fn SetColor(&self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
-    fn HsvColor(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Numerics::Vector4>;
-    fn SetHsvColor(&self, value: &super::super::super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
-    fn MinHue(&self) -> ::windows::core::Result<i32>;
-    fn SetMinHue(&self, value: i32) -> ::windows::core::Result<()>;
-    fn MaxHue(&self) -> ::windows::core::Result<i32>;
-    fn SetMaxHue(&self, value: i32) -> ::windows::core::Result<()>;
-    fn MinSaturation(&self) -> ::windows::core::Result<i32>;
-    fn SetMinSaturation(&self, value: i32) -> ::windows::core::Result<()>;
-    fn MaxSaturation(&self) -> ::windows::core::Result<i32>;
-    fn SetMaxSaturation(&self, value: i32) -> ::windows::core::Result<()>;
-    fn MinValue(&self) -> ::windows::core::Result<i32>;
-    fn SetMinValue(&self, value: i32) -> ::windows::core::Result<()>;
-    fn MaxValue(&self) -> ::windows::core::Result<i32>;
-    fn SetMaxValue(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Shape(&self) -> ::windows::core::Result<super::ColorSpectrumShape>;
-    fn SetShape(&self, value: super::ColorSpectrumShape) -> ::windows::core::Result<()>;
-    fn Components(&self) -> ::windows::core::Result<super::ColorSpectrumComponents>;
-    fn SetComponents(&self, value: super::ColorSpectrumComponents) -> ::windows::core::Result<()>;
-    fn ColorChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<ColorSpectrum, super::ColorChangedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveColorChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::super::super::Color>;
+    fn SetColor(&mut self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
+    fn HsvColor(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Numerics::Vector4>;
+    fn SetHsvColor(&mut self, value: &super::super::super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
+    fn MinHue(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMinHue(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn MaxHue(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMaxHue(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn MinSaturation(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMinSaturation(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn MaxSaturation(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMaxSaturation(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn MinValue(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMinValue(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn MaxValue(&mut self) -> ::windows::core::Result<i32>;
+    fn SetMaxValue(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Shape(&mut self) -> ::windows::core::Result<super::ColorSpectrumShape>;
+    fn SetShape(&mut self, value: super::ColorSpectrumShape) -> ::windows::core::Result<()>;
+    fn Components(&mut self) -> ::windows::core::Result<super::ColorSpectrumComponents>;
+    fn SetComponents(&mut self, value: super::ColorSpectrumComponents) -> ::windows::core::Result<()>;
+    fn ColorChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<ColorSpectrum, super::ColorChangedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveColorChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorSpectrum {
@@ -1294,7 +1294,7 @@ impl IColorSpectrumVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorSpectrumFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorSpectrum>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorSpectrum>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorSpectrumFactory {
@@ -1325,16 +1325,16 @@ impl IColorSpectrumFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorSpectrumStaticsImpl: Sized {
-    fn ColorProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn HsvColorProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn MinHueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn MaxHueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn MinSaturationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn MaxSaturationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn MinValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn MaxValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ShapeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ComponentsProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ColorProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn HsvColorProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MinHueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MaxHueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MinSaturationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MaxSaturationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MinValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MaxValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ShapeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ComponentsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorSpectrumStatics {
@@ -1473,10 +1473,10 @@ impl IColorSpectrumStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IComboBoxTemplateSettingsImpl: Sized {
-    fn DropDownOpenedHeight(&self) -> ::windows::core::Result<f64>;
-    fn DropDownClosedHeight(&self) -> ::windows::core::Result<f64>;
-    fn DropDownOffset(&self) -> ::windows::core::Result<f64>;
-    fn SelectedItemDirection(&self) -> ::windows::core::Result<AnimationDirection>;
+    fn DropDownOpenedHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn DropDownClosedHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn DropDownOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SelectedItemDirection(&mut self) -> ::windows::core::Result<AnimationDirection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IComboBoxTemplateSettings {
@@ -1543,7 +1543,7 @@ impl IComboBoxTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IComboBoxTemplateSettings2Impl: Sized {
-    fn DropDownContentMinWidth(&self) -> ::windows::core::Result<f64>;
+    fn DropDownContentMinWidth(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IComboBoxTemplateSettings2 {
@@ -1574,7 +1574,7 @@ impl IComboBoxTemplateSettings2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommandBarFlyoutCommandBarImpl: Sized {
-    fn FlyoutTemplateSettings(&self) -> ::windows::core::Result<CommandBarFlyoutCommandBarTemplateSettings>;
+    fn FlyoutTemplateSettings(&mut self) -> ::windows::core::Result<CommandBarFlyoutCommandBarTemplateSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommandBarFlyoutCommandBar {
@@ -1605,7 +1605,7 @@ impl ICommandBarFlyoutCommandBarVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommandBarFlyoutCommandBarFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CommandBarFlyoutCommandBar>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CommandBarFlyoutCommandBar>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommandBarFlyoutCommandBarFactory {
@@ -1636,26 +1636,26 @@ impl ICommandBarFlyoutCommandBarFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICommandBarFlyoutCommandBarTemplateSettingsImpl: Sized {
-    fn OpenAnimationStartPosition(&self) -> ::windows::core::Result<f64>;
-    fn OpenAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn CloseAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn CurrentWidth(&self) -> ::windows::core::Result<f64>;
-    fn ExpandedWidth(&self) -> ::windows::core::Result<f64>;
-    fn WidthExpansionDelta(&self) -> ::windows::core::Result<f64>;
-    fn WidthExpansionAnimationStartPosition(&self) -> ::windows::core::Result<f64>;
-    fn WidthExpansionAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn WidthExpansionMoreButtonAnimationStartPosition(&self) -> ::windows::core::Result<f64>;
-    fn WidthExpansionMoreButtonAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandUpOverflowVerticalPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandDownOverflowVerticalPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandUpAnimationStartPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandUpAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandUpAnimationHoldPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandDownAnimationStartPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandDownAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn ExpandDownAnimationHoldPosition(&self) -> ::windows::core::Result<f64>;
-    fn ContentClipRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn OverflowContentClipRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn OpenAnimationStartPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn OpenAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn CloseAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn CurrentWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandedWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn WidthExpansionDelta(&mut self) -> ::windows::core::Result<f64>;
+    fn WidthExpansionAnimationStartPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn WidthExpansionAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn WidthExpansionMoreButtonAnimationStartPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn WidthExpansionMoreButtonAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandUpOverflowVerticalPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandDownOverflowVerticalPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandUpAnimationStartPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandUpAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandUpAnimationHoldPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandDownAnimationStartPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandDownAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ExpandDownAnimationHoldPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ContentClipRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn OverflowContentClipRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICommandBarFlyoutCommandBarTemplateSettings {
@@ -1914,13 +1914,13 @@ impl ICommandBarFlyoutCommandBarTemplateSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICommandBarTemplateSettingsImpl: Sized {
-    fn ContentHeight(&self) -> ::windows::core::Result<f64>;
-    fn OverflowContentClipRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn OverflowContentMinWidth(&self) -> ::windows::core::Result<f64>;
-    fn OverflowContentMaxHeight(&self) -> ::windows::core::Result<f64>;
-    fn OverflowContentHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn OverflowContentHeight(&self) -> ::windows::core::Result<f64>;
-    fn NegativeOverflowContentHeight(&self) -> ::windows::core::Result<f64>;
+    fn ContentHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn OverflowContentClipRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn OverflowContentMinWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn OverflowContentMaxHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn OverflowContentHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn OverflowContentHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn NegativeOverflowContentHeight(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICommandBarTemplateSettings {
@@ -2023,7 +2023,7 @@ impl ICommandBarTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommandBarTemplateSettings2Impl: Sized {
-    fn OverflowContentMaxWidth(&self) -> ::windows::core::Result<f64>;
+    fn OverflowContentMaxWidth(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommandBarTemplateSettings2 {
@@ -2054,7 +2054,7 @@ impl ICommandBarTemplateSettings2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommandBarTemplateSettings3Impl: Sized {
-    fn EffectiveOverflowButtonVisibility(&self) -> ::windows::core::Result<super::super::Visibility>;
+    fn EffectiveOverflowButtonVisibility(&mut self) -> ::windows::core::Result<super::super::Visibility>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommandBarTemplateSettings3 {
@@ -2085,9 +2085,9 @@ impl ICommandBarTemplateSettings3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICommandBarTemplateSettings4Impl: Sized {
-    fn OverflowContentCompactYTranslation(&self) -> ::windows::core::Result<f64>;
-    fn OverflowContentMinimalYTranslation(&self) -> ::windows::core::Result<f64>;
-    fn OverflowContentHiddenYTranslation(&self) -> ::windows::core::Result<f64>;
+    fn OverflowContentCompactYTranslation(&mut self) -> ::windows::core::Result<f64>;
+    fn OverflowContentMinimalYTranslation(&mut self) -> ::windows::core::Result<f64>;
+    fn OverflowContentHiddenYTranslation(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICommandBarTemplateSettings4 {
@@ -2142,9 +2142,9 @@ impl ICommandBarTemplateSettings4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragCompletedEventArgsImpl: Sized {
-    fn HorizontalChange(&self) -> ::windows::core::Result<f64>;
-    fn VerticalChange(&self) -> ::windows::core::Result<f64>;
-    fn Canceled(&self) -> ::windows::core::Result<bool>;
+    fn HorizontalChange(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticalChange(&mut self) -> ::windows::core::Result<f64>;
+    fn Canceled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragCompletedEventArgs {
@@ -2199,7 +2199,7 @@ impl IDragCompletedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragCompletedEventArgsFactoryImpl: Sized {
-    fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(&self, horizontalchange: f64, verticalchange: f64, canceled: bool, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragCompletedEventArgs>;
+    fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(&mut self, horizontalchange: f64, verticalchange: f64, canceled: bool, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragCompletedEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragCompletedEventArgsFactory {
@@ -2230,8 +2230,8 @@ impl IDragCompletedEventArgsFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragDeltaEventArgsImpl: Sized {
-    fn HorizontalChange(&self) -> ::windows::core::Result<f64>;
-    fn VerticalChange(&self) -> ::windows::core::Result<f64>;
+    fn HorizontalChange(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticalChange(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragDeltaEventArgs {
@@ -2274,7 +2274,7 @@ impl IDragDeltaEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragDeltaEventArgsFactoryImpl: Sized {
-    fn CreateInstanceWithHorizontalChangeAndVerticalChange(&self, horizontalchange: f64, verticalchange: f64, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragDeltaEventArgs>;
+    fn CreateInstanceWithHorizontalChangeAndVerticalChange(&mut self, horizontalchange: f64, verticalchange: f64, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragDeltaEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragDeltaEventArgsFactory {
@@ -2305,8 +2305,8 @@ impl IDragDeltaEventArgsFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragStartedEventArgsImpl: Sized {
-    fn HorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn VerticalOffset(&self) -> ::windows::core::Result<f64>;
+    fn HorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticalOffset(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragStartedEventArgs {
@@ -2349,7 +2349,7 @@ impl IDragStartedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDragStartedEventArgsFactoryImpl: Sized {
-    fn CreateInstanceWithHorizontalOffsetAndVerticalOffset(&self, horizontaloffset: f64, verticaloffset: f64, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragStartedEventArgs>;
+    fn CreateInstanceWithHorizontalOffsetAndVerticalOffset(&mut self, horizontaloffset: f64, verticaloffset: f64, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragStartedEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDragStartedEventArgsFactory {
@@ -2380,16 +2380,16 @@ impl IDragStartedEventArgsFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFlyoutBaseImpl: Sized {
-    fn Placement(&self) -> ::windows::core::Result<FlyoutPlacementMode>;
-    fn SetPlacement(&self, value: FlyoutPlacementMode) -> ::windows::core::Result<()>;
-    fn Opened(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOpened(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closed(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Opening(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOpening(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ShowAt(&self, placementtarget: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<()>;
-    fn Hide(&self) -> ::windows::core::Result<()>;
+    fn Placement(&mut self) -> ::windows::core::Result<FlyoutPlacementMode>;
+    fn SetPlacement(&mut self, value: FlyoutPlacementMode) -> ::windows::core::Result<()>;
+    fn Opened(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOpened(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Opening(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOpening(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ShowAt(&mut self, placementtarget: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<()>;
+    fn Hide(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlyoutBase {
@@ -2486,17 +2486,17 @@ impl IFlyoutBaseVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFlyoutBase2Impl: Sized {
-    fn Target(&self) -> ::windows::core::Result<super::super::FrameworkElement>;
-    fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()>;
-    fn LightDismissOverlayMode(&self) -> ::windows::core::Result<super::LightDismissOverlayMode>;
-    fn SetLightDismissOverlayMode(&self, value: super::LightDismissOverlayMode) -> ::windows::core::Result<()>;
-    fn AllowFocusWhenDisabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowFocusWhenDisabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ElementSoundMode(&self) -> ::windows::core::Result<super::super::ElementSoundMode>;
-    fn SetElementSoundMode(&self, value: super::super::ElementSoundMode) -> ::windows::core::Result<()>;
-    fn Closing(&self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<FlyoutBase, FlyoutBaseClosingEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosing(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Target(&mut self) -> ::windows::core::Result<super::super::FrameworkElement>;
+    fn AllowFocusOnInteraction(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowFocusOnInteraction(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn LightDismissOverlayMode(&mut self) -> ::windows::core::Result<super::LightDismissOverlayMode>;
+    fn SetLightDismissOverlayMode(&mut self, value: super::LightDismissOverlayMode) -> ::windows::core::Result<()>;
+    fn AllowFocusWhenDisabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowFocusWhenDisabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ElementSoundMode(&mut self) -> ::windows::core::Result<super::super::ElementSoundMode>;
+    fn SetElementSoundMode(&mut self, value: super::super::ElementSoundMode) -> ::windows::core::Result<()>;
+    fn Closing(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<FlyoutBase, FlyoutBaseClosingEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosing(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlyoutBase2 {
@@ -2612,8 +2612,8 @@ impl IFlyoutBase2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBase3Impl: Sized {
-    fn OverlayInputPassThroughElement(&self) -> ::windows::core::Result<super::super::DependencyObject>;
-    fn SetOverlayInputPassThroughElement(&self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn OverlayInputPassThroughElement(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
+    fn SetOverlayInputPassThroughElement(&mut self, value: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBase3 {
@@ -2649,7 +2649,7 @@ impl IFlyoutBase3Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 pub trait IFlyoutBase4Impl: Sized {
-    fn TryInvokeKeyboardAccelerator(&self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()>;
+    fn TryInvokeKeyboardAccelerator(&mut self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlyoutBase4 {
@@ -2673,13 +2673,13 @@ impl IFlyoutBase4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBase5Impl: Sized {
-    fn ShowMode(&self) -> ::windows::core::Result<FlyoutShowMode>;
-    fn SetShowMode(&self, value: FlyoutShowMode) -> ::windows::core::Result<()>;
-    fn InputDevicePrefersPrimaryCommands(&self) -> ::windows::core::Result<bool>;
-    fn AreOpenCloseAnimationsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAreOpenCloseAnimationsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsOpen(&self) -> ::windows::core::Result<bool>;
-    fn ShowAt(&self, placementtarget: &::core::option::Option<super::super::DependencyObject>, showoptions: &::core::option::Option<FlyoutShowOptions>) -> ::windows::core::Result<()>;
+    fn ShowMode(&mut self) -> ::windows::core::Result<FlyoutShowMode>;
+    fn SetShowMode(&mut self, value: FlyoutShowMode) -> ::windows::core::Result<()>;
+    fn InputDevicePrefersPrimaryCommands(&mut self) -> ::windows::core::Result<bool>;
+    fn AreOpenCloseAnimationsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAreOpenCloseAnimationsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsOpen(&mut self) -> ::windows::core::Result<bool>;
+    fn ShowAt(&mut self, placementtarget: &::core::option::Option<super::super::DependencyObject>, showoptions: &::core::option::Option<FlyoutShowOptions>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBase5 {
@@ -2761,11 +2761,11 @@ impl IFlyoutBase5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBase6Impl: Sized {
-    fn ShouldConstrainToRootBounds(&self) -> ::windows::core::Result<bool>;
-    fn SetShouldConstrainToRootBounds(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsConstrainedToRootBounds(&self) -> ::windows::core::Result<bool>;
-    fn XamlRoot(&self) -> ::windows::core::Result<super::super::XamlRoot>;
-    fn SetXamlRoot(&self, value: &::core::option::Option<super::super::XamlRoot>) -> ::windows::core::Result<()>;
+    fn ShouldConstrainToRootBounds(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShouldConstrainToRootBounds(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsConstrainedToRootBounds(&mut self) -> ::windows::core::Result<bool>;
+    fn XamlRoot(&mut self) -> ::windows::core::Result<super::super::XamlRoot>;
+    fn SetXamlRoot(&mut self, value: &::core::option::Option<super::super::XamlRoot>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBase6 {
@@ -2830,8 +2830,8 @@ impl IFlyoutBase6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseClosingEventArgsImpl: Sized {
-    fn Cancel(&self) -> ::windows::core::Result<bool>;
-    fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Cancel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCancel(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseClosingEventArgs {
@@ -2867,7 +2867,7 @@ impl IFlyoutBaseClosingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutBase>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutBase>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseFactory {
@@ -2895,7 +2895,7 @@ impl IFlyoutBaseFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseOverridesImpl: Sized {
-    fn CreatePresenter(&self) -> ::windows::core::Result<super::Control>;
+    fn CreatePresenter(&mut self) -> ::windows::core::Result<super::Control>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseOverrides {
@@ -2926,7 +2926,7 @@ impl IFlyoutBaseOverridesVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 pub trait IFlyoutBaseOverrides4Impl: Sized {
-    fn OnProcessKeyboardAccelerators(&self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()>;
+    fn OnProcessKeyboardAccelerators(&mut self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlyoutBaseOverrides4 {
@@ -2950,11 +2950,11 @@ impl IFlyoutBaseOverrides4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseStaticsImpl: Sized {
-    fn PlacementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn AttachedFlyoutProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetAttachedFlyout(&self, element: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<FlyoutBase>;
-    fn SetAttachedFlyout(&self, element: &::core::option::Option<super::super::FrameworkElement>, value: &::core::option::Option<FlyoutBase>) -> ::windows::core::Result<()>;
-    fn ShowAttachedFlyout(&self, flyoutowner: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<()>;
+    fn PlacementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn AttachedFlyoutProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetAttachedFlyout(&mut self, element: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<FlyoutBase>;
+    fn SetAttachedFlyout(&mut self, element: &::core::option::Option<super::super::FrameworkElement>, value: &::core::option::Option<FlyoutBase>) -> ::windows::core::Result<()>;
+    fn ShowAttachedFlyout(&mut self, flyoutowner: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseStatics {
@@ -3019,10 +3019,10 @@ impl IFlyoutBaseStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseStatics2Impl: Sized {
-    fn AllowFocusOnInteractionProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn LightDismissOverlayModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn AllowFocusWhenDisabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ElementSoundModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn AllowFocusOnInteractionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn LightDismissOverlayModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn AllowFocusWhenDisabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ElementSoundModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseStatics2 {
@@ -3089,7 +3089,7 @@ impl IFlyoutBaseStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseStatics3Impl: Sized {
-    fn OverlayInputPassThroughElementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OverlayInputPassThroughElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseStatics3 {
@@ -3120,11 +3120,11 @@ impl IFlyoutBaseStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseStatics5Impl: Sized {
-    fn TargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ShowModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn InputDevicePrefersPrimaryCommandsProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn AreOpenCloseAnimationsEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsOpenProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ShowModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn InputDevicePrefersPrimaryCommandsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn AreOpenCloseAnimationsEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsOpenProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseStatics5 {
@@ -3203,7 +3203,7 @@ impl IFlyoutBaseStatics5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutBaseStatics6Impl: Sized {
-    fn ShouldConstrainToRootBoundsProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ShouldConstrainToRootBoundsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutBaseStatics6 {
@@ -3234,14 +3234,14 @@ impl IFlyoutBaseStatics6Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFlyoutShowOptionsImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
-    fn SetPosition(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
-    fn ExclusionRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>;
-    fn SetExclusionRect(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>) -> ::windows::core::Result<()>;
-    fn ShowMode(&self) -> ::windows::core::Result<FlyoutShowMode>;
-    fn SetShowMode(&self, value: FlyoutShowMode) -> ::windows::core::Result<()>;
-    fn Placement(&self) -> ::windows::core::Result<FlyoutPlacementMode>;
-    fn SetPlacement(&self, value: FlyoutPlacementMode) -> ::windows::core::Result<()>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
+    fn SetPosition(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
+    fn ExclusionRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>;
+    fn SetExclusionRect(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>) -> ::windows::core::Result<()>;
+    fn ShowMode(&mut self) -> ::windows::core::Result<FlyoutShowMode>;
+    fn SetShowMode(&mut self, value: FlyoutShowMode) -> ::windows::core::Result<()>;
+    fn Placement(&mut self) -> ::windows::core::Result<FlyoutPlacementMode>;
+    fn SetPlacement(&mut self, value: FlyoutPlacementMode) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlyoutShowOptions {
@@ -3328,7 +3328,7 @@ impl IFlyoutShowOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlyoutShowOptionsFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutShowOptions>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutShowOptions>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlyoutShowOptionsFactory {
@@ -3374,7 +3374,7 @@ impl IGeneratorPositionHelperVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGeneratorPositionHelperStaticsImpl: Sized {
-    fn FromIndexAndOffset(&self, index: i32, offset: i32) -> ::windows::core::Result<GeneratorPosition>;
+    fn FromIndexAndOffset(&mut self, index: i32, offset: i32) -> ::windows::core::Result<GeneratorPosition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGeneratorPositionHelperStatics {
@@ -3405,50 +3405,50 @@ impl IGeneratorPositionHelperStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IGridViewItemPresenterImpl: Sized {
-    fn SelectionCheckMarkVisualEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetSelectionCheckMarkVisualEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CheckHintBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckHintBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckSelectingBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckSelectingBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn DragBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetDragBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn DragForeground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetDragForeground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn FocusBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetFocusBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn PlaceholderBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetPlaceholderBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn PointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetPointerOverBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedForeground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedForeground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedPointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedPointerOverBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedPointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedPointerOverBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedBorderThickness(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetSelectedBorderThickness(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
-    fn DisabledOpacity(&self) -> ::windows::core::Result<f64>;
-    fn SetDisabledOpacity(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DragOpacity(&self) -> ::windows::core::Result<f64>;
-    fn SetDragOpacity(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ReorderHintOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetReorderHintOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn GridViewItemPresenterHorizontalContentAlignment(&self) -> ::windows::core::Result<super::super::HorizontalAlignment>;
-    fn SetGridViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment) -> ::windows::core::Result<()>;
-    fn GridViewItemPresenterVerticalContentAlignment(&self) -> ::windows::core::Result<super::super::VerticalAlignment>;
-    fn SetGridViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment) -> ::windows::core::Result<()>;
-    fn GridViewItemPresenterPadding(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetGridViewItemPresenterPadding(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
-    fn PointerOverBackgroundMargin(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetPointerOverBackgroundMargin(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
-    fn ContentMargin(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetContentMargin(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn SelectionCheckMarkVisualEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSelectionCheckMarkVisualEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CheckHintBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckHintBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckSelectingBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckSelectingBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn DragBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetDragBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn DragForeground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetDragForeground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn FocusBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetFocusBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn PlaceholderBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetPlaceholderBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn PointerOverBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetPointerOverBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedForeground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedForeground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedPointerOverBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedPointerOverBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedPointerOverBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedPointerOverBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedBorderThickness(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetSelectedBorderThickness(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn DisabledOpacity(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDisabledOpacity(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DragOpacity(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDragOpacity(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ReorderHintOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetReorderHintOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn GridViewItemPresenterHorizontalContentAlignment(&mut self) -> ::windows::core::Result<super::super::HorizontalAlignment>;
+    fn SetGridViewItemPresenterHorizontalContentAlignment(&mut self, value: super::super::HorizontalAlignment) -> ::windows::core::Result<()>;
+    fn GridViewItemPresenterVerticalContentAlignment(&mut self) -> ::windows::core::Result<super::super::VerticalAlignment>;
+    fn SetGridViewItemPresenterVerticalContentAlignment(&mut self, value: super::super::VerticalAlignment) -> ::windows::core::Result<()>;
+    fn GridViewItemPresenterPadding(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetGridViewItemPresenterPadding(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn PointerOverBackgroundMargin(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetPointerOverBackgroundMargin(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn ContentMargin(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetContentMargin(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGridViewItemPresenter {
@@ -3841,7 +3841,7 @@ impl IGridViewItemPresenterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridViewItemPresenterFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemPresenter>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemPresenter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGridViewItemPresenterFactory {
@@ -3872,28 +3872,28 @@ impl IGridViewItemPresenterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridViewItemPresenterStaticsImpl: Sized {
-    fn SelectionCheckMarkVisualEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckHintBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckSelectingBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DragBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DragForegroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FocusBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PlaceholderBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PointerOverBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedForegroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedPointerOverBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedPointerOverBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedBorderThicknessProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DisabledOpacityProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DragOpacityProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ReorderHintOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GridViewItemPresenterHorizontalContentAlignmentProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GridViewItemPresenterVerticalContentAlignmentProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GridViewItemPresenterPaddingProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PointerOverBackgroundMarginProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentMarginProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionCheckMarkVisualEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckHintBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckSelectingBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DragBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DragForegroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FocusBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PlaceholderBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PointerOverBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedForegroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedPointerOverBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedPointerOverBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedBorderThicknessProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DisabledOpacityProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DragOpacityProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ReorderHintOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GridViewItemPresenterHorizontalContentAlignmentProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GridViewItemPresenterVerticalContentAlignmentProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GridViewItemPresenterPaddingProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PointerOverBackgroundMarginProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentMarginProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGridViewItemPresenterStatics {
@@ -4176,7 +4176,7 @@ impl IGridViewItemPresenterStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridViewItemTemplateSettingsImpl: Sized {
-    fn DragItemsCount(&self) -> ::windows::core::Result<i32>;
+    fn DragItemsCount(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGridViewItemTemplateSettings {
@@ -4207,11 +4207,11 @@ impl IGridViewItemTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IItemsChangedEventArgsImpl: Sized {
-    fn Action(&self) -> ::windows::core::Result<i32>;
-    fn Position(&self) -> ::windows::core::Result<GeneratorPosition>;
-    fn OldPosition(&self) -> ::windows::core::Result<GeneratorPosition>;
-    fn ItemCount(&self) -> ::windows::core::Result<i32>;
-    fn ItemUICount(&self) -> ::windows::core::Result<i32>;
+    fn Action(&mut self) -> ::windows::core::Result<i32>;
+    fn Position(&mut self) -> ::windows::core::Result<GeneratorPosition>;
+    fn OldPosition(&mut self) -> ::windows::core::Result<GeneratorPosition>;
+    fn ItemCount(&mut self) -> ::windows::core::Result<i32>;
+    fn ItemUICount(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IItemsChangedEventArgs {
@@ -4290,10 +4290,10 @@ impl IItemsChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IJumpListItemBackgroundConverterImpl: Sized {
-    fn Enabled(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetEnabled(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn Disabled(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetDisabled(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetEnabled(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Disabled(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetDisabled(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpListItemBackgroundConverter {
@@ -4346,8 +4346,8 @@ impl IJumpListItemBackgroundConverterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IJumpListItemBackgroundConverterStaticsImpl: Sized {
-    fn EnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DisabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DisabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IJumpListItemBackgroundConverterStatics {
@@ -4390,10 +4390,10 @@ impl IJumpListItemBackgroundConverterStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IJumpListItemForegroundConverterImpl: Sized {
-    fn Enabled(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetEnabled(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn Disabled(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetDisabled(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetEnabled(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Disabled(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetDisabled(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpListItemForegroundConverter {
@@ -4446,8 +4446,8 @@ impl IJumpListItemForegroundConverterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IJumpListItemForegroundConverterStaticsImpl: Sized {
-    fn EnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DisabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn EnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DisabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IJumpListItemForegroundConverterStatics {
@@ -4505,8 +4505,8 @@ impl ILayoutInformationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILayoutInformationStaticsImpl: Sized {
-    fn GetLayoutExceptionElement(&self, dispatcher: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::UIElement>;
-    fn GetLayoutSlot(&self, element: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn GetLayoutExceptionElement(&mut self, dispatcher: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::UIElement>;
+    fn GetLayoutSlot(&mut self, element: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILayoutInformationStatics {
@@ -4549,7 +4549,7 @@ impl ILayoutInformationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILayoutInformationStatics2Impl: Sized {
-    fn GetAvailableSize(&self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<super::super::super::super::Foundation::Size>;
+    fn GetAvailableSize(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<super::super::super::super::Foundation::Size>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILayoutInformationStatics2 {
@@ -4580,50 +4580,50 @@ impl ILayoutInformationStatics2Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IListViewItemPresenterImpl: Sized {
-    fn SelectionCheckMarkVisualEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetSelectionCheckMarkVisualEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CheckHintBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckHintBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckSelectingBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckSelectingBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn DragBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetDragBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn DragForeground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetDragForeground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn FocusBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetFocusBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn PlaceholderBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetPlaceholderBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn PointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetPointerOverBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedForeground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedForeground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedPointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedPointerOverBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedPointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedPointerOverBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedBorderThickness(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetSelectedBorderThickness(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
-    fn DisabledOpacity(&self) -> ::windows::core::Result<f64>;
-    fn SetDisabledOpacity(&self, value: f64) -> ::windows::core::Result<()>;
-    fn DragOpacity(&self) -> ::windows::core::Result<f64>;
-    fn SetDragOpacity(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ReorderHintOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetReorderHintOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ListViewItemPresenterHorizontalContentAlignment(&self) -> ::windows::core::Result<super::super::HorizontalAlignment>;
-    fn SetListViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment) -> ::windows::core::Result<()>;
-    fn ListViewItemPresenterVerticalContentAlignment(&self) -> ::windows::core::Result<super::super::VerticalAlignment>;
-    fn SetListViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment) -> ::windows::core::Result<()>;
-    fn ListViewItemPresenterPadding(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetListViewItemPresenterPadding(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
-    fn PointerOverBackgroundMargin(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetPointerOverBackgroundMargin(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
-    fn ContentMargin(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetContentMargin(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn SelectionCheckMarkVisualEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSelectionCheckMarkVisualEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CheckHintBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckHintBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckSelectingBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckSelectingBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn DragBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetDragBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn DragForeground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetDragForeground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn FocusBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetFocusBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn PlaceholderBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetPlaceholderBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn PointerOverBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetPointerOverBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedForeground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedForeground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedPointerOverBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedPointerOverBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedPointerOverBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedPointerOverBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedBorderThickness(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetSelectedBorderThickness(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn DisabledOpacity(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDisabledOpacity(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn DragOpacity(&mut self) -> ::windows::core::Result<f64>;
+    fn SetDragOpacity(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ReorderHintOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetReorderHintOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ListViewItemPresenterHorizontalContentAlignment(&mut self) -> ::windows::core::Result<super::super::HorizontalAlignment>;
+    fn SetListViewItemPresenterHorizontalContentAlignment(&mut self, value: super::super::HorizontalAlignment) -> ::windows::core::Result<()>;
+    fn ListViewItemPresenterVerticalContentAlignment(&mut self) -> ::windows::core::Result<super::super::VerticalAlignment>;
+    fn SetListViewItemPresenterVerticalContentAlignment(&mut self, value: super::super::VerticalAlignment) -> ::windows::core::Result<()>;
+    fn ListViewItemPresenterPadding(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetListViewItemPresenterPadding(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn PointerOverBackgroundMargin(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetPointerOverBackgroundMargin(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn ContentMargin(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetContentMargin(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewItemPresenter {
@@ -5016,18 +5016,18 @@ impl IListViewItemPresenterVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IListViewItemPresenter2Impl: Sized {
-    fn SelectedPressedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedPressedBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn PressedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetPressedBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn FocusSecondaryBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetFocusSecondaryBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckMode(&self) -> ::windows::core::Result<ListViewItemPresenterCheckMode>;
-    fn SetCheckMode(&self, value: ListViewItemPresenterCheckMode) -> ::windows::core::Result<()>;
-    fn PointerOverForeground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetPointerOverForeground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedPressedBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedPressedBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn PressedBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetPressedBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn FocusSecondaryBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetFocusSecondaryBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckMode(&mut self) -> ::windows::core::Result<ListViewItemPresenterCheckMode>;
+    fn SetCheckMode(&mut self, value: ListViewItemPresenterCheckMode) -> ::windows::core::Result<()>;
+    fn PointerOverForeground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetPointerOverForeground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewItemPresenter2 {
@@ -5148,14 +5148,14 @@ impl IListViewItemPresenter2Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IListViewItemPresenter3Impl: Sized {
-    fn RevealBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetRevealBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn RevealBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetRevealBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn RevealBorderThickness(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn SetRevealBorderThickness(&self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
-    fn RevealBackgroundShowsAboveContent(&self) -> ::windows::core::Result<bool>;
-    fn SetRevealBackgroundShowsAboveContent(&self, value: bool) -> ::windows::core::Result<()>;
+    fn RevealBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetRevealBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn RevealBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetRevealBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn RevealBorderThickness(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn SetRevealBorderThickness(&mut self, value: &super::super::Thickness) -> ::windows::core::Result<()>;
+    fn RevealBackgroundShowsAboveContent(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRevealBackgroundShowsAboveContent(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewItemPresenter3 {
@@ -5242,60 +5242,60 @@ impl IListViewItemPresenter3Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IListViewItemPresenter4Impl: Sized {
-    fn SelectedDisabledBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedDisabledBackground(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckPressedBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckDisabledBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxPointerOverBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxPointerOverBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxPressedBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxDisabledBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxSelectedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxSelectedBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxSelectedPointerOverBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxSelectedPointerOverBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxSelectedPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxSelectedPressedBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxSelectedDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxSelectedDisabledBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxPointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxPointerOverBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxPressedBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxPressedBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxDisabledBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetCheckBoxDisabledBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn CheckBoxCornerRadius(&self) -> ::windows::core::Result<super::super::CornerRadius>;
-    fn SetCheckBoxCornerRadius(&self, value: &super::super::CornerRadius) -> ::windows::core::Result<()>;
-    fn SelectionIndicatorCornerRadius(&self) -> ::windows::core::Result<super::super::CornerRadius>;
-    fn SetSelectionIndicatorCornerRadius(&self, value: &super::super::CornerRadius) -> ::windows::core::Result<()>;
-    fn SelectionIndicatorVisualEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetSelectionIndicatorVisualEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SelectionIndicatorMode(&self) -> ::windows::core::Result<ListViewItemPresenterSelectionIndicatorMode>;
-    fn SetSelectionIndicatorMode(&self, value: ListViewItemPresenterSelectionIndicatorMode) -> ::windows::core::Result<()>;
-    fn SelectionIndicatorBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectionIndicatorBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectionIndicatorPointerOverBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectionIndicatorPointerOverBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectionIndicatorPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectionIndicatorPressedBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectionIndicatorDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectionIndicatorDisabledBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedPressedBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedPressedBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedDisabledBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedDisabledBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn SelectedInnerBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetSelectedInnerBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn PointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetPointerOverBorderBrush(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedDisabledBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedDisabledBackground(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckPressedBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckPressedBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckDisabledBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckDisabledBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxPointerOverBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxPointerOverBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxPressedBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxPressedBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxDisabledBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxDisabledBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxSelectedBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxSelectedBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxSelectedPointerOverBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxSelectedPointerOverBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxSelectedPressedBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxSelectedPressedBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxSelectedDisabledBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxSelectedDisabledBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxPointerOverBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxPointerOverBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxPressedBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxPressedBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxDisabledBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetCheckBoxDisabledBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn CheckBoxCornerRadius(&mut self) -> ::windows::core::Result<super::super::CornerRadius>;
+    fn SetCheckBoxCornerRadius(&mut self, value: &super::super::CornerRadius) -> ::windows::core::Result<()>;
+    fn SelectionIndicatorCornerRadius(&mut self) -> ::windows::core::Result<super::super::CornerRadius>;
+    fn SetSelectionIndicatorCornerRadius(&mut self, value: &super::super::CornerRadius) -> ::windows::core::Result<()>;
+    fn SelectionIndicatorVisualEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSelectionIndicatorVisualEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SelectionIndicatorMode(&mut self) -> ::windows::core::Result<ListViewItemPresenterSelectionIndicatorMode>;
+    fn SetSelectionIndicatorMode(&mut self, value: ListViewItemPresenterSelectionIndicatorMode) -> ::windows::core::Result<()>;
+    fn SelectionIndicatorBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectionIndicatorBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectionIndicatorPointerOverBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectionIndicatorPointerOverBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectionIndicatorPressedBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectionIndicatorPressedBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectionIndicatorDisabledBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectionIndicatorDisabledBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedPressedBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedPressedBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedDisabledBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedDisabledBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn SelectedInnerBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetSelectedInnerBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn PointerOverBorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetPointerOverBorderBrush(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewItemPresenter4 {
@@ -5773,7 +5773,7 @@ impl IListViewItemPresenter4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListViewItemPresenterFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemPresenter>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemPresenter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListViewItemPresenterFactory {
@@ -5804,28 +5804,28 @@ impl IListViewItemPresenterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListViewItemPresenterStaticsImpl: Sized {
-    fn SelectionCheckMarkVisualEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckHintBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckSelectingBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DragBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DragForegroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FocusBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PlaceholderBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PointerOverBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedForegroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedPointerOverBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedPointerOverBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedBorderThicknessProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DisabledOpacityProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DragOpacityProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ReorderHintOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ListViewItemPresenterHorizontalContentAlignmentProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ListViewItemPresenterVerticalContentAlignmentProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ListViewItemPresenterPaddingProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PointerOverBackgroundMarginProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ContentMarginProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionCheckMarkVisualEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckHintBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckSelectingBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DragBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DragForegroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FocusBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PlaceholderBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PointerOverBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedForegroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedPointerOverBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedPointerOverBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedBorderThicknessProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DisabledOpacityProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DragOpacityProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ReorderHintOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ListViewItemPresenterHorizontalContentAlignmentProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ListViewItemPresenterVerticalContentAlignmentProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ListViewItemPresenterPaddingProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PointerOverBackgroundMarginProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ContentMarginProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListViewItemPresenterStatics {
@@ -6108,12 +6108,12 @@ impl IListViewItemPresenterStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListViewItemPresenterStatics2Impl: Sized {
-    fn SelectedPressedBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PressedBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn FocusSecondaryBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PointerOverForegroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedPressedBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PressedBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FocusSecondaryBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PointerOverForegroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListViewItemPresenterStatics2 {
@@ -6204,10 +6204,10 @@ impl IListViewItemPresenterStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListViewItemPresenterStatics3Impl: Sized {
-    fn RevealBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn RevealBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn RevealBorderThicknessProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn RevealBackgroundShowsAboveContentProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn RevealBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn RevealBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn RevealBorderThicknessProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn RevealBackgroundShowsAboveContentProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListViewItemPresenterStatics3 {
@@ -6274,33 +6274,33 @@ impl IListViewItemPresenterStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListViewItemPresenterStatics4Impl: Sized {
-    fn SelectedDisabledBackgroundProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckPressedBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckDisabledBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxPointerOverBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxPressedBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxDisabledBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxSelectedBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxSelectedPointerOverBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxSelectedPressedBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxSelectedDisabledBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxPointerOverBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxPressedBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxDisabledBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn CheckBoxCornerRadiusProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectionIndicatorCornerRadiusProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectionIndicatorVisualEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectionIndicatorModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectionIndicatorBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectionIndicatorPointerOverBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectionIndicatorPressedBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectionIndicatorDisabledBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedPressedBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedDisabledBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedInnerBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PointerOverBorderBrushProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedDisabledBackgroundProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckPressedBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckDisabledBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxPointerOverBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxPressedBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxDisabledBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxSelectedBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxSelectedPointerOverBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxSelectedPressedBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxSelectedDisabledBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxPointerOverBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxPressedBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxDisabledBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn CheckBoxCornerRadiusProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionIndicatorCornerRadiusProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionIndicatorVisualEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionIndicatorModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionIndicatorBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionIndicatorPointerOverBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionIndicatorPressedBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectionIndicatorDisabledBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedPressedBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedDisabledBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedInnerBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PointerOverBorderBrushProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListViewItemPresenterStatics4 {
@@ -6643,7 +6643,7 @@ impl IListViewItemPresenterStatics4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListViewItemTemplateSettingsImpl: Sized {
-    fn DragItemsCount(&self) -> ::windows::core::Result<i32>;
+    fn DragItemsCount(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListViewItemTemplateSettings {
@@ -6674,22 +6674,22 @@ impl IListViewItemTemplateSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILoopingSelectorImpl: Sized {
-    fn ShouldLoop(&self) -> ::windows::core::Result<bool>;
-    fn SetShouldLoop(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Items(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>;
-    fn SetItems(&self, value: &::core::option::Option<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>) -> ::windows::core::Result<()>;
-    fn SelectedIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetSelectedIndex(&self, value: i32) -> ::windows::core::Result<()>;
-    fn SelectedItem(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetSelectedItem(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn ItemWidth(&self) -> ::windows::core::Result<i32>;
-    fn SetItemWidth(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ItemHeight(&self) -> ::windows::core::Result<i32>;
-    fn SetItemHeight(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ItemTemplate(&self) -> ::windows::core::Result<super::super::DataTemplate>;
-    fn SetItemTemplate(&self, value: &::core::option::Option<super::super::DataTemplate>) -> ::windows::core::Result<()>;
-    fn SelectionChanged(&self, handler: &::core::option::Option<super::SelectionChangedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSelectionChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ShouldLoop(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShouldLoop(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Items(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>;
+    fn SetItems(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>) -> ::windows::core::Result<()>;
+    fn SelectedIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetSelectedIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn SelectedItem(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetSelectedItem(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn ItemWidth(&mut self) -> ::windows::core::Result<i32>;
+    fn SetItemWidth(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ItemHeight(&mut self) -> ::windows::core::Result<i32>;
+    fn SetItemHeight(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ItemTemplate(&mut self) -> ::windows::core::Result<super::super::DataTemplate>;
+    fn SetItemTemplate(&mut self, value: &::core::option::Option<super::super::DataTemplate>) -> ::windows::core::Result<()>;
+    fn SelectionChanged(&mut self, handler: &::core::option::Option<super::SelectionChangedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSelectionChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILoopingSelector {
@@ -6874,13 +6874,13 @@ impl ILoopingSelectorPanelVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILoopingSelectorStaticsImpl: Sized {
-    fn ShouldLoopProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ItemsProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedIndexProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedItemProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ItemWidthProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ItemHeightProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ItemTemplateProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ShouldLoopProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ItemsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedIndexProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedItemProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ItemWidthProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ItemHeightProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ItemTemplateProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILoopingSelectorStatics {
@@ -6983,7 +6983,7 @@ impl ILoopingSelectorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMenuFlyoutItemTemplateSettingsImpl: Sized {
-    fn KeyboardAcceleratorTextMinWidth(&self) -> ::windows::core::Result<f64>;
+    fn KeyboardAcceleratorTextMinWidth(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMenuFlyoutItemTemplateSettings {
@@ -7014,7 +7014,7 @@ impl IMenuFlyoutItemTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMenuFlyoutPresenterTemplateSettingsImpl: Sized {
-    fn FlyoutContentMinWidth(&self) -> ::windows::core::Result<f64>;
+    fn FlyoutContentMinWidth(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMenuFlyoutPresenterTemplateSettings {
@@ -7045,8 +7045,8 @@ impl IMenuFlyoutPresenterTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INavigationViewItemPresenterImpl: Sized {
-    fn Icon(&self) -> ::windows::core::Result<super::IconElement>;
-    fn SetIcon(&self, value: &::core::option::Option<super::IconElement>) -> ::windows::core::Result<()>;
+    fn Icon(&mut self) -> ::windows::core::Result<super::IconElement>;
+    fn SetIcon(&mut self, value: &::core::option::Option<super::IconElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationViewItemPresenter {
@@ -7082,7 +7082,7 @@ impl INavigationViewItemPresenterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INavigationViewItemPresenterFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationViewItemPresenter>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationViewItemPresenter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationViewItemPresenterFactory {
@@ -7113,7 +7113,7 @@ impl INavigationViewItemPresenterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INavigationViewItemPresenterStaticsImpl: Sized {
-    fn IconProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IconProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationViewItemPresenterStatics {
@@ -7144,33 +7144,33 @@ impl INavigationViewItemPresenterStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOrientedVirtualizingPanelImpl: Sized {
-    fn CanVerticallyScroll(&self) -> ::windows::core::Result<bool>;
-    fn SetCanVerticallyScroll(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CanHorizontallyScroll(&self) -> ::windows::core::Result<bool>;
-    fn SetCanHorizontallyScroll(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ExtentWidth(&self) -> ::windows::core::Result<f64>;
-    fn ExtentHeight(&self) -> ::windows::core::Result<f64>;
-    fn ViewportWidth(&self) -> ::windows::core::Result<f64>;
-    fn ViewportHeight(&self) -> ::windows::core::Result<f64>;
-    fn HorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn VerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn ScrollOwner(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetScrollOwner(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn LineUp(&self) -> ::windows::core::Result<()>;
-    fn LineDown(&self) -> ::windows::core::Result<()>;
-    fn LineLeft(&self) -> ::windows::core::Result<()>;
-    fn LineRight(&self) -> ::windows::core::Result<()>;
-    fn PageUp(&self) -> ::windows::core::Result<()>;
-    fn PageDown(&self) -> ::windows::core::Result<()>;
-    fn PageLeft(&self) -> ::windows::core::Result<()>;
-    fn PageRight(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelUp(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelDown(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelLeft(&self) -> ::windows::core::Result<()>;
-    fn MouseWheelRight(&self) -> ::windows::core::Result<()>;
-    fn SetHorizontalOffset(&self, offset: f64) -> ::windows::core::Result<()>;
-    fn SetVerticalOffset(&self, offset: f64) -> ::windows::core::Result<()>;
-    fn MakeVisible(&self, visual: &::core::option::Option<super::super::UIElement>, rectangle: &super::super::super::super::Foundation::Rect) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn CanVerticallyScroll(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanVerticallyScroll(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CanHorizontallyScroll(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanHorizontallyScroll(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ExtentWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn ExtentHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn ViewportWidth(&mut self) -> ::windows::core::Result<f64>;
+    fn ViewportHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn HorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn VerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn ScrollOwner(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetScrollOwner(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn LineUp(&mut self) -> ::windows::core::Result<()>;
+    fn LineDown(&mut self) -> ::windows::core::Result<()>;
+    fn LineLeft(&mut self) -> ::windows::core::Result<()>;
+    fn LineRight(&mut self) -> ::windows::core::Result<()>;
+    fn PageUp(&mut self) -> ::windows::core::Result<()>;
+    fn PageDown(&mut self) -> ::windows::core::Result<()>;
+    fn PageLeft(&mut self) -> ::windows::core::Result<()>;
+    fn PageRight(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelUp(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelDown(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelLeft(&mut self) -> ::windows::core::Result<()>;
+    fn MouseWheelRight(&mut self) -> ::windows::core::Result<()>;
+    fn SetHorizontalOffset(&mut self, offset: f64) -> ::windows::core::Result<()>;
+    fn SetVerticalOffset(&mut self, offset: f64) -> ::windows::core::Result<()>;
+    fn MakeVisible(&mut self, visual: &::core::option::Option<super::super::UIElement>, rectangle: &super::super::super::super::Foundation::Rect) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOrientedVirtualizingPanel {
@@ -7424,7 +7424,7 @@ impl IPickerFlyoutBaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPickerFlyoutBaseFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PickerFlyoutBase>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PickerFlyoutBase>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPickerFlyoutBaseFactory {
@@ -7455,8 +7455,8 @@ impl IPickerFlyoutBaseFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPickerFlyoutBaseOverridesImpl: Sized {
-    fn OnConfirmed(&self) -> ::windows::core::Result<()>;
-    fn ShouldShowConfirmationButtons(&self) -> ::windows::core::Result<bool>;
+    fn OnConfirmed(&mut self) -> ::windows::core::Result<()>;
+    fn ShouldShowConfirmationButtons(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPickerFlyoutBaseOverrides {
@@ -7492,9 +7492,9 @@ impl IPickerFlyoutBaseOverridesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPickerFlyoutBaseStaticsImpl: Sized {
-    fn TitleProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetTitle(&self, element: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, element: &::core::option::Option<super::super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TitleProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetTitle(&mut self, element: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, element: &::core::option::Option<super::super::DependencyObject>, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPickerFlyoutBaseStatics {
@@ -7557,7 +7557,7 @@ impl IPivotHeaderItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPivotHeaderItemFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PivotHeaderItem>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PivotHeaderItem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPivotHeaderItemFactory {
@@ -7618,22 +7618,22 @@ impl IPivotPanelVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation", feature = "implement_exclusive"))]
 pub trait IPopupImpl: Sized {
-    fn Child(&self) -> ::windows::core::Result<super::super::UIElement>;
-    fn SetChild(&self, value: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<()>;
-    fn IsOpen(&self) -> ::windows::core::Result<bool>;
-    fn SetIsOpen(&self, value: bool) -> ::windows::core::Result<()>;
-    fn HorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn VerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ChildTransitions(&self) -> ::windows::core::Result<super::super::Media::Animation::TransitionCollection>;
-    fn SetChildTransitions(&self, value: &::core::option::Option<super::super::Media::Animation::TransitionCollection>) -> ::windows::core::Result<()>;
-    fn IsLightDismissEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsLightDismissEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Opened(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOpened(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closed(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Child(&mut self) -> ::windows::core::Result<super::super::UIElement>;
+    fn SetChild(&mut self, value: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<()>;
+    fn IsOpen(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsOpen(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn HorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn VerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ChildTransitions(&mut self) -> ::windows::core::Result<super::super::Media::Animation::TransitionCollection>;
+    fn SetChildTransitions(&mut self, value: &::core::option::Option<super::super::Media::Animation::TransitionCollection>) -> ::windows::core::Result<()>;
+    fn IsLightDismissEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsLightDismissEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Opened(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOpened(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPopup {
@@ -7788,8 +7788,8 @@ impl IPopupVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopup2Impl: Sized {
-    fn LightDismissOverlayMode(&self) -> ::windows::core::Result<super::LightDismissOverlayMode>;
-    fn SetLightDismissOverlayMode(&self, value: super::LightDismissOverlayMode) -> ::windows::core::Result<()>;
+    fn LightDismissOverlayMode(&mut self) -> ::windows::core::Result<super::LightDismissOverlayMode>;
+    fn SetLightDismissOverlayMode(&mut self, value: super::LightDismissOverlayMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopup2 {
@@ -7825,9 +7825,9 @@ impl IPopup2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopup3Impl: Sized {
-    fn ShouldConstrainToRootBounds(&self) -> ::windows::core::Result<bool>;
-    fn SetShouldConstrainToRootBounds(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsConstrainedToRootBounds(&self) -> ::windows::core::Result<bool>;
+    fn ShouldConstrainToRootBounds(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShouldConstrainToRootBounds(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsConstrainedToRootBounds(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopup3 {
@@ -7875,13 +7875,13 @@ impl IPopup3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPopup4Impl: Sized {
-    fn PlacementTarget(&self) -> ::windows::core::Result<super::super::FrameworkElement>;
-    fn SetPlacementTarget(&self, value: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<()>;
-    fn DesiredPlacement(&self) -> ::windows::core::Result<PopupPlacementMode>;
-    fn SetDesiredPlacement(&self, value: PopupPlacementMode) -> ::windows::core::Result<()>;
-    fn ActualPlacement(&self) -> ::windows::core::Result<PopupPlacementMode>;
-    fn ActualPlacementChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActualPlacementChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PlacementTarget(&mut self) -> ::windows::core::Result<super::super::FrameworkElement>;
+    fn SetPlacementTarget(&mut self, value: &::core::option::Option<super::super::FrameworkElement>) -> ::windows::core::Result<()>;
+    fn DesiredPlacement(&mut self) -> ::windows::core::Result<PopupPlacementMode>;
+    fn SetDesiredPlacement(&mut self, value: PopupPlacementMode) -> ::windows::core::Result<()>;
+    fn ActualPlacement(&mut self) -> ::windows::core::Result<PopupPlacementMode>;
+    fn ActualPlacementChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActualPlacementChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPopup4 {
@@ -7963,12 +7963,12 @@ impl IPopup4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopupStaticsImpl: Sized {
-    fn ChildProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsOpenProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn HorizontalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn VerticalOffsetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ChildTransitionsProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsLightDismissEnabledProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ChildProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsOpenProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn HorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn VerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ChildTransitionsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsLightDismissEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopupStatics {
@@ -8059,7 +8059,7 @@ impl IPopupStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopupStatics2Impl: Sized {
-    fn LightDismissOverlayModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn LightDismissOverlayModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopupStatics2 {
@@ -8090,7 +8090,7 @@ impl IPopupStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopupStatics3Impl: Sized {
-    fn ShouldConstrainToRootBoundsProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ShouldConstrainToRootBoundsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopupStatics3 {
@@ -8121,8 +8121,8 @@ impl IPopupStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPopupStatics4Impl: Sized {
-    fn PlacementTargetProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn DesiredPlacementProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PlacementTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DesiredPlacementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPopupStatics4 {
@@ -8165,13 +8165,13 @@ impl IPopupStatics4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProgressBarTemplateSettingsImpl: Sized {
-    fn EllipseDiameter(&self) -> ::windows::core::Result<f64>;
-    fn EllipseOffset(&self) -> ::windows::core::Result<f64>;
-    fn EllipseAnimationWellPosition(&self) -> ::windows::core::Result<f64>;
-    fn EllipseAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn ContainerAnimationStartPosition(&self) -> ::windows::core::Result<f64>;
-    fn ContainerAnimationEndPosition(&self) -> ::windows::core::Result<f64>;
-    fn IndicatorLengthDelta(&self) -> ::windows::core::Result<f64>;
+    fn EllipseDiameter(&mut self) -> ::windows::core::Result<f64>;
+    fn EllipseOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn EllipseAnimationWellPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn EllipseAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ContainerAnimationStartPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn ContainerAnimationEndPosition(&mut self) -> ::windows::core::Result<f64>;
+    fn IndicatorLengthDelta(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProgressBarTemplateSettings {
@@ -8274,9 +8274,9 @@ impl IProgressBarTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProgressRingTemplateSettingsImpl: Sized {
-    fn EllipseDiameter(&self) -> ::windows::core::Result<f64>;
-    fn EllipseOffset(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn MaxSideLength(&self) -> ::windows::core::Result<f64>;
+    fn EllipseDiameter(&mut self) -> ::windows::core::Result<f64>;
+    fn EllipseOffset(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn MaxSideLength(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProgressRingTemplateSettings {
@@ -8331,18 +8331,18 @@ impl IProgressRingTemplateSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRangeBaseImpl: Sized {
-    fn Minimum(&self) -> ::windows::core::Result<f64>;
-    fn SetMinimum(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Maximum(&self) -> ::windows::core::Result<f64>;
-    fn SetMaximum(&self, value: f64) -> ::windows::core::Result<()>;
-    fn SmallChange(&self) -> ::windows::core::Result<f64>;
-    fn SetSmallChange(&self, value: f64) -> ::windows::core::Result<()>;
-    fn LargeChange(&self) -> ::windows::core::Result<f64>;
-    fn SetLargeChange(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<f64>;
-    fn SetValue(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ValueChanged(&self, handler: &::core::option::Option<RangeBaseValueChangedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveValueChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Minimum(&mut self) -> ::windows::core::Result<f64>;
+    fn SetMinimum(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Maximum(&mut self) -> ::windows::core::Result<f64>;
+    fn SetMaximum(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn SmallChange(&mut self) -> ::windows::core::Result<f64>;
+    fn SetSmallChange(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn LargeChange(&mut self) -> ::windows::core::Result<f64>;
+    fn SetLargeChange(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<f64>;
+    fn SetValue(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ValueChanged(&mut self, handler: &::core::option::Option<RangeBaseValueChangedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveValueChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRangeBase {
@@ -8463,7 +8463,7 @@ impl IRangeBaseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRangeBaseFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RangeBase>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RangeBase>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRangeBaseFactory {
@@ -8491,9 +8491,9 @@ impl IRangeBaseFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRangeBaseOverridesImpl: Sized {
-    fn OnMinimumChanged(&self, oldminimum: f64, newminimum: f64) -> ::windows::core::Result<()>;
-    fn OnMaximumChanged(&self, oldmaximum: f64, newmaximum: f64) -> ::windows::core::Result<()>;
-    fn OnValueChanged(&self, oldvalue: f64, newvalue: f64) -> ::windows::core::Result<()>;
+    fn OnMinimumChanged(&mut self, oldminimum: f64, newminimum: f64) -> ::windows::core::Result<()>;
+    fn OnMaximumChanged(&mut self, oldmaximum: f64, newmaximum: f64) -> ::windows::core::Result<()>;
+    fn OnValueChanged(&mut self, oldvalue: f64, newvalue: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRangeBaseOverrides {
@@ -8527,11 +8527,11 @@ impl IRangeBaseOverridesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRangeBaseStaticsImpl: Sized {
-    fn MinimumProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn MaximumProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SmallChangeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn LargeChangeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MinimumProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn MaximumProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SmallChangeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn LargeChangeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRangeBaseStatics {
@@ -8610,8 +8610,8 @@ impl IRangeBaseStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRangeBaseValueChangedEventArgsImpl: Sized {
-    fn OldValue(&self) -> ::windows::core::Result<f64>;
-    fn NewValue(&self) -> ::windows::core::Result<f64>;
+    fn OldValue(&mut self) -> ::windows::core::Result<f64>;
+    fn NewValue(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRangeBaseValueChangedEventArgs {
@@ -8654,10 +8654,10 @@ impl IRangeBaseValueChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRepeatButtonImpl: Sized {
-    fn Delay(&self) -> ::windows::core::Result<i32>;
-    fn SetDelay(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Interval(&self) -> ::windows::core::Result<i32>;
-    fn SetInterval(&self, value: i32) -> ::windows::core::Result<()>;
+    fn Delay(&mut self) -> ::windows::core::Result<i32>;
+    fn SetDelay(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Interval(&mut self) -> ::windows::core::Result<i32>;
+    fn SetInterval(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepeatButton {
@@ -8710,8 +8710,8 @@ impl IRepeatButtonVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRepeatButtonStaticsImpl: Sized {
-    fn DelayProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IntervalProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn DelayProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IntervalProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepeatButtonStatics {
@@ -8754,14 +8754,14 @@ impl IRepeatButtonStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScrollBarImpl: Sized {
-    fn Orientation(&self) -> ::windows::core::Result<super::Orientation>;
-    fn SetOrientation(&self, value: super::Orientation) -> ::windows::core::Result<()>;
-    fn ViewportSize(&self) -> ::windows::core::Result<f64>;
-    fn SetViewportSize(&self, value: f64) -> ::windows::core::Result<()>;
-    fn IndicatorMode(&self) -> ::windows::core::Result<ScrollingIndicatorMode>;
-    fn SetIndicatorMode(&self, value: ScrollingIndicatorMode) -> ::windows::core::Result<()>;
-    fn Scroll(&self, handler: &::core::option::Option<ScrollEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveScroll(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Orientation(&mut self) -> ::windows::core::Result<super::Orientation>;
+    fn SetOrientation(&mut self, value: super::Orientation) -> ::windows::core::Result<()>;
+    fn ViewportSize(&mut self) -> ::windows::core::Result<f64>;
+    fn SetViewportSize(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn IndicatorMode(&mut self) -> ::windows::core::Result<ScrollingIndicatorMode>;
+    fn SetIndicatorMode(&mut self, value: ScrollingIndicatorMode) -> ::windows::core::Result<()>;
+    fn Scroll(&mut self, handler: &::core::option::Option<ScrollEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveScroll(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScrollBar {
@@ -8848,9 +8848,9 @@ impl IScrollBarVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IScrollBarStaticsImpl: Sized {
-    fn OrientationProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn ViewportSizeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IndicatorModeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn OrientationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn ViewportSizeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IndicatorModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScrollBarStatics {
@@ -8905,8 +8905,8 @@ impl IScrollBarStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IScrollEventArgsImpl: Sized {
-    fn NewValue(&self) -> ::windows::core::Result<f64>;
-    fn ScrollEventType(&self) -> ::windows::core::Result<ScrollEventType>;
+    fn NewValue(&mut self) -> ::windows::core::Result<f64>;
+    fn ScrollEventType(&mut self) -> ::windows::core::Result<ScrollEventType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScrollEventArgs {
@@ -8949,14 +8949,14 @@ impl IScrollEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IScrollSnapPointsInfoImpl: Sized {
-    fn AreHorizontalSnapPointsRegular(&self) -> ::windows::core::Result<bool>;
-    fn AreVerticalSnapPointsRegular(&self) -> ::windows::core::Result<bool>;
-    fn HorizontalSnapPointsChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHorizontalSnapPointsChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn VerticalSnapPointsChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVerticalSnapPointsChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>>;
-    fn GetRegularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment, offset: &mut f32) -> ::windows::core::Result<f32>;
+    fn AreHorizontalSnapPointsRegular(&mut self) -> ::windows::core::Result<bool>;
+    fn AreVerticalSnapPointsRegular(&mut self) -> ::windows::core::Result<bool>;
+    fn HorizontalSnapPointsChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHorizontalSnapPointsChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VerticalSnapPointsChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVerticalSnapPointsChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetIrregularSnapPoints(&mut self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>>;
+    fn GetRegularSnapPoints(&mut self, orientation: super::Orientation, alignment: SnapPointsAlignment, offset: &mut f32) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IScrollSnapPointsInfo {
@@ -9057,18 +9057,18 @@ impl IScrollSnapPointsInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISelectorImpl: Sized {
-    fn SelectedIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetSelectedIndex(&self, value: i32) -> ::windows::core::Result<()>;
-    fn SelectedItem(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetSelectedItem(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn SelectedValue(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetSelectedValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn SelectedValuePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSelectedValuePath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsSynchronizedWithCurrentItem(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<bool>>;
-    fn SetIsSynchronizedWithCurrentItem(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
-    fn SelectionChanged(&self, handler: &::core::option::Option<super::SelectionChangedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSelectionChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SelectedIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetSelectedIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn SelectedItem(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetSelectedItem(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SelectedValue(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetSelectedValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SelectedValuePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSelectedValuePath(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsSynchronizedWithCurrentItem(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<bool>>;
+    fn SetIsSynchronizedWithCurrentItem(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
+    fn SelectionChanged(&mut self, handler: &::core::option::Option<super::SelectionChangedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSelectionChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISelector {
@@ -9204,8 +9204,8 @@ impl ISelectorFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectorItemImpl: Sized {
-    fn IsSelected(&self) -> ::windows::core::Result<bool>;
-    fn SetIsSelected(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsSelected(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsSelected(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectorItem {
@@ -9241,7 +9241,7 @@ impl ISelectorItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectorItemFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorItem>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorItem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectorItemFactory {
@@ -9272,7 +9272,7 @@ impl ISelectorItemFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectorItemStaticsImpl: Sized {
-    fn IsSelectedProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsSelectedProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectorItemStatics {
@@ -9303,12 +9303,12 @@ impl ISelectorItemStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectorStaticsImpl: Sized {
-    fn SelectedIndexProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedItemProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedValueProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn SelectedValuePathProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsSynchronizedWithCurrentItemProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn GetIsSelectionActive(&self, element: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SelectedIndexProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedItemProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn SelectedValuePathProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsSynchronizedWithCurrentItemProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn GetIsSelectionActive(&mut self, element: &::core::option::Option<super::super::DependencyObject>) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectorStatics {
@@ -9399,12 +9399,12 @@ impl ISelectorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "UI_Xaml_Media_Animation", feature = "implement_exclusive"))]
 pub trait ISettingsFlyoutTemplateSettingsImpl: Sized {
-    fn HeaderBackground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn HeaderForeground(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn BorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn BorderThickness(&self) -> ::windows::core::Result<super::super::Thickness>;
-    fn IconSource(&self) -> ::windows::core::Result<super::super::Media::ImageSource>;
-    fn ContentTransitions(&self) -> ::windows::core::Result<super::super::Media::Animation::TransitionCollection>;
+    fn HeaderBackground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn HeaderForeground(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn BorderBrush(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn BorderThickness(&mut self) -> ::windows::core::Result<super::super::Thickness>;
+    fn IconSource(&mut self) -> ::windows::core::Result<super::super::Media::ImageSource>;
+    fn ContentTransitions(&mut self) -> ::windows::core::Result<super::super::Media::Animation::TransitionCollection>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "UI_Xaml_Media_Animation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsFlyoutTemplateSettings {
@@ -9495,12 +9495,12 @@ impl ISettingsFlyoutTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISplitViewTemplateSettingsImpl: Sized {
-    fn OpenPaneLength(&self) -> ::windows::core::Result<f64>;
-    fn NegativeOpenPaneLength(&self) -> ::windows::core::Result<f64>;
-    fn OpenPaneLengthMinusCompactLength(&self) -> ::windows::core::Result<f64>;
-    fn NegativeOpenPaneLengthMinusCompactLength(&self) -> ::windows::core::Result<f64>;
-    fn OpenPaneGridLength(&self) -> ::windows::core::Result<super::super::GridLength>;
-    fn CompactPaneGridLength(&self) -> ::windows::core::Result<super::super::GridLength>;
+    fn OpenPaneLength(&mut self) -> ::windows::core::Result<f64>;
+    fn NegativeOpenPaneLength(&mut self) -> ::windows::core::Result<f64>;
+    fn OpenPaneLengthMinusCompactLength(&mut self) -> ::windows::core::Result<f64>;
+    fn NegativeOpenPaneLengthMinusCompactLength(&mut self) -> ::windows::core::Result<f64>;
+    fn OpenPaneGridLength(&mut self) -> ::windows::core::Result<super::super::GridLength>;
+    fn CompactPaneGridLength(&mut self) -> ::windows::core::Result<super::super::GridLength>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISplitViewTemplateSettings {
@@ -9591,14 +9591,14 @@ impl ISplitViewTemplateSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IThumbImpl: Sized {
-    fn IsDragging(&self) -> ::windows::core::Result<bool>;
-    fn DragStarted(&self, handler: &::core::option::Option<DragStartedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDragStarted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DragDelta(&self, handler: &::core::option::Option<DragDeltaEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDragDelta(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DragCompleted(&self, handler: &::core::option::Option<DragCompletedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDragCompleted(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CancelDrag(&self) -> ::windows::core::Result<()>;
+    fn IsDragging(&mut self) -> ::windows::core::Result<bool>;
+    fn DragStarted(&mut self, handler: &::core::option::Option<DragStartedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDragStarted(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DragDelta(&mut self, handler: &::core::option::Option<DragDeltaEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDragDelta(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DragCompleted(&mut self, handler: &::core::option::Option<DragCompletedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDragCompleted(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CancelDrag(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThumb {
@@ -9685,7 +9685,7 @@ impl IThumbVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IThumbStaticsImpl: Sized {
-    fn IsDraggingProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsDraggingProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IThumbStatics {
@@ -9716,8 +9716,8 @@ impl IThumbStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait ITickBarImpl: Sized {
-    fn Fill(&self) -> ::windows::core::Result<super::super::Media::Brush>;
-    fn SetFill(&self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Fill(&mut self) -> ::windows::core::Result<super::super::Media::Brush>;
+    fn SetFill(&mut self, value: &::core::option::Option<super::super::Media::Brush>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITickBar {
@@ -9753,7 +9753,7 @@ impl ITickBarVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITickBarStaticsImpl: Sized {
-    fn FillProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn FillProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITickBarStatics {
@@ -9781,16 +9781,16 @@ impl ITickBarStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IToggleButtonImpl: Sized {
-    fn IsChecked(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<bool>>;
-    fn SetIsChecked(&self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
-    fn IsThreeState(&self) -> ::windows::core::Result<bool>;
-    fn SetIsThreeState(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Checked(&self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChecked(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Unchecked(&self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUnchecked(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Indeterminate(&self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIndeterminate(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsChecked(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<bool>>;
+    fn SetIsChecked(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<bool>>) -> ::windows::core::Result<()>;
+    fn IsThreeState(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsThreeState(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Checked(&mut self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChecked(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Unchecked(&mut self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUnchecked(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Indeterminate(&mut self, handler: &::core::option::Option<super::super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIndeterminate(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToggleButton {
@@ -9894,7 +9894,7 @@ impl IToggleButtonVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToggleButtonFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleButton>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleButton>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToggleButtonFactory {
@@ -9925,7 +9925,7 @@ impl IToggleButtonFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToggleButtonOverridesImpl: Sized {
-    fn OnToggle(&self) -> ::windows::core::Result<()>;
+    fn OnToggle(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToggleButtonOverrides {
@@ -9946,8 +9946,8 @@ impl IToggleButtonOverridesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToggleButtonStaticsImpl: Sized {
-    fn IsCheckedProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn IsThreeStateProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsCheckedProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn IsThreeStateProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToggleButtonStatics {
@@ -9990,14 +9990,14 @@ impl IToggleButtonStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToggleSwitchTemplateSettingsImpl: Sized {
-    fn KnobCurrentToOnOffset(&self) -> ::windows::core::Result<f64>;
-    fn KnobCurrentToOffOffset(&self) -> ::windows::core::Result<f64>;
-    fn KnobOnToOffOffset(&self) -> ::windows::core::Result<f64>;
-    fn KnobOffToOnOffset(&self) -> ::windows::core::Result<f64>;
-    fn CurtainCurrentToOnOffset(&self) -> ::windows::core::Result<f64>;
-    fn CurtainCurrentToOffOffset(&self) -> ::windows::core::Result<f64>;
-    fn CurtainOnToOffOffset(&self) -> ::windows::core::Result<f64>;
-    fn CurtainOffToOnOffset(&self) -> ::windows::core::Result<f64>;
+    fn KnobCurrentToOnOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn KnobCurrentToOffOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn KnobOnToOffOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn KnobOffToOnOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn CurtainCurrentToOnOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn CurtainCurrentToOffOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn CurtainOnToOffOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn CurtainOffToOnOffset(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToggleSwitchTemplateSettings {
@@ -10112,8 +10112,8 @@ impl IToggleSwitchTemplateSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToolTipTemplateSettingsImpl: Sized {
-    fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn FromVerticalOffset(&self) -> ::windows::core::Result<f64>;
+    fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToolTipTemplateSettings {

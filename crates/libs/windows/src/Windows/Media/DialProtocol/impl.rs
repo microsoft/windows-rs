@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDialAppImpl: Sized {
-    fn AppName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RequestLaunchAsync(&self, appargument: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialAppLaunchResult>>;
-    fn StopAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialAppStopResult>>;
-    fn GetAppStateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialAppStateDetails>>;
+    fn AppName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RequestLaunchAsync(&mut self, appargument: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialAppLaunchResult>>;
+    fn StopAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialAppStopResult>>;
+    fn GetAppStateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialAppStateDetails>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDialApp {
@@ -70,8 +70,8 @@ impl IDialAppVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialAppStateDetailsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<DialAppState>;
-    fn FullXml(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<DialAppState>;
+    fn FullXml(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDialAppStateDetails {
@@ -114,8 +114,8 @@ impl IDialAppStateDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialDeviceImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDialApp(&self, appname: &::windows::core::HSTRING) -> ::windows::core::Result<DialApp>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDialApp(&mut self, appname: &::windows::core::HSTRING) -> ::windows::core::Result<DialApp>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDialDevice {
@@ -158,8 +158,8 @@ impl IDialDeviceVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDialDevice2Impl: Sized {
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDialDevice2 {
@@ -202,20 +202,20 @@ impl IDialDevice2Vtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IDialDevicePickerImpl: Sized {
-    fn Filter(&self) -> ::windows::core::Result<DialDevicePickerFilter>;
-    fn Appearance(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DevicePickerAppearance>;
-    fn DialDeviceSelected(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDialDeviceSelected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DisconnectButtonClicked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDisconnectButtonClicked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DialDevicePickerDismissed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DialDevicePicker, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDialDevicePickerDismissed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Show(&self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn ShowWithPlacement(&self, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
-    fn PickSingleDialDeviceAsync(&self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>>;
-    fn PickSingleDialDeviceAsyncWithPlacement(&self, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>>;
-    fn Hide(&self) -> ::windows::core::Result<()>;
-    fn SetDisplayStatus(&self, device: &::core::option::Option<DialDevice>, status: DialDeviceDisplayStatus) -> ::windows::core::Result<()>;
+    fn Filter(&mut self) -> ::windows::core::Result<DialDevicePickerFilter>;
+    fn Appearance(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::DevicePickerAppearance>;
+    fn DialDeviceSelected(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDialDeviceSelected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DisconnectButtonClicked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDisconnectButtonClicked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DialDevicePickerDismissed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DialDevicePicker, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDialDevicePickerDismissed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Show(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn ShowWithPlacement(&mut self, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
+    fn PickSingleDialDeviceAsync(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>>;
+    fn PickSingleDialDeviceAsyncWithPlacement(&mut self, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>>;
+    fn Hide(&mut self) -> ::windows::core::Result<()>;
+    fn SetDisplayStatus(&mut self, device: &::core::option::Option<DialDevice>, status: DialDeviceDisplayStatus) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDialDevicePicker {
@@ -353,7 +353,7 @@ impl IDialDevicePickerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDialDevicePickerFilterImpl: Sized {
-    fn SupportedAppNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn SupportedAppNames(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDialDevicePickerFilter {
@@ -384,7 +384,7 @@ impl IDialDevicePickerFilterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialDeviceSelectedEventArgsImpl: Sized {
-    fn SelectedDialDevice(&self) -> ::windows::core::Result<DialDevice>;
+    fn SelectedDialDevice(&mut self) -> ::windows::core::Result<DialDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDialDeviceSelectedEventArgs {
@@ -415,9 +415,9 @@ impl IDialDeviceSelectedEventArgsVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDialDeviceStaticsImpl: Sized {
-    fn GetDeviceSelector(&self, appname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>>;
-    fn DeviceInfoSupportsDialAsync(&self, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetDeviceSelector(&mut self, appname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>>;
+    fn DeviceInfoSupportsDialAsync(&mut self, device: &::core::option::Option<super::super::Devices::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDialDeviceStatics {
@@ -472,7 +472,7 @@ impl IDialDeviceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialDisconnectButtonClickedEventArgsImpl: Sized {
-    fn Device(&self) -> ::windows::core::Result<DialDevice>;
+    fn Device(&mut self) -> ::windows::core::Result<DialDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDialDisconnectButtonClickedEventArgs {
@@ -503,8 +503,8 @@ impl IDialDisconnectButtonClickedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDialReceiverAppImpl: Sized {
-    fn GetAdditionalDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>>;
-    fn SetAdditionalDataAsync(&self, additionaldata: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetAdditionalDataAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>>;
+    fn SetAdditionalDataAsync(&mut self, additionaldata: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDialReceiverApp {
@@ -547,7 +547,7 @@ impl IDialReceiverAppVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDialReceiverApp2Impl: Sized {
-    fn GetUniqueDeviceNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetUniqueDeviceNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDialReceiverApp2 {
@@ -578,7 +578,7 @@ impl IDialReceiverApp2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialReceiverAppStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<DialReceiverApp>;
+    fn Current(&mut self) -> ::windows::core::Result<DialReceiverApp>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDialReceiverAppStatics {

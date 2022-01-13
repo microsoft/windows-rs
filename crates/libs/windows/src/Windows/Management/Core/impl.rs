@@ -15,7 +15,7 @@ impl IApplicationDataManagerVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IApplicationDataManagerStaticsImpl: Sized {
-    fn CreateForPackageFamily(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::ApplicationData>;
+    fn CreateForPackageFamily(&mut self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::ApplicationData>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationDataManagerStatics {

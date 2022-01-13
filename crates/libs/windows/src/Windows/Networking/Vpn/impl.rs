@@ -1,9 +1,9 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnAppIdImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<VpnAppIdType>;
-    fn SetType(&self, value: VpnAppIdType) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<VpnAppIdType>;
+    fn SetType(&mut self, value: VpnAppIdType) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnAppId {
@@ -56,7 +56,7 @@ impl IVpnAppIdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnAppIdFactoryImpl: Sized {
-    fn Create(&self, r#type: VpnAppIdType, value: &::windows::core::HSTRING) -> ::windows::core::Result<VpnAppId>;
+    fn Create(&mut self, r#type: VpnAppIdType, value: &::windows::core::HSTRING) -> ::windows::core::Result<VpnAppId>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnAppIdFactory {
@@ -84,22 +84,22 @@ impl IVpnAppIdFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IVpnChannelImpl: Sized {
-    fn AssociateTransport(&self, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn Start(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, routescope: &::core::option::Option<VpnRouteAssignment>, namespacescope: &::core::option::Option<VpnNamespaceAssignment>, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn RequestCredentials(&self, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<VpnPickedCredential>;
-    fn RequestVpnPacketBuffer(&self, r#type: VpnDataPathType, vpnpacketbuffer: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn LogDiagnosticMessage(&self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn Configuration(&self) -> ::windows::core::Result<VpnChannelConfiguration>;
-    fn ActivityChange(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActivityChange(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SetPlugInContext(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn PlugInContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SystemHealth(&self) -> ::windows::core::Result<VpnSystemHealth>;
-    fn RequestCustomPrompt(&self, customprompt: &::core::option::Option<super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>>) -> ::windows::core::Result<()>;
-    fn SetErrorMessage(&self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetAllowedSslTlsVersions(&self, tunneltransport: &::core::option::Option<::windows::core::IInspectable>, usetls12: bool) -> ::windows::core::Result<()>;
+    fn AssociateTransport(&mut self, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn Start(&mut self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, routescope: &::core::option::Option<VpnRouteAssignment>, namespacescope: &::core::option::Option<VpnNamespaceAssignment>, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn RequestCredentials(&mut self, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<VpnPickedCredential>;
+    fn RequestVpnPacketBuffer(&mut self, r#type: VpnDataPathType, vpnpacketbuffer: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn LogDiagnosticMessage(&mut self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn Configuration(&mut self) -> ::windows::core::Result<VpnChannelConfiguration>;
+    fn ActivityChange(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActivityChange(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetPlugInContext(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn PlugInContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SystemHealth(&mut self) -> ::windows::core::Result<VpnSystemHealth>;
+    fn RequestCustomPrompt(&mut self, customprompt: &::core::option::Option<super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt>>) -> ::windows::core::Result<()>;
+    fn SetErrorMessage(&mut self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetAllowedSslTlsVersions(&mut self, tunneltransport: &::core::option::Option<::windows::core::IInspectable>, usetls12: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel {
@@ -253,18 +253,18 @@ impl IVpnChannelVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IVpnChannel2Impl: Sized {
-    fn StartWithMainTransport(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn StartExistingTransports(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::Result<()>;
-    fn ActivityStateChange(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActivityStateChange(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetVpnSendPacketBuffer(&self) -> ::windows::core::Result<VpnPacketBuffer>;
-    fn GetVpnReceivePacketBuffer(&self) -> ::windows::core::Result<VpnPacketBuffer>;
-    fn RequestCustomPromptAsync(&self, custompromptelement: &::core::option::Option<super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RequestCredentialsWithCertificateAsync(&self, credtype: VpnCredentialType, credoptions: u32, certificate: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>;
-    fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>;
-    fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>;
-    fn TerminateConnection(&self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn StartWithTrafficFilter(&self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assignednamespace: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, assignedtrafficfilters: &::core::option::Option<VpnTrafficFilterAssignment>) -> ::windows::core::Result<()>;
+    fn StartWithMainTransport(&mut self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn StartExistingTransports(&mut self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::Result<()>;
+    fn ActivityStateChange(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActivityStateChange(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetVpnSendPacketBuffer(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn GetVpnReceivePacketBuffer(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn RequestCustomPromptAsync(&mut self, custompromptelement: &::core::option::Option<super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RequestCredentialsWithCertificateAsync(&mut self, credtype: VpnCredentialType, credoptions: u32, certificate: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>;
+    fn RequestCredentialsWithOptionsAsync(&mut self, credtype: VpnCredentialType, credoptions: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>;
+    fn RequestCredentialsSimpleAsync(&mut self, credtype: VpnCredentialType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>;
+    fn TerminateConnection(&mut self, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StartWithTrafficFilter(&mut self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assignednamespace: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, assignedtrafficfilters: &::core::option::Option<VpnTrafficFilterAssignment>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel2 {
@@ -429,12 +429,12 @@ impl IVpnChannel2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IVpnChannel4Impl: Sized {
-    fn AddAndAssociateTransport(&self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn StartWithMultipleTransports(&self, assignedclientipv4addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, assignedclientipv6addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assignednamespace: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, transports: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, assignedtrafficfilters: &::core::option::Option<VpnTrafficFilterAssignment>) -> ::windows::core::Result<()>;
-    fn ReplaceAndAssociateTransport(&self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn StartReconnectingTransport(&self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetSlotTypeForTransportContext(&self, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::Sockets::ControlChannelTriggerStatus>;
-    fn CurrentRequestTransportContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn AddAndAssociateTransport(&mut self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn StartWithMultipleTransports(&mut self, assignedclientipv4addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, assignedclientipv6addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assignednamespace: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, transports: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, assignedtrafficfilters: &::core::option::Option<VpnTrafficFilterAssignment>) -> ::windows::core::Result<()>;
+    fn ReplaceAndAssociateTransport(&mut self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn StartReconnectingTransport(&mut self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetSlotTypeForTransportContext(&mut self, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::Sockets::ControlChannelTriggerStatus>;
+    fn CurrentRequestTransportContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel4 {
@@ -510,10 +510,10 @@ impl IVpnChannel4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnChannel5Impl: Sized {
-    fn AppendVpnReceivePacketBuffer(&self, decapsulatedpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn AppendVpnSendPacketBuffer(&self, encapsulatedpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn FlushVpnReceivePacketBuffers(&self) -> ::windows::core::Result<()>;
-    fn FlushVpnSendPacketBuffers(&self) -> ::windows::core::Result<()>;
+    fn AppendVpnReceivePacketBuffer(&mut self, decapsulatedpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn AppendVpnSendPacketBuffer(&mut self, encapsulatedpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn FlushVpnReceivePacketBuffers(&mut self) -> ::windows::core::Result<()>;
+    fn FlushVpnSendPacketBuffers(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnChannel5 {
@@ -552,7 +552,7 @@ impl IVpnChannel5Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnChannel6Impl: Sized {
-    fn ActivateForeground(&self, packagerelativeappid: &::windows::core::HSTRING, sharedcontext: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn ActivateForeground(&mut self, packagerelativeappid: &::windows::core::HSTRING, sharedcontext: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannel6 {
@@ -583,7 +583,7 @@ impl IVpnChannel6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnChannelActivityEventArgsImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<VpnChannelActivityEventType>;
+    fn Type(&mut self) -> ::windows::core::Result<VpnChannelActivityEventType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnChannelActivityEventArgs {
@@ -611,7 +611,7 @@ impl IVpnChannelActivityEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnChannelActivityStateChangedArgsImpl: Sized {
-    fn ActivityState(&self) -> ::windows::core::Result<VpnChannelActivityEventType>;
+    fn ActivityState(&mut self) -> ::windows::core::Result<VpnChannelActivityEventType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnChannelActivityStateChangedArgs {
@@ -642,9 +642,9 @@ impl IVpnChannelActivityStateChangedArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnChannelConfigurationImpl: Sized {
-    fn ServerServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServerHostNameList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>>;
-    fn CustomField(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServerServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServerHostNameList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>>;
+    fn CustomField(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannelConfiguration {
@@ -699,7 +699,7 @@ impl IVpnChannelConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnChannelConfiguration2Impl: Sized {
-    fn ServerUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>;
+    fn ServerUris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnChannelConfiguration2 {
@@ -726,7 +726,7 @@ impl IVpnChannelConfiguration2Vtbl {
     }
 }
 pub trait IVpnChannelStaticsImpl: Sized {
-    fn ProcessEventAsync(&self, thirdpartyplugin: &::core::option::Option<::windows::core::IInspectable>, event: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn ProcessEventAsync(&mut self, thirdpartyplugin: &::core::option::Option<::windows::core::IInspectable>, event: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVpnChannelStatics {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelStatics";
@@ -748,10 +748,10 @@ impl IVpnChannelStaticsVtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IVpnCredentialImpl: Sized {
-    fn PasskeyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn CertificateCredential(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn AdditionalPin(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OldPasswordCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn PasskeyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn CertificateCredential(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn AdditionalPin(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OldPasswordCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IVpnCredential {
@@ -818,9 +818,9 @@ impl IVpnCredentialVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnCustomCheckBoxImpl: Sized + IVpnCustomPromptImpl {
-    fn SetInitialCheckState(&self, value: bool) -> ::windows::core::Result<()>;
-    fn InitialCheckState(&self) -> ::windows::core::Result<bool>;
-    fn Checked(&self) -> ::windows::core::Result<bool>;
+    fn SetInitialCheckState(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn InitialCheckState(&mut self) -> ::windows::core::Result<bool>;
+    fn Checked(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnCustomCheckBox {
@@ -868,9 +868,9 @@ impl IVpnCustomCheckBoxVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnCustomComboBoxImpl: Sized + IVpnCustomPromptImpl {
-    fn SetOptionsText(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
-    fn OptionsText(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Selected(&self) -> ::windows::core::Result<u32>;
+    fn SetOptionsText(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn OptionsText(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Selected(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnCustomComboBox {
@@ -918,11 +918,11 @@ impl IVpnCustomComboBoxVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnCustomEditBoxImpl: Sized + IVpnCustomPromptImpl {
-    fn SetDefaultText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DefaultText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNoEcho(&self, value: bool) -> ::windows::core::Result<()>;
-    fn NoEcho(&self) -> ::windows::core::Result<bool>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDefaultText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DefaultText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNoEcho(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn NoEcho(&mut self) -> ::windows::core::Result<bool>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnCustomEditBox {
@@ -1001,12 +1001,12 @@ impl IVpnCustomErrorBoxVtbl {
     }
 }
 pub trait IVpnCustomPromptImpl: Sized {
-    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCompulsory(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Compulsory(&self) -> ::windows::core::Result<bool>;
-    fn SetBordered(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Bordered(&self) -> ::windows::core::Result<bool>;
+    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCompulsory(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Compulsory(&mut self) -> ::windows::core::Result<bool>;
+    fn SetBordered(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Bordered(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IVpnCustomPrompt {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPrompt";
@@ -1074,9 +1074,9 @@ impl IVpnCustomPromptVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnCustomPromptBooleanInputImpl: Sized + IVpnCustomPromptElementImpl {
-    fn SetInitialValue(&self, value: bool) -> ::windows::core::Result<()>;
-    fn InitialValue(&self) -> ::windows::core::Result<bool>;
-    fn Value(&self) -> ::windows::core::Result<bool>;
+    fn SetInitialValue(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn InitialValue(&mut self) -> ::windows::core::Result<bool>;
+    fn Value(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnCustomPromptBooleanInput {
@@ -1123,12 +1123,12 @@ impl IVpnCustomPromptBooleanInputVtbl {
     }
 }
 pub trait IVpnCustomPromptElementImpl: Sized {
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCompulsory(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Compulsory(&self) -> ::windows::core::Result<bool>;
-    fn SetEmphasized(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Emphasized(&self) -> ::windows::core::Result<bool>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCompulsory(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Compulsory(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEmphasized(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Emphasized(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IVpnCustomPromptElement {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptElement";
@@ -1196,8 +1196,8 @@ impl IVpnCustomPromptElementVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnCustomPromptOptionSelectorImpl: Sized + IVpnCustomPromptElementImpl {
-    fn Options(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn SelectedIndex(&self) -> ::windows::core::Result<u32>;
+    fn Options(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn SelectedIndex(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnCustomPromptOptionSelector {
@@ -1240,8 +1240,8 @@ impl IVpnCustomPromptOptionSelectorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnCustomPromptTextImpl: Sized + IVpnCustomPromptElementImpl {
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnCustomPromptText {
@@ -1277,11 +1277,11 @@ impl IVpnCustomPromptTextVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnCustomPromptTextInputImpl: Sized + IVpnCustomPromptElementImpl {
-    fn SetPlaceholderText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PlaceholderText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetIsTextHidden(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsTextHidden(&self) -> ::windows::core::Result<bool>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPlaceholderText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PlaceholderText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetIsTextHidden(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsTextHidden(&mut self) -> ::windows::core::Result<bool>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnCustomPromptTextInput {
@@ -1346,8 +1346,8 @@ impl IVpnCustomPromptTextInputVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnCustomTextBoxImpl: Sized + IVpnCustomPromptImpl {
-    fn SetDisplayText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnCustomTextBox {
@@ -1383,9 +1383,9 @@ impl IVpnCustomTextBoxVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnDomainNameAssignmentImpl: Sized {
-    fn DomainNameList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>>;
-    fn SetProxyAutoConfigurationUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ProxyAutoConfigurationUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn DomainNameList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>>;
+    fn SetProxyAutoConfigurationUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ProxyAutoConfigurationUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnDomainNameAssignment {
@@ -1433,12 +1433,12 @@ impl IVpnDomainNameAssignmentVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnDomainNameInfoImpl: Sized {
-    fn SetDomainName(&self, value: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
-    fn DomainName(&self) -> ::windows::core::Result<super::HostName>;
-    fn SetDomainNameType(&self, value: VpnDomainNameType) -> ::windows::core::Result<()>;
-    fn DomainNameType(&self) -> ::windows::core::Result<VpnDomainNameType>;
-    fn DnsServers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
-    fn WebProxyServers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
+    fn SetDomainName(&mut self, value: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
+    fn DomainName(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn SetDomainNameType(&mut self, value: VpnDomainNameType) -> ::windows::core::Result<()>;
+    fn DomainNameType(&mut self) -> ::windows::core::Result<VpnDomainNameType>;
+    fn DnsServers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
+    fn WebProxyServers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnDomainNameInfo {
@@ -1515,7 +1515,7 @@ impl IVpnDomainNameInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnDomainNameInfo2Impl: Sized {
-    fn WebProxyUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
+    fn WebProxyUris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnDomainNameInfo2 {
@@ -1543,7 +1543,7 @@ impl IVpnDomainNameInfo2Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnDomainNameInfoFactoryImpl: Sized {
-    fn CreateVpnDomainNameInfo(&self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>) -> ::windows::core::Result<VpnDomainNameInfo>;
+    fn CreateVpnDomainNameInfo(&mut self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>) -> ::windows::core::Result<VpnDomainNameInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnDomainNameInfoFactory {
@@ -1579,9 +1579,9 @@ impl IVpnDomainNameInfoFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnForegroundActivatedEventArgsImpl: Sized {
-    fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SharedContext(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
-    fn ActivationOperation(&self) -> ::windows::core::Result<VpnForegroundActivationOperation>;
+    fn ProfileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SharedContext(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn ActivationOperation(&mut self) -> ::windows::core::Result<VpnForegroundActivationOperation>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnForegroundActivatedEventArgs {
@@ -1636,7 +1636,7 @@ impl IVpnForegroundActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnForegroundActivationOperationImpl: Sized {
-    fn Complete(&self, result: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
+    fn Complete(&mut self, result: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnForegroundActivationOperation {
@@ -1660,7 +1660,7 @@ impl IVpnForegroundActivationOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnInterfaceIdImpl: Sized {
-    fn GetAddressInfo(&self, id: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn GetAddressInfo(&mut self, id: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnInterfaceId {
@@ -1680,7 +1680,7 @@ impl IVpnInterfaceIdVtbl {
     }
 }
 pub trait IVpnInterfaceIdFactoryImpl: Sized {
-    fn CreateVpnInterfaceId(&self, address: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VpnInterfaceId>;
+    fn CreateVpnInterfaceId(&mut self, address: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VpnInterfaceId>;
 }
 impl ::windows::core::RuntimeName for IVpnInterfaceIdFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnInterfaceIdFactory";
@@ -1709,15 +1709,15 @@ impl IVpnInterfaceIdFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IVpnManagementAgentImpl: Sized {
-    fn AddProfileFromXmlAsync(&self, xml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
-    fn AddProfileFromObjectAsync(&self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
-    fn UpdateProfileFromXmlAsync(&self, xml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
-    fn UpdateProfileFromObjectAsync(&self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
-    fn GetProfilesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IVpnProfile>>>;
-    fn DeleteProfileAsync(&self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
-    fn ConnectProfileAsync(&self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
-    fn ConnectProfileWithPasswordCredentialAsync(&self, profile: &::core::option::Option<IVpnProfile>, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
-    fn DisconnectProfileAsync(&self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn AddProfileFromXmlAsync(&mut self, xml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn AddProfileFromObjectAsync(&mut self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn UpdateProfileFromXmlAsync(&mut self, xml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn UpdateProfileFromObjectAsync(&mut self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn GetProfilesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IVpnProfile>>>;
+    fn DeleteProfileAsync(&mut self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn ConnectProfileAsync(&mut self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn ConnectProfileWithPasswordCredentialAsync(&mut self, profile: &::core::option::Option<IVpnProfile>, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
+    fn DisconnectProfileAsync(&mut self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnManagementAgent {
@@ -1844,10 +1844,10 @@ impl IVpnManagementAgentVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnNamespaceAssignmentImpl: Sized {
-    fn SetNamespaceList(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>) -> ::windows::core::Result<()>;
-    fn NamespaceList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>;
-    fn SetProxyAutoConfigUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ProxyAutoConfigUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetNamespaceList(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>) -> ::windows::core::Result<()>;
+    fn NamespaceList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>;
+    fn SetProxyAutoConfigUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ProxyAutoConfigUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnNamespaceAssignment {
@@ -1900,12 +1900,12 @@ impl IVpnNamespaceAssignmentVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnNamespaceInfoImpl: Sized {
-    fn SetNamespace(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Namespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDnsServers(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<()>;
-    fn DnsServers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
-    fn SetWebProxyServers(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<()>;
-    fn WebProxyServers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
+    fn SetNamespace(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Namespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDnsServers(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<()>;
+    fn DnsServers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
+    fn SetWebProxyServers(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<()>;
+    fn WebProxyServers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::HostName>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnNamespaceInfo {
@@ -1975,7 +1975,7 @@ impl IVpnNamespaceInfoVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnNamespaceInfoFactoryImpl: Sized {
-    fn CreateVpnNamespaceInfo(&self, name: &::windows::core::HSTRING, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<VpnNamespaceInfo>;
+    fn CreateVpnNamespaceInfo(&mut self, name: &::windows::core::HSTRING, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<VpnNamespaceInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnNamespaceInfoFactory {
@@ -2010,17 +2010,17 @@ impl IVpnNamespaceInfoFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnNativeProfileImpl: Sized + IVpnProfileImpl {
-    fn Servers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn RoutingPolicyType(&self) -> ::windows::core::Result<VpnRoutingPolicyType>;
-    fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()>;
-    fn NativeProtocolType(&self) -> ::windows::core::Result<VpnNativeProtocolType>;
-    fn SetNativeProtocolType(&self, value: VpnNativeProtocolType) -> ::windows::core::Result<()>;
-    fn UserAuthenticationMethod(&self) -> ::windows::core::Result<VpnAuthenticationMethod>;
-    fn SetUserAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> ::windows::core::Result<()>;
-    fn TunnelAuthenticationMethod(&self) -> ::windows::core::Result<VpnAuthenticationMethod>;
-    fn SetTunnelAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> ::windows::core::Result<()>;
-    fn EapConfiguration(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetEapConfiguration(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Servers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn RoutingPolicyType(&mut self) -> ::windows::core::Result<VpnRoutingPolicyType>;
+    fn SetRoutingPolicyType(&mut self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()>;
+    fn NativeProtocolType(&mut self) -> ::windows::core::Result<VpnNativeProtocolType>;
+    fn SetNativeProtocolType(&mut self, value: VpnNativeProtocolType) -> ::windows::core::Result<()>;
+    fn UserAuthenticationMethod(&mut self) -> ::windows::core::Result<VpnAuthenticationMethod>;
+    fn SetUserAuthenticationMethod(&mut self, value: VpnAuthenticationMethod) -> ::windows::core::Result<()>;
+    fn TunnelAuthenticationMethod(&mut self) -> ::windows::core::Result<VpnAuthenticationMethod>;
+    fn SetTunnelAuthenticationMethod(&mut self, value: VpnAuthenticationMethod) -> ::windows::core::Result<()>;
+    fn EapConfiguration(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetEapConfiguration(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnNativeProfile {
@@ -2136,9 +2136,9 @@ impl IVpnNativeProfileVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnNativeProfile2Impl: Sized {
-    fn RequireVpnClientAppUI(&self) -> ::windows::core::Result<bool>;
-    fn SetRequireVpnClientAppUI(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ConnectionStatus(&self) -> ::windows::core::Result<VpnManagementConnectionStatus>;
+    fn RequireVpnClientAppUI(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRequireVpnClientAppUI(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ConnectionStatus(&mut self) -> ::windows::core::Result<VpnManagementConnectionStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnNativeProfile2 {
@@ -2186,11 +2186,11 @@ impl IVpnNativeProfile2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IVpnPacketBufferImpl: Sized {
-    fn Buffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
-    fn SetStatus(&self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<VpnPacketBufferStatus>;
-    fn SetTransportAffinity(&self, value: u32) -> ::windows::core::Result<()>;
-    fn TransportAffinity(&self) -> ::windows::core::Result<u32>;
+    fn Buffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
+    fn SetStatus(&mut self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<VpnPacketBufferStatus>;
+    fn SetTransportAffinity(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn TransportAffinity(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPacketBuffer {
@@ -2255,7 +2255,7 @@ impl IVpnPacketBufferVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnPacketBuffer2Impl: Sized {
-    fn AppId(&self) -> ::windows::core::Result<VpnAppId>;
+    fn AppId(&mut self) -> ::windows::core::Result<VpnAppId>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnPacketBuffer2 {
@@ -2283,8 +2283,8 @@ impl IVpnPacketBuffer2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnPacketBuffer3Impl: Sized {
-    fn SetTransportContext(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn TransportContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetTransportContext(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn TransportContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnPacketBuffer3 {
@@ -2319,7 +2319,7 @@ impl IVpnPacketBuffer3Vtbl {
     }
 }
 pub trait IVpnPacketBufferFactoryImpl: Sized {
-    fn CreateVpnPacketBuffer(&self, parentbuffer: &::core::option::Option<VpnPacketBuffer>, offset: u32, length: u32) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn CreateVpnPacketBuffer(&mut self, parentbuffer: &::core::option::Option<VpnPacketBuffer>, offset: u32, length: u32) -> ::windows::core::Result<VpnPacketBuffer>;
 }
 impl ::windows::core::RuntimeName for IVpnPacketBufferFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferFactory";
@@ -2348,14 +2348,14 @@ impl IVpnPacketBufferFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnPacketBufferListImpl: Sized + IIterableImpl<VpnPacketBuffer> {
-    fn Append(&self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn AddAtBegin(&self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn RemoveAtEnd(&self) -> ::windows::core::Result<VpnPacketBuffer>;
-    fn RemoveAtBegin(&self) -> ::windows::core::Result<VpnPacketBuffer>;
-    fn Clear(&self) -> ::windows::core::Result<()>;
-    fn SetStatus(&self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<VpnPacketBufferStatus>;
-    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn Append(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn AddAtBegin(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn RemoveAtEnd(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn RemoveAtBegin(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn SetStatus(&mut self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<VpnPacketBufferStatus>;
+    fn Size(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPacketBufferList {
@@ -2442,10 +2442,10 @@ impl IVpnPacketBufferListVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnPacketBufferList2Impl: Sized + IIterableImpl<VpnPacketBuffer> {
-    fn AddLeadingPacket(&self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn RemoveLeadingPacket(&self) -> ::windows::core::Result<VpnPacketBuffer>;
-    fn AddTrailingPacket(&self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn RemoveTrailingPacket(&self) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn AddLeadingPacket(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn RemoveLeadingPacket(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn AddTrailingPacket(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn RemoveTrailingPacket(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPacketBufferList2 {
@@ -2498,9 +2498,9 @@ impl IVpnPacketBufferList2Vtbl {
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IVpnPickedCredentialImpl: Sized {
-    fn PasskeyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn AdditionalPin(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OldPasswordCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn PasskeyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn AdditionalPin(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OldPasswordCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPickedCredential {
@@ -2554,11 +2554,11 @@ impl IVpnPickedCredentialVtbl {
     }
 }
 pub trait IVpnPlugInImpl: Sized {
-    fn Connect(&self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
-    fn Disconnect(&self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
-    fn GetKeepAlivePayload(&self, channel: &::core::option::Option<VpnChannel>, keepalivepacket: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn Encapsulate(&self, channel: &::core::option::Option<VpnChannel>, packets: &::core::option::Option<VpnPacketBufferList>, encapulatedpackets: &::core::option::Option<VpnPacketBufferList>) -> ::windows::core::Result<()>;
-    fn Decapsulate(&self, channel: &::core::option::Option<VpnChannel>, encapbuffer: &::core::option::Option<VpnPacketBuffer>, decapsulatedpackets: &::core::option::Option<VpnPacketBufferList>, controlpacketstosend: &::core::option::Option<VpnPacketBufferList>) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
+    fn Disconnect(&mut self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
+    fn GetKeepAlivePayload(&mut self, channel: &::core::option::Option<VpnChannel>, keepalivepacket: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn Encapsulate(&mut self, channel: &::core::option::Option<VpnChannel>, packets: &::core::option::Option<VpnPacketBufferList>, encapulatedpackets: &::core::option::Option<VpnPacketBufferList>) -> ::windows::core::Result<()>;
+    fn Decapsulate(&mut self, channel: &::core::option::Option<VpnChannel>, encapbuffer: &::core::option::Option<VpnPacketBuffer>, decapsulatedpackets: &::core::option::Option<VpnPacketBufferList>, controlpacketstosend: &::core::option::Option<VpnPacketBufferList>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVpnPlugIn {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugIn";
@@ -2607,11 +2607,11 @@ impl IVpnPlugInVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnPlugInProfileImpl: Sized + IVpnProfileImpl {
-    fn ServerUris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
-    fn CustomConfiguration(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCustomConfiguration(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn VpnPluginPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetVpnPluginPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ServerUris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
+    fn CustomConfiguration(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCustomConfiguration(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn VpnPluginPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetVpnPluginPackageFamilyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPlugInProfile {
@@ -2676,9 +2676,9 @@ impl IVpnPlugInProfileVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnPlugInProfile2Impl: Sized + IVpnProfileImpl {
-    fn RequireVpnClientAppUI(&self) -> ::windows::core::Result<bool>;
-    fn SetRequireVpnClientAppUI(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ConnectionStatus(&self) -> ::windows::core::Result<VpnManagementConnectionStatus>;
+    fn RequireVpnClientAppUI(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRequireVpnClientAppUI(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ConnectionStatus(&mut self) -> ::windows::core::Result<VpnManagementConnectionStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnPlugInProfile2 {
@@ -2726,16 +2726,16 @@ impl IVpnPlugInProfile2Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnProfileImpl: Sized {
-    fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetProfileName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AppTriggers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnAppId>>;
-    fn Routes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
-    fn DomainNameInfoList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>>;
-    fn TrafficFilters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>>;
-    fn RememberCredentials(&self) -> ::windows::core::Result<bool>;
-    fn SetRememberCredentials(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AlwaysOn(&self) -> ::windows::core::Result<bool>;
-    fn SetAlwaysOn(&self, value: bool) -> ::windows::core::Result<()>;
+    fn ProfileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetProfileName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AppTriggers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnAppId>>;
+    fn Routes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
+    fn DomainNameInfoList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>>;
+    fn TrafficFilters(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>>;
+    fn RememberCredentials(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRememberCredentials(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AlwaysOn(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAlwaysOn(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnProfile {
@@ -2853,10 +2853,10 @@ impl IVpnProfileVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnRouteImpl: Sized {
-    fn SetAddress(&self, value: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
-    fn Address(&self) -> ::windows::core::Result<super::HostName>;
-    fn SetPrefixSize(&self, value: u8) -> ::windows::core::Result<()>;
-    fn PrefixSize(&self) -> ::windows::core::Result<u8>;
+    fn SetAddress(&mut self, value: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
+    fn Address(&mut self) -> ::windows::core::Result<super::HostName>;
+    fn SetPrefixSize(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn PrefixSize(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnRoute {
@@ -2909,16 +2909,16 @@ impl IVpnRouteVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnRouteAssignmentImpl: Sized {
-    fn SetIpv4InclusionRoutes(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
-    fn SetIpv6InclusionRoutes(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
-    fn Ipv4InclusionRoutes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
-    fn Ipv6InclusionRoutes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
-    fn SetIpv4ExclusionRoutes(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
-    fn SetIpv6ExclusionRoutes(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
-    fn Ipv4ExclusionRoutes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
-    fn Ipv6ExclusionRoutes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
-    fn SetExcludeLocalSubnets(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ExcludeLocalSubnets(&self) -> ::windows::core::Result<bool>;
+    fn SetIpv4InclusionRoutes(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
+    fn SetIpv6InclusionRoutes(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
+    fn Ipv4InclusionRoutes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
+    fn Ipv6InclusionRoutes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
+    fn SetIpv4ExclusionRoutes(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
+    fn SetIpv6ExclusionRoutes(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
+    fn Ipv4ExclusionRoutes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
+    fn Ipv6ExclusionRoutes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
+    fn SetExcludeLocalSubnets(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ExcludeLocalSubnets(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnRouteAssignment {
@@ -3021,7 +3021,7 @@ impl IVpnRouteAssignmentVtbl {
     }
 }
 pub trait IVpnRouteFactoryImpl: Sized {
-    fn CreateVpnRoute(&self, address: &::core::option::Option<super::HostName>, prefixsize: u8) -> ::windows::core::Result<VpnRoute>;
+    fn CreateVpnRoute(&mut self, address: &::core::option::Option<super::HostName>, prefixsize: u8) -> ::windows::core::Result<VpnRoute>;
 }
 impl ::windows::core::RuntimeName for IVpnRouteFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteFactory";
@@ -3047,7 +3047,7 @@ impl IVpnRouteFactoryVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IVpnSystemHealthImpl: Sized {
-    fn StatementOfHealth(&self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
+    fn StatementOfHealth(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnSystemHealth {
@@ -3078,17 +3078,17 @@ impl IVpnSystemHealthVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnTrafficFilterImpl: Sized {
-    fn AppId(&self) -> ::windows::core::Result<VpnAppId>;
-    fn SetAppId(&self, value: &::core::option::Option<VpnAppId>) -> ::windows::core::Result<()>;
-    fn AppClaims(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn Protocol(&self) -> ::windows::core::Result<VpnIPProtocol>;
-    fn SetProtocol(&self, value: VpnIPProtocol) -> ::windows::core::Result<()>;
-    fn LocalPortRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn RemotePortRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn LocalAddressRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn RemoteAddressRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn RoutingPolicyType(&self) -> ::windows::core::Result<VpnRoutingPolicyType>;
-    fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()>;
+    fn AppId(&mut self) -> ::windows::core::Result<VpnAppId>;
+    fn SetAppId(&mut self, value: &::core::option::Option<VpnAppId>) -> ::windows::core::Result<()>;
+    fn AppClaims(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Protocol(&mut self) -> ::windows::core::Result<VpnIPProtocol>;
+    fn SetProtocol(&mut self, value: VpnIPProtocol) -> ::windows::core::Result<()>;
+    fn LocalPortRanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn RemotePortRanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn LocalAddressRanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn RemoteAddressRanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn RoutingPolicyType(&mut self) -> ::windows::core::Result<VpnRoutingPolicyType>;
+    fn SetRoutingPolicyType(&mut self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnTrafficFilter {
@@ -3218,11 +3218,11 @@ impl IVpnTrafficFilterVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVpnTrafficFilterAssignmentImpl: Sized {
-    fn TrafficFilterList(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>>;
-    fn AllowOutbound(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowOutbound(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AllowInbound(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowInbound(&self, value: bool) -> ::windows::core::Result<()>;
+    fn TrafficFilterList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>>;
+    fn AllowOutbound(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowOutbound(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowInbound(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowInbound(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVpnTrafficFilterAssignment {
@@ -3287,7 +3287,7 @@ impl IVpnTrafficFilterAssignmentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVpnTrafficFilterFactoryImpl: Sized {
-    fn Create(&self, appid: &::core::option::Option<VpnAppId>) -> ::windows::core::Result<VpnTrafficFilter>;
+    fn Create(&mut self, appid: &::core::option::Option<VpnAppId>) -> ::windows::core::Result<VpnTrafficFilter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnTrafficFilterFactory {

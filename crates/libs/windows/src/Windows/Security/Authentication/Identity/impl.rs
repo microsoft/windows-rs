@@ -1,10 +1,10 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IEnterpriseKeyCredentialRegistrationInfoImpl: Sized {
-    fn TenantId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TenantName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KeyId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn KeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TenantId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TenantName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KeyId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn KeyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationInfo {
@@ -83,7 +83,7 @@ impl IEnterpriseKeyCredentialRegistrationInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEnterpriseKeyCredentialRegistrationManagerImpl: Sized {
-    fn GetRegistrationsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>;
+    fn GetRegistrationsAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationManager {
@@ -114,7 +114,7 @@ impl IEnterpriseKeyCredentialRegistrationManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEnterpriseKeyCredentialRegistrationManagerStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<EnterpriseKeyCredentialRegistrationManager>;
+    fn Current(&mut self) -> ::windows::core::Result<EnterpriseKeyCredentialRegistrationManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEnterpriseKeyCredentialRegistrationManagerStatics {

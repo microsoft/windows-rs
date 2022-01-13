@@ -1,13 +1,13 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IBlockImpl: Sized {
-    fn TextAlignment(&self) -> ::windows::core::Result<super::TextAlignment>;
-    fn SetTextAlignment(&self, value: super::TextAlignment) -> ::windows::core::Result<()>;
-    fn LineHeight(&self) -> ::windows::core::Result<f64>;
-    fn SetLineHeight(&self, value: f64) -> ::windows::core::Result<()>;
-    fn LineStackingStrategy(&self) -> ::windows::core::Result<super::LineStackingStrategy>;
-    fn SetLineStackingStrategy(&self, value: super::LineStackingStrategy) -> ::windows::core::Result<()>;
-    fn Margin(&self) -> ::windows::core::Result<super::Thickness>;
-    fn SetMargin(&self, value: &super::Thickness) -> ::windows::core::Result<()>;
+    fn TextAlignment(&mut self) -> ::windows::core::Result<super::TextAlignment>;
+    fn SetTextAlignment(&mut self, value: super::TextAlignment) -> ::windows::core::Result<()>;
+    fn LineHeight(&mut self) -> ::windows::core::Result<f64>;
+    fn SetLineHeight(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn LineStackingStrategy(&mut self) -> ::windows::core::Result<super::LineStackingStrategy>;
+    fn SetLineStackingStrategy(&mut self, value: super::LineStackingStrategy) -> ::windows::core::Result<()>;
+    fn Margin(&mut self) -> ::windows::core::Result<super::Thickness>;
+    fn SetMargin(&mut self, value: &super::Thickness) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBlock {
@@ -94,8 +94,8 @@ impl IBlockVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBlock2Impl: Sized {
-    fn HorizontalTextAlignment(&self) -> ::windows::core::Result<super::TextAlignment>;
-    fn SetHorizontalTextAlignment(&self, value: super::TextAlignment) -> ::windows::core::Result<()>;
+    fn HorizontalTextAlignment(&mut self) -> ::windows::core::Result<super::TextAlignment>;
+    fn SetHorizontalTextAlignment(&mut self, value: super::TextAlignment) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBlock2 {
@@ -131,7 +131,7 @@ impl IBlock2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBlockFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Block>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Block>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBlockFactory {
@@ -159,10 +159,10 @@ impl IBlockFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBlockStaticsImpl: Sized {
-    fn TextAlignmentProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn LineHeightProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn LineStackingStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn MarginProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn TextAlignmentProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn LineHeightProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn LineStackingStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn MarginProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBlockStatics {
@@ -229,7 +229,7 @@ impl IBlockStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBlockStatics2Impl: Sized {
-    fn HorizontalTextAlignmentProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn HorizontalTextAlignmentProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBlockStatics2 {
@@ -290,42 +290,42 @@ impl IContactContentLinkProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "UI_Text", feature = "UI_Xaml_Input", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IContentLinkImpl: Sized {
-    fn Info(&self) -> ::windows::core::Result<super::super::Text::ContentLinkInfo>;
-    fn SetInfo(&self, value: &::core::option::Option<super::super::Text::ContentLinkInfo>) -> ::windows::core::Result<()>;
-    fn Background(&self) -> ::windows::core::Result<super::Media::Brush>;
-    fn SetBackground(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn Cursor(&self) -> ::windows::core::Result<super::super::Core::CoreCursorType>;
-    fn SetCursor(&self, value: super::super::Core::CoreCursorType) -> ::windows::core::Result<()>;
-    fn XYFocusLeft(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusLeft(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn XYFocusRight(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusRight(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn XYFocusUp(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusUp(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn XYFocusDown(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusDown(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ElementSoundMode(&self) -> ::windows::core::Result<super::ElementSoundMode>;
-    fn SetElementSoundMode(&self, value: super::ElementSoundMode) -> ::windows::core::Result<()>;
-    fn FocusState(&self) -> ::windows::core::Result<super::FocusState>;
-    fn XYFocusUpNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusUpNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn XYFocusDownNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusDownNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn XYFocusLeftNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusLeftNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn XYFocusRightNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusRightNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn IsTabStop(&self) -> ::windows::core::Result<bool>;
-    fn SetIsTabStop(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TabIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetTabIndex(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Invoked(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContentLink, ContentLinkInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInvoked(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GotFocus(&self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGotFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LostFocus(&self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLostFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Focus(&self, value: super::FocusState) -> ::windows::core::Result<bool>;
+    fn Info(&mut self) -> ::windows::core::Result<super::super::Text::ContentLinkInfo>;
+    fn SetInfo(&mut self, value: &::core::option::Option<super::super::Text::ContentLinkInfo>) -> ::windows::core::Result<()>;
+    fn Background(&mut self) -> ::windows::core::Result<super::Media::Brush>;
+    fn SetBackground(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Cursor(&mut self) -> ::windows::core::Result<super::super::Core::CoreCursorType>;
+    fn SetCursor(&mut self, value: super::super::Core::CoreCursorType) -> ::windows::core::Result<()>;
+    fn XYFocusLeft(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusLeft(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn XYFocusRight(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusRight(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn XYFocusUp(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusUp(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn XYFocusDown(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusDown(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ElementSoundMode(&mut self) -> ::windows::core::Result<super::ElementSoundMode>;
+    fn SetElementSoundMode(&mut self, value: super::ElementSoundMode) -> ::windows::core::Result<()>;
+    fn FocusState(&mut self) -> ::windows::core::Result<super::FocusState>;
+    fn XYFocusUpNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusUpNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn XYFocusDownNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusDownNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn XYFocusLeftNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusLeftNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn XYFocusRightNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusRightNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn IsTabStop(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsTabStop(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TabIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetTabIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Invoked(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ContentLink, ContentLinkInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInvoked(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GotFocus(&mut self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGotFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LostFocus(&mut self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLostFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Focus(&mut self, value: super::FocusState) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "UI_Text", feature = "UI_Xaml_Input", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentLink {
@@ -657,9 +657,9 @@ impl IContentLinkVtbl {
 }
 #[cfg(all(feature = "UI_Text", feature = "implement_exclusive"))]
 pub trait IContentLinkInvokedEventArgsImpl: Sized {
-    fn ContentLinkInfo(&self) -> ::windows::core::Result<super::super::Text::ContentLinkInfo>;
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn ContentLinkInfo(&mut self) -> ::windows::core::Result<super::super::Text::ContentLinkInfo>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Text", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentLinkInvokedEventArgs {
@@ -737,7 +737,7 @@ impl IContentLinkProviderCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContentLinkProviderFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ContentLinkProvider>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ContentLinkProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContentLinkProviderFactory {
@@ -768,20 +768,20 @@ impl IContentLinkProviderFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContentLinkStaticsImpl: Sized {
-    fn BackgroundProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn CursorProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusLeftProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusRightProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusUpProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusDownProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ElementSoundModeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FocusStateProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusUpNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusDownNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusLeftNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusRightNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn IsTabStopProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn TabIndexProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn BackgroundProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn CursorProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusLeftProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusRightProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusUpProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusDownProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ElementSoundModeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FocusStateProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusUpNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusDownNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusLeftNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusRightNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IsTabStopProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn TabIndexProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContentLinkStatics {
@@ -968,22 +968,22 @@ impl IContentLinkStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IGlyphsImpl: Sized {
-    fn UnicodeString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetUnicodeString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Indices(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetIndices(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FontUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SetFontUri(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn StyleSimulations(&self) -> ::windows::core::Result<super::Media::StyleSimulations>;
-    fn SetStyleSimulations(&self, value: super::Media::StyleSimulations) -> ::windows::core::Result<()>;
-    fn FontRenderingEmSize(&self) -> ::windows::core::Result<f64>;
-    fn SetFontRenderingEmSize(&self, value: f64) -> ::windows::core::Result<()>;
-    fn OriginX(&self) -> ::windows::core::Result<f64>;
-    fn SetOriginX(&self, value: f64) -> ::windows::core::Result<()>;
-    fn OriginY(&self) -> ::windows::core::Result<f64>;
-    fn SetOriginY(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Fill(&self) -> ::windows::core::Result<super::Media::Brush>;
-    fn SetFill(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn UnicodeString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetUnicodeString(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Indices(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetIndices(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FontUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SetFontUri(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn StyleSimulations(&mut self) -> ::windows::core::Result<super::Media::StyleSimulations>;
+    fn SetStyleSimulations(&mut self, value: super::Media::StyleSimulations) -> ::windows::core::Result<()>;
+    fn FontRenderingEmSize(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFontRenderingEmSize(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn OriginX(&mut self) -> ::windows::core::Result<f64>;
+    fn SetOriginX(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn OriginY(&mut self) -> ::windows::core::Result<f64>;
+    fn SetOriginY(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Fill(&mut self) -> ::windows::core::Result<super::Media::Brush>;
+    fn SetFill(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlyphs {
@@ -1138,10 +1138,10 @@ impl IGlyphsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGlyphs2Impl: Sized {
-    fn IsColorFontEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsColorFontEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ColorFontPaletteIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetColorFontPaletteIndex(&self, value: i32) -> ::windows::core::Result<()>;
+    fn IsColorFontEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsColorFontEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ColorFontPaletteIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetColorFontPaletteIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGlyphs2 {
@@ -1194,14 +1194,14 @@ impl IGlyphs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGlyphsStaticsImpl: Sized {
-    fn UnicodeStringProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn IndicesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FontUriProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StyleSimulationsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FontRenderingEmSizeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn OriginXProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn OriginYProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FillProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn UnicodeStringProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IndicesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FontUriProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StyleSimulationsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FontRenderingEmSizeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn OriginXProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn OriginYProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FillProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGlyphsStatics {
@@ -1316,8 +1316,8 @@ impl IGlyphsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGlyphsStatics2Impl: Sized {
-    fn IsColorFontEnabledProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ColorFontPaletteIndexProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IsColorFontEnabledProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ColorFontPaletteIndexProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGlyphsStatics2 {
@@ -1360,10 +1360,10 @@ impl IGlyphsStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHyperlinkImpl: Sized {
-    fn NavigateUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SetNavigateUri(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Click(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Hyperlink, HyperlinkClickEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClick(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NavigateUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SetNavigateUri(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Click(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Hyperlink, HyperlinkClickEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClick(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHyperlink {
@@ -1416,8 +1416,8 @@ impl IHyperlinkVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlink2Impl: Sized {
-    fn UnderlineStyle(&self) -> ::windows::core::Result<UnderlineStyle>;
-    fn SetUnderlineStyle(&self, value: UnderlineStyle) -> ::windows::core::Result<()>;
+    fn UnderlineStyle(&mut self) -> ::windows::core::Result<UnderlineStyle>;
+    fn SetUnderlineStyle(&mut self, value: UnderlineStyle) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlink2 {
@@ -1453,16 +1453,16 @@ impl IHyperlink2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlink3Impl: Sized {
-    fn XYFocusLeft(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusLeft(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn XYFocusRight(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusRight(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn XYFocusUp(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusUp(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn XYFocusDown(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetXYFocusDown(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn ElementSoundMode(&self) -> ::windows::core::Result<super::ElementSoundMode>;
-    fn SetElementSoundMode(&self, value: super::ElementSoundMode) -> ::windows::core::Result<()>;
+    fn XYFocusLeft(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusLeft(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn XYFocusRight(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusRight(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn XYFocusUp(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusUp(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn XYFocusDown(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetXYFocusDown(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn ElementSoundMode(&mut self) -> ::windows::core::Result<super::ElementSoundMode>;
+    fn SetElementSoundMode(&mut self, value: super::ElementSoundMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlink3 {
@@ -1566,20 +1566,20 @@ impl IHyperlink3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 pub trait IHyperlink4Impl: Sized {
-    fn FocusState(&self) -> ::windows::core::Result<super::FocusState>;
-    fn XYFocusUpNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusUpNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn XYFocusDownNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusDownNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn XYFocusLeftNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusLeftNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn XYFocusRightNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
-    fn SetXYFocusRightNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
-    fn GotFocus(&self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGotFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LostFocus(&self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLostFocus(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Focus(&self, value: super::FocusState) -> ::windows::core::Result<bool>;
+    fn FocusState(&mut self) -> ::windows::core::Result<super::FocusState>;
+    fn XYFocusUpNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusUpNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn XYFocusDownNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusDownNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn XYFocusLeftNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusLeftNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn XYFocusRightNavigationStrategy(&mut self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy>;
+    fn SetXYFocusRightNavigationStrategy(&mut self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()>;
+    fn GotFocus(&mut self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGotFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LostFocus(&mut self, handler: &::core::option::Option<super::RoutedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLostFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Focus(&mut self, value: super::FocusState) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHyperlink4 {
@@ -1724,10 +1724,10 @@ impl IHyperlink4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlink5Impl: Sized {
-    fn IsTabStop(&self) -> ::windows::core::Result<bool>;
-    fn SetIsTabStop(&self, value: bool) -> ::windows::core::Result<()>;
-    fn TabIndex(&self) -> ::windows::core::Result<i32>;
-    fn SetTabIndex(&self, value: i32) -> ::windows::core::Result<()>;
+    fn IsTabStop(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsTabStop(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TabIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SetTabIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlink5 {
@@ -1795,7 +1795,7 @@ impl IHyperlinkClickEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlinkStaticsImpl: Sized {
-    fn NavigateUriProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn NavigateUriProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlinkStatics {
@@ -1826,7 +1826,7 @@ impl IHyperlinkStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlinkStatics2Impl: Sized {
-    fn UnderlineStyleProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn UnderlineStyleProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlinkStatics2 {
@@ -1857,11 +1857,11 @@ impl IHyperlinkStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlinkStatics3Impl: Sized {
-    fn XYFocusLeftProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusRightProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusUpProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusDownProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ElementSoundModeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusLeftProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusRightProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusUpProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusDownProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ElementSoundModeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlinkStatics3 {
@@ -1940,11 +1940,11 @@ impl IHyperlinkStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlinkStatics4Impl: Sized {
-    fn FocusStateProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusUpNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusDownNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusLeftNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn XYFocusRightNavigationStrategyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FocusStateProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusUpNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusDownNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusLeftNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn XYFocusRightNavigationStrategyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlinkStatics4 {
@@ -2023,8 +2023,8 @@ impl IHyperlinkStatics4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHyperlinkStatics5Impl: Sized {
-    fn IsTabStopProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn TabIndexProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IsTabStopProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn TabIndexProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHyperlinkStatics5 {
@@ -2082,7 +2082,7 @@ impl IInlineVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInlineFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Inline>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Inline>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInlineFactory {
@@ -2110,8 +2110,8 @@ impl IInlineFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInlineUIContainerImpl: Sized {
-    fn Child(&self) -> ::windows::core::Result<super::UIElement>;
-    fn SetChild(&self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn Child(&mut self) -> ::windows::core::Result<super::UIElement>;
+    fn SetChild(&mut self, value: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInlineUIContainer {
@@ -2177,9 +2177,9 @@ impl ILineBreakVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IParagraphImpl: Sized {
-    fn Inlines(&self) -> ::windows::core::Result<InlineCollection>;
-    fn TextIndent(&self) -> ::windows::core::Result<f64>;
-    fn SetTextIndent(&self, value: f64) -> ::windows::core::Result<()>;
+    fn Inlines(&mut self) -> ::windows::core::Result<InlineCollection>;
+    fn TextIndent(&mut self) -> ::windows::core::Result<f64>;
+    fn SetTextIndent(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IParagraph {
@@ -2227,7 +2227,7 @@ impl IParagraphVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IParagraphStaticsImpl: Sized {
-    fn TextIndentProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn TextIndentProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IParagraphStatics {
@@ -2273,10 +2273,10 @@ impl IPlaceContentLinkProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRunImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FlowDirection(&self) -> ::windows::core::Result<super::FlowDirection>;
-    fn SetFlowDirection(&self, value: super::FlowDirection) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FlowDirection(&mut self) -> ::windows::core::Result<super::FlowDirection>;
+    fn SetFlowDirection(&mut self, value: super::FlowDirection) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRun {
@@ -2329,7 +2329,7 @@ impl IRunVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRunStaticsImpl: Sized {
-    fn FlowDirectionProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FlowDirectionProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRunStatics {
@@ -2360,8 +2360,8 @@ impl IRunStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpanImpl: Sized {
-    fn Inlines(&self) -> ::windows::core::Result<InlineCollection>;
-    fn SetInlines(&self, value: &::core::option::Option<InlineCollection>) -> ::windows::core::Result<()>;
+    fn Inlines(&mut self) -> ::windows::core::Result<InlineCollection>;
+    fn SetInlines(&mut self, value: &::core::option::Option<InlineCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpan {
@@ -2397,7 +2397,7 @@ impl ISpanVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpanFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Span>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Span>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpanFactory {
@@ -2425,28 +2425,28 @@ impl ISpanFactoryVtbl {
 }
 #[cfg(all(feature = "UI_Text", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait ITextElementImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FontSize(&self) -> ::windows::core::Result<f64>;
-    fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()>;
-    fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily>;
-    fn SetFontFamily(&self, value: &::core::option::Option<super::Media::FontFamily>) -> ::windows::core::Result<()>;
-    fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight>;
-    fn SetFontWeight(&self, value: &super::super::Text::FontWeight) -> ::windows::core::Result<()>;
-    fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle>;
-    fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()>;
-    fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch>;
-    fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()>;
-    fn CharacterSpacing(&self) -> ::windows::core::Result<i32>;
-    fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush>;
-    fn SetForeground(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContentStart(&self) -> ::windows::core::Result<TextPointer>;
-    fn ContentEnd(&self) -> ::windows::core::Result<TextPointer>;
-    fn ElementStart(&self) -> ::windows::core::Result<TextPointer>;
-    fn ElementEnd(&self) -> ::windows::core::Result<TextPointer>;
-    fn FindName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FontSize(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFontSize(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn FontFamily(&mut self) -> ::windows::core::Result<super::Media::FontFamily>;
+    fn SetFontFamily(&mut self, value: &::core::option::Option<super::Media::FontFamily>) -> ::windows::core::Result<()>;
+    fn FontWeight(&mut self) -> ::windows::core::Result<super::super::Text::FontWeight>;
+    fn SetFontWeight(&mut self, value: &super::super::Text::FontWeight) -> ::windows::core::Result<()>;
+    fn FontStyle(&mut self) -> ::windows::core::Result<super::super::Text::FontStyle>;
+    fn SetFontStyle(&mut self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()>;
+    fn FontStretch(&mut self) -> ::windows::core::Result<super::super::Text::FontStretch>;
+    fn SetFontStretch(&mut self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()>;
+    fn CharacterSpacing(&mut self) -> ::windows::core::Result<i32>;
+    fn SetCharacterSpacing(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Foreground(&mut self) -> ::windows::core::Result<super::Media::Brush>;
+    fn SetForeground(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContentStart(&mut self) -> ::windows::core::Result<TextPointer>;
+    fn ContentEnd(&mut self) -> ::windows::core::Result<TextPointer>;
+    fn ElementStart(&mut self) -> ::windows::core::Result<TextPointer>;
+    fn ElementEnd(&mut self) -> ::windows::core::Result<TextPointer>;
+    fn FindName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(all(feature = "UI_Text", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextElement {
@@ -2673,8 +2673,8 @@ impl ITextElementVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElement2Impl: Sized {
-    fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsTextScaleFactorEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsTextScaleFactorEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElement2 {
@@ -2710,12 +2710,12 @@ impl ITextElement2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElement3Impl: Sized {
-    fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAccessKey(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool>;
-    fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowFocusOnInteraction(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowFocusOnInteraction(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AccessKey(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAccessKey(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ExitDisplayModeOnAccessKeyInvoked(&mut self) -> ::windows::core::Result<bool>;
+    fn SetExitDisplayModeOnAccessKeyInvoked(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElement3 {
@@ -2785,24 +2785,24 @@ impl ITextElement3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Text", feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 pub trait ITextElement4Impl: Sized {
-    fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations>;
-    fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()>;
-    fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool>;
-    fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn SetAccessKeyScopeOwner(&self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
-    fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode>;
-    fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()>;
-    fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn AccessKeyDisplayRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccessKeyDisplayRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AccessKeyDisplayDismissed(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccessKeyDisplayDismissed(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AccessKeyInvoked(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccessKeyInvoked(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TextDecorations(&mut self) -> ::windows::core::Result<super::super::Text::TextDecorations>;
+    fn SetTextDecorations(&mut self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()>;
+    fn IsAccessKeyScope(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsAccessKeyScope(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AccessKeyScopeOwner(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn SetAccessKeyScopeOwner(&mut self, value: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
+    fn KeyTipPlacementMode(&mut self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode>;
+    fn SetKeyTipPlacementMode(&mut self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()>;
+    fn KeyTipHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetKeyTipHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn KeyTipVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetKeyTipVerticalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn AccessKeyDisplayRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccessKeyDisplayRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AccessKeyDisplayDismissed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccessKeyDisplayDismissed(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AccessKeyInvoked(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccessKeyInvoked(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Text", feature = "UI_Xaml_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextElement4 {
@@ -2974,8 +2974,8 @@ impl ITextElement4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElement5Impl: Sized {
-    fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot>;
-    fn SetXamlRoot(&self, value: &::core::option::Option<super::XamlRoot>) -> ::windows::core::Result<()>;
+    fn XamlRoot(&mut self) -> ::windows::core::Result<super::XamlRoot>;
+    fn SetXamlRoot(&mut self, value: &::core::option::Option<super::XamlRoot>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElement5 {
@@ -3026,7 +3026,7 @@ impl ITextElementFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElementOverridesImpl: Sized {
-    fn OnDisconnectVisualChildren(&self) -> ::windows::core::Result<()>;
+    fn OnDisconnectVisualChildren(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElementOverrides {
@@ -3050,14 +3050,14 @@ impl ITextElementOverridesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElementStaticsImpl: Sized {
-    fn FontSizeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FontFamilyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FontWeightProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FontStyleProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn FontStretchProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn CharacterSpacingProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ForegroundProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn LanguageProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FontSizeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FontFamilyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FontWeightProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FontStyleProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FontStretchProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn CharacterSpacingProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ForegroundProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn LanguageProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElementStatics {
@@ -3172,7 +3172,7 @@ impl ITextElementStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElementStatics2Impl: Sized {
-    fn IsTextScaleFactorEnabledProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IsTextScaleFactorEnabledProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElementStatics2 {
@@ -3203,9 +3203,9 @@ impl ITextElementStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElementStatics3Impl: Sized {
-    fn AllowFocusOnInteractionProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn AccessKeyProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn ExitDisplayModeOnAccessKeyInvokedProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn AllowFocusOnInteractionProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn AccessKeyProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ExitDisplayModeOnAccessKeyInvokedProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElementStatics3 {
@@ -3260,12 +3260,12 @@ impl ITextElementStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextElementStatics4Impl: Sized {
-    fn TextDecorationsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn IsAccessKeyScopeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn AccessKeyScopeOwnerProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn KeyTipPlacementModeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn KeyTipHorizontalOffsetProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn KeyTipVerticalOffsetProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn TextDecorationsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn IsAccessKeyScopeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn AccessKeyScopeOwnerProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn KeyTipPlacementModeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn KeyTipHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn KeyTipVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextElementStatics4 {
@@ -3356,11 +3356,11 @@ impl ITextElementStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait ITextHighlighterImpl: Sized {
-    fn Ranges(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<TextRange>>;
-    fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush>;
-    fn SetForeground(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn Background(&self) -> ::windows::core::Result<super::Media::Brush>;
-    fn SetBackground(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Ranges(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<TextRange>>;
+    fn Foreground(&mut self) -> ::windows::core::Result<super::Media::Brush>;
+    fn SetForeground(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Background(&mut self) -> ::windows::core::Result<super::Media::Brush>;
+    fn SetBackground(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextHighlighter {
@@ -3455,7 +3455,7 @@ impl ITextHighlighterBaseFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextHighlighterFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextHighlighter>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextHighlighter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextHighlighterFactory {
@@ -3486,8 +3486,8 @@ impl ITextHighlighterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextHighlighterStaticsImpl: Sized {
-    fn ForegroundProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn BackgroundProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn ForegroundProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn BackgroundProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextHighlighterStatics {
@@ -3530,12 +3530,12 @@ impl ITextHighlighterStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITextPointerImpl: Sized {
-    fn Parent(&self) -> ::windows::core::Result<super::DependencyObject>;
-    fn VisualParent(&self) -> ::windows::core::Result<super::FrameworkElement>;
-    fn LogicalDirection(&self) -> ::windows::core::Result<LogicalDirection>;
-    fn Offset(&self) -> ::windows::core::Result<i32>;
-    fn GetCharacterRect(&self, direction: LogicalDirection) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn GetPositionAtOffset(&self, offset: i32, direction: LogicalDirection) -> ::windows::core::Result<TextPointer>;
+    fn Parent(&mut self) -> ::windows::core::Result<super::DependencyObject>;
+    fn VisualParent(&mut self) -> ::windows::core::Result<super::FrameworkElement>;
+    fn LogicalDirection(&mut self) -> ::windows::core::Result<LogicalDirection>;
+    fn Offset(&mut self) -> ::windows::core::Result<i32>;
+    fn GetCharacterRect(&mut self, direction: LogicalDirection) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn GetPositionAtOffset(&mut self, offset: i32, direction: LogicalDirection) -> ::windows::core::Result<TextPointer>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextPointer {
@@ -3641,135 +3641,135 @@ impl ITypographyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITypographyStaticsImpl: Sized {
-    fn AnnotationAlternatesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetAnnotationAlternates(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetAnnotationAlternates(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
-    fn EastAsianExpertFormsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetEastAsianExpertForms(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetEastAsianExpertForms(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn EastAsianLanguageProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetEastAsianLanguage(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontEastAsianLanguage>;
-    fn SetEastAsianLanguage(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FontEastAsianLanguage) -> ::windows::core::Result<()>;
-    fn EastAsianWidthsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetEastAsianWidths(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontEastAsianWidths>;
-    fn SetEastAsianWidths(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FontEastAsianWidths) -> ::windows::core::Result<()>;
-    fn StandardLigaturesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStandardLigatures(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStandardLigatures(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn ContextualLigaturesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetContextualLigatures(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetContextualLigatures(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn DiscretionaryLigaturesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetDiscretionaryLigatures(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetDiscretionaryLigatures(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn HistoricalLigaturesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetHistoricalLigatures(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetHistoricalLigatures(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StandardSwashesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStandardSwashes(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetStandardSwashes(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
-    fn ContextualSwashesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetContextualSwashes(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetContextualSwashes(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
-    fn ContextualAlternatesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetContextualAlternates(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetContextualAlternates(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticAlternatesProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticAlternates(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn SetStylisticAlternates(&self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
-    fn StylisticSet1Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet1(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet1(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet2Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet2(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet2(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet3Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet3(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet3(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet4Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet4(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet4(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet5Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet5(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet5(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet6Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet6(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet6(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet7Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet7(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet7(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet8Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet8(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet8(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet9Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet9(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet9(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet10Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet10(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet10(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet11Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet11(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet11(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet12Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet12(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet12(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet13Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet13(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet13(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet14Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet14(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet14(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet15Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet15(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet15(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet16Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet16(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet16(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet17Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet17(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet17(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet18Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet18(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet18(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet19Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet19(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet19(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn StylisticSet20Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetStylisticSet20(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetStylisticSet20(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn CapitalsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetCapitals(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontCapitals>;
-    fn SetCapitals(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FontCapitals) -> ::windows::core::Result<()>;
-    fn CapitalSpacingProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetCapitalSpacing(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetCapitalSpacing(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn KerningProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetKerning(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetKerning(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn CaseSensitiveFormsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetCaseSensitiveForms(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetCaseSensitiveForms(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn HistoricalFormsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetHistoricalForms(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetHistoricalForms(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn FractionProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetFraction(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontFraction>;
-    fn SetFraction(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FontFraction) -> ::windows::core::Result<()>;
-    fn NumeralStyleProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetNumeralStyle(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontNumeralStyle>;
-    fn SetNumeralStyle(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FontNumeralStyle) -> ::windows::core::Result<()>;
-    fn NumeralAlignmentProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetNumeralAlignment(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontNumeralAlignment>;
-    fn SetNumeralAlignment(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FontNumeralAlignment) -> ::windows::core::Result<()>;
-    fn SlashedZeroProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetSlashedZero(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetSlashedZero(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn MathematicalGreekProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetMathematicalGreek(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
-    fn SetMathematicalGreek(&self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
-    fn VariantsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn GetVariants(&self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontVariants>;
-    fn SetVariants(&self, element: &::core::option::Option<super::DependencyObject>, value: super::FontVariants) -> ::windows::core::Result<()>;
+    fn AnnotationAlternatesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetAnnotationAlternates(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetAnnotationAlternates(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn EastAsianExpertFormsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetEastAsianExpertForms(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetEastAsianExpertForms(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn EastAsianLanguageProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetEastAsianLanguage(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontEastAsianLanguage>;
+    fn SetEastAsianLanguage(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FontEastAsianLanguage) -> ::windows::core::Result<()>;
+    fn EastAsianWidthsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetEastAsianWidths(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontEastAsianWidths>;
+    fn SetEastAsianWidths(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FontEastAsianWidths) -> ::windows::core::Result<()>;
+    fn StandardLigaturesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStandardLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStandardLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn ContextualLigaturesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetContextualLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetContextualLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn DiscretionaryLigaturesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetDiscretionaryLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetDiscretionaryLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn HistoricalLigaturesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetHistoricalLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetHistoricalLigatures(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StandardSwashesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStandardSwashes(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetStandardSwashes(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn ContextualSwashesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetContextualSwashes(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetContextualSwashes(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn ContextualAlternatesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetContextualAlternates(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetContextualAlternates(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticAlternatesProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticAlternates(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn SetStylisticAlternates(&mut self, element: &::core::option::Option<super::DependencyObject>, value: i32) -> ::windows::core::Result<()>;
+    fn StylisticSet1Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet1(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet1(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet2Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet2(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet2(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet3Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet3(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet3(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet4Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet4(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet4(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet5Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet5(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet5(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet6Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet6(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet6(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet7Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet7(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet7(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet8Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet8(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet8(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet9Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet9(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet9(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet10Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet10(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet10(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet11Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet11(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet11(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet12Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet12(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet12(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet13Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet13(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet13(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet14Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet14(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet14(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet15Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet15(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet15(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet16Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet16(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet16(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet17Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet17(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet17(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet18Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet18(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet18(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet19Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet19(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet19(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn StylisticSet20Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetStylisticSet20(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetStylisticSet20(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn CapitalsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetCapitals(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontCapitals>;
+    fn SetCapitals(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FontCapitals) -> ::windows::core::Result<()>;
+    fn CapitalSpacingProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetCapitalSpacing(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetCapitalSpacing(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn KerningProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetKerning(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetKerning(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn CaseSensitiveFormsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetCaseSensitiveForms(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetCaseSensitiveForms(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn HistoricalFormsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetHistoricalForms(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetHistoricalForms(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn FractionProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetFraction(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontFraction>;
+    fn SetFraction(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FontFraction) -> ::windows::core::Result<()>;
+    fn NumeralStyleProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetNumeralStyle(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontNumeralStyle>;
+    fn SetNumeralStyle(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FontNumeralStyle) -> ::windows::core::Result<()>;
+    fn NumeralAlignmentProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetNumeralAlignment(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontNumeralAlignment>;
+    fn SetNumeralAlignment(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FontNumeralAlignment) -> ::windows::core::Result<()>;
+    fn SlashedZeroProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetSlashedZero(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetSlashedZero(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn MathematicalGreekProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetMathematicalGreek(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<bool>;
+    fn SetMathematicalGreek(&mut self, element: &::core::option::Option<super::DependencyObject>, value: bool) -> ::windows::core::Result<()>;
+    fn VariantsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn GetVariants(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::FontVariants>;
+    fn SetVariants(&mut self, element: &::core::option::Option<super::DependencyObject>, value: super::FontVariants) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITypographyStatics {

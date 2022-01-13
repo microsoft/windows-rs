@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IQuickLinkImpl: Sized {
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::RandomAccessStreamReference>;
-    fn SetThumbnail(&self, value: &::core::option::Option<super::super::super::Storage::Streams::RandomAccessStreamReference>) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SupportedDataFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn SupportedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::RandomAccessStreamReference>;
+    fn SetThumbnail(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::RandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SupportedDataFormats(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn SupportedFileTypes(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQuickLink {
@@ -101,15 +101,15 @@ impl IQuickLinkVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IShareOperationImpl: Sized {
-    fn Data(&self) -> ::windows::core::Result<super::DataPackageView>;
-    fn QuickLinkId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoveThisQuickLink(&self) -> ::windows::core::Result<()>;
-    fn ReportStarted(&self) -> ::windows::core::Result<()>;
-    fn ReportDataRetrieved(&self) -> ::windows::core::Result<()>;
-    fn ReportSubmittedBackgroundTask(&self) -> ::windows::core::Result<()>;
-    fn ReportCompletedWithQuickLink(&self, quicklink: &::core::option::Option<QuickLink>) -> ::windows::core::Result<()>;
-    fn ReportCompleted(&self) -> ::windows::core::Result<()>;
-    fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<super::DataPackageView>;
+    fn QuickLinkId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoveThisQuickLink(&mut self) -> ::windows::core::Result<()>;
+    fn ReportStarted(&mut self) -> ::windows::core::Result<()>;
+    fn ReportDataRetrieved(&mut self) -> ::windows::core::Result<()>;
+    fn ReportSubmittedBackgroundTask(&mut self) -> ::windows::core::Result<()>;
+    fn ReportCompletedWithQuickLink(&mut self, quicklink: &::core::option::Option<QuickLink>) -> ::windows::core::Result<()>;
+    fn ReportCompleted(&mut self) -> ::windows::core::Result<()>;
+    fn ReportError(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IShareOperation {
@@ -187,7 +187,7 @@ impl IShareOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IShareOperation2Impl: Sized {
-    fn DismissUI(&self) -> ::windows::core::Result<()>;
+    fn DismissUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IShareOperation2 {
@@ -208,7 +208,7 @@ impl IShareOperation2Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IShareOperation3Impl: Sized {
-    fn Contacts(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>>;
+    fn Contacts(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>>;
 }
 #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShareOperation3 {

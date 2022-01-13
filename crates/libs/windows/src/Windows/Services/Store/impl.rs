@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreAcquireLicenseResultImpl: Sized {
-    fn StorePackageLicense(&self) -> ::windows::core::Result<StorePackageLicense>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn StorePackageLicense(&mut self) -> ::windows::core::Result<StorePackageLicense>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreAcquireLicenseResult {
@@ -44,15 +44,15 @@ impl IStoreAcquireLicenseResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreAppLicenseImpl: Sized {
-    fn SkuStoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn IsTrial(&self) -> ::windows::core::Result<bool>;
-    fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AddOnLicenses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreLicense>>;
-    fn TrialTimeRemaining(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn IsTrialOwnedByThisUser(&self) -> ::windows::core::Result<bool>;
-    fn TrialUniqueId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SkuStoreId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn IsTrial(&mut self) -> ::windows::core::Result<bool>;
+    fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AddOnLicenses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreLicense>>;
+    fn TrialTimeRemaining(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn IsTrialOwnedByThisUser(&mut self) -> ::windows::core::Result<bool>;
+    fn TrialUniqueId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreAppLicense {
@@ -179,7 +179,7 @@ impl IStoreAppLicenseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreAppLicense2Impl: Sized {
-    fn IsDiscLicense(&self) -> ::windows::core::Result<bool>;
+    fn IsDiscLicense(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreAppLicense2 {
@@ -207,12 +207,12 @@ impl IStoreAppLicense2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreAvailabilityImpl: Sized {
-    fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Price(&self) -> ::windows::core::Result<StorePrice>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RequestPurchaseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
-    fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn StoreId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EndDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Price(&mut self) -> ::windows::core::Result<StorePrice>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RequestPurchaseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn RequestPurchaseWithPurchasePropertiesAsync(&mut self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreAvailability {
@@ -303,9 +303,9 @@ impl IStoreAvailabilityVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreCanAcquireLicenseResultImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn LicensableSku(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Status(&self) -> ::windows::core::Result<StoreCanLicenseStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn LicensableSku(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<StoreCanLicenseStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreCanAcquireLicenseResult {
@@ -360,14 +360,14 @@ impl IStoreCanAcquireLicenseResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreCollectionDataImpl: Sized {
-    fn IsTrial(&self) -> ::windows::core::Result<bool>;
-    fn CampaignId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DeveloperOfferId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AcquiredDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn StartDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn EndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn TrialTimeRemaining(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsTrial(&mut self) -> ::windows::core::Result<bool>;
+    fn CampaignId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeveloperOfferId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AcquiredDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn StartDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn EndDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn TrialTimeRemaining(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreCollectionData {
@@ -482,10 +482,10 @@ impl IStoreCollectionDataVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreConsumableResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<StoreConsumableStatus>;
-    fn TrackingId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn BalanceRemaining(&self) -> ::windows::core::Result<u32>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Status(&mut self) -> ::windows::core::Result<StoreConsumableStatus>;
+    fn TrackingId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn BalanceRemaining(&mut self) -> ::windows::core::Result<u32>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreConsumableResult {
@@ -552,27 +552,27 @@ impl IStoreConsumableResultVtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreContextImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
-    fn OfflineLicensesChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreContext, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOfflineLicensesChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetCustomerPurchaseIdAsync(&self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetCustomerCollectionsIdAsync(&self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetAppLicenseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAppLicense>>;
-    fn GetStoreProductForCurrentAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>;
-    fn GetStoreProductsAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
-    fn GetAssociatedStoreProductsAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
-    fn GetAssociatedStoreProductsWithPagingAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>;
-    fn GetUserCollectionAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
-    fn GetUserCollectionWithPagingAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>;
-    fn ReportConsumableFulfillmentAsync(&self, productstoreid: &::windows::core::HSTRING, quantity: u32, trackingid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>;
-    fn GetConsumableBalanceRemainingAsync(&self, productstoreid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>;
-    fn AcquireStoreLicenseForOptionalPackageAsync(&self, optionalpackage: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>;
-    fn RequestPurchaseAsync(&self, storeid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
-    fn RequestPurchaseWithPurchasePropertiesAsync(&self, storeid: &::windows::core::HSTRING, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
-    fn GetAppAndOptionalStorePackageUpdatesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>>;
-    fn RequestDownloadStorePackageUpdatesAsync(&self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
-    fn RequestDownloadAndInstallStorePackageUpdatesAsync(&self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
-    fn RequestDownloadAndInstallStorePackagesAsync(&self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn OfflineLicensesChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreContext, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOfflineLicensesChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCustomerPurchaseIdAsync(&mut self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetCustomerCollectionsIdAsync(&mut self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetAppLicenseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAppLicense>>;
+    fn GetStoreProductForCurrentAppAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>;
+    fn GetStoreProductsAsync(&mut self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
+    fn GetAssociatedStoreProductsAsync(&mut self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
+    fn GetAssociatedStoreProductsWithPagingAsync(&mut self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>;
+    fn GetUserCollectionAsync(&mut self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
+    fn GetUserCollectionWithPagingAsync(&mut self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>;
+    fn ReportConsumableFulfillmentAsync(&mut self, productstoreid: &::windows::core::HSTRING, quantity: u32, trackingid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>;
+    fn GetConsumableBalanceRemainingAsync(&mut self, productstoreid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>;
+    fn AcquireStoreLicenseForOptionalPackageAsync(&mut self, optionalpackage: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>;
+    fn RequestPurchaseAsync(&mut self, storeid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn RequestPurchaseWithPurchasePropertiesAsync(&mut self, storeid: &::windows::core::HSTRING, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn GetAppAndOptionalStorePackageUpdatesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>>;
+    fn RequestDownloadStorePackageUpdatesAsync(&mut self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
+    fn RequestDownloadAndInstallStorePackageUpdatesAsync(&mut self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
+    fn RequestDownloadAndInstallStorePackagesAsync(&mut self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext {
@@ -839,7 +839,7 @@ impl IStoreContextVtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreContext2Impl: Sized {
-    fn FindStoreProductForPackageAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>;
+    fn FindStoreProductForPackageAsync(&mut self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext2 {
@@ -870,20 +870,20 @@ impl IStoreContext2Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreContext3Impl: Sized {
-    fn CanSilentlyDownloadStorePackageUpdates(&self) -> ::windows::core::Result<bool>;
-    fn TrySilentDownloadStorePackageUpdatesAsync(&self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
-    fn TrySilentDownloadAndInstallStorePackageUpdatesAsync(&self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
-    fn CanAcquireStoreLicenseForOptionalPackageAsync(&self, optionalpackage: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>;
-    fn CanAcquireStoreLicenseAsync(&self, productstoreid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>;
-    fn GetStoreProductsWithOptionsAsync(&self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storeproductoptions: &::core::option::Option<StoreProductOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
-    fn GetAssociatedStoreQueueItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>;
-    fn GetStoreQueueItemsAsync(&self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>;
-    fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync(&self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storepackageinstalloptions: &::core::option::Option<StorePackageInstallOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
-    fn DownloadAndInstallStorePackagesAsync(&self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
-    fn RequestUninstallStorePackageAsync(&self, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
-    fn RequestUninstallStorePackageByStoreIdAsync(&self, storeid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
-    fn UninstallStorePackageAsync(&self, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
-    fn UninstallStorePackageByStoreIdAsync(&self, storeid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
+    fn CanSilentlyDownloadStorePackageUpdates(&mut self) -> ::windows::core::Result<bool>;
+    fn TrySilentDownloadStorePackageUpdatesAsync(&mut self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
+    fn TrySilentDownloadAndInstallStorePackageUpdatesAsync(&mut self, storepackageupdates: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
+    fn CanAcquireStoreLicenseForOptionalPackageAsync(&mut self, optionalpackage: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>;
+    fn CanAcquireStoreLicenseAsync(&mut self, productstoreid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>;
+    fn GetStoreProductsWithOptionsAsync(&mut self, productkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storeproductoptions: &::core::option::Option<StoreProductOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>;
+    fn GetAssociatedStoreQueueItemsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>;
+    fn GetStoreQueueItemsAsync(&mut self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>;
+    fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync(&mut self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, storepackageinstalloptions: &::core::option::Option<StorePackageInstallOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
+    fn DownloadAndInstallStorePackagesAsync(&mut self, storeids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>;
+    fn RequestUninstallStorePackageAsync(&mut self, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
+    fn RequestUninstallStorePackageByStoreIdAsync(&mut self, storeid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
+    fn UninstallStorePackageAsync(&mut self, package: &::core::option::Option<super::super::ApplicationModel::Package>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
+    fn UninstallStorePackageByStoreIdAsync(&mut self, storeid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext3 {
@@ -1074,8 +1074,8 @@ impl IStoreContext3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreContext4Impl: Sized {
-    fn RequestRateAndReviewAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>;
-    fn SetInstallOrderForAssociatedStoreQueueItemsAsync(&self, items: &::core::option::Option<super::super::Foundation::Collections::IIterable<StoreQueueItem>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>;
+    fn RequestRateAndReviewAppAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>;
+    fn SetInstallOrderForAssociatedStoreQueueItemsAsync(&mut self, items: &::core::option::Option<super::super::Foundation::Collections::IIterable<StoreQueueItem>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContext4 {
@@ -1118,8 +1118,8 @@ impl IStoreContext4Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStoreContextStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<StoreContext>;
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StoreContext>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<StoreContext>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StoreContext>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreContextStatics {
@@ -1162,11 +1162,11 @@ impl IStoreContextStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreImageImpl: Sized {
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn ImagePurposeTag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Width(&self) -> ::windows::core::Result<u32>;
-    fn Height(&self) -> ::windows::core::Result<u32>;
-    fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn ImagePurposeTag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
+    fn Caption(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreImage {
@@ -1245,11 +1245,11 @@ impl IStoreImageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreLicenseImpl: Sized {
-    fn SkuStoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InAppOfferToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SkuStoreId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InAppOfferToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreLicense {
@@ -1328,8 +1328,8 @@ impl IStoreLicenseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorePackageInstallOptionsImpl: Sized {
-    fn AllowForcedAppRestart(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowForcedAppRestart(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowForcedAppRestart(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorePackageInstallOptions {
@@ -1365,11 +1365,11 @@ impl IStorePackageInstallOptionsVtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorePackageLicenseImpl: Sized + IClosableImpl {
-    fn LicenseLost(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLicenseLost(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Package(&self) -> ::windows::core::Result<super::super::ApplicationModel::Package>;
-    fn IsValid(&self) -> ::windows::core::Result<bool>;
-    fn ReleaseLicense(&self) -> ::windows::core::Result<()>;
+    fn LicenseLost(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLicenseLost(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Package(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::Package>;
+    fn IsValid(&mut self) -> ::windows::core::Result<bool>;
+    fn ReleaseLicense(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageLicense {
@@ -1434,8 +1434,8 @@ impl IStorePackageLicenseVtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "implement_exclusive"))]
 pub trait IStorePackageUpdateImpl: Sized {
-    fn Package(&self) -> ::windows::core::Result<super::super::ApplicationModel::Package>;
-    fn Mandatory(&self) -> ::windows::core::Result<bool>;
+    fn Package(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::Package>;
+    fn Mandatory(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageUpdate {
@@ -1478,8 +1478,8 @@ impl IStorePackageUpdateVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorePackageUpdateResultImpl: Sized {
-    fn OverallState(&self) -> ::windows::core::Result<StorePackageUpdateState>;
-    fn StorePackageUpdateStatuses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>>;
+    fn OverallState(&mut self) -> ::windows::core::Result<StorePackageUpdateState>;
+    fn StorePackageUpdateStatuses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageUpdateResult {
@@ -1522,7 +1522,7 @@ impl IStorePackageUpdateResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorePackageUpdateResult2Impl: Sized {
-    fn StoreQueueItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
+    fn StoreQueueItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePackageUpdateResult2 {
@@ -1553,12 +1553,12 @@ impl IStorePackageUpdateResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorePriceImpl: Sized {
-    fn FormattedBasePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormattedPrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsOnSale(&self) -> ::windows::core::Result<bool>;
-    fn SaleEndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn CurrencyCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormattedRecurrencePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormattedBasePrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormattedPrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsOnSale(&mut self) -> ::windows::core::Result<bool>;
+    fn SaleEndDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn CurrencyCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormattedRecurrencePrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorePrice {
@@ -1649,24 +1649,24 @@ impl IStorePriceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductImpl: Sized {
-    fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProductKind(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasDigitalDownload(&self) -> ::windows::core::Result<bool>;
-    fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Images(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>>;
-    fn Videos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>>;
-    fn Skus(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreSku>>;
-    fn IsInUserCollection(&self) -> ::windows::core::Result<bool>;
-    fn Price(&self) -> ::windows::core::Result<StorePrice>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LinkUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn GetIsAnySkuInstalledAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestPurchaseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
-    fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
-    fn InAppOfferToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StoreId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductKind(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasDigitalDownload(&mut self) -> ::windows::core::Result<bool>;
+    fn Keywords(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Images(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>>;
+    fn Videos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>>;
+    fn Skus(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreSku>>;
+    fn IsInUserCollection(&mut self) -> ::windows::core::Result<bool>;
+    fn Price(&mut self) -> ::windows::core::Result<StorePrice>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LinkUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn GetIsAnySkuInstalledAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestPurchaseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn RequestPurchaseWithPurchasePropertiesAsync(&mut self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn InAppOfferToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProduct {
@@ -1901,7 +1901,7 @@ impl IStoreProductVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductOptionsImpl: Sized {
-    fn ActionFilters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn ActionFilters(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProductOptions {
@@ -1929,10 +1929,10 @@ impl IStoreProductOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductPagedQueryResultImpl: Sized {
-    fn Products(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>;
-    fn HasMoreResults(&self) -> ::windows::core::Result<bool>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn GetNextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>;
+    fn Products(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>;
+    fn HasMoreResults(&mut self) -> ::windows::core::Result<bool>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn GetNextAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProductPagedQueryResult {
@@ -1999,8 +1999,8 @@ impl IStoreProductPagedQueryResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreProductQueryResultImpl: Sized {
-    fn Products(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Products(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreProductQueryResult {
@@ -2043,8 +2043,8 @@ impl IStoreProductQueryResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreProductResultImpl: Sized {
-    fn Product(&self) -> ::windows::core::Result<StoreProduct>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Product(&mut self) -> ::windows::core::Result<StoreProduct>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreProductResult {
@@ -2087,10 +2087,10 @@ impl IStoreProductResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorePurchasePropertiesImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExtendedJsonData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetExtendedJsonData(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorePurchaseProperties {
@@ -2143,7 +2143,7 @@ impl IStorePurchasePropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorePurchasePropertiesFactoryImpl: Sized {
-    fn Create(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<StorePurchaseProperties>;
+    fn Create(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<StorePurchaseProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorePurchasePropertiesFactory {
@@ -2171,8 +2171,8 @@ impl IStorePurchasePropertiesFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorePurchaseResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<StorePurchaseStatus>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Status(&mut self) -> ::windows::core::Result<StorePurchaseStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorePurchaseResult {
@@ -2215,14 +2215,14 @@ impl IStorePurchaseResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreQueueItemImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InstallKind(&self) -> ::windows::core::Result<StoreQueueItemKind>;
-    fn GetCurrentStatus(&self) -> ::windows::core::Result<StoreQueueItemStatus>;
-    fn Completed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreQueueItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InstallKind(&mut self) -> ::windows::core::Result<StoreQueueItemKind>;
+    fn GetCurrentStatus(&mut self) -> ::windows::core::Result<StoreQueueItemStatus>;
+    fn Completed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StoreQueueItem, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreQueueItem {
@@ -2323,9 +2323,9 @@ impl IStoreQueueItemVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreQueueItem2Impl: Sized {
-    fn CancelInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn PauseInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ResumeInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CancelInstallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PauseInstallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ResumeInstallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreQueueItem2 {
@@ -2380,7 +2380,7 @@ impl IStoreQueueItem2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreQueueItemCompletedEventArgsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<StoreQueueItemStatus>;
+    fn Status(&mut self) -> ::windows::core::Result<StoreQueueItemStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreQueueItemCompletedEventArgs {
@@ -2408,10 +2408,10 @@ impl IStoreQueueItemCompletedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreQueueItemStatusImpl: Sized {
-    fn PackageInstallState(&self) -> ::windows::core::Result<StoreQueueItemState>;
-    fn PackageInstallExtendedState(&self) -> ::windows::core::Result<StoreQueueItemExtendedState>;
-    fn UpdateStatus(&self) -> ::windows::core::Result<StorePackageUpdateStatus>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn PackageInstallState(&mut self) -> ::windows::core::Result<StoreQueueItemState>;
+    fn PackageInstallExtendedState(&mut self) -> ::windows::core::Result<StoreQueueItemExtendedState>;
+    fn UpdateStatus(&mut self) -> ::windows::core::Result<StorePackageUpdateStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreQueueItemStatus {
@@ -2478,10 +2478,10 @@ impl IStoreQueueItemStatusVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreRateAndReviewResultImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WasUpdated(&self) -> ::windows::core::Result<bool>;
-    fn Status(&self) -> ::windows::core::Result<StoreRateAndReviewStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WasUpdated(&mut self) -> ::windows::core::Result<bool>;
+    fn Status(&mut self) -> ::windows::core::Result<StoreRateAndReviewStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreRateAndReviewResult {
@@ -2548,7 +2548,7 @@ impl IStoreRateAndReviewResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreRequestHelperStaticsImpl: Sized {
-    fn SendRequestAsync(&self, context: &::core::option::Option<StoreContext>, requestkind: u32, parametersasjson: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>;
+    fn SendRequestAsync(&mut self, context: &::core::option::Option<StoreContext>, requestkind: u32, parametersasjson: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreRequestHelperStatics {
@@ -2579,8 +2579,8 @@ impl IStoreRequestHelperStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreSendRequestResultImpl: Sized {
-    fn Response(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Response(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreSendRequestResult {
@@ -2623,7 +2623,7 @@ impl IStoreSendRequestResultVtbl {
 }
 #[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 pub trait IStoreSendRequestResult2Impl: Sized {
-    fn HttpStatusCode(&self) -> ::windows::core::Result<super::super::Web::Http::HttpStatusCode>;
+    fn HttpStatusCode(&mut self) -> ::windows::core::Result<super::super::Web::Http::HttpStatusCode>;
 }
 #[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreSendRequestResult2 {
@@ -2654,25 +2654,25 @@ impl IStoreSendRequestResult2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStoreSkuImpl: Sized {
-    fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsTrial(&self) -> ::windows::core::Result<bool>;
-    fn CustomDeveloperData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Images(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>>;
-    fn Videos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>>;
-    fn Availabilities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreAvailability>>;
-    fn Price(&self) -> ::windows::core::Result<StorePrice>;
-    fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsInUserCollection(&self) -> ::windows::core::Result<bool>;
-    fn BundledSkus(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn CollectionData(&self) -> ::windows::core::Result<StoreCollectionData>;
-    fn GetIsInstalledAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestPurchaseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
-    fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
-    fn IsSubscription(&self) -> ::windows::core::Result<bool>;
-    fn SubscriptionInfo(&self) -> ::windows::core::Result<StoreSubscriptionInfo>;
+    fn StoreId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsTrial(&mut self) -> ::windows::core::Result<bool>;
+    fn CustomDeveloperData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Images(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>>;
+    fn Videos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>>;
+    fn Availabilities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreAvailability>>;
+    fn Price(&mut self) -> ::windows::core::Result<StorePrice>;
+    fn ExtendedJsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsInUserCollection(&mut self) -> ::windows::core::Result<bool>;
+    fn BundledSkus(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn CollectionData(&mut self) -> ::windows::core::Result<StoreCollectionData>;
+    fn GetIsInstalledAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestPurchaseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn RequestPurchaseWithPurchasePropertiesAsync(&mut self, storepurchaseproperties: &::core::option::Option<StorePurchaseProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>;
+    fn IsSubscription(&mut self) -> ::windows::core::Result<bool>;
+    fn SubscriptionInfo(&mut self) -> ::windows::core::Result<StoreSubscriptionInfo>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreSku {
@@ -2919,11 +2919,11 @@ impl IStoreSkuVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreSubscriptionInfoImpl: Sized {
-    fn BillingPeriod(&self) -> ::windows::core::Result<u32>;
-    fn BillingPeriodUnit(&self) -> ::windows::core::Result<StoreDurationUnit>;
-    fn HasTrialPeriod(&self) -> ::windows::core::Result<bool>;
-    fn TrialPeriod(&self) -> ::windows::core::Result<u32>;
-    fn TrialPeriodUnit(&self) -> ::windows::core::Result<StoreDurationUnit>;
+    fn BillingPeriod(&mut self) -> ::windows::core::Result<u32>;
+    fn BillingPeriodUnit(&mut self) -> ::windows::core::Result<StoreDurationUnit>;
+    fn HasTrialPeriod(&mut self) -> ::windows::core::Result<bool>;
+    fn TrialPeriod(&mut self) -> ::windows::core::Result<u32>;
+    fn TrialPeriodUnit(&mut self) -> ::windows::core::Result<StoreDurationUnit>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreSubscriptionInfo {
@@ -3002,8 +3002,8 @@ impl IStoreSubscriptionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStoreUninstallStorePackageResultImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn Status(&self) -> ::windows::core::Result<StoreUninstallStorePackageStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Status(&mut self) -> ::windows::core::Result<StoreUninstallStorePackageStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStoreUninstallStorePackageResult {
@@ -3046,12 +3046,12 @@ impl IStoreUninstallStorePackageResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStoreVideoImpl: Sized {
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn VideoPurposeTag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Width(&self) -> ::windows::core::Result<u32>;
-    fn Height(&self) -> ::windows::core::Result<u32>;
-    fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PreviewImage(&self) -> ::windows::core::Result<StoreImage>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn VideoPurposeTag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
+    fn Caption(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PreviewImage(&mut self) -> ::windows::core::Result<StoreImage>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStoreVideo {

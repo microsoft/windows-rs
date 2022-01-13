@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IInteractiveSessionStaticsImpl: Sized {
-    fn IsRemote(&self) -> ::windows::core::Result<bool>;
+    fn IsRemote(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractiveSessionStatics {

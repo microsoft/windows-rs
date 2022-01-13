@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAmbientLightImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::Color>;
-    fn SetColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAmbientLight {
@@ -37,8 +37,8 @@ impl IAmbientLightVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAmbientLight2Impl: Sized {
-    fn Intensity(&self) -> ::windows::core::Result<f32>;
-    fn SetIntensity(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Intensity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAmbientLight2 {
@@ -74,14 +74,14 @@ impl IAmbientLight2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnimationControllerImpl: Sized {
-    fn PlaybackRate(&self) -> ::windows::core::Result<f32>;
-    fn SetPlaybackRate(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Progress(&self) -> ::windows::core::Result<f32>;
-    fn SetProgress(&self, value: f32) -> ::windows::core::Result<()>;
-    fn ProgressBehavior(&self) -> ::windows::core::Result<AnimationControllerProgressBehavior>;
-    fn SetProgressBehavior(&self, value: AnimationControllerProgressBehavior) -> ::windows::core::Result<()>;
-    fn Pause(&self) -> ::windows::core::Result<()>;
-    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn PlaybackRate(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPlaybackRate(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Progress(&mut self) -> ::windows::core::Result<f32>;
+    fn SetProgress(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn ProgressBehavior(&mut self) -> ::windows::core::Result<AnimationControllerProgressBehavior>;
+    fn SetProgressBehavior(&mut self, value: AnimationControllerProgressBehavior) -> ::windows::core::Result<()>;
+    fn Pause(&mut self) -> ::windows::core::Result<()>;
+    fn Resume(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnimationController {
@@ -161,8 +161,8 @@ impl IAnimationControllerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnimationControllerStaticsImpl: Sized {
-    fn MaxPlaybackRate(&self) -> ::windows::core::Result<f32>;
-    fn MinPlaybackRate(&self) -> ::windows::core::Result<f32>;
+    fn MaxPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
+    fn MinPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnimationControllerStatics {
@@ -204,7 +204,7 @@ impl IAnimationControllerStaticsVtbl {
     }
 }
 pub trait IAnimationObjectImpl: Sized {
-    fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &::core::option::Option<AnimationPropertyInfo>) -> ::windows::core::Result<()>;
+    fn PopulatePropertyInfo(&mut self, propertyname: &::windows::core::HSTRING, propertyinfo: &::core::option::Option<AnimationPropertyInfo>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAnimationObject {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationObject";
@@ -226,8 +226,8 @@ impl IAnimationObjectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnimationPropertyInfoImpl: Sized {
-    fn AccessMode(&self) -> ::windows::core::Result<AnimationPropertyAccessMode>;
-    fn SetAccessMode(&self, value: AnimationPropertyAccessMode) -> ::windows::core::Result<()>;
+    fn AccessMode(&mut self) -> ::windows::core::Result<AnimationPropertyAccessMode>;
+    fn SetAccessMode(&mut self, value: AnimationPropertyAccessMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnimationPropertyInfo {
@@ -263,8 +263,8 @@ impl IAnimationPropertyInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnimationPropertyInfo2Impl: Sized {
-    fn GetResolvedCompositionObject(&self) -> ::windows::core::Result<CompositionObject>;
-    fn GetResolvedCompositionObjectProperty(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetResolvedCompositionObject(&mut self) -> ::windows::core::Result<CompositionObject>;
+    fn GetResolvedCompositionObjectProperty(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnimationPropertyInfo2 {
@@ -307,8 +307,8 @@ impl IAnimationPropertyInfo2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackEasingFunctionImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
-    fn Amplitude(&self) -> ::windows::core::Result<f32>;
+    fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
+    fn Amplitude(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackEasingFunction {
@@ -351,7 +351,7 @@ impl IBackEasingFunctionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBooleanKeyFrameAnimationImpl: Sized {
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: bool) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBooleanKeyFrameAnimation {
@@ -375,9 +375,9 @@ impl IBooleanKeyFrameAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBounceEasingFunctionImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
-    fn Bounces(&self) -> ::windows::core::Result<i32>;
-    fn Bounciness(&self) -> ::windows::core::Result<f32>;
+    fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
+    fn Bounces(&mut self) -> ::windows::core::Result<i32>;
+    fn Bounciness(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBounceEasingFunction {
@@ -432,10 +432,10 @@ impl IBounceEasingFunctionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBounceScalarNaturalMotionAnimationImpl: Sized {
-    fn Acceleration(&self) -> ::windows::core::Result<f32>;
-    fn SetAcceleration(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Restitution(&self) -> ::windows::core::Result<f32>;
-    fn SetRestitution(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Acceleration(&mut self) -> ::windows::core::Result<f32>;
+    fn SetAcceleration(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Restitution(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRestitution(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBounceScalarNaturalMotionAnimation {
@@ -488,10 +488,10 @@ impl IBounceScalarNaturalMotionAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBounceVector2NaturalMotionAnimationImpl: Sized {
-    fn Acceleration(&self) -> ::windows::core::Result<f32>;
-    fn SetAcceleration(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Restitution(&self) -> ::windows::core::Result<f32>;
-    fn SetRestitution(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Acceleration(&mut self) -> ::windows::core::Result<f32>;
+    fn SetAcceleration(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Restitution(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRestitution(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBounceVector2NaturalMotionAnimation {
@@ -544,10 +544,10 @@ impl IBounceVector2NaturalMotionAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBounceVector3NaturalMotionAnimationImpl: Sized {
-    fn Acceleration(&self) -> ::windows::core::Result<f32>;
-    fn SetAcceleration(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Restitution(&self) -> ::windows::core::Result<f32>;
-    fn SetRestitution(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Acceleration(&mut self) -> ::windows::core::Result<f32>;
+    fn SetAcceleration(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Restitution(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRestitution(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBounceVector3NaturalMotionAnimation {
@@ -600,7 +600,7 @@ impl IBounceVector3NaturalMotionAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICircleEasingFunctionImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
+    fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICircleEasingFunction {
@@ -628,10 +628,10 @@ impl ICircleEasingFunctionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IColorKeyFrameAnimationImpl: Sized {
-    fn InterpolationColorSpace(&self) -> ::windows::core::Result<CompositionColorSpace>;
-    fn SetInterpolationColorSpace(&self, value: CompositionColorSpace) -> ::windows::core::Result<()>;
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: &super::Color) -> ::windows::core::Result<()>;
-    fn InsertKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, value: &super::Color, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn InterpolationColorSpace(&mut self) -> ::windows::core::Result<CompositionColorSpace>;
+    fn SetInterpolationColorSpace(&mut self, value: CompositionColorSpace) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::Color) -> ::windows::core::Result<()>;
+    fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::Color, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IColorKeyFrameAnimation {
@@ -677,17 +677,17 @@ impl IColorKeyFrameAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionAnimationImpl: Sized {
-    fn ClearAllParameters(&self) -> ::windows::core::Result<()>;
-    fn ClearParameter(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetColorParameter(&self, key: &::windows::core::HSTRING, value: &super::Color) -> ::windows::core::Result<()>;
-    fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
-    fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
-    fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
-    fn SetReferenceParameter(&self, key: &::windows::core::HSTRING, compositionobject: &::core::option::Option<CompositionObject>) -> ::windows::core::Result<()>;
-    fn SetScalarParameter(&self, key: &::windows::core::HSTRING, value: f32) -> ::windows::core::Result<()>;
-    fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
+    fn ClearAllParameters(&mut self) -> ::windows::core::Result<()>;
+    fn ClearParameter(&mut self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetColorParameter(&mut self, key: &::windows::core::HSTRING, value: &super::Color) -> ::windows::core::Result<()>;
+    fn SetMatrix3x2Parameter(&mut self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
+    fn SetMatrix4x4Parameter(&mut self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
+    fn SetQuaternionParameter(&mut self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn SetReferenceParameter(&mut self, key: &::windows::core::HSTRING, compositionobject: &::core::option::Option<CompositionObject>) -> ::windows::core::Result<()>;
+    fn SetScalarParameter(&mut self, key: &::windows::core::HSTRING, value: f32) -> ::windows::core::Result<()>;
+    fn SetVector2Parameter(&mut self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn SetVector3Parameter(&mut self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn SetVector4Parameter(&mut self, key: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionAnimation {
@@ -761,9 +761,9 @@ impl ICompositionAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionAnimation2Impl: Sized {
-    fn SetBooleanParameter(&self, key: &::windows::core::HSTRING, value: bool) -> ::windows::core::Result<()>;
-    fn Target(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTarget(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetBooleanParameter(&mut self, key: &::windows::core::HSTRING, value: bool) -> ::windows::core::Result<()>;
+    fn Target(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTarget(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionAnimation2 {
@@ -804,7 +804,7 @@ impl ICompositionAnimation2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICompositionAnimation3Impl: Sized {
-    fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection>;
+    fn InitialValueExpressions(&mut self) -> ::windows::core::Result<InitialValueExpressionCollection>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionAnimation3 {
@@ -835,7 +835,7 @@ impl ICompositionAnimation3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionAnimation4Impl: Sized {
-    fn SetExpressionReferenceParameter(&self, parametername: &::windows::core::HSTRING, source: &::core::option::Option<IAnimationObject>) -> ::windows::core::Result<()>;
+    fn SetExpressionReferenceParameter(&mut self, parametername: &::windows::core::HSTRING, source: &::core::option::Option<IAnimationObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionAnimation4 {
@@ -886,10 +886,10 @@ impl ICompositionAnimationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionAnimationGroupImpl: Sized {
-    fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, value: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
-    fn Remove(&self, value: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Add(&mut self, value: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, value: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionAnimationGroup {
@@ -995,10 +995,10 @@ impl ICompositionBrushFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompositionCapabilitiesImpl: Sized {
-    fn AreEffectsSupported(&self) -> ::windows::core::Result<bool>;
-    fn AreEffectsFast(&self) -> ::windows::core::Result<bool>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CompositionCapabilities, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AreEffectsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn AreEffectsFast(&mut self) -> ::windows::core::Result<bool>;
+    fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CompositionCapabilities, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionCapabilities {
@@ -1058,7 +1058,7 @@ impl ICompositionCapabilitiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionCapabilitiesStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<CompositionCapabilities>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<CompositionCapabilities>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionCapabilitiesStatics {
@@ -1104,20 +1104,20 @@ impl ICompositionClipVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionClip2Impl: Sized {
-    fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetAnchorPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetCenterPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn RotationAngle(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RotationAngleInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngleInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetScale(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
-    fn SetTransformMatrix(&self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
+    fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetCenterPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn RotationAngle(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RotationAngleInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngleInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Scale(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetScale(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn TransformMatrix(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
+    fn SetTransformMatrix(&mut self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionClip2 {
@@ -1270,8 +1270,8 @@ impl ICompositionClipFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionColorBrushImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::Color>;
-    fn SetColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionColorBrush {
@@ -1307,10 +1307,10 @@ impl ICompositionColorBrushVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionColorGradientStopImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::Color>;
-    fn SetColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<f32>;
-    fn SetOffset(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetOffset(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionColorGradientStop {
@@ -1378,10 +1378,10 @@ impl ICompositionColorGradientStopCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompositionCommitBatchImpl: Sized {
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn IsEnded(&self) -> ::windows::core::Result<bool>;
-    fn Completed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn IsEnded(&mut self) -> ::windows::core::Result<bool>;
+    fn Completed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionCommitBatch {
@@ -1441,7 +1441,7 @@ impl ICompositionCommitBatchVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICompositionContainerShapeImpl: Sized {
-    fn Shapes(&self) -> ::windows::core::Result<CompositionShapeCollection>;
+    fn Shapes(&mut self) -> ::windows::core::Result<CompositionShapeCollection>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionContainerShape {
@@ -1469,9 +1469,9 @@ impl ICompositionContainerShapeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ICompositionDrawingSurfaceImpl: Sized {
-    fn AlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode>;
-    fn PixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn AlphaMode(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode>;
+    fn PixelFormat(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionDrawingSurface {
@@ -1526,12 +1526,12 @@ impl ICompositionDrawingSurfaceVtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 pub trait ICompositionDrawingSurface2Impl: Sized {
-    fn SizeInt32(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
-    fn Resize(&self, sizepixels: &super::super::Graphics::SizeInt32) -> ::windows::core::Result<()>;
-    fn Scroll(&self, offset: &super::super::Graphics::PointInt32) -> ::windows::core::Result<()>;
-    fn ScrollRect(&self, offset: &super::super::Graphics::PointInt32, scrollrect: &super::super::Graphics::RectInt32) -> ::windows::core::Result<()>;
-    fn ScrollWithClip(&self, offset: &super::super::Graphics::PointInt32, cliprect: &super::super::Graphics::RectInt32) -> ::windows::core::Result<()>;
-    fn ScrollRectWithClip(&self, offset: &super::super::Graphics::PointInt32, cliprect: &super::super::Graphics::RectInt32, scrollrect: &super::super::Graphics::RectInt32) -> ::windows::core::Result<()>;
+    fn SizeInt32(&mut self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
+    fn Resize(&mut self, sizepixels: &super::super::Graphics::SizeInt32) -> ::windows::core::Result<()>;
+    fn Scroll(&mut self, offset: &super::super::Graphics::PointInt32) -> ::windows::core::Result<()>;
+    fn ScrollRect(&mut self, offset: &super::super::Graphics::PointInt32, scrollrect: &super::super::Graphics::RectInt32) -> ::windows::core::Result<()>;
+    fn ScrollWithClip(&mut self, offset: &super::super::Graphics::PointInt32, cliprect: &super::super::Graphics::RectInt32) -> ::windows::core::Result<()>;
+    fn ScrollRectWithClip(&mut self, offset: &super::super::Graphics::PointInt32, cliprect: &super::super::Graphics::RectInt32, scrollrect: &super::super::Graphics::RectInt32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionDrawingSurface2 {
@@ -1638,17 +1638,17 @@ impl ICompositionEasingFunctionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionEasingFunctionStaticsImpl: Sized {
-    fn CreateCubicBezierEasingFunction(&self, owner: &::core::option::Option<Compositor>, controlpoint1: &super::super::Foundation::Numerics::Vector2, controlpoint2: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CubicBezierEasingFunction>;
-    fn CreateLinearEasingFunction(&self, owner: &::core::option::Option<Compositor>) -> ::windows::core::Result<LinearEasingFunction>;
-    fn CreateStepEasingFunction(&self, owner: &::core::option::Option<Compositor>) -> ::windows::core::Result<StepEasingFunction>;
-    fn CreateStepEasingFunctionWithStepCount(&self, owner: &::core::option::Option<Compositor>, stepcount: i32) -> ::windows::core::Result<StepEasingFunction>;
-    fn CreateBackEasingFunction(&self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, amplitude: f32) -> ::windows::core::Result<BackEasingFunction>;
-    fn CreateBounceEasingFunction(&self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32) -> ::windows::core::Result<BounceEasingFunction>;
-    fn CreateCircleEasingFunction(&self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<CircleEasingFunction>;
-    fn CreateElasticEasingFunction(&self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32) -> ::windows::core::Result<ElasticEasingFunction>;
-    fn CreateExponentialEasingFunction(&self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, exponent: f32) -> ::windows::core::Result<ExponentialEasingFunction>;
-    fn CreatePowerEasingFunction(&self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, power: f32) -> ::windows::core::Result<PowerEasingFunction>;
-    fn CreateSineEasingFunction(&self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<SineEasingFunction>;
+    fn CreateCubicBezierEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, controlpoint1: &super::super::Foundation::Numerics::Vector2, controlpoint2: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CubicBezierEasingFunction>;
+    fn CreateLinearEasingFunction(&mut self, owner: &::core::option::Option<Compositor>) -> ::windows::core::Result<LinearEasingFunction>;
+    fn CreateStepEasingFunction(&mut self, owner: &::core::option::Option<Compositor>) -> ::windows::core::Result<StepEasingFunction>;
+    fn CreateStepEasingFunctionWithStepCount(&mut self, owner: &::core::option::Option<Compositor>, stepcount: i32) -> ::windows::core::Result<StepEasingFunction>;
+    fn CreateBackEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, amplitude: f32) -> ::windows::core::Result<BackEasingFunction>;
+    fn CreateBounceEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32) -> ::windows::core::Result<BounceEasingFunction>;
+    fn CreateCircleEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<CircleEasingFunction>;
+    fn CreateElasticEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32) -> ::windows::core::Result<ElasticEasingFunction>;
+    fn CreateExponentialEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, exponent: f32) -> ::windows::core::Result<ExponentialEasingFunction>;
+    fn CreatePowerEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode, power: f32) -> ::windows::core::Result<PowerEasingFunction>;
+    fn CreateSineEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<SineEasingFunction>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionEasingFunctionStatics {
@@ -1803,8 +1803,8 @@ impl ICompositionEasingFunctionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionEffectBrushImpl: Sized {
-    fn GetSourceParameter(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<CompositionBrush>;
-    fn SetSourceParameter(&self, name: &::windows::core::HSTRING, source: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn GetSourceParameter(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<CompositionBrush>;
+    fn SetSourceParameter(&mut self, name: &::windows::core::HSTRING, source: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionEffectBrush {
@@ -1840,9 +1840,9 @@ impl ICompositionEffectBrushVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionEffectFactoryImpl: Sized {
-    fn CreateBrush(&self) -> ::windows::core::Result<CompositionEffectBrush>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn LoadStatus(&self) -> ::windows::core::Result<CompositionEffectFactoryLoadStatus>;
+    fn CreateBrush(&mut self) -> ::windows::core::Result<CompositionEffectBrush>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn LoadStatus(&mut self) -> ::windows::core::Result<CompositionEffectFactoryLoadStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionEffectFactory {
@@ -1897,7 +1897,7 @@ impl ICompositionEffectFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionEffectSourceParameterImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionEffectSourceParameter {
@@ -1925,7 +1925,7 @@ impl ICompositionEffectSourceParameterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionEffectSourceParameterFactoryImpl: Sized {
-    fn Create(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<CompositionEffectSourceParameter>;
+    fn Create(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<CompositionEffectSourceParameter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionEffectSourceParameterFactory {
@@ -1956,10 +1956,10 @@ impl ICompositionEffectSourceParameterFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionEllipseGeometryImpl: Sized {
-    fn Center(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetCenter(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Radius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetRadius(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Center(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetCenter(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Radius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionEllipseGeometry {
@@ -2012,10 +2012,10 @@ impl ICompositionEllipseGeometryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionGeometricClipImpl: Sized {
-    fn Geometry(&self) -> ::windows::core::Result<CompositionGeometry>;
-    fn SetGeometry(&self, value: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<()>;
-    fn ViewBox(&self) -> ::windows::core::Result<CompositionViewBox>;
-    fn SetViewBox(&self, value: &::core::option::Option<CompositionViewBox>) -> ::windows::core::Result<()>;
+    fn Geometry(&mut self) -> ::windows::core::Result<CompositionGeometry>;
+    fn SetGeometry(&mut self, value: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<()>;
+    fn ViewBox(&mut self) -> ::windows::core::Result<CompositionViewBox>;
+    fn SetViewBox(&mut self, value: &::core::option::Option<CompositionViewBox>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionGeometricClip {
@@ -2068,12 +2068,12 @@ impl ICompositionGeometricClipVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionGeometryImpl: Sized {
-    fn TrimEnd(&self) -> ::windows::core::Result<f32>;
-    fn SetTrimEnd(&self, value: f32) -> ::windows::core::Result<()>;
-    fn TrimOffset(&self) -> ::windows::core::Result<f32>;
-    fn SetTrimOffset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn TrimStart(&self) -> ::windows::core::Result<f32>;
-    fn SetTrimStart(&self, value: f32) -> ::windows::core::Result<()>;
+    fn TrimEnd(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTrimEnd(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn TrimOffset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTrimOffset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn TrimStart(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTrimStart(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionGeometry {
@@ -2158,25 +2158,25 @@ impl ICompositionGeometryFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionGradientBrushImpl: Sized {
-    fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetAnchorPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetCenterPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn ColorStops(&self) -> ::windows::core::Result<CompositionColorGradientStopCollection>;
-    fn ExtendMode(&self) -> ::windows::core::Result<CompositionGradientExtendMode>;
-    fn SetExtendMode(&self, value: CompositionGradientExtendMode) -> ::windows::core::Result<()>;
-    fn InterpolationSpace(&self) -> ::windows::core::Result<CompositionColorSpace>;
-    fn SetInterpolationSpace(&self, value: CompositionColorSpace) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn RotationAngle(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RotationAngleInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngleInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetScale(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
-    fn SetTransformMatrix(&self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
+    fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetCenterPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn ColorStops(&mut self) -> ::windows::core::Result<CompositionColorGradientStopCollection>;
+    fn ExtendMode(&mut self) -> ::windows::core::Result<CompositionGradientExtendMode>;
+    fn SetExtendMode(&mut self, value: CompositionGradientExtendMode) -> ::windows::core::Result<()>;
+    fn InterpolationSpace(&mut self) -> ::windows::core::Result<CompositionColorSpace>;
+    fn SetInterpolationSpace(&mut self, value: CompositionColorSpace) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn RotationAngle(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RotationAngleInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngleInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Scale(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetScale(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn TransformMatrix(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
+    fn SetTransformMatrix(&mut self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionGradientBrush {
@@ -2360,8 +2360,8 @@ impl ICompositionGradientBrushVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionGradientBrush2Impl: Sized {
-    fn MappingMode(&self) -> ::windows::core::Result<CompositionMappingMode>;
-    fn SetMappingMode(&self, value: CompositionMappingMode) -> ::windows::core::Result<()>;
+    fn MappingMode(&mut self) -> ::windows::core::Result<CompositionMappingMode>;
+    fn SetMappingMode(&mut self, value: CompositionMappingMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionGradientBrush2 {
@@ -2412,9 +2412,9 @@ impl ICompositionGradientBrushFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ICompositionGraphicsDeviceImpl: Sized {
-    fn CreateDrawingSurface(&self, sizepixels: &super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface>;
-    fn RenderingDeviceReplaced(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CompositionGraphicsDevice, RenderingDeviceReplacedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRenderingDeviceReplaced(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateDrawingSurface(&mut self, sizepixels: &super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface>;
+    fn RenderingDeviceReplaced(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CompositionGraphicsDevice, RenderingDeviceReplacedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRenderingDeviceReplaced(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionGraphicsDevice {
@@ -2462,8 +2462,8 @@ impl ICompositionGraphicsDeviceVtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ICompositionGraphicsDevice2Impl: Sized {
-    fn CreateDrawingSurface2(&self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface>;
-    fn CreateVirtualDrawingSurface(&self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionVirtualDrawingSurface>;
+    fn CreateDrawingSurface2(&mut self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface>;
+    fn CreateVirtualDrawingSurface(&mut self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionVirtualDrawingSurface>;
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionGraphicsDevice2 {
@@ -2506,8 +2506,8 @@ impl ICompositionGraphicsDevice2Vtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ICompositionGraphicsDevice3Impl: Sized {
-    fn CreateMipmapSurface(&self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionMipmapSurface>;
-    fn Trim(&self) -> ::windows::core::Result<()>;
+    fn CreateMipmapSurface(&mut self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionMipmapSurface>;
+    fn Trim(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionGraphicsDevice3 {
@@ -2543,7 +2543,7 @@ impl ICompositionGraphicsDevice3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ICompositionGraphicsDevice4Impl: Sized {
-    fn CaptureAsync(&self, capturevisual: &::core::option::Option<Visual>, size: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>;
+    fn CaptureAsync(&mut self, capturevisual: &::core::option::Option<Visual>, size: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionGraphicsDevice4 {
@@ -2574,7 +2574,7 @@ impl ICompositionGraphicsDevice4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionLightImpl: Sized {
-    fn Targets(&self) -> ::windows::core::Result<VisualUnorderedCollection>;
+    fn Targets(&mut self) -> ::windows::core::Result<VisualUnorderedCollection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionLight {
@@ -2602,7 +2602,7 @@ impl ICompositionLightVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionLight2Impl: Sized {
-    fn ExclusionsFromTargets(&self) -> ::windows::core::Result<VisualUnorderedCollection>;
+    fn ExclusionsFromTargets(&mut self) -> ::windows::core::Result<VisualUnorderedCollection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionLight2 {
@@ -2633,8 +2633,8 @@ impl ICompositionLight2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionLight3Impl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionLight3 {
@@ -2685,10 +2685,10 @@ impl ICompositionLightFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionLineGeometryImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetStart(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn End(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetEnd(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetStart(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn End(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetEnd(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionLineGeometry {
@@ -2741,10 +2741,10 @@ impl ICompositionLineGeometryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionLinearGradientBrushImpl: Sized {
-    fn EndPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetEndPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn StartPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetStartPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn EndPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetEndPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn StartPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetStartPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionLinearGradientBrush {
@@ -2797,10 +2797,10 @@ impl ICompositionLinearGradientBrushVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionMaskBrushImpl: Sized {
-    fn Mask(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetMask(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
-    fn Source(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetSource(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn Mask(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetMask(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetSource(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionMaskBrush {
@@ -2853,11 +2853,11 @@ impl ICompositionMaskBrushVtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ICompositionMipmapSurfaceImpl: Sized {
-    fn LevelCount(&self) -> ::windows::core::Result<u32>;
-    fn AlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode>;
-    fn PixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn SizeInt32(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
-    fn GetDrawingSurfaceForLevel(&self, level: u32) -> ::windows::core::Result<CompositionDrawingSurface>;
+    fn LevelCount(&mut self) -> ::windows::core::Result<u32>;
+    fn AlphaMode(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode>;
+    fn PixelFormat(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn SizeInt32(&mut self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
+    fn GetDrawingSurfaceForLevel(&mut self, level: u32) -> ::windows::core::Result<CompositionDrawingSurface>;
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionMipmapSurface {
@@ -2936,30 +2936,30 @@ impl ICompositionMipmapSurfaceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionNineGridBrushImpl: Sized {
-    fn BottomInset(&self) -> ::windows::core::Result<f32>;
-    fn SetBottomInset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn BottomInsetScale(&self) -> ::windows::core::Result<f32>;
-    fn SetBottomInsetScale(&self, value: f32) -> ::windows::core::Result<()>;
-    fn IsCenterHollow(&self) -> ::windows::core::Result<bool>;
-    fn SetIsCenterHollow(&self, value: bool) -> ::windows::core::Result<()>;
-    fn LeftInset(&self) -> ::windows::core::Result<f32>;
-    fn SetLeftInset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn LeftInsetScale(&self) -> ::windows::core::Result<f32>;
-    fn SetLeftInsetScale(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RightInset(&self) -> ::windows::core::Result<f32>;
-    fn SetRightInset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RightInsetScale(&self) -> ::windows::core::Result<f32>;
-    fn SetRightInsetScale(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Source(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetSource(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
-    fn TopInset(&self) -> ::windows::core::Result<f32>;
-    fn SetTopInset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn TopInsetScale(&self) -> ::windows::core::Result<f32>;
-    fn SetTopInsetScale(&self, value: f32) -> ::windows::core::Result<()>;
-    fn SetInsets(&self, inset: f32) -> ::windows::core::Result<()>;
-    fn SetInsetsWithValues(&self, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::Result<()>;
-    fn SetInsetScales(&self, scale: f32) -> ::windows::core::Result<()>;
-    fn SetInsetScalesWithValues(&self, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::Result<()>;
+    fn BottomInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBottomInset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn BottomInsetScale(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBottomInsetScale(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn IsCenterHollow(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsCenterHollow(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn LeftInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLeftInset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn LeftInsetScale(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLeftInsetScale(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RightInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRightInset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RightInsetScale(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRightInsetScale(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetSource(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn TopInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTopInset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn TopInsetScale(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTopInsetScale(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn SetInsets(&mut self, inset: f32) -> ::windows::core::Result<()>;
+    fn SetInsetsWithValues(&mut self, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::Result<()>;
+    fn SetInsetScales(&mut self, scale: f32) -> ::windows::core::Result<()>;
+    fn SetInsetScalesWithValues(&mut self, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionNineGridBrush {
@@ -3168,11 +3168,11 @@ impl ICompositionNineGridBrushVtbl {
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait ICompositionObjectImpl: Sized {
-    fn Compositor(&self) -> ::windows::core::Result<Compositor>;
-    fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher>;
-    fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet>;
-    fn StartAnimation(&self, propertyname: &::windows::core::HSTRING, animation: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
-    fn StopAnimation(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Compositor(&mut self) -> ::windows::core::Result<Compositor>;
+    fn Dispatcher(&mut self) -> ::windows::core::Result<super::Core::CoreDispatcher>;
+    fn Properties(&mut self) -> ::windows::core::Result<CompositionPropertySet>;
+    fn StartAnimation(&mut self, propertyname: &::windows::core::HSTRING, animation: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
+    fn StopAnimation(&mut self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionObject {
@@ -3237,12 +3237,12 @@ impl ICompositionObjectVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionObject2Impl: Sized {
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection>;
-    fn SetImplicitAnimations(&self, value: &::core::option::Option<ImplicitAnimationCollection>) -> ::windows::core::Result<()>;
-    fn StartAnimationGroup(&self, value: &::core::option::Option<ICompositionAnimationBase>) -> ::windows::core::Result<()>;
-    fn StopAnimationGroup(&self, value: &::core::option::Option<ICompositionAnimationBase>) -> ::windows::core::Result<()>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetComment(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ImplicitAnimations(&mut self) -> ::windows::core::Result<ImplicitAnimationCollection>;
+    fn SetImplicitAnimations(&mut self, value: &::core::option::Option<ImplicitAnimationCollection>) -> ::windows::core::Result<()>;
+    fn StartAnimationGroup(&mut self, value: &::core::option::Option<ICompositionAnimationBase>) -> ::windows::core::Result<()>;
+    fn StopAnimationGroup(&mut self, value: &::core::option::Option<ICompositionAnimationBase>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionObject2 {
@@ -3305,7 +3305,7 @@ impl ICompositionObject2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ICompositionObject3Impl: Sized {
-    fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionObject3 {
@@ -3336,7 +3336,7 @@ impl ICompositionObject3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionObject4Impl: Sized {
-    fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<AnimationController>;
+    fn TryGetAnimationController(&mut self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<AnimationController>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionObject4 {
@@ -3382,8 +3382,8 @@ impl ICompositionObjectFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionObjectStaticsImpl: Sized {
-    fn StartAnimationWithIAnimationObject(&self, target: &::core::option::Option<IAnimationObject>, propertyname: &::windows::core::HSTRING, animation: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
-    fn StartAnimationGroupWithIAnimationObject(&self, target: &::core::option::Option<IAnimationObject>, animation: &::core::option::Option<ICompositionAnimationBase>) -> ::windows::core::Result<()>;
+    fn StartAnimationWithIAnimationObject(&mut self, target: &::core::option::Option<IAnimationObject>, propertyname: &::windows::core::HSTRING, animation: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
+    fn StartAnimationGroupWithIAnimationObject(&mut self, target: &::core::option::Option<IAnimationObject>, animation: &::core::option::Option<ICompositionAnimationBase>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionObjectStatics {
@@ -3429,7 +3429,7 @@ impl ICompositionPathVtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 pub trait ICompositionPathFactoryImpl: Sized {
-    fn Create(&self, source: &::core::option::Option<super::super::Graphics::IGeometrySource2D>) -> ::windows::core::Result<CompositionPath>;
+    fn Create(&mut self, source: &::core::option::Option<super::super::Graphics::IGeometrySource2D>) -> ::windows::core::Result<CompositionPath>;
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionPathFactory {
@@ -3457,8 +3457,8 @@ impl ICompositionPathFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionPathGeometryImpl: Sized {
-    fn Path(&self) -> ::windows::core::Result<CompositionPath>;
-    fn SetPath(&self, value: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<()>;
+    fn Path(&mut self) -> ::windows::core::Result<CompositionPath>;
+    fn SetPath(&mut self, value: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionPathGeometry {
@@ -3494,16 +3494,16 @@ impl ICompositionPathGeometryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionProjectedShadowImpl: Sized {
-    fn BlurRadiusMultiplier(&self) -> ::windows::core::Result<f32>;
-    fn SetBlurRadiusMultiplier(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Casters(&self) -> ::windows::core::Result<CompositionProjectedShadowCasterCollection>;
-    fn LightSource(&self) -> ::windows::core::Result<CompositionLight>;
-    fn SetLightSource(&self, value: &::core::option::Option<CompositionLight>) -> ::windows::core::Result<()>;
-    fn MaxBlurRadius(&self) -> ::windows::core::Result<f32>;
-    fn SetMaxBlurRadius(&self, value: f32) -> ::windows::core::Result<()>;
-    fn MinBlurRadius(&self) -> ::windows::core::Result<f32>;
-    fn SetMinBlurRadius(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Receivers(&self) -> ::windows::core::Result<CompositionProjectedShadowReceiverUnorderedCollection>;
+    fn BlurRadiusMultiplier(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBlurRadiusMultiplier(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Casters(&mut self) -> ::windows::core::Result<CompositionProjectedShadowCasterCollection>;
+    fn LightSource(&mut self) -> ::windows::core::Result<CompositionLight>;
+    fn SetLightSource(&mut self, value: &::core::option::Option<CompositionLight>) -> ::windows::core::Result<()>;
+    fn MaxBlurRadius(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMaxBlurRadius(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn MinBlurRadius(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMinBlurRadius(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Receivers(&mut self) -> ::windows::core::Result<CompositionProjectedShadowReceiverUnorderedCollection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionProjectedShadow {
@@ -3614,10 +3614,10 @@ impl ICompositionProjectedShadowVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionProjectedShadowCasterImpl: Sized {
-    fn Brush(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetBrush(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
-    fn CastingVisual(&self) -> ::windows::core::Result<Visual>;
-    fn SetCastingVisual(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn Brush(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetBrush(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn CastingVisual(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetCastingVisual(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionProjectedShadowCaster {
@@ -3670,13 +3670,13 @@ impl ICompositionProjectedShadowCasterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionProjectedShadowCasterCollectionImpl: Sized {
-    fn Count(&self) -> ::windows::core::Result<i32>;
-    fn InsertAbove(&self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>, reference: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
-    fn InsertAtBottom(&self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
-    fn InsertAtTop(&self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
-    fn InsertBelow(&self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>, reference: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
-    fn Remove(&self, caster: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn InsertAbove(&mut self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>, reference: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
+    fn InsertAtBottom(&mut self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
+    fn InsertAtTop(&mut self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
+    fn InsertBelow(&mut self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>, reference: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, caster: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionProjectedShadowCasterCollection {
@@ -3737,7 +3737,7 @@ impl ICompositionProjectedShadowCasterCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionProjectedShadowCasterCollectionStaticsImpl: Sized {
-    fn MaxRespectedCasters(&self) -> ::windows::core::Result<i32>;
+    fn MaxRespectedCasters(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionProjectedShadowCasterCollectionStatics {
@@ -3768,8 +3768,8 @@ impl ICompositionProjectedShadowCasterCollectionStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionProjectedShadowReceiverImpl: Sized {
-    fn ReceivingVisual(&self) -> ::windows::core::Result<Visual>;
-    fn SetReceivingVisual(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn ReceivingVisual(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetReceivingVisual(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionProjectedShadowReceiver {
@@ -3805,10 +3805,10 @@ impl ICompositionProjectedShadowReceiverVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionProjectedShadowReceiverUnorderedCollectionImpl: Sized {
-    fn Add(&self, value: &::core::option::Option<CompositionProjectedShadowReceiver>) -> ::windows::core::Result<()>;
-    fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Remove(&self, value: &::core::option::Option<CompositionProjectedShadowReceiver>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn Add(&mut self, value: &::core::option::Option<CompositionProjectedShadowReceiver>) -> ::windows::core::Result<()>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Remove(&mut self, value: &::core::option::Option<CompositionProjectedShadowReceiver>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionProjectedShadowReceiverUnorderedCollection {
@@ -3854,22 +3854,22 @@ impl ICompositionProjectedShadowReceiverUnorderedCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionPropertySetImpl: Sized {
-    fn InsertColor(&self, propertyname: &::windows::core::HSTRING, value: &super::Color) -> ::windows::core::Result<()>;
-    fn InsertMatrix3x2(&self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
-    fn InsertMatrix4x4(&self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
-    fn InsertQuaternion(&self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
-    fn InsertScalar(&self, propertyname: &::windows::core::HSTRING, value: f32) -> ::windows::core::Result<()>;
-    fn InsertVector2(&self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn InsertVector3(&self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn InsertVector4(&self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
-    fn TryGetColor(&self, propertyname: &::windows::core::HSTRING, value: &mut super::Color) -> ::windows::core::Result<CompositionGetValueStatus>;
-    fn TryGetMatrix3x2(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<CompositionGetValueStatus>;
-    fn TryGetMatrix4x4(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<CompositionGetValueStatus>;
-    fn TryGetQuaternion(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<CompositionGetValueStatus>;
-    fn TryGetScalar(&self, propertyname: &::windows::core::HSTRING, value: &mut f32) -> ::windows::core::Result<CompositionGetValueStatus>;
-    fn TryGetVector2(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CompositionGetValueStatus>;
-    fn TryGetVector3(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<CompositionGetValueStatus>;
-    fn TryGetVector4(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn InsertColor(&mut self, propertyname: &::windows::core::HSTRING, value: &super::Color) -> ::windows::core::Result<()>;
+    fn InsertMatrix3x2(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
+    fn InsertMatrix4x4(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
+    fn InsertQuaternion(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn InsertScalar(&mut self, propertyname: &::windows::core::HSTRING, value: f32) -> ::windows::core::Result<()>;
+    fn InsertVector2(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn InsertVector3(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn InsertVector4(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
+    fn TryGetColor(&mut self, propertyname: &::windows::core::HSTRING, value: &mut super::Color) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn TryGetMatrix3x2(&mut self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn TryGetMatrix4x4(&mut self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn TryGetQuaternion(&mut self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn TryGetScalar(&mut self, propertyname: &::windows::core::HSTRING, value: &mut f32) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn TryGetVector2(&mut self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn TryGetVector3(&mut self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn TryGetVector4(&mut self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<CompositionGetValueStatus>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionPropertySet {
@@ -4024,8 +4024,8 @@ impl ICompositionPropertySetVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionPropertySet2Impl: Sized {
-    fn InsertBoolean(&self, propertyname: &::windows::core::HSTRING, value: bool) -> ::windows::core::Result<()>;
-    fn TryGetBoolean(&self, propertyname: &::windows::core::HSTRING, value: &mut bool) -> ::windows::core::Result<CompositionGetValueStatus>;
+    fn InsertBoolean(&mut self, propertyname: &::windows::core::HSTRING, value: bool) -> ::windows::core::Result<()>;
+    fn TryGetBoolean(&mut self, propertyname: &::windows::core::HSTRING, value: &mut bool) -> ::windows::core::Result<CompositionGetValueStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionPropertySet2 {
@@ -4061,12 +4061,12 @@ impl ICompositionPropertySet2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionRadialGradientBrushImpl: Sized {
-    fn EllipseCenter(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetEllipseCenter(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn EllipseRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetEllipseRadius(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn GradientOriginOffset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetGradientOriginOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn EllipseCenter(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetEllipseCenter(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn EllipseRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetEllipseRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn GradientOriginOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetGradientOriginOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionRadialGradientBrush {
@@ -4136,10 +4136,10 @@ impl ICompositionRadialGradientBrushVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionRectangleGeometryImpl: Sized {
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetSize(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetSize(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionRectangleGeometry {
@@ -4192,12 +4192,12 @@ impl ICompositionRectangleGeometryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionRoundedRectangleGeometryImpl: Sized {
-    fn CornerRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetCornerRadius(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetSize(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn CornerRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetCornerRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetSize(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionRoundedRectangleGeometry {
@@ -4267,13 +4267,13 @@ impl ICompositionRoundedRectangleGeometryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompositionScopedBatchImpl: Sized {
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn IsEnded(&self) -> ::windows::core::Result<bool>;
-    fn End(&self) -> ::windows::core::Result<()>;
-    fn Resume(&self) -> ::windows::core::Result<()>;
-    fn Suspend(&self) -> ::windows::core::Result<()>;
-    fn Completed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn IsEnded(&mut self) -> ::windows::core::Result<bool>;
+    fn End(&mut self) -> ::windows::core::Result<()>;
+    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn Suspend(&mut self) -> ::windows::core::Result<()>;
+    fn Completed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionScopedBatch {
@@ -4378,18 +4378,18 @@ impl ICompositionShadowFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionShapeImpl: Sized {
-    fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetCenterPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn RotationAngle(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RotationAngleInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngleInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetScale(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
-    fn SetTransformMatrix(&self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
+    fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetCenterPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn RotationAngle(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RotationAngleInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngleInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Scale(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetScale(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn TransformMatrix(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
+    fn SetTransformMatrix(&mut self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionShape {
@@ -4525,29 +4525,29 @@ impl ICompositionShapeFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICompositionSpriteShapeImpl: Sized {
-    fn FillBrush(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetFillBrush(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
-    fn Geometry(&self) -> ::windows::core::Result<CompositionGeometry>;
-    fn SetGeometry(&self, value: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<()>;
-    fn IsStrokeNonScaling(&self) -> ::windows::core::Result<bool>;
-    fn SetIsStrokeNonScaling(&self, value: bool) -> ::windows::core::Result<()>;
-    fn StrokeBrush(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetStrokeBrush(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
-    fn StrokeDashArray(&self) -> ::windows::core::Result<CompositionStrokeDashArray>;
-    fn StrokeDashCap(&self) -> ::windows::core::Result<CompositionStrokeCap>;
-    fn SetStrokeDashCap(&self, value: CompositionStrokeCap) -> ::windows::core::Result<()>;
-    fn StrokeDashOffset(&self) -> ::windows::core::Result<f32>;
-    fn SetStrokeDashOffset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn StrokeEndCap(&self) -> ::windows::core::Result<CompositionStrokeCap>;
-    fn SetStrokeEndCap(&self, value: CompositionStrokeCap) -> ::windows::core::Result<()>;
-    fn StrokeLineJoin(&self) -> ::windows::core::Result<CompositionStrokeLineJoin>;
-    fn SetStrokeLineJoin(&self, value: CompositionStrokeLineJoin) -> ::windows::core::Result<()>;
-    fn StrokeMiterLimit(&self) -> ::windows::core::Result<f32>;
-    fn SetStrokeMiterLimit(&self, value: f32) -> ::windows::core::Result<()>;
-    fn StrokeStartCap(&self) -> ::windows::core::Result<CompositionStrokeCap>;
-    fn SetStrokeStartCap(&self, value: CompositionStrokeCap) -> ::windows::core::Result<()>;
-    fn StrokeThickness(&self) -> ::windows::core::Result<f32>;
-    fn SetStrokeThickness(&self, value: f32) -> ::windows::core::Result<()>;
+    fn FillBrush(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetFillBrush(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn Geometry(&mut self) -> ::windows::core::Result<CompositionGeometry>;
+    fn SetGeometry(&mut self, value: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<()>;
+    fn IsStrokeNonScaling(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsStrokeNonScaling(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn StrokeBrush(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetStrokeBrush(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn StrokeDashArray(&mut self) -> ::windows::core::Result<CompositionStrokeDashArray>;
+    fn StrokeDashCap(&mut self) -> ::windows::core::Result<CompositionStrokeCap>;
+    fn SetStrokeDashCap(&mut self, value: CompositionStrokeCap) -> ::windows::core::Result<()>;
+    fn StrokeDashOffset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetStrokeDashOffset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn StrokeEndCap(&mut self) -> ::windows::core::Result<CompositionStrokeCap>;
+    fn SetStrokeEndCap(&mut self, value: CompositionStrokeCap) -> ::windows::core::Result<()>;
+    fn StrokeLineJoin(&mut self) -> ::windows::core::Result<CompositionStrokeLineJoin>;
+    fn SetStrokeLineJoin(&mut self, value: CompositionStrokeLineJoin) -> ::windows::core::Result<()>;
+    fn StrokeMiterLimit(&mut self) -> ::windows::core::Result<f32>;
+    fn SetStrokeMiterLimit(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn StrokeStartCap(&mut self) -> ::windows::core::Result<CompositionStrokeCap>;
+    fn SetStrokeStartCap(&mut self, value: CompositionStrokeCap) -> ::windows::core::Result<()>;
+    fn StrokeThickness(&mut self) -> ::windows::core::Result<f32>;
+    fn SetStrokeThickness(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionSpriteShape {
@@ -4764,8 +4764,8 @@ impl ICompositionSpriteShapeVtbl {
     }
 }
 pub trait ICompositionSupportsSystemBackdropImpl: Sized {
-    fn SystemBackdrop(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetSystemBackdrop(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn SystemBackdrop(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetSystemBackdrop(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICompositionSupportsSystemBackdrop {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
@@ -4811,16 +4811,16 @@ impl ICompositionSurfaceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionSurfaceBrushImpl: Sized {
-    fn BitmapInterpolationMode(&self) -> ::windows::core::Result<CompositionBitmapInterpolationMode>;
-    fn SetBitmapInterpolationMode(&self, value: CompositionBitmapInterpolationMode) -> ::windows::core::Result<()>;
-    fn HorizontalAlignmentRatio(&self) -> ::windows::core::Result<f32>;
-    fn SetHorizontalAlignmentRatio(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Stretch(&self) -> ::windows::core::Result<CompositionStretch>;
-    fn SetStretch(&self, value: CompositionStretch) -> ::windows::core::Result<()>;
-    fn Surface(&self) -> ::windows::core::Result<ICompositionSurface>;
-    fn SetSurface(&self, value: &::core::option::Option<ICompositionSurface>) -> ::windows::core::Result<()>;
-    fn VerticalAlignmentRatio(&self) -> ::windows::core::Result<f32>;
-    fn SetVerticalAlignmentRatio(&self, value: f32) -> ::windows::core::Result<()>;
+    fn BitmapInterpolationMode(&mut self) -> ::windows::core::Result<CompositionBitmapInterpolationMode>;
+    fn SetBitmapInterpolationMode(&mut self, value: CompositionBitmapInterpolationMode) -> ::windows::core::Result<()>;
+    fn HorizontalAlignmentRatio(&mut self) -> ::windows::core::Result<f32>;
+    fn SetHorizontalAlignmentRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Stretch(&mut self) -> ::windows::core::Result<CompositionStretch>;
+    fn SetStretch(&mut self, value: CompositionStretch) -> ::windows::core::Result<()>;
+    fn Surface(&mut self) -> ::windows::core::Result<ICompositionSurface>;
+    fn SetSurface(&mut self, value: &::core::option::Option<ICompositionSurface>) -> ::windows::core::Result<()>;
+    fn VerticalAlignmentRatio(&mut self) -> ::windows::core::Result<f32>;
+    fn SetVerticalAlignmentRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionSurfaceBrush {
@@ -4924,20 +4924,20 @@ impl ICompositionSurfaceBrushVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionSurfaceBrush2Impl: Sized {
-    fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetAnchorPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetCenterPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn RotationAngle(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RotationAngleInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngleInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetScale(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
-    fn SetTransformMatrix(&self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
+    fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetCenterPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn RotationAngle(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RotationAngleInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngleInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Scale(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetScale(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn TransformMatrix(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2>;
+    fn SetTransformMatrix(&mut self, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionSurfaceBrush2 {
@@ -5075,8 +5075,8 @@ impl ICompositionSurfaceBrush2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionSurfaceBrush3Impl: Sized {
-    fn SnapToPixels(&self) -> ::windows::core::Result<bool>;
-    fn SetSnapToPixels(&self, value: bool) -> ::windows::core::Result<()>;
+    fn SnapToPixels(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSnapToPixels(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionSurfaceBrush3 {
@@ -5111,7 +5111,7 @@ impl ICompositionSurfaceBrush3Vtbl {
     }
 }
 pub trait ICompositionSurfaceFacadeImpl: Sized {
-    fn GetRealSurface(&self) -> ::windows::core::Result<ICompositionSurface>;
+    fn GetRealSurface(&mut self) -> ::windows::core::Result<ICompositionSurface>;
 }
 impl ::windows::core::RuntimeName for ICompositionSurfaceFacade {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceFacade";
@@ -5140,8 +5140,8 @@ impl ICompositionSurfaceFacadeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositionTargetImpl: Sized {
-    fn Root(&self) -> ::windows::core::Result<Visual>;
-    fn SetRoot(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn Root(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetRoot(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionTarget {
@@ -5222,16 +5222,16 @@ impl ICompositionTransformFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionViewBoxImpl: Sized {
-    fn HorizontalAlignmentRatio(&self) -> ::windows::core::Result<f32>;
-    fn SetHorizontalAlignmentRatio(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetSize(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Stretch(&self) -> ::windows::core::Result<CompositionStretch>;
-    fn SetStretch(&self, value: CompositionStretch) -> ::windows::core::Result<()>;
-    fn VerticalAlignmentRatio(&self) -> ::windows::core::Result<f32>;
-    fn SetVerticalAlignmentRatio(&self, value: f32) -> ::windows::core::Result<()>;
+    fn HorizontalAlignmentRatio(&mut self) -> ::windows::core::Result<f32>;
+    fn SetHorizontalAlignmentRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetSize(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Stretch(&mut self) -> ::windows::core::Result<CompositionStretch>;
+    fn SetStretch(&mut self, value: CompositionStretch) -> ::windows::core::Result<()>;
+    fn VerticalAlignmentRatio(&mut self) -> ::windows::core::Result<f32>;
+    fn SetVerticalAlignmentRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionViewBox {
@@ -5335,7 +5335,7 @@ impl ICompositionViewBoxVtbl {
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 pub trait ICompositionVirtualDrawingSurfaceImpl: Sized {
-    fn Trim(&self, rects: &[<super::super::Graphics::RectInt32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn Trim(&mut self, rects: &[<super::super::Graphics::RectInt32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionVirtualDrawingSurface {
@@ -5371,12 +5371,12 @@ impl ICompositionVirtualDrawingSurfaceFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICompositionVisualSurfaceImpl: Sized {
-    fn SourceVisual(&self) -> ::windows::core::Result<Visual>;
-    fn SetSourceVisual(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn SourceOffset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetSourceOffset(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn SourceSize(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetSourceSize(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn SourceVisual(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetSourceVisual(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn SourceOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetSourceOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn SourceSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetSourceSize(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositionVisualSurface {
@@ -5446,30 +5446,30 @@ impl ICompositionVisualSurfaceVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Graphics_Effects", feature = "implement_exclusive"))]
 pub trait ICompositorImpl: Sized {
-    fn CreateColorKeyFrameAnimation(&self) -> ::windows::core::Result<ColorKeyFrameAnimation>;
-    fn CreateColorBrush(&self) -> ::windows::core::Result<CompositionColorBrush>;
-    fn CreateColorBrushWithColor(&self, color: &super::Color) -> ::windows::core::Result<CompositionColorBrush>;
-    fn CreateContainerVisual(&self) -> ::windows::core::Result<ContainerVisual>;
-    fn CreateCubicBezierEasingFunction(&self, controlpoint1: &super::super::Foundation::Numerics::Vector2, controlpoint2: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CubicBezierEasingFunction>;
-    fn CreateEffectFactory(&self, graphicseffect: &::core::option::Option<super::super::Graphics::Effects::IGraphicsEffect>) -> ::windows::core::Result<CompositionEffectFactory>;
-    fn CreateEffectFactoryWithProperties(&self, graphicseffect: &::core::option::Option<super::super::Graphics::Effects::IGraphicsEffect>, animatableproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<CompositionEffectFactory>;
-    fn CreateExpressionAnimation(&self) -> ::windows::core::Result<ExpressionAnimation>;
-    fn CreateExpressionAnimationWithExpression(&self, expression: &::windows::core::HSTRING) -> ::windows::core::Result<ExpressionAnimation>;
-    fn CreateInsetClip(&self) -> ::windows::core::Result<InsetClip>;
-    fn CreateInsetClipWithInsets(&self, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32) -> ::windows::core::Result<InsetClip>;
-    fn CreateLinearEasingFunction(&self) -> ::windows::core::Result<LinearEasingFunction>;
-    fn CreatePropertySet(&self) -> ::windows::core::Result<CompositionPropertySet>;
-    fn CreateQuaternionKeyFrameAnimation(&self) -> ::windows::core::Result<QuaternionKeyFrameAnimation>;
-    fn CreateScalarKeyFrameAnimation(&self) -> ::windows::core::Result<ScalarKeyFrameAnimation>;
-    fn CreateScopedBatch(&self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionScopedBatch>;
-    fn CreateSpriteVisual(&self) -> ::windows::core::Result<SpriteVisual>;
-    fn CreateSurfaceBrush(&self) -> ::windows::core::Result<CompositionSurfaceBrush>;
-    fn CreateSurfaceBrushWithSurface(&self, surface: &::core::option::Option<ICompositionSurface>) -> ::windows::core::Result<CompositionSurfaceBrush>;
-    fn CreateTargetForCurrentView(&self) -> ::windows::core::Result<CompositionTarget>;
-    fn CreateVector2KeyFrameAnimation(&self) -> ::windows::core::Result<Vector2KeyFrameAnimation>;
-    fn CreateVector3KeyFrameAnimation(&self) -> ::windows::core::Result<Vector3KeyFrameAnimation>;
-    fn CreateVector4KeyFrameAnimation(&self) -> ::windows::core::Result<Vector4KeyFrameAnimation>;
-    fn GetCommitBatch(&self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionCommitBatch>;
+    fn CreateColorKeyFrameAnimation(&mut self) -> ::windows::core::Result<ColorKeyFrameAnimation>;
+    fn CreateColorBrush(&mut self) -> ::windows::core::Result<CompositionColorBrush>;
+    fn CreateColorBrushWithColor(&mut self, color: &super::Color) -> ::windows::core::Result<CompositionColorBrush>;
+    fn CreateContainerVisual(&mut self) -> ::windows::core::Result<ContainerVisual>;
+    fn CreateCubicBezierEasingFunction(&mut self, controlpoint1: &super::super::Foundation::Numerics::Vector2, controlpoint2: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CubicBezierEasingFunction>;
+    fn CreateEffectFactory(&mut self, graphicseffect: &::core::option::Option<super::super::Graphics::Effects::IGraphicsEffect>) -> ::windows::core::Result<CompositionEffectFactory>;
+    fn CreateEffectFactoryWithProperties(&mut self, graphicseffect: &::core::option::Option<super::super::Graphics::Effects::IGraphicsEffect>, animatableproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<CompositionEffectFactory>;
+    fn CreateExpressionAnimation(&mut self) -> ::windows::core::Result<ExpressionAnimation>;
+    fn CreateExpressionAnimationWithExpression(&mut self, expression: &::windows::core::HSTRING) -> ::windows::core::Result<ExpressionAnimation>;
+    fn CreateInsetClip(&mut self) -> ::windows::core::Result<InsetClip>;
+    fn CreateInsetClipWithInsets(&mut self, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32) -> ::windows::core::Result<InsetClip>;
+    fn CreateLinearEasingFunction(&mut self) -> ::windows::core::Result<LinearEasingFunction>;
+    fn CreatePropertySet(&mut self) -> ::windows::core::Result<CompositionPropertySet>;
+    fn CreateQuaternionKeyFrameAnimation(&mut self) -> ::windows::core::Result<QuaternionKeyFrameAnimation>;
+    fn CreateScalarKeyFrameAnimation(&mut self) -> ::windows::core::Result<ScalarKeyFrameAnimation>;
+    fn CreateScopedBatch(&mut self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionScopedBatch>;
+    fn CreateSpriteVisual(&mut self) -> ::windows::core::Result<SpriteVisual>;
+    fn CreateSurfaceBrush(&mut self) -> ::windows::core::Result<CompositionSurfaceBrush>;
+    fn CreateSurfaceBrushWithSurface(&mut self, surface: &::core::option::Option<ICompositionSurface>) -> ::windows::core::Result<CompositionSurfaceBrush>;
+    fn CreateTargetForCurrentView(&mut self) -> ::windows::core::Result<CompositionTarget>;
+    fn CreateVector2KeyFrameAnimation(&mut self) -> ::windows::core::Result<Vector2KeyFrameAnimation>;
+    fn CreateVector3KeyFrameAnimation(&mut self) -> ::windows::core::Result<Vector3KeyFrameAnimation>;
+    fn CreateVector4KeyFrameAnimation(&mut self) -> ::windows::core::Result<Vector4KeyFrameAnimation>;
+    fn GetCommitBatch(&mut self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionCommitBatch>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Graphics_Effects", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositor {
@@ -5779,19 +5779,19 @@ impl ICompositorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositor2Impl: Sized {
-    fn CreateAmbientLight(&self) -> ::windows::core::Result<AmbientLight>;
-    fn CreateAnimationGroup(&self) -> ::windows::core::Result<CompositionAnimationGroup>;
-    fn CreateBackdropBrush(&self) -> ::windows::core::Result<CompositionBackdropBrush>;
-    fn CreateDistantLight(&self) -> ::windows::core::Result<DistantLight>;
-    fn CreateDropShadow(&self) -> ::windows::core::Result<DropShadow>;
-    fn CreateImplicitAnimationCollection(&self) -> ::windows::core::Result<ImplicitAnimationCollection>;
-    fn CreateLayerVisual(&self) -> ::windows::core::Result<LayerVisual>;
-    fn CreateMaskBrush(&self) -> ::windows::core::Result<CompositionMaskBrush>;
-    fn CreateNineGridBrush(&self) -> ::windows::core::Result<CompositionNineGridBrush>;
-    fn CreatePointLight(&self) -> ::windows::core::Result<PointLight>;
-    fn CreateSpotLight(&self) -> ::windows::core::Result<SpotLight>;
-    fn CreateStepEasingFunction(&self) -> ::windows::core::Result<StepEasingFunction>;
-    fn CreateStepEasingFunctionWithStepCount(&self, stepcount: i32) -> ::windows::core::Result<StepEasingFunction>;
+    fn CreateAmbientLight(&mut self) -> ::windows::core::Result<AmbientLight>;
+    fn CreateAnimationGroup(&mut self) -> ::windows::core::Result<CompositionAnimationGroup>;
+    fn CreateBackdropBrush(&mut self) -> ::windows::core::Result<CompositionBackdropBrush>;
+    fn CreateDistantLight(&mut self) -> ::windows::core::Result<DistantLight>;
+    fn CreateDropShadow(&mut self) -> ::windows::core::Result<DropShadow>;
+    fn CreateImplicitAnimationCollection(&mut self) -> ::windows::core::Result<ImplicitAnimationCollection>;
+    fn CreateLayerVisual(&mut self) -> ::windows::core::Result<LayerVisual>;
+    fn CreateMaskBrush(&mut self) -> ::windows::core::Result<CompositionMaskBrush>;
+    fn CreateNineGridBrush(&mut self) -> ::windows::core::Result<CompositionNineGridBrush>;
+    fn CreatePointLight(&mut self) -> ::windows::core::Result<PointLight>;
+    fn CreateSpotLight(&mut self) -> ::windows::core::Result<SpotLight>;
+    fn CreateStepEasingFunction(&mut self) -> ::windows::core::Result<StepEasingFunction>;
+    fn CreateStepEasingFunctionWithStepCount(&mut self, stepcount: i32) -> ::windows::core::Result<StepEasingFunction>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositor2 {
@@ -5966,7 +5966,7 @@ impl ICompositor2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositor3Impl: Sized {
-    fn CreateHostBackdropBrush(&self) -> ::windows::core::Result<CompositionBackdropBrush>;
+    fn CreateHostBackdropBrush(&mut self) -> ::windows::core::Result<CompositionBackdropBrush>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositor3 {
@@ -5997,12 +5997,12 @@ impl ICompositor3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositor4Impl: Sized {
-    fn CreateColorGradientStop(&self) -> ::windows::core::Result<CompositionColorGradientStop>;
-    fn CreateColorGradientStopWithOffsetAndColor(&self, offset: f32, color: &super::Color) -> ::windows::core::Result<CompositionColorGradientStop>;
-    fn CreateLinearGradientBrush(&self) -> ::windows::core::Result<CompositionLinearGradientBrush>;
-    fn CreateSpringScalarAnimation(&self) -> ::windows::core::Result<SpringScalarNaturalMotionAnimation>;
-    fn CreateSpringVector2Animation(&self) -> ::windows::core::Result<SpringVector2NaturalMotionAnimation>;
-    fn CreateSpringVector3Animation(&self) -> ::windows::core::Result<SpringVector3NaturalMotionAnimation>;
+    fn CreateColorGradientStop(&mut self) -> ::windows::core::Result<CompositionColorGradientStop>;
+    fn CreateColorGradientStopWithOffsetAndColor(&mut self, offset: f32, color: &super::Color) -> ::windows::core::Result<CompositionColorGradientStop>;
+    fn CreateLinearGradientBrush(&mut self) -> ::windows::core::Result<CompositionLinearGradientBrush>;
+    fn CreateSpringScalarAnimation(&mut self) -> ::windows::core::Result<SpringScalarNaturalMotionAnimation>;
+    fn CreateSpringVector2Animation(&mut self) -> ::windows::core::Result<SpringVector2NaturalMotionAnimation>;
+    fn CreateSpringVector3Animation(&mut self) -> ::windows::core::Result<SpringVector3NaturalMotionAnimation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositor4 {
@@ -6093,26 +6093,26 @@ impl ICompositor4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICompositor5Impl: Sized {
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GlobalPlaybackRate(&self) -> ::windows::core::Result<f32>;
-    fn SetGlobalPlaybackRate(&self, value: f32) -> ::windows::core::Result<()>;
-    fn CreateBounceScalarAnimation(&self) -> ::windows::core::Result<BounceScalarNaturalMotionAnimation>;
-    fn CreateBounceVector2Animation(&self) -> ::windows::core::Result<BounceVector2NaturalMotionAnimation>;
-    fn CreateBounceVector3Animation(&self) -> ::windows::core::Result<BounceVector3NaturalMotionAnimation>;
-    fn CreateContainerShape(&self) -> ::windows::core::Result<CompositionContainerShape>;
-    fn CreateEllipseGeometry(&self) -> ::windows::core::Result<CompositionEllipseGeometry>;
-    fn CreateLineGeometry(&self) -> ::windows::core::Result<CompositionLineGeometry>;
-    fn CreatePathGeometry(&self) -> ::windows::core::Result<CompositionPathGeometry>;
-    fn CreatePathGeometryWithPath(&self, path: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<CompositionPathGeometry>;
-    fn CreatePathKeyFrameAnimation(&self) -> ::windows::core::Result<PathKeyFrameAnimation>;
-    fn CreateRectangleGeometry(&self) -> ::windows::core::Result<CompositionRectangleGeometry>;
-    fn CreateRoundedRectangleGeometry(&self) -> ::windows::core::Result<CompositionRoundedRectangleGeometry>;
-    fn CreateShapeVisual(&self) -> ::windows::core::Result<ShapeVisual>;
-    fn CreateSpriteShape(&self) -> ::windows::core::Result<CompositionSpriteShape>;
-    fn CreateSpriteShapeWithGeometry(&self, geometry: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<CompositionSpriteShape>;
-    fn CreateViewBox(&self) -> ::windows::core::Result<CompositionViewBox>;
-    fn RequestCommitAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetComment(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GlobalPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
+    fn SetGlobalPlaybackRate(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn CreateBounceScalarAnimation(&mut self) -> ::windows::core::Result<BounceScalarNaturalMotionAnimation>;
+    fn CreateBounceVector2Animation(&mut self) -> ::windows::core::Result<BounceVector2NaturalMotionAnimation>;
+    fn CreateBounceVector3Animation(&mut self) -> ::windows::core::Result<BounceVector3NaturalMotionAnimation>;
+    fn CreateContainerShape(&mut self) -> ::windows::core::Result<CompositionContainerShape>;
+    fn CreateEllipseGeometry(&mut self) -> ::windows::core::Result<CompositionEllipseGeometry>;
+    fn CreateLineGeometry(&mut self) -> ::windows::core::Result<CompositionLineGeometry>;
+    fn CreatePathGeometry(&mut self) -> ::windows::core::Result<CompositionPathGeometry>;
+    fn CreatePathGeometryWithPath(&mut self, path: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<CompositionPathGeometry>;
+    fn CreatePathKeyFrameAnimation(&mut self) -> ::windows::core::Result<PathKeyFrameAnimation>;
+    fn CreateRectangleGeometry(&mut self) -> ::windows::core::Result<CompositionRectangleGeometry>;
+    fn CreateRoundedRectangleGeometry(&mut self) -> ::windows::core::Result<CompositionRoundedRectangleGeometry>;
+    fn CreateShapeVisual(&mut self) -> ::windows::core::Result<ShapeVisual>;
+    fn CreateSpriteShape(&mut self) -> ::windows::core::Result<CompositionSpriteShape>;
+    fn CreateSpriteShapeWithGeometry(&mut self, geometry: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<CompositionSpriteShape>;
+    fn CreateViewBox(&mut self) -> ::windows::core::Result<CompositionViewBox>;
+    fn RequestCommitAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositor5 {
@@ -6357,11 +6357,11 @@ impl ICompositor5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositor6Impl: Sized {
-    fn CreateGeometricClip(&self) -> ::windows::core::Result<CompositionGeometricClip>;
-    fn CreateGeometricClipWithGeometry(&self, geometry: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<CompositionGeometricClip>;
-    fn CreateRedirectVisual(&self) -> ::windows::core::Result<RedirectVisual>;
-    fn CreateRedirectVisualWithSourceVisual(&self, source: &::core::option::Option<Visual>) -> ::windows::core::Result<RedirectVisual>;
-    fn CreateBooleanKeyFrameAnimation(&self) -> ::windows::core::Result<BooleanKeyFrameAnimation>;
+    fn CreateGeometricClip(&mut self) -> ::windows::core::Result<CompositionGeometricClip>;
+    fn CreateGeometricClipWithGeometry(&mut self, geometry: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<CompositionGeometricClip>;
+    fn CreateRedirectVisual(&mut self) -> ::windows::core::Result<RedirectVisual>;
+    fn CreateRedirectVisualWithSourceVisual(&mut self, source: &::core::option::Option<Visual>) -> ::windows::core::Result<RedirectVisual>;
+    fn CreateBooleanKeyFrameAnimation(&mut self) -> ::windows::core::Result<BooleanKeyFrameAnimation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositor6 {
@@ -6440,11 +6440,11 @@ impl ICompositor6Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "System", feature = "implement_exclusive"))]
 pub trait ICompositor7Impl: Sized {
-    fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
-    fn CreateAnimationPropertyInfo(&self) -> ::windows::core::Result<AnimationPropertyInfo>;
-    fn CreateRectangleClip(&self) -> ::windows::core::Result<RectangleClip>;
-    fn CreateRectangleClipWithSides(&self, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::Result<RectangleClip>;
-    fn CreateRectangleClipWithSidesAndRadius(&self, left: f32, top: f32, right: f32, bottom: f32, topleftradius: &super::super::Foundation::Numerics::Vector2, toprightradius: &super::super::Foundation::Numerics::Vector2, bottomrightradius: &super::super::Foundation::Numerics::Vector2, bottomleftradius: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<RectangleClip>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
+    fn CreateAnimationPropertyInfo(&mut self) -> ::windows::core::Result<AnimationPropertyInfo>;
+    fn CreateRectangleClip(&mut self) -> ::windows::core::Result<RectangleClip>;
+    fn CreateRectangleClipWithSides(&mut self, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::Result<RectangleClip>;
+    fn CreateRectangleClipWithSidesAndRadius(&mut self, left: f32, top: f32, right: f32, bottom: f32, topleftradius: &super::super::Foundation::Numerics::Vector2, toprightradius: &super::super::Foundation::Numerics::Vector2, bottomrightradius: &super::super::Foundation::Numerics::Vector2, bottomleftradius: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<RectangleClip>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositor7 {
@@ -6532,8 +6532,8 @@ impl ICompositor7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositorStaticsImpl: Sized {
-    fn MaxGlobalPlaybackRate(&self) -> ::windows::core::Result<f32>;
-    fn MinGlobalPlaybackRate(&self) -> ::windows::core::Result<f32>;
+    fn MaxGlobalPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
+    fn MinGlobalPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositorStatics {
@@ -6576,7 +6576,7 @@ impl ICompositorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositorWithBlurredWallpaperBackdropBrushImpl: Sized {
-    fn TryCreateBlurredWallpaperBackdropBrush(&self) -> ::windows::core::Result<CompositionBackdropBrush>;
+    fn TryCreateBlurredWallpaperBackdropBrush(&mut self) -> ::windows::core::Result<CompositionBackdropBrush>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositorWithBlurredWallpaperBackdropBrush {
@@ -6607,9 +6607,9 @@ impl ICompositorWithBlurredWallpaperBackdropBrushVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositorWithProjectedShadowImpl: Sized {
-    fn CreateProjectedShadowCaster(&self) -> ::windows::core::Result<CompositionProjectedShadowCaster>;
-    fn CreateProjectedShadow(&self) -> ::windows::core::Result<CompositionProjectedShadow>;
-    fn CreateProjectedShadowReceiver(&self) -> ::windows::core::Result<CompositionProjectedShadowReceiver>;
+    fn CreateProjectedShadowCaster(&mut self) -> ::windows::core::Result<CompositionProjectedShadowCaster>;
+    fn CreateProjectedShadow(&mut self) -> ::windows::core::Result<CompositionProjectedShadow>;
+    fn CreateProjectedShadowReceiver(&mut self) -> ::windows::core::Result<CompositionProjectedShadowReceiver>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositorWithProjectedShadow {
@@ -6664,7 +6664,7 @@ impl ICompositorWithProjectedShadowVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositorWithRadialGradientImpl: Sized {
-    fn CreateRadialGradientBrush(&self) -> ::windows::core::Result<CompositionRadialGradientBrush>;
+    fn CreateRadialGradientBrush(&mut self) -> ::windows::core::Result<CompositionRadialGradientBrush>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositorWithRadialGradient {
@@ -6695,7 +6695,7 @@ impl ICompositorWithRadialGradientVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICompositorWithVisualSurfaceImpl: Sized {
-    fn CreateVisualSurface(&self) -> ::windows::core::Result<CompositionVisualSurface>;
+    fn CreateVisualSurface(&mut self) -> ::windows::core::Result<CompositionVisualSurface>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositorWithVisualSurface {
@@ -6726,7 +6726,7 @@ impl ICompositorWithVisualSurfaceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContainerVisualImpl: Sized {
-    fn Children(&self) -> ::windows::core::Result<VisualCollection>;
+    fn Children(&mut self) -> ::windows::core::Result<VisualCollection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContainerVisual {
@@ -6769,8 +6769,8 @@ impl IContainerVisualFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ICubicBezierEasingFunctionImpl: Sized {
-    fn ControlPoint1(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn ControlPoint2(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn ControlPoint1(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn ControlPoint2(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICubicBezierEasingFunction {
@@ -6813,10 +6813,10 @@ impl ICubicBezierEasingFunctionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDelegatedInkTrailVisualImpl: Sized {
-    fn AddTrailPoints(&self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
-    fn AddTrailPointsWithPrediction(&self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType], predictedinkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
-    fn RemoveTrailPoints(&self, generationid: u32) -> ::windows::core::Result<()>;
-    fn StartNewTrail(&self, color: &super::Color) -> ::windows::core::Result<()>;
+    fn AddTrailPoints(&mut self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn AddTrailPointsWithPrediction(&mut self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType], predictedinkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn RemoveTrailPoints(&mut self, generationid: u32) -> ::windows::core::Result<()>;
+    fn StartNewTrail(&mut self, color: &super::Color) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDelegatedInkTrailVisual {
@@ -6869,8 +6869,8 @@ impl IDelegatedInkTrailVisualVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDelegatedInkTrailVisualStaticsImpl: Sized {
-    fn Create(&self, compositor: &::core::option::Option<Compositor>) -> ::windows::core::Result<DelegatedInkTrailVisual>;
-    fn CreateForSwapChain(&self, compositor: &::core::option::Option<Compositor>, swapchain: &::core::option::Option<ICompositionSurface>) -> ::windows::core::Result<DelegatedInkTrailVisual>;
+    fn Create(&mut self, compositor: &::core::option::Option<Compositor>) -> ::windows::core::Result<DelegatedInkTrailVisual>;
+    fn CreateForSwapChain(&mut self, compositor: &::core::option::Option<Compositor>, swapchain: &::core::option::Option<ICompositionSurface>) -> ::windows::core::Result<DelegatedInkTrailVisual>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDelegatedInkTrailVisualStatics {
@@ -6913,12 +6913,12 @@ impl IDelegatedInkTrailVisualStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IDistantLightImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::Color>;
-    fn SetColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn CoordinateSpace(&self) -> ::windows::core::Result<Visual>;
-    fn SetCoordinateSpace(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn Direction(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetDirection(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn CoordinateSpace(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetCoordinateSpace(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn Direction(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetDirection(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDistantLight {
@@ -6988,8 +6988,8 @@ impl IDistantLightVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDistantLight2Impl: Sized {
-    fn Intensity(&self) -> ::windows::core::Result<f32>;
-    fn SetIntensity(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Intensity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDistantLight2 {
@@ -7025,16 +7025,16 @@ impl IDistantLight2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IDropShadowImpl: Sized {
-    fn BlurRadius(&self) -> ::windows::core::Result<f32>;
-    fn SetBlurRadius(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Color(&self) -> ::windows::core::Result<super::Color>;
-    fn SetColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn Mask(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetMask(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Opacity(&self) -> ::windows::core::Result<f32>;
-    fn SetOpacity(&self, value: f32) -> ::windows::core::Result<()>;
+    fn BlurRadius(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBlurRadius(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn Mask(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetMask(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Opacity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetOpacity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDropShadow {
@@ -7138,8 +7138,8 @@ impl IDropShadowVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDropShadow2Impl: Sized {
-    fn SourcePolicy(&self) -> ::windows::core::Result<CompositionDropShadowSourcePolicy>;
-    fn SetSourcePolicy(&self, value: CompositionDropShadowSourcePolicy) -> ::windows::core::Result<()>;
+    fn SourcePolicy(&mut self) -> ::windows::core::Result<CompositionDropShadowSourcePolicy>;
+    fn SetSourcePolicy(&mut self, value: CompositionDropShadowSourcePolicy) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDropShadow2 {
@@ -7175,9 +7175,9 @@ impl IDropShadow2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IElasticEasingFunctionImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
-    fn Oscillations(&self) -> ::windows::core::Result<i32>;
-    fn Springiness(&self) -> ::windows::core::Result<f32>;
+    fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
+    fn Oscillations(&mut self) -> ::windows::core::Result<i32>;
+    fn Springiness(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IElasticEasingFunction {
@@ -7232,8 +7232,8 @@ impl IElasticEasingFunctionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IExponentialEasingFunctionImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
-    fn Exponent(&self) -> ::windows::core::Result<f32>;
+    fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
+    fn Exponent(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExponentialEasingFunction {
@@ -7276,8 +7276,8 @@ impl IExponentialEasingFunctionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IExpressionAnimationImpl: Sized {
-    fn Expression(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExpression(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Expression(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetExpression(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExpressionAnimation {
@@ -7328,14 +7328,14 @@ impl IImplicitAnimationCollectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInsetClipImpl: Sized {
-    fn BottomInset(&self) -> ::windows::core::Result<f32>;
-    fn SetBottomInset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn LeftInset(&self) -> ::windows::core::Result<f32>;
-    fn SetLeftInset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RightInset(&self) -> ::windows::core::Result<f32>;
-    fn SetRightInset(&self, value: f32) -> ::windows::core::Result<()>;
-    fn TopInset(&self) -> ::windows::core::Result<f32>;
-    fn SetTopInset(&self, value: f32) -> ::windows::core::Result<()>;
+    fn BottomInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBottomInset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn LeftInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLeftInset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RightInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRightInset(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn TopInset(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTopInset(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInsetClip {
@@ -7422,19 +7422,19 @@ impl IInsetClipVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeyFrameAnimationImpl: Sized {
-    fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDelayTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn IterationBehavior(&self) -> ::windows::core::Result<AnimationIterationBehavior>;
-    fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()>;
-    fn IterationCount(&self) -> ::windows::core::Result<i32>;
-    fn SetIterationCount(&self, value: i32) -> ::windows::core::Result<()>;
-    fn KeyFrameCount(&self) -> ::windows::core::Result<i32>;
-    fn StopBehavior(&self) -> ::windows::core::Result<AnimationStopBehavior>;
-    fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()>;
-    fn InsertExpressionKeyFrame(&self, normalizedprogresskey: f32, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn InsertExpressionKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, value: &::windows::core::HSTRING, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn DelayTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDelayTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDuration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn IterationBehavior(&mut self) -> ::windows::core::Result<AnimationIterationBehavior>;
+    fn SetIterationBehavior(&mut self, value: AnimationIterationBehavior) -> ::windows::core::Result<()>;
+    fn IterationCount(&mut self) -> ::windows::core::Result<i32>;
+    fn SetIterationCount(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn KeyFrameCount(&mut self) -> ::windows::core::Result<i32>;
+    fn StopBehavior(&mut self) -> ::windows::core::Result<AnimationStopBehavior>;
+    fn SetStopBehavior(&mut self, value: AnimationStopBehavior) -> ::windows::core::Result<()>;
+    fn InsertExpressionKeyFrame(&mut self, normalizedprogresskey: f32, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn InsertExpressionKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &::windows::core::HSTRING, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyFrameAnimation {
@@ -7560,8 +7560,8 @@ impl IKeyFrameAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyFrameAnimation2Impl: Sized {
-    fn Direction(&self) -> ::windows::core::Result<AnimationDirection>;
-    fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()>;
+    fn Direction(&mut self) -> ::windows::core::Result<AnimationDirection>;
+    fn SetDirection(&mut self, value: AnimationDirection) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyFrameAnimation2 {
@@ -7597,8 +7597,8 @@ impl IKeyFrameAnimation2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyFrameAnimation3Impl: Sized {
-    fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior>;
-    fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()>;
+    fn DelayBehavior(&mut self) -> ::windows::core::Result<AnimationDelayBehavior>;
+    fn SetDelayBehavior(&mut self, value: AnimationDelayBehavior) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyFrameAnimation3 {
@@ -7649,8 +7649,8 @@ impl IKeyFrameAnimationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILayerVisualImpl: Sized {
-    fn Effect(&self) -> ::windows::core::Result<CompositionEffectBrush>;
-    fn SetEffect(&self, value: &::core::option::Option<CompositionEffectBrush>) -> ::windows::core::Result<()>;
+    fn Effect(&mut self) -> ::windows::core::Result<CompositionEffectBrush>;
+    fn SetEffect(&mut self, value: &::core::option::Option<CompositionEffectBrush>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILayerVisual {
@@ -7686,8 +7686,8 @@ impl ILayerVisualVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILayerVisual2Impl: Sized {
-    fn Shadow(&self) -> ::windows::core::Result<CompositionShadow>;
-    fn SetShadow(&self, value: &::core::option::Option<CompositionShadow>) -> ::windows::core::Result<()>;
+    fn Shadow(&mut self) -> ::windows::core::Result<CompositionShadow>;
+    fn SetShadow(&mut self, value: &::core::option::Option<CompositionShadow>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILayerVisual2 {
@@ -7738,12 +7738,12 @@ impl ILinearEasingFunctionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INaturalMotionAnimationImpl: Sized {
-    fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior>;
-    fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()>;
-    fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDelayTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StopBehavior(&self) -> ::windows::core::Result<AnimationStopBehavior>;
-    fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()>;
+    fn DelayBehavior(&mut self) -> ::windows::core::Result<AnimationDelayBehavior>;
+    fn SetDelayBehavior(&mut self, value: AnimationDelayBehavior) -> ::windows::core::Result<()>;
+    fn DelayTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDelayTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StopBehavior(&mut self) -> ::windows::core::Result<AnimationStopBehavior>;
+    fn SetStopBehavior(&mut self, value: AnimationStopBehavior) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INaturalMotionAnimation {
@@ -7828,8 +7828,8 @@ impl INaturalMotionAnimationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPathKeyFrameAnimationImpl: Sized {
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, path: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<()>;
-    fn InsertKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, path: &::core::option::Option<CompositionPath>, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, path: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<()>;
+    fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, path: &::core::option::Option<CompositionPath>, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPathKeyFrameAnimation {
@@ -7858,18 +7858,18 @@ impl IPathKeyFrameAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IPointLightImpl: Sized {
-    fn Color(&self) -> ::windows::core::Result<super::Color>;
-    fn SetColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn ConstantAttenuation(&self) -> ::windows::core::Result<f32>;
-    fn SetConstantAttenuation(&self, value: f32) -> ::windows::core::Result<()>;
-    fn CoordinateSpace(&self) -> ::windows::core::Result<Visual>;
-    fn SetCoordinateSpace(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn LinearAttenuation(&self) -> ::windows::core::Result<f32>;
-    fn SetLinearAttenuation(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn QuadraticAttenuation(&self) -> ::windows::core::Result<f32>;
-    fn SetQuadraticAttenuation(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Color(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn ConstantAttenuation(&mut self) -> ::windows::core::Result<f32>;
+    fn SetConstantAttenuation(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn CoordinateSpace(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetCoordinateSpace(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn LinearAttenuation(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLinearAttenuation(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn QuadraticAttenuation(&mut self) -> ::windows::core::Result<f32>;
+    fn SetQuadraticAttenuation(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointLight {
@@ -7990,8 +7990,8 @@ impl IPointLightVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointLight2Impl: Sized {
-    fn Intensity(&self) -> ::windows::core::Result<f32>;
-    fn SetIntensity(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Intensity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointLight2 {
@@ -8027,10 +8027,10 @@ impl IPointLight2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPointLight3Impl: Sized {
-    fn MinAttenuationCutoff(&self) -> ::windows::core::Result<f32>;
-    fn SetMinAttenuationCutoff(&self, value: f32) -> ::windows::core::Result<()>;
-    fn MaxAttenuationCutoff(&self) -> ::windows::core::Result<f32>;
-    fn SetMaxAttenuationCutoff(&self, value: f32) -> ::windows::core::Result<()>;
+    fn MinAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMinAttenuationCutoff(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn MaxAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMaxAttenuationCutoff(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPointLight3 {
@@ -8083,8 +8083,8 @@ impl IPointLight3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPowerEasingFunctionImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
-    fn Power(&self) -> ::windows::core::Result<f32>;
+    fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
+    fn Power(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPowerEasingFunction {
@@ -8127,8 +8127,8 @@ impl IPowerEasingFunctionVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IQuaternionKeyFrameAnimationImpl: Sized {
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
-    fn InsertKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Quaternion, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Quaternion, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IQuaternionKeyFrameAnimation {
@@ -8157,22 +8157,22 @@ impl IQuaternionKeyFrameAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IRectangleClipImpl: Sized {
-    fn Bottom(&self) -> ::windows::core::Result<f32>;
-    fn SetBottom(&self, value: f32) -> ::windows::core::Result<()>;
-    fn BottomLeftRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetBottomLeftRadius(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn BottomRightRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetBottomRightRadius(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn Left(&self) -> ::windows::core::Result<f32>;
-    fn SetLeft(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Right(&self) -> ::windows::core::Result<f32>;
-    fn SetRight(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Top(&self) -> ::windows::core::Result<f32>;
-    fn SetTop(&self, value: f32) -> ::windows::core::Result<()>;
-    fn TopLeftRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetTopLeftRadius(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn TopRightRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetTopRightRadius(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Bottom(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBottom(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn BottomLeftRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetBottomLeftRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn BottomRightRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetBottomRightRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn Left(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLeft(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Right(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRight(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Top(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTop(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn TopLeftRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetTopLeftRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn TopRightRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetTopRightRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRectangleClip {
@@ -8327,8 +8327,8 @@ impl IRectangleClipVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRedirectVisualImpl: Sized {
-    fn Source(&self) -> ::windows::core::Result<Visual>;
-    fn SetSource(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetSource(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRedirectVisual {
@@ -8364,7 +8364,7 @@ impl IRedirectVisualVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRenderingDeviceReplacedEventArgsImpl: Sized {
-    fn GraphicsDevice(&self) -> ::windows::core::Result<CompositionGraphicsDevice>;
+    fn GraphicsDevice(&mut self) -> ::windows::core::Result<CompositionGraphicsDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRenderingDeviceReplacedEventArgs {
@@ -8395,8 +8395,8 @@ impl IRenderingDeviceReplacedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IScalarKeyFrameAnimationImpl: Sized {
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: f32) -> ::windows::core::Result<()>;
-    fn InsertKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, value: f32, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: f32) -> ::windows::core::Result<()>;
+    fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: f32, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScalarKeyFrameAnimation {
@@ -8425,12 +8425,12 @@ impl IScalarKeyFrameAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IScalarNaturalMotionAnimationImpl: Sized {
-    fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
-    fn SetFinalValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
-    fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
-    fn SetInitialValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
-    fn InitialVelocity(&self) -> ::windows::core::Result<f32>;
-    fn SetInitialVelocity(&self, value: f32) -> ::windows::core::Result<()>;
+    fn FinalValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
+    fn SetFinalValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
+    fn InitialValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
+    fn SetInitialValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
+    fn InitialVelocity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialVelocity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScalarNaturalMotionAnimation {
@@ -8515,9 +8515,9 @@ impl IScalarNaturalMotionAnimationFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IShapeVisualImpl: Sized {
-    fn Shapes(&self) -> ::windows::core::Result<CompositionShapeCollection>;
-    fn ViewBox(&self) -> ::windows::core::Result<CompositionViewBox>;
-    fn SetViewBox(&self, value: &::core::option::Option<CompositionViewBox>) -> ::windows::core::Result<()>;
+    fn Shapes(&mut self) -> ::windows::core::Result<CompositionShapeCollection>;
+    fn ViewBox(&mut self) -> ::windows::core::Result<CompositionViewBox>;
+    fn SetViewBox(&mut self, value: &::core::option::Option<CompositionViewBox>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShapeVisual {
@@ -8565,7 +8565,7 @@ impl IShapeVisualVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISineEasingFunctionImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
+    fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISineEasingFunction {
@@ -8593,30 +8593,30 @@ impl ISineEasingFunctionVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpotLightImpl: Sized {
-    fn ConstantAttenuation(&self) -> ::windows::core::Result<f32>;
-    fn SetConstantAttenuation(&self, value: f32) -> ::windows::core::Result<()>;
-    fn CoordinateSpace(&self) -> ::windows::core::Result<Visual>;
-    fn SetCoordinateSpace(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn Direction(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetDirection(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn InnerConeAngle(&self) -> ::windows::core::Result<f32>;
-    fn SetInnerConeAngle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn InnerConeAngleInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetInnerConeAngleInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn InnerConeColor(&self) -> ::windows::core::Result<super::Color>;
-    fn SetInnerConeColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn LinearAttenuation(&self) -> ::windows::core::Result<f32>;
-    fn SetLinearAttenuation(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn OuterConeAngle(&self) -> ::windows::core::Result<f32>;
-    fn SetOuterConeAngle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn OuterConeAngleInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetOuterConeAngleInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn OuterConeColor(&self) -> ::windows::core::Result<super::Color>;
-    fn SetOuterConeColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn QuadraticAttenuation(&self) -> ::windows::core::Result<f32>;
-    fn SetQuadraticAttenuation(&self, value: f32) -> ::windows::core::Result<()>;
+    fn ConstantAttenuation(&mut self) -> ::windows::core::Result<f32>;
+    fn SetConstantAttenuation(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn CoordinateSpace(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetCoordinateSpace(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn Direction(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetDirection(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn InnerConeAngle(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInnerConeAngle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn InnerConeAngleInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInnerConeAngleInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn InnerConeColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetInnerConeColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn LinearAttenuation(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLinearAttenuation(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn OuterConeAngle(&mut self) -> ::windows::core::Result<f32>;
+    fn SetOuterConeAngle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn OuterConeAngleInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetOuterConeAngleInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn OuterConeColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetOuterConeColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn QuadraticAttenuation(&mut self) -> ::windows::core::Result<f32>;
+    fn SetQuadraticAttenuation(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpotLight {
@@ -8839,10 +8839,10 @@ impl ISpotLightVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpotLight2Impl: Sized {
-    fn InnerConeIntensity(&self) -> ::windows::core::Result<f32>;
-    fn SetInnerConeIntensity(&self, value: f32) -> ::windows::core::Result<()>;
-    fn OuterConeIntensity(&self) -> ::windows::core::Result<f32>;
-    fn SetOuterConeIntensity(&self, value: f32) -> ::windows::core::Result<()>;
+    fn InnerConeIntensity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInnerConeIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn OuterConeIntensity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetOuterConeIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpotLight2 {
@@ -8895,10 +8895,10 @@ impl ISpotLight2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpotLight3Impl: Sized {
-    fn MinAttenuationCutoff(&self) -> ::windows::core::Result<f32>;
-    fn SetMinAttenuationCutoff(&self, value: f32) -> ::windows::core::Result<()>;
-    fn MaxAttenuationCutoff(&self) -> ::windows::core::Result<f32>;
-    fn SetMaxAttenuationCutoff(&self, value: f32) -> ::windows::core::Result<()>;
+    fn MinAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMinAttenuationCutoff(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn MaxAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMaxAttenuationCutoff(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpotLight3 {
@@ -8951,10 +8951,10 @@ impl ISpotLight3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpringScalarNaturalMotionAnimationImpl: Sized {
-    fn DampingRatio(&self) -> ::windows::core::Result<f32>;
-    fn SetDampingRatio(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetPeriod(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DampingRatio(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDampingRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Period(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetPeriod(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpringScalarNaturalMotionAnimation {
@@ -9007,10 +9007,10 @@ impl ISpringScalarNaturalMotionAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpringVector2NaturalMotionAnimationImpl: Sized {
-    fn DampingRatio(&self) -> ::windows::core::Result<f32>;
-    fn SetDampingRatio(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetPeriod(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DampingRatio(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDampingRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Period(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetPeriod(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpringVector2NaturalMotionAnimation {
@@ -9063,10 +9063,10 @@ impl ISpringVector2NaturalMotionAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpringVector3NaturalMotionAnimationImpl: Sized {
-    fn DampingRatio(&self) -> ::windows::core::Result<f32>;
-    fn SetDampingRatio(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetPeriod(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn DampingRatio(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDampingRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Period(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetPeriod(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpringVector3NaturalMotionAnimation {
@@ -9119,8 +9119,8 @@ impl ISpringVector3NaturalMotionAnimationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpriteVisualImpl: Sized {
-    fn Brush(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetBrush(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn Brush(&mut self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetBrush(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpriteVisual {
@@ -9156,8 +9156,8 @@ impl ISpriteVisualVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpriteVisual2Impl: Sized {
-    fn Shadow(&self) -> ::windows::core::Result<CompositionShadow>;
-    fn SetShadow(&self, value: &::core::option::Option<CompositionShadow>) -> ::windows::core::Result<()>;
+    fn Shadow(&mut self) -> ::windows::core::Result<CompositionShadow>;
+    fn SetShadow(&mut self, value: &::core::option::Option<CompositionShadow>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpriteVisual2 {
@@ -9193,16 +9193,16 @@ impl ISpriteVisual2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStepEasingFunctionImpl: Sized {
-    fn FinalStep(&self) -> ::windows::core::Result<i32>;
-    fn SetFinalStep(&self, value: i32) -> ::windows::core::Result<()>;
-    fn InitialStep(&self) -> ::windows::core::Result<i32>;
-    fn SetInitialStep(&self, value: i32) -> ::windows::core::Result<()>;
-    fn IsFinalStepSingleFrame(&self) -> ::windows::core::Result<bool>;
-    fn SetIsFinalStepSingleFrame(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsInitialStepSingleFrame(&self) -> ::windows::core::Result<bool>;
-    fn SetIsInitialStepSingleFrame(&self, value: bool) -> ::windows::core::Result<()>;
-    fn StepCount(&self) -> ::windows::core::Result<i32>;
-    fn SetStepCount(&self, value: i32) -> ::windows::core::Result<()>;
+    fn FinalStep(&mut self) -> ::windows::core::Result<i32>;
+    fn SetFinalStep(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn InitialStep(&mut self) -> ::windows::core::Result<i32>;
+    fn SetInitialStep(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn IsFinalStepSingleFrame(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsFinalStepSingleFrame(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsInitialStepSingleFrame(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsInitialStepSingleFrame(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn StepCount(&mut self) -> ::windows::core::Result<i32>;
+    fn SetStepCount(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStepEasingFunction {
@@ -9306,8 +9306,8 @@ impl IStepEasingFunctionVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVector2KeyFrameAnimationImpl: Sized {
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn InsertKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector2, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector2, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVector2KeyFrameAnimation {
@@ -9336,12 +9336,12 @@ impl IVector2KeyFrameAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVector2NaturalMotionAnimationImpl: Sized {
-    fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>;
-    fn SetFinalValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>) -> ::windows::core::Result<()>;
-    fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>;
-    fn SetInitialValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>) -> ::windows::core::Result<()>;
-    fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetInitialVelocity(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn FinalValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>;
+    fn SetFinalValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>) -> ::windows::core::Result<()>;
+    fn InitialValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>;
+    fn SetInitialValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>) -> ::windows::core::Result<()>;
+    fn InitialVelocity(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetInitialVelocity(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVector2NaturalMotionAnimation {
@@ -9426,8 +9426,8 @@ impl IVector2NaturalMotionAnimationFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVector3KeyFrameAnimationImpl: Sized {
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn InsertKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector3, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector3, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVector3KeyFrameAnimation {
@@ -9456,12 +9456,12 @@ impl IVector3KeyFrameAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVector3NaturalMotionAnimationImpl: Sized {
-    fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>;
-    fn SetFinalValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>) -> ::windows::core::Result<()>;
-    fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>;
-    fn SetInitialValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>) -> ::windows::core::Result<()>;
-    fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetInitialVelocity(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn FinalValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>;
+    fn SetFinalValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>) -> ::windows::core::Result<()>;
+    fn InitialValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>;
+    fn SetInitialValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>) -> ::windows::core::Result<()>;
+    fn InitialVelocity(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetInitialVelocity(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVector3NaturalMotionAnimation {
@@ -9546,8 +9546,8 @@ impl IVector3NaturalMotionAnimationFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVector4KeyFrameAnimationImpl: Sized {
-    fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
-    fn InsertKeyFrameWithEasingFunction(&self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector4, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
+    fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
+    fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector4, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVector4KeyFrameAnimation {
@@ -9576,39 +9576,39 @@ impl IVector4KeyFrameAnimationVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVisualImpl: Sized {
-    fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetAnchorPoint(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn BackfaceVisibility(&self) -> ::windows::core::Result<CompositionBackfaceVisibility>;
-    fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()>;
-    fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode>;
-    fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()>;
-    fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetCenterPoint(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Clip(&self) -> ::windows::core::Result<CompositionClip>;
-    fn SetClip(&self, value: &::core::option::Option<CompositionClip>) -> ::windows::core::Result<()>;
-    fn CompositeMode(&self) -> ::windows::core::Result<CompositionCompositeMode>;
-    fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()>;
-    fn IsVisible(&self) -> ::windows::core::Result<bool>;
-    fn SetIsVisible(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetOffset(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Opacity(&self) -> ::windows::core::Result<f32>;
-    fn SetOpacity(&self, value: f32) -> ::windows::core::Result<()>;
-    fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
-    fn SetOrientation(&self, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
-    fn Parent(&self) -> ::windows::core::Result<ContainerVisual>;
-    fn RotationAngle(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RotationAngleInDegrees(&self) -> ::windows::core::Result<f32>;
-    fn SetRotationAngleInDegrees(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetRotationAxis(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetScale(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetSize(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4>;
-    fn SetTransformMatrix(&self, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
+    fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn BackfaceVisibility(&mut self) -> ::windows::core::Result<CompositionBackfaceVisibility>;
+    fn SetBackfaceVisibility(&mut self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()>;
+    fn BorderMode(&mut self) -> ::windows::core::Result<CompositionBorderMode>;
+    fn SetBorderMode(&mut self, value: CompositionBorderMode) -> ::windows::core::Result<()>;
+    fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetCenterPoint(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Clip(&mut self) -> ::windows::core::Result<CompositionClip>;
+    fn SetClip(&mut self, value: &::core::option::Option<CompositionClip>) -> ::windows::core::Result<()>;
+    fn CompositeMode(&mut self) -> ::windows::core::Result<CompositionCompositeMode>;
+    fn SetCompositeMode(&mut self, value: CompositionCompositeMode) -> ::windows::core::Result<()>;
+    fn IsVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Opacity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetOpacity(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn Orientation(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
+    fn SetOrientation(&mut self, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn Parent(&mut self) -> ::windows::core::Result<ContainerVisual>;
+    fn RotationAngle(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RotationAngleInDegrees(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRotationAngleInDegrees(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RotationAxis(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetRotationAxis(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Scale(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetScale(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetSize(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn TransformMatrix(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4>;
+    fn SetTransformMatrix(&mut self, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisual {
@@ -9911,12 +9911,12 @@ impl IVisualVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IVisual2Impl: Sized {
-    fn ParentForTransform(&self) -> ::windows::core::Result<Visual>;
-    fn SetParentForTransform(&self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
-    fn SetRelativeOffsetAdjustment(&self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
-    fn SetRelativeSizeAdjustment(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn ParentForTransform(&mut self) -> ::windows::core::Result<Visual>;
+    fn SetParentForTransform(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn RelativeOffsetAdjustment(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
+    fn SetRelativeOffsetAdjustment(&mut self, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn RelativeSizeAdjustment(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
+    fn SetRelativeSizeAdjustment(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisual2 {
@@ -9986,8 +9986,8 @@ impl IVisual2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisual3Impl: Sized {
-    fn IsHitTestVisible(&self) -> ::windows::core::Result<bool>;
-    fn SetIsHitTestVisible(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsHitTestVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsHitTestVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisual3 {
@@ -10023,8 +10023,8 @@ impl IVisual3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisual4Impl: Sized {
-    fn IsPixelSnappingEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsPixelSnappingEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsPixelSnappingEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsPixelSnappingEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisual4 {
@@ -10060,13 +10060,13 @@ impl IVisual4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisualCollectionImpl: Sized {
-    fn Count(&self) -> ::windows::core::Result<i32>;
-    fn InsertAbove(&self, newchild: &::core::option::Option<Visual>, sibling: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn InsertAtBottom(&self, newchild: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn InsertAtTop(&self, newchild: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn InsertBelow(&self, newchild: &::core::option::Option<Visual>, sibling: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn Remove(&self, child: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn InsertAbove(&mut self, newchild: &::core::option::Option<Visual>, sibling: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn InsertAtBottom(&mut self, newchild: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn InsertAtTop(&mut self, newchild: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn InsertBelow(&mut self, newchild: &::core::option::Option<Visual>, sibling: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, child: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualCollection {
@@ -10138,7 +10138,7 @@ impl IVisualElementVtbl {
     }
 }
 pub trait IVisualElement2Impl: Sized {
-    fn GetVisualInternal(&self) -> ::windows::core::Result<Visual>;
+    fn GetVisualInternal(&mut self) -> ::windows::core::Result<Visual>;
 }
 impl ::windows::core::RuntimeName for IVisualElement2 {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement2";
@@ -10182,10 +10182,10 @@ impl IVisualFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisualUnorderedCollectionImpl: Sized {
-    fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, newvisual: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn Remove(&self, visual: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Add(&mut self, newvisual: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, visual: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualUnorderedCollection {

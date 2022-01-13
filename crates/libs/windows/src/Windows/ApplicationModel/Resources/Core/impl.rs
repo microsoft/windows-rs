@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait INamedResourceImpl: Sized {
-    fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn Candidates(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
-    fn Resolve(&self) -> ::windows::core::Result<ResourceCandidate>;
-    fn ResolveForContext(&self, resourcecontext: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<ResourceCandidate>;
-    fn ResolveAll(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
-    fn ResolveAllForContext(&self, resourcecontext: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn Candidates(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
+    fn Resolve(&mut self) -> ::windows::core::Result<ResourceCandidate>;
+    fn ResolveForContext(&mut self, resourcecontext: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<ResourceCandidate>;
+    fn ResolveAll(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
+    fn ResolveAllForContext(&mut self, resourcecontext: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INamedResource {
@@ -96,13 +96,13 @@ impl INamedResourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IResourceCandidateImpl: Sized {
-    fn Qualifiers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>;
-    fn IsMatch(&self) -> ::windows::core::Result<bool>;
-    fn IsMatchAsDefault(&self) -> ::windows::core::Result<bool>;
-    fn IsDefault(&self) -> ::windows::core::Result<bool>;
-    fn ValueAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetValueAsFileAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>>;
-    fn GetQualifierValue(&self, qualifiername: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Qualifiers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>;
+    fn IsMatch(&mut self) -> ::windows::core::Result<bool>;
+    fn IsMatchAsDefault(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDefault(&mut self) -> ::windows::core::Result<bool>;
+    fn ValueAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetValueAsFileAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>>;
+    fn GetQualifierValue(&mut self, qualifiername: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceCandidate {
@@ -205,7 +205,7 @@ impl IResourceCandidateVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IResourceCandidate2Impl: Sized {
-    fn GetValueAsStreamAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>>;
+    fn GetValueAsStreamAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceCandidate2 {
@@ -236,7 +236,7 @@ impl IResourceCandidate2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceCandidate3Impl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<ResourceCandidateKind>;
+    fn Kind(&mut self) -> ::windows::core::Result<ResourceCandidateKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceCandidate3 {
@@ -264,13 +264,13 @@ impl IResourceCandidate3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceContextImpl: Sized {
-    fn QualifierValues(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
-    fn ResetQualifierValues(&self, qualifiernames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
-    fn OverrideToMatch(&self, result: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>) -> ::windows::core::Result<()>;
-    fn Clone(&self) -> ::windows::core::Result<ResourceContext>;
-    fn Languages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn SetLanguages(&self, languages: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn QualifierValues(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn ResetQualifierValues(&mut self, qualifiernames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn OverrideToMatch(&mut self, result: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<ResourceContext>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn SetLanguages(&mut self, languages: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContext {
@@ -345,7 +345,7 @@ impl IResourceContextVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceContextStaticsImpl: Sized {
-    fn CreateMatchingContext(&self, result: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>) -> ::windows::core::Result<ResourceContext>;
+    fn CreateMatchingContext(&mut self, result: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>) -> ::windows::core::Result<ResourceContext>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContextStatics {
@@ -376,11 +376,11 @@ impl IResourceContextStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceContextStatics2Impl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<ResourceContext>;
-    fn SetGlobalQualifierValue(&self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ResetGlobalQualifierValues(&self) -> ::windows::core::Result<()>;
-    fn ResetGlobalQualifierValuesForSpecifiedQualifiers(&self, qualifiernames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
-    fn GetForViewIndependentUse(&self) -> ::windows::core::Result<ResourceContext>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<ResourceContext>;
+    fn SetGlobalQualifierValue(&mut self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ResetGlobalQualifierValues(&mut self) -> ::windows::core::Result<()>;
+    fn ResetGlobalQualifierValuesForSpecifiedQualifiers(&mut self, qualifiernames: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn GetForViewIndependentUse(&mut self) -> ::windows::core::Result<ResourceContext>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContextStatics2 {
@@ -438,7 +438,7 @@ impl IResourceContextStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceContextStatics3Impl: Sized {
-    fn SetGlobalQualifierValueWithPersistence(&self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING, persistence: ResourceQualifierPersistence) -> ::windows::core::Result<()>;
+    fn SetGlobalQualifierValueWithPersistence(&mut self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING, persistence: ResourceQualifierPersistence) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceContextStatics3 {
@@ -462,7 +462,7 @@ impl IResourceContextStatics3Vtbl {
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait IResourceContextStatics4Impl: Sized {
-    fn GetForUIContext(&self, context: &::core::option::Option<super::super::super::UI::UIContext>) -> ::windows::core::Result<ResourceContext>;
+    fn GetForUIContext(&mut self, context: &::core::option::Option<super::super::super::UI::UIContext>) -> ::windows::core::Result<ResourceContext>;
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceContextStatics4 {
@@ -493,11 +493,11 @@ impl IResourceContextStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IResourceManagerImpl: Sized {
-    fn MainResourceMap(&self) -> ::windows::core::Result<ResourceMap>;
-    fn AllResourceMaps(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ResourceMap>>;
-    fn DefaultContext(&self) -> ::windows::core::Result<ResourceContext>;
-    fn LoadPriFiles(&self, files: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>) -> ::windows::core::Result<()>;
-    fn UnloadPriFiles(&self, files: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>) -> ::windows::core::Result<()>;
+    fn MainResourceMap(&mut self) -> ::windows::core::Result<ResourceMap>;
+    fn AllResourceMaps(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ResourceMap>>;
+    fn DefaultContext(&mut self) -> ::windows::core::Result<ResourceContext>;
+    fn LoadPriFiles(&mut self, files: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>) -> ::windows::core::Result<()>;
+    fn UnloadPriFiles(&mut self, files: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceManager {
@@ -562,8 +562,8 @@ impl IResourceManagerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceManager2Impl: Sized {
-    fn GetAllNamedResourcesForPackage(&self, packagename: &::windows::core::HSTRING, resourcelayoutinfo: &ResourceLayoutInfo) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<NamedResource>>;
-    fn GetAllSubtreesForPackage(&self, packagename: &::windows::core::HSTRING, resourcelayoutinfo: &ResourceLayoutInfo) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceMap>>;
+    fn GetAllNamedResourcesForPackage(&mut self, packagename: &::windows::core::HSTRING, resourcelayoutinfo: &ResourceLayoutInfo) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<NamedResource>>;
+    fn GetAllSubtreesForPackage(&mut self, packagename: &::windows::core::HSTRING, resourcelayoutinfo: &ResourceLayoutInfo) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceMap>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceManager2 {
@@ -606,8 +606,8 @@ impl IResourceManager2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceManagerStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<ResourceManager>;
-    fn IsResourceReference(&self, resourcereference: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn Current(&mut self) -> ::windows::core::Result<ResourceManager>;
+    fn IsResourceReference(&mut self, resourcereference: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceManagerStatics {
@@ -650,10 +650,10 @@ impl IResourceManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IResourceMapImpl: Sized + IIterableImpl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>> + IMapViewImpl<::windows::core::HSTRING, NamedResource> {
-    fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn GetValue(&self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceCandidate>;
-    fn GetValueForContext(&self, resource: &::windows::core::HSTRING, context: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<ResourceCandidate>;
-    fn GetSubtree(&self, reference: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceMap>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn GetValue(&mut self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceCandidate>;
+    fn GetValueForContext(&mut self, resource: &::windows::core::HSTRING, context: &::core::option::Option<ResourceContext>) -> ::windows::core::Result<ResourceCandidate>;
+    fn GetSubtree(&mut self, reference: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceMap>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IResourceMap {
@@ -720,11 +720,11 @@ impl IResourceMapVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IResourceQualifierImpl: Sized {
-    fn QualifierName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn QualifierValue(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsDefault(&self) -> ::windows::core::Result<bool>;
-    fn IsMatch(&self) -> ::windows::core::Result<bool>;
-    fn Score(&self) -> ::windows::core::Result<f64>;
+    fn QualifierName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn QualifierValue(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsDefault(&mut self) -> ::windows::core::Result<bool>;
+    fn IsMatch(&mut self) -> ::windows::core::Result<bool>;
+    fn Score(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IResourceQualifier {

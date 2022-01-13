@@ -15,7 +15,7 @@ impl IAppBarAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IAppBarAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::AppBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::AppBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBarAutomationPeerFactory {
@@ -61,7 +61,7 @@ impl IAppBarButtonAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IAppBarButtonAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::AppBarButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarButtonAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::AppBarButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarButtonAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBarButtonAutomationPeerFactory {
@@ -107,7 +107,7 @@ impl IAppBarToggleButtonAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IAppBarToggleButtonAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::AppBarToggleButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarToggleButtonAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::AppBarToggleButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarToggleButtonAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBarToggleButtonAutomationPeerFactory {
@@ -153,7 +153,7 @@ impl IAutoSuggestBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IAutoSuggestBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::AutoSuggestBox>) -> ::windows::core::Result<AutoSuggestBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::AutoSuggestBox>) -> ::windows::core::Result<AutoSuggestBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutoSuggestBoxAutomationPeerFactory {
@@ -184,39 +184,39 @@ impl IAutoSuggestBoxAutomationPeerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPeerImpl: Sized {
-    fn EventsSource(&self) -> ::windows::core::Result<AutomationPeer>;
-    fn SetEventsSource(&self, value: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
-    fn GetPattern(&self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn RaiseAutomationEvent(&self, eventid: AutomationEvents) -> ::windows::core::Result<()>;
-    fn RaisePropertyChangedEvent(&self, automationproperty: &::core::option::Option<super::AutomationProperty>, oldvalue: &::core::option::Option<::windows::core::IInspectable>, newvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetAcceleratorKey(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAutomationControlType(&self) -> ::windows::core::Result<AutomationControlType>;
-    fn GetAutomationId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetBoundingRectangle(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn GetChildren(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>>;
-    fn GetClassName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetClickablePoint(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
-    fn GetHelpText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetItemStatus(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetItemType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetLabeledBy(&self) -> ::windows::core::Result<AutomationPeer>;
-    fn GetLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetOrientation(&self) -> ::windows::core::Result<AutomationOrientation>;
-    fn HasKeyboardFocus(&self) -> ::windows::core::Result<bool>;
-    fn IsContentElement(&self) -> ::windows::core::Result<bool>;
-    fn IsControlElement(&self) -> ::windows::core::Result<bool>;
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsKeyboardFocusable(&self) -> ::windows::core::Result<bool>;
-    fn IsOffscreen(&self) -> ::windows::core::Result<bool>;
-    fn IsPassword(&self) -> ::windows::core::Result<bool>;
-    fn IsRequiredForForm(&self) -> ::windows::core::Result<bool>;
-    fn SetFocus(&self) -> ::windows::core::Result<()>;
-    fn GetParent(&self) -> ::windows::core::Result<AutomationPeer>;
-    fn InvalidatePeer(&self) -> ::windows::core::Result<()>;
-    fn GetPeerFromPoint(&self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
-    fn GetLiveSetting(&self) -> ::windows::core::Result<AutomationLiveSetting>;
+    fn EventsSource(&mut self) -> ::windows::core::Result<AutomationPeer>;
+    fn SetEventsSource(&mut self, value: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
+    fn GetPattern(&mut self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn RaiseAutomationEvent(&mut self, eventid: AutomationEvents) -> ::windows::core::Result<()>;
+    fn RaisePropertyChangedEvent(&mut self, automationproperty: &::core::option::Option<super::AutomationProperty>, oldvalue: &::core::option::Option<::windows::core::IInspectable>, newvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetAcceleratorKey(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAccessKey(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAutomationControlType(&mut self) -> ::windows::core::Result<AutomationControlType>;
+    fn GetAutomationId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetBoundingRectangle(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn GetChildren(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>>;
+    fn GetClassName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetClickablePoint(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
+    fn GetHelpText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetItemStatus(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetItemType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLabeledBy(&mut self) -> ::windows::core::Result<AutomationPeer>;
+    fn GetLocalizedControlType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetOrientation(&mut self) -> ::windows::core::Result<AutomationOrientation>;
+    fn HasKeyboardFocus(&mut self) -> ::windows::core::Result<bool>;
+    fn IsContentElement(&mut self) -> ::windows::core::Result<bool>;
+    fn IsControlElement(&mut self) -> ::windows::core::Result<bool>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsKeyboardFocusable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsOffscreen(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPassword(&mut self) -> ::windows::core::Result<bool>;
+    fn IsRequiredForForm(&mut self) -> ::windows::core::Result<bool>;
+    fn SetFocus(&mut self) -> ::windows::core::Result<()>;
+    fn GetParent(&mut self) -> ::windows::core::Result<AutomationPeer>;
+    fn InvalidatePeer(&mut self) -> ::windows::core::Result<()>;
+    fn GetPeerFromPoint(&mut self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
+    fn GetLiveSetting(&mut self) -> ::windows::core::Result<AutomationLiveSetting>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPeer {
@@ -617,18 +617,18 @@ impl IAutomationPeer2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPeer3Impl: Sized {
-    fn Navigate(&self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetElementFromPoint(&self, pointinwindowcoordinates: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetFocusedElement(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
-    fn GetControlledPeers(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>;
-    fn GetAnnotations(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>>;
-    fn SetParent(&self, peer: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
-    fn RaiseTextEditTextChangedEvent(&self, automationtexteditchangetype: super::AutomationTextEditChangeType, changeddata: &::core::option::Option<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
-    fn GetPositionInSet(&self) -> ::windows::core::Result<i32>;
-    fn GetSizeOfSet(&self) -> ::windows::core::Result<i32>;
-    fn GetLevel(&self) -> ::windows::core::Result<i32>;
-    fn RaiseStructureChangedEvent(&self, structurechangetype: AutomationStructureChangeType, child: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
+    fn Navigate(&mut self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetElementFromPoint(&mut self, pointinwindowcoordinates: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetFocusedElement(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ShowContextMenu(&mut self) -> ::windows::core::Result<()>;
+    fn GetControlledPeers(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>;
+    fn GetAnnotations(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>>;
+    fn SetParent(&mut self, peer: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
+    fn RaiseTextEditTextChangedEvent(&mut self, automationtexteditchangetype: super::AutomationTextEditChangeType, changeddata: &::core::option::Option<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn GetPositionInSet(&mut self) -> ::windows::core::Result<i32>;
+    fn GetSizeOfSet(&mut self) -> ::windows::core::Result<i32>;
+    fn GetLevel(&mut self) -> ::windows::core::Result<i32>;
+    fn RaiseStructureChangedEvent(&mut self, structurechangetype: AutomationStructureChangeType, child: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPeer3 {
@@ -763,8 +763,8 @@ impl IAutomationPeer3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeer4Impl: Sized {
-    fn GetLandmarkType(&self) -> ::windows::core::Result<AutomationLandmarkType>;
-    fn GetLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLandmarkType(&mut self) -> ::windows::core::Result<AutomationLandmarkType>;
+    fn GetLocalizedLandmarkType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeer4 {
@@ -807,9 +807,9 @@ impl IAutomationPeer4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeer5Impl: Sized {
-    fn IsPeripheral(&self) -> ::windows::core::Result<bool>;
-    fn IsDataValidForForm(&self) -> ::windows::core::Result<bool>;
-    fn GetFullDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsPeripheral(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDataValidForForm(&mut self) -> ::windows::core::Result<bool>;
+    fn GetFullDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeer5 {
@@ -864,7 +864,7 @@ impl IAutomationPeer5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeer6Impl: Sized {
-    fn GetCulture(&self) -> ::windows::core::Result<i32>;
+    fn GetCulture(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeer6 {
@@ -892,7 +892,7 @@ impl IAutomationPeer6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeer7Impl: Sized {
-    fn RaiseNotificationEvent(&self, notificationkind: AutomationNotificationKind, notificationprocessing: AutomationNotificationProcessing, displaystring: &::windows::core::HSTRING, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RaiseNotificationEvent(&mut self, notificationkind: AutomationNotificationKind, notificationprocessing: AutomationNotificationProcessing, displaystring: &::windows::core::HSTRING, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeer7 {
@@ -916,7 +916,7 @@ impl IAutomationPeer7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeer8Impl: Sized {
-    fn GetHeadingLevel(&self) -> ::windows::core::Result<AutomationHeadingLevel>;
+    fn GetHeadingLevel(&mut self) -> ::windows::core::Result<AutomationHeadingLevel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeer8 {
@@ -944,7 +944,7 @@ impl IAutomationPeer8Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeer9Impl: Sized {
-    fn IsDialog(&self) -> ::windows::core::Result<bool>;
+    fn IsDialog(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeer9 {
@@ -972,10 +972,10 @@ impl IAutomationPeer9Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerAnnotationImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<super::AnnotationType>;
-    fn SetType(&self, value: super::AnnotationType) -> ::windows::core::Result<()>;
-    fn Peer(&self) -> ::windows::core::Result<AutomationPeer>;
-    fn SetPeer(&self, value: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<super::AnnotationType>;
+    fn SetType(&mut self, value: super::AnnotationType) -> ::windows::core::Result<()>;
+    fn Peer(&mut self) -> ::windows::core::Result<AutomationPeer>;
+    fn SetPeer(&mut self, value: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerAnnotation {
@@ -1028,8 +1028,8 @@ impl IAutomationPeerAnnotationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerAnnotationFactoryImpl: Sized {
-    fn CreateInstance(&self, r#type: super::AnnotationType) -> ::windows::core::Result<AutomationPeerAnnotation>;
-    fn CreateWithPeerParameter(&self, r#type: super::AnnotationType, peer: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<AutomationPeerAnnotation>;
+    fn CreateInstance(&mut self, r#type: super::AnnotationType) -> ::windows::core::Result<AutomationPeerAnnotation>;
+    fn CreateWithPeerParameter(&mut self, r#type: super::AnnotationType, peer: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<AutomationPeerAnnotation>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerAnnotationFactory {
@@ -1072,8 +1072,8 @@ impl IAutomationPeerAnnotationFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerAnnotationStaticsImpl: Sized {
-    fn TypeProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
-    fn PeerProperty(&self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn TypeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
+    fn PeerProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerAnnotationStatics {
@@ -1116,7 +1116,7 @@ impl IAutomationPeerAnnotationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AutomationPeer>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerFactory {
@@ -1147,33 +1147,33 @@ impl IAutomationPeerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPeerOverridesImpl: Sized {
-    fn GetPatternCore(&self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetAcceleratorKeyCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAccessKeyCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAutomationControlTypeCore(&self) -> ::windows::core::Result<AutomationControlType>;
-    fn GetAutomationIdCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetBoundingRectangleCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn GetChildrenCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>>;
-    fn GetClassNameCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetClickablePointCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
-    fn GetHelpTextCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetItemStatusCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetItemTypeCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetLabeledByCore(&self) -> ::windows::core::Result<AutomationPeer>;
-    fn GetLocalizedControlTypeCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetNameCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetOrientationCore(&self) -> ::windows::core::Result<AutomationOrientation>;
-    fn HasKeyboardFocusCore(&self) -> ::windows::core::Result<bool>;
-    fn IsContentElementCore(&self) -> ::windows::core::Result<bool>;
-    fn IsControlElementCore(&self) -> ::windows::core::Result<bool>;
-    fn IsEnabledCore(&self) -> ::windows::core::Result<bool>;
-    fn IsKeyboardFocusableCore(&self) -> ::windows::core::Result<bool>;
-    fn IsOffscreenCore(&self) -> ::windows::core::Result<bool>;
-    fn IsPasswordCore(&self) -> ::windows::core::Result<bool>;
-    fn IsRequiredForFormCore(&self) -> ::windows::core::Result<bool>;
-    fn SetFocusCore(&self) -> ::windows::core::Result<()>;
-    fn GetPeerFromPointCore(&self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
-    fn GetLiveSettingCore(&self) -> ::windows::core::Result<AutomationLiveSetting>;
+    fn GetPatternCore(&mut self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetAcceleratorKeyCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAccessKeyCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAutomationControlTypeCore(&mut self) -> ::windows::core::Result<AutomationControlType>;
+    fn GetAutomationIdCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetBoundingRectangleCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn GetChildrenCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>>;
+    fn GetClassNameCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetClickablePointCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
+    fn GetHelpTextCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetItemStatusCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetItemTypeCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLabeledByCore(&mut self) -> ::windows::core::Result<AutomationPeer>;
+    fn GetLocalizedControlTypeCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetNameCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetOrientationCore(&mut self) -> ::windows::core::Result<AutomationOrientation>;
+    fn HasKeyboardFocusCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsContentElementCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsControlElementCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsEnabledCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsKeyboardFocusableCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsOffscreenCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPasswordCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsRequiredForFormCore(&mut self) -> ::windows::core::Result<bool>;
+    fn SetFocusCore(&mut self) -> ::windows::core::Result<()>;
+    fn GetPeerFromPointCore(&mut self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
+    fn GetLiveSettingCore(&mut self) -> ::windows::core::Result<AutomationLiveSetting>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides {
@@ -1509,8 +1509,8 @@ impl IAutomationPeerOverridesVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPeerOverrides2Impl: Sized {
-    fn ShowContextMenuCore(&self) -> ::windows::core::Result<()>;
-    fn GetControlledPeersCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>;
+    fn ShowContextMenuCore(&mut self) -> ::windows::core::Result<()>;
+    fn GetControlledPeersCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides2 {
@@ -1546,13 +1546,13 @@ impl IAutomationPeerOverrides2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPeerOverrides3Impl: Sized {
-    fn NavigateCore(&self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetElementFromPointCore(&self, pointinwindowcoordinates: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetFocusedElementCore(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetAnnotationsCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>>;
-    fn GetPositionInSetCore(&self) -> ::windows::core::Result<i32>;
-    fn GetSizeOfSetCore(&self) -> ::windows::core::Result<i32>;
-    fn GetLevelCore(&self) -> ::windows::core::Result<i32>;
+    fn NavigateCore(&mut self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetElementFromPointCore(&mut self, pointinwindowcoordinates: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetFocusedElementCore(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetAnnotationsCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>>;
+    fn GetPositionInSetCore(&mut self) -> ::windows::core::Result<i32>;
+    fn GetSizeOfSetCore(&mut self) -> ::windows::core::Result<i32>;
+    fn GetLevelCore(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides3 {
@@ -1655,8 +1655,8 @@ impl IAutomationPeerOverrides3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerOverrides4Impl: Sized {
-    fn GetLandmarkTypeCore(&self) -> ::windows::core::Result<AutomationLandmarkType>;
-    fn GetLocalizedLandmarkTypeCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLandmarkTypeCore(&mut self) -> ::windows::core::Result<AutomationLandmarkType>;
+    fn GetLocalizedLandmarkTypeCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides4 {
@@ -1699,12 +1699,12 @@ impl IAutomationPeerOverrides4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAutomationPeerOverrides5Impl: Sized {
-    fn IsPeripheralCore(&self) -> ::windows::core::Result<bool>;
-    fn IsDataValidForFormCore(&self) -> ::windows::core::Result<bool>;
-    fn GetFullDescriptionCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDescribedByCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
-    fn GetFlowsToCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
-    fn GetFlowsFromCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
+    fn IsPeripheralCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDataValidForFormCore(&mut self) -> ::windows::core::Result<bool>;
+    fn GetFullDescriptionCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDescribedByCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
+    fn GetFlowsToCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
+    fn GetFlowsFromCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides5 {
@@ -1795,7 +1795,7 @@ impl IAutomationPeerOverrides5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerOverrides6Impl: Sized {
-    fn GetCultureCore(&self) -> ::windows::core::Result<i32>;
+    fn GetCultureCore(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides6 {
@@ -1826,7 +1826,7 @@ impl IAutomationPeerOverrides6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerOverrides8Impl: Sized {
-    fn GetHeadingLevelCore(&self) -> ::windows::core::Result<AutomationHeadingLevel>;
+    fn GetHeadingLevelCore(&mut self) -> ::windows::core::Result<AutomationHeadingLevel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides8 {
@@ -1857,7 +1857,7 @@ impl IAutomationPeerOverrides8Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerOverrides9Impl: Sized {
-    fn IsDialogCore(&self) -> ::windows::core::Result<bool>;
+    fn IsDialogCore(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides9 {
@@ -1888,8 +1888,8 @@ impl IAutomationPeerOverrides9Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Provider", feature = "implement_exclusive"))]
 pub trait IAutomationPeerProtectedImpl: Sized {
-    fn PeerFromProvider(&self, provider: &::core::option::Option<super::Provider::IRawElementProviderSimple>) -> ::windows::core::Result<AutomationPeer>;
-    fn ProviderFromPeer(&self, peer: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple>;
+    fn PeerFromProvider(&mut self, provider: &::core::option::Option<super::Provider::IRawElementProviderSimple>) -> ::windows::core::Result<AutomationPeer>;
+    fn ProviderFromPeer(&mut self, peer: &::core::option::Option<AutomationPeer>) -> ::windows::core::Result<super::Provider::IRawElementProviderSimple>;
 }
 #[cfg(all(feature = "UI_Xaml_Automation_Provider", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAutomationPeerProtected {
@@ -1932,7 +1932,7 @@ impl IAutomationPeerProtectedVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerStaticsImpl: Sized {
-    fn ListenerExists(&self, eventid: AutomationEvents) -> ::windows::core::Result<bool>;
+    fn ListenerExists(&mut self, eventid: AutomationEvents) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerStatics {
@@ -1963,7 +1963,7 @@ impl IAutomationPeerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationPeerStatics3Impl: Sized {
-    fn GenerateRawElementProviderRuntimeId(&self) -> ::windows::core::Result<RawElementProviderRuntimeId>;
+    fn GenerateRawElementProviderRuntimeId(&mut self) -> ::windows::core::Result<RawElementProviderRuntimeId>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationPeerStatics3 {
@@ -2009,7 +2009,7 @@ impl IButtonAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IButtonAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Button>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ButtonAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Button>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ButtonAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IButtonAutomationPeerFactory {
@@ -2055,7 +2055,7 @@ impl IButtonBaseAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IButtonBaseAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::ButtonBase>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ButtonBaseAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::ButtonBase>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ButtonBaseAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IButtonBaseAutomationPeerFactory {
@@ -2101,7 +2101,7 @@ impl ICalendarDatePickerAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ICalendarDatePickerAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::CalendarDatePicker>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CalendarDatePickerAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::CalendarDatePicker>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CalendarDatePickerAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICalendarDatePickerAutomationPeerFactory {
@@ -2147,7 +2147,7 @@ impl ICaptureElementAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ICaptureElementAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::CaptureElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CaptureElementAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::CaptureElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CaptureElementAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICaptureElementAutomationPeerFactory {
@@ -2193,7 +2193,7 @@ impl ICheckBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ICheckBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::CheckBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CheckBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::CheckBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CheckBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICheckBoxAutomationPeerFactory {
@@ -2239,7 +2239,7 @@ impl IColorPickerSliderAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IColorPickerSliderAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::ColorPickerSlider>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorPickerSliderAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::ColorPickerSlider>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorPickerSliderAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorPickerSliderAutomationPeerFactory {
@@ -2285,7 +2285,7 @@ impl IColorSpectrumAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IColorSpectrumAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::ColorSpectrum>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorSpectrumAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::ColorSpectrum>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorSpectrumAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IColorSpectrumAutomationPeerFactory {
@@ -2331,7 +2331,7 @@ impl IComboBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IComboBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ComboBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ComboBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IComboBoxAutomationPeerFactory {
@@ -2377,7 +2377,7 @@ impl IComboBoxItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IComboBoxItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ComboBoxItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ComboBoxItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IComboBoxItemAutomationPeerFactory {
@@ -2423,7 +2423,7 @@ impl IComboBoxItemDataAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IComboBoxItemDataAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ComboBoxAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxItemDataAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ComboBoxAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxItemDataAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IComboBoxItemDataAutomationPeerFactory {
@@ -2474,7 +2474,7 @@ impl IDatePickerAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IDatePickerAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::DatePicker>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DatePickerAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::DatePicker>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DatePickerAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDatePickerAutomationPeerFactory {
@@ -2535,7 +2535,7 @@ impl IFlipViewAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IFlipViewAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::FlipView>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::FlipView>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlipViewAutomationPeerFactory {
@@ -2581,7 +2581,7 @@ impl IFlipViewItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IFlipViewItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::FlipViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::FlipViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlipViewItemAutomationPeerFactory {
@@ -2627,7 +2627,7 @@ impl IFlipViewItemDataAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlipViewItemDataAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<FlipViewAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewItemDataAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<FlipViewAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewItemDataAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlipViewItemDataAutomationPeerFactory {
@@ -2678,7 +2678,7 @@ impl IFlyoutPresenterAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IFlyoutPresenterAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::FlyoutPresenter>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutPresenterAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::FlyoutPresenter>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutPresenterAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlyoutPresenterAutomationPeerFactory {
@@ -2709,7 +2709,7 @@ impl IFlyoutPresenterAutomationPeerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFrameworkElementAutomationPeerImpl: Sized {
-    fn Owner(&self) -> ::windows::core::Result<super::super::UIElement>;
+    fn Owner(&mut self) -> ::windows::core::Result<super::super::UIElement>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFrameworkElementAutomationPeer {
@@ -2737,7 +2737,7 @@ impl IFrameworkElementAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFrameworkElementAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::FrameworkElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FrameworkElementAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::FrameworkElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FrameworkElementAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFrameworkElementAutomationPeerFactory {
@@ -2768,8 +2768,8 @@ impl IFrameworkElementAutomationPeerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFrameworkElementAutomationPeerStaticsImpl: Sized {
-    fn FromElement(&self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<AutomationPeer>;
-    fn CreatePeerForElement(&self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<AutomationPeer>;
+    fn FromElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<AutomationPeer>;
+    fn CreatePeerForElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<AutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFrameworkElementAutomationPeerStatics {
@@ -2827,7 +2827,7 @@ impl IGridViewAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IGridViewAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::GridView>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::GridView>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGridViewAutomationPeerFactory {
@@ -2873,7 +2873,7 @@ impl IGridViewHeaderItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IGridViewHeaderItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::GridViewHeaderItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewHeaderItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::GridViewHeaderItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewHeaderItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGridViewHeaderItemAutomationPeerFactory {
@@ -2919,7 +2919,7 @@ impl IGridViewItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IGridViewItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::GridViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::GridViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGridViewItemAutomationPeerFactory {
@@ -2965,7 +2965,7 @@ impl IGridViewItemDataAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGridViewItemDataAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<GridViewAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemDataAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<GridViewAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemDataAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGridViewItemDataAutomationPeerFactory {
@@ -3016,7 +3016,7 @@ impl IGroupItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IGroupItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::GroupItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GroupItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::GroupItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GroupItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGroupItemAutomationPeerFactory {
@@ -3062,7 +3062,7 @@ impl IHubAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IHubAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Hub>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HubAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Hub>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HubAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHubAutomationPeerFactory {
@@ -3108,7 +3108,7 @@ impl IHubSectionAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IHubSectionAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::HubSection>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HubSectionAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::HubSection>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HubSectionAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHubSectionAutomationPeerFactory {
@@ -3154,7 +3154,7 @@ impl IHyperlinkButtonAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IHyperlinkButtonAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::HyperlinkButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HyperlinkButtonAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::HyperlinkButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HyperlinkButtonAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHyperlinkButtonAutomationPeerFactory {
@@ -3200,7 +3200,7 @@ impl IImageAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IImageAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Image>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ImageAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Image>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ImageAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageAutomationPeerFactory {
@@ -3246,8 +3246,8 @@ impl IInkToolbarAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IItemAutomationPeerImpl: Sized {
-    fn Item(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn ItemsControlAutomationPeer(&self) -> ::windows::core::Result<ItemsControlAutomationPeer>;
+    fn Item(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ItemsControlAutomationPeer(&mut self) -> ::windows::core::Result<ItemsControlAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IItemAutomationPeer {
@@ -3290,7 +3290,7 @@ impl IItemAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ItemsControlAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ItemsControlAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IItemAutomationPeerFactory {
@@ -3341,7 +3341,7 @@ impl IItemsControlAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IItemsControlAutomationPeer2Impl: Sized {
-    fn CreateItemAutomationPeer(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
+    fn CreateItemAutomationPeer(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IItemsControlAutomationPeer2 {
@@ -3372,7 +3372,7 @@ impl IItemsControlAutomationPeer2Vtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IItemsControlAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ItemsControl>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemsControlAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ItemsControl>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemsControlAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IItemsControlAutomationPeerFactory {
@@ -3403,7 +3403,7 @@ impl IItemsControlAutomationPeerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IItemsControlAutomationPeerOverrides2Impl: Sized {
-    fn OnCreateItemAutomationPeer(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
+    fn OnCreateItemAutomationPeer(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IItemsControlAutomationPeerOverrides2 {
@@ -3449,7 +3449,7 @@ impl IListBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IListBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ListBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ListBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListBoxAutomationPeerFactory {
@@ -3495,7 +3495,7 @@ impl IListBoxItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IListBoxItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ListBoxItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ListBoxItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListBoxItemAutomationPeerFactory {
@@ -3541,7 +3541,7 @@ impl IListBoxItemDataAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListBoxItemDataAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ListBoxAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxItemDataAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ListBoxAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxItemDataAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListBoxItemDataAutomationPeerFactory {
@@ -3607,7 +3607,7 @@ impl IListViewAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IListViewAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ListView>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ListView>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewAutomationPeerFactory {
@@ -3653,7 +3653,7 @@ impl IListViewBaseAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IListViewBaseAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ListViewBase>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewBaseAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ListViewBase>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewBaseAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewBaseAutomationPeerFactory {
@@ -3699,7 +3699,7 @@ impl IListViewBaseHeaderItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IListViewBaseHeaderItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ListViewBaseHeaderItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewBaseHeaderItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ListViewBaseHeaderItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewBaseHeaderItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewBaseHeaderItemAutomationPeerFactory {
@@ -3745,7 +3745,7 @@ impl IListViewHeaderItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IListViewHeaderItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ListViewHeaderItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewHeaderItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ListViewHeaderItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewHeaderItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewHeaderItemAutomationPeerFactory {
@@ -3791,7 +3791,7 @@ impl IListViewItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IListViewItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ListViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ListViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListViewItemAutomationPeerFactory {
@@ -3837,7 +3837,7 @@ impl IListViewItemDataAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IListViewItemDataAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ListViewBaseAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemDataAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<ListViewBaseAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemDataAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IListViewItemDataAutomationPeerFactory {
@@ -3948,7 +3948,7 @@ impl IMediaElementAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IMediaElementAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::MediaElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaElementAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::MediaElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaElementAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaElementAutomationPeerFactory {
@@ -3994,7 +3994,7 @@ impl IMediaPlayerElementAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IMediaPlayerElementAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::MediaPlayerElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaPlayerElementAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::MediaPlayerElement>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaPlayerElementAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaPlayerElementAutomationPeerFactory {
@@ -4040,7 +4040,7 @@ impl IMediaTransportControlsAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IMediaTransportControlsAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::MediaTransportControls>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaTransportControlsAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::MediaTransportControls>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaTransportControlsAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaTransportControlsAutomationPeerFactory {
@@ -4086,7 +4086,7 @@ impl IMenuBarAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IMenuBarAutomationPeerFactoryImpl: Sized {
-    fn CreateInstance(&self, owner: &::core::option::Option<super::super::Controls::MenuBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuBarAutomationPeer>;
+    fn CreateInstance(&mut self, owner: &::core::option::Option<super::super::Controls::MenuBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuBarAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMenuBarAutomationPeerFactory {
@@ -4132,7 +4132,7 @@ impl IMenuBarItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IMenuBarItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstance(&self, owner: &::core::option::Option<super::super::Controls::MenuBarItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuBarItemAutomationPeer>;
+    fn CreateInstance(&mut self, owner: &::core::option::Option<super::super::Controls::MenuBarItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuBarItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMenuBarItemAutomationPeerFactory {
@@ -4178,7 +4178,7 @@ impl IMenuFlyoutItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IMenuFlyoutItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::MenuFlyoutItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuFlyoutItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::MenuFlyoutItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuFlyoutItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMenuFlyoutItemAutomationPeerFactory {
@@ -4224,7 +4224,7 @@ impl IMenuFlyoutPresenterAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IMenuFlyoutPresenterAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::MenuFlyoutPresenter>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuFlyoutPresenterAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::MenuFlyoutPresenter>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuFlyoutPresenterAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMenuFlyoutPresenterAutomationPeerFactory {
@@ -4270,7 +4270,7 @@ impl INavigationViewItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait INavigationViewItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::NavigationViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationViewItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::NavigationViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationViewItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INavigationViewItemAutomationPeerFactory {
@@ -4316,7 +4316,7 @@ impl IPasswordBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IPasswordBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::PasswordBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PasswordBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::PasswordBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PasswordBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPasswordBoxAutomationPeerFactory {
@@ -4362,7 +4362,7 @@ impl IPersonPictureAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IPersonPictureAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::PersonPicture>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PersonPictureAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::PersonPicture>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PersonPictureAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPersonPictureAutomationPeerFactory {
@@ -4423,7 +4423,7 @@ impl IPivotAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IPivotAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Pivot>) -> ::windows::core::Result<PivotAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Pivot>) -> ::windows::core::Result<PivotAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPivotAutomationPeerFactory {
@@ -4469,7 +4469,7 @@ impl IPivotItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IPivotItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::PivotItem>) -> ::windows::core::Result<PivotItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::PivotItem>) -> ::windows::core::Result<PivotItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPivotItemAutomationPeerFactory {
@@ -4515,7 +4515,7 @@ impl IPivotItemDataAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPivotItemDataAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<PivotAutomationPeer>) -> ::windows::core::Result<PivotItemDataAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<PivotAutomationPeer>) -> ::windows::core::Result<PivotItemDataAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPivotItemDataAutomationPeerFactory {
@@ -4561,7 +4561,7 @@ impl IProgressBarAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IProgressBarAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ProgressBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ProgressBarAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ProgressBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ProgressBarAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProgressBarAutomationPeerFactory {
@@ -4607,7 +4607,7 @@ impl IProgressRingAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IProgressRingAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ProgressRing>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ProgressRingAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ProgressRing>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ProgressRingAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProgressRingAutomationPeerFactory {
@@ -4653,7 +4653,7 @@ impl IRadioButtonAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IRadioButtonAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::RadioButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RadioButtonAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::RadioButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RadioButtonAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRadioButtonAutomationPeerFactory {
@@ -4699,7 +4699,7 @@ impl IRangeBaseAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IRangeBaseAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::RangeBase>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RangeBaseAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::RangeBase>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RangeBaseAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRangeBaseAutomationPeerFactory {
@@ -4745,7 +4745,7 @@ impl IRatingControlAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IRatingControlAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::RatingControl>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RatingControlAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::RatingControl>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RatingControlAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRatingControlAutomationPeerFactory {
@@ -4791,7 +4791,7 @@ impl IRepeatButtonAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IRepeatButtonAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::RepeatButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RepeatButtonAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::RepeatButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RepeatButtonAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRepeatButtonAutomationPeerFactory {
@@ -4837,7 +4837,7 @@ impl IRichEditBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IRichEditBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::RichEditBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichEditBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::RichEditBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichEditBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRichEditBoxAutomationPeerFactory {
@@ -4883,7 +4883,7 @@ impl IRichTextBlockAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IRichTextBlockAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::RichTextBlock>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichTextBlockAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::RichTextBlock>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichTextBlockAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRichTextBlockAutomationPeerFactory {
@@ -4929,7 +4929,7 @@ impl IRichTextBlockOverflowAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IRichTextBlockOverflowAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::RichTextBlockOverflow>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichTextBlockOverflowAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::RichTextBlockOverflow>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichTextBlockOverflowAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRichTextBlockOverflowAutomationPeerFactory {
@@ -4975,7 +4975,7 @@ impl IScrollBarAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IScrollBarAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::ScrollBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ScrollBarAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::ScrollBar>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ScrollBarAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScrollBarAutomationPeerFactory {
@@ -5021,7 +5021,7 @@ impl IScrollViewerAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IScrollViewerAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ScrollViewer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ScrollViewerAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ScrollViewer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ScrollViewerAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IScrollViewerAutomationPeerFactory {
@@ -5067,7 +5067,7 @@ impl ISearchBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ISearchBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::SearchBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SearchBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::SearchBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SearchBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchBoxAutomationPeerFactory {
@@ -5113,7 +5113,7 @@ impl ISelectorAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait ISelectorAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::Selector>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::Selector>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISelectorAutomationPeerFactory {
@@ -5159,7 +5159,7 @@ impl ISelectorItemAutomationPeerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectorItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithParentAndItem(&self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<SelectorAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorItemAutomationPeer>;
+    fn CreateInstanceWithParentAndItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, parent: &::core::option::Option<SelectorAutomationPeer>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorItemAutomationPeer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectorItemAutomationPeerFactory {
@@ -5210,7 +5210,7 @@ impl ISemanticZoomAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ISemanticZoomAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::SemanticZoom>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SemanticZoomAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::SemanticZoom>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SemanticZoomAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISemanticZoomAutomationPeerFactory {
@@ -5256,7 +5256,7 @@ impl ISettingsFlyoutAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ISettingsFlyoutAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::SettingsFlyout>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SettingsFlyoutAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::SettingsFlyout>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SettingsFlyoutAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISettingsFlyoutAutomationPeerFactory {
@@ -5302,7 +5302,7 @@ impl ISliderAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ISliderAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Slider>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SliderAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Slider>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SliderAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISliderAutomationPeerFactory {
@@ -5348,7 +5348,7 @@ impl ITextBlockAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ITextBlockAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::TextBlock>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextBlockAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::TextBlock>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextBlockAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextBlockAutomationPeerFactory {
@@ -5394,7 +5394,7 @@ impl ITextBoxAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ITextBoxAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::TextBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextBoxAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::TextBox>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextBoxAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextBoxAutomationPeerFactory {
@@ -5440,7 +5440,7 @@ impl IThumbAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IThumbAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::Thumb>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ThumbAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::Thumb>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ThumbAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IThumbAutomationPeerFactory {
@@ -5486,7 +5486,7 @@ impl ITimePickerAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ITimePickerAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::TimePicker>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TimePickerAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::TimePicker>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TimePickerAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimePickerAutomationPeerFactory {
@@ -5547,7 +5547,7 @@ impl IToggleButtonAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 pub trait IToggleButtonAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::Primitives::ToggleButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleButtonAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::Primitives::ToggleButton>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleButtonAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToggleButtonAutomationPeerFactory {
@@ -5593,7 +5593,7 @@ impl IToggleMenuFlyoutItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IToggleMenuFlyoutItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ToggleMenuFlyoutItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleMenuFlyoutItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ToggleMenuFlyoutItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleMenuFlyoutItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToggleMenuFlyoutItemAutomationPeerFactory {
@@ -5639,7 +5639,7 @@ impl IToggleSwitchAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait IToggleSwitchAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::ToggleSwitch>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleSwitchAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::ToggleSwitch>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleSwitchAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IToggleSwitchAutomationPeerFactory {
@@ -5685,7 +5685,7 @@ impl ITreeViewItemAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ITreeViewItemAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::TreeViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TreeViewItemAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::TreeViewItem>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TreeViewItemAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITreeViewItemAutomationPeerFactory {
@@ -5731,7 +5731,7 @@ impl ITreeViewListAutomationPeerVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 pub trait ITreeViewListAutomationPeerFactoryImpl: Sized {
-    fn CreateInstanceWithOwner(&self, owner: &::core::option::Option<super::super::Controls::TreeViewList>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TreeViewListAutomationPeer>;
+    fn CreateInstanceWithOwner(&mut self, owner: &::core::option::Option<super::super::Controls::TreeViewList>, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TreeViewListAutomationPeer>;
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITreeViewListAutomationPeerFactory {

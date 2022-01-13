@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPerceptionTimestampImpl: Sized {
-    fn TargetTime(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
-    fn PredictionAmount(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
+    fn TargetTime(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn PredictionAmount(&mut self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionTimestamp {
@@ -44,7 +44,7 @@ impl IPerceptionTimestampVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPerceptionTimestamp2Impl: Sized {
-    fn SystemRelativeTargetTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
+    fn SystemRelativeTargetTime(&mut self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionTimestamp2 {
@@ -75,7 +75,7 @@ impl IPerceptionTimestamp2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPerceptionTimestampHelperStaticsImpl: Sized {
-    fn FromHistoricalTargetTime(&self, targettime: &super::Foundation::DateTime) -> ::windows::core::Result<PerceptionTimestamp>;
+    fn FromHistoricalTargetTime(&mut self, targettime: &super::Foundation::DateTime) -> ::windows::core::Result<PerceptionTimestamp>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionTimestampHelperStatics {
@@ -106,7 +106,7 @@ impl IPerceptionTimestampHelperStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPerceptionTimestampHelperStatics2Impl: Sized {
-    fn FromSystemRelativeTargetTime(&self, targettime: &super::Foundation::TimeSpan) -> ::windows::core::Result<PerceptionTimestamp>;
+    fn FromSystemRelativeTargetTime(&mut self, targettime: &super::Foundation::TimeSpan) -> ::windows::core::Result<PerceptionTimestamp>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPerceptionTimestampHelperStatics2 {

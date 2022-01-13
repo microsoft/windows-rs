@@ -1,17 +1,17 @@
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IBackgroundEnergyManagerStaticsImpl: Sized {
-    fn LowUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn NearMaxAcceptableUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn MaxAcceptableUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn ExcessiveUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn NearTerminationUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn TerminationUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn RecentEnergyUsage(&self) -> ::windows::core::Result<u32>;
-    fn RecentEnergyUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn RecentEnergyUsageIncreased(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecentEnergyUsageIncreased(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RecentEnergyUsageReturnedToLow(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecentEnergyUsageReturnedToLow(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LowUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn NearMaxAcceptableUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxAcceptableUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn ExcessiveUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn NearTerminationUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn TerminationUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn RecentEnergyUsage(&mut self) -> ::windows::core::Result<u32>;
+    fn RecentEnergyUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn RecentEnergyUsageIncreased(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecentEnergyUsageIncreased(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RecentEnergyUsageReturnedToLow(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecentEnergyUsageReturnedToLow(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundEnergyManagerStatics {
@@ -160,16 +160,16 @@ impl IBackgroundEnergyManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IForegroundEnergyManagerStaticsImpl: Sized {
-    fn LowUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn NearMaxAcceptableUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn MaxAcceptableUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn ExcessiveUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn RecentEnergyUsage(&self) -> ::windows::core::Result<u32>;
-    fn RecentEnergyUsageLevel(&self) -> ::windows::core::Result<u32>;
-    fn RecentEnergyUsageIncreased(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecentEnergyUsageIncreased(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RecentEnergyUsageReturnedToLow(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecentEnergyUsageReturnedToLow(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LowUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn NearMaxAcceptableUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxAcceptableUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn ExcessiveUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn RecentEnergyUsage(&mut self) -> ::windows::core::Result<u32>;
+    fn RecentEnergyUsageLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn RecentEnergyUsageIncreased(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecentEnergyUsageIncreased(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RecentEnergyUsageReturnedToLow(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecentEnergyUsageReturnedToLow(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IForegroundEnergyManagerStatics {
@@ -294,21 +294,21 @@ impl IForegroundEnergyManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPowerManagerStaticsImpl: Sized {
-    fn EnergySaverStatus(&self) -> ::windows::core::Result<EnergySaverStatus>;
-    fn EnergySaverStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnergySaverStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn BatteryStatus(&self) -> ::windows::core::Result<BatteryStatus>;
-    fn BatteryStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBatteryStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PowerSupplyStatus(&self) -> ::windows::core::Result<PowerSupplyStatus>;
-    fn PowerSupplyStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePowerSupplyStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RemainingChargePercent(&self) -> ::windows::core::Result<i32>;
-    fn RemainingChargePercentChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemainingChargePercentChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RemainingDischargeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn RemainingDischargeTimeChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemainingDischargeTimeChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnergySaverStatus(&mut self) -> ::windows::core::Result<EnergySaverStatus>;
+    fn EnergySaverStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnergySaverStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BatteryStatus(&mut self) -> ::windows::core::Result<BatteryStatus>;
+    fn BatteryStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBatteryStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PowerSupplyStatus(&mut self) -> ::windows::core::Result<PowerSupplyStatus>;
+    fn PowerSupplyStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePowerSupplyStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RemainingChargePercent(&mut self) -> ::windows::core::Result<i32>;
+    fn RemainingChargePercentChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemainingChargePercentChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RemainingDischargeTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn RemainingDischargeTimeChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemainingDischargeTimeChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPowerManagerStatics {

@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ICachedFileUpdaterStaticsImpl: Sized {
-    fn SetUpdateInformation(&self, file: &::core::option::Option<super::IStorageFile>, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>;
+    fn SetUpdateInformation(&mut self, file: &::core::option::Option<super::IStorageFile>, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICachedFileUpdaterStatics {
@@ -24,14 +24,14 @@ impl ICachedFileUpdaterStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICachedFileUpdaterUIImpl: Sized {
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UpdateTarget(&self) -> ::windows::core::Result<CachedFileTarget>;
-    fn FileUpdateRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFileUpdateRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UIRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUIRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UIStatus(&self) -> ::windows::core::Result<UIStatus>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UpdateTarget(&mut self) -> ::windows::core::Result<CachedFileTarget>;
+    fn FileUpdateRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFileUpdateRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UIRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUIRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UIStatus(&mut self) -> ::windows::core::Result<UIStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICachedFileUpdaterUI {
@@ -125,8 +125,8 @@ impl ICachedFileUpdaterUIVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICachedFileUpdaterUI2Impl: Sized + ICachedFileUpdaterUIImpl {
-    fn UpdateRequest(&self) -> ::windows::core::Result<FileUpdateRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral>;
+    fn UpdateRequest(&mut self) -> ::windows::core::Result<FileUpdateRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<FileUpdateRequestDeferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICachedFileUpdaterUI2 {
@@ -169,12 +169,12 @@ impl ICachedFileUpdaterUI2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequestImpl: Sized {
-    fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn File(&self) -> ::windows::core::Result<super::StorageFile>;
-    fn Status(&self) -> ::windows::core::Result<FileUpdateStatus>;
-    fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral>;
-    fn UpdateLocalFile(&self, value: &::core::option::Option<super::IStorageFile>) -> ::windows::core::Result<()>;
+    fn ContentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn File(&mut self) -> ::windows::core::Result<super::StorageFile>;
+    fn Status(&mut self) -> ::windows::core::Result<FileUpdateStatus>;
+    fn SetStatus(&mut self, value: FileUpdateStatus) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<FileUpdateRequestDeferral>;
+    fn UpdateLocalFile(&mut self, value: &::core::option::Option<super::IStorageFile>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileUpdateRequest {
@@ -251,8 +251,8 @@ impl IFileUpdateRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequest2Impl: Sized + IFileUpdateRequestImpl {
-    fn UserInputNeededMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetUserInputNeededMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UserInputNeededMessage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetUserInputNeededMessage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileUpdateRequest2 {
@@ -288,7 +288,7 @@ impl IFileUpdateRequest2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequestDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileUpdateRequestDeferral {
@@ -309,7 +309,7 @@ impl IFileUpdateRequestDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUpdateRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<FileUpdateRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<FileUpdateRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileUpdateRequestedEventArgs {
@@ -337,17 +337,17 @@ impl IFileUpdateRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderErrorImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FilePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFilePath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PrimaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand>;
-    fn SetPrimaryAction(&self, value: &::core::option::Option<StorageProviderErrorCommand>) -> ::windows::core::Result<()>;
-    fn SecondaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand>;
-    fn SetSecondaryAction(&self, value: &::core::option::Option<StorageProviderErrorCommand>) -> ::windows::core::Result<()>;
-    fn InformationalLink(&self) -> ::windows::core::Result<StorageProviderErrorCommand>;
-    fn SetInformationalLink(&self, value: &::core::option::Option<StorageProviderErrorCommand>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FilePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFilePath(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PrimaryAction(&mut self) -> ::windows::core::Result<StorageProviderErrorCommand>;
+    fn SetPrimaryAction(&mut self, value: &::core::option::Option<StorageProviderErrorCommand>) -> ::windows::core::Result<()>;
+    fn SecondaryAction(&mut self) -> ::windows::core::Result<StorageProviderErrorCommand>;
+    fn SetSecondaryAction(&mut self, value: &::core::option::Option<StorageProviderErrorCommand>) -> ::windows::core::Result<()>;
+    fn InformationalLink(&mut self) -> ::windows::core::Result<StorageProviderErrorCommand>;
+    fn SetInformationalLink(&mut self, value: &::core::option::Option<StorageProviderErrorCommand>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderError {
@@ -470,8 +470,8 @@ impl IStorageProviderErrorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageProviderErrorCommandImpl: Sized {
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ActionUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ActionUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderErrorCommand {
@@ -514,7 +514,7 @@ impl IStorageProviderErrorCommandVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStorageProviderErrorCommandFactoryImpl: Sized {
-    fn CreateInstance(&self, label: &::windows::core::HSTRING, actionuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<StorageProviderErrorCommand>;
+    fn CreateInstance(&mut self, label: &::windows::core::HSTRING, actionuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<StorageProviderErrorCommand>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderErrorCommandFactory {
@@ -545,7 +545,7 @@ impl IStorageProviderErrorCommandFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderErrorFactoryImpl: Sized {
-    fn CreateInstance(&self, id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderError>;
+    fn CreateInstance(&mut self, id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderErrorFactory {
@@ -576,8 +576,8 @@ impl IStorageProviderErrorFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderFileTypeInfoImpl: Sized {
-    fn FileExtension(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FileExtension(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IconResource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderFileTypeInfo {
@@ -620,7 +620,7 @@ impl IStorageProviderFileTypeInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderFileTypeInfoFactoryImpl: Sized {
-    fn CreateInstance(&self, fileextension: &::windows::core::HSTRING, iconresource: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderFileTypeInfo>;
+    fn CreateInstance(&mut self, fileextension: &::windows::core::HSTRING, iconresource: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderFileTypeInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderFileTypeInfoFactory {
@@ -651,12 +651,12 @@ impl IStorageProviderFileTypeInfoFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderGetContentInfoForPathResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus>;
-    fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()>;
-    fn ContentUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentUri(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<StorageProviderUriSourceStatus>;
+    fn SetStatus(&mut self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()>;
+    fn ContentUri(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentUri(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderGetContentInfoForPathResult {
@@ -726,10 +726,10 @@ impl IStorageProviderGetContentInfoForPathResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderGetPathForContentUriResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus>;
-    fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()>;
-    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPath(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<StorageProviderUriSourceStatus>;
+    fn SetStatus(&mut self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()>;
+    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPath(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderGetPathForContentUriResult {
@@ -781,7 +781,7 @@ impl IStorageProviderGetPathForContentUriResultVtbl {
     }
 }
 pub trait IStorageProviderHandlerFactoryImpl: Sized {
-    fn GetStatusSource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusSource>;
+    fn GetStatusSource(&mut self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusSource>;
 }
 impl ::windows::core::RuntimeName for IStorageProviderHandlerFactory {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderHandlerFactory";
@@ -810,7 +810,7 @@ impl IStorageProviderHandlerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageProviderItemPropertiesStaticsImpl: Sized {
-    fn SetAsync(&self, item: &::core::option::Option<super::IStorageItem>, itemproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetAsync(&mut self, item: &::core::option::Option<super::IStorageItem>, itemproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderItemPropertiesStatics {
@@ -841,12 +841,12 @@ impl IStorageProviderItemPropertiesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderItemPropertyImpl: Sized {
-    fn SetId(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Id(&self) -> ::windows::core::Result<i32>;
-    fn SetValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetIconResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<i32>;
+    fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetIconResource(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IconResource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderItemProperty {
@@ -916,10 +916,10 @@ impl IStorageProviderItemPropertyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderItemPropertyDefinitionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<i32>;
-    fn SetId(&self, value: i32) -> ::windows::core::Result<()>;
-    fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<i32>;
+    fn SetId(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn DisplayNameResource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayNameResource(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderItemPropertyDefinition {
@@ -972,7 +972,7 @@ impl IStorageProviderItemPropertyDefinitionVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderItemPropertySourceImpl: Sized {
-    fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
+    fn GetItemProperties(&mut self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IStorageProviderItemPropertySource {
@@ -1002,7 +1002,7 @@ impl IStorageProviderItemPropertySourceVtbl {
     }
 }
 pub trait IStorageProviderPropertyCapabilitiesImpl: Sized {
-    fn IsPropertySupported(&self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn IsPropertySupported(&mut self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IStorageProviderPropertyCapabilities {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderPropertyCapabilities";
@@ -1031,9 +1031,9 @@ impl IStorageProviderPropertyCapabilitiesVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageProviderStatusImpl: Sized {
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&self) -> ::windows::core::Result<StorageProviderState>;
-    fn ErrorMessages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderError>>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<StorageProviderState>;
+    fn ErrorMessages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderError>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderStatus {
@@ -1088,8 +1088,8 @@ impl IStorageProviderStatusVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageProviderStatusFactoryImpl: Sized {
-    fn CreateInstance(&self, state: StorageProviderState, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderStatus>;
-    fn CreateInstance2(&self, state: StorageProviderState, message: &::windows::core::HSTRING, errormessages: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorageProviderError>>) -> ::windows::core::Result<StorageProviderStatus>;
+    fn CreateInstance(&mut self, state: StorageProviderState, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderStatus>;
+    fn CreateInstance2(&mut self, state: StorageProviderState, message: &::windows::core::HSTRING, errormessages: &::core::option::Option<super::super::Foundation::Collections::IIterable<StorageProviderError>>) -> ::windows::core::Result<StorageProviderStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderStatusFactory {
@@ -1132,9 +1132,9 @@ impl IStorageProviderStatusFactoryVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageProviderStatusSourceImpl: Sized {
-    fn GetStatus(&self) -> ::windows::core::Result<StorageProviderStatus>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetStatus(&mut self) -> ::windows::core::Result<StorageProviderStatus>;
+    fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageProviderStatusSource {
@@ -1182,37 +1182,37 @@ impl IStorageProviderStatusSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IStorageProviderSyncRootInfoImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Context(&self) -> ::windows::core::Result<super::Streams::IBuffer>;
-    fn SetContext(&self, value: &::core::option::Option<super::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn Path(&self) -> ::windows::core::Result<super::IStorageFolder>;
-    fn SetPath(&self, value: &::core::option::Option<super::IStorageFolder>) -> ::windows::core::Result<()>;
-    fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetIconResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn HydrationPolicy(&self) -> ::windows::core::Result<StorageProviderHydrationPolicy>;
-    fn SetHydrationPolicy(&self, value: StorageProviderHydrationPolicy) -> ::windows::core::Result<()>;
-    fn HydrationPolicyModifier(&self) -> ::windows::core::Result<StorageProviderHydrationPolicyModifier>;
-    fn SetHydrationPolicyModifier(&self, value: StorageProviderHydrationPolicyModifier) -> ::windows::core::Result<()>;
-    fn PopulationPolicy(&self) -> ::windows::core::Result<StorageProviderPopulationPolicy>;
-    fn SetPopulationPolicy(&self, value: StorageProviderPopulationPolicy) -> ::windows::core::Result<()>;
-    fn InSyncPolicy(&self) -> ::windows::core::Result<StorageProviderInSyncPolicy>;
-    fn SetInSyncPolicy(&self, value: StorageProviderInSyncPolicy) -> ::windows::core::Result<()>;
-    fn HardlinkPolicy(&self) -> ::windows::core::Result<StorageProviderHardlinkPolicy>;
-    fn SetHardlinkPolicy(&self, value: StorageProviderHardlinkPolicy) -> ::windows::core::Result<()>;
-    fn ShowSiblingsAsGroup(&self) -> ::windows::core::Result<bool>;
-    fn SetShowSiblingsAsGroup(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetVersion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ProtectionMode(&self) -> ::windows::core::Result<StorageProviderProtectionMode>;
-    fn SetProtectionMode(&self, value: StorageProviderProtectionMode) -> ::windows::core::Result<()>;
-    fn AllowPinning(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowPinning(&self, value: bool) -> ::windows::core::Result<()>;
-    fn StorageProviderItemPropertyDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>>;
-    fn RecycleBinUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetRecycleBinUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Context(&mut self) -> ::windows::core::Result<super::Streams::IBuffer>;
+    fn SetContext(&mut self, value: &::core::option::Option<super::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn Path(&mut self) -> ::windows::core::Result<super::IStorageFolder>;
+    fn SetPath(&mut self, value: &::core::option::Option<super::IStorageFolder>) -> ::windows::core::Result<()>;
+    fn DisplayNameResource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayNameResource(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IconResource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetIconResource(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn HydrationPolicy(&mut self) -> ::windows::core::Result<StorageProviderHydrationPolicy>;
+    fn SetHydrationPolicy(&mut self, value: StorageProviderHydrationPolicy) -> ::windows::core::Result<()>;
+    fn HydrationPolicyModifier(&mut self) -> ::windows::core::Result<StorageProviderHydrationPolicyModifier>;
+    fn SetHydrationPolicyModifier(&mut self, value: StorageProviderHydrationPolicyModifier) -> ::windows::core::Result<()>;
+    fn PopulationPolicy(&mut self) -> ::windows::core::Result<StorageProviderPopulationPolicy>;
+    fn SetPopulationPolicy(&mut self, value: StorageProviderPopulationPolicy) -> ::windows::core::Result<()>;
+    fn InSyncPolicy(&mut self) -> ::windows::core::Result<StorageProviderInSyncPolicy>;
+    fn SetInSyncPolicy(&mut self, value: StorageProviderInSyncPolicy) -> ::windows::core::Result<()>;
+    fn HardlinkPolicy(&mut self) -> ::windows::core::Result<StorageProviderHardlinkPolicy>;
+    fn SetHardlinkPolicy(&mut self, value: StorageProviderHardlinkPolicy) -> ::windows::core::Result<()>;
+    fn ShowSiblingsAsGroup(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShowSiblingsAsGroup(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Version(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetVersion(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ProtectionMode(&mut self) -> ::windows::core::Result<StorageProviderProtectionMode>;
+    fn SetProtectionMode(&mut self, value: StorageProviderProtectionMode) -> ::windows::core::Result<()>;
+    fn AllowPinning(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowPinning(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn StorageProviderItemPropertyDefinitions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>>;
+    fn RecycleBinUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetRecycleBinUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderSyncRootInfo {
@@ -1498,8 +1498,8 @@ impl IStorageProviderSyncRootInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderSyncRootInfo2Impl: Sized {
-    fn ProviderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetProviderId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetProviderId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderSyncRootInfo2 {
@@ -1535,7 +1535,7 @@ impl IStorageProviderSyncRootInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageProviderSyncRootInfo3Impl: Sized {
-    fn FallbackFileTypeInfo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>>;
+    fn FallbackFileTypeInfo(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderSyncRootInfo3 {
@@ -1566,11 +1566,11 @@ impl IStorageProviderSyncRootInfo3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStorageProviderSyncRootManagerStaticsImpl: Sized {
-    fn Register(&self, syncrootinformation: &::core::option::Option<StorageProviderSyncRootInfo>) -> ::windows::core::Result<()>;
-    fn Unregister(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetSyncRootInformationForFolder(&self, folder: &::core::option::Option<super::IStorageFolder>) -> ::windows::core::Result<StorageProviderSyncRootInfo>;
-    fn GetSyncRootInformationForId(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderSyncRootInfo>;
-    fn GetCurrentSyncRoots(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>>;
+    fn Register(&mut self, syncrootinformation: &::core::option::Option<StorageProviderSyncRootInfo>) -> ::windows::core::Result<()>;
+    fn Unregister(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetSyncRootInformationForFolder(&mut self, folder: &::core::option::Option<super::IStorageFolder>) -> ::windows::core::Result<StorageProviderSyncRootInfo>;
+    fn GetSyncRootInformationForId(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderSyncRootInfo>;
+    fn GetCurrentSyncRoots(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageProviderSyncRootManagerStatics {
@@ -1635,7 +1635,7 @@ impl IStorageProviderSyncRootManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IStorageProviderSyncRootManagerStatics2Impl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IStorageProviderSyncRootManagerStatics2 {
@@ -1665,8 +1665,8 @@ impl IStorageProviderSyncRootManagerStatics2Vtbl {
     }
 }
 pub trait IStorageProviderUriSourceImpl: Sized {
-    fn GetPathForContentUri(&self, contenturi: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
-    fn GetContentInfoForPath(&self, path: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
+    fn GetPathForContentUri(&mut self, contenturi: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
+    fn GetContentInfoForPath(&mut self, path: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";

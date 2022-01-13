@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IActivitySensorTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn SubscribedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>>;
-    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
-    fn SupportedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>>;
-    fn MinimumReportInterval(&self) -> ::windows::core::Result<u32>;
+    fn SubscribedActivities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>>;
+    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
+    fn SupportedActivities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>>;
+    fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IActivitySensorTrigger {
@@ -70,7 +70,7 @@ impl IActivitySensorTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IActivitySensorTriggerFactoryImpl: Sized {
-    fn Create(&self, reportintervalinmilliseconds: u32) -> ::windows::core::Result<ActivitySensorTrigger>;
+    fn Create(&mut self, reportintervalinmilliseconds: u32) -> ::windows::core::Result<ActivitySensorTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IActivitySensorTriggerFactory {
@@ -98,8 +98,8 @@ impl IActivitySensorTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAlarmApplicationManagerStaticsImpl: Sized {
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>>;
-    fn GetAccessStatus(&self) -> ::windows::core::Result<AlarmAccessStatus>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>>;
+    fn GetAccessStatus(&mut self) -> ::windows::core::Result<AlarmAccessStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAlarmApplicationManagerStatics {
@@ -142,8 +142,8 @@ impl IAlarmApplicationManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn SetProviderInfo(&self, value: &::core::option::Option<AppBroadcastTriggerProviderInfo>) -> ::windows::core::Result<()>;
-    fn ProviderInfo(&self) -> ::windows::core::Result<AppBroadcastTriggerProviderInfo>;
+    fn SetProviderInfo(&mut self, value: &::core::option::Option<AppBroadcastTriggerProviderInfo>) -> ::windows::core::Result<()>;
+    fn ProviderInfo(&mut self) -> ::windows::core::Result<AppBroadcastTriggerProviderInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastTrigger {
@@ -179,7 +179,7 @@ impl IAppBroadcastTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppBroadcastTriggerFactoryImpl: Sized {
-    fn CreateAppBroadcastTrigger(&self, providerkey: &::windows::core::HSTRING) -> ::windows::core::Result<AppBroadcastTrigger>;
+    fn CreateAppBroadcastTrigger(&mut self, providerkey: &::windows::core::HSTRING) -> ::windows::core::Result<AppBroadcastTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppBroadcastTriggerFactory {
@@ -210,18 +210,18 @@ impl IAppBroadcastTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppBroadcastTriggerProviderInfoImpl: Sized {
-    fn SetDisplayNameResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLogoResource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LogoResource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetVideoKeyFrameInterval(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn VideoKeyFrameInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetMaxVideoBitrate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MaxVideoBitrate(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxVideoWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MaxVideoWidth(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxVideoHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MaxVideoHeight(&self) -> ::windows::core::Result<u32>;
+    fn SetDisplayNameResource(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayNameResource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLogoResource(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LogoResource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetVideoKeyFrameInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn VideoKeyFrameInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetMaxVideoBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MaxVideoBitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxVideoWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MaxVideoWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxVideoHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MaxVideoHeight(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppBroadcastTriggerProviderInfo {
@@ -342,8 +342,8 @@ impl IAppBroadcastTriggerProviderInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IApplicationTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn RequestAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>;
-    fn RequestAsyncWithArguments(&self, arguments: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>;
+    fn RequestAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>;
+    fn RequestAsyncWithArguments(&mut self, arguments: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationTrigger {
@@ -386,7 +386,7 @@ impl IApplicationTriggerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IApplicationTriggerDetailsImpl: Sized {
-    fn Arguments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Arguments(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IApplicationTriggerDetails {
@@ -441,12 +441,12 @@ impl IBackgroundConditionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBackgroundExecutionManagerStaticsImpl: Sized {
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>;
-    fn RequestAccessForApplicationAsync(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>;
-    fn RemoveAccess(&self) -> ::windows::core::Result<()>;
-    fn RemoveAccessForApplication(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetAccessStatus(&self) -> ::windows::core::Result<BackgroundAccessStatus>;
-    fn GetAccessStatusForApplication(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundAccessStatus>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>;
+    fn RequestAccessForApplicationAsync(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>;
+    fn RemoveAccess(&mut self) -> ::windows::core::Result<()>;
+    fn RemoveAccessForApplication(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetAccessStatus(&mut self) -> ::windows::core::Result<BackgroundAccessStatus>;
+    fn GetAccessStatusForApplication(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundAccessStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundExecutionManagerStatics {
@@ -523,7 +523,7 @@ impl IBackgroundExecutionManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBackgroundExecutionManagerStatics2Impl: Sized {
-    fn RequestAccessKindAsync(&self, requestedaccess: BackgroundAccessRequestKind, reason: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestAccessKindAsync(&mut self, requestedaccess: BackgroundAccessRequestKind, reason: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundExecutionManagerStatics2 {
@@ -554,9 +554,9 @@ impl IBackgroundExecutionManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBackgroundExecutionManagerStatics3Impl: Sized {
-    fn RequestAccessKindForModernStandbyAsync(&self, requestedaccess: BackgroundAccessRequestKind, reason: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn GetAccessStatusForModernStandby(&self) -> ::windows::core::Result<BackgroundAccessStatus>;
-    fn GetAccessStatusForModernStandbyForApplication(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundAccessStatus>;
+    fn RequestAccessKindForModernStandbyAsync(&mut self, requestedaccess: BackgroundAccessRequestKind, reason: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetAccessStatusForModernStandby(&mut self) -> ::windows::core::Result<BackgroundAccessStatus>;
+    fn GetAccessStatusForModernStandbyForApplication(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundAccessStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundExecutionManagerStatics3 {
@@ -610,7 +610,7 @@ impl IBackgroundExecutionManagerStatics3Vtbl {
     }
 }
 pub trait IBackgroundTaskImpl: Sized {
-    fn Run(&self, taskinstance: &::core::option::Option<IBackgroundTaskInstance>) -> ::windows::core::Result<()>;
+    fn Run(&mut self, taskinstance: &::core::option::Option<IBackgroundTaskInstance>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
@@ -629,13 +629,13 @@ impl IBackgroundTaskVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskBuilderImpl: Sized {
-    fn SetTaskEntryPoint(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TaskEntryPoint(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTrigger(&self, trigger: &::core::option::Option<IBackgroundTrigger>) -> ::windows::core::Result<()>;
-    fn AddCondition(&self, condition: &::core::option::Option<IBackgroundCondition>) -> ::windows::core::Result<()>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Register(&self) -> ::windows::core::Result<BackgroundTaskRegistration>;
+    fn SetTaskEntryPoint(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TaskEntryPoint(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTrigger(&mut self, trigger: &::core::option::Option<IBackgroundTrigger>) -> ::windows::core::Result<()>;
+    fn AddCondition(&mut self, condition: &::core::option::Option<IBackgroundCondition>) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Register(&mut self) -> ::windows::core::Result<BackgroundTaskRegistration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskBuilder {
@@ -710,8 +710,8 @@ impl IBackgroundTaskBuilderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskBuilder2Impl: Sized + IBackgroundTaskBuilderImpl {
-    fn SetCancelOnConditionLoss(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CancelOnConditionLoss(&self) -> ::windows::core::Result<bool>;
+    fn SetCancelOnConditionLoss(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CancelOnConditionLoss(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskBuilder2 {
@@ -747,8 +747,8 @@ impl IBackgroundTaskBuilder2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskBuilder3Impl: Sized + IBackgroundTaskBuilderImpl {
-    fn SetIsNetworkRequested(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsNetworkRequested(&self) -> ::windows::core::Result<bool>;
+    fn SetIsNetworkRequested(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsNetworkRequested(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskBuilder3 {
@@ -784,8 +784,8 @@ impl IBackgroundTaskBuilder3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskBuilder4Impl: Sized + IBackgroundTaskBuilderImpl {
-    fn TaskGroup(&self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
-    fn SetTaskGroup(&self, value: &::core::option::Option<BackgroundTaskRegistrationGroup>) -> ::windows::core::Result<()>;
+    fn TaskGroup(&mut self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
+    fn SetTaskGroup(&mut self, value: &::core::option::Option<BackgroundTaskRegistrationGroup>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskBuilder4 {
@@ -821,7 +821,7 @@ impl IBackgroundTaskBuilder4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskBuilder5Impl: Sized {
-    fn SetTaskEntryPointClsid(&self, taskentrypoint: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetTaskEntryPointClsid(&mut self, taskentrypoint: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskBuilder5 {
@@ -845,8 +845,8 @@ impl IBackgroundTaskBuilder5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskCompletedEventArgsImpl: Sized {
-    fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CheckResult(&self) -> ::windows::core::Result<()>;
+    fn InstanceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CheckResult(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskCompletedEventArgs {
@@ -882,7 +882,7 @@ impl IBackgroundTaskCompletedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskDeferral {
@@ -903,15 +903,15 @@ impl IBackgroundTaskDeferralVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstanceImpl: Sized {
-    fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Task(&self) -> ::windows::core::Result<BackgroundTaskRegistration>;
-    fn Progress(&self) -> ::windows::core::Result<u32>;
-    fn SetProgress(&self, value: u32) -> ::windows::core::Result<()>;
-    fn TriggerDetails(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Canceled(&self, cancelhandler: &::core::option::Option<BackgroundTaskCanceledEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCanceled(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SuspendedCount(&self) -> ::windows::core::Result<u32>;
-    fn GetDeferral(&self) -> ::windows::core::Result<BackgroundTaskDeferral>;
+    fn InstanceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Task(&mut self) -> ::windows::core::Result<BackgroundTaskRegistration>;
+    fn Progress(&mut self) -> ::windows::core::Result<u32>;
+    fn SetProgress(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn TriggerDetails(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Canceled(&mut self, cancelhandler: &::core::option::Option<BackgroundTaskCanceledEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCanceled(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SuspendedCount(&mut self) -> ::windows::core::Result<u32>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<BackgroundTaskDeferral>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance {
@@ -1024,7 +1024,7 @@ impl IBackgroundTaskInstanceVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance2Impl: Sized + IBackgroundTaskInstanceImpl {
-    fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32>;
+    fn GetThrottleCount(&mut self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance2 {
@@ -1055,7 +1055,7 @@ impl IBackgroundTaskInstance2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IBackgroundTaskInstance4Impl: Sized + IBackgroundTaskInstanceImpl {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance4 {
@@ -1083,8 +1083,8 @@ impl IBackgroundTaskInstance4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskProgressEventArgsImpl: Sized {
-    fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Progress(&self) -> ::windows::core::Result<u32>;
+    fn InstanceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Progress(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskProgressEventArgs {
@@ -1127,13 +1127,13 @@ impl IBackgroundTaskProgressEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistrationImpl: Sized {
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Progress(&self, handler: &::core::option::Option<BackgroundTaskProgressEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProgress(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Completed(&self, handler: &::core::option::Option<BackgroundTaskCompletedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Progress(&mut self, handler: &::core::option::Option<BackgroundTaskProgressEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProgress(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Completed(&mut self, handler: &::core::option::Option<BackgroundTaskCompletedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Unregister(&mut self, canceltask: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration {
@@ -1215,7 +1215,7 @@ impl IBackgroundTaskRegistrationVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration2Impl: Sized + IBackgroundTaskRegistrationImpl {
-    fn Trigger(&self) -> ::windows::core::Result<IBackgroundTrigger>;
+    fn Trigger(&mut self) -> ::windows::core::Result<IBackgroundTrigger>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration2 {
@@ -1243,7 +1243,7 @@ impl IBackgroundTaskRegistration2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration3Impl: Sized + IBackgroundTaskRegistrationImpl {
-    fn TaskGroup(&self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
+    fn TaskGroup(&mut self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration3 {
@@ -1271,11 +1271,11 @@ impl IBackgroundTaskRegistration3Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBackgroundTaskRegistrationGroupImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BackgroundActivated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBackgroundActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AllTasks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, BackgroundTaskRegistration>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BackgroundActivated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBackgroundActivated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AllTasks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, BackgroundTaskRegistration>>;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationGroup {
@@ -1347,8 +1347,8 @@ impl IBackgroundTaskRegistrationGroupVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundTaskRegistrationGroupFactoryImpl: Sized {
-    fn Create(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
-    fn CreateWithName(&self, id: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
+    fn Create(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
+    fn CreateWithName(&mut self, id: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationGroupFactory {
@@ -1391,7 +1391,7 @@ impl IBackgroundTaskRegistrationGroupFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBackgroundTaskRegistrationStaticsImpl: Sized {
-    fn AllTasks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, IBackgroundTaskRegistration>>;
+    fn AllTasks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, IBackgroundTaskRegistration>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationStatics {
@@ -1422,8 +1422,8 @@ impl IBackgroundTaskRegistrationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IBackgroundTaskRegistrationStatics2Impl: Sized {
-    fn AllTaskGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, BackgroundTaskRegistrationGroup>>;
-    fn GetTaskGroup(&self, groupid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
+    fn AllTaskGroups(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, BackgroundTaskRegistrationGroup>>;
+    fn GetTaskGroup(&mut self, groupid: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistrationStatics2 {
@@ -1478,7 +1478,7 @@ impl IBackgroundTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackgroundWorkCostStaticsImpl: Sized {
-    fn CurrentBackgroundWorkCost(&self) -> ::windows::core::Result<BackgroundWorkCostValue>;
+    fn CurrentBackgroundWorkCost(&mut self) -> ::windows::core::Result<BackgroundWorkCostValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackgroundWorkCostStatics {
@@ -1509,7 +1509,7 @@ impl IBackgroundWorkCostStaticsVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn Advertisement(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement>;
+    fn Advertisement(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTrigger {
@@ -1540,14 +1540,14 @@ impl IBluetoothLEAdvertisementPublisherTriggerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementPublisherTrigger2Impl: Sized {
-    fn PreferredTransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i16>>;
-    fn SetPreferredTransmitPowerLevelInDBm(&self, value: &::core::option::Option<super::super::Foundation::IReference<i16>>) -> ::windows::core::Result<()>;
-    fn UseExtendedFormat(&self) -> ::windows::core::Result<bool>;
-    fn SetUseExtendedFormat(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsAnonymous(&self) -> ::windows::core::Result<bool>;
-    fn SetIsAnonymous(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IncludeTransmitPowerLevel(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeTransmitPowerLevel(&self, value: bool) -> ::windows::core::Result<()>;
+    fn PreferredTransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i16>>;
+    fn SetPreferredTransmitPowerLevelInDBm(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i16>>) -> ::windows::core::Result<()>;
+    fn UseExtendedFormat(&mut self) -> ::windows::core::Result<bool>;
+    fn SetUseExtendedFormat(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsAnonymous(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsAnonymous(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IncludeTransmitPowerLevel(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeTransmitPowerLevel(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherTrigger2 {
@@ -1634,14 +1634,14 @@ impl IBluetoothLEAdvertisementPublisherTrigger2Vtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth", feature = "Devices_Bluetooth_Advertisement", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBluetoothLEAdvertisementWatcherTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn MinSamplingInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn MaxSamplingInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn MinOutOfRangeTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn MaxOutOfRangeTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SignalStrengthFilter(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>;
-    fn SetSignalStrengthFilter(&self, value: &::core::option::Option<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>) -> ::windows::core::Result<()>;
-    fn AdvertisementFilter(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>;
-    fn SetAdvertisementFilter(&self, value: &::core::option::Option<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<()>;
+    fn MinSamplingInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn MaxSamplingInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn MinOutOfRangeTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn MaxOutOfRangeTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SignalStrengthFilter(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>;
+    fn SetSignalStrengthFilter(&mut self, value: &::core::option::Option<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>) -> ::windows::core::Result<()>;
+    fn AdvertisementFilter(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>;
+    fn SetAdvertisementFilter(&mut self, value: &::core::option::Option<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Bluetooth", feature = "Devices_Bluetooth_Advertisement", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherTrigger {
@@ -1742,8 +1742,8 @@ impl IBluetoothLEAdvertisementWatcherTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBluetoothLEAdvertisementWatcherTrigger2Impl: Sized {
-    fn AllowExtendedAdvertisements(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowExtendedAdvertisements(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowExtendedAdvertisements(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowExtendedAdvertisements(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherTrigger2 {
@@ -1794,9 +1794,9 @@ impl ICachedFileUpdaterTriggerVtbl {
 }
 #[cfg(all(feature = "Storage_Provider", feature = "implement_exclusive"))]
 pub trait ICachedFileUpdaterTriggerDetailsImpl: Sized {
-    fn UpdateTarget(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileTarget>;
-    fn UpdateRequest(&self) -> ::windows::core::Result<super::super::Storage::Provider::FileUpdateRequest>;
-    fn CanRequestUserInput(&self) -> ::windows::core::Result<bool>;
+    fn UpdateTarget(&mut self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileTarget>;
+    fn UpdateRequest(&mut self) -> ::windows::core::Result<super::super::Storage::Provider::FileUpdateRequest>;
+    fn CanRequestUserInput(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Storage_Provider", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICachedFileUpdaterTriggerDetails {
@@ -1911,7 +1911,7 @@ impl IContactStoreNotificationTriggerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentPrefetchTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn WaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn WaitInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentPrefetchTrigger {
@@ -1942,7 +1942,7 @@ impl IContentPrefetchTriggerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentPrefetchTriggerFactoryImpl: Sized {
-    fn Create(&self, waitinterval: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ContentPrefetchTrigger>;
+    fn Create(&mut self, waitinterval: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<ContentPrefetchTrigger>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentPrefetchTriggerFactory {
@@ -1970,8 +1970,8 @@ impl IContentPrefetchTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICustomSystemEventTriggerImpl: Sized {
-    fn TriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Recurrence(&self) -> ::windows::core::Result<CustomSystemEventTriggerRecurrence>;
+    fn TriggerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Recurrence(&mut self) -> ::windows::core::Result<CustomSystemEventTriggerRecurrence>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICustomSystemEventTrigger {
@@ -2014,7 +2014,7 @@ impl ICustomSystemEventTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICustomSystemEventTriggerFactoryImpl: Sized {
-    fn Create(&self, triggerid: &::windows::core::HSTRING, recurrence: CustomSystemEventTriggerRecurrence) -> ::windows::core::Result<CustomSystemEventTrigger>;
+    fn Create(&mut self, triggerid: &::windows::core::HSTRING, recurrence: CustomSystemEventTriggerRecurrence) -> ::windows::core::Result<CustomSystemEventTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICustomSystemEventTriggerFactory {
@@ -2042,10 +2042,10 @@ impl ICustomSystemEventTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceConnectionChangeTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CanMaintainConnection(&self) -> ::windows::core::Result<bool>;
-    fn MaintainConnection(&self) -> ::windows::core::Result<bool>;
-    fn SetMaintainConnection(&self, value: bool) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CanMaintainConnection(&mut self) -> ::windows::core::Result<bool>;
+    fn MaintainConnection(&mut self) -> ::windows::core::Result<bool>;
+    fn SetMaintainConnection(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceConnectionChangeTrigger {
@@ -2105,7 +2105,7 @@ impl IDeviceConnectionChangeTriggerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceConnectionChangeTriggerStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceConnectionChangeTriggerStatics {
@@ -2136,8 +2136,8 @@ impl IDeviceConnectionChangeTriggerStaticsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IDeviceManufacturerNotificationTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn TriggerQualifier(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OneShot(&self) -> ::windows::core::Result<bool>;
+    fn TriggerQualifier(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OneShot(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceManufacturerNotificationTrigger {
@@ -2180,7 +2180,7 @@ impl IDeviceManufacturerNotificationTriggerVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IDeviceManufacturerNotificationTriggerFactoryImpl: Sized {
-    fn Create(&self, triggerqualifier: &::windows::core::HSTRING, oneshot: bool) -> ::windows::core::Result<DeviceManufacturerNotificationTrigger>;
+    fn Create(&mut self, triggerqualifier: &::windows::core::HSTRING, oneshot: bool) -> ::windows::core::Result<DeviceManufacturerNotificationTrigger>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceManufacturerNotificationTriggerFactory {
@@ -2211,8 +2211,8 @@ impl IDeviceManufacturerNotificationTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceServicingTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn RequestAsyncSimple(&self, deviceid: &::windows::core::HSTRING, expectedduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
-    fn RequestAsyncWithArguments(&self, deviceid: &::windows::core::HSTRING, expectedduration: &super::super::Foundation::TimeSpan, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
+    fn RequestAsyncSimple(&mut self, deviceid: &::windows::core::HSTRING, expectedduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
+    fn RequestAsyncWithArguments(&mut self, deviceid: &::windows::core::HSTRING, expectedduration: &super::super::Foundation::TimeSpan, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceServicingTrigger {
@@ -2259,8 +2259,8 @@ impl IDeviceServicingTriggerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceUseTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn RequestAsyncSimple(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
-    fn RequestAsyncWithArguments(&self, deviceid: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
+    fn RequestAsyncSimple(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
+    fn RequestAsyncWithArguments(&mut self, deviceid: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceUseTrigger {
@@ -2333,7 +2333,7 @@ impl IEmailStoreNotificationTriggerVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn Characteristic(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>;
+    fn Characteristic(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTrigger {
@@ -2364,7 +2364,7 @@ impl IGattCharacteristicNotificationTriggerVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTrigger2Impl: Sized {
-    fn EventTriggeringMode(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode>;
+    fn EventTriggeringMode(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTrigger2 {
@@ -2395,7 +2395,7 @@ impl IGattCharacteristicNotificationTrigger2Vtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerFactoryImpl: Sized {
-    fn Create(&self, characteristic: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>;
+    fn Create(&mut self, characteristic: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerFactory {
@@ -2426,7 +2426,7 @@ impl IGattCharacteristicNotificationTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattCharacteristicNotificationTriggerFactory2Impl: Sized {
-    fn CreateWithEventTriggeringMode(&self, characteristic: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>;
+    fn CreateWithEventTriggeringMode(&mut self, characteristic: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattCharacteristicNotificationTriggerFactory2 {
@@ -2457,10 +2457,10 @@ impl IGattCharacteristicNotificationTriggerFactory2Vtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderTriggerImpl: Sized {
-    fn TriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Service(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattLocalService>;
-    fn SetAdvertisingParameters(&self, value: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>) -> ::windows::core::Result<()>;
-    fn AdvertisingParameters(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>;
+    fn TriggerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Service(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattLocalService>;
+    fn SetAdvertisingParameters(&mut self, value: &::core::option::Option<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>) -> ::windows::core::Result<()>;
+    fn AdvertisingParameters(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderTrigger {
@@ -2520,8 +2520,8 @@ impl IGattServiceProviderTriggerVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderTriggerResultImpl: Sized {
-    fn Trigger(&self) -> ::windows::core::Result<GattServiceProviderTrigger>;
-    fn Error(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::BluetoothError>;
+    fn Trigger(&mut self) -> ::windows::core::Result<GattServiceProviderTrigger>;
+    fn Error(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::BluetoothError>;
 }
 #[cfg(all(feature = "Devices_Bluetooth", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderTriggerResult {
@@ -2564,7 +2564,7 @@ impl IGattServiceProviderTriggerResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGattServiceProviderTriggerStaticsImpl: Sized {
-    fn CreateAsync(&self, triggerid: &::windows::core::HSTRING, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>>;
+    fn CreateAsync(&mut self, triggerid: &::windows::core::HSTRING, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGattServiceProviderTriggerStatics {
@@ -2595,8 +2595,8 @@ impl IGattServiceProviderTriggerStaticsVtbl {
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait IGeovisitTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn MonitoringScope(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::VisitMonitoringScope>;
-    fn SetMonitoringScope(&self, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::Result<()>;
+    fn MonitoringScope(&mut self) -> ::windows::core::Result<super::super::Devices::Geolocation::VisitMonitoringScope>;
+    fn SetMonitoringScope(&mut self, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGeovisitTrigger {
@@ -2632,7 +2632,7 @@ impl IGeovisitTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILocationTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn TriggerType(&self) -> ::windows::core::Result<LocationTriggerType>;
+    fn TriggerType(&mut self) -> ::windows::core::Result<LocationTriggerType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILocationTrigger {
@@ -2660,7 +2660,7 @@ impl ILocationTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILocationTriggerFactoryImpl: Sized {
-    fn Create(&self, triggertype: LocationTriggerType) -> ::windows::core::Result<LocationTrigger>;
+    fn Create(&mut self, triggertype: LocationTriggerType) -> ::windows::core::Result<LocationTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILocationTriggerFactory {
@@ -2688,8 +2688,8 @@ impl ILocationTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMaintenanceTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn FreshnessTime(&self) -> ::windows::core::Result<u32>;
-    fn OneShot(&self) -> ::windows::core::Result<bool>;
+    fn FreshnessTime(&mut self) -> ::windows::core::Result<u32>;
+    fn OneShot(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMaintenanceTrigger {
@@ -2732,7 +2732,7 @@ impl IMaintenanceTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMaintenanceTriggerFactoryImpl: Sized {
-    fn Create(&self, freshnesstime: u32, oneshot: bool) -> ::windows::core::Result<MaintenanceTrigger>;
+    fn Create(&mut self, freshnesstime: u32, oneshot: bool) -> ::windows::core::Result<MaintenanceTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMaintenanceTriggerFactory {
@@ -2760,8 +2760,8 @@ impl IMaintenanceTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMediaProcessingTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn RequestAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>;
-    fn RequestAsyncWithArguments(&self, arguments: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>;
+    fn RequestAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>;
+    fn RequestAsyncWithArguments(&mut self, arguments: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaProcessingTrigger {
@@ -2819,7 +2819,7 @@ impl INetworkOperatorHotspotAuthenticationTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INetworkOperatorNotificationTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NetworkAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INetworkOperatorNotificationTrigger {
@@ -2850,7 +2850,7 @@ impl INetworkOperatorNotificationTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait INetworkOperatorNotificationTriggerFactoryImpl: Sized {
-    fn Create(&self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<NetworkOperatorNotificationTrigger>;
+    fn Create(&mut self, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<NetworkOperatorNotificationTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INetworkOperatorNotificationTriggerFactory {
@@ -2881,8 +2881,8 @@ impl INetworkOperatorNotificationTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 pub trait IPhoneTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn OneShot(&self) -> ::windows::core::Result<bool>;
-    fn TriggerType(&self) -> ::windows::core::Result<super::Calls::Background::PhoneTriggerType>;
+    fn OneShot(&mut self) -> ::windows::core::Result<bool>;
+    fn TriggerType(&mut self) -> ::windows::core::Result<super::Calls::Background::PhoneTriggerType>;
 }
 #[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneTrigger {
@@ -2925,7 +2925,7 @@ impl IPhoneTriggerVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 pub trait IPhoneTriggerFactoryImpl: Sized {
-    fn Create(&self, r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows::core::Result<PhoneTrigger>;
+    fn Create(&mut self, r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows::core::Result<PhoneTrigger>;
 }
 #[cfg(all(feature = "ApplicationModel_Calls_Background", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhoneTriggerFactory {
@@ -2953,7 +2953,7 @@ impl IPhoneTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPushNotificationTriggerFactoryImpl: Sized {
-    fn Create(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<PushNotificationTrigger>;
+    fn Create(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<PushNotificationTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPushNotificationTriggerFactory {
@@ -2996,14 +2996,14 @@ impl IRcsEndUserMessageAvailableTriggerVtbl {
 }
 #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 pub trait IRfcommConnectionTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn InboundConnection(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation>;
-    fn OutboundConnection(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation>;
-    fn AllowMultipleConnections(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowMultipleConnections(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ProtectionLevel(&self) -> ::windows::core::Result<super::super::Networking::Sockets::SocketProtectionLevel>;
-    fn SetProtectionLevel(&self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::Result<()>;
-    fn RemoteHostName(&self) -> ::windows::core::Result<super::super::Networking::HostName>;
-    fn SetRemoteHostName(&self, value: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<()>;
+    fn InboundConnection(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation>;
+    fn OutboundConnection(&mut self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation>;
+    fn AllowMultipleConnections(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowMultipleConnections(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ProtectionLevel(&mut self) -> ::windows::core::Result<super::super::Networking::Sockets::SocketProtectionLevel>;
+    fn SetProtectionLevel(&mut self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::Result<()>;
+    fn RemoteHostName(&mut self) -> ::windows::core::Result<super::super::Networking::HostName>;
+    fn SetRemoteHostName(&mut self, value: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Networking", feature = "Networking_Sockets", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRfcommConnectionTrigger {
@@ -3127,7 +3127,7 @@ impl ISensorDataThresholdTriggerVtbl {
 }
 #[cfg(all(feature = "Devices_Sensors", feature = "implement_exclusive"))]
 pub trait ISensorDataThresholdTriggerFactoryImpl: Sized {
-    fn Create(&self, threshold: &::core::option::Option<super::super::Devices::Sensors::ISensorDataThreshold>) -> ::windows::core::Result<SensorDataThresholdTrigger>;
+    fn Create(&mut self, threshold: &::core::option::Option<super::super::Devices::Sensors::ISensorDataThreshold>) -> ::windows::core::Result<SensorDataThresholdTrigger>;
 }
 #[cfg(all(feature = "Devices_Sensors", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISensorDataThresholdTriggerFactory {
@@ -3155,7 +3155,7 @@ impl ISensorDataThresholdTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn TriggerType(&self) -> ::windows::core::Result<super::super::Devices::SmartCards::SmartCardTriggerType>;
+    fn TriggerType(&mut self) -> ::windows::core::Result<super::super::Devices::SmartCards::SmartCardTriggerType>;
 }
 #[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTrigger {
@@ -3183,7 +3183,7 @@ impl ISmartCardTriggerVtbl {
 }
 #[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerFactoryImpl: Sized {
-    fn Create(&self, triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::Result<SmartCardTrigger>;
+    fn Create(&mut self, triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::Result<SmartCardTrigger>;
 }
 #[cfg(all(feature = "Devices_SmartCards", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTriggerFactory {
@@ -3211,7 +3211,7 @@ impl ISmartCardTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "Devices_Sms", feature = "implement_exclusive"))]
 pub trait ISmsMessageReceivedTriggerFactoryImpl: Sized {
-    fn Create(&self, filterrules: &::core::option::Option<super::super::Devices::Sms::SmsFilterRules>) -> ::windows::core::Result<SmsMessageReceivedTrigger>;
+    fn Create(&mut self, filterrules: &::core::option::Option<super::super::Devices::Sms::SmsFilterRules>) -> ::windows::core::Result<SmsMessageReceivedTrigger>;
 }
 #[cfg(all(feature = "Devices_Sms", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmsMessageReceivedTriggerFactory {
@@ -3239,7 +3239,7 @@ impl ISmsMessageReceivedTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISocketActivityTriggerImpl: Sized {
-    fn IsWakeFromLowPowerSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsWakeFromLowPowerSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISocketActivityTrigger {
@@ -3270,7 +3270,7 @@ impl ISocketActivityTriggerVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IStorageLibraryChangeTrackerTriggerFactoryImpl: Sized {
-    fn Create(&self, tracker: &::core::option::Option<super::super::Storage::StorageLibraryChangeTracker>) -> ::windows::core::Result<StorageLibraryChangeTrackerTrigger>;
+    fn Create(&mut self, tracker: &::core::option::Option<super::super::Storage::StorageLibraryChangeTracker>) -> ::windows::core::Result<StorageLibraryChangeTrackerTrigger>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryChangeTrackerTriggerFactory {
@@ -3316,8 +3316,8 @@ impl IStorageLibraryContentChangedTriggerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IStorageLibraryContentChangedTriggerStaticsImpl: Sized {
-    fn Create(&self, storagelibrary: &::core::option::Option<super::super::Storage::StorageLibrary>) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>;
-    fn CreateFromLibraries(&self, storagelibraries: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>;
+    fn Create(&mut self, storagelibrary: &::core::option::Option<super::super::Storage::StorageLibrary>) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>;
+    fn CreateFromLibraries(&mut self, storagelibraries: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>) -> ::windows::core::Result<StorageLibraryContentChangedTrigger>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStorageLibraryContentChangedTriggerStatics {
@@ -3360,7 +3360,7 @@ impl IStorageLibraryContentChangedTriggerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemConditionImpl: Sized + IBackgroundConditionImpl {
-    fn ConditionType(&self) -> ::windows::core::Result<SystemConditionType>;
+    fn ConditionType(&mut self) -> ::windows::core::Result<SystemConditionType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemCondition {
@@ -3388,7 +3388,7 @@ impl ISystemConditionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemConditionFactoryImpl: Sized {
-    fn Create(&self, conditiontype: SystemConditionType) -> ::windows::core::Result<SystemCondition>;
+    fn Create(&mut self, conditiontype: SystemConditionType) -> ::windows::core::Result<SystemCondition>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemConditionFactory {
@@ -3416,8 +3416,8 @@ impl ISystemConditionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn OneShot(&self) -> ::windows::core::Result<bool>;
-    fn TriggerType(&self) -> ::windows::core::Result<SystemTriggerType>;
+    fn OneShot(&mut self) -> ::windows::core::Result<bool>;
+    fn TriggerType(&mut self) -> ::windows::core::Result<SystemTriggerType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemTrigger {
@@ -3460,7 +3460,7 @@ impl ISystemTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemTriggerFactoryImpl: Sized {
-    fn Create(&self, triggertype: SystemTriggerType, oneshot: bool) -> ::windows::core::Result<SystemTrigger>;
+    fn Create(&mut self, triggertype: SystemTriggerType, oneshot: bool) -> ::windows::core::Result<SystemTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemTriggerFactory {
@@ -3488,8 +3488,8 @@ impl ISystemTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimeTriggerImpl: Sized + IBackgroundTriggerImpl {
-    fn FreshnessTime(&self) -> ::windows::core::Result<u32>;
-    fn OneShot(&self) -> ::windows::core::Result<bool>;
+    fn FreshnessTime(&mut self) -> ::windows::core::Result<u32>;
+    fn OneShot(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimeTrigger {
@@ -3532,7 +3532,7 @@ impl ITimeTriggerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimeTriggerFactoryImpl: Sized {
-    fn Create(&self, freshnesstime: u32, oneshot: bool) -> ::windows::core::Result<TimeTrigger>;
+    fn Create(&mut self, freshnesstime: u32, oneshot: bool) -> ::windows::core::Result<TimeTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimeTriggerFactory {
@@ -3560,7 +3560,7 @@ impl ITimeTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotificationActionTriggerFactoryImpl: Sized {
-    fn Create(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotificationActionTrigger>;
+    fn Create(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotificationActionTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotificationActionTriggerFactory {
@@ -3591,7 +3591,7 @@ impl IToastNotificationActionTriggerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IToastNotificationHistoryChangedTriggerFactoryImpl: Sized {
-    fn Create(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotificationHistoryChangedTrigger>;
+    fn Create(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<ToastNotificationHistoryChangedTrigger>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IToastNotificationHistoryChangedTriggerFactory {
@@ -3622,7 +3622,7 @@ impl IToastNotificationHistoryChangedTriggerFactoryVtbl {
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 pub trait IUserNotificationChangedTriggerFactoryImpl: Sized {
-    fn Create(&self, notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows::core::Result<UserNotificationChangedTrigger>;
+    fn Create(&mut self, notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows::core::Result<UserNotificationChangedTrigger>;
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserNotificationChangedTriggerFactory {

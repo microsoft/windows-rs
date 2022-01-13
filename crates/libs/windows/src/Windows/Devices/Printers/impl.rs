@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIppAttributeErrorImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<IppAttributeErrorReason>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn GetUnsupportedValues(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IppAttributeValue>>;
+    fn Reason(&mut self) -> ::windows::core::Result<IppAttributeErrorReason>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn GetUnsupportedValues(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IppAttributeValue>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppAttributeError {
@@ -57,25 +57,25 @@ impl IIppAttributeErrorVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIppAttributeValueImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<IppAttributeValueKind>;
-    fn GetIntegerArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
-    fn GetBooleanArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<bool>>;
-    fn GetEnumArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
-    fn GetOctetStringArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>;
-    fn GetDateTimeArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::DateTime>>;
-    fn GetResolutionArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppResolution>>;
-    fn GetRangeOfIntegerArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppIntegerRange>>;
-    fn GetCollectionArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IppAttributeValue>>>;
-    fn GetTextWithLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>>;
-    fn GetNameWithLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>>;
-    fn GetTextWithoutLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn GetNameWithoutLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn GetKeywordArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn GetUriArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
-    fn GetUriSchemaArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn GetCharsetArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn GetNaturalLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn GetMimeMediaTypeArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Kind(&mut self) -> ::windows::core::Result<IppAttributeValueKind>;
+    fn GetIntegerArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
+    fn GetBooleanArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<bool>>;
+    fn GetEnumArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>>;
+    fn GetOctetStringArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>;
+    fn GetDateTimeArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::DateTime>>;
+    fn GetResolutionArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppResolution>>;
+    fn GetRangeOfIntegerArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppIntegerRange>>;
+    fn GetCollectionArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IppAttributeValue>>>;
+    fn GetTextWithLanguageArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>>;
+    fn GetNameWithLanguageArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>>;
+    fn GetTextWithoutLanguageArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetNameWithoutLanguageArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetKeywordArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetUriArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
+    fn GetUriSchemaArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetCharsetArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetNaturalLanguageArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetMimeMediaTypeArray(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppAttributeValue {
@@ -322,45 +322,45 @@ impl IIppAttributeValueVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IIppAttributeValueStaticsImpl: Sized {
-    fn CreateUnsupported(&self) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateUnknown(&self) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateNoValue(&self) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateInteger(&self, value: i32) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateIntegerArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<i32>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateBoolean(&self, value: bool) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateBooleanArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<bool>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateEnum(&self, value: i32) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateEnumArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<i32>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateOctetString(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateOctetStringArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateDateTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateDateTimeArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateResolution(&self, value: &::core::option::Option<IppResolution>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateResolutionArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppResolution>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateRangeOfInteger(&self, value: &::core::option::Option<IppIntegerRange>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateRangeOfIntegerArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppIntegerRange>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateCollection(&self, memberattributes: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateCollectionArray(&self, memberattributesarray: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateTextWithLanguage(&self, value: &::core::option::Option<IppTextWithLanguage>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateTextWithLanguageArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateNameWithLanguage(&self, value: &::core::option::Option<IppTextWithLanguage>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateNameWithLanguageArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateTextWithoutLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateTextWithoutLanguageArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateNameWithoutLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateNameWithoutLanguageArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateKeyword(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateKeywordArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateUriArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateUriSchema(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateUriSchemaArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateCharset(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateCharsetArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateNaturalLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateNaturalLanguageArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateMimeMedia(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
-    fn CreateMimeMediaArray(&self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateUnsupported(&mut self) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateUnknown(&mut self) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateNoValue(&mut self) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateInteger(&mut self, value: i32) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateIntegerArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<i32>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateBoolean(&mut self, value: bool) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateBooleanArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<bool>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateEnum(&mut self, value: i32) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateEnumArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<i32>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateOctetString(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateOctetStringArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateDateTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateDateTimeArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateResolution(&mut self, value: &::core::option::Option<IppResolution>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateResolutionArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppResolution>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateRangeOfInteger(&mut self, value: &::core::option::Option<IppIntegerRange>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateRangeOfIntegerArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppIntegerRange>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateCollection(&mut self, memberattributes: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateCollectionArray(&mut self, memberattributesarray: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateTextWithLanguage(&mut self, value: &::core::option::Option<IppTextWithLanguage>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateTextWithLanguageArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateNameWithLanguage(&mut self, value: &::core::option::Option<IppTextWithLanguage>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateNameWithLanguageArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateTextWithoutLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateTextWithoutLanguageArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateNameWithoutLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateNameWithoutLanguageArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateKeyword(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateKeywordArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateUriArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateUriSchema(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateUriSchemaArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateCharset(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateCharsetArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateNaturalLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateNaturalLanguageArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateMimeMedia(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IppAttributeValue>;
+    fn CreateMimeMediaArray(&mut self, values: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<IppAttributeValue>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppAttributeValueStatics {
@@ -847,8 +847,8 @@ impl IIppAttributeValueStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIppIntegerRangeImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<i32>;
-    fn End(&self) -> ::windows::core::Result<i32>;
+    fn Start(&mut self) -> ::windows::core::Result<i32>;
+    fn End(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIppIntegerRange {
@@ -891,7 +891,7 @@ impl IIppIntegerRangeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIppIntegerRangeFactoryImpl: Sized {
-    fn CreateInstance(&self, start: i32, end: i32) -> ::windows::core::Result<IppIntegerRange>;
+    fn CreateInstance(&mut self, start: i32, end: i32) -> ::windows::core::Result<IppIntegerRange>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIppIntegerRangeFactory {
@@ -922,12 +922,12 @@ impl IIppIntegerRangeFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IIppPrintDeviceImpl: Sized {
-    fn PrinterName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PrinterUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn GetPrinterAttributesAsBuffer(&self, attributenames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn GetPrinterAttributes(&self, attributenames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IppAttributeValue>>;
-    fn SetPrinterAttributesFromBuffer(&self, printerattributesbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<IppSetAttributesResult>;
-    fn SetPrinterAttributes(&self, printerattributes: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>) -> ::windows::core::Result<IppSetAttributesResult>;
+    fn PrinterName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PrinterUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn GetPrinterAttributesAsBuffer(&mut self, attributenames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn GetPrinterAttributes(&mut self, attributenames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IppAttributeValue>>;
+    fn SetPrinterAttributesFromBuffer(&mut self, printerattributesbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<IppSetAttributesResult>;
+    fn SetPrinterAttributes(&mut self, printerattributes: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>) -> ::windows::core::Result<IppSetAttributesResult>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppPrintDevice {
@@ -1018,9 +1018,9 @@ impl IIppPrintDeviceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIppResolutionImpl: Sized {
-    fn Width(&self) -> ::windows::core::Result<i32>;
-    fn Height(&self) -> ::windows::core::Result<i32>;
-    fn Unit(&self) -> ::windows::core::Result<IppResolutionUnit>;
+    fn Width(&mut self) -> ::windows::core::Result<i32>;
+    fn Height(&mut self) -> ::windows::core::Result<i32>;
+    fn Unit(&mut self) -> ::windows::core::Result<IppResolutionUnit>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIppResolution {
@@ -1075,7 +1075,7 @@ impl IIppResolutionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIppResolutionFactoryImpl: Sized {
-    fn CreateInstance(&self, width: i32, height: i32, unit: IppResolutionUnit) -> ::windows::core::Result<IppResolution>;
+    fn CreateInstance(&mut self, width: i32, height: i32, unit: IppResolutionUnit) -> ::windows::core::Result<IppResolution>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIppResolutionFactory {
@@ -1106,8 +1106,8 @@ impl IIppResolutionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIppSetAttributesResultImpl: Sized {
-    fn Succeeded(&self) -> ::windows::core::Result<bool>;
-    fn AttributeErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IppAttributeError>>;
+    fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
+    fn AttributeErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IppAttributeError>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIppSetAttributesResult {
@@ -1150,8 +1150,8 @@ impl IIppSetAttributesResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIppTextWithLanguageImpl: Sized {
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIppTextWithLanguage {
@@ -1194,7 +1194,7 @@ impl IIppTextWithLanguageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIppTextWithLanguageFactoryImpl: Sized {
-    fn CreateInstance(&self, language: &::windows::core::HSTRING, text: &::windows::core::HSTRING) -> ::windows::core::Result<IppTextWithLanguage>;
+    fn CreateInstance(&mut self, language: &::windows::core::HSTRING, text: &::windows::core::HSTRING) -> ::windows::core::Result<IppTextWithLanguage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIppTextWithLanguageFactory {
@@ -1225,7 +1225,7 @@ impl IIppTextWithLanguageFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrint3DDeviceImpl: Sized {
-    fn PrintSchema(&self) -> ::windows::core::Result<PrintSchema>;
+    fn PrintSchema(&mut self) -> ::windows::core::Result<PrintSchema>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrint3DDevice {
@@ -1253,8 +1253,8 @@ impl IPrint3DDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DDeviceStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DDeviceStatics {
@@ -1297,9 +1297,9 @@ impl IPrint3DDeviceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPrintSchemaImpl: Sized {
-    fn GetDefaultPrintTicketAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
-    fn GetCapabilitiesAsync(&self, constrainticket: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
-    fn MergeAndValidateWithDefaultPrintTicketAsync(&self, deltaticket: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
+    fn GetDefaultPrintTicketAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
+    fn GetCapabilitiesAsync(&mut self, constrainticket: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
+    fn MergeAndValidateWithDefaultPrintTicketAsync(&mut self, deltaticket: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamWithContentType>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintSchema {

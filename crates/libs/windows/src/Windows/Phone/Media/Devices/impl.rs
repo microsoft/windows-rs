@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAudioRoutingManagerImpl: Sized {
-    fn GetAudioEndpoint(&self) -> ::windows::core::Result<AudioRoutingEndpoint>;
-    fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> ::windows::core::Result<()>;
-    fn AudioEndpointChanged(&self, endpointchangehandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioEndpointChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AvailableAudioEndpoints(&self) -> ::windows::core::Result<AvailableAudioRoutingEndpoints>;
+    fn GetAudioEndpoint(&mut self) -> ::windows::core::Result<AudioRoutingEndpoint>;
+    fn SetAudioEndpoint(&mut self, endpoint: AudioRoutingEndpoint) -> ::windows::core::Result<()>;
+    fn AudioEndpointChanged(&mut self, endpointchangehandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioEndpointChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AvailableAudioEndpoints(&mut self) -> ::windows::core::Result<AvailableAudioRoutingEndpoints>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioRoutingManager {
@@ -69,7 +69,7 @@ impl IAudioRoutingManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioRoutingManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<AudioRoutingManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<AudioRoutingManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioRoutingManagerStatics {

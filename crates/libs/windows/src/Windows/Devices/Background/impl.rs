@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDeviceServicingDetailsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ExpectedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ExpectedDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDeviceServicingDetails {
@@ -57,8 +57,8 @@ impl IDeviceServicingDetailsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDeviceUseDetailsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDeviceUseDetails {

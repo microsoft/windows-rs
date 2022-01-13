@@ -15,31 +15,31 @@ impl ICurrentSessionChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionImpl: Sized {
-    fn SourceAppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TryGetMediaPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>>;
-    fn GetTimelineProperties(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionTimelineProperties>;
-    fn GetPlaybackInfo(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackInfo>;
-    fn TryPlayAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryPauseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryStopAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryRecordAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryFastForwardAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryRewindAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TrySkipNextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TrySkipPreviousAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryChangeChannelUpAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryChangeChannelDownAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryTogglePlayPauseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryChangeAutoRepeatModeAsync(&self, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryChangePlaybackRateAsync(&self, requestedplaybackrate: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryChangeShuffleActiveAsync(&self, requestedshufflestate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryChangePlaybackPositionAsync(&self, requestedplaybackposition: i64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TimelinePropertiesChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTimelinePropertiesChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PlaybackInfoChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePlaybackInfoChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MediaPropertiesChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMediaPropertiesChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SourceAppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TryGetMediaPropertiesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>>;
+    fn GetTimelineProperties(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionTimelineProperties>;
+    fn GetPlaybackInfo(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackInfo>;
+    fn TryPlayAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryPauseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryStopAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryRecordAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryFastForwardAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryRewindAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TrySkipNextAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TrySkipPreviousAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryChangeChannelUpAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryChangeChannelDownAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryTogglePlayPauseAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryChangeAutoRepeatModeAsync(&mut self, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryChangePlaybackRateAsync(&mut self, requestedplaybackrate: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryChangeShuffleActiveAsync(&mut self, requestedshufflestate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryChangePlaybackPositionAsync(&mut self, requestedplaybackposition: i64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TimelinePropertiesChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTimelinePropertiesChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PlaybackInfoChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePlaybackInfoChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MediaPropertiesChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMediaPropertiesChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession {
@@ -337,12 +337,12 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionManagerImpl: Sized {
-    fn GetCurrentSession(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSession>;
-    fn GetSessions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<GlobalSystemMediaTransportControlsSession>>;
-    fn CurrentSessionChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCurrentSessionChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SessionsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSessionsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentSession(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSession>;
+    fn GetSessions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<GlobalSystemMediaTransportControlsSession>>;
+    fn CurrentSessionChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCurrentSessionChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SessionsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSessionsChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionManager {
@@ -419,7 +419,7 @@ impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl: Sized {
-    fn RequestAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>>;
+    fn RequestAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionManagerStatics {
@@ -450,16 +450,16 @@ impl IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl: Sized {
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AlbumArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AlbumTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TrackNumber(&self) -> ::windows::core::Result<i32>;
-    fn Genres(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn AlbumTrackCount(&self) -> ::windows::core::Result<i32>;
-    fn PlaybackType(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Subtitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AlbumArtist(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Artist(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AlbumTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TrackNumber(&mut self) -> ::windows::core::Result<i32>;
+    fn Genres(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn AlbumTrackCount(&mut self) -> ::windows::core::Result<i32>;
+    fn PlaybackType(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionMediaProperties {
@@ -598,21 +598,21 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl: Sized {
-    fn IsPlayEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsPauseEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsStopEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsRecordEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsFastForwardEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsRewindEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsNextEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsPreviousEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsChannelUpEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsChannelDownEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsPlayPauseToggleEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsShuffleEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsRepeatEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsPlaybackRateEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsPlaybackPositionEnabled(&self) -> ::windows::core::Result<bool>;
+    fn IsPlayEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPauseEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsStopEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsRecordEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsFastForwardEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsRewindEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsNextEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPreviousEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsChannelUpEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsChannelDownEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPlayPauseToggleEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsShuffleEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsRepeatEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPlaybackRateEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsPlaybackPositionEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
@@ -811,12 +811,12 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl: Sized {
-    fn Controls(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls>;
-    fn PlaybackStatus(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackStatus>;
-    fn PlaybackType(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>>;
-    fn AutoRepeatMode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackAutoRepeatMode>>;
-    fn PlaybackRate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
-    fn IsShuffleActive(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
+    fn Controls(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls>;
+    fn PlaybackStatus(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackStatus>;
+    fn PlaybackType(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>>;
+    fn AutoRepeatMode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackAutoRepeatMode>>;
+    fn PlaybackRate(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn IsShuffleActive(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
@@ -907,12 +907,12 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl: Sized {
-    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn MinSeekTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn MaxSeekTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn LastUpdatedTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn EndTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn MinSeekTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn MaxSeekTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn LastUpdatedTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSessionTimelineProperties {

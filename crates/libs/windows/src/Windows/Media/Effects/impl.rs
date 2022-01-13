@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAudioCaptureEffectsManagerImpl: Sized {
-    fn AudioCaptureEffectsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioCaptureEffectsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetAudioCaptureEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>>;
+    fn AudioCaptureEffectsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioCaptureEffectsChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetAudioCaptureEffects(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioCaptureEffectsManager {
@@ -50,7 +50,7 @@ impl IAudioCaptureEffectsManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioEffectImpl: Sized {
-    fn AudioEffectType(&self) -> ::windows::core::Result<AudioEffectType>;
+    fn AudioEffectType(&mut self) -> ::windows::core::Result<AudioEffectType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioEffect {
@@ -78,8 +78,8 @@ impl IAudioEffectVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAudioEffectDefinitionImpl: Sized {
-    fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAudioEffectDefinition {
@@ -122,8 +122,8 @@ impl IAudioEffectDefinitionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAudioEffectDefinitionFactoryImpl: Sized {
-    fn Create(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioEffectDefinition>;
-    fn CreateWithProperties(&self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<AudioEffectDefinition>;
+    fn Create(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioEffectDefinition>;
+    fn CreateWithProperties(&mut self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<AudioEffectDefinition>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioEffectDefinitionFactory {
@@ -166,10 +166,10 @@ impl IAudioEffectDefinitionFactoryVtbl {
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_Render", feature = "implement_exclusive"))]
 pub trait IAudioEffectsManagerStaticsImpl: Sized {
-    fn CreateAudioRenderEffectsManager(&self, deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager>;
-    fn CreateAudioRenderEffectsManagerWithMode(&self, deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager>;
-    fn CreateAudioCaptureEffectsManager(&self, deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager>;
-    fn CreateAudioCaptureEffectsManagerWithMode(&self, deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager>;
+    fn CreateAudioRenderEffectsManager(&mut self, deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager>;
+    fn CreateAudioRenderEffectsManagerWithMode(&mut self, deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager>;
+    fn CreateAudioCaptureEffectsManager(&mut self, deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager>;
+    fn CreateAudioCaptureEffectsManagerWithMode(&mut self, deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager>;
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_Render", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioEffectsManagerStatics {
@@ -236,9 +236,9 @@ impl IAudioEffectsManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAudioRenderEffectsManagerImpl: Sized {
-    fn AudioRenderEffectsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioRenderEffectsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetAudioRenderEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>>;
+    fn AudioRenderEffectsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioRenderEffectsChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetAudioRenderEffects(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioRenderEffectsManager {
@@ -286,9 +286,9 @@ impl IAudioRenderEffectsManagerVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IAudioRenderEffectsManager2Impl: Sized {
-    fn EffectsProviderThumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
-    fn EffectsProviderSettingsLabel(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ShowSettingsUI(&self) -> ::windows::core::Result<()>;
+    fn EffectsProviderThumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
+    fn EffectsProviderSettingsLabel(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ShowSettingsUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioRenderEffectsManager2 {
@@ -336,12 +336,12 @@ impl IAudioRenderEffectsManager2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 pub trait IBasicAudioEffectImpl: Sized + IMediaExtensionImpl {
-    fn UseInputFrameForOutput(&self) -> ::windows::core::Result<bool>;
-    fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
-    fn ProcessFrame(&self, context: &::core::option::Option<ProcessAudioFrameContext>) -> ::windows::core::Result<()>;
-    fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
-    fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
+    fn UseInputFrameForOutput(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedEncodingProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
+    fn SetEncodingProperties(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
+    fn ProcessFrame(&mut self, context: &::core::option::Option<ProcessAudioFrameContext>) -> ::windows::core::Result<()>;
+    fn Close(&mut self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
+    fn DiscardQueuedFrames(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IBasicAudioEffect {
@@ -404,14 +404,14 @@ impl IBasicAudioEffectVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IBasicVideoEffectImpl: Sized + IMediaExtensionImpl {
-    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
-    fn SupportedMemoryTypes(&self) -> ::windows::core::Result<MediaMemoryTypes>;
-    fn TimeIndependent(&self) -> ::windows::core::Result<bool>;
-    fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
-    fn ProcessFrame(&self, context: &::core::option::Option<ProcessVideoFrameContext>) -> ::windows::core::Result<()>;
-    fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
-    fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
+    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedMemoryTypes(&mut self) -> ::windows::core::Result<MediaMemoryTypes>;
+    fn TimeIndependent(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedEncodingProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
+    fn SetEncodingProperties(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
+    fn ProcessFrame(&mut self, context: &::core::option::Option<ProcessVideoFrameContext>) -> ::windows::core::Result<()>;
+    fn Close(&mut self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
+    fn DiscardQueuedFrames(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IBasicVideoEffect {
@@ -500,10 +500,10 @@ impl IBasicVideoEffectVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing", feature = "implement_exclusive"))]
 pub trait ICompositeVideoFrameContextImpl: Sized {
-    fn SurfacesToOverlay(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>;
-    fn BackgroundFrame(&self) -> ::windows::core::Result<super::VideoFrame>;
-    fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame>;
-    fn GetOverlayForSurface(&self, surfacetooverlay: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<super::Editing::MediaOverlay>;
+    fn SurfacesToOverlay(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>;
+    fn BackgroundFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
+    fn OutputFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
+    fn GetOverlayForSurface(&mut self, surfacetooverlay: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<super::Editing::MediaOverlay>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompositeVideoFrameContext {
@@ -570,8 +570,8 @@ impl ICompositeVideoFrameContextVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessAudioFrameContextImpl: Sized {
-    fn InputFrame(&self) -> ::windows::core::Result<super::AudioFrame>;
-    fn OutputFrame(&self) -> ::windows::core::Result<super::AudioFrame>;
+    fn InputFrame(&mut self) -> ::windows::core::Result<super::AudioFrame>;
+    fn OutputFrame(&mut self) -> ::windows::core::Result<super::AudioFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessAudioFrameContext {
@@ -614,8 +614,8 @@ impl IProcessAudioFrameContextVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessVideoFrameContextImpl: Sized {
-    fn InputFrame(&self) -> ::windows::core::Result<super::VideoFrame>;
-    fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame>;
+    fn InputFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
+    fn OutputFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessVideoFrameContext {
@@ -658,8 +658,8 @@ impl IProcessVideoFrameContextVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISlowMotionEffectDefinitionImpl: Sized + IVideoEffectDefinitionImpl {
-    fn TimeStretchRate(&self) -> ::windows::core::Result<f64>;
-    fn SetTimeStretchRate(&self, value: f64) -> ::windows::core::Result<()>;
+    fn TimeStretchRate(&mut self) -> ::windows::core::Result<f64>;
+    fn SetTimeStretchRate(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISlowMotionEffectDefinition {
@@ -695,11 +695,11 @@ impl ISlowMotionEffectDefinitionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositorImpl: Sized + IMediaExtensionImpl {
-    fn TimeIndependent(&self) -> ::windows::core::Result<bool>;
-    fn SetEncodingProperties(&self, backgroundproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
-    fn CompositeFrame(&self, context: &::core::option::Option<CompositeVideoFrameContext>) -> ::windows::core::Result<()>;
-    fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
-    fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
+    fn TimeIndependent(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEncodingProperties(&mut self, backgroundproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
+    fn CompositeFrame(&mut self, context: &::core::option::Option<CompositeVideoFrameContext>) -> ::windows::core::Result<()>;
+    fn Close(&mut self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
+    fn DiscardQueuedFrames(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IVideoCompositor {
@@ -752,8 +752,8 @@ impl IVideoCompositorVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoCompositorDefinitionImpl: Sized {
-    fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVideoCompositorDefinition {
@@ -796,8 +796,8 @@ impl IVideoCompositorDefinitionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVideoCompositorDefinitionFactoryImpl: Sized {
-    fn Create(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoCompositorDefinition>;
-    fn CreateWithProperties(&self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<VideoCompositorDefinition>;
+    fn Create(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoCompositorDefinition>;
+    fn CreateWithProperties(&mut self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<VideoCompositorDefinition>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoCompositorDefinitionFactory {
@@ -840,8 +840,8 @@ impl IVideoCompositorDefinitionFactoryVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoEffectDefinitionImpl: Sized {
-    fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVideoEffectDefinition {
@@ -884,8 +884,8 @@ impl IVideoEffectDefinitionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVideoEffectDefinitionFactoryImpl: Sized {
-    fn Create(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoEffectDefinition>;
-    fn CreateWithProperties(&self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<VideoEffectDefinition>;
+    fn Create(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoEffectDefinition>;
+    fn CreateWithProperties(&mut self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<VideoEffectDefinition>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoEffectDefinitionFactory {
@@ -928,18 +928,18 @@ impl IVideoEffectDefinitionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "UI", feature = "implement_exclusive"))]
 pub trait IVideoTransformEffectDefinitionImpl: Sized + IVideoEffectDefinitionImpl {
-    fn PaddingColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetPaddingColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn OutputSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn SetOutputSize(&self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
-    fn CropRectangle(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SetCropRectangle(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn Rotation(&self) -> ::windows::core::Result<super::MediaProperties::MediaRotation>;
-    fn SetRotation(&self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()>;
-    fn Mirror(&self) -> ::windows::core::Result<super::MediaProperties::MediaMirroringOptions>;
-    fn SetMirror(&self, value: super::MediaProperties::MediaMirroringOptions) -> ::windows::core::Result<()>;
-    fn SetProcessingAlgorithm(&self, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()>;
-    fn ProcessingAlgorithm(&self) -> ::windows::core::Result<super::Transcoding::MediaVideoProcessingAlgorithm>;
+    fn PaddingColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetPaddingColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn OutputSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn SetOutputSize(&mut self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
+    fn CropRectangle(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SetCropRectangle(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn Rotation(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaRotation>;
+    fn SetRotation(&mut self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()>;
+    fn Mirror(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaMirroringOptions>;
+    fn SetMirror(&mut self, value: super::MediaProperties::MediaMirroringOptions) -> ::windows::core::Result<()>;
+    fn SetProcessingAlgorithm(&mut self, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()>;
+    fn ProcessingAlgorithm(&mut self) -> ::windows::core::Result<super::Transcoding::MediaVideoProcessingAlgorithm>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoTransformEffectDefinition {
@@ -1060,7 +1060,7 @@ impl IVideoTransformEffectDefinitionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoTransformEffectDefinition2Impl: Sized {
-    fn SphericalProjection(&self) -> ::windows::core::Result<VideoTransformSphericalProjection>;
+    fn SphericalProjection(&mut self) -> ::windows::core::Result<VideoTransformSphericalProjection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoTransformEffectDefinition2 {
@@ -1091,16 +1091,16 @@ impl IVideoTransformEffectDefinition2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
 pub trait IVideoTransformSphericalProjectionImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn FrameFormat(&self) -> ::windows::core::Result<super::MediaProperties::SphericalVideoFrameFormat>;
-    fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::Result<()>;
-    fn ProjectionMode(&self) -> ::windows::core::Result<super::Playback::SphericalVideoProjectionMode>;
-    fn SetProjectionMode(&self, value: super::Playback::SphericalVideoProjectionMode) -> ::windows::core::Result<()>;
-    fn HorizontalFieldOfViewInDegrees(&self) -> ::windows::core::Result<f64>;
-    fn SetHorizontalFieldOfViewInDegrees(&self, value: f64) -> ::windows::core::Result<()>;
-    fn ViewOrientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
-    fn SetViewOrientation(&self, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn FrameFormat(&mut self) -> ::windows::core::Result<super::MediaProperties::SphericalVideoFrameFormat>;
+    fn SetFrameFormat(&mut self, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::Result<()>;
+    fn ProjectionMode(&mut self) -> ::windows::core::Result<super::Playback::SphericalVideoProjectionMode>;
+    fn SetProjectionMode(&mut self, value: super::Playback::SphericalVideoProjectionMode) -> ::windows::core::Result<()>;
+    fn HorizontalFieldOfViewInDegrees(&mut self) -> ::windows::core::Result<f64>;
+    fn SetHorizontalFieldOfViewInDegrees(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn ViewOrientation(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion>;
+    fn SetViewOrientation(&mut self, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoTransformSphericalProjection {

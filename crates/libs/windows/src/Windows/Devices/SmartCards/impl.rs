@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ICardAddedEventArgsImpl: Sized {
-    fn SmartCard(&self) -> ::windows::core::Result<SmartCard>;
+    fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICardAddedEventArgs {
@@ -28,7 +28,7 @@ impl ICardAddedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICardRemovedEventArgsImpl: Sized {
-    fn SmartCard(&self) -> ::windows::core::Result<SmartCard>;
+    fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICardRemovedEventArgs {
@@ -56,8 +56,8 @@ impl ICardRemovedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKnownSmartCardAppletIdsImpl: Sized {
-    fn PaymentSystemEnvironment(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn ProximityPaymentSystemEnvironment(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn PaymentSystemEnvironment(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn ProximityPaymentSystemEnvironment(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownSmartCardAppletIds {
@@ -100,9 +100,9 @@ impl IKnownSmartCardAppletIdsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardImpl: Sized {
-    fn Reader(&self) -> ::windows::core::Result<SmartCardReader>;
-    fn GetStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardStatus>>;
-    fn GetAnswerToResetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
+    fn Reader(&mut self) -> ::windows::core::Result<SmartCardReader>;
+    fn GetStatusAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardStatus>>;
+    fn GetAnswerToResetAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCard {
@@ -157,15 +157,15 @@ impl ISmartCardVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AppletIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>;
-    fn SmartCardEmulationCategory(&self) -> ::windows::core::Result<SmartCardEmulationCategory>;
-    fn SetSmartCardEmulationCategory(&self, value: SmartCardEmulationCategory) -> ::windows::core::Result<()>;
-    fn SmartCardEmulationType(&self) -> ::windows::core::Result<SmartCardEmulationType>;
-    fn SetSmartCardEmulationType(&self, value: SmartCardEmulationType) -> ::windows::core::Result<()>;
-    fn AutomaticEnablement(&self) -> ::windows::core::Result<bool>;
-    fn SetAutomaticEnablement(&self, value: bool) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AppletIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>;
+    fn SmartCardEmulationCategory(&mut self) -> ::windows::core::Result<SmartCardEmulationCategory>;
+    fn SetSmartCardEmulationCategory(&mut self, value: SmartCardEmulationCategory) -> ::windows::core::Result<()>;
+    fn SmartCardEmulationType(&mut self) -> ::windows::core::Result<SmartCardEmulationType>;
+    fn SetSmartCardEmulationType(&mut self, value: SmartCardEmulationType) -> ::windows::core::Result<()>;
+    fn AutomaticEnablement(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutomaticEnablement(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroup {
@@ -264,13 +264,13 @@ impl ISmartCardAppletIdGroupVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroup2Impl: Sized {
-    fn Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SetLogo(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
-    fn SecureUserAuthenticationRequired(&self) -> ::windows::core::Result<bool>;
-    fn SetSecureUserAuthenticationRequired(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Logo(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SetLogo(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn SecureUserAuthenticationRequired(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSecureUserAuthenticationRequired(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroup2 {
@@ -352,7 +352,7 @@ impl ISmartCardAppletIdGroup2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupFactoryImpl: Sized {
-    fn Create(&self, displayname: &::windows::core::HSTRING, appletids: &::core::option::Option<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows::core::Result<SmartCardAppletIdGroup>;
+    fn Create(&mut self, displayname: &::windows::core::HSTRING, appletids: &::core::option::Option<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows::core::Result<SmartCardAppletIdGroup>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupFactory {
@@ -385,11 +385,11 @@ impl ISmartCardAppletIdGroupFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupRegistrationImpl: Sized {
-    fn ActivationPolicy(&self) -> ::windows::core::Result<SmartCardAppletIdGroupActivationPolicy>;
-    fn AppletIdGroup(&self) -> ::windows::core::Result<SmartCardAppletIdGroup>;
-    fn RequestActivationPolicyChangeAsync(&self, policy: SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetAutomaticResponseApdusAsync(&self, apdus: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ActivationPolicy(&mut self) -> ::windows::core::Result<SmartCardAppletIdGroupActivationPolicy>;
+    fn AppletIdGroup(&mut self) -> ::windows::core::Result<SmartCardAppletIdGroup>;
+    fn RequestActivationPolicyChangeAsync(&mut self, policy: SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetAutomaticResponseApdusAsync(&mut self, apdus: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupRegistration {
@@ -468,8 +468,8 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardAppletIdGroupRegistration2Impl: Sized {
-    fn SmartCardReaderId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPropertiesAsync(&self, props: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SmartCardReaderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPropertiesAsync(&mut self, props: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupRegistration2 {
@@ -512,7 +512,7 @@ impl ISmartCardAppletIdGroupRegistration2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardAppletIdGroupStaticsImpl: Sized {
-    fn MaxAppletIds(&self) -> ::windows::core::Result<u16>;
+    fn MaxAppletIds(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupStatics {
@@ -543,16 +543,16 @@ impl ISmartCardAppletIdGroupStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAutomaticResponseApduImpl: Sized {
-    fn CommandApdu(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetCommandApdu(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn CommandApduBitMask(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetCommandApduBitMask(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn ShouldMatchLength(&self) -> ::windows::core::Result<bool>;
-    fn SetShouldMatchLength(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AppletId(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetAppletId(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn ResponseApdu(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetResponseApdu(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn CommandApdu(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetCommandApdu(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn CommandApduBitMask(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetCommandApduBitMask(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn ShouldMatchLength(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShouldMatchLength(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AppletId(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetAppletId(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn ResponseApdu(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetResponseApdu(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu {
@@ -656,10 +656,10 @@ impl ISmartCardAutomaticResponseApduVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardAutomaticResponseApdu2Impl: Sized {
-    fn InputState(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetInputState(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn OutputState(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetOutputState(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn InputState(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetInputState(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn OutputState(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetOutputState(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu2 {
@@ -712,8 +712,8 @@ impl ISmartCardAutomaticResponseApdu2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardAutomaticResponseApdu3Impl: Sized {
-    fn AllowWhenCryptogramGeneratorNotPrepared(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowWhenCryptogramGeneratorNotPrepared(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AllowWhenCryptogramGeneratorNotPrepared(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowWhenCryptogramGeneratorNotPrepared(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu3 {
@@ -749,7 +749,7 @@ impl ISmartCardAutomaticResponseApdu3Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardAutomaticResponseApduFactoryImpl: Sized {
-    fn Create(&self, commandapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SmartCardAutomaticResponseApdu>;
+    fn Create(&mut self, commandapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SmartCardAutomaticResponseApdu>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApduFactory {
@@ -780,11 +780,11 @@ impl ISmartCardAutomaticResponseApduFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardChallengeContextImpl: Sized + IClosableImpl {
-    fn Challenge(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn VerifyResponseAsync(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn ProvisionAsync(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, formatcard: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ProvisionAsyncWithNewCardId(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, formatcard: bool, newcardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ChangeAdministrativeKeyAsync(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, newadministrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Challenge(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn VerifyResponseAsync(&mut self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ProvisionAsync(&mut self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, formatcard: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ProvisionAsyncWithNewCardId(&mut self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, formatcard: bool, newcardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ChangeAdministrativeKeyAsync(&mut self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, newadministrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardChallengeContext {
@@ -863,7 +863,7 @@ impl ISmartCardChallengeContextVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardConnectImpl: Sized {
-    fn ConnectAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardConnection>>;
+    fn ConnectAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardConnection>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardConnect {
@@ -891,7 +891,7 @@ impl ISmartCardConnectVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardConnectionImpl: Sized + IClosableImpl {
-    fn TransmitAsync(&self, command: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
+    fn TransmitAsync(&mut self, command: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardConnection {
@@ -919,18 +919,18 @@ impl ISmartCardConnectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGeneratorImpl: Sized {
-    fn SupportedCryptogramMaterialTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialType>>;
-    fn SupportedCryptogramAlgorithms(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
-    fn SupportedCryptogramMaterialPackageFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageFormat>>;
-    fn SupportedCryptogramMaterialPackageConfirmationResponseFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>>;
-    fn SupportedSmartCardCryptogramStorageKeyCapabilities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCapabilities>>;
-    fn DeleteCryptogramMaterialStorageKeyAsync(&self, storagekeyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
-    fn CreateCryptogramMaterialStorageKeyAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &::windows::core::HSTRING, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
-    fn RequestCryptogramMaterialStorageKeyInfoAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &::windows::core::HSTRING, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>;
-    fn ImportCryptogramMaterialPackageAsync(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: &::windows::core::HSTRING, materialpackagename: &::windows::core::HSTRING, cryptogrammaterialpackage: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
-    fn TryProvePossessionOfCryptogramMaterialPackageAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: &::windows::core::HSTRING, materialname: &::windows::core::HSTRING, challenge: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>;
-    fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
-    fn DeleteCryptogramMaterialPackageAsync(&self, materialpackagename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn SupportedCryptogramMaterialTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialType>>;
+    fn SupportedCryptogramAlgorithms(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
+    fn SupportedCryptogramMaterialPackageFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageFormat>>;
+    fn SupportedCryptogramMaterialPackageConfirmationResponseFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>>;
+    fn SupportedSmartCardCryptogramStorageKeyCapabilities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCapabilities>>;
+    fn DeleteCryptogramMaterialStorageKeyAsync(&mut self, storagekeyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn CreateCryptogramMaterialStorageKeyAsync(&mut self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &::windows::core::HSTRING, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn RequestCryptogramMaterialStorageKeyInfoAsync(&mut self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &::windows::core::HSTRING, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>;
+    fn ImportCryptogramMaterialPackageAsync(&mut self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: &::windows::core::HSTRING, materialpackagename: &::windows::core::HSTRING, cryptogrammaterialpackage: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn TryProvePossessionOfCryptogramMaterialPackageAsync(&mut self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: &::windows::core::HSTRING, materialname: &::windows::core::HSTRING, challenge: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>;
+    fn RequestUnlockCryptogramMaterialForUseAsync(&mut self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn DeleteCryptogramMaterialPackageAsync(&mut self, materialpackagename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGenerator {
@@ -1104,11 +1104,11 @@ impl ISmartCardCryptogramGeneratorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGenerator2Impl: Sized {
-    fn ValidateRequestApduAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
-    fn GetAllCryptogramStorageKeyCharacteristicsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>>;
-    fn GetAllCryptogramMaterialPackageCharacteristicsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>;
-    fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&self, storagekeyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>;
-    fn GetAllCryptogramMaterialCharacteristicsAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>;
+    fn ValidateRequestApduAsync(&mut self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn GetAllCryptogramStorageKeyCharacteristicsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>>;
+    fn GetAllCryptogramMaterialPackageCharacteristicsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>;
+    fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&mut self, storagekeyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>;
+    fn GetAllCryptogramMaterialCharacteristicsAsync(&mut self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGenerator2 {
@@ -1191,7 +1191,7 @@ impl ISmartCardCryptogramGenerator2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGeneratorStaticsImpl: Sized {
-    fn GetSmartCardCryptogramGeneratorAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGenerator>>;
+    fn GetSmartCardCryptogramGeneratorAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGenerator>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGeneratorStatics {
@@ -1222,7 +1222,7 @@ impl ISmartCardCryptogramGeneratorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardCryptogramGeneratorStatics2Impl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGeneratorStatics2 {
@@ -1253,8 +1253,8 @@ impl ISmartCardCryptogramGeneratorStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl: Sized {
-    fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
-    fn Characteristics(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialCharacteristics>>;
+    fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
+    fn Characteristics(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialCharacteristics>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -1297,8 +1297,8 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl: Sized {
-    fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
-    fn Characteristics(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageCharacteristics>>;
+    fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
+    fn Characteristics(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageCharacteristics>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -1341,8 +1341,8 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtb
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl: Sized {
-    fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
-    fn Characteristics(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCharacteristics>>;
+    fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
+    fn Characteristics(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCharacteristics>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -1385,14 +1385,14 @@ impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramMaterialCharacteristicsImpl: Sized {
-    fn MaterialName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AllowedAlgorithms(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
-    fn AllowedProofOfPossessionAlgorithms(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>>;
-    fn AllowedValidations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
-    fn MaterialType(&self) -> ::windows::core::Result<SmartCardCryptogramMaterialType>;
-    fn ProtectionMethod(&self) -> ::windows::core::Result<SmartCardCryptogramMaterialProtectionMethod>;
-    fn ProtectionVersion(&self) -> ::windows::core::Result<i32>;
-    fn MaterialLength(&self) -> ::windows::core::Result<i32>;
+    fn MaterialName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllowedAlgorithms(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
+    fn AllowedProofOfPossessionAlgorithms(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>>;
+    fn AllowedValidations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
+    fn MaterialType(&mut self) -> ::windows::core::Result<SmartCardCryptogramMaterialType>;
+    fn ProtectionMethod(&mut self) -> ::windows::core::Result<SmartCardCryptogramMaterialProtectionMethod>;
+    fn ProtectionVersion(&mut self) -> ::windows::core::Result<i32>;
+    fn MaterialLength(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialCharacteristics {
@@ -1507,10 +1507,10 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramMaterialPackageCharacteristicsImpl: Sized {
-    fn PackageName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn StorageKeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DateImported(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn PackageFormat(&self) -> ::windows::core::Result<SmartCardCryptogramMaterialPackageFormat>;
+    fn PackageName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StorageKeyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DateImported(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn PackageFormat(&mut self) -> ::windows::core::Result<SmartCardCryptogramMaterialPackageFormat>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialPackageCharacteristics {
@@ -1577,8 +1577,8 @@ impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramMaterialPossessionProofImpl: Sized {
-    fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
-    fn Proof(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
+    fn Proof(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialPossessionProof {
@@ -1621,24 +1621,24 @@ impl ISmartCardCryptogramMaterialPossessionProofVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramPlacementStepImpl: Sized {
-    fn Algorithm(&self) -> ::windows::core::Result<SmartCardCryptogramAlgorithm>;
-    fn SetAlgorithm(&self, value: SmartCardCryptogramAlgorithm) -> ::windows::core::Result<()>;
-    fn SourceData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn SetSourceData(&self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn CryptogramMaterialPackageName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCryptogramMaterialPackageName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CryptogramMaterialName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCryptogramMaterialName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TemplateOffset(&self) -> ::windows::core::Result<i32>;
-    fn SetTemplateOffset(&self, value: i32) -> ::windows::core::Result<()>;
-    fn CryptogramOffset(&self) -> ::windows::core::Result<i32>;
-    fn SetCryptogramOffset(&self, value: i32) -> ::windows::core::Result<()>;
-    fn CryptogramLength(&self) -> ::windows::core::Result<i32>;
-    fn SetCryptogramLength(&self, value: i32) -> ::windows::core::Result<()>;
-    fn CryptogramPlacementOptions(&self) -> ::windows::core::Result<SmartCardCryptogramPlacementOptions>;
-    fn SetCryptogramPlacementOptions(&self, value: SmartCardCryptogramPlacementOptions) -> ::windows::core::Result<()>;
-    fn ChainedOutputStep(&self) -> ::windows::core::Result<SmartCardCryptogramPlacementStep>;
-    fn SetChainedOutputStep(&self, value: &::core::option::Option<SmartCardCryptogramPlacementStep>) -> ::windows::core::Result<()>;
+    fn Algorithm(&mut self) -> ::windows::core::Result<SmartCardCryptogramAlgorithm>;
+    fn SetAlgorithm(&mut self, value: SmartCardCryptogramAlgorithm) -> ::windows::core::Result<()>;
+    fn SourceData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn SetSourceData(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn CryptogramMaterialPackageName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCryptogramMaterialPackageName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CryptogramMaterialName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCryptogramMaterialName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TemplateOffset(&mut self) -> ::windows::core::Result<i32>;
+    fn SetTemplateOffset(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn CryptogramOffset(&mut self) -> ::windows::core::Result<i32>;
+    fn SetCryptogramOffset(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn CryptogramLength(&mut self) -> ::windows::core::Result<i32>;
+    fn SetCryptogramLength(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn CryptogramPlacementOptions(&mut self) -> ::windows::core::Result<SmartCardCryptogramPlacementOptions>;
+    fn SetCryptogramPlacementOptions(&mut self, value: SmartCardCryptogramPlacementOptions) -> ::windows::core::Result<()>;
+    fn ChainedOutputStep(&mut self) -> ::windows::core::Result<SmartCardCryptogramPlacementStep>;
+    fn SetChainedOutputStep(&mut self, value: &::core::option::Option<SmartCardCryptogramPlacementStep>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramPlacementStep {
@@ -1810,10 +1810,10 @@ impl ISmartCardCryptogramPlacementStepVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramStorageKeyCharacteristicsImpl: Sized {
-    fn StorageKeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DateCreated(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Algorithm(&self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyAlgorithm>;
-    fn Capabilities(&self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyCapabilities>;
+    fn StorageKeyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DateCreated(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Algorithm(&mut self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyAlgorithm>;
+    fn Capabilities(&mut self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyCapabilities>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyCharacteristics {
@@ -1880,13 +1880,13 @@ impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
 }
 #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardCryptogramStorageKeyInfoImpl: Sized {
-    fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
-    fn PublicKeyBlobType(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType>;
-    fn PublicKey(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn AttestationStatus(&self) -> ::windows::core::Result<SmartCardCryptographicKeyAttestationStatus>;
-    fn Attestation(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn AttestationCertificateChain(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Capabilities(&self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyCapabilities>;
+    fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
+    fn PublicKeyBlobType(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType>;
+    fn PublicKey(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn AttestationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptographicKeyAttestationStatus>;
+    fn Attestation(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn AttestationCertificateChain(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Capabilities(&mut self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyCapabilities>;
 }
 #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyInfo {
@@ -1989,7 +1989,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardCryptogramStorageKeyInfo2Impl: Sized {
-    fn OperationalRequirements(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OperationalRequirements(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyInfo2 {
@@ -2020,7 +2020,7 @@ impl ISmartCardCryptogramStorageKeyInfo2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardEmulatorImpl: Sized {
-    fn EnablementPolicy(&self) -> ::windows::core::Result<SmartCardEmulatorEnablementPolicy>;
+    fn EnablementPolicy(&mut self) -> ::windows::core::Result<SmartCardEmulatorEnablementPolicy>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardEmulator {
@@ -2051,12 +2051,12 @@ impl ISmartCardEmulatorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulator2Impl: Sized {
-    fn ApduReceived(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveApduReceived(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ConnectionDeactivated(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveConnectionDeactivated(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn IsHostCardEmulationSupported(&self) -> ::windows::core::Result<bool>;
+    fn ApduReceived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveApduReceived(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ConnectionDeactivated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveConnectionDeactivated(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn IsHostCardEmulationSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulator2 {
@@ -2126,10 +2126,10 @@ impl ISmartCardEmulator2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorApduReceivedEventArgsImpl: Sized {
-    fn CommandApdu(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn ConnectionProperties(&self) -> ::windows::core::Result<SmartCardEmulatorConnectionProperties>;
-    fn TryRespondAsync(&self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn AutomaticResponseStatus(&self) -> ::windows::core::Result<SmartCardAutomaticResponseStatus>;
+    fn CommandApdu(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn ConnectionProperties(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionProperties>;
+    fn TryRespondAsync(&mut self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn AutomaticResponseStatus(&mut self) -> ::windows::core::Result<SmartCardAutomaticResponseStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgs {
@@ -2196,8 +2196,8 @@ impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorApduReceivedEventArgs2Impl: Sized {
-    fn State(&self) -> ::windows::core::Result<u32>;
-    fn TryRespondWithStateAsync(&self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn State(&mut self) -> ::windows::core::Result<u32>;
+    fn TryRespondWithStateAsync(&mut self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgs2 {
@@ -2240,8 +2240,8 @@ impl ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl: Sized {
-    fn TryRespondWithCryptogramsAsync(&self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
-    fn TryRespondWithCryptogramsAndStateAsync(&self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn TryRespondWithCryptogramsAsync(&mut self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
+    fn TryRespondWithCryptogramsAndStateAsync(&mut self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
@@ -2291,8 +2291,8 @@ impl ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardEmulatorConnectionDeactivatedEventArgsImpl: Sized {
-    fn ConnectionProperties(&self) -> ::windows::core::Result<SmartCardEmulatorConnectionProperties>;
-    fn Reason(&self) -> ::windows::core::Result<SmartCardEmulatorConnectionDeactivatedReason>;
+    fn ConnectionProperties(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionProperties>;
+    fn Reason(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionDeactivatedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -2335,8 +2335,8 @@ impl ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardEmulatorConnectionPropertiesImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Source(&self) -> ::windows::core::Result<SmartCardEmulatorConnectionSource>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Source(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionSource>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorConnectionProperties {
@@ -2379,7 +2379,7 @@ impl ISmartCardEmulatorConnectionPropertiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorStaticsImpl: Sized {
-    fn GetDefaultAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardEmulator>>;
+    fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardEmulator>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics {
@@ -2410,10 +2410,10 @@ impl ISmartCardEmulatorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISmartCardEmulatorStatics2Impl: Sized {
-    fn GetAppletIdGroupRegistrationsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCardAppletIdGroupRegistration>>>;
-    fn RegisterAppletIdGroupAsync(&self, appletidgroup: &::core::option::Option<SmartCardAppletIdGroup>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>;
-    fn UnregisterAppletIdGroupAsync(&self, registration: &::core::option::Option<SmartCardAppletIdGroupRegistration>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn MaxAppletIdGroupRegistrations(&self) -> ::windows::core::Result<u16>;
+    fn GetAppletIdGroupRegistrationsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCardAppletIdGroupRegistration>>>;
+    fn RegisterAppletIdGroupAsync(&mut self, appletidgroup: &::core::option::Option<SmartCardAppletIdGroup>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>;
+    fn UnregisterAppletIdGroupAsync(&mut self, registration: &::core::option::Option<SmartCardAppletIdGroupRegistration>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn MaxAppletIdGroupRegistrations(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics2 {
@@ -2480,7 +2480,7 @@ impl ISmartCardEmulatorStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardEmulatorStatics3Impl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics3 {
@@ -2511,18 +2511,18 @@ impl ISmartCardEmulatorStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardPinPolicyImpl: Sized {
-    fn MinLength(&self) -> ::windows::core::Result<u32>;
-    fn SetMinLength(&self, value: u32) -> ::windows::core::Result<()>;
-    fn MaxLength(&self) -> ::windows::core::Result<u32>;
-    fn SetMaxLength(&self, value: u32) -> ::windows::core::Result<()>;
-    fn UppercaseLetters(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
-    fn SetUppercaseLetters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
-    fn LowercaseLetters(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
-    fn SetLowercaseLetters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
-    fn Digits(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
-    fn SetDigits(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
-    fn SpecialCharacters(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
-    fn SetSpecialCharacters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
+    fn MinLength(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMinLength(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn MaxLength(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxLength(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn UppercaseLetters(&mut self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
+    fn SetUppercaseLetters(&mut self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
+    fn LowercaseLetters(&mut self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
+    fn SetLowercaseLetters(&mut self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
+    fn Digits(&mut self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
+    fn SetDigits(&mut self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
+    fn SpecialCharacters(&mut self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption>;
+    fn SetSpecialCharacters(&mut self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardPinPolicy {
@@ -2643,7 +2643,7 @@ impl ISmartCardPinPolicyVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardPinResetDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardPinResetDeferral {
@@ -2664,10 +2664,10 @@ impl ISmartCardPinResetDeferralVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardPinResetRequestImpl: Sized {
-    fn Challenge(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn GetDeferral(&self) -> ::windows::core::Result<SmartCardPinResetDeferral>;
-    fn SetResponse(&self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn Challenge(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<SmartCardPinResetDeferral>;
+    fn SetResponse(&mut self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardPinResetRequest {
@@ -2727,12 +2727,12 @@ impl ISmartCardPinResetRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioningImpl: Sized {
-    fn SmartCard(&self) -> ::windows::core::Result<SmartCard>;
-    fn GetIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>;
-    fn GetNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetChallengeContextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardChallengeContext>>;
-    fn RequestPinChangeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestPinResetAsync(&self, handler: &::core::option::Option<SmartCardPinResetHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
+    fn GetIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>;
+    fn GetNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetChallengeContextAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardChallengeContext>>;
+    fn RequestPinChangeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestPinResetAsync(&mut self, handler: &::core::option::Option<SmartCardPinResetHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioning {
@@ -2823,7 +2823,7 @@ impl ISmartCardProvisioningVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioning2Impl: Sized {
-    fn GetAuthorityKeyContainerNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetAuthorityKeyContainerNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioning2 {
@@ -2854,10 +2854,10 @@ impl ISmartCardProvisioning2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioningStaticsImpl: Sized {
-    fn FromSmartCardAsync(&self, card: &::core::option::Option<SmartCard>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
-    fn RequestVirtualSmartCardCreationAsync(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
-    fn RequestVirtualSmartCardCreationAsyncWithCardId(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
-    fn RequestVirtualSmartCardDeletionAsync(&self, card: &::core::option::Option<SmartCard>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn FromSmartCardAsync(&mut self, card: &::core::option::Option<SmartCard>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
+    fn RequestVirtualSmartCardCreationAsync(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
+    fn RequestVirtualSmartCardCreationAsyncWithCardId(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
+    fn RequestVirtualSmartCardDeletionAsync(&mut self, card: &::core::option::Option<SmartCard>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioningStatics {
@@ -2933,8 +2933,8 @@ impl ISmartCardProvisioningStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardProvisioningStatics2Impl: Sized {
-    fn RequestAttestedVirtualSmartCardCreationAsync(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
-    fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId(&self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
+    fn RequestAttestedVirtualSmartCardCreationAsync(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
+    fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardProvisioningStatics2 {
@@ -2986,15 +2986,15 @@ impl ISmartCardProvisioningStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardReaderImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Kind(&self) -> ::windows::core::Result<SmartCardReaderKind>;
-    fn GetStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReaderStatus>>;
-    fn FindAllCardsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCard>>>;
-    fn CardAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCardAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CardRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCardRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Kind(&mut self) -> ::windows::core::Result<SmartCardReaderKind>;
+    fn GetStatusAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReaderStatus>>;
+    fn FindAllCardsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCard>>>;
+    fn CardAdded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCardAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CardRemoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCardRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardReader {
@@ -3107,9 +3107,9 @@ impl ISmartCardReaderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardReaderStaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorWithKind(&self, kind: SmartCardReaderKind) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorWithKind(&mut self, kind: SmartCardReaderKind) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardReaderStatics {
@@ -3164,9 +3164,9 @@ impl ISmartCardReaderStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerDetailsImpl: Sized {
-    fn TriggerType(&self) -> ::windows::core::Result<SmartCardTriggerType>;
-    fn SourceAppletId(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn TriggerData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn TriggerType(&mut self) -> ::windows::core::Result<SmartCardTriggerType>;
+    fn SourceAppletId(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn TriggerData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTriggerDetails {
@@ -3221,9 +3221,9 @@ impl ISmartCardTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISmartCardTriggerDetails2Impl: Sized {
-    fn Emulator(&self) -> ::windows::core::Result<SmartCardEmulator>;
-    fn TryLaunchCurrentAppAsync(&self, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryLaunchCurrentAppWithBehaviorAsync(&self, arguments: &::windows::core::HSTRING, behavior: SmartCardLaunchBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn Emulator(&mut self) -> ::windows::core::Result<SmartCardEmulator>;
+    fn TryLaunchCurrentAppAsync(&mut self, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryLaunchCurrentAppWithBehaviorAsync(&mut self, arguments: &::windows::core::HSTRING, behavior: SmartCardLaunchBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISmartCardTriggerDetails2 {
@@ -3278,7 +3278,7 @@ impl ISmartCardTriggerDetails2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmartCardTriggerDetails3Impl: Sized {
-    fn SmartCard(&self) -> ::windows::core::Result<SmartCard>;
+    fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmartCardTriggerDetails3 {

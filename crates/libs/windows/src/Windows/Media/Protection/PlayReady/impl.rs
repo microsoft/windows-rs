@@ -1,19 +1,19 @@
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait INDClientImpl: Sized {
-    fn RegistrationCompleted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRegistrationCompleted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ProximityDetectionCompleted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProximityDetectionCompleted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LicenseFetchCompleted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLicenseFetchCompleted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ReRegistrationNeeded(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveReRegistrationNeeded(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ClosedCaptionDataReceived(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosedCaptionDataReceived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StartAsync(&self, contenturl: &::core::option::Option<super::super::super::Foundation::Uri>, startasyncoptions: u32, registrationcustomdata: &::core::option::Option<INDCustomData>, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>>;
-    fn LicenseFetchAsync(&self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>;
-    fn ReRegistrationAsync(&self, registrationcustomdata: &::core::option::Option<INDCustomData>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn Close(&self) -> ::windows::core::Result<()>;
+    fn RegistrationCompleted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRegistrationCompleted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProximityDetectionCompleted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProximityDetectionCompleted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LicenseFetchCompleted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLicenseFetchCompleted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ReRegistrationNeeded(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveReRegistrationNeeded(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ClosedCaptionDataReceived(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosedCaptionDataReceived(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StartAsync(&mut self, contenturl: &::core::option::Option<super::super::super::Foundation::Uri>, startasyncoptions: u32, registrationcustomdata: &::core::option::Option<INDCustomData>, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>>;
+    fn LicenseFetchAsync(&mut self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>;
+    fn ReRegistrationAsync(&mut self, registrationcustomdata: &::core::option::Option<INDCustomData>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INDClient {
@@ -163,7 +163,7 @@ impl INDClientVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait INDClientFactoryImpl: Sized {
-    fn CreateInstance(&self, downloadengine: &::core::option::Option<INDDownloadEngine>, streamparser: &::core::option::Option<INDStreamParser>, pmessenger: &::core::option::Option<INDMessenger>) -> ::windows::core::Result<NDClient>;
+    fn CreateInstance(&mut self, downloadengine: &::core::option::Option<INDDownloadEngine>, streamparser: &::core::option::Option<INDStreamParser>, pmessenger: &::core::option::Option<INDMessenger>) -> ::windows::core::Result<NDClient>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INDClientFactory {
@@ -191,9 +191,9 @@ impl INDClientFactoryVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDClosedCaptionDataReceivedEventArgsImpl: Sized {
-    fn ClosedCaptionDataFormat(&self) -> ::windows::core::Result<NDClosedCaptionFormat>;
-    fn PresentationTimestamp(&self) -> ::windows::core::Result<i64>;
-    fn ClosedCaptionData(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn ClosedCaptionDataFormat(&mut self) -> ::windows::core::Result<NDClosedCaptionFormat>;
+    fn PresentationTimestamp(&mut self) -> ::windows::core::Result<i64>;
+    fn ClosedCaptionData(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDClosedCaptionDataReceivedEventArgs {
@@ -249,8 +249,8 @@ impl INDClosedCaptionDataReceivedEventArgsVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDCustomDataImpl: Sized {
-    fn CustomDataTypeID(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn CustomData(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn CustomDataTypeID(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn CustomData(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDCustomData {
@@ -295,7 +295,7 @@ impl INDCustomDataVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait INDCustomDataFactoryImpl: Sized {
-    fn CreateInstance(&self, customdatatypeidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], customdatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<NDCustomData>;
+    fn CreateInstance(&mut self, customdatatypeidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], customdatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<NDCustomData>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INDCustomDataFactory {
@@ -326,15 +326,15 @@ impl INDCustomDataFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDDownloadEngineImpl: Sized {
-    fn Open(&self, uri: &::core::option::Option<super::super::super::Foundation::Uri>, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn Pause(&self) -> ::windows::core::Result<()>;
-    fn Resume(&self) -> ::windows::core::Result<()>;
-    fn Close(&self) -> ::windows::core::Result<()>;
-    fn Seek(&self, startposition: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn CanSeek(&self) -> ::windows::core::Result<bool>;
-    fn BufferFullMinThresholdInSamples(&self) -> ::windows::core::Result<u32>;
-    fn BufferFullMaxThresholdInSamples(&self) -> ::windows::core::Result<u32>;
-    fn Notifier(&self) -> ::windows::core::Result<NDDownloadEngineNotifier>;
+    fn Open(&mut self, uri: &::core::option::Option<super::super::super::Foundation::Uri>, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn Pause(&mut self) -> ::windows::core::Result<()>;
+    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Seek(&mut self, startposition: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CanSeek(&mut self) -> ::windows::core::Result<bool>;
+    fn BufferFullMinThresholdInSamples(&mut self) -> ::windows::core::Result<u32>;
+    fn BufferFullMaxThresholdInSamples(&mut self) -> ::windows::core::Result<u32>;
+    fn Notifier(&mut self) -> ::windows::core::Result<NDDownloadEngineNotifier>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDDownloadEngine {
@@ -426,12 +426,12 @@ impl INDDownloadEngineVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDDownloadEngineNotifierImpl: Sized {
-    fn OnStreamOpened(&self) -> ::windows::core::Result<()>;
-    fn OnPlayReadyObjectReceived(&self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn OnContentIDReceived(&self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
-    fn OnDataReceived(&self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], bytesreceived: u32) -> ::windows::core::Result<()>;
-    fn OnEndOfStream(&self) -> ::windows::core::Result<()>;
-    fn OnNetworkError(&self) -> ::windows::core::Result<()>;
+    fn OnStreamOpened(&mut self) -> ::windows::core::Result<()>;
+    fn OnPlayReadyObjectReceived(&mut self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnContentIDReceived(&mut self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
+    fn OnDataReceived(&mut self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], bytesreceived: u32) -> ::windows::core::Result<()>;
+    fn OnEndOfStream(&mut self) -> ::windows::core::Result<()>;
+    fn OnNetworkError(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDDownloadEngineNotifier {
@@ -480,7 +480,7 @@ impl INDDownloadEngineNotifierVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchCompletedEventArgsImpl: Sized {
-    fn ResponseCustomData(&self) -> ::windows::core::Result<INDCustomData>;
+    fn ResponseCustomData(&mut self) -> ::windows::core::Result<INDCustomData>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDLicenseFetchCompletedEventArgs {
@@ -511,10 +511,10 @@ impl INDLicenseFetchCompletedEventArgsVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchDescriptorImpl: Sized {
-    fn ContentIDType(&self) -> ::windows::core::Result<NDContentIDType>;
-    fn ContentID(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn LicenseFetchChallengeCustomData(&self) -> ::windows::core::Result<INDCustomData>;
-    fn SetLicenseFetchChallengeCustomData(&self, licensefetchchallengecustomdata: &::core::option::Option<INDCustomData>) -> ::windows::core::Result<()>;
+    fn ContentIDType(&mut self) -> ::windows::core::Result<NDContentIDType>;
+    fn ContentID(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn LicenseFetchChallengeCustomData(&mut self) -> ::windows::core::Result<INDCustomData>;
+    fn SetLicenseFetchChallengeCustomData(&mut self, licensefetchchallengecustomdata: &::core::option::Option<INDCustomData>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDLicenseFetchDescriptor {
@@ -575,7 +575,7 @@ impl INDLicenseFetchDescriptorVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait INDLicenseFetchDescriptorFactoryImpl: Sized {
-    fn CreateInstance(&self, contentidtype: NDContentIDType, contentidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], licensefetchchallengecustomdata: &::core::option::Option<INDCustomData>) -> ::windows::core::Result<NDLicenseFetchDescriptor>;
+    fn CreateInstance(&mut self, contentidtype: NDContentIDType, contentidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], licensefetchchallengecustomdata: &::core::option::Option<INDCustomData>) -> ::windows::core::Result<NDLicenseFetchDescriptor>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INDLicenseFetchDescriptorFactory {
@@ -606,7 +606,7 @@ impl INDLicenseFetchDescriptorFactoryVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchResultImpl: Sized {
-    fn ResponseCustomData(&self) -> ::windows::core::Result<INDCustomData>;
+    fn ResponseCustomData(&mut self) -> ::windows::core::Result<INDCustomData>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDLicenseFetchResult {
@@ -637,10 +637,10 @@ impl INDLicenseFetchResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDMessengerImpl: Sized {
-    fn SendRegistrationRequestAsync(&self, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], responsedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
-    fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendRegistrationRequestAsync(&mut self, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionStartAsync(&mut self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionResponseAsync(&mut self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], responsedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
+    fn SendLicenseFetchRequestAsync(&mut self, sessionidbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDMessenger {
@@ -707,7 +707,7 @@ impl INDMessengerVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDProximityDetectionCompletedEventArgsImpl: Sized {
-    fn ProximityDetectionRetryCount(&self) -> ::windows::core::Result<u32>;
+    fn ProximityDetectionRetryCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDProximityDetectionCompletedEventArgs {
@@ -738,10 +738,10 @@ impl INDProximityDetectionCompletedEventArgsVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDRegistrationCompletedEventArgsImpl: Sized {
-    fn ResponseCustomData(&self) -> ::windows::core::Result<INDCustomData>;
-    fn TransmitterProperties(&self) -> ::windows::core::Result<INDTransmitterProperties>;
-    fn TransmitterCertificateAccepted(&self) -> ::windows::core::Result<bool>;
-    fn SetTransmitterCertificateAccepted(&self, accept: bool) -> ::windows::core::Result<()>;
+    fn ResponseCustomData(&mut self) -> ::windows::core::Result<INDCustomData>;
+    fn TransmitterProperties(&mut self) -> ::windows::core::Result<INDTransmitterProperties>;
+    fn TransmitterCertificateAccepted(&mut self) -> ::windows::core::Result<bool>;
+    fn SetTransmitterCertificateAccepted(&mut self, accept: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDRegistrationCompletedEventArgs {
@@ -801,7 +801,7 @@ impl INDRegistrationCompletedEventArgsVtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait INDSendResultImpl: Sized {
-    fn Response(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn Response(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDSendResult {
@@ -830,7 +830,7 @@ impl INDSendResultVtbl {
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStartResultImpl: Sized {
-    fn MediaStreamSource(&self) -> ::windows::core::Result<super::super::Core::MediaStreamSource>;
+    fn MediaStreamSource(&mut self) -> ::windows::core::Result<super::super::Core::MediaStreamSource>;
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDStartResult {
@@ -861,7 +861,7 @@ impl INDStartResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait INDStorageFileHelperImpl: Sized {
-    fn GetFileURLs(&self, file: &::core::option::Option<super::super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetFileURLs(&mut self, file: &::core::option::Option<super::super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDStorageFileHelper {
@@ -889,11 +889,11 @@ impl INDStorageFileHelperVtbl {
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParserImpl: Sized {
-    fn ParseData(&self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GetStreamInformation(&self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>;
-    fn BeginOfStream(&self) -> ::windows::core::Result<()>;
-    fn EndOfStream(&self) -> ::windows::core::Result<()>;
-    fn Notifier(&self) -> ::windows::core::Result<NDStreamParserNotifier>;
+    fn ParseData(&mut self, databytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetStreamInformation(&mut self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>;
+    fn BeginOfStream(&mut self) -> ::windows::core::Result<()>;
+    fn EndOfStream(&mut self) -> ::windows::core::Result<()>;
+    fn Notifier(&mut self) -> ::windows::core::Result<NDStreamParserNotifier>;
 }
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDStreamParser {
@@ -951,10 +951,10 @@ impl INDStreamParserVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParserNotifierImpl: Sized {
-    fn OnContentIDReceived(&self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
-    fn OnMediaStreamDescriptorCreated(&self, audiostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> ::windows::core::Result<()>;
-    fn OnSampleParsed(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: &::core::option::Option<super::super::Core::MediaStreamSample>, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn OnBeginSetupDecryptor(&self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, keyid: &::windows::core::GUID, probytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnContentIDReceived(&mut self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
+    fn OnMediaStreamDescriptorCreated(&mut self, audiostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> ::windows::core::Result<()>;
+    fn OnSampleParsed(&mut self, streamid: u32, streamtype: NDMediaStreamType, streamsample: &::core::option::Option<super::super::Core::MediaStreamSample>, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnBeginSetupDecryptor(&mut self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, keyid: &::windows::core::GUID, probytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDStreamParserNotifier {
@@ -1000,7 +1000,7 @@ impl INDStreamParserNotifierVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait INDTCPMessengerFactoryImpl: Sized {
-    fn CreateInstance(&self, remotehostname: &::windows::core::HSTRING, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger>;
+    fn CreateInstance(&mut self, remotehostname: &::windows::core::HSTRING, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INDTCPMessengerFactory {
@@ -1031,17 +1031,17 @@ impl INDTCPMessengerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDTransmitterPropertiesImpl: Sized {
-    fn CertificateType(&self) -> ::windows::core::Result<NDCertificateType>;
-    fn PlatformIdentifier(&self) -> ::windows::core::Result<NDCertificatePlatformID>;
-    fn SupportedFeatures(&self) -> ::windows::core::Result<::windows::core::Array<NDCertificateFeature>>;
-    fn SecurityLevel(&self) -> ::windows::core::Result<u32>;
-    fn SecurityVersion(&self) -> ::windows::core::Result<u32>;
-    fn ExpirationDate(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn ClientID(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn ModelDigest(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn ModelManufacturerName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ModelName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ModelNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CertificateType(&mut self) -> ::windows::core::Result<NDCertificateType>;
+    fn PlatformIdentifier(&mut self) -> ::windows::core::Result<NDCertificatePlatformID>;
+    fn SupportedFeatures(&mut self) -> ::windows::core::Result<::windows::core::Array<NDCertificateFeature>>;
+    fn SecurityLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn SecurityVersion(&mut self) -> ::windows::core::Result<u32>;
+    fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn ClientID(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn ModelDigest(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn ModelManufacturerName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ModelName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ModelNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDTransmitterProperties {
@@ -1195,16 +1195,16 @@ impl INDTransmitterPropertiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyContentHeaderImpl: Sized {
-    fn KeyId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn KeyIdString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LicenseAcquisitionUrl(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn LicenseAcquisitionUserInterfaceUrl(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn EncryptionType(&self) -> ::windows::core::Result<PlayReadyEncryptionAlgorithm>;
-    fn CustomAttributes(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DecryptorSetup(&self) -> ::windows::core::Result<PlayReadyDecryptorSetup>;
-    fn GetSerializedHeader(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn HeaderWithEmbeddedUpdates(&self) -> ::windows::core::Result<PlayReadyContentHeader>;
+    fn KeyId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn KeyIdString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LicenseAcquisitionUrl(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn LicenseAcquisitionUserInterfaceUrl(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn DomainServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn EncryptionType(&mut self) -> ::windows::core::Result<PlayReadyEncryptionAlgorithm>;
+    fn CustomAttributes(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DecryptorSetup(&mut self) -> ::windows::core::Result<PlayReadyDecryptorSetup>;
+    fn GetSerializedHeader(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn HeaderWithEmbeddedUpdates(&mut self) -> ::windows::core::Result<PlayReadyContentHeader>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyContentHeader {
@@ -1344,8 +1344,8 @@ impl IPlayReadyContentHeaderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyContentHeader2Impl: Sized + IPlayReadyContentHeaderImpl {
-    fn KeyIds(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::GUID>>;
-    fn KeyIdStrings(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
+    fn KeyIds(&mut self) -> ::windows::core::Result<::windows::core::Array<::windows::core::GUID>>;
+    fn KeyIdStrings(&mut self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyContentHeader2 {
@@ -1390,9 +1390,9 @@ impl IPlayReadyContentHeader2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyContentHeaderFactoryImpl: Sized {
-    fn CreateInstanceFromWindowsMediaDrmHeader(&self, headerbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], licenseacquisitionurl: &::core::option::Option<super::super::super::Foundation::Uri>, licenseacquisitionuserinterfaceurl: &::core::option::Option<super::super::super::Foundation::Uri>, customattributes: &::windows::core::HSTRING, domainserviceid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>;
-    fn CreateInstanceFromComponents(&self, contentkeyid: &::windows::core::GUID, contentkeyidstring: &::windows::core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: &::core::option::Option<super::super::super::Foundation::Uri>, licenseacquisitionuserinterfaceurl: &::core::option::Option<super::super::super::Foundation::Uri>, customattributes: &::windows::core::HSTRING, domainserviceid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>;
-    fn CreateInstanceFromPlayReadyHeader(&self, headerbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadyContentHeader>;
+    fn CreateInstanceFromWindowsMediaDrmHeader(&mut self, headerbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], licenseacquisitionurl: &::core::option::Option<super::super::super::Foundation::Uri>, licenseacquisitionuserinterfaceurl: &::core::option::Option<super::super::super::Foundation::Uri>, customattributes: &::windows::core::HSTRING, domainserviceid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>;
+    fn CreateInstanceFromComponents(&mut self, contentkeyid: &::windows::core::GUID, contentkeyidstring: &::windows::core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: &::core::option::Option<super::super::super::Foundation::Uri>, licenseacquisitionuserinterfaceurl: &::core::option::Option<super::super::super::Foundation::Uri>, customattributes: &::windows::core::HSTRING, domainserviceid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>;
+    fn CreateInstanceFromPlayReadyHeader(&mut self, headerbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadyContentHeader>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyContentHeaderFactory {
@@ -1461,7 +1461,7 @@ impl IPlayReadyContentHeaderFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyContentHeaderFactory2Impl: Sized {
-    fn CreateInstanceFromComponents2(&self, dwflags: u32, contentkeyids: &[<::windows::core::GUID as ::windows::core::DefaultType>::DefaultType], contentkeyidstrings: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: &::core::option::Option<super::super::super::Foundation::Uri>, licenseacquisitionuserinterfaceurl: &::core::option::Option<super::super::super::Foundation::Uri>, customattributes: &::windows::core::HSTRING, domainserviceid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>;
+    fn CreateInstanceFromComponents2(&mut self, dwflags: u32, contentkeyids: &[<::windows::core::GUID as ::windows::core::DefaultType>::DefaultType], contentkeyidstrings: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: &::core::option::Option<super::super::super::Foundation::Uri>, licenseacquisitionuserinterfaceurl: &::core::option::Option<super::super::super::Foundation::Uri>, customattributes: &::windows::core::HSTRING, domainserviceid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyContentHeaderFactory2 {
@@ -1501,7 +1501,7 @@ impl IPlayReadyContentHeaderFactory2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPlayReadyContentResolverImpl: Sized {
-    fn ServiceRequest(&self, contentheader: &::core::option::Option<PlayReadyContentHeader>) -> ::windows::core::Result<IPlayReadyServiceRequest>;
+    fn ServiceRequest(&mut self, contentheader: &::core::option::Option<PlayReadyContentHeader>) -> ::windows::core::Result<IPlayReadyServiceRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlayReadyContentResolver {
@@ -1532,11 +1532,11 @@ impl IPlayReadyContentResolverVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyDomainImpl: Sized {
-    fn AccountId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Revision(&self) -> ::windows::core::Result<u32>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DomainJoinUrl(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn AccountId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Revision(&mut self) -> ::windows::core::Result<u32>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DomainJoinUrl(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPlayReadyDomain {
@@ -1615,7 +1615,7 @@ impl IPlayReadyDomainVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayReadyDomainIterableFactoryImpl: Sized {
-    fn CreateInstance(&self, domainaccountid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyDomainIterable>;
+    fn CreateInstance(&mut self, domainaccountid: &::windows::core::GUID) -> ::windows::core::Result<PlayReadyDomainIterable>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyDomainIterableFactory {
@@ -1646,12 +1646,12 @@ impl IPlayReadyDomainIterableFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyDomainJoinServiceRequestImpl: Sized + IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
-    fn DomainAccountId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetDomainAccountId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn DomainFriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDomainFriendlyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetDomainServiceId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DomainAccountId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetDomainAccountId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DomainFriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDomainFriendlyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DomainServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetDomainServiceId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyDomainJoinServiceRequest {
@@ -1721,10 +1721,10 @@ impl IPlayReadyDomainJoinServiceRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyDomainLeaveServiceRequestImpl: Sized + IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
-    fn DomainAccountId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetDomainAccountId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetDomainServiceId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DomainAccountId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetDomainAccountId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DomainServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetDomainServiceId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyDomainLeaveServiceRequest {
@@ -1777,7 +1777,7 @@ impl IPlayReadyDomainLeaveServiceRequestVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayReadyITADataGeneratorImpl: Sized {
-    fn GenerateData(&self, guidcpsystemid: &::windows::core::GUID, countofstreams: u32, configuration: &::core::option::Option<super::super::super::Foundation::Collections::IPropertySet>, format: PlayReadyITADataFormat) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn GenerateData(&mut self, guidcpsystemid: &::windows::core::GUID, countofstreams: u32, configuration: &::core::option::Option<super::super::super::Foundation::Collections::IPropertySet>, format: PlayReadyITADataFormat) -> ::windows::core::Result<::windows::core::Array<u8>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyITADataGenerator {
@@ -1824,13 +1824,13 @@ impl IPlayReadyIndividualizationServiceRequestVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyLicenseImpl: Sized {
-    fn FullyEvaluated(&self) -> ::windows::core::Result<bool>;
-    fn UsableForPlay(&self) -> ::windows::core::Result<bool>;
-    fn ExpirationDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn ExpireAfterFirstPlay(&self) -> ::windows::core::Result<u32>;
-    fn DomainAccountID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ChainDepth(&self) -> ::windows::core::Result<u32>;
-    fn GetKIDAtChainDepth(&self, chaindepth: u32) -> ::windows::core::Result<::windows::core::GUID>;
+    fn FullyEvaluated(&mut self) -> ::windows::core::Result<bool>;
+    fn UsableForPlay(&mut self) -> ::windows::core::Result<bool>;
+    fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn ExpireAfterFirstPlay(&mut self) -> ::windows::core::Result<u32>;
+    fn DomainAccountID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ChainDepth(&mut self) -> ::windows::core::Result<u32>;
+    fn GetKIDAtChainDepth(&mut self, chaindepth: u32) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPlayReadyLicense {
@@ -1933,10 +1933,10 @@ impl IPlayReadyLicenseVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyLicense2Impl: Sized + IPlayReadyLicenseImpl {
-    fn SecureStopId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SecurityLevel(&self) -> ::windows::core::Result<u32>;
-    fn InMemoryOnly(&self) -> ::windows::core::Result<bool>;
-    fn ExpiresInRealTime(&self) -> ::windows::core::Result<bool>;
+    fn SecureStopId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SecurityLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn InMemoryOnly(&mut self) -> ::windows::core::Result<bool>;
+    fn ExpiresInRealTime(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyLicense2 {
@@ -2003,10 +2003,10 @@ impl IPlayReadyLicense2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyLicenseAcquisitionServiceRequestImpl: Sized + IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
-    fn ContentHeader(&self) -> ::windows::core::Result<PlayReadyContentHeader>;
-    fn SetContentHeader(&self, value: &::core::option::Option<PlayReadyContentHeader>) -> ::windows::core::Result<()>;
-    fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetDomainServiceId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ContentHeader(&mut self) -> ::windows::core::Result<PlayReadyContentHeader>;
+    fn SetContentHeader(&mut self, value: &::core::option::Option<PlayReadyContentHeader>) -> ::windows::core::Result<()>;
+    fn DomainServiceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetDomainServiceId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest {
@@ -2059,7 +2059,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyLicenseAcquisitionServiceRequest2Impl: Sized + IMediaProtectionServiceRequestImpl + IPlayReadyLicenseAcquisitionServiceRequestImpl + IPlayReadyServiceRequestImpl {
-    fn SessionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest2 {
@@ -2090,7 +2090,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayReadyLicenseAcquisitionServiceRequest3Impl: Sized + IMediaProtectionServiceRequestImpl + IPlayReadyLicenseAcquisitionServiceRequestImpl + IPlayReadyLicenseAcquisitionServiceRequest2Impl + IPlayReadyServiceRequestImpl {
-    fn CreateLicenseIterable(&self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
+    fn CreateLicenseIterable(&mut self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest3 {
@@ -2121,7 +2121,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayReadyLicenseIterableFactoryImpl: Sized {
-    fn CreateInstance(&self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
+    fn CreateInstance(&mut self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseIterableFactory {
@@ -2152,7 +2152,7 @@ impl IPlayReadyLicenseIterableFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyLicenseManagementImpl: Sized {
-    fn DeleteLicenses(&self, contentheader: &::core::option::Option<PlayReadyContentHeader>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn DeleteLicenses(&mut self, contentheader: &::core::option::Option<PlayReadyContentHeader>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseManagement {
@@ -2182,8 +2182,8 @@ impl IPlayReadyLicenseManagementVtbl {
     }
 }
 pub trait IPlayReadyLicenseSessionImpl: Sized {
-    fn CreateLAServiceRequest(&self) -> ::windows::core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
-    fn ConfigureMediaProtectionManager(&self, mpm: &::core::option::Option<super::MediaProtectionManager>) -> ::windows::core::Result<()>;
+    fn CreateLAServiceRequest(&mut self) -> ::windows::core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
+    fn ConfigureMediaProtectionManager(&mut self, mpm: &::core::option::Option<super::MediaProtectionManager>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IPlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession";
@@ -2217,7 +2217,7 @@ impl IPlayReadyLicenseSessionVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPlayReadyLicenseSession2Impl: Sized + IPlayReadyLicenseSessionImpl {
-    fn CreateLicenseIterable(&self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
+    fn CreateLicenseIterable(&mut self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseSession2 {
@@ -2248,7 +2248,7 @@ impl IPlayReadyLicenseSession2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayReadyLicenseSessionFactoryImpl: Sized {
-    fn CreateInstance(&self, configuration: &::core::option::Option<super::super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<PlayReadyLicenseSession>;
+    fn CreateInstance(&mut self, configuration: &::core::option::Option<super::super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<PlayReadyLicenseSession>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseSessionFactory {
@@ -2279,8 +2279,8 @@ impl IPlayReadyLicenseSessionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyMeteringReportServiceRequestImpl: Sized + IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
-    fn MeteringCertificate(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetMeteringCertificate(&self, meteringcertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn MeteringCertificate(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SetMeteringCertificate(&mut self, meteringcertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyMeteringReportServiceRequest {
@@ -2332,7 +2332,7 @@ impl IPlayReadyRevocationServiceRequestVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayReadySecureStopIterableFactoryImpl: Sized {
-    fn CreateInstance(&self, publishercertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadySecureStopIterable>;
+    fn CreateInstance(&mut self, publishercertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadySecureStopIterable>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadySecureStopIterableFactory {
@@ -2363,11 +2363,11 @@ impl IPlayReadySecureStopIterableFactoryVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadySecureStopServiceRequestImpl: Sized + IMediaProtectionServiceRequestImpl + IPlayReadyServiceRequestImpl {
-    fn SessionID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn StartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn UpdateTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn Stopped(&self) -> ::windows::core::Result<bool>;
-    fn PublisherCertificate(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SessionID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn StartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn UpdateTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn Stopped(&mut self) -> ::windows::core::Result<bool>;
+    fn PublisherCertificate(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPlayReadySecureStopServiceRequest {
@@ -2447,8 +2447,8 @@ impl IPlayReadySecureStopServiceRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPlayReadySecureStopServiceRequestFactoryImpl: Sized {
-    fn CreateInstance(&self, publishercertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadySecureStopServiceRequest>;
-    fn CreateInstanceFromSessionID(&self, sessionid: &::windows::core::GUID, publishercertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadySecureStopServiceRequest>;
+    fn CreateInstance(&mut self, publishercertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadySecureStopServiceRequest>;
+    fn CreateInstanceFromSessionID(&mut self, sessionid: &::windows::core::GUID, publishercertbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadySecureStopServiceRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlayReadySecureStopServiceRequestFactory {
@@ -2491,15 +2491,15 @@ impl IPlayReadySecureStopServiceRequestFactoryVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyServiceRequestImpl: Sized + IMediaProtectionServiceRequestImpl {
-    fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ChallengeCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BeginServiceRequest(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn NextServiceRequest(&self) -> ::windows::core::Result<IPlayReadyServiceRequest>;
-    fn GenerateManualEnablingChallenge(&self) -> ::windows::core::Result<PlayReadySoapMessage>;
-    fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ResponseCustomData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ChallengeCustomData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetChallengeCustomData(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BeginServiceRequest(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn NextServiceRequest(&mut self) -> ::windows::core::Result<IPlayReadyServiceRequest>;
+    fn GenerateManualEnablingChallenge(&mut self) -> ::windows::core::Result<PlayReadySoapMessage>;
+    fn ProcessManualEnablingResponse(&mut self, responsebytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPlayReadyServiceRequest {
@@ -2612,9 +2612,9 @@ impl IPlayReadyServiceRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPlayReadySoapMessageImpl: Sized {
-    fn GetMessageBody(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn MessageHeaders(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IPropertySet>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn GetMessageBody(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn MessageHeaders(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IPropertySet>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadySoapMessage {
@@ -2670,14 +2670,14 @@ impl IPlayReadySoapMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPlayReadyStaticsImpl: Sized {
-    fn DomainJoinServiceRequestType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DomainLeaveServiceRequestType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IndividualizationServiceRequestType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn LicenseAcquirerServiceRequestType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn MeteringReportServiceRequestType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RevocationServiceRequestType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn MediaProtectionSystemId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn PlayReadySecurityVersion(&self) -> ::windows::core::Result<u32>;
+    fn DomainJoinServiceRequestType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DomainLeaveServiceRequestType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IndividualizationServiceRequestType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LicenseAcquirerServiceRequestType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn MeteringReportServiceRequestType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RevocationServiceRequestType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn MediaProtectionSystemId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn PlayReadySecurityVersion(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlayReadyStatics {
@@ -2792,7 +2792,7 @@ impl IPlayReadyStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPlayReadyStatics2Impl: Sized + IPlayReadyStaticsImpl {
-    fn PlayReadyCertificateSecurityLevel(&self) -> ::windows::core::Result<u32>;
+    fn PlayReadyCertificateSecurityLevel(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlayReadyStatics2 {
@@ -2823,8 +2823,8 @@ impl IPlayReadyStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPlayReadyStatics3Impl: Sized + IPlayReadyStaticsImpl + IPlayReadyStatics2Impl {
-    fn SecureStopServiceRequestType(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CheckSupportedHardware(&self, hwdrmfeature: PlayReadyHardwareDRMFeatures) -> ::windows::core::Result<bool>;
+    fn SecureStopServiceRequestType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CheckSupportedHardware(&mut self, hwdrmfeature: PlayReadyHardwareDRMFeatures) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlayReadyStatics3 {
@@ -2867,8 +2867,8 @@ impl IPlayReadyStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPlayReadyStatics4Impl: Sized + IPlayReadyStaticsImpl + IPlayReadyStatics2Impl + IPlayReadyStatics3Impl {
-    fn InputTrustAuthorityToCreate(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProtectionSystemId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn InputTrustAuthorityToCreate(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProtectionSystemId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlayReadyStatics4 {
@@ -2911,9 +2911,9 @@ impl IPlayReadyStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlayReadyStatics5Impl: Sized + IPlayReadyStaticsImpl + IPlayReadyStatics2Impl + IPlayReadyStatics3Impl + IPlayReadyStatics4Impl {
-    fn HardwareDRMDisabledAtTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn HardwareDRMDisabledUntilTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn ResetHardwareDRMDisabled(&self) -> ::windows::core::Result<()>;
+    fn HardwareDRMDisabledAtTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn HardwareDRMDisabledUntilTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn ResetHardwareDRMDisabled(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlayReadyStatics5 {

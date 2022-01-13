@@ -1,6 +1,6 @@
 pub trait IGraphicsEffectImpl: Sized + IGraphicsEffectSourceImpl {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGraphicsEffect {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffect";

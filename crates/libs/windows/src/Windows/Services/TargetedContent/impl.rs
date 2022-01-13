@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentActionImpl: Sized {
-    fn InvokeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn InvokeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentAction {
@@ -28,7 +28,7 @@ impl ITargetedContentActionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentAvailabilityChangedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentAvailabilityChangedEventArgs {
@@ -59,8 +59,8 @@ impl ITargetedContentAvailabilityChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentChangedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
-    fn HasPreviousContentExpired(&self) -> ::windows::core::Result<bool>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn HasPreviousContentExpired(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentChangedEventArgs {
@@ -103,13 +103,13 @@ impl ITargetedContentChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITargetedContentCollectionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
-    fn ReportCustomInteraction(&self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>;
-    fn Collections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>;
-    fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportInteraction(&mut self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
+    fn ReportCustomInteraction(&mut self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>;
+    fn Collections(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>;
+    fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentCollection {
@@ -198,11 +198,11 @@ impl ITargetedContentCollectionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentContainerImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Availability(&self) -> ::windows::core::Result<TargetedContentAvailability>;
-    fn Content(&self) -> ::windows::core::Result<TargetedContentCollection>;
-    fn SelectSingleObject(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentObject>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Availability(&mut self) -> ::windows::core::Result<TargetedContentAvailability>;
+    fn Content(&mut self) -> ::windows::core::Result<TargetedContentCollection>;
+    fn SelectSingleObject(&mut self, path: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentObject>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentContainer {
@@ -281,7 +281,7 @@ impl ITargetedContentContainerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentContainerStaticsImpl: Sized {
-    fn GetAsync(&self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
+    fn GetAsync(&mut self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentContainerStatics {
@@ -312,8 +312,8 @@ impl ITargetedContentContainerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ITargetedContentImageImpl: Sized + IRandomAccessStreamReferenceImpl {
-    fn Height(&self) -> ::windows::core::Result<u32>;
-    fn Width(&self) -> ::windows::core::Result<u32>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentImage {
@@ -356,12 +356,12 @@ impl ITargetedContentImageVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITargetedContentItemImpl: Sized {
-    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
-    fn ReportCustomInteraction(&self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn State(&self) -> ::windows::core::Result<TargetedContentItemState>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>;
-    fn Collections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>;
+    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportInteraction(&mut self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
+    fn ReportCustomInteraction(&mut self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn State(&mut self) -> ::windows::core::Result<TargetedContentItemState>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>;
+    fn Collections(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentItem {
@@ -438,8 +438,8 @@ impl ITargetedContentItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITargetedContentItemStateImpl: Sized {
-    fn ShouldDisplay(&self) -> ::windows::core::Result<bool>;
-    fn AppInstallationState(&self) -> ::windows::core::Result<TargetedContentAppInstallationState>;
+    fn ShouldDisplay(&mut self) -> ::windows::core::Result<bool>;
+    fn AppInstallationState(&mut self) -> ::windows::core::Result<TargetedContentAppInstallationState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITargetedContentItemState {
@@ -482,10 +482,10 @@ impl ITargetedContentItemStateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITargetedContentObjectImpl: Sized {
-    fn ObjectKind(&self) -> ::windows::core::Result<TargetedContentObjectKind>;
-    fn Collection(&self) -> ::windows::core::Result<TargetedContentCollection>;
-    fn Item(&self) -> ::windows::core::Result<TargetedContentItem>;
-    fn Value(&self) -> ::windows::core::Result<TargetedContentValue>;
+    fn ObjectKind(&mut self) -> ::windows::core::Result<TargetedContentObjectKind>;
+    fn Collection(&mut self) -> ::windows::core::Result<TargetedContentCollection>;
+    fn Item(&mut self) -> ::windows::core::Result<TargetedContentItem>;
+    fn Value(&mut self) -> ::windows::core::Result<TargetedContentValue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITargetedContentObject {
@@ -552,7 +552,7 @@ impl ITargetedContentObjectVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentStateChangedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentStateChangedEventArgs {
@@ -583,14 +583,14 @@ impl ITargetedContentStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentSubscriptionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetContentContainerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
-    fn ContentChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveContentChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AvailabilityChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAvailabilityChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetContentContainerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
+    fn ContentChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveContentChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AvailabilityChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAvailabilityChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentSubscription {
@@ -684,12 +684,12 @@ impl ITargetedContentSubscriptionVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITargetedContentSubscriptionOptionsImpl: Sized {
-    fn SubscriptionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AllowPartialContentAvailability(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowPartialContentAvailability(&self, value: bool) -> ::windows::core::Result<()>;
-    fn CloudQueryParameters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn LocalFilters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn Update(&self) -> ::windows::core::Result<()>;
+    fn SubscriptionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllowPartialContentAvailability(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowPartialContentAvailability(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn CloudQueryParameters(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn LocalFilters(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn Update(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentSubscriptionOptions {
@@ -766,8 +766,8 @@ impl ITargetedContentSubscriptionOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITargetedContentSubscriptionStaticsImpl: Sized {
-    fn GetAsync(&self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>;
-    fn GetOptions(&self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentSubscriptionOptions>;
+    fn GetAsync(&mut self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>;
+    fn GetOptions(&mut self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentSubscriptionOptions>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentSubscriptionStatics {
@@ -810,22 +810,22 @@ impl ITargetedContentSubscriptionStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ITargetedContentValueImpl: Sized {
-    fn ValueKind(&self) -> ::windows::core::Result<TargetedContentValueKind>;
-    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn String(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn Number(&self) -> ::windows::core::Result<f64>;
-    fn Boolean(&self) -> ::windows::core::Result<bool>;
-    fn File(&self) -> ::windows::core::Result<TargetedContentFile>;
-    fn ImageFile(&self) -> ::windows::core::Result<TargetedContentImage>;
-    fn Action(&self) -> ::windows::core::Result<TargetedContentAction>;
-    fn Strings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Uris(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>;
-    fn Numbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f64>>;
-    fn Booleans(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<bool>>;
-    fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>;
-    fn ImageFiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>;
-    fn Actions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>;
+    fn ValueKind(&mut self) -> ::windows::core::Result<TargetedContentValueKind>;
+    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn String(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn Number(&mut self) -> ::windows::core::Result<f64>;
+    fn Boolean(&mut self) -> ::windows::core::Result<bool>;
+    fn File(&mut self) -> ::windows::core::Result<TargetedContentFile>;
+    fn ImageFile(&mut self) -> ::windows::core::Result<TargetedContentImage>;
+    fn Action(&mut self) -> ::windows::core::Result<TargetedContentAction>;
+    fn Strings(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Uris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>;
+    fn Numbers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f64>>;
+    fn Booleans(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<bool>>;
+    fn Files(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>;
+    fn ImageFiles(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>;
+    fn Actions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITargetedContentValue {

@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialGraphInteropFrameOfReferencePreviewImpl: Sized {
-    fn CoordinateSystem(&self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
-    fn NodeId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CoordinateSystemToNodeTransform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix4x4>;
+    fn CoordinateSystem(&mut self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
+    fn NodeId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CoordinateSystemToNodeTransform(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix4x4>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialGraphInteropFrameOfReferencePreview {
@@ -57,10 +57,10 @@ impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialGraphInteropPreviewStaticsImpl: Sized {
-    fn CreateCoordinateSystemForNode(&self, nodeid: &::windows::core::GUID) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
-    fn CreateCoordinateSystemForNodeWithPosition(&self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
-    fn CreateCoordinateSystemForNodeWithPositionAndOrientation(&self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
-    fn CreateLocatorForNode(&self, nodeid: &::windows::core::GUID) -> ::windows::core::Result<super::SpatialLocator>;
+    fn CreateCoordinateSystemForNode(&mut self, nodeid: &::windows::core::GUID) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
+    fn CreateCoordinateSystemForNodeWithPosition(&mut self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
+    fn CreateCoordinateSystemForNodeWithPositionAndOrientation(&mut self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
+    fn CreateLocatorForNode(&mut self, nodeid: &::windows::core::GUID) -> ::windows::core::Result<super::SpatialLocator>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialGraphInteropPreviewStatics {
@@ -131,9 +131,9 @@ impl ISpatialGraphInteropPreviewStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialGraphInteropPreviewStatics2Impl: Sized {
-    fn TryCreateFrameOfReference(&self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
-    fn TryCreateFrameOfReferenceWithPosition(&self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
-    fn TryCreateFrameOfReferenceWithPositionAndOrientation(&self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
+    fn TryCreateFrameOfReference(&mut self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
+    fn TryCreateFrameOfReferenceWithPosition(&mut self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
+    fn TryCreateFrameOfReferenceWithPositionAndOrientation(&mut self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialGraphInteropPreviewStatics2 {

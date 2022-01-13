@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IArcadeStickImpl: Sized + IGameControllerImpl {
-    fn GetButtonLabel(&self, button: ArcadeStickButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
-    fn GetCurrentReading(&self) -> ::windows::core::Result<ArcadeStickReading>;
+    fn GetButtonLabel(&mut self, button: ArcadeStickButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<ArcadeStickReading>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IArcadeStick {
@@ -44,11 +44,11 @@ impl IArcadeStickVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IArcadeStickStaticsImpl: Sized {
-    fn ArcadeStickAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<ArcadeStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveArcadeStickAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ArcadeStickRemoved(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<ArcadeStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveArcadeStickRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ArcadeSticks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ArcadeStick>>;
+    fn ArcadeStickAdded(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<ArcadeStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveArcadeStickAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ArcadeStickRemoved(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<ArcadeStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveArcadeStickRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ArcadeSticks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ArcadeStick>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IArcadeStickStatics {
@@ -113,7 +113,7 @@ impl IArcadeStickStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IArcadeStickStatics2Impl: Sized + IArcadeStickStaticsImpl {
-    fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<ArcadeStick>;
+    fn FromGameController(&mut self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<ArcadeStick>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IArcadeStickStatics2 {
@@ -144,9 +144,9 @@ impl IArcadeStickStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IFlightStickImpl: Sized + IGameControllerImpl {
-    fn HatSwitchKind(&self) -> ::windows::core::Result<GameControllerSwitchKind>;
-    fn GetButtonLabel(&self, button: FlightStickButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
-    fn GetCurrentReading(&self) -> ::windows::core::Result<FlightStickReading>;
+    fn HatSwitchKind(&mut self) -> ::windows::core::Result<GameControllerSwitchKind>;
+    fn GetButtonLabel(&mut self, button: FlightStickButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<FlightStickReading>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlightStick {
@@ -201,12 +201,12 @@ impl IFlightStickVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFlightStickStaticsImpl: Sized {
-    fn FlightStickAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<FlightStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFlightStickAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn FlightStickRemoved(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<FlightStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveFlightStickRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn FlightSticks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FlightStick>>;
-    fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<FlightStick>;
+    fn FlightStickAdded(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<FlightStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFlightStickAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn FlightStickRemoved(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<FlightStick>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveFlightStickRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn FlightSticks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FlightStick>>;
+    fn FromGameController(&mut self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<FlightStick>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFlightStickStatics {
@@ -283,15 +283,15 @@ impl IFlightStickStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IGameControllerImpl: Sized {
-    fn HeadsetConnected(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHeadsetConnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HeadsetDisconnected(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHeadsetDisconnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UserChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUserChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Headset(&self) -> ::windows::core::Result<Headset>;
-    fn IsWireless(&self) -> ::windows::core::Result<bool>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn HeadsetConnected(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHeadsetConnected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HeadsetDisconnected(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHeadsetDisconnected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UserChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUserChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Headset(&mut self) -> ::windows::core::Result<Headset>;
+    fn IsWireless(&mut self) -> ::windows::core::Result<bool>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 impl ::windows::core::RuntimeName for IGameController {
@@ -397,7 +397,7 @@ impl IGameControllerVtbl {
 }
 #[cfg(feature = "Devices_Power")]
 pub trait IGameControllerBatteryInfoImpl: Sized {
-    fn TryGetBatteryReport(&self) -> ::windows::core::Result<super::super::Devices::Power::BatteryReport>;
+    fn TryGetBatteryReport(&mut self) -> ::windows::core::Result<super::super::Devices::Power::BatteryReport>;
 }
 #[cfg(feature = "Devices_Power")]
 impl ::windows::core::RuntimeName for IGameControllerBatteryInfo {
@@ -428,9 +428,9 @@ impl IGameControllerBatteryInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IGamepadImpl: Sized + IGameControllerImpl {
-    fn Vibration(&self) -> ::windows::core::Result<GamepadVibration>;
-    fn SetVibration(&self, value: &GamepadVibration) -> ::windows::core::Result<()>;
-    fn GetCurrentReading(&self) -> ::windows::core::Result<GamepadReading>;
+    fn Vibration(&mut self) -> ::windows::core::Result<GamepadVibration>;
+    fn SetVibration(&mut self, value: &GamepadVibration) -> ::windows::core::Result<()>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<GamepadReading>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepad {
@@ -478,7 +478,7 @@ impl IGamepadVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IGamepad2Impl: Sized + IGameControllerImpl + IGamepadImpl {
-    fn GetButtonLabel(&self, button: GamepadButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
+    fn GetButtonLabel(&mut self, button: GamepadButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepad2 {
@@ -506,11 +506,11 @@ impl IGamepad2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGamepadStaticsImpl: Sized {
-    fn GamepadAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<Gamepad>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGamepadAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GamepadRemoved(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<Gamepad>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGamepadRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Gamepads(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Gamepad>>;
+    fn GamepadAdded(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<Gamepad>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGamepadAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GamepadRemoved(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<Gamepad>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGamepadRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Gamepads(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Gamepad>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepadStatics {
@@ -575,7 +575,7 @@ impl IGamepadStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGamepadStatics2Impl: Sized + IGamepadStaticsImpl {
-    fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<Gamepad>;
+    fn FromGameController(&mut self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<Gamepad>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGamepadStatics2 {
@@ -606,8 +606,8 @@ impl IGamepadStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHeadsetImpl: Sized {
-    fn CaptureDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RenderDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CaptureDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RenderDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHeadset {
@@ -650,14 +650,14 @@ impl IHeadsetVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 pub trait IRacingWheelImpl: Sized + IGameControllerImpl {
-    fn HasClutch(&self) -> ::windows::core::Result<bool>;
-    fn HasHandbrake(&self) -> ::windows::core::Result<bool>;
-    fn HasPatternShifter(&self) -> ::windows::core::Result<bool>;
-    fn MaxPatternShifterGear(&self) -> ::windows::core::Result<i32>;
-    fn MaxWheelAngle(&self) -> ::windows::core::Result<f64>;
-    fn WheelMotor(&self) -> ::windows::core::Result<ForceFeedback::ForceFeedbackMotor>;
-    fn GetButtonLabel(&self, button: RacingWheelButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
-    fn GetCurrentReading(&self) -> ::windows::core::Result<RacingWheelReading>;
+    fn HasClutch(&mut self) -> ::windows::core::Result<bool>;
+    fn HasHandbrake(&mut self) -> ::windows::core::Result<bool>;
+    fn HasPatternShifter(&mut self) -> ::windows::core::Result<bool>;
+    fn MaxPatternShifterGear(&mut self) -> ::windows::core::Result<i32>;
+    fn MaxWheelAngle(&mut self) -> ::windows::core::Result<f64>;
+    fn WheelMotor(&mut self) -> ::windows::core::Result<ForceFeedback::ForceFeedbackMotor>;
+    fn GetButtonLabel(&mut self, button: RacingWheelButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<RacingWheelReading>;
 }
 #[cfg(all(feature = "Foundation", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRacingWheel {
@@ -772,11 +772,11 @@ impl IRacingWheelVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRacingWheelStaticsImpl: Sized {
-    fn RacingWheelAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<RacingWheel>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRacingWheelAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RacingWheelRemoved(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<RacingWheel>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRacingWheelRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RacingWheels(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RacingWheel>>;
+    fn RacingWheelAdded(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<RacingWheel>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRacingWheelAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RacingWheelRemoved(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<RacingWheel>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRacingWheelRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RacingWheels(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RacingWheel>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRacingWheelStatics {
@@ -841,7 +841,7 @@ impl IRacingWheelStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRacingWheelStatics2Impl: Sized + IRacingWheelStaticsImpl {
-    fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<RacingWheel>;
+    fn FromGameController(&mut self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<RacingWheel>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRacingWheelStatics2 {
@@ -872,15 +872,15 @@ impl IRacingWheelStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 pub trait IRawGameControllerImpl: Sized + IGameControllerImpl {
-    fn AxisCount(&self) -> ::windows::core::Result<i32>;
-    fn ButtonCount(&self) -> ::windows::core::Result<i32>;
-    fn ForceFeedbackMotors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>>;
-    fn HardwareProductId(&self) -> ::windows::core::Result<u16>;
-    fn HardwareVendorId(&self) -> ::windows::core::Result<u16>;
-    fn SwitchCount(&self) -> ::windows::core::Result<i32>;
-    fn GetButtonLabel(&self, buttonindex: i32) -> ::windows::core::Result<GameControllerButtonLabel>;
-    fn GetCurrentReading(&self, buttonarray: &mut [<bool as ::windows::core::DefaultType>::DefaultType], switcharray: &mut [<GameControllerSwitchPosition as ::windows::core::DefaultType>::DefaultType], axisarray: &mut [<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u64>;
-    fn GetSwitchKind(&self, switchindex: i32) -> ::windows::core::Result<GameControllerSwitchKind>;
+    fn AxisCount(&mut self) -> ::windows::core::Result<i32>;
+    fn ButtonCount(&mut self) -> ::windows::core::Result<i32>;
+    fn ForceFeedbackMotors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>>;
+    fn HardwareProductId(&mut self) -> ::windows::core::Result<u16>;
+    fn HardwareVendorId(&mut self) -> ::windows::core::Result<u16>;
+    fn SwitchCount(&mut self) -> ::windows::core::Result<i32>;
+    fn GetButtonLabel(&mut self, buttonindex: i32) -> ::windows::core::Result<GameControllerButtonLabel>;
+    fn GetCurrentReading(&mut self, buttonarray: &mut [<bool as ::windows::core::DefaultType>::DefaultType], switcharray: &mut [<GameControllerSwitchPosition as ::windows::core::DefaultType>::DefaultType], axisarray: &mut [<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u64>;
+    fn GetSwitchKind(&mut self, switchindex: i32) -> ::windows::core::Result<GameControllerSwitchKind>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawGameController {
@@ -1007,9 +1007,9 @@ impl IRawGameControllerVtbl {
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IRawGameController2Impl: Sized + IGameControllerImpl + IRawGameControllerImpl {
-    fn SimpleHapticsControllers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>>;
-    fn NonRoamableId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SimpleHapticsControllers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>>;
+    fn NonRoamableId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawGameController2 {
@@ -1064,12 +1064,12 @@ impl IRawGameController2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRawGameControllerStaticsImpl: Sized {
-    fn RawGameControllerAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<RawGameController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRawGameControllerAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RawGameControllerRemoved(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<RawGameController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRawGameControllerRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RawGameControllers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RawGameController>>;
-    fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<RawGameController>;
+    fn RawGameControllerAdded(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<RawGameController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRawGameControllerAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RawGameControllerRemoved(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<RawGameController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRawGameControllerRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RawGameControllers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RawGameController>>;
+    fn FromGameController(&mut self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<RawGameController>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawGameControllerStatics {
@@ -1146,9 +1146,9 @@ impl IRawGameControllerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IUINavigationControllerImpl: Sized + IGameControllerImpl {
-    fn GetCurrentReading(&self) -> ::windows::core::Result<UINavigationReading>;
-    fn GetOptionalButtonLabel(&self, button: OptionalUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
-    fn GetRequiredButtonLabel(&self, button: RequiredUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
+    fn GetCurrentReading(&mut self) -> ::windows::core::Result<UINavigationReading>;
+    fn GetOptionalButtonLabel(&mut self, button: OptionalUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
+    fn GetRequiredButtonLabel(&mut self, button: RequiredUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUINavigationController {
@@ -1203,11 +1203,11 @@ impl IUINavigationControllerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUINavigationControllerStaticsImpl: Sized {
-    fn UINavigationControllerAdded(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<UINavigationController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUINavigationControllerAdded(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UINavigationControllerRemoved(&self, value: &::core::option::Option<super::super::Foundation::EventHandler<UINavigationController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUINavigationControllerRemoved(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UINavigationControllers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UINavigationController>>;
+    fn UINavigationControllerAdded(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<UINavigationController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUINavigationControllerAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UINavigationControllerRemoved(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<UINavigationController>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUINavigationControllerRemoved(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UINavigationControllers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UINavigationController>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUINavigationControllerStatics {
@@ -1272,7 +1272,7 @@ impl IUINavigationControllerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUINavigationControllerStatics2Impl: Sized + IUINavigationControllerStaticsImpl {
-    fn FromGameController(&self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<UINavigationController>;
+    fn FromGameController(&mut self, gamecontroller: &::core::option::Option<IGameController>) -> ::windows::core::Result<UINavigationController>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUINavigationControllerStatics2 {

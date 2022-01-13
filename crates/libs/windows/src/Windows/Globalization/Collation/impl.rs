@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ICharacterGroupingImpl: Sized {
-    fn First(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn First(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICharacterGrouping {
@@ -44,7 +44,7 @@ impl ICharacterGroupingVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICharacterGroupingsImpl: Sized + IIterableImpl<CharacterGrouping> + IVectorViewImpl<CharacterGrouping> {
-    fn Lookup(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Lookup(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICharacterGroupings {
@@ -72,7 +72,7 @@ impl ICharacterGroupingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICharacterGroupingsFactoryImpl: Sized {
-    fn Create(&self, language: &::windows::core::HSTRING) -> ::windows::core::Result<CharacterGroupings>;
+    fn Create(&mut self, language: &::windows::core::HSTRING) -> ::windows::core::Result<CharacterGroupings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICharacterGroupingsFactory {

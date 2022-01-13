@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContentRestrictionsBrowsePolicyImpl: Sized {
-    fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MaxBrowsableAgeRating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn PreferredAgeRating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn GeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MaxBrowsableAgeRating(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn PreferredAgeRating(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContentRestrictionsBrowsePolicy {
@@ -57,16 +57,16 @@ impl IContentRestrictionsBrowsePolicyVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRatedContentDescriptionImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Image(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SetImage(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
-    fn Category(&self) -> ::windows::core::Result<RatedContentCategory>;
-    fn SetCategory(&self, value: RatedContentCategory) -> ::windows::core::Result<()>;
-    fn Ratings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn SetRatings(&self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Image(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SetImage(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn Category(&mut self) -> ::windows::core::Result<RatedContentCategory>;
+    fn SetCategory(&mut self, value: RatedContentCategory) -> ::windows::core::Result<()>;
+    fn Ratings(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn SetRatings(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRatedContentDescription {
@@ -170,7 +170,7 @@ impl IRatedContentDescriptionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRatedContentDescriptionFactoryImpl: Sized {
-    fn Create(&self, id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, category: RatedContentCategory) -> ::windows::core::Result<RatedContentDescription>;
+    fn Create(&mut self, id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, category: RatedContentCategory) -> ::windows::core::Result<RatedContentDescription>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRatedContentDescriptionFactory {
@@ -198,11 +198,11 @@ impl IRatedContentDescriptionFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRatedContentRestrictionsImpl: Sized {
-    fn GetBrowsePolicyAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContentRestrictionsBrowsePolicy>>;
-    fn GetRestrictionLevelAsync(&self, ratedcontentdescription: &::core::option::Option<RatedContentDescription>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>>;
-    fn RequestContentAccessAsync(&self, ratedcontentdescription: &::core::option::Option<RatedContentDescription>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RestrictionsChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRestrictionsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetBrowsePolicyAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContentRestrictionsBrowsePolicy>>;
+    fn GetRestrictionLevelAsync(&mut self, ratedcontentdescription: &::core::option::Option<RatedContentDescription>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>>;
+    fn RequestContentAccessAsync(&mut self, ratedcontentdescription: &::core::option::Option<RatedContentDescription>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RestrictionsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRestrictionsChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRatedContentRestrictions {
@@ -274,7 +274,7 @@ impl IRatedContentRestrictionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRatedContentRestrictionsFactoryImpl: Sized {
-    fn CreateWithMaxAgeRating(&self, maxagerating: u32) -> ::windows::core::Result<RatedContentRestrictions>;
+    fn CreateWithMaxAgeRating(&mut self, maxagerating: u32) -> ::windows::core::Result<RatedContentRestrictions>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRatedContentRestrictionsFactory {

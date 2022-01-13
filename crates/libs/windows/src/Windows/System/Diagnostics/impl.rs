@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDiagnosticActionResultImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn Results(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Results(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDiagnosticActionResult {
@@ -44,7 +44,7 @@ impl IDiagnosticActionResultVtbl {
 }
 #[cfg(all(feature = "Data_Json", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDiagnosticInvokerImpl: Sized {
-    fn RunDiagnosticActionAsync(&self, context: &::core::option::Option<super::super::Data::Json::JsonObject>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>;
+    fn RunDiagnosticActionAsync(&mut self, context: &::core::option::Option<super::super::Data::Json::JsonObject>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>;
 }
 #[cfg(all(feature = "Data_Json", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDiagnosticInvoker {
@@ -75,7 +75,7 @@ impl IDiagnosticInvokerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDiagnosticInvoker2Impl: Sized {
-    fn RunDiagnosticActionFromStringAsync(&self, context: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>;
+    fn RunDiagnosticActionFromStringAsync(&mut self, context: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDiagnosticInvoker2 {
@@ -106,9 +106,9 @@ impl IDiagnosticInvoker2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDiagnosticInvokerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<DiagnosticInvoker>;
-    fn GetForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<DiagnosticInvoker>;
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<DiagnosticInvoker>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<DiagnosticInvoker>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDiagnosticInvokerStatics {
@@ -163,7 +163,7 @@ impl IDiagnosticInvokerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessCpuUsageImpl: Sized {
-    fn GetReport(&self) -> ::windows::core::Result<ProcessCpuUsageReport>;
+    fn GetReport(&mut self) -> ::windows::core::Result<ProcessCpuUsageReport>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessCpuUsage {
@@ -191,8 +191,8 @@ impl IProcessCpuUsageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProcessCpuUsageReportImpl: Sized {
-    fn KernelTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn UserTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn KernelTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn UserTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessCpuUsageReport {
@@ -235,13 +235,13 @@ impl IProcessCpuUsageReportVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProcessDiagnosticInfoImpl: Sized {
-    fn ProcessId(&self) -> ::windows::core::Result<u32>;
-    fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Parent(&self) -> ::windows::core::Result<ProcessDiagnosticInfo>;
-    fn ProcessStartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn DiskUsage(&self) -> ::windows::core::Result<ProcessDiskUsage>;
-    fn MemoryUsage(&self) -> ::windows::core::Result<ProcessMemoryUsage>;
-    fn CpuUsage(&self) -> ::windows::core::Result<ProcessCpuUsage>;
+    fn ProcessId(&mut self) -> ::windows::core::Result<u32>;
+    fn ExecutableFileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Parent(&mut self) -> ::windows::core::Result<ProcessDiagnosticInfo>;
+    fn ProcessStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn DiskUsage(&mut self) -> ::windows::core::Result<ProcessDiskUsage>;
+    fn MemoryUsage(&mut self) -> ::windows::core::Result<ProcessMemoryUsage>;
+    fn CpuUsage(&mut self) -> ::windows::core::Result<ProcessCpuUsage>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessDiagnosticInfo {
@@ -344,8 +344,8 @@ impl IProcessDiagnosticInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProcessDiagnosticInfo2Impl: Sized {
-    fn GetAppDiagnosticInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>;
-    fn IsPackaged(&self) -> ::windows::core::Result<bool>;
+    fn GetAppDiagnosticInfos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>;
+    fn IsPackaged(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessDiagnosticInfo2 {
@@ -388,8 +388,8 @@ impl IProcessDiagnosticInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProcessDiagnosticInfoStaticsImpl: Sized {
-    fn GetForProcesses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>;
-    fn GetForCurrentProcess(&self) -> ::windows::core::Result<ProcessDiagnosticInfo>;
+    fn GetForProcesses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>;
+    fn GetForCurrentProcess(&mut self) -> ::windows::core::Result<ProcessDiagnosticInfo>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessDiagnosticInfoStatics {
@@ -432,7 +432,7 @@ impl IProcessDiagnosticInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessDiagnosticInfoStatics2Impl: Sized {
-    fn TryGetForProcessId(&self, processid: u32) -> ::windows::core::Result<ProcessDiagnosticInfo>;
+    fn TryGetForProcessId(&mut self, processid: u32) -> ::windows::core::Result<ProcessDiagnosticInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessDiagnosticInfoStatics2 {
@@ -463,7 +463,7 @@ impl IProcessDiagnosticInfoStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessDiskUsageImpl: Sized {
-    fn GetReport(&self) -> ::windows::core::Result<ProcessDiskUsageReport>;
+    fn GetReport(&mut self) -> ::windows::core::Result<ProcessDiskUsageReport>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessDiskUsage {
@@ -491,12 +491,12 @@ impl IProcessDiskUsageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessDiskUsageReportImpl: Sized {
-    fn ReadOperationCount(&self) -> ::windows::core::Result<i64>;
-    fn WriteOperationCount(&self) -> ::windows::core::Result<i64>;
-    fn OtherOperationCount(&self) -> ::windows::core::Result<i64>;
-    fn BytesReadCount(&self) -> ::windows::core::Result<i64>;
-    fn BytesWrittenCount(&self) -> ::windows::core::Result<i64>;
-    fn OtherBytesCount(&self) -> ::windows::core::Result<i64>;
+    fn ReadOperationCount(&mut self) -> ::windows::core::Result<i64>;
+    fn WriteOperationCount(&mut self) -> ::windows::core::Result<i64>;
+    fn OtherOperationCount(&mut self) -> ::windows::core::Result<i64>;
+    fn BytesReadCount(&mut self) -> ::windows::core::Result<i64>;
+    fn BytesWrittenCount(&mut self) -> ::windows::core::Result<i64>;
+    fn OtherBytesCount(&mut self) -> ::windows::core::Result<i64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessDiskUsageReport {
@@ -587,7 +587,7 @@ impl IProcessDiskUsageReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessMemoryUsageImpl: Sized {
-    fn GetReport(&self) -> ::windows::core::Result<ProcessMemoryUsageReport>;
+    fn GetReport(&mut self) -> ::windows::core::Result<ProcessMemoryUsageReport>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessMemoryUsage {
@@ -615,18 +615,18 @@ impl IProcessMemoryUsageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessMemoryUsageReportImpl: Sized {
-    fn NonPagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PageFaultCount(&self) -> ::windows::core::Result<u32>;
-    fn PageFileSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PeakNonPagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PeakPageFileSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PeakPagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PeakVirtualMemorySizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PeakWorkingSetSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn PrivatePageCount(&self) -> ::windows::core::Result<u64>;
-    fn VirtualMemorySizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn WorkingSetSizeInBytes(&self) -> ::windows::core::Result<u64>;
+    fn NonPagedPoolSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PageFaultCount(&mut self) -> ::windows::core::Result<u32>;
+    fn PageFileSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PagedPoolSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PeakNonPagedPoolSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PeakPageFileSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PeakPagedPoolSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PeakVirtualMemorySizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PeakWorkingSetSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn PrivatePageCount(&mut self) -> ::windows::core::Result<u64>;
+    fn VirtualMemorySizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn WorkingSetSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessMemoryUsageReport {
@@ -789,7 +789,7 @@ impl IProcessMemoryUsageReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemCpuUsageImpl: Sized {
-    fn GetReport(&self) -> ::windows::core::Result<SystemCpuUsageReport>;
+    fn GetReport(&mut self) -> ::windows::core::Result<SystemCpuUsageReport>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemCpuUsage {
@@ -817,9 +817,9 @@ impl ISystemCpuUsageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemCpuUsageReportImpl: Sized {
-    fn KernelTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn UserTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn IdleTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn KernelTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn UserTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn IdleTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemCpuUsageReport {
@@ -874,8 +874,8 @@ impl ISystemCpuUsageReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemDiagnosticInfoImpl: Sized {
-    fn MemoryUsage(&self) -> ::windows::core::Result<SystemMemoryUsage>;
-    fn CpuUsage(&self) -> ::windows::core::Result<SystemCpuUsage>;
+    fn MemoryUsage(&mut self) -> ::windows::core::Result<SystemMemoryUsage>;
+    fn CpuUsage(&mut self) -> ::windows::core::Result<SystemCpuUsage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemDiagnosticInfo {
@@ -918,7 +918,7 @@ impl ISystemDiagnosticInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemDiagnosticInfoStaticsImpl: Sized {
-    fn GetForCurrentSystem(&self) -> ::windows::core::Result<SystemDiagnosticInfo>;
+    fn GetForCurrentSystem(&mut self) -> ::windows::core::Result<SystemDiagnosticInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemDiagnosticInfoStatics {
@@ -949,8 +949,8 @@ impl ISystemDiagnosticInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemDiagnosticInfoStatics2Impl: Sized {
-    fn IsArchitectureSupported(&self, r#type: super::ProcessorArchitecture) -> ::windows::core::Result<bool>;
-    fn PreferredArchitecture(&self) -> ::windows::core::Result<super::ProcessorArchitecture>;
+    fn IsArchitectureSupported(&mut self, r#type: super::ProcessorArchitecture) -> ::windows::core::Result<bool>;
+    fn PreferredArchitecture(&mut self) -> ::windows::core::Result<super::ProcessorArchitecture>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemDiagnosticInfoStatics2 {
@@ -993,7 +993,7 @@ impl ISystemDiagnosticInfoStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemMemoryUsageImpl: Sized {
-    fn GetReport(&self) -> ::windows::core::Result<SystemMemoryUsageReport>;
+    fn GetReport(&mut self) -> ::windows::core::Result<SystemMemoryUsageReport>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemMemoryUsage {
@@ -1021,9 +1021,9 @@ impl ISystemMemoryUsageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemMemoryUsageReportImpl: Sized {
-    fn TotalPhysicalSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn AvailableSizeInBytes(&self) -> ::windows::core::Result<u64>;
-    fn CommittedSizeInBytes(&self) -> ::windows::core::Result<u64>;
+    fn TotalPhysicalSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn AvailableSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
+    fn CommittedSizeInBytes(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemMemoryUsageReport {

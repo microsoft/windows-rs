@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnalyticsInfoStaticsImpl: Sized {
-    fn VersionInfo(&self) -> ::windows::core::Result<AnalyticsVersionInfo>;
-    fn DeviceForm(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VersionInfo(&mut self) -> ::windows::core::Result<AnalyticsVersionInfo>;
+    fn DeviceForm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnalyticsInfoStatics {
@@ -44,7 +44,7 @@ impl IAnalyticsInfoStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAnalyticsInfoStatics2Impl: Sized {
-    fn GetSystemPropertiesAsync(&self, attributenames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>;
+    fn GetSystemPropertiesAsync(&mut self, attributenames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAnalyticsInfoStatics2 {
@@ -75,8 +75,8 @@ impl IAnalyticsInfoStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnalyticsVersionInfoImpl: Sized {
-    fn DeviceFamily(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DeviceFamilyVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceFamily(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceFamilyVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnalyticsVersionInfo {
@@ -119,7 +119,7 @@ impl IAnalyticsVersionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAnalyticsVersionInfo2Impl: Sized {
-    fn ProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAnalyticsVersionInfo2 {
@@ -147,7 +147,7 @@ impl IAnalyticsVersionInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppApplicabilityStaticsImpl: Sized {
-    fn GetUnsupportedAppRequirements(&self, capabilities: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>;
+    fn GetUnsupportedAppRequirements(&mut self, capabilities: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppApplicabilityStatics {
@@ -178,7 +178,7 @@ impl IAppApplicabilityStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEducationSettingsStaticsImpl: Sized {
-    fn IsEducationEnvironment(&self) -> ::windows::core::Result<bool>;
+    fn IsEducationEnvironment(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEducationSettingsStatics {
@@ -209,7 +209,7 @@ impl IEducationSettingsStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHardwareIdentificationStaticsImpl: Sized {
-    fn GetPackageSpecificToken(&self, nonce: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<HardwareToken>;
+    fn GetPackageSpecificToken(&mut self, nonce: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<HardwareToken>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHardwareIdentificationStatics {
@@ -240,9 +240,9 @@ impl IHardwareIdentificationStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHardwareTokenImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Signature(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Certificate(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Id(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Signature(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Certificate(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHardwareToken {
@@ -297,28 +297,28 @@ impl IHardwareTokenVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownRetailInfoPropertiesStaticsImpl: Sized {
-    fn RetailAccessCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ManufacturerName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ModelName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayModelName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Price(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsFeatured(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormFactor(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ScreenSize(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Weight(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BatteryLifeDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProcessorDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Memory(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn StorageDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GraphicsDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FrontCameraDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RearCameraDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasNfc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasSdSlot(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HasOpticalDrive(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsOfficeInstalled(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WindowsEdition(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RetailAccessCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ManufacturerName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ModelName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayModelName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Price(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsFeatured(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormFactor(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ScreenSize(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Weight(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BatteryLifeDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProcessorDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Memory(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn StorageDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GraphicsDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FrontCameraDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RearCameraDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasNfc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasSdSlot(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HasOpticalDrive(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsOfficeInstalled(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WindowsEdition(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownRetailInfoPropertiesStatics {
@@ -601,10 +601,10 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl: Sized {
-    fn CollectionLevel(&self) -> ::windows::core::Result<PlatformDataCollectionLevel>;
-    fn CollectionLevelChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCollectionLevelChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CanCollectDiagnostics(&self, level: PlatformDataCollectionLevel) -> ::windows::core::Result<bool>;
+    fn CollectionLevel(&mut self) -> ::windows::core::Result<PlatformDataCollectionLevel>;
+    fn CollectionLevelChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCollectionLevelChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CanCollectDiagnostics(&mut self, level: PlatformDataCollectionLevel) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPlatformDiagnosticsAndUsageDataSettingsStatics {
@@ -664,8 +664,8 @@ impl IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRetailInfoStaticsImpl: Sized {
-    fn IsDemoModeEnabled(&self) -> ::windows::core::Result<bool>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn IsDemoModeEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRetailInfoStatics {
@@ -708,7 +708,7 @@ impl IRetailInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISharedModeSettingsStaticsImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISharedModeSettingsStatics {
@@ -736,7 +736,7 @@ impl ISharedModeSettingsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISharedModeSettingsStatics2Impl: Sized {
-    fn ShouldAvoidLocalStorage(&self) -> ::windows::core::Result<bool>;
+    fn ShouldAvoidLocalStorage(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISharedModeSettingsStatics2 {
@@ -767,8 +767,8 @@ impl ISharedModeSettingsStatics2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISystemIdentificationInfoImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Source(&self) -> ::windows::core::Result<SystemIdentificationSource>;
+    fn Id(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Source(&mut self) -> ::windows::core::Result<SystemIdentificationSource>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemIdentificationInfo {
@@ -811,8 +811,8 @@ impl ISystemIdentificationInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemIdentificationStaticsImpl: Sized {
-    fn GetSystemIdForPublisher(&self) -> ::windows::core::Result<SystemIdentificationInfo>;
-    fn GetSystemIdForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<SystemIdentificationInfo>;
+    fn GetSystemIdForPublisher(&mut self) -> ::windows::core::Result<SystemIdentificationInfo>;
+    fn GetSystemIdForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<SystemIdentificationInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemIdentificationStatics {
@@ -855,9 +855,9 @@ impl ISystemIdentificationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemSetupInfoStaticsImpl: Sized {
-    fn OutOfBoxExperienceState(&self) -> ::windows::core::Result<SystemOutOfBoxExperienceState>;
-    fn OutOfBoxExperienceStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOutOfBoxExperienceStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn OutOfBoxExperienceState(&mut self) -> ::windows::core::Result<SystemOutOfBoxExperienceState>;
+    fn OutOfBoxExperienceStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOutOfBoxExperienceStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemSetupInfoStatics {
@@ -905,8 +905,8 @@ impl ISystemSetupInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUnsupportedAppRequirementImpl: Sized {
-    fn Requirement(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Reasons(&self) -> ::windows::core::Result<UnsupportedAppRequirementReasons>;
+    fn Requirement(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Reasons(&mut self) -> ::windows::core::Result<UnsupportedAppRequirementReasons>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUnsupportedAppRequirement {
@@ -949,12 +949,12 @@ impl IUnsupportedAppRequirementVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWindowsIntegrityPolicyStaticsImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsEnabledForTrial(&self) -> ::windows::core::Result<bool>;
-    fn CanDisable(&self) -> ::windows::core::Result<bool>;
-    fn IsDisableSupported(&self) -> ::windows::core::Result<bool>;
-    fn PolicyChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePolicyChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsEnabledForTrial(&mut self) -> ::windows::core::Result<bool>;
+    fn CanDisable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDisableSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn PolicyChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePolicyChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowsIntegrityPolicyStatics {

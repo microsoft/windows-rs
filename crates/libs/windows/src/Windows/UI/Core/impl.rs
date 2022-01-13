@@ -1,8 +1,8 @@
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAcceleratorKeyEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn EventType(&self) -> ::windows::core::Result<CoreAcceleratorKeyEventType>;
-    fn VirtualKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn KeyStatus(&self) -> ::windows::core::Result<CorePhysicalKeyStatus>;
+    fn EventType(&mut self) -> ::windows::core::Result<CoreAcceleratorKeyEventType>;
+    fn VirtualKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn KeyStatus(&mut self) -> ::windows::core::Result<CorePhysicalKeyStatus>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAcceleratorKeyEventArgs {
@@ -57,7 +57,7 @@ impl IAcceleratorKeyEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAcceleratorKeyEventArgs2Impl: Sized + ICoreWindowEventArgsImpl {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAcceleratorKeyEventArgs2 {
@@ -85,8 +85,8 @@ impl IAcceleratorKeyEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationProviderRequestedEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn AutomationProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetAutomationProvider(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn AutomationProvider(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetAutomationProvider(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationProviderRequestedEventArgs {
@@ -122,8 +122,8 @@ impl IAutomationProviderRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBackRequestedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBackRequestedEventArgs {
@@ -159,8 +159,8 @@ impl IBackRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICharacterReceivedEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn KeyCode(&self) -> ::windows::core::Result<u32>;
-    fn KeyStatus(&self) -> ::windows::core::Result<CorePhysicalKeyStatus>;
+    fn KeyCode(&mut self) -> ::windows::core::Result<u32>;
+    fn KeyStatus(&mut self) -> ::windows::core::Result<CorePhysicalKeyStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICharacterReceivedEventArgs {
@@ -203,10 +203,10 @@ impl ICharacterReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IClosestInteractiveBoundsRequestedEventArgsImpl: Sized {
-    fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
-    fn SearchBounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn ClosestInteractiveBounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SetClosestInteractiveBounds(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn PointerPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
+    fn SearchBounds(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn ClosestInteractiveBounds(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SetClosestInteractiveBounds(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClosestInteractiveBoundsRequestedEventArgs {
@@ -266,8 +266,8 @@ impl IClosestInteractiveBoundsRequestedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ICoreAcceleratorKeysImpl: Sized {
-    fn AcceleratorKeyActivated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAcceleratorKeyActivated(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AcceleratorKeyActivated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAcceleratorKeyActivated(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICoreAcceleratorKeys {
@@ -303,8 +303,8 @@ impl ICoreAcceleratorKeysVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreClosestInteractiveBoundsRequestedImpl: Sized {
-    fn ClosestInteractiveBoundsRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreComponentInputSource, ClosestInteractiveBoundsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosestInteractiveBoundsRequested(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ClosestInteractiveBoundsRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreComponentInputSource, ClosestInteractiveBoundsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosestInteractiveBoundsRequested(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreClosestInteractiveBoundsRequested {
@@ -340,11 +340,11 @@ impl ICoreClosestInteractiveBoundsRequestedVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreComponentFocusableImpl: Sized {
-    fn HasFocus(&self) -> ::windows::core::Result<bool>;
-    fn GotFocus(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CoreWindowEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveGotFocus(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LostFocus(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CoreWindowEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLostFocus(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HasFocus(&mut self) -> ::windows::core::Result<bool>;
+    fn GotFocus(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CoreWindowEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveGotFocus(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LostFocus(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CoreWindowEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLostFocus(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreComponentFocusable {
@@ -409,8 +409,8 @@ impl ICoreComponentFocusableVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreCursorImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn Type(&self) -> ::windows::core::Result<CoreCursorType>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn Type(&mut self) -> ::windows::core::Result<CoreCursorType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreCursor {
@@ -453,7 +453,7 @@ impl ICoreCursorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreCursorFactoryImpl: Sized {
-    fn CreateCursor(&self, r#type: CoreCursorType, id: u32) -> ::windows::core::Result<CoreCursor>;
+    fn CreateCursor(&mut self, r#type: CoreCursorType, id: u32) -> ::windows::core::Result<CoreCursor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreCursorFactory {
@@ -481,10 +481,10 @@ impl ICoreCursorFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDispatcherImpl: Sized + ICoreAcceleratorKeysImpl {
-    fn HasThreadAccess(&self) -> ::windows::core::Result<bool>;
-    fn ProcessEvents(&self, options: CoreProcessEventsOption) -> ::windows::core::Result<()>;
-    fn RunAsync(&self, priority: CoreDispatcherPriority, agilecallback: &::core::option::Option<DispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RunIdleAsync(&self, agilecallback: &::core::option::Option<IdleDispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn HasThreadAccess(&mut self) -> ::windows::core::Result<bool>;
+    fn ProcessEvents(&mut self, options: CoreProcessEventsOption) -> ::windows::core::Result<()>;
+    fn RunAsync(&mut self, priority: CoreDispatcherPriority, agilecallback: &::core::option::Option<DispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RunIdleAsync(&mut self, agilecallback: &::core::option::Option<IdleDispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDispatcher {
@@ -544,8 +544,8 @@ impl ICoreDispatcherVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreDispatcher2Impl: Sized {
-    fn TryRunAsync(&self, priority: CoreDispatcherPriority, agilecallback: &::core::option::Option<DispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryRunIdleAsync(&self, agilecallback: &::core::option::Option<IdleDispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryRunAsync(&mut self, priority: CoreDispatcherPriority, agilecallback: &::core::option::Option<DispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryRunIdleAsync(&mut self, agilecallback: &::core::option::Option<IdleDispatchedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreDispatcher2 {
@@ -588,11 +588,11 @@ impl ICoreDispatcher2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreDispatcherWithTaskPriorityImpl: Sized {
-    fn CurrentPriority(&self) -> ::windows::core::Result<CoreDispatcherPriority>;
-    fn SetCurrentPriority(&self, value: CoreDispatcherPriority) -> ::windows::core::Result<()>;
-    fn ShouldYield(&self) -> ::windows::core::Result<bool>;
-    fn ShouldYieldToPriority(&self, priority: CoreDispatcherPriority) -> ::windows::core::Result<bool>;
-    fn StopProcessEvents(&self) -> ::windows::core::Result<()>;
+    fn CurrentPriority(&mut self) -> ::windows::core::Result<CoreDispatcherPriority>;
+    fn SetCurrentPriority(&mut self, value: CoreDispatcherPriority) -> ::windows::core::Result<()>;
+    fn ShouldYield(&mut self) -> ::windows::core::Result<bool>;
+    fn ShouldYieldToPriority(&mut self, priority: CoreDispatcherPriority) -> ::windows::core::Result<bool>;
+    fn StopProcessEvents(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreDispatcherWithTaskPriority {
@@ -657,13 +657,13 @@ impl ICoreDispatcherWithTaskPriorityVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreIndependentInputSourceControllerImpl: Sized {
-    fn IsTransparentForUncontrolledInput(&self) -> ::windows::core::Result<bool>;
-    fn SetIsTransparentForUncontrolledInput(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsPalmRejectionEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsPalmRejectionEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Source(&self) -> ::windows::core::Result<CoreIndependentInputSource>;
-    fn SetControlledInput(&self, inputtypes: CoreInputDeviceTypes) -> ::windows::core::Result<()>;
-    fn SetControlledInputWithFilters(&self, inputtypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters) -> ::windows::core::Result<()>;
+    fn IsTransparentForUncontrolledInput(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsTransparentForUncontrolledInput(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsPalmRejectionEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsPalmRejectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Source(&mut self) -> ::windows::core::Result<CoreIndependentInputSource>;
+    fn SetControlledInput(&mut self, inputtypes: CoreInputDeviceTypes) -> ::windows::core::Result<()>;
+    fn SetControlledInputWithFilters(&mut self, inputtypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreIndependentInputSourceController {
@@ -738,8 +738,8 @@ impl ICoreIndependentInputSourceControllerVtbl {
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait ICoreIndependentInputSourceControllerStaticsImpl: Sized {
-    fn CreateForVisual(&self, visual: &::core::option::Option<super::Composition::Visual>) -> ::windows::core::Result<CoreIndependentInputSourceController>;
-    fn CreateForIVisualElement(&self, visualelement: &::core::option::Option<super::Composition::IVisualElement>) -> ::windows::core::Result<CoreIndependentInputSourceController>;
+    fn CreateForVisual(&mut self, visual: &::core::option::Option<super::Composition::Visual>) -> ::windows::core::Result<CoreIndependentInputSourceController>;
+    fn CreateForIVisualElement(&mut self, visualelement: &::core::option::Option<super::Composition::IVisualElement>) -> ::windows::core::Result<CoreIndependentInputSourceController>;
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreIndependentInputSourceControllerStatics {
@@ -782,11 +782,11 @@ impl ICoreIndependentInputSourceControllerStaticsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ICoreInputSourceBaseImpl: Sized {
-    fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher>;
-    fn IsInputEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn InputEnabled(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, InputEnabledEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInputEnabled(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Dispatcher(&mut self) -> ::windows::core::Result<CoreDispatcher>;
+    fn IsInputEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsInputEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn InputEnabled(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, InputEnabledEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInputEnabled(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICoreInputSourceBase {
@@ -851,13 +851,13 @@ impl ICoreInputSourceBaseVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait ICoreKeyboardInputSourceImpl: Sized {
-    fn GetCurrentKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates>;
-    fn CharacterReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CharacterReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCharacterReceived(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn KeyDown(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveKeyDown(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn KeyUp(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveKeyUp(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentKeyState(&mut self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates>;
+    fn CharacterReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CharacterReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCharacterReceived(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn KeyDown(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveKeyDown(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn KeyUp(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveKeyUp(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreKeyboardInputSource {
@@ -939,7 +939,7 @@ impl ICoreKeyboardInputSourceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreKeyboardInputSource2Impl: Sized {
-    fn GetCurrentKeyEventDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetCurrentKeyEventDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreKeyboardInputSource2 {
@@ -970,26 +970,26 @@ impl ICoreKeyboardInputSource2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ICorePointerInputSourceImpl: Sized {
-    fn ReleasePointerCapture(&self) -> ::windows::core::Result<()>;
-    fn SetPointerCapture(&self) -> ::windows::core::Result<()>;
-    fn HasCapture(&self) -> ::windows::core::Result<bool>;
-    fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
-    fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor>;
-    fn SetPointerCursor(&self, value: &::core::option::Option<CoreCursor>) -> ::windows::core::Result<()>;
-    fn PointerCaptureLost(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerCaptureLost(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerEntered(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerEntered(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerExited(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerExited(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerMoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerMoved(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerPressed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerPressed(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerReleased(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerReleased(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerWheelChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerWheelChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ReleasePointerCapture(&mut self) -> ::windows::core::Result<()>;
+    fn SetPointerCapture(&mut self) -> ::windows::core::Result<()>;
+    fn HasCapture(&mut self) -> ::windows::core::Result<bool>;
+    fn PointerPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
+    fn PointerCursor(&mut self) -> ::windows::core::Result<CoreCursor>;
+    fn SetPointerCursor(&mut self, value: &::core::option::Option<CoreCursor>) -> ::windows::core::Result<()>;
+    fn PointerCaptureLost(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerCaptureLost(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerEntered(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerEntered(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerExited(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerExited(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerMoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerMoved(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerPressed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerPressed(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerReleased(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerReleased(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerWheelChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerWheelChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICorePointerInputSource {
@@ -1178,7 +1178,7 @@ impl ICorePointerInputSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait ICorePointerInputSource2Impl: Sized + ICorePointerInputSourceImpl {
-    fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 impl ::windows::core::RuntimeName for ICorePointerInputSource2 {
@@ -1209,12 +1209,12 @@ impl ICorePointerInputSource2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ICorePointerRedirectorImpl: Sized {
-    fn PointerRoutedAway(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerRoutedAway(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerRoutedTo(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerRoutedTo(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerRoutedReleased(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerRoutedReleased(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerRoutedAway(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerRoutedAway(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerRoutedTo(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerRoutedTo(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerRoutedReleased(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerRoutedReleased(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICorePointerRedirector {
@@ -1284,8 +1284,8 @@ impl ICorePointerRedirectorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreTouchHitTestingImpl: Sized {
-    fn TouchHitTesting(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TouchHitTestingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTouchHitTesting(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TouchHitTesting(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TouchHitTestingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTouchHitTesting(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreTouchHitTesting {
@@ -1321,58 +1321,58 @@ impl ICoreTouchHitTestingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System"))]
 pub trait ICoreWindowImpl: Sized {
-    fn AutomationHostProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Bounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn CustomProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
-    fn Dispatcher(&self) -> ::windows::core::Result<CoreDispatcher>;
-    fn FlowDirection(&self) -> ::windows::core::Result<CoreWindowFlowDirection>;
-    fn SetFlowDirection(&self, value: CoreWindowFlowDirection) -> ::windows::core::Result<()>;
-    fn IsInputEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PointerCursor(&self) -> ::windows::core::Result<CoreCursor>;
-    fn SetPointerCursor(&self, value: &::core::option::Option<CoreCursor>) -> ::windows::core::Result<()>;
-    fn PointerPosition(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
-    fn Visible(&self) -> ::windows::core::Result<bool>;
-    fn Activate(&self) -> ::windows::core::Result<()>;
-    fn Close(&self) -> ::windows::core::Result<()>;
-    fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates>;
-    fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates>;
-    fn ReleasePointerCapture(&self) -> ::windows::core::Result<()>;
-    fn SetPointerCapture(&self) -> ::windows::core::Result<()>;
-    fn Activated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActivated(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AutomationProviderRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAutomationProviderRequested(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CharacterReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCharacterReceived(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn InputEnabled(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInputEnabled(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn KeyDown(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveKeyDown(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn KeyUp(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveKeyUp(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerCaptureLost(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerCaptureLost(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerEntered(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerEntered(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerExited(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerExited(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerMoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerMoved(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerPressed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerPressed(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerReleased(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerReleased(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn TouchHitTesting(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTouchHitTesting(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PointerWheelChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePointerWheelChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SizeChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSizeChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn VisibilityChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVisibilityChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AutomationHostProvider(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Bounds(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn CustomProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn Dispatcher(&mut self) -> ::windows::core::Result<CoreDispatcher>;
+    fn FlowDirection(&mut self) -> ::windows::core::Result<CoreWindowFlowDirection>;
+    fn SetFlowDirection(&mut self, value: CoreWindowFlowDirection) -> ::windows::core::Result<()>;
+    fn IsInputEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsInputEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PointerCursor(&mut self) -> ::windows::core::Result<CoreCursor>;
+    fn SetPointerCursor(&mut self, value: &::core::option::Option<CoreCursor>) -> ::windows::core::Result<()>;
+    fn PointerPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
+    fn Visible(&mut self) -> ::windows::core::Result<bool>;
+    fn Activate(&mut self) -> ::windows::core::Result<()>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn GetAsyncKeyState(&mut self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates>;
+    fn GetKeyState(&mut self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates>;
+    fn ReleasePointerCapture(&mut self) -> ::windows::core::Result<()>;
+    fn SetPointerCapture(&mut self) -> ::windows::core::Result<()>;
+    fn Activated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActivated(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AutomationProviderRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAutomationProviderRequested(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CharacterReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCharacterReceived(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn InputEnabled(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInputEnabled(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn KeyDown(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveKeyDown(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn KeyUp(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveKeyUp(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerCaptureLost(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerCaptureLost(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerEntered(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerEntered(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerExited(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerExited(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerMoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerMoved(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerPressed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerPressed(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerReleased(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerReleased(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn TouchHitTesting(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTouchHitTesting(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PointerWheelChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePointerWheelChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SizeChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSizeChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VisibilityChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVisibilityChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System"))]
 impl ::windows::core::RuntimeName for ICoreWindow {
@@ -1847,7 +1847,7 @@ impl ICoreWindowVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreWindow2Impl: Sized {
-    fn SetPointerPosition(&self, value: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
+    fn SetPointerPosition(&mut self, value: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindow2 {
@@ -1871,9 +1871,9 @@ impl ICoreWindow2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreWindow3Impl: Sized {
-    fn ClosestInteractiveBoundsRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, ClosestInteractiveBoundsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosestInteractiveBoundsRequested(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetCurrentKeyEventDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ClosestInteractiveBoundsRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, ClosestInteractiveBoundsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosestInteractiveBoundsRequested(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetCurrentKeyEventDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindow3 {
@@ -1921,10 +1921,10 @@ impl ICoreWindow3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreWindow4Impl: Sized {
-    fn ResizeStarted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveResizeStarted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ResizeCompleted(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveResizeCompleted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ResizeStarted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveResizeStarted(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ResizeCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveResizeCompleted(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindow4 {
@@ -1977,8 +1977,8 @@ impl ICoreWindow4Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ICoreWindow5Impl: Sized {
-    fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
-    fn ActivationMode(&self) -> ::windows::core::Result<CoreWindowActivationMode>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
+    fn ActivationMode(&mut self) -> ::windows::core::Result<CoreWindowActivationMode>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindow5 {
@@ -2021,22 +2021,22 @@ impl ICoreWindow5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ICoreWindowDialogImpl: Sized {
-    fn Showing(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveShowing(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MaxSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn MinSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsInteractionDelayed(&self) -> ::windows::core::Result<i32>;
-    fn SetIsInteractionDelayed(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>>;
-    fn DefaultCommandIndex(&self) -> ::windows::core::Result<u32>;
-    fn SetDefaultCommandIndex(&self, value: u32) -> ::windows::core::Result<()>;
-    fn CancelCommandIndex(&self) -> ::windows::core::Result<u32>;
-    fn SetCancelCommandIndex(&self, value: u32) -> ::windows::core::Result<()>;
-    fn BackButtonCommand(&self) -> ::windows::core::Result<super::Popups::UICommandInvokedHandler>;
-    fn SetBackButtonCommand(&self, value: &::core::option::Option<super::Popups::UICommandInvokedHandler>) -> ::windows::core::Result<()>;
-    fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>>;
+    fn Showing(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveShowing(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MaxSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn MinSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsInteractionDelayed(&mut self) -> ::windows::core::Result<i32>;
+    fn SetIsInteractionDelayed(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Commands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>>;
+    fn DefaultCommandIndex(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDefaultCommandIndex(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn CancelCommandIndex(&mut self) -> ::windows::core::Result<u32>;
+    fn SetCancelCommandIndex(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn BackButtonCommand(&mut self) -> ::windows::core::Result<super::Popups::UICommandInvokedHandler>;
+    fn SetBackButtonCommand(&mut self, value: &::core::option::Option<super::Popups::UICommandInvokedHandler>) -> ::windows::core::Result<()>;
+    fn ShowAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindowDialog {
@@ -2205,7 +2205,7 @@ impl ICoreWindowDialogVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreWindowDialogFactoryImpl: Sized {
-    fn CreateWithTitle(&self, title: &::windows::core::HSTRING) -> ::windows::core::Result<CoreWindowDialog>;
+    fn CreateWithTitle(&mut self, title: &::windows::core::HSTRING) -> ::windows::core::Result<CoreWindowDialog>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreWindowDialogFactory {
@@ -2235,8 +2235,8 @@ impl ICoreWindowDialogFactoryVtbl {
     }
 }
 pub trait ICoreWindowEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICoreWindowEventArgs {
     const NAME: &'static str = "Windows.UI.Core.ICoreWindowEventArgs";
@@ -2270,20 +2270,20 @@ impl ICoreWindowEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ICoreWindowFlyoutImpl: Sized {
-    fn Showing(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveShowing(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MaxSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn MinSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsInteractionDelayed(&self) -> ::windows::core::Result<i32>;
-    fn SetIsInteractionDelayed(&self, value: i32) -> ::windows::core::Result<()>;
-    fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>>;
-    fn DefaultCommandIndex(&self) -> ::windows::core::Result<u32>;
-    fn SetDefaultCommandIndex(&self, value: u32) -> ::windows::core::Result<()>;
-    fn BackButtonCommand(&self) -> ::windows::core::Result<super::Popups::UICommandInvokedHandler>;
-    fn SetBackButtonCommand(&self, value: &::core::option::Option<super::Popups::UICommandInvokedHandler>) -> ::windows::core::Result<()>;
-    fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>>;
+    fn Showing(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveShowing(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MaxSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn MinSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsInteractionDelayed(&mut self) -> ::windows::core::Result<i32>;
+    fn SetIsInteractionDelayed(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Commands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>>;
+    fn DefaultCommandIndex(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDefaultCommandIndex(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn BackButtonCommand(&mut self) -> ::windows::core::Result<super::Popups::UICommandInvokedHandler>;
+    fn SetBackButtonCommand(&mut self, value: &::core::option::Option<super::Popups::UICommandInvokedHandler>) -> ::windows::core::Result<()>;
+    fn ShowAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindowFlyout {
@@ -2435,8 +2435,8 @@ impl ICoreWindowFlyoutVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreWindowFlyoutFactoryImpl: Sized {
-    fn Create(&self, position: &super::super::Foundation::Point) -> ::windows::core::Result<CoreWindowFlyout>;
-    fn CreateWithTitle(&self, position: &super::super::Foundation::Point, title: &::windows::core::HSTRING) -> ::windows::core::Result<CoreWindowFlyout>;
+    fn Create(&mut self, position: &super::super::Foundation::Point) -> ::windows::core::Result<CoreWindowFlyout>;
+    fn CreateWithTitle(&mut self, position: &super::super::Foundation::Point, title: &::windows::core::HSTRING) -> ::windows::core::Result<CoreWindowFlyout>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindowFlyoutFactory {
@@ -2479,7 +2479,7 @@ impl ICoreWindowFlyoutFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreWindowPopupShowingEventArgsImpl: Sized {
-    fn SetDesiredSize(&self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
+    fn SetDesiredSize(&mut self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreWindowPopupShowingEventArgs {
@@ -2503,7 +2503,7 @@ impl ICoreWindowPopupShowingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreWindowResizeManagerImpl: Sized {
-    fn NotifyLayoutCompleted(&self) -> ::windows::core::Result<()>;
+    fn NotifyLayoutCompleted(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreWindowResizeManager {
@@ -2527,8 +2527,8 @@ impl ICoreWindowResizeManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreWindowResizeManagerLayoutCapabilityImpl: Sized {
-    fn SetShouldWaitForLayoutCompletion(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShouldWaitForLayoutCompletion(&self) -> ::windows::core::Result<bool>;
+    fn SetShouldWaitForLayoutCompletion(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShouldWaitForLayoutCompletion(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreWindowResizeManagerLayoutCapability {
@@ -2564,7 +2564,7 @@ impl ICoreWindowResizeManagerLayoutCapabilityVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreWindowResizeManagerStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<CoreWindowResizeManager>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<CoreWindowResizeManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreWindowResizeManagerStatics {
@@ -2595,7 +2595,7 @@ impl ICoreWindowResizeManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreWindowStaticImpl: Sized {
-    fn GetForCurrentThread(&self) -> ::windows::core::Result<CoreWindow>;
+    fn GetForCurrentThread(&mut self) -> ::windows::core::Result<CoreWindow>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreWindowStatic {
@@ -2626,7 +2626,7 @@ impl ICoreWindowStaticVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreWindowWithContextImpl: Sized {
-    fn UIContext(&self) -> ::windows::core::Result<super::UIContext>;
+    fn UIContext(&mut self) -> ::windows::core::Result<super::UIContext>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreWindowWithContext {
@@ -2654,7 +2654,7 @@ impl ICoreWindowWithContextVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIdleDispatchedHandlerArgsImpl: Sized {
-    fn IsDispatcherIdle(&self) -> ::windows::core::Result<bool>;
+    fn IsDispatcherIdle(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIdleDispatchedHandlerArgs {
@@ -2684,7 +2684,7 @@ impl IIdleDispatchedHandlerArgsVtbl {
     }
 }
 pub trait IInitializeWithCoreWindowImpl: Sized {
-    fn Initialize(&self, window: &::core::option::Option<CoreWindow>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, window: &::core::option::Option<CoreWindow>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IInitializeWithCoreWindow {
     const NAME: &'static str = "Windows.UI.Core.IInitializeWithCoreWindow";
@@ -2703,7 +2703,7 @@ impl IInitializeWithCoreWindowVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IInputEnabledEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn InputEnabled(&self) -> ::windows::core::Result<bool>;
+    fn InputEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInputEnabledEventArgs {
@@ -2731,8 +2731,8 @@ impl IInputEnabledEventArgsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IKeyEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn VirtualKey(&self) -> ::windows::core::Result<super::super::System::VirtualKey>;
-    fn KeyStatus(&self) -> ::windows::core::Result<CorePhysicalKeyStatus>;
+    fn VirtualKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
+    fn KeyStatus(&mut self) -> ::windows::core::Result<CorePhysicalKeyStatus>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyEventArgs {
@@ -2775,7 +2775,7 @@ impl IKeyEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyEventArgs2Impl: Sized + ICoreWindowEventArgsImpl {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyEventArgs2 {
@@ -2803,9 +2803,9 @@ impl IKeyEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "UI_Input", feature = "implement_exclusive"))]
 pub trait IPointerEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn CurrentPoint(&self) -> ::windows::core::Result<super::Input::PointerPoint>;
-    fn KeyModifiers(&self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
-    fn GetIntermediatePoints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Input::PointerPoint>>;
+    fn CurrentPoint(&mut self) -> ::windows::core::Result<super::Input::PointerPoint>;
+    fn KeyModifiers(&mut self) -> ::windows::core::Result<super::super::System::VirtualKeyModifiers>;
+    fn GetIntermediatePoints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Input::PointerPoint>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System", feature = "UI_Input", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPointerEventArgs {
@@ -2860,8 +2860,8 @@ impl IPointerEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemNavigationManagerImpl: Sized {
-    fn BackRequested(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<BackRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBackRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BackRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<BackRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBackRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemNavigationManager {
@@ -2897,8 +2897,8 @@ impl ISystemNavigationManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemNavigationManager2Impl: Sized {
-    fn AppViewBackButtonVisibility(&self) -> ::windows::core::Result<AppViewBackButtonVisibility>;
-    fn SetAppViewBackButtonVisibility(&self, value: AppViewBackButtonVisibility) -> ::windows::core::Result<()>;
+    fn AppViewBackButtonVisibility(&mut self) -> ::windows::core::Result<AppViewBackButtonVisibility>;
+    fn SetAppViewBackButtonVisibility(&mut self, value: AppViewBackButtonVisibility) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemNavigationManager2 {
@@ -2934,7 +2934,7 @@ impl ISystemNavigationManager2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemNavigationManagerStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<SystemNavigationManager>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<SystemNavigationManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemNavigationManagerStatics {
@@ -2965,12 +2965,12 @@ impl ISystemNavigationManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITouchHitTestingEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn ProximityEvaluation(&self) -> ::windows::core::Result<CoreProximityEvaluation>;
-    fn SetProximityEvaluation(&self, value: &CoreProximityEvaluation) -> ::windows::core::Result<()>;
-    fn Point(&self) -> ::windows::core::Result<super::super::Foundation::Point>;
-    fn BoundingBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn EvaluateProximityToRect(&self, controlboundingbox: &super::super::Foundation::Rect) -> ::windows::core::Result<CoreProximityEvaluation>;
-    fn EvaluateProximityToPolygon(&self, controlvertices: &[<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<CoreProximityEvaluation>;
+    fn ProximityEvaluation(&mut self) -> ::windows::core::Result<CoreProximityEvaluation>;
+    fn SetProximityEvaluation(&mut self, value: &CoreProximityEvaluation) -> ::windows::core::Result<()>;
+    fn Point(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
+    fn BoundingBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn EvaluateProximityToRect(&mut self, controlboundingbox: &super::super::Foundation::Rect) -> ::windows::core::Result<CoreProximityEvaluation>;
+    fn EvaluateProximityToPolygon(&mut self, controlvertices: &[<super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<CoreProximityEvaluation>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITouchHitTestingEventArgs {
@@ -3054,7 +3054,7 @@ impl ITouchHitTestingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisibilityChangedEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn Visible(&self) -> ::windows::core::Result<bool>;
+    fn Visible(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisibilityChangedEventArgs {
@@ -3082,7 +3082,7 @@ impl IVisibilityChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWindowActivatedEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn WindowActivationState(&self) -> ::windows::core::Result<CoreWindowActivationState>;
+    fn WindowActivationState(&mut self) -> ::windows::core::Result<CoreWindowActivationState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWindowActivatedEventArgs {
@@ -3113,7 +3113,7 @@ impl IWindowActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWindowSizeChangedEventArgsImpl: Sized + ICoreWindowEventArgsImpl {
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWindowSizeChangedEventArgs {

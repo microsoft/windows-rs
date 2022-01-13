@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IErrorReceivedEventArgsImpl: Sized {
-    fn Error(&self) -> ::windows::core::Result<SerialError>;
+    fn Error(&mut self) -> ::windows::core::Result<SerialError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IErrorReceivedEventArgs {
@@ -28,7 +28,7 @@ impl IErrorReceivedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPinChangedEventArgsImpl: Sized {
-    fn PinChange(&self) -> ::windows::core::Result<SerialPinChange>;
+    fn PinChange(&mut self) -> ::windows::core::Result<SerialPinChange>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPinChangedEventArgs {
@@ -56,39 +56,39 @@ impl IPinChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISerialDeviceImpl: Sized + IClosableImpl {
-    fn BaudRate(&self) -> ::windows::core::Result<u32>;
-    fn SetBaudRate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn BreakSignalState(&self) -> ::windows::core::Result<bool>;
-    fn SetBreakSignalState(&self, value: bool) -> ::windows::core::Result<()>;
-    fn BytesReceived(&self) -> ::windows::core::Result<u32>;
-    fn CarrierDetectState(&self) -> ::windows::core::Result<bool>;
-    fn ClearToSendState(&self) -> ::windows::core::Result<bool>;
-    fn DataBits(&self) -> ::windows::core::Result<u16>;
-    fn SetDataBits(&self, value: u16) -> ::windows::core::Result<()>;
-    fn DataSetReadyState(&self) -> ::windows::core::Result<bool>;
-    fn Handshake(&self) -> ::windows::core::Result<SerialHandshake>;
-    fn SetHandshake(&self, value: SerialHandshake) -> ::windows::core::Result<()>;
-    fn IsDataTerminalReadyEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsDataTerminalReadyEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn IsRequestToSendEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsRequestToSendEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Parity(&self) -> ::windows::core::Result<SerialParity>;
-    fn SetParity(&self, value: SerialParity) -> ::windows::core::Result<()>;
-    fn PortName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReadTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetReadTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StopBits(&self) -> ::windows::core::Result<SerialStopBitCount>;
-    fn SetStopBits(&self, value: SerialStopBitCount) -> ::windows::core::Result<()>;
-    fn UsbVendorId(&self) -> ::windows::core::Result<u16>;
-    fn UsbProductId(&self) -> ::windows::core::Result<u16>;
-    fn WriteTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetWriteTimeout(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
-    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn ErrorReceived(&self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveErrorReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PinChanged(&self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePinChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BaudRate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetBaudRate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn BreakSignalState(&mut self) -> ::windows::core::Result<bool>;
+    fn SetBreakSignalState(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn BytesReceived(&mut self) -> ::windows::core::Result<u32>;
+    fn CarrierDetectState(&mut self) -> ::windows::core::Result<bool>;
+    fn ClearToSendState(&mut self) -> ::windows::core::Result<bool>;
+    fn DataBits(&mut self) -> ::windows::core::Result<u16>;
+    fn SetDataBits(&mut self, value: u16) -> ::windows::core::Result<()>;
+    fn DataSetReadyState(&mut self) -> ::windows::core::Result<bool>;
+    fn Handshake(&mut self) -> ::windows::core::Result<SerialHandshake>;
+    fn SetHandshake(&mut self, value: SerialHandshake) -> ::windows::core::Result<()>;
+    fn IsDataTerminalReadyEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsDataTerminalReadyEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsRequestToSendEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsRequestToSendEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Parity(&mut self) -> ::windows::core::Result<SerialParity>;
+    fn SetParity(&mut self, value: SerialParity) -> ::windows::core::Result<()>;
+    fn PortName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReadTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetReadTimeout(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StopBits(&mut self) -> ::windows::core::Result<SerialStopBitCount>;
+    fn SetStopBits(&mut self, value: SerialStopBitCount) -> ::windows::core::Result<()>;
+    fn UsbVendorId(&mut self) -> ::windows::core::Result<u16>;
+    fn UsbProductId(&mut self) -> ::windows::core::Result<u16>;
+    fn WriteTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetWriteTimeout(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn ErrorReceived(&mut self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveErrorReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PinChanged(&mut self, reporthandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePinChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISerialDevice {
@@ -419,10 +419,10 @@ impl ISerialDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISerialDeviceStaticsImpl: Sized {
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorFromPortName(&self, portname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorFromUsbVidPid(&self, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SerialDevice>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorFromPortName(&mut self, portname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorFromUsbVidPid(&mut self, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SerialDevice>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISerialDeviceStatics {

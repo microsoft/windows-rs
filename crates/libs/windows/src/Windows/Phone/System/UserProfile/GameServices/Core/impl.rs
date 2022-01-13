@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGameServiceImpl: Sized {
-    fn ServiceUri(&self) -> ::windows::core::Result<super::super::super::super::super::Foundation::Uri>;
-    fn GetGamerProfileAsync(&self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>;
-    fn GetInstalledGameItemsAsync(&self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>;
-    fn GetPartnerTokenAsync(&self, audienceuri: &::core::option::Option<super::super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetPrivilegesAsync(&self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GrantAchievement(&self, achievementid: u32) -> ::windows::core::Result<()>;
-    fn GrantAvatarAward(&self, avatarawardid: u32) -> ::windows::core::Result<()>;
-    fn PostResult(&self, gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: &::core::option::Option<super::super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn ServiceUri(&mut self) -> ::windows::core::Result<super::super::super::super::super::Foundation::Uri>;
+    fn GetGamerProfileAsync(&mut self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>;
+    fn GetInstalledGameItemsAsync(&mut self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>;
+    fn GetPartnerTokenAsync(&mut self, audienceuri: &::core::option::Option<super::super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetPrivilegesAsync(&mut self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GrantAchievement(&mut self, achievementid: u32) -> ::windows::core::Result<()>;
+    fn GrantAvatarAward(&mut self, avatarawardid: u32) -> ::windows::core::Result<()>;
+    fn PostResult(&mut self, gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: &::core::option::Option<super::super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameService {
@@ -101,8 +101,8 @@ impl IGameServiceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGameService2Impl: Sized {
-    fn NotifyPartnerTokenExpired(&self, audienceuri: &::core::option::Option<super::super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn GetAuthenticationStatus(&self) -> ::windows::core::Result<u32>;
+    fn NotifyPartnerTokenExpired(&mut self, audienceuri: &::core::option::Option<super::super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn GetAuthenticationStatus(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameService2 {
@@ -138,7 +138,7 @@ impl IGameService2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IGameServicePropertyCollectionImpl: Sized {
-    fn GetPropertyAsync(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>;
+    fn GetPropertyAsync(&mut self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGameServicePropertyCollection {

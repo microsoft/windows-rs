@@ -1,10 +1,10 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAutomationRemoteOperationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<AutomationRemoteOperationStatus>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn ErrorLocation(&self) -> ::windows::core::Result<i32>;
-    fn HasOperand(&self, operandid: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<bool>;
-    fn GetOperand(&self, operandid: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Status(&mut self) -> ::windows::core::Result<AutomationRemoteOperationStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ErrorLocation(&mut self) -> ::windows::core::Result<i32>;
+    fn HasOperand(&mut self, operandid: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<bool>;
+    fn GetOperand(&mut self, operandid: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationRemoteOperationResult {
@@ -82,7 +82,7 @@ impl IAutomationRemoteOperationResultVtbl {
     }
 }
 pub trait ICoreAutomationConnectionBoundObjectProviderImpl: Sized {
-    fn IsComThreadingRequired(&self) -> ::windows::core::Result<bool>;
+    fn IsComThreadingRequired(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ICoreAutomationConnectionBoundObjectProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationConnectionBoundObjectProvider";
@@ -111,8 +111,8 @@ impl ICoreAutomationConnectionBoundObjectProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreAutomationRegistrarStaticsImpl: Sized {
-    fn RegisterAnnotationType(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<AutomationAnnotationTypeRegistration>;
-    fn UnregisterAnnotationType(&self, registration: &AutomationAnnotationTypeRegistration) -> ::windows::core::Result<()>;
+    fn RegisterAnnotationType(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<AutomationAnnotationTypeRegistration>;
+    fn UnregisterAnnotationType(&mut self, registration: &AutomationAnnotationTypeRegistration) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreAutomationRegistrarStatics {
@@ -148,11 +148,11 @@ impl ICoreAutomationRegistrarStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreAutomationRemoteOperationImpl: Sized {
-    fn IsOpcodeSupported(&self, opcode: u32) -> ::windows::core::Result<bool>;
-    fn ImportElement(&self, operandid: &AutomationRemoteOperationOperandId, element: &::core::option::Option<super::AutomationElement>) -> ::windows::core::Result<()>;
-    fn ImportTextRange(&self, operandid: &AutomationRemoteOperationOperandId, textrange: &::core::option::Option<super::AutomationTextRange>) -> ::windows::core::Result<()>;
-    fn AddToResults(&self, operandid: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<()>;
-    fn Execute(&self, bytecodebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<AutomationRemoteOperationResult>;
+    fn IsOpcodeSupported(&mut self, opcode: u32) -> ::windows::core::Result<bool>;
+    fn ImportElement(&mut self, operandid: &AutomationRemoteOperationOperandId, element: &::core::option::Option<super::AutomationElement>) -> ::windows::core::Result<()>;
+    fn ImportTextRange(&mut self, operandid: &AutomationRemoteOperationOperandId, textrange: &::core::option::Option<super::AutomationTextRange>) -> ::windows::core::Result<()>;
+    fn AddToResults(&mut self, operandid: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<()>;
+    fn Execute(&mut self, bytecodebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<AutomationRemoteOperationResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperation {
@@ -210,7 +210,7 @@ impl ICoreAutomationRemoteOperationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreAutomationRemoteOperation2Impl: Sized {
-    fn ImportConnectionBoundObject(&self, operandid: &AutomationRemoteOperationOperandId, connectionboundobject: &::core::option::Option<super::AutomationConnectionBoundObject>) -> ::windows::core::Result<()>;
+    fn ImportConnectionBoundObject(&mut self, operandid: &AutomationRemoteOperationOperandId, connectionboundobject: &::core::option::Option<super::AutomationConnectionBoundObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperation2 {
@@ -234,9 +234,9 @@ impl ICoreAutomationRemoteOperation2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreAutomationRemoteOperationContextImpl: Sized {
-    fn GetOperand(&self, id: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetOperand(&self, id: &AutomationRemoteOperationOperandId, operand: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn SetOperand2(&self, id: &AutomationRemoteOperationOperandId, operand: &::core::option::Option<::windows::core::IInspectable>, operandinterfaceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetOperand(&mut self, id: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetOperand(&mut self, id: &AutomationRemoteOperationOperandId, operand: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SetOperand2(&mut self, id: &AutomationRemoteOperationOperandId, operand: &::core::option::Option<::windows::core::IInspectable>, operandinterfaceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperationContext {
@@ -282,8 +282,8 @@ impl ICoreAutomationRemoteOperationContextVtbl {
     }
 }
 pub trait ICoreAutomationRemoteOperationExtensionProviderImpl: Sized {
-    fn CallExtension(&self, extensionid: &::windows::core::GUID, context: &::core::option::Option<CoreAutomationRemoteOperationContext>, operandids: &[<AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn IsExtensionSupported(&self, extensionid: &::windows::core::GUID) -> ::windows::core::Result<bool>;
+    fn CallExtension(&mut self, extensionid: &::windows::core::GUID, context: &::core::option::Option<CoreAutomationRemoteOperationContext>, operandids: &[<AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn IsExtensionSupported(&mut self, extensionid: &::windows::core::GUID) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperationExtensionProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationExtensionProvider";
@@ -317,14 +317,14 @@ impl ICoreAutomationRemoteOperationExtensionProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteAutomationClientSessionImpl: Sized {
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn CreateWindowAsync(&self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>;
-    fn SessionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ConnectionRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveConnectionRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Disconnected(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDisconnected(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn CreateWindowAsync(&mut self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>;
+    fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ConnectionRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveConnectionRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Disconnected(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDisconnected(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteAutomationClientSession {
@@ -411,8 +411,8 @@ impl IRemoteAutomationClientSessionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteAutomationClientSessionFactoryImpl: Sized {
-    fn CreateInstance(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteAutomationClientSession>;
-    fn CreateInstance2(&self, name: &::windows::core::HSTRING, sessionid: &::windows::core::GUID) -> ::windows::core::Result<RemoteAutomationClientSession>;
+    fn CreateInstance(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteAutomationClientSession>;
+    fn CreateInstance2(&mut self, name: &::windows::core::HSTRING, sessionid: &::windows::core::GUID) -> ::windows::core::Result<RemoteAutomationClientSession>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteAutomationClientSessionFactory {
@@ -455,8 +455,8 @@ impl IRemoteAutomationClientSessionFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteAutomationConnectionRequestedEventArgsImpl: Sized {
-    fn LocalPipeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteProcessId(&self) -> ::windows::core::Result<u32>;
+    fn LocalPipeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteProcessId(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteAutomationConnectionRequestedEventArgs {
@@ -499,7 +499,7 @@ impl IRemoteAutomationConnectionRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteAutomationDisconnectedEventArgsImpl: Sized {
-    fn LocalPipeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalPipeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteAutomationDisconnectedEventArgs {
@@ -530,7 +530,7 @@ impl IRemoteAutomationDisconnectedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRemoteAutomationServerStaticsImpl: Sized {
-    fn ReportSession(&self, sessionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ReportSession(&mut self, sessionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRemoteAutomationServerStatics {
@@ -554,8 +554,8 @@ impl IRemoteAutomationServerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRemoteAutomationWindowImpl: Sized {
-    fn AutomationProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn UnregisterAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AutomationProvider(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn UnregisterAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteAutomationWindow {

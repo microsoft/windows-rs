@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFileInformationFactoryImpl: Sized {
-    fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
-    fn GetItemsAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
-    fn GetFilesAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>;
-    fn GetFilesAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>;
-    fn GetFoldersAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>;
-    fn GetFoldersAsyncDefaultStartAndCount(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>;
-    fn GetVirtualizedItemsVector(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetVirtualizedFilesVector(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetVirtualizedFoldersVector(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetItemsAsync(&mut self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
+    fn GetItemsAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
+    fn GetFilesAsync(&mut self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>;
+    fn GetFilesAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>;
+    fn GetFoldersAsync(&mut self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>;
+    fn GetFoldersAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>>;
+    fn GetVirtualizedItemsVector(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetVirtualizedFilesVector(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetVirtualizedFoldersVector(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileInformationFactory {
@@ -135,10 +135,10 @@ impl IFileInformationFactoryVtbl {
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "implement_exclusive"))]
 pub trait IFileInformationFactoryFactoryImpl: Sized {
-    fn CreateWithMode(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode) -> ::windows::core::Result<FileInformationFactory>;
-    fn CreateWithModeAndSize(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> ::windows::core::Result<FileInformationFactory>;
-    fn CreateWithModeAndSizeAndOptions(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<FileInformationFactory>;
-    fn CreateWithModeAndSizeAndOptionsAndFlags(&self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> ::windows::core::Result<FileInformationFactory>;
+    fn CreateWithMode(&mut self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode) -> ::windows::core::Result<FileInformationFactory>;
+    fn CreateWithModeAndSize(&mut self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> ::windows::core::Result<FileInformationFactory>;
+    fn CreateWithModeAndSizeAndOptions(&mut self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<FileInformationFactory>;
+    fn CreateWithModeAndSizeAndOptionsAndFlags(&mut self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> ::windows::core::Result<FileInformationFactory>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileInformationFactoryFactory {
@@ -205,16 +205,16 @@ impl IFileInformationFactoryFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemInformationImpl: Sized {
-    fn MusicProperties(&self) -> ::windows::core::Result<super::FileProperties::MusicProperties>;
-    fn VideoProperties(&self) -> ::windows::core::Result<super::FileProperties::VideoProperties>;
-    fn ImageProperties(&self) -> ::windows::core::Result<super::FileProperties::ImageProperties>;
-    fn DocumentProperties(&self) -> ::windows::core::Result<super::FileProperties::DocumentProperties>;
-    fn BasicProperties(&self) -> ::windows::core::Result<super::FileProperties::BasicProperties>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::FileProperties::StorageItemThumbnail>;
-    fn ThumbnailUpdated(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveThumbnailUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PropertiesUpdated(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePropertiesUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MusicProperties(&mut self) -> ::windows::core::Result<super::FileProperties::MusicProperties>;
+    fn VideoProperties(&mut self) -> ::windows::core::Result<super::FileProperties::VideoProperties>;
+    fn ImageProperties(&mut self) -> ::windows::core::Result<super::FileProperties::ImageProperties>;
+    fn DocumentProperties(&mut self) -> ::windows::core::Result<super::FileProperties::DocumentProperties>;
+    fn BasicProperties(&mut self) -> ::windows::core::Result<super::FileProperties::BasicProperties>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::FileProperties::StorageItemThumbnail>;
+    fn ThumbnailUpdated(&mut self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveThumbnailUpdated(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PropertiesUpdated(&mut self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePropertiesUpdated(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemInformation {

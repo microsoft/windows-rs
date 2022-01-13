@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataAvailabilityStateChangedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataAvailabilityStateChangedEventArgs {
@@ -31,8 +31,8 @@ impl IUserDataAvailabilityStateChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUserDataBufferUnprotectResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<UserDataBufferUnprotectStatus>;
-    fn UnprotectedBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Status(&mut self) -> ::windows::core::Result<UserDataBufferUnprotectStatus>;
+    fn UnprotectedBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataBufferUnprotectResult {
@@ -75,13 +75,13 @@ impl IUserDataBufferUnprotectResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IUserDataProtectionManagerImpl: Sized {
-    fn ProtectStorageItemAsync(&self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>;
-    fn GetStorageItemProtectionInfoAsync(&self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>;
-    fn ProtectBufferAsync(&self, unprotectedbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
-    fn UnprotectBufferAsync(&self, protectedbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>;
-    fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> ::windows::core::Result<bool>;
-    fn DataAvailabilityStateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDataAvailabilityStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProtectStorageItemAsync(&mut self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>;
+    fn GetStorageItemProtectionInfoAsync(&mut self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>;
+    fn ProtectBufferAsync(&mut self, unprotectedbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
+    fn UnprotectBufferAsync(&mut self, protectedbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>;
+    fn IsContinuedDataAvailabilityExpected(&mut self, availability: UserDataAvailability) -> ::windows::core::Result<bool>;
+    fn DataAvailabilityStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDataAvailabilityStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataProtectionManager {
@@ -177,8 +177,8 @@ impl IUserDataProtectionManagerVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IUserDataProtectionManagerStaticsImpl: Sized {
-    fn TryGetDefault(&self) -> ::windows::core::Result<UserDataProtectionManager>;
-    fn TryGetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserDataProtectionManager>;
+    fn TryGetDefault(&mut self) -> ::windows::core::Result<UserDataProtectionManager>;
+    fn TryGetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserDataProtectionManager>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataProtectionManagerStatics {
@@ -221,7 +221,7 @@ impl IUserDataProtectionManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserDataStorageItemProtectionInfoImpl: Sized {
-    fn Availability(&self) -> ::windows::core::Result<UserDataAvailability>;
+    fn Availability(&mut self) -> ::windows::core::Result<UserDataAvailability>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserDataStorageItemProtectionInfo {

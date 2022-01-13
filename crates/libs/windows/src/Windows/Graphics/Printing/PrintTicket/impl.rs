@@ -1,25 +1,25 @@
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketCapabilitiesImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn DocumentBindingFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentCollateFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentDuplexFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentHolePunchFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentInputBinFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentNUpFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentStapleFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn JobPasscodeFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageBorderlessFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageMediaSizeFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageMediaTypeFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageOrientationFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageOutputColorFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageOutputQualityFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageResolutionFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn GetFeature(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketFeature>;
-    fn GetParameterDefinition(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterDefinition>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn DocumentBindingFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentCollateFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentDuplexFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentHolePunchFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentInputBinFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentNUpFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentStapleFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn JobPasscodeFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageBorderlessFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageMediaSizeFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageMediaTypeFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageOrientationFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageOutputColorFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageOutputQualityFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageResolutionFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn GetFeature(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketFeature>;
+    fn GetParameterDefinition(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterDefinition>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketCapabilities {
@@ -278,15 +278,15 @@ impl IPrintTicketCapabilitiesVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPrintTicketFeatureImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetOption(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketOption>;
-    fn Options(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>>;
-    fn GetSelectedOption(&self) -> ::windows::core::Result<PrintTicketOption>;
-    fn SetSelectedOption(&self, value: &::core::option::Option<PrintTicketOption>) -> ::windows::core::Result<()>;
-    fn SelectionType(&self) -> ::windows::core::Result<PrintTicketFeatureSelectionType>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetOption(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketOption>;
+    fn Options(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>>;
+    fn GetSelectedOption(&mut self) -> ::windows::core::Result<PrintTicketOption>;
+    fn SetSelectedOption(&mut self, value: &::core::option::Option<PrintTicketOption>) -> ::windows::core::Result<()>;
+    fn SelectionType(&mut self) -> ::windows::core::Result<PrintTicketFeatureSelectionType>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketFeature {
@@ -406,14 +406,14 @@ impl IPrintTicketFeatureVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketOptionImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetPropertyNode(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn GetScoredPropertyNode(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn GetPropertyValue(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketValue>;
-    fn GetScoredPropertyValue(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketValue>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetPropertyNode(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn GetScoredPropertyNode(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn GetPropertyValue(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketValue>;
+    fn GetScoredPropertyValue(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketValue>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketOption {
@@ -528,13 +528,13 @@ impl IPrintTicketOptionVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketParameterDefinitionImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn DataType(&self) -> ::windows::core::Result<PrintTicketParameterDataType>;
-    fn UnitType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RangeMin(&self) -> ::windows::core::Result<i32>;
-    fn RangeMax(&self) -> ::windows::core::Result<i32>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn DataType(&mut self) -> ::windows::core::Result<PrintTicketParameterDataType>;
+    fn UnitType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RangeMin(&mut self) -> ::windows::core::Result<i32>;
+    fn RangeMax(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketParameterDefinition {
@@ -637,11 +637,11 @@ impl IPrintTicketParameterDefinitionVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 pub trait IPrintTicketParameterInitializerImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn SetValue(&self, value: &::core::option::Option<PrintTicketValue>) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<PrintTicketValue>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn SetValue(&mut self, value: &::core::option::Option<PrintTicketValue>) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<PrintTicketValue>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTicketParameterInitializer {
@@ -713,9 +713,9 @@ impl IPrintTicketParameterInitializerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintTicketValueImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<PrintTicketValueType>;
-    fn GetValueAsInteger(&self) -> ::windows::core::Result<i32>;
-    fn GetValueAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Type(&mut self) -> ::windows::core::Result<PrintTicketValueType>;
+    fn GetValueAsInteger(&mut self) -> ::windows::core::Result<i32>;
+    fn GetValueAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintTicketValue {
@@ -770,32 +770,32 @@ impl IPrintTicketValueVtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWorkflowPrintTicketImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
-    fn GetCapabilities(&self) -> ::windows::core::Result<PrintTicketCapabilities>;
-    fn DocumentBindingFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentCollateFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentDuplexFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentHolePunchFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentInputBinFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentNUpFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn DocumentStapleFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn JobPasscodeFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageBorderlessFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageMediaSizeFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageMediaTypeFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageOrientationFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageOutputColorFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageOutputQualityFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn PageResolutionFeature(&self) -> ::windows::core::Result<PrintTicketFeature>;
-    fn GetFeature(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketFeature>;
-    fn NotifyXmlChangedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ValidateAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>>;
-    fn GetParameterInitializer(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterInitializer>;
-    fn SetParameterInitializerAsInteger(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING, integervalue: i32) -> ::windows::core::Result<PrintTicketParameterInitializer>;
-    fn SetParameterInitializerAsString(&self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING, stringvalue: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterInitializer>;
-    fn MergeAndValidateTicket(&self, deltashematicket: &::core::option::Option<WorkflowPrintTicket>) -> ::windows::core::Result<WorkflowPrintTicket>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
+    fn GetCapabilities(&mut self) -> ::windows::core::Result<PrintTicketCapabilities>;
+    fn DocumentBindingFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentCollateFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentDuplexFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentHolePunchFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentInputBinFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentNUpFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn DocumentStapleFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn JobPasscodeFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageBorderlessFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageMediaSizeFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageMediaTypeFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageOrientationFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageOutputColorFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageOutputQualityFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn PageResolutionFeature(&mut self) -> ::windows::core::Result<PrintTicketFeature>;
+    fn GetFeature(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketFeature>;
+    fn NotifyXmlChangedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ValidateAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>>;
+    fn GetParameterInitializer(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterInitializer>;
+    fn SetParameterInitializerAsInteger(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING, integervalue: i32) -> ::windows::core::Result<PrintTicketParameterInitializer>;
+    fn SetParameterInitializerAsString(&mut self, name: &::windows::core::HSTRING, xmlnamespace: &::windows::core::HSTRING, stringvalue: &::windows::core::HSTRING) -> ::windows::core::Result<PrintTicketParameterInitializer>;
+    fn MergeAndValidateTicket(&mut self, deltashematicket: &::core::option::Option<WorkflowPrintTicket>) -> ::windows::core::Result<WorkflowPrintTicket>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWorkflowPrintTicket {
@@ -1130,8 +1130,8 @@ impl IWorkflowPrintTicketVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWorkflowPrintTicketValidationResultImpl: Sized {
-    fn Validated(&self) -> ::windows::core::Result<bool>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Validated(&mut self) -> ::windows::core::Result<bool>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWorkflowPrintTicketValidationResult {

@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IOemSupportInfoImpl: Sized {
-    fn SupportLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SupportAppLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SupportProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportLink(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SupportAppLink(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
+    fn SupportProvider(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOemSupportInfo {
@@ -57,7 +57,7 @@ impl IOemSupportInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISmbiosInformationStaticsImpl: Sized {
-    fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SerialNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISmbiosInformationStatics {
@@ -88,13 +88,13 @@ impl ISmbiosInformationStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemSupportDeviceInfoImpl: Sized {
-    fn OperatingSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemManufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemSku(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemHardwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SystemFirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OperatingSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemManufacturer(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemProductName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemSku(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemHardwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SystemFirmwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemSupportDeviceInfo {
@@ -197,8 +197,8 @@ impl ISystemSupportDeviceInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemSupportInfoStaticsImpl: Sized {
-    fn LocalSystemEdition(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OemSupportInfo(&self) -> ::windows::core::Result<OemSupportInfo>;
+    fn LocalSystemEdition(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OemSupportInfo(&mut self) -> ::windows::core::Result<OemSupportInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemSupportInfoStatics {
@@ -241,7 +241,7 @@ impl ISystemSupportInfoStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemSupportInfoStatics2Impl: Sized {
-    fn LocalDeviceInfo(&self) -> ::windows::core::Result<SystemSupportDeviceInfo>;
+    fn LocalDeviceInfo(&mut self) -> ::windows::core::Result<SystemSupportDeviceInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemSupportInfoStatics2 {

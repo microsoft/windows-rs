@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IEnterpriseImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WorkplaceId(&self) -> ::windows::core::Result<i32>;
-    fn EnrollmentValidFrom(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn EnrollmentValidTo(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn Status(&self) -> ::windows::core::Result<EnterpriseStatus>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WorkplaceId(&mut self) -> ::windows::core::Result<i32>;
+    fn EnrollmentValidFrom(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn EnrollmentValidTo(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn Status(&mut self) -> ::windows::core::Result<EnterpriseStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEnterprise {
@@ -96,11 +96,11 @@ impl IEnterpriseVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEnterpriseEnrollmentManagerImpl: Sized {
-    fn EnrolledEnterprises(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Enterprise>>;
-    fn CurrentEnterprise(&self) -> ::windows::core::Result<Enterprise>;
-    fn ValidateEnterprisesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn RequestEnrollmentAsync(&self, enrollmenttoken: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<EnterpriseEnrollmentResult>>;
-    fn RequestUnenrollmentAsync(&self, enterprise: &::core::option::Option<Enterprise>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn EnrolledEnterprises(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Enterprise>>;
+    fn CurrentEnterprise(&mut self) -> ::windows::core::Result<Enterprise>;
+    fn ValidateEnterprisesAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn RequestEnrollmentAsync(&mut self, enrollmenttoken: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<EnterpriseEnrollmentResult>>;
+    fn RequestUnenrollmentAsync(&mut self, enterprise: &::core::option::Option<Enterprise>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEnterpriseEnrollmentManager {
@@ -179,8 +179,8 @@ impl IEnterpriseEnrollmentManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IEnterpriseEnrollmentResultImpl: Sized {
-    fn EnrolledEnterprise(&self) -> ::windows::core::Result<Enterprise>;
-    fn Status(&self) -> ::windows::core::Result<EnterpriseEnrollmentStatus>;
+    fn EnrolledEnterprise(&mut self) -> ::windows::core::Result<Enterprise>;
+    fn Status(&mut self) -> ::windows::core::Result<EnterpriseEnrollmentStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEnterpriseEnrollmentResult {
@@ -223,11 +223,11 @@ impl IEnterpriseEnrollmentResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInstallationManagerStaticsImpl: Sized {
-    fn AddPackageAsync(&self, title: &::windows::core::HSTRING, sourcelocation: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
-    fn AddPackagePreloadedAsync(&self, title: &::windows::core::HSTRING, sourcelocation: &::core::option::Option<super::super::super::Foundation::Uri>, instanceid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, license: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
-    fn GetPendingPackageInstalls(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>>;
-    fn FindPackagesForCurrentPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>;
-    fn FindPackages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>;
+    fn AddPackageAsync(&mut self, title: &::windows::core::HSTRING, sourcelocation: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
+    fn AddPackagePreloadedAsync(&mut self, title: &::windows::core::HSTRING, sourcelocation: &::core::option::Option<super::super::super::Foundation::Uri>, instanceid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, license: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
+    fn GetPendingPackageInstalls(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>>;
+    fn FindPackagesForCurrentPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>;
+    fn FindPackages(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInstallationManagerStatics {
@@ -312,9 +312,9 @@ impl IInstallationManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment", feature = "implement_exclusive"))]
 pub trait IInstallationManagerStatics2Impl: Sized {
-    fn RemovePackageAsync(&self, packagefullname: &::windows::core::HSTRING, removaloptions: super::super::super::Management::Deployment::RemovalOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
-    fn RegisterPackageAsync(&self, manifesturi: &::core::option::Option<super::super::super::Foundation::Uri>, dependencypackageuris: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
-    fn FindPackagesByNamePublisher(&self, packagename: &::windows::core::HSTRING, packagepublisher: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>;
+    fn RemovePackageAsync(&mut self, packagefullname: &::windows::core::HSTRING, removaloptions: super::super::super::Management::Deployment::RemovalOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
+    fn RegisterPackageAsync(&mut self, manifesturi: &::core::option::Option<super::super::super::Foundation::Uri>, dependencypackageuris: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>;
+    fn FindPackagesByNamePublisher(&mut self, packagename: &::windows::core::HSTRING, packagepublisher: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInstallationManagerStatics2 {
@@ -373,8 +373,8 @@ impl IInstallationManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Management_Deployment", feature = "implement_exclusive"))]
 pub trait IPackageInstallResultImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InstallState(&self) -> ::windows::core::Result<super::super::super::Management::Deployment::PackageInstallState>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InstallState(&mut self) -> ::windows::core::Result<super::super::super::Management::Deployment::PackageInstallState>;
 }
 #[cfg(all(feature = "Management_Deployment", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageInstallResult {
@@ -417,7 +417,7 @@ impl IPackageInstallResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageInstallResult2Impl: Sized {
-    fn ErrorText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ErrorText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageInstallResult2 {

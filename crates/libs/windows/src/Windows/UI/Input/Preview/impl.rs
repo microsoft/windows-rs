@@ -1,6 +1,6 @@
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 pub trait IInputActivationListenerPreviewStaticsImpl: Sized {
-    fn CreateForApplicationWindow(&self, window: &::core::option::Option<super::super::WindowManagement::AppWindow>) -> ::windows::core::Result<super::InputActivationListener>;
+    fn CreateForApplicationWindow(&mut self, window: &::core::option::Option<super::super::WindowManagement::AppWindow>) -> ::windows::core::Result<super::InputActivationListener>;
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInputActivationListenerPreviewStatics {

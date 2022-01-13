@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICompressorImpl: Sized + IClosableImpl + IOutputStreamImpl {
-    fn FinishAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn DetachStream(&self) -> ::windows::core::Result<super::Streams::IOutputStream>;
+    fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn DetachStream(&mut self) -> ::windows::core::Result<super::Streams::IOutputStream>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompressor {
@@ -44,8 +44,8 @@ impl ICompressorVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICompressorFactoryImpl: Sized {
-    fn CreateCompressor(&self, underlyingstream: &::core::option::Option<super::Streams::IOutputStream>) -> ::windows::core::Result<Compressor>;
-    fn CreateCompressorEx(&self, underlyingstream: &::core::option::Option<super::Streams::IOutputStream>, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor>;
+    fn CreateCompressor(&mut self, underlyingstream: &::core::option::Option<super::Streams::IOutputStream>) -> ::windows::core::Result<Compressor>;
+    fn CreateCompressorEx(&mut self, underlyingstream: &::core::option::Option<super::Streams::IOutputStream>, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICompressorFactory {
@@ -88,7 +88,7 @@ impl ICompressorFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDecompressorImpl: Sized + IClosableImpl + IInputStreamImpl {
-    fn DetachStream(&self) -> ::windows::core::Result<super::Streams::IInputStream>;
+    fn DetachStream(&mut self) -> ::windows::core::Result<super::Streams::IInputStream>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDecompressor {
@@ -116,7 +116,7 @@ impl IDecompressorVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDecompressorFactoryImpl: Sized {
-    fn CreateDecompressor(&self, underlyingstream: &::core::option::Option<super::Streams::IInputStream>) -> ::windows::core::Result<Decompressor>;
+    fn CreateDecompressor(&mut self, underlyingstream: &::core::option::Option<super::Streams::IInputStream>) -> ::windows::core::Result<Decompressor>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDecompressorFactory {

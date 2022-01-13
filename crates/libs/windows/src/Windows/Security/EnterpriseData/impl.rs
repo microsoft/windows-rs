@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IBufferProtectUnprotectResultImpl: Sized {
-    fn Buffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn ProtectionInfo(&self) -> ::windows::core::Result<DataProtectionInfo>;
+    fn Buffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn ProtectionInfo(&mut self) -> ::windows::core::Result<DataProtectionInfo>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBufferProtectUnprotectResult {
@@ -44,8 +44,8 @@ impl IBufferProtectUnprotectResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDataProtectionInfoImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<DataProtectionStatus>;
-    fn Identity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<DataProtectionStatus>;
+    fn Identity(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDataProtectionInfo {
@@ -88,12 +88,12 @@ impl IDataProtectionInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IDataProtectionManagerStaticsImpl: Sized {
-    fn ProtectAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>;
-    fn UnprotectAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>;
-    fn ProtectStreamAsync(&self, unprotectedstream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, identity: &::windows::core::HSTRING, protectedstream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
-    fn UnprotectStreamAsync(&self, protectedstream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, unprotectedstream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
-    fn GetProtectionInfoAsync(&self, protecteddata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
-    fn GetStreamProtectionInfoAsync(&self, protectedstream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
+    fn ProtectAsync(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>;
+    fn UnprotectAsync(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>;
+    fn ProtectStreamAsync(&mut self, unprotectedstream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, identity: &::windows::core::HSTRING, protectedstream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
+    fn UnprotectStreamAsync(&mut self, protectedstream: &::core::option::Option<super::super::Storage::Streams::IInputStream>, unprotectedstream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
+    fn GetProtectionInfoAsync(&mut self, protecteddata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
+    fn GetStreamProtectionInfoAsync(&mut self, protectedstream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDataProtectionManagerStatics {
@@ -188,9 +188,9 @@ impl IDataProtectionManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileProtectionInfoImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<FileProtectionStatus>;
-    fn IsRoamable(&self) -> ::windows::core::Result<bool>;
-    fn Identity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<FileProtectionStatus>;
+    fn IsRoamable(&mut self) -> ::windows::core::Result<bool>;
+    fn Identity(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileProtectionInfo {
@@ -245,7 +245,7 @@ impl IFileProtectionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileProtectionInfo2Impl: Sized {
-    fn IsProtectWhileOpenSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsProtectWhileOpenSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileProtectionInfo2 {
@@ -276,13 +276,13 @@ impl IFileProtectionInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IFileProtectionManagerStaticsImpl: Sized {
-    fn ProtectAsync(&self, target: &::core::option::Option<super::super::Storage::IStorageItem>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
-    fn CopyProtectionAsync(&self, source: &::core::option::Option<super::super::Storage::IStorageItem>, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn GetProtectionInfoAsync(&self, source: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
-    fn SaveFileAsContainerAsync(&self, protectedfile: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>>;
-    fn LoadFileFromContainerAsync(&self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
-    fn LoadFileFromContainerWithTargetAsync(&self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
-    fn CreateProtectedAndOpenAsync(&self, parentfolder: &::core::option::Option<super::super::Storage::IStorageFolder>, desiredname: &::windows::core::HSTRING, identity: &::windows::core::HSTRING, collisionoption: super::super::Storage::CreationCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedFileCreateResult>>;
+    fn ProtectAsync(&mut self, target: &::core::option::Option<super::super::Storage::IStorageItem>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
+    fn CopyProtectionAsync(&mut self, source: &::core::option::Option<super::super::Storage::IStorageItem>, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetProtectionInfoAsync(&mut self, source: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
+    fn SaveFileAsContainerAsync(&mut self, protectedfile: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>>;
+    fn LoadFileFromContainerAsync(&mut self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
+    fn LoadFileFromContainerWithTargetAsync(&mut self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
+    fn CreateProtectedAndOpenAsync(&mut self, parentfolder: &::core::option::Option<super::super::Storage::IStorageFolder>, desiredname: &::windows::core::HSTRING, identity: &::windows::core::HSTRING, collisionoption: super::super::Storage::CreationCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedFileCreateResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileProtectionManagerStatics {
@@ -390,9 +390,9 @@ impl IFileProtectionManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IFileProtectionManagerStatics2Impl: Sized {
-    fn IsContainerAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync(&self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>, target: &::core::option::Option<super::super::Storage::IStorageItem>, collisionoption: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
-    fn SaveFileAsContainerWithSharingAsync(&self, protectedfile: &::core::option::Option<super::super::Storage::IStorageFile>, sharedwithidentities: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>>;
+    fn IsContainerAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync(&mut self, containerfile: &::core::option::Option<super::super::Storage::IStorageFile>, target: &::core::option::Option<super::super::Storage::IStorageItem>, collisionoption: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>;
+    fn SaveFileAsContainerWithSharingAsync(&mut self, protectedfile: &::core::option::Option<super::super::Storage::IStorageFile>, sharedwithidentities: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileProtectionManagerStatics2 {
@@ -447,8 +447,8 @@ impl IFileProtectionManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IFileProtectionManagerStatics3Impl: Sized {
-    fn UnprotectAsync(&self, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
-    fn UnprotectWithOptionsAsync(&self, target: &::core::option::Option<super::super::Storage::IStorageItem>, options: &::core::option::Option<FileUnprotectOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
+    fn UnprotectAsync(&mut self, target: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
+    fn UnprotectWithOptionsAsync(&mut self, target: &::core::option::Option<super::super::Storage::IStorageItem>, options: &::core::option::Option<FileUnprotectOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileProtectionManagerStatics3 {
@@ -491,10 +491,10 @@ impl IFileProtectionManagerStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IFileRevocationManagerStaticsImpl: Sized {
-    fn ProtectAsync(&self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>, enterpriseidentity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>;
-    fn CopyProtectionAsync(&self, sourcestorageitem: &::core::option::Option<super::super::Storage::IStorageItem>, targetstorageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn Revoke(&self, enterpriseidentity: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetStatusAsync(&self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>;
+    fn ProtectAsync(&mut self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>, enterpriseidentity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>;
+    fn CopyProtectionAsync(&mut self, sourcestorageitem: &::core::option::Option<super::super::Storage::IStorageItem>, targetstorageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn Revoke(&mut self, enterpriseidentity: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetStatusAsync(&mut self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileRevocationManagerStatics {
@@ -554,8 +554,8 @@ impl IFileRevocationManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUnprotectOptionsImpl: Sized {
-    fn SetAudit(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Audit(&self) -> ::windows::core::Result<bool>;
+    fn SetAudit(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Audit(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileUnprotectOptions {
@@ -591,7 +591,7 @@ impl IFileUnprotectOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFileUnprotectOptionsFactoryImpl: Sized {
-    fn Create(&self, audit: bool) -> ::windows::core::Result<FileUnprotectOptions>;
+    fn Create(&mut self, audit: bool) -> ::windows::core::Result<FileUnprotectOptions>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFileUnprotectOptionsFactory {
@@ -619,7 +619,7 @@ impl IFileUnprotectOptionsFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProtectedAccessResumedEventArgsImpl: Sized {
-    fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Identities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedAccessResumedEventArgs {
@@ -650,9 +650,9 @@ impl IProtectedAccessResumedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProtectedAccessSuspendingEventArgsImpl: Sized {
-    fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn Identities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedAccessSuspendingEventArgs {
@@ -707,8 +707,8 @@ impl IProtectedAccessSuspendingEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IProtectedContainerExportResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<ProtectedImportExportStatus>;
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn Status(&mut self) -> ::windows::core::Result<ProtectedImportExportStatus>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedContainerExportResult {
@@ -751,8 +751,8 @@ impl IProtectedContainerExportResultVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IProtectedContainerImportResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<ProtectedImportExportStatus>;
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn Status(&mut self) -> ::windows::core::Result<ProtectedImportExportStatus>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedContainerImportResult {
@@ -795,7 +795,7 @@ impl IProtectedContainerImportResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProtectedContentRevokedEventArgsImpl: Sized {
-    fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Identities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedContentRevokedEventArgs {
@@ -826,9 +826,9 @@ impl IProtectedContentRevokedEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IProtectedFileCreateResultImpl: Sized {
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
-    fn Stream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
-    fn ProtectionInfo(&self) -> ::windows::core::Result<FileProtectionInfo>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn Stream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
+    fn ProtectionInfo(&mut self) -> ::windows::core::Result<FileProtectionInfo>;
 }
 #[cfg(all(feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectedFileCreateResult {
@@ -883,14 +883,14 @@ impl IProtectedFileCreateResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProtectionPolicyAuditInfoImpl: Sized {
-    fn SetAction(&self, value: ProtectionPolicyAuditAction) -> ::windows::core::Result<()>;
-    fn Action(&self) -> ::windows::core::Result<ProtectionPolicyAuditAction>;
-    fn SetDataDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DataDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSourceDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SourceDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TargetDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAction(&mut self, value: ProtectionPolicyAuditAction) -> ::windows::core::Result<()>;
+    fn Action(&mut self) -> ::windows::core::Result<ProtectionPolicyAuditAction>;
+    fn SetDataDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DataDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSourceDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SourceDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TargetDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProtectionPolicyAuditInfo {
@@ -977,8 +977,8 @@ impl IProtectionPolicyAuditInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProtectionPolicyAuditInfoFactoryImpl: Sized {
-    fn Create(&self, action: ProtectionPolicyAuditAction, datadescription: &::windows::core::HSTRING, sourcedescription: &::windows::core::HSTRING, targetdescription: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyAuditInfo>;
-    fn CreateWithActionAndDataDescription(&self, action: ProtectionPolicyAuditAction, datadescription: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyAuditInfo>;
+    fn Create(&mut self, action: ProtectionPolicyAuditAction, datadescription: &::windows::core::HSTRING, sourcedescription: &::windows::core::HSTRING, targetdescription: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyAuditInfo>;
+    fn CreateWithActionAndDataDescription(&mut self, action: ProtectionPolicyAuditAction, datadescription: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyAuditInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProtectionPolicyAuditInfoFactory {
@@ -1026,8 +1026,8 @@ impl IProtectionPolicyAuditInfoFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProtectionPolicyManagerImpl: Sized {
-    fn SetIdentity(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Identity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetIdentity(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Identity(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProtectionPolicyManager {
@@ -1063,8 +1063,8 @@ impl IProtectionPolicyManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProtectionPolicyManager2Impl: Sized {
-    fn SetShowEnterpriseIndicator(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShowEnterpriseIndicator(&self) -> ::windows::core::Result<bool>;
+    fn SetShowEnterpriseIndicator(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShowEnterpriseIndicator(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProtectionPolicyManager2 {
@@ -1100,21 +1100,21 @@ impl IProtectionPolicyManager2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStaticsImpl: Sized {
-    fn IsIdentityManaged(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn TryApplyProcessUIPolicy(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn ClearProcessUIPolicy(&self) -> ::windows::core::Result<()>;
-    fn CreateCurrentThreadNetworkContext(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<ThreadNetworkContext>;
-    fn GetPrimaryManagedIdentityForNetworkEndpointAsync(&self, endpointhost: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn RevokeContent(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetForCurrentView(&self) -> ::windows::core::Result<ProtectionPolicyManager>;
-    fn ProtectedAccessSuspending(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProtectedAccessSuspending(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ProtectedAccessResumed(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProtectedAccessResumed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ProtectedContentRevoked(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProtectedContentRevoked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CheckAccess(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyEvaluationResult>;
-    fn RequestAccessAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn IsIdentityManaged(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn TryApplyProcessUIPolicy(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn ClearProcessUIPolicy(&mut self) -> ::windows::core::Result<()>;
+    fn CreateCurrentThreadNetworkContext(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<ThreadNetworkContext>;
+    fn GetPrimaryManagedIdentityForNetworkEndpointAsync(&mut self, endpointhost: &::core::option::Option<super::super::Networking::HostName>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn RevokeContent(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<ProtectionPolicyManager>;
+    fn ProtectedAccessSuspending(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProtectedAccessSuspending(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProtectedAccessResumed(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProtectedAccessResumed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProtectedContentRevoked(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProtectedContentRevoked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CheckAccess(&mut self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyEvaluationResult>;
+    fn RequestAccessAsync(&mut self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics {
@@ -1278,15 +1278,15 @@ impl IProtectionPolicyManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStatics2Impl: Sized {
-    fn HasContentBeenRevokedSince(&self, identity: &::windows::core::HSTRING, since: &super::super::Foundation::DateTime) -> ::windows::core::Result<bool>;
-    fn CheckAccessForApp(&self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyEvaluationResult>;
-    fn RequestAccessForAppAsync(&self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn GetEnforcementLevel(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<EnforcementLevel>;
-    fn IsUserDecryptionAllowed(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn IsProtectionUnderLockRequired(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn PolicyChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePolicyChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn IsProtectionEnabled(&self) -> ::windows::core::Result<bool>;
+    fn HasContentBeenRevokedSince(&mut self, identity: &::windows::core::HSTRING, since: &super::super::Foundation::DateTime) -> ::windows::core::Result<bool>;
+    fn CheckAccessForApp(&mut self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionPolicyEvaluationResult>;
+    fn RequestAccessForAppAsync(&mut self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn GetEnforcementLevel(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<EnforcementLevel>;
+    fn IsUserDecryptionAllowed(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn IsProtectionUnderLockRequired(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn PolicyChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePolicyChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsProtectionEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics2 {
@@ -1406,11 +1406,11 @@ impl IProtectionPolicyManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStatics3Impl: Sized {
-    fn RequestAccessWithAuditingInfoAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessWithMessageAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessForAppWithAuditingInfoAsync(&self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessForAppWithMessageAsync(&self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn LogAuditEvent(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<()>;
+    fn RequestAccessWithAuditingInfoAsync(&mut self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessWithMessageAsync(&mut self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessForAppWithAuditingInfoAsync(&mut self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessForAppWithMessageAsync(&mut self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn LogAuditEvent(&mut self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics3 {
@@ -1506,17 +1506,17 @@ impl IProtectionPolicyManagerStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IProtectionPolicyManagerStatics4Impl: Sized {
-    fn IsRoamableProtectionEnabled(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn RequestAccessWithBehaviorAsync(&self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessForAppWithBehaviorAsync(&self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessToFilesForAppAsync(&self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync(&self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessToFilesForProcessAsync(&self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, processid: u32, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync(&self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, processid: u32, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
-    fn IsFileProtectionRequiredAsync(&self, target: &::core::option::Option<super::super::Storage::IStorageItem>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn IsFileProtectionRequiredForNewFileAsync(&self, parentfolder: &::core::option::Option<super::super::Storage::IStorageFolder>, identity: &::windows::core::HSTRING, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn PrimaryManagedIdentity(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetPrimaryManagedIdentityForIdentity(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsRoamableProtectionEnabled(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn RequestAccessWithBehaviorAsync(&mut self, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessForAppWithBehaviorAsync(&mut self, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessToFilesForAppAsync(&mut self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync(&mut self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessToFilesForProcessAsync(&mut self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, processid: u32, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync(&mut self, sourceitemlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, processid: u32, auditinfo: &::core::option::Option<ProtectionPolicyAuditInfo>, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>;
+    fn IsFileProtectionRequiredAsync(&mut self, target: &::core::option::Option<super::super::Storage::IStorageItem>, identity: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn IsFileProtectionRequiredForNewFileAsync(&mut self, parentfolder: &::core::option::Option<super::super::Storage::IStorageFolder>, identity: &::windows::core::HSTRING, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn PrimaryManagedIdentity(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetPrimaryManagedIdentityForIdentity(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtectionPolicyManagerStatics4 {

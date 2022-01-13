@@ -1,15 +1,15 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorAuthenticationManagerImpl: Sized {
-    fn GetOneTimePassCodeAsync(&self, useraccountid: &::windows::core::HSTRING, codelength: u32) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>;
-    fn AddDeviceAsync(&self, useraccountid: &::windows::core::HSTRING, authenticationtoken: &::windows::core::HSTRING, wnschannelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
-    fn RemoveDeviceAsync(&self, useraccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
-    fn UpdateWnsChannelAsync(&self, useraccountid: &::windows::core::HSTRING, channeluri: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
-    fn GetSessionsAsync(&self, useraccountidlist: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>;
-    fn GetSessionsAndUnregisteredAccountsAsync(&self, useraccountidlist: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>;
-    fn ApproveSessionUsingAuthSessionInfoAsync(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: &::core::option::Option<MicrosoftAccountMultiFactorSessionInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
-    fn ApproveSessionAsync(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: &::windows::core::HSTRING, sessionid: &::windows::core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
-    fn DenySessionUsingAuthSessionInfoAsync(&self, authenticationsessioninfo: &::core::option::Option<MicrosoftAccountMultiFactorSessionInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
-    fn DenySessionAsync(&self, useraccountid: &::windows::core::HSTRING, sessionid: &::windows::core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
+    fn GetOneTimePassCodeAsync(&mut self, useraccountid: &::windows::core::HSTRING, codelength: u32) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>;
+    fn AddDeviceAsync(&mut self, useraccountid: &::windows::core::HSTRING, authenticationtoken: &::windows::core::HSTRING, wnschannelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
+    fn RemoveDeviceAsync(&mut self, useraccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
+    fn UpdateWnsChannelAsync(&mut self, useraccountid: &::windows::core::HSTRING, channeluri: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
+    fn GetSessionsAsync(&mut self, useraccountidlist: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>;
+    fn GetSessionsAndUnregisteredAccountsAsync(&mut self, useraccountidlist: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>;
+    fn ApproveSessionUsingAuthSessionInfoAsync(&mut self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: &::core::option::Option<MicrosoftAccountMultiFactorSessionInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
+    fn ApproveSessionAsync(&mut self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: &::windows::core::HSTRING, sessionid: &::windows::core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
+    fn DenySessionUsingAuthSessionInfoAsync(&mut self, authenticationsessioninfo: &::core::option::Option<MicrosoftAccountMultiFactorSessionInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
+    fn DenySessionAsync(&mut self, useraccountid: &::windows::core::HSTRING, sessionid: &::windows::core::HSTRING, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorAuthenticationManager {
@@ -152,7 +152,7 @@ impl IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMicrosoftAccountMultiFactorAuthenticatorStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorAuthenticationManager>;
+    fn Current(&mut self) -> ::windows::core::Result<MicrosoftAccountMultiFactorAuthenticationManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorAuthenticatorStatics {
@@ -183,8 +183,8 @@ impl IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorGetSessionsResultImpl: Sized {
-    fn Sessions(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>;
-    fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
+    fn Sessions(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>;
+    fn ServiceResponse(&mut self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorGetSessionsResult {
@@ -227,10 +227,10 @@ impl IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorOneTimeCodedInfoImpl: Sized {
-    fn Code(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TimeInterval(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
-    fn TimeToLive(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
-    fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
+    fn Code(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TimeInterval(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
+    fn TimeToLive(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
+    fn ServiceResponse(&mut self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -297,13 +297,13 @@ impl IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorSessionInfoImpl: Sized {
-    fn UserAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplaySessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ApprovalStatus(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorSessionApprovalStatus>;
-    fn AuthenticationType(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorAuthenticationType>;
-    fn RequestTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
+    fn UserAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplaySessionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ApprovalStatus(&mut self) -> ::windows::core::Result<MicrosoftAccountMultiFactorSessionApprovalStatus>;
+    fn AuthenticationType(&mut self) -> ::windows::core::Result<MicrosoftAccountMultiFactorAuthenticationType>;
+    fn RequestTime(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorSessionInfo {
@@ -406,9 +406,9 @@ impl IMicrosoftAccountMultiFactorSessionInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoImpl: Sized {
-    fn Sessions(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>;
-    fn UnregisteredAccounts(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
+    fn Sessions(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>;
+    fn UnregisteredAccounts(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn ServiceResponse(&mut self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {

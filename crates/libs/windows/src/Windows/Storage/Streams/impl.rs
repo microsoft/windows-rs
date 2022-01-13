@@ -1,7 +1,7 @@
 pub trait IBufferImpl: Sized {
-    fn Capacity(&self) -> ::windows::core::Result<u32>;
-    fn Length(&self) -> ::windows::core::Result<u32>;
-    fn SetLength(&self, value: u32) -> ::windows::core::Result<()>;
+    fn Capacity(&mut self) -> ::windows::core::Result<u32>;
+    fn Length(&mut self) -> ::windows::core::Result<u32>;
+    fn SetLength(&mut self, value: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBuffer {
     const NAME: &'static str = "Windows.Storage.Streams.IBuffer";
@@ -47,7 +47,7 @@ impl IBufferVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBufferFactoryImpl: Sized {
-    fn Create(&self, capacity: u32) -> ::windows::core::Result<Buffer>;
+    fn Create(&mut self, capacity: u32) -> ::windows::core::Result<Buffer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBufferFactory {
@@ -75,8 +75,8 @@ impl IBufferFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBufferStaticsImpl: Sized {
-    fn CreateCopyFromMemoryBuffer(&self, input: &::core::option::Option<super::super::Foundation::IMemoryBuffer>) -> ::windows::core::Result<Buffer>;
-    fn CreateMemoryBufferOverIBuffer(&self, input: &::core::option::Option<IBuffer>) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer>;
+    fn CreateCopyFromMemoryBuffer(&mut self, input: &::core::option::Option<super::super::Foundation::IMemoryBuffer>) -> ::windows::core::Result<Buffer>;
+    fn CreateMemoryBufferOverIBuffer(&mut self, input: &::core::option::Option<IBuffer>) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBufferStatics {
@@ -118,7 +118,7 @@ impl IBufferStaticsVtbl {
     }
 }
 pub trait IContentTypeProviderImpl: Sized {
-    fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IContentTypeProvider {
     const NAME: &'static str = "Windows.Storage.Streams.IContentTypeProvider";
@@ -144,32 +144,32 @@ impl IContentTypeProviderVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IDataReaderImpl: Sized {
-    fn UnconsumedBufferLength(&self) -> ::windows::core::Result<u32>;
-    fn UnicodeEncoding(&self) -> ::windows::core::Result<UnicodeEncoding>;
-    fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> ::windows::core::Result<()>;
-    fn ByteOrder(&self) -> ::windows::core::Result<ByteOrder>;
-    fn SetByteOrder(&self, value: ByteOrder) -> ::windows::core::Result<()>;
-    fn InputStreamOptions(&self) -> ::windows::core::Result<InputStreamOptions>;
-    fn SetInputStreamOptions(&self, value: InputStreamOptions) -> ::windows::core::Result<()>;
-    fn ReadByte(&self) -> ::windows::core::Result<u8>;
-    fn ReadBytes(&self, value: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn ReadBuffer(&self, length: u32) -> ::windows::core::Result<IBuffer>;
-    fn ReadBoolean(&self) -> ::windows::core::Result<bool>;
-    fn ReadGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ReadInt16(&self) -> ::windows::core::Result<i16>;
-    fn ReadInt32(&self) -> ::windows::core::Result<i32>;
-    fn ReadInt64(&self) -> ::windows::core::Result<i64>;
-    fn ReadUInt16(&self) -> ::windows::core::Result<u16>;
-    fn ReadUInt32(&self) -> ::windows::core::Result<u32>;
-    fn ReadUInt64(&self) -> ::windows::core::Result<u64>;
-    fn ReadSingle(&self) -> ::windows::core::Result<f32>;
-    fn ReadDouble(&self) -> ::windows::core::Result<f64>;
-    fn ReadString(&self, codeunitcount: u32) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReadDateTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn ReadTimeSpan(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn LoadAsync(&self, count: u32) -> ::windows::core::Result<DataReaderLoadOperation>;
-    fn DetachBuffer(&self) -> ::windows::core::Result<IBuffer>;
-    fn DetachStream(&self) -> ::windows::core::Result<IInputStream>;
+    fn UnconsumedBufferLength(&mut self) -> ::windows::core::Result<u32>;
+    fn UnicodeEncoding(&mut self) -> ::windows::core::Result<UnicodeEncoding>;
+    fn SetUnicodeEncoding(&mut self, value: UnicodeEncoding) -> ::windows::core::Result<()>;
+    fn ByteOrder(&mut self) -> ::windows::core::Result<ByteOrder>;
+    fn SetByteOrder(&mut self, value: ByteOrder) -> ::windows::core::Result<()>;
+    fn InputStreamOptions(&mut self) -> ::windows::core::Result<InputStreamOptions>;
+    fn SetInputStreamOptions(&mut self, value: InputStreamOptions) -> ::windows::core::Result<()>;
+    fn ReadByte(&mut self) -> ::windows::core::Result<u8>;
+    fn ReadBytes(&mut self, value: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn ReadBuffer(&mut self, length: u32) -> ::windows::core::Result<IBuffer>;
+    fn ReadBoolean(&mut self) -> ::windows::core::Result<bool>;
+    fn ReadGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ReadInt16(&mut self) -> ::windows::core::Result<i16>;
+    fn ReadInt32(&mut self) -> ::windows::core::Result<i32>;
+    fn ReadInt64(&mut self) -> ::windows::core::Result<i64>;
+    fn ReadUInt16(&mut self) -> ::windows::core::Result<u16>;
+    fn ReadUInt32(&mut self) -> ::windows::core::Result<u32>;
+    fn ReadUInt64(&mut self) -> ::windows::core::Result<u64>;
+    fn ReadSingle(&mut self) -> ::windows::core::Result<f32>;
+    fn ReadDouble(&mut self) -> ::windows::core::Result<f64>;
+    fn ReadString(&mut self, codeunitcount: u32) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReadDateTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn ReadTimeSpan(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn LoadAsync(&mut self, count: u32) -> ::windows::core::Result<DataReaderLoadOperation>;
+    fn DetachBuffer(&mut self) -> ::windows::core::Result<IBuffer>;
+    fn DetachStream(&mut self) -> ::windows::core::Result<IInputStream>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IDataReader {
@@ -472,7 +472,7 @@ impl IDataReaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDataReaderFactoryImpl: Sized {
-    fn CreateDataReader(&self, inputstream: &::core::option::Option<IInputStream>) -> ::windows::core::Result<DataReader>;
+    fn CreateDataReader(&mut self, inputstream: &::core::option::Option<IInputStream>) -> ::windows::core::Result<DataReader>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDataReaderFactory {
@@ -503,7 +503,7 @@ impl IDataReaderFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDataReaderStaticsImpl: Sized {
-    fn FromBuffer(&self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<DataReader>;
+    fn FromBuffer(&mut self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<DataReader>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDataReaderStatics {
@@ -531,33 +531,33 @@ impl IDataReaderStaticsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IDataWriterImpl: Sized {
-    fn UnstoredBufferLength(&self) -> ::windows::core::Result<u32>;
-    fn UnicodeEncoding(&self) -> ::windows::core::Result<UnicodeEncoding>;
-    fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> ::windows::core::Result<()>;
-    fn ByteOrder(&self) -> ::windows::core::Result<ByteOrder>;
-    fn SetByteOrder(&self, value: ByteOrder) -> ::windows::core::Result<()>;
-    fn WriteByte(&self, value: u8) -> ::windows::core::Result<()>;
-    fn WriteBytes(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn WriteBuffer(&self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
-    fn WriteBufferRange(&self, buffer: &::core::option::Option<IBuffer>, start: u32, count: u32) -> ::windows::core::Result<()>;
-    fn WriteBoolean(&self, value: bool) -> ::windows::core::Result<()>;
-    fn WriteGuid(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn WriteInt16(&self, value: i16) -> ::windows::core::Result<()>;
-    fn WriteInt32(&self, value: i32) -> ::windows::core::Result<()>;
-    fn WriteInt64(&self, value: i64) -> ::windows::core::Result<()>;
-    fn WriteUInt16(&self, value: u16) -> ::windows::core::Result<()>;
-    fn WriteUInt32(&self, value: u32) -> ::windows::core::Result<()>;
-    fn WriteUInt64(&self, value: u64) -> ::windows::core::Result<()>;
-    fn WriteSingle(&self, value: f32) -> ::windows::core::Result<()>;
-    fn WriteDouble(&self, value: f64) -> ::windows::core::Result<()>;
-    fn WriteDateTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn WriteTimeSpan(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn WriteString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<u32>;
-    fn MeasureString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<u32>;
-    fn StoreAsync(&self) -> ::windows::core::Result<DataWriterStoreOperation>;
-    fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn DetachBuffer(&self) -> ::windows::core::Result<IBuffer>;
-    fn DetachStream(&self) -> ::windows::core::Result<IOutputStream>;
+    fn UnstoredBufferLength(&mut self) -> ::windows::core::Result<u32>;
+    fn UnicodeEncoding(&mut self) -> ::windows::core::Result<UnicodeEncoding>;
+    fn SetUnicodeEncoding(&mut self, value: UnicodeEncoding) -> ::windows::core::Result<()>;
+    fn ByteOrder(&mut self) -> ::windows::core::Result<ByteOrder>;
+    fn SetByteOrder(&mut self, value: ByteOrder) -> ::windows::core::Result<()>;
+    fn WriteByte(&mut self, value: u8) -> ::windows::core::Result<()>;
+    fn WriteBytes(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn WriteBuffer(&mut self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
+    fn WriteBufferRange(&mut self, buffer: &::core::option::Option<IBuffer>, start: u32, count: u32) -> ::windows::core::Result<()>;
+    fn WriteBoolean(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn WriteGuid(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn WriteInt16(&mut self, value: i16) -> ::windows::core::Result<()>;
+    fn WriteInt32(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn WriteInt64(&mut self, value: i64) -> ::windows::core::Result<()>;
+    fn WriteUInt16(&mut self, value: u16) -> ::windows::core::Result<()>;
+    fn WriteUInt32(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn WriteUInt64(&mut self, value: u64) -> ::windows::core::Result<()>;
+    fn WriteSingle(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn WriteDouble(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn WriteDateTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn WriteTimeSpan(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn WriteString(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<u32>;
+    fn MeasureString(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<u32>;
+    fn StoreAsync(&mut self) -> ::windows::core::Result<DataWriterStoreOperation>;
+    fn FlushAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn DetachBuffer(&mut self) -> ::windows::core::Result<IBuffer>;
+    fn DetachStream(&mut self) -> ::windows::core::Result<IOutputStream>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IDataWriter {
@@ -774,7 +774,7 @@ impl IDataWriterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDataWriterFactoryImpl: Sized {
-    fn CreateDataWriter(&self, outputstream: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<DataWriter>;
+    fn CreateDataWriter(&mut self, outputstream: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<DataWriter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDataWriterFactory {
@@ -805,14 +805,14 @@ impl IDataWriterFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IFileRandomAccessStreamStaticsImpl: Sized {
-    fn OpenAsync(&self, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
-    fn OpenWithOptionsAsync(&self, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
-    fn OpenTransactedWriteAsync(&self, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
-    fn OpenTransactedWriteWithOptionsAsync(&self, filepath: &::windows::core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
-    fn OpenForUserAsync(&self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
-    fn OpenForUserWithOptionsAsync(&self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
-    fn OpenTransactedWriteForUserAsync(&self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
-    fn OpenTransactedWriteForUserWithOptionsAsync(&self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
+    fn OpenAsync(&mut self, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
+    fn OpenWithOptionsAsync(&mut self, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
+    fn OpenTransactedWriteAsync(&mut self, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
+    fn OpenTransactedWriteWithOptionsAsync(&mut self, filepath: &::windows::core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
+    fn OpenForUserAsync(&mut self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
+    fn OpenForUserWithOptionsAsync(&mut self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>;
+    fn OpenTransactedWriteForUserAsync(&mut self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
+    fn OpenTransactedWriteForUserWithOptionsAsync(&mut self, user: &::core::option::Option<super::super::System::User>, filepath: &::windows::core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFileRandomAccessStreamStatics {
@@ -927,7 +927,7 @@ impl IFileRandomAccessStreamStaticsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IInputStreamImpl: Sized + IClosableImpl {
-    fn ReadAsync(&self, buffer: &::core::option::Option<IBuffer>, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
+    fn ReadAsync(&mut self, buffer: &::core::option::Option<IBuffer>, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IInputStream {
@@ -955,7 +955,7 @@ impl IInputStreamVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IInputStreamReferenceImpl: Sized {
-    fn OpenSequentialReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IInputStream>>;
+    fn OpenSequentialReadAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IInputStream>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IInputStreamReference {
@@ -986,8 +986,8 @@ impl IInputStreamReferenceVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IOutputStreamImpl: Sized + IClosableImpl {
-    fn WriteAsync(&self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
-    fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn WriteAsync(&mut self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn FlushAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IOutputStream {
@@ -1030,8 +1030,8 @@ impl IOutputStreamVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPropertySetSerializerImpl: Sized {
-    fn Serialize(&self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<IBuffer>;
-    fn Deserialize(&self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
+    fn Serialize(&mut self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<IBuffer>;
+    fn Deserialize(&mut self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPropertySetSerializer {
@@ -1067,15 +1067,15 @@ impl IPropertySetSerializerVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IRandomAccessStreamImpl: Sized + IClosableImpl + IInputStreamImpl + IOutputStreamImpl {
-    fn Size(&self) -> ::windows::core::Result<u64>;
-    fn SetSize(&self, value: u64) -> ::windows::core::Result<()>;
-    fn GetInputStreamAt(&self, position: u64) -> ::windows::core::Result<IInputStream>;
-    fn GetOutputStreamAt(&self, position: u64) -> ::windows::core::Result<IOutputStream>;
-    fn Position(&self) -> ::windows::core::Result<u64>;
-    fn Seek(&self, position: u64) -> ::windows::core::Result<()>;
-    fn CloneStream(&self) -> ::windows::core::Result<IRandomAccessStream>;
-    fn CanRead(&self) -> ::windows::core::Result<bool>;
-    fn CanWrite(&self) -> ::windows::core::Result<bool>;
+    fn Size(&mut self) -> ::windows::core::Result<u64>;
+    fn SetSize(&mut self, value: u64) -> ::windows::core::Result<()>;
+    fn GetInputStreamAt(&mut self, position: u64) -> ::windows::core::Result<IInputStream>;
+    fn GetOutputStreamAt(&mut self, position: u64) -> ::windows::core::Result<IOutputStream>;
+    fn Position(&mut self) -> ::windows::core::Result<u64>;
+    fn Seek(&mut self, position: u64) -> ::windows::core::Result<()>;
+    fn CloneStream(&mut self) -> ::windows::core::Result<IRandomAccessStream>;
+    fn CanRead(&mut self) -> ::windows::core::Result<bool>;
+    fn CanWrite(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IRandomAccessStream {
@@ -1188,7 +1188,7 @@ impl IRandomAccessStreamVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IRandomAccessStreamReferenceImpl: Sized {
-    fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>;
+    fn OpenReadAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IRandomAccessStreamReference {
@@ -1219,9 +1219,9 @@ impl IRandomAccessStreamReferenceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRandomAccessStreamReferenceStaticsImpl: Sized {
-    fn CreateFromFile(&self, file: &::core::option::Option<super::IStorageFile>) -> ::windows::core::Result<RandomAccessStreamReference>;
-    fn CreateFromUri(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<RandomAccessStreamReference>;
-    fn CreateFromStream(&self, stream: &::core::option::Option<IRandomAccessStream>) -> ::windows::core::Result<RandomAccessStreamReference>;
+    fn CreateFromFile(&mut self, file: &::core::option::Option<super::IStorageFile>) -> ::windows::core::Result<RandomAccessStreamReference>;
+    fn CreateFromUri(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<RandomAccessStreamReference>;
+    fn CreateFromStream(&mut self, stream: &::core::option::Option<IRandomAccessStream>) -> ::windows::core::Result<RandomAccessStreamReference>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRandomAccessStreamReferenceStatics {
@@ -1276,9 +1276,9 @@ impl IRandomAccessStreamReferenceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRandomAccessStreamStaticsImpl: Sized {
-    fn CopyAsync(&self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
-    fn CopySizeAsync(&self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
-    fn CopyAndCloseAsync(&self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn CopyAsync(&mut self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn CopySizeAsync(&mut self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn CopyAndCloseAsync(&mut self, source: &::core::option::Option<IInputStream>, destination: &::core::option::Option<IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRandomAccessStreamStatics {

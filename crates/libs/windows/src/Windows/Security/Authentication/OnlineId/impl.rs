@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOnlineIdAuthenticatorImpl: Sized {
-    fn AuthenticateUserAsync(&self, request: &::core::option::Option<OnlineIdServiceTicketRequest>) -> ::windows::core::Result<UserAuthenticationOperation>;
-    fn AuthenticateUserAsyncAdvanced(&self, requests: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>;
-    fn SignOutUserAsync(&self) -> ::windows::core::Result<SignOutUserOperation>;
-    fn SetApplicationId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CanSignOut(&self) -> ::windows::core::Result<bool>;
-    fn AuthenticatedSafeCustomerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AuthenticateUserAsync(&mut self, request: &::core::option::Option<OnlineIdServiceTicketRequest>) -> ::windows::core::Result<UserAuthenticationOperation>;
+    fn AuthenticateUserAsyncAdvanced(&mut self, requests: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>;
+    fn SignOutUserAsync(&mut self) -> ::windows::core::Result<SignOutUserOperation>;
+    fn SetApplicationId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ApplicationId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CanSignOut(&mut self) -> ::windows::core::Result<bool>;
+    fn AuthenticatedSafeCustomerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOnlineIdAuthenticator {
@@ -102,9 +102,9 @@ impl IOnlineIdAuthenticatorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOnlineIdServiceTicketImpl: Sized {
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Request(&self) -> ::windows::core::Result<OnlineIdServiceTicketRequest>;
-    fn ErrorCode(&self) -> ::windows::core::Result<i32>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Request(&mut self) -> ::windows::core::Result<OnlineIdServiceTicketRequest>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOnlineIdServiceTicket {
@@ -159,8 +159,8 @@ impl IOnlineIdServiceTicketVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOnlineIdServiceTicketRequestImpl: Sized {
-    fn Service(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Policy(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Service(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Policy(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOnlineIdServiceTicketRequest {
@@ -203,8 +203,8 @@ impl IOnlineIdServiceTicketRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOnlineIdServiceTicketRequestFactoryImpl: Sized {
-    fn CreateOnlineIdServiceTicketRequest(&self, service: &::windows::core::HSTRING, policy: &::windows::core::HSTRING) -> ::windows::core::Result<OnlineIdServiceTicketRequest>;
-    fn CreateOnlineIdServiceTicketRequestAdvanced(&self, service: &::windows::core::HSTRING) -> ::windows::core::Result<OnlineIdServiceTicketRequest>;
+    fn CreateOnlineIdServiceTicketRequest(&mut self, service: &::windows::core::HSTRING, policy: &::windows::core::HSTRING) -> ::windows::core::Result<OnlineIdServiceTicketRequest>;
+    fn CreateOnlineIdServiceTicketRequestAdvanced(&mut self, service: &::windows::core::HSTRING) -> ::windows::core::Result<OnlineIdServiceTicketRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOnlineIdServiceTicketRequestFactory {
@@ -247,10 +247,10 @@ impl IOnlineIdServiceTicketRequestFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IOnlineIdSystemAuthenticatorForUserImpl: Sized {
-    fn GetTicketAsync(&self, request: &::core::option::Option<OnlineIdServiceTicketRequest>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>;
-    fn SetApplicationId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn User(&self) -> ::windows::core::Result<super::super::super::System::User>;
+    fn GetTicketAsync(&mut self, request: &::core::option::Option<OnlineIdServiceTicketRequest>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>;
+    fn SetApplicationId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ApplicationId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOnlineIdSystemAuthenticatorForUser {
@@ -310,8 +310,8 @@ impl IOnlineIdSystemAuthenticatorForUserVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IOnlineIdSystemAuthenticatorStaticsImpl: Sized {
-    fn Default(&self) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser>;
-    fn GetForUser(&self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser>;
+    fn Default(&mut self) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOnlineIdSystemAuthenticatorStatics {
@@ -354,8 +354,8 @@ impl IOnlineIdSystemAuthenticatorStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOnlineIdSystemIdentityImpl: Sized {
-    fn Ticket(&self) -> ::windows::core::Result<OnlineIdServiceTicket>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ticket(&mut self) -> ::windows::core::Result<OnlineIdServiceTicket>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOnlineIdSystemIdentity {
@@ -398,9 +398,9 @@ impl IOnlineIdSystemIdentityVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IOnlineIdSystemTicketResultImpl: Sized {
-    fn Identity(&self) -> ::windows::core::Result<OnlineIdSystemIdentity>;
-    fn Status(&self) -> ::windows::core::Result<OnlineIdSystemTicketStatus>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Identity(&mut self) -> ::windows::core::Result<OnlineIdSystemIdentity>;
+    fn Status(&mut self) -> ::windows::core::Result<OnlineIdSystemTicketStatus>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IOnlineIdSystemTicketResult {
@@ -455,14 +455,14 @@ impl IOnlineIdSystemTicketResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserIdentityImpl: Sized {
-    fn Tickets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>>;
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SafeCustomerId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SignInName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirstName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LastName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsBetaAccount(&self) -> ::windows::core::Result<bool>;
-    fn IsConfirmedPC(&self) -> ::windows::core::Result<bool>;
+    fn Tickets(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SafeCustomerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SignInName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirstName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LastName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsBetaAccount(&mut self) -> ::windows::core::Result<bool>;
+    fn IsConfirmedPC(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserIdentity {

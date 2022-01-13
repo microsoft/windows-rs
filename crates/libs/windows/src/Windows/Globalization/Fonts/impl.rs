@@ -1,10 +1,10 @@
 #[cfg(all(feature = "UI_Text", feature = "implement_exclusive"))]
 pub trait ILanguageFontImpl: Sized {
-    fn FontFamily(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FontWeight(&self) -> ::windows::core::Result<super::super::UI::Text::FontWeight>;
-    fn FontStretch(&self) -> ::windows::core::Result<super::super::UI::Text::FontStretch>;
-    fn FontStyle(&self) -> ::windows::core::Result<super::super::UI::Text::FontStyle>;
-    fn ScaleFactor(&self) -> ::windows::core::Result<f64>;
+    fn FontFamily(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FontWeight(&mut self) -> ::windows::core::Result<super::super::UI::Text::FontWeight>;
+    fn FontStretch(&mut self) -> ::windows::core::Result<super::super::UI::Text::FontStretch>;
+    fn FontStyle(&mut self) -> ::windows::core::Result<super::super::UI::Text::FontStyle>;
+    fn ScaleFactor(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "UI_Text", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILanguageFont {
@@ -83,17 +83,17 @@ impl ILanguageFontVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguageFontGroupImpl: Sized {
-    fn UITextFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn UIHeadingFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn UITitleFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn UICaptionFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn UINotificationHeadingFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn TraditionalDocumentFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn ModernDocumentFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn DocumentHeadingFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn FixedWidthTextFont(&self) -> ::windows::core::Result<LanguageFont>;
-    fn DocumentAlternate1Font(&self) -> ::windows::core::Result<LanguageFont>;
-    fn DocumentAlternate2Font(&self) -> ::windows::core::Result<LanguageFont>;
+    fn UITextFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn UIHeadingFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn UITitleFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn UICaptionFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn UINotificationHeadingFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn TraditionalDocumentFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn ModernDocumentFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn DocumentHeadingFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn FixedWidthTextFont(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn DocumentAlternate1Font(&mut self) -> ::windows::core::Result<LanguageFont>;
+    fn DocumentAlternate2Font(&mut self) -> ::windows::core::Result<LanguageFont>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguageFontGroup {
@@ -244,7 +244,7 @@ impl ILanguageFontGroupVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILanguageFontGroupFactoryImpl: Sized {
-    fn CreateLanguageFontGroup(&self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<LanguageFontGroup>;
+    fn CreateLanguageFontGroup(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<LanguageFontGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILanguageFontGroupFactory {

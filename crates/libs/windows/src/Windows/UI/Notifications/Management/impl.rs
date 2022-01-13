@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserNotificationListenerImpl: Sized {
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>;
-    fn GetAccessStatus(&self) -> ::windows::core::Result<UserNotificationListenerAccessStatus>;
-    fn NotificationChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNotificationChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>;
-    fn GetNotification(&self, notificationid: u32) -> ::windows::core::Result<super::UserNotification>;
-    fn ClearNotifications(&self) -> ::windows::core::Result<()>;
-    fn RemoveNotification(&self, notificationid: u32) -> ::windows::core::Result<()>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>;
+    fn GetAccessStatus(&mut self) -> ::windows::core::Result<UserNotificationListenerAccessStatus>;
+    fn NotificationChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNotificationChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetNotificationsAsync(&mut self, kinds: super::NotificationKinds) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>;
+    fn GetNotification(&mut self, notificationid: u32) -> ::windows::core::Result<super::UserNotification>;
+    fn ClearNotifications(&mut self) -> ::windows::core::Result<()>;
+    fn RemoveNotification(&mut self, notificationid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserNotificationListener {
@@ -101,7 +101,7 @@ impl IUserNotificationListenerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserNotificationListenerStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<UserNotificationListener>;
+    fn Current(&mut self) -> ::windows::core::Result<UserNotificationListener>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserNotificationListenerStatics {

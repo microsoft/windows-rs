@@ -1,23 +1,23 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAsymmetricAlgorithmNamesStaticsImpl: Sized {
-    fn RsaPkcs1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaOaepSha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaOaepSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaOaepSha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaOaepSha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EcdsaP256Sha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EcdsaP384Sha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EcdsaP521Sha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DsaSha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DsaSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPkcs1Sha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPkcs1Sha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPkcs1Sha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPkcs1Sha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPssSha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPssSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPssSha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RsaSignPssSha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaPkcs1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaOaepSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaOaepSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaOaepSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaOaepSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EcdsaP256Sha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EcdsaP384Sha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EcdsaP521Sha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DsaSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DsaSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPkcs1Sha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPkcs1Sha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPkcs1Sha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPkcs1Sha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPssSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPssSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPssSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RsaSignPssSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAsymmetricAlgorithmNamesStatics {
@@ -252,9 +252,9 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAsymmetricAlgorithmNamesStatics2Impl: Sized {
-    fn EcdsaSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EcdsaSha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EcdsaSha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EcdsaSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EcdsaSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EcdsaSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAsymmetricAlgorithmNamesStatics2 {
@@ -309,12 +309,12 @@ impl IAsymmetricAlgorithmNamesStatics2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAsymmetricKeyAlgorithmProviderImpl: Sized {
-    fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CreateKeyPair(&self, keysize: u32) -> ::windows::core::Result<CryptographicKey>;
-    fn ImportDefaultPrivateKeyBlob(&self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
-    fn ImportKeyPairWithBlobType(&self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<CryptographicKey>;
-    fn ImportDefaultPublicKeyBlob(&self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
-    fn ImportPublicKeyWithBlobType(&self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<CryptographicKey>;
+    fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CreateKeyPair(&mut self, keysize: u32) -> ::windows::core::Result<CryptographicKey>;
+    fn ImportDefaultPrivateKeyBlob(&mut self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
+    fn ImportKeyPairWithBlobType(&mut self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<CryptographicKey>;
+    fn ImportDefaultPublicKeyBlob(&mut self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
+    fn ImportPublicKeyWithBlobType(&mut self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<CryptographicKey>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProvider {
@@ -405,8 +405,8 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAsymmetricKeyAlgorithmProvider2Impl: Sized {
-    fn CreateKeyPairWithCurveName(&self, curvename: &::windows::core::HSTRING) -> ::windows::core::Result<CryptographicKey>;
-    fn CreateKeyPairWithCurveParameters(&self, parameters: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<CryptographicKey>;
+    fn CreateKeyPairWithCurveName(&mut self, curvename: &::windows::core::HSTRING) -> ::windows::core::Result<CryptographicKey>;
+    fn CreateKeyPairWithCurveParameters(&mut self, parameters: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<CryptographicKey>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProvider2 {
@@ -449,7 +449,7 @@ impl IAsymmetricKeyAlgorithmProvider2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAsymmetricKeyAlgorithmProviderStaticsImpl: Sized {
-    fn OpenAlgorithm(&self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider>;
+    fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProviderStatics {
@@ -480,13 +480,13 @@ impl IAsymmetricKeyAlgorithmProviderStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICryptographicEngineStaticsImpl: Sized {
-    fn Encrypt(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn Decrypt(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn EncryptAndAuthenticate(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, nonce: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, authenticateddata: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<EncryptedAndAuthenticatedData>;
-    fn DecryptAndAuthenticate(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, nonce: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, authenticationtag: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, authenticateddata: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn Sign(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn VerifySignature(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signature: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
-    fn DeriveKeyMaterial(&self, key: &::core::option::Option<CryptographicKey>, parameters: &::core::option::Option<KeyDerivationParameters>, desiredkeysize: u32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Encrypt(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Decrypt(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn EncryptAndAuthenticate(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, nonce: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, authenticateddata: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<EncryptedAndAuthenticatedData>;
+    fn DecryptAndAuthenticate(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, nonce: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, authenticationtag: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, authenticateddata: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Sign(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn VerifySignature(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signature: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
+    fn DeriveKeyMaterial(&mut self, key: &::core::option::Option<CryptographicKey>, parameters: &::core::option::Option<KeyDerivationParameters>, desiredkeysize: u32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICryptographicEngineStatics {
@@ -612,11 +612,11 @@ impl ICryptographicEngineStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICryptographicEngineStatics2Impl: Sized {
-    fn SignHashedData(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn VerifySignatureWithHashInput(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signature: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
-    fn DecryptAsync(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
-    fn SignAsync(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
-    fn SignHashedDataAsync(&self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
+    fn SignHashedData(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn VerifySignatureWithHashInput(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signature: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
+    fn DecryptAsync(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
+    fn SignAsync(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
+    fn SignHashedDataAsync(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICryptographicEngineStatics2 {
@@ -703,11 +703,11 @@ impl ICryptographicEngineStatics2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICryptographicKeyImpl: Sized {
-    fn KeySize(&self) -> ::windows::core::Result<u32>;
-    fn ExportDefaultPrivateKeyBlobType(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn ExportPrivateKeyWithBlobType(&self, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn ExportDefaultPublicKeyBlobType(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn ExportPublicKeyWithBlobType(&self, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn KeySize(&mut self) -> ::windows::core::Result<u32>;
+    fn ExportDefaultPrivateKeyBlobType(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn ExportPrivateKeyWithBlobType(&mut self, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn ExportDefaultPublicKeyBlobType(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn ExportPublicKeyWithBlobType(&mut self, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICryptographicKey {
@@ -786,52 +786,52 @@ impl ICryptographicKeyVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IEccCurveNamesStaticsImpl: Sized {
-    fn BrainpoolP160r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP160t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP192r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP192t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP224r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP224t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP256r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP256t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP320r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP320t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP384r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP384t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP512r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BrainpoolP512t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Curve25519(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ec192wapi(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NistP192(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NistP224(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NistP256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NistP384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NistP521(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NumsP256t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NumsP384t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NumsP512t1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP160k1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP160r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP160r2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP192k1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP192r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP224k1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP224r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP256k1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP256r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP384r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SecP521r1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wtls7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wtls9(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wtls12(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn X962P192v1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn X962P192v2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn X962P192v3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn X962P239v1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn X962P239v2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn X962P239v3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn X962P256v1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AllEccCurveNames(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn BrainpoolP160r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP160t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP192r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP192t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP224r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP224t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP256r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP256t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP320r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP320t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP384r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP384t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP512r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BrainpoolP512t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Curve25519(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ec192wapi(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NistP192(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NistP224(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NistP256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NistP384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NistP521(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NumsP256t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NumsP384t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NumsP512t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP160k1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP160r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP160r2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP192k1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP192r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP224k1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP224r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP256k1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP256r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP384r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SecP521r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wtls7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wtls9(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wtls12(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn X962P192v1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn X962P192v2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn X962P192v3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn X962P239v1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn X962P239v2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn X962P239v3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn X962P256v1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AllEccCurveNames(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEccCurveNamesStatics {
@@ -1402,8 +1402,8 @@ impl IEccCurveNamesStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IEncryptedAndAuthenticatedDataImpl: Sized {
-    fn EncryptedData(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn AuthenticationTag(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn EncryptedData(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn AuthenticationTag(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IEncryptedAndAuthenticatedData {
@@ -1446,11 +1446,11 @@ impl IEncryptedAndAuthenticatedDataVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHashAlgorithmNamesStaticsImpl: Sized {
-    fn Md5(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Md5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHashAlgorithmNamesStatics {
@@ -1529,10 +1529,10 @@ impl IHashAlgorithmNamesStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHashAlgorithmProviderImpl: Sized {
-    fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HashLength(&self) -> ::windows::core::Result<u32>;
-    fn HashData(&self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn CreateHash(&self) -> ::windows::core::Result<CryptographicHash>;
+    fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HashLength(&mut self) -> ::windows::core::Result<u32>;
+    fn HashData(&mut self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn CreateHash(&mut self) -> ::windows::core::Result<CryptographicHash>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHashAlgorithmProvider {
@@ -1599,7 +1599,7 @@ impl IHashAlgorithmProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHashAlgorithmProviderStaticsImpl: Sized {
-    fn OpenAlgorithm(&self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<HashAlgorithmProvider>;
+    fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<HashAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHashAlgorithmProviderStatics {
@@ -1630,8 +1630,8 @@ impl IHashAlgorithmProviderStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IHashComputationImpl: Sized {
-    fn Append(&self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn GetValueAndReset(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Append(&mut self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn GetValueAndReset(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHashComputation {
@@ -1667,21 +1667,21 @@ impl IHashComputationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyDerivationAlgorithmNamesStaticsImpl: Sized {
-    fn Pbkdf2Md5(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Pbkdf2Sha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Pbkdf2Sha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Pbkdf2Sha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Pbkdf2Sha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp800108CtrHmacMd5(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp800108CtrHmacSha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp800108CtrHmacSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp800108CtrHmacSha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp800108CtrHmacSha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp80056aConcatMd5(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp80056aConcatSha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp80056aConcatSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp80056aConcatSha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Sp80056aConcatSha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pbkdf2Md5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pbkdf2Sha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pbkdf2Sha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pbkdf2Sha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pbkdf2Sha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp800108CtrHmacMd5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp800108CtrHmacSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp800108CtrHmacSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp800108CtrHmacSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp800108CtrHmacSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp80056aConcatMd5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp80056aConcatSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp80056aConcatSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp80056aConcatSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Sp80056aConcatSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmNamesStatics {
@@ -1880,11 +1880,11 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyDerivationAlgorithmNamesStatics2Impl: Sized {
-    fn CapiKdfMd5(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CapiKdfSha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CapiKdfSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CapiKdfSha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CapiKdfSha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CapiKdfMd5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CapiKdfSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CapiKdfSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CapiKdfSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CapiKdfSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmNamesStatics2 {
@@ -1963,8 +1963,8 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyDerivationAlgorithmProviderImpl: Sized {
-    fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CreateKey(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
+    fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CreateKey(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmProvider {
@@ -2007,7 +2007,7 @@ impl IKeyDerivationAlgorithmProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyDerivationAlgorithmProviderStaticsImpl: Sized {
-    fn OpenAlgorithm(&self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<KeyDerivationAlgorithmProvider>;
+    fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<KeyDerivationAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmProviderStatics {
@@ -2038,9 +2038,9 @@ impl IKeyDerivationAlgorithmProviderStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyDerivationParametersImpl: Sized {
-    fn KdfGenericBinary(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
-    fn SetKdfGenericBinary(&self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn IterationCount(&self) -> ::windows::core::Result<u32>;
+    fn KdfGenericBinary(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn SetKdfGenericBinary(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn IterationCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyDerivationParameters {
@@ -2088,8 +2088,8 @@ impl IKeyDerivationParametersVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyDerivationParameters2Impl: Sized {
-    fn Capi1KdfTargetAlgorithm(&self) -> ::windows::core::Result<Capi1KdfTargetAlgorithm>;
-    fn SetCapi1KdfTargetAlgorithm(&self, value: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<()>;
+    fn Capi1KdfTargetAlgorithm(&mut self) -> ::windows::core::Result<Capi1KdfTargetAlgorithm>;
+    fn SetCapi1KdfTargetAlgorithm(&mut self, value: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyDerivationParameters2 {
@@ -2125,9 +2125,9 @@ impl IKeyDerivationParameters2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyDerivationParametersStaticsImpl: Sized {
-    fn BuildForPbkdf2(&self, pbkdf2salt: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters>;
-    fn BuildForSP800108(&self, label: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, context: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
-    fn BuildForSP80056a(&self, algorithmid: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyuinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyvinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, supppubinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, suppprivinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
+    fn BuildForPbkdf2(&mut self, pbkdf2salt: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters>;
+    fn BuildForSP800108(&mut self, label: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, context: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
+    fn BuildForSP80056a(&mut self, algorithmid: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyuinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyvinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, supppubinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, suppprivinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyDerivationParametersStatics {
@@ -2188,7 +2188,7 @@ impl IKeyDerivationParametersStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyDerivationParametersStatics2Impl: Sized {
-    fn BuildForCapi1Kdf(&self, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<KeyDerivationParameters>;
+    fn BuildForCapi1Kdf(&mut self, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<KeyDerivationParameters>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyDerivationParametersStatics2 {
@@ -2219,12 +2219,12 @@ impl IKeyDerivationParametersStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMacAlgorithmNamesStaticsImpl: Sized {
-    fn HmacMd5(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HmacSha1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HmacSha256(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HmacSha384(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HmacSha512(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AesCmac(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HmacMd5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HmacSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HmacSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HmacSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HmacSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AesCmac(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMacAlgorithmNamesStatics {
@@ -2315,9 +2315,9 @@ impl IMacAlgorithmNamesStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMacAlgorithmProviderImpl: Sized {
-    fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MacLength(&self) -> ::windows::core::Result<u32>;
-    fn CreateKey(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
+    fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MacLength(&mut self) -> ::windows::core::Result<u32>;
+    fn CreateKey(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMacAlgorithmProvider {
@@ -2372,7 +2372,7 @@ impl IMacAlgorithmProviderVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMacAlgorithmProvider2Impl: Sized {
-    fn CreateHash(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicHash>;
+    fn CreateHash(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicHash>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMacAlgorithmProvider2 {
@@ -2400,7 +2400,7 @@ impl IMacAlgorithmProvider2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMacAlgorithmProviderStaticsImpl: Sized {
-    fn OpenAlgorithm(&self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<MacAlgorithmProvider>;
+    fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<MacAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMacAlgorithmProviderStatics {
@@ -2431,8 +2431,8 @@ impl IMacAlgorithmProviderStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 pub trait IPersistedKeyProviderStaticsImpl: Sized {
-    fn OpenKeyPairFromCertificateAsync(&self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>;
-    fn OpenPublicKeyFromCertificate(&self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey>;
+    fn OpenKeyPairFromCertificateAsync(&mut self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>;
+    fn OpenPublicKeyFromCertificate(&mut self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPersistedKeyProviderStatics {
@@ -2475,25 +2475,25 @@ impl IPersistedKeyProviderStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISymmetricAlgorithmNamesStaticsImpl: Sized {
-    fn DesCbc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DesEcb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TripleDesCbc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TripleDesEcb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rc2Cbc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rc2Ecb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AesCbc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AesEcb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AesGcm(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AesCcm(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AesCbcPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AesEcbPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DesCbcPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DesEcbPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TripleDesCbcPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TripleDesEcbPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rc2CbcPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rc2EcbPkcs7(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rc4(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DesCbc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DesEcb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TripleDesCbc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TripleDesEcb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rc2Cbc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rc2Ecb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AesCbc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AesEcb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AesGcm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AesCcm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AesCbcPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AesEcbPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DesCbcPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DesEcbPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TripleDesCbcPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TripleDesEcbPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rc2CbcPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rc2EcbPkcs7(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rc4(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISymmetricAlgorithmNamesStatics {
@@ -2740,9 +2740,9 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISymmetricKeyAlgorithmProviderImpl: Sized {
-    fn AlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn BlockLength(&self) -> ::windows::core::Result<u32>;
-    fn CreateSymmetricKey(&self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
+    fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BlockLength(&mut self) -> ::windows::core::Result<u32>;
+    fn CreateSymmetricKey(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISymmetricKeyAlgorithmProvider {
@@ -2797,7 +2797,7 @@ impl ISymmetricKeyAlgorithmProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISymmetricKeyAlgorithmProviderStaticsImpl: Sized {
-    fn OpenAlgorithm(&self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<SymmetricKeyAlgorithmProvider>;
+    fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<SymmetricKeyAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISymmetricKeyAlgorithmProviderStatics {

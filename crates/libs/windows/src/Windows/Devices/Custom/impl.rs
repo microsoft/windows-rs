@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ICustomDeviceImpl: Sized {
-    fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
-    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn SendIOControlAsync(&self, iocontrolcode: &::core::option::Option<IIOControlCode>, inputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, outputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
-    fn TrySendIOControlAsync(&self, iocontrolcode: &::core::option::Option<IIOControlCode>, inputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, outputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn SendIOControlAsync(&mut self, iocontrolcode: &::core::option::Option<IIOControlCode>, inputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, outputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn TrySendIOControlAsync(&mut self, iocontrolcode: &::core::option::Option<IIOControlCode>, inputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, outputbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICustomDevice {
@@ -78,8 +78,8 @@ impl ICustomDeviceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICustomDeviceStaticsImpl: Sized {
-    fn GetDeviceSelector(&self, classguid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CustomDevice>>;
+    fn GetDeviceSelector(&mut self, classguid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CustomDevice>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICustomDeviceStatics {
@@ -121,11 +121,11 @@ impl ICustomDeviceStaticsVtbl {
     }
 }
 pub trait IIOControlCodeImpl: Sized {
-    fn AccessMode(&self) -> ::windows::core::Result<IOControlAccessMode>;
-    fn BufferingMethod(&self) -> ::windows::core::Result<IOControlBufferingMethod>;
-    fn Function(&self) -> ::windows::core::Result<u16>;
-    fn DeviceType(&self) -> ::windows::core::Result<u16>;
-    fn ControlCode(&self) -> ::windows::core::Result<u32>;
+    fn AccessMode(&mut self) -> ::windows::core::Result<IOControlAccessMode>;
+    fn BufferingMethod(&mut self) -> ::windows::core::Result<IOControlBufferingMethod>;
+    fn Function(&mut self) -> ::windows::core::Result<u16>;
+    fn DeviceType(&mut self) -> ::windows::core::Result<u16>;
+    fn ControlCode(&mut self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
@@ -202,7 +202,7 @@ impl IIOControlCodeVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IIOControlCodeFactoryImpl: Sized {
-    fn CreateIOControlCode(&self, devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> ::windows::core::Result<IOControlCode>;
+    fn CreateIOControlCode(&mut self, devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> ::windows::core::Result<IOControlCode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IIOControlCodeFactory {
@@ -233,7 +233,7 @@ impl IIOControlCodeFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownDeviceTypesStaticsImpl: Sized {
-    fn Unknown(&self) -> ::windows::core::Result<u16>;
+    fn Unknown(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownDeviceTypesStatics {

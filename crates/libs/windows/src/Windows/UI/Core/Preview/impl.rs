@@ -15,7 +15,7 @@ impl ICoreAppWindowPreviewVtbl {
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 pub trait ICoreAppWindowPreviewStaticsImpl: Sized {
-    fn GetIdFromWindow(&self, window: &::core::option::Option<super::super::WindowManagement::AppWindow>) -> ::windows::core::Result<i32>;
+    fn GetIdFromWindow(&mut self, window: &::core::option::Option<super::super::WindowManagement::AppWindow>) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreAppWindowPreviewStatics {
@@ -46,9 +46,9 @@ impl ICoreAppWindowPreviewStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemNavigationCloseRequestedPreviewEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemNavigationCloseRequestedPreviewEventArgs {
@@ -96,8 +96,8 @@ impl ISystemNavigationCloseRequestedPreviewEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISystemNavigationManagerPreviewImpl: Sized {
-    fn CloseRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCloseRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CloseRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCloseRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISystemNavigationManagerPreview {
@@ -133,7 +133,7 @@ impl ISystemNavigationManagerPreviewVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISystemNavigationManagerPreviewStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<SystemNavigationManagerPreview>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<SystemNavigationManagerPreview>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISystemNavigationManagerPreviewStatics {

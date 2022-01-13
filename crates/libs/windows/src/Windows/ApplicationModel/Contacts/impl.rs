@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAggregateContactManagerImpl: Sized {
-    fn FindRawContactsAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
-    fn TryLinkContactsAsync(&self, primarycontact: &::core::option::Option<Contact>, secondarycontact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
-    fn UnlinkRawContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn TrySetPreferredSourceForPictureAsync(&self, aggregatecontact: &::core::option::Option<Contact>, rawcontact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn FindRawContactsAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
+    fn TryLinkContactsAsync(&mut self, primarycontact: &::core::option::Option<Contact>, secondarycontact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn UnlinkRawContactAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn TrySetPreferredSourceForPictureAsync(&mut self, aggregatecontact: &::core::option::Option<Contact>, rawcontact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAggregateContactManager {
@@ -70,7 +70,7 @@ impl IAggregateContactManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAggregateContactManager2Impl: Sized {
-    fn SetRemoteIdentificationInformationAsync(&self, contactlistid: &::windows::core::HSTRING, remotesourceid: &::windows::core::HSTRING, accountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetRemoteIdentificationInformationAsync(&mut self, contactlistid: &::windows::core::HSTRING, remotesourceid: &::windows::core::HSTRING, accountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAggregateContactManager2 {
@@ -105,11 +105,11 @@ impl IAggregateContactManager2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContactImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SetThumbnail(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
-    fn Fields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IContactField>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SetThumbnail(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn Fields(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IContactField>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContact {
@@ -174,20 +174,20 @@ impl IContactVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContact2Impl: Sized + IContactImpl {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Notes(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNotes(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Phones(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactPhone>>;
-    fn Emails(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactEmail>>;
-    fn Addresses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactAddress>>;
-    fn ConnectedServiceAccounts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>>;
-    fn ImportantDates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactDate>>;
-    fn DataSuppliers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn JobInfo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactJobInfo>>;
-    fn SignificantOthers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactSignificantOther>>;
-    fn Websites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactWebsite>>;
-    fn ProviderProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Notes(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNotes(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Phones(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactPhone>>;
+    fn Emails(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactEmail>>;
+    fn Addresses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactAddress>>;
+    fn ConnectedServiceAccounts(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>>;
+    fn ImportantDates(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactDate>>;
+    fn DataSuppliers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn JobInfo(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactJobInfo>>;
+    fn SignificantOthers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactSignificantOther>>;
+    fn Websites(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactWebsite>>;
+    fn ProviderProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContact2 {
@@ -360,29 +360,29 @@ impl IContact2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContact3Impl: Sized + IContactImpl + IContact2Impl {
-    fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayPictureUserUpdateTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetDisplayPictureUserUpdateTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn IsMe(&self) -> ::windows::core::Result<bool>;
-    fn AggregateId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RingToneToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRingToneToken(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsDisplayPictureManuallySet(&self) -> ::windows::core::Result<bool>;
-    fn LargeDisplayPicture(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SmallDisplayPicture(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SourceDisplayPicture(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn SetSourceDisplayPicture(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
-    fn TextToneToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTextToneToken(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn IsAggregate(&self) -> ::windows::core::Result<bool>;
-    fn FullName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayNameOverride(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayNameOverride(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Nickname(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNickname(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SortName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContactListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayPictureUserUpdateTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetDisplayPictureUserUpdateTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn IsMe(&mut self) -> ::windows::core::Result<bool>;
+    fn AggregateId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RingToneToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRingToneToken(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsDisplayPictureManuallySet(&mut self) -> ::windows::core::Result<bool>;
+    fn LargeDisplayPicture(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SmallDisplayPicture(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SourceDisplayPicture(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn SetSourceDisplayPicture(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
+    fn TextToneToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTextToneToken(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn IsAggregate(&mut self) -> ::windows::core::Result<bool>;
+    fn FullName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayNameOverride(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayNameOverride(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Nickname(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNickname(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SortName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContact3 {
@@ -628,20 +628,20 @@ impl IContact3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactAddressImpl: Sized {
-    fn StreetAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetStreetAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Locality(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLocality(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Region(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRegion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCountry(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PostalCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPostalCode(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Kind(&self) -> ::windows::core::Result<ContactAddressKind>;
-    fn SetKind(&self, value: ContactAddressKind) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StreetAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetStreetAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Locality(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLocality(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Region(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRegion(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Country(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCountry(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PostalCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPostalCode(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<ContactAddressKind>;
+    fn SetKind(&mut self, value: ContactAddressKind) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactAddress {
@@ -779,16 +779,16 @@ impl IContactAddressVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactAnnotationImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AnnotationListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContactId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SupportedOperations(&self) -> ::windows::core::Result<ContactAnnotationOperations>;
-    fn SetSupportedOperations(&self, value: ContactAnnotationOperations) -> ::windows::core::Result<()>;
-    fn IsDisabled(&self) -> ::windows::core::Result<bool>;
-    fn ProviderProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AnnotationListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContactId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContactId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRemoteId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SupportedOperations(&mut self) -> ::windows::core::Result<ContactAnnotationOperations>;
+    fn SetSupportedOperations(&mut self, value: ContactAnnotationOperations) -> ::windows::core::Result<()>;
+    fn IsDisabled(&mut self) -> ::windows::core::Result<bool>;
+    fn ProviderProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotation {
@@ -906,8 +906,8 @@ impl IContactAnnotationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactAnnotation2Impl: Sized {
-    fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContactListId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContactListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContactListId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactAnnotation2 {
@@ -943,15 +943,15 @@ impl IContactAnnotation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactAnnotationListImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProviderPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn TrySaveAnnotationAsync(&self, annotation: &::core::option::Option<ContactAnnotation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn GetAnnotationAsync(&self, annotationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotation>>;
-    fn FindAnnotationsByRemoteIdAsync(&self, remoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
-    fn FindAnnotationsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
-    fn DeleteAnnotationAsync(&self, annotation: &::core::option::Option<ContactAnnotation>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProviderPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UserDataAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn TrySaveAnnotationAsync(&mut self, annotation: &::core::option::Option<ContactAnnotation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn GetAnnotationAsync(&mut self, annotationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotation>>;
+    fn FindAnnotationsByRemoteIdAsync(&mut self, remoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
+    fn FindAnnotationsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
+    fn DeleteAnnotationAsync(&mut self, annotation: &::core::option::Option<ContactAnnotation>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotationList {
@@ -1078,14 +1078,14 @@ impl IContactAnnotationListVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactAnnotationStoreImpl: Sized {
-    fn FindContactIdsByEmailAsync(&self, emailaddress: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn FindContactIdsByPhoneNumberAsync(&self, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn FindAnnotationsForContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
-    fn DisableAnnotationAsync(&self, annotation: &::core::option::Option<ContactAnnotation>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn CreateAnnotationListAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>;
-    fn CreateAnnotationListInAccountAsync(&self, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>;
-    fn GetAnnotationListAsync(&self, annotationlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>;
-    fn FindAnnotationListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>>;
+    fn FindContactIdsByEmailAsync(&mut self, emailaddress: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn FindContactIdsByPhoneNumberAsync(&mut self, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn FindAnnotationsForContactAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
+    fn DisableAnnotationAsync(&mut self, annotation: &::core::option::Option<ContactAnnotation>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn CreateAnnotationListAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>;
+    fn CreateAnnotationListInAccountAsync(&mut self, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>;
+    fn GetAnnotationListAsync(&mut self, annotationlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>;
+    fn FindAnnotationListsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotationStore {
@@ -1200,7 +1200,7 @@ impl IContactAnnotationStoreVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactAnnotationStore2Impl: Sized {
-    fn FindAnnotationsForContactListAsync(&self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
+    fn FindAnnotationsForContactListAsync(&mut self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactAnnotationStore2 {
@@ -1231,8 +1231,8 @@ impl IContactAnnotationStore2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactBatchImpl: Sized {
-    fn Contacts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Contact>>;
-    fn Status(&self) -> ::windows::core::Result<ContactBatchStatus>;
+    fn Contacts(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Contact>>;
+    fn Status(&mut self) -> ::windows::core::Result<ContactBatchStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactBatch {
@@ -1275,7 +1275,7 @@ impl IContactBatchVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactCardDelayedDataLoaderImpl: Sized + IClosableImpl {
-    fn SetData(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactCardDelayedDataLoader {
@@ -1296,10 +1296,10 @@ impl IContactCardDelayedDataLoaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactCardOptionsImpl: Sized {
-    fn HeaderKind(&self) -> ::windows::core::Result<ContactCardHeaderKind>;
-    fn SetHeaderKind(&self, value: ContactCardHeaderKind) -> ::windows::core::Result<()>;
-    fn InitialTabKind(&self) -> ::windows::core::Result<ContactCardTabKind>;
-    fn SetInitialTabKind(&self, value: ContactCardTabKind) -> ::windows::core::Result<()>;
+    fn HeaderKind(&mut self) -> ::windows::core::Result<ContactCardHeaderKind>;
+    fn SetHeaderKind(&mut self, value: ContactCardHeaderKind) -> ::windows::core::Result<()>;
+    fn InitialTabKind(&mut self) -> ::windows::core::Result<ContactCardTabKind>;
+    fn SetInitialTabKind(&mut self, value: ContactCardTabKind) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactCardOptions {
@@ -1352,7 +1352,7 @@ impl IContactCardOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactCardOptions2Impl: Sized + IContactCardOptionsImpl {
-    fn ServerSearchContactListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn ServerSearchContactListIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactCardOptions2 {
@@ -1383,8 +1383,8 @@ impl IContactCardOptions2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactChangeImpl: Sized {
-    fn ChangeType(&self) -> ::windows::core::Result<ContactChangeType>;
-    fn Contact(&self) -> ::windows::core::Result<Contact>;
+    fn ChangeType(&mut self) -> ::windows::core::Result<ContactChangeType>;
+    fn Contact(&mut self) -> ::windows::core::Result<Contact>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactChange {
@@ -1427,9 +1427,9 @@ impl IContactChangeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactChangeReaderImpl: Sized {
-    fn AcceptChanges(&self) -> ::windows::core::Result<()>;
-    fn AcceptChangesThrough(&self, lastchangetoaccept: &::core::option::Option<ContactChange>) -> ::windows::core::Result<()>;
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>>;
+    fn AcceptChanges(&mut self) -> ::windows::core::Result<()>;
+    fn AcceptChangesThrough(&mut self, lastchangetoaccept: &::core::option::Option<ContactChange>) -> ::windows::core::Result<()>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactChangeReader {
@@ -1470,9 +1470,9 @@ impl IContactChangeReaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactChangeTrackerImpl: Sized {
-    fn Enable(&self) -> ::windows::core::Result<()>;
-    fn GetChangeReader(&self) -> ::windows::core::Result<ContactChangeReader>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Enable(&mut self) -> ::windows::core::Result<()>;
+    fn GetChangeReader(&mut self) -> ::windows::core::Result<ContactChangeReader>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactChangeTracker {
@@ -1513,7 +1513,7 @@ impl IContactChangeTrackerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactChangeTracker2Impl: Sized {
-    fn IsTracking(&self) -> ::windows::core::Result<bool>;
+    fn IsTracking(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactChangeTracker2 {
@@ -1541,7 +1541,7 @@ impl IContactChangeTracker2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactChangedDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactChangedDeferral {
@@ -1562,7 +1562,7 @@ impl IContactChangedDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactChangedEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<ContactChangedDeferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<ContactChangedDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactChangedEventArgs {
@@ -1590,10 +1590,10 @@ impl IContactChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactConnectedServiceAccountImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetServiceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetServiceName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactConnectedServiceAccount {
@@ -1646,16 +1646,16 @@ impl IContactConnectedServiceAccountVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactDateImpl: Sized {
-    fn Day(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetDay(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn Month(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetMonth(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn Year(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetYear(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn Kind(&self) -> ::windows::core::Result<ContactDateKind>;
-    fn SetKind(&self, value: ContactDateKind) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Day(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetDay(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn Month(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetMonth(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn Year(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetYear(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<ContactDateKind>;
+    fn SetKind(&mut self, value: ContactDateKind) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactDate {
@@ -1759,12 +1759,12 @@ impl IContactDateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactEmailImpl: Sized {
-    fn Address(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Kind(&self) -> ::windows::core::Result<ContactEmailKind>;
-    fn SetKind(&self, value: ContactEmailKind) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Address(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<ContactEmailKind>;
+    fn SetKind(&mut self, value: ContactEmailKind) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactEmail {
@@ -1833,10 +1833,10 @@ impl IContactEmailVtbl {
     }
 }
 pub trait IContactFieldImpl: Sized {
-    fn Type(&self) -> ::windows::core::Result<ContactFieldType>;
-    fn Category(&self) -> ::windows::core::Result<ContactFieldCategory>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Type(&mut self) -> ::windows::core::Result<ContactFieldType>;
+    fn Category(&mut self) -> ::windows::core::Result<ContactFieldCategory>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
@@ -1900,9 +1900,9 @@ impl IContactFieldVtbl {
     }
 }
 pub trait IContactFieldFactoryImpl: Sized {
-    fn CreateField_Default(&self, value: &::windows::core::HSTRING, r#type: ContactFieldType) -> ::windows::core::Result<ContactField>;
-    fn CreateField_Category(&self, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
-    fn CreateField_Custom(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
+    fn CreateField_Default(&mut self, value: &::windows::core::HSTRING, r#type: ContactFieldType) -> ::windows::core::Result<ContactField>;
+    fn CreateField_Category(&mut self, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
+    fn CreateField_Custom(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
 }
 impl ::windows::core::RuntimeName for IContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
@@ -1970,14 +1970,14 @@ impl IContactGroupVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IContactInformationImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
-    fn Emails(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
-    fn PhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
-    fn Locations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactLocationField>>;
-    fn InstantMessages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>>;
-    fn CustomFields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
-    fn QueryCustomFields(&self, customname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetThumbnailAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
+    fn Emails(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
+    fn PhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
+    fn Locations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactLocationField>>;
+    fn InstantMessages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>>;
+    fn CustomFields(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
+    fn QueryCustomFields(&mut self, customname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactInformation {
@@ -2092,10 +2092,10 @@ impl IContactInformationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactInstantMessageFieldImpl: Sized + IContactFieldImpl {
-    fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Service(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LaunchUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn UserName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Service(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LaunchUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactInstantMessageField {
@@ -2162,9 +2162,9 @@ impl IContactInstantMessageFieldVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IContactInstantMessageFieldFactoryImpl: Sized {
-    fn CreateInstantMessage_Default(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_Category(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_All(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_Default(&mut self, username: &::windows::core::HSTRING) -> ::windows::core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_Category(&mut self, username: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_All(&mut self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ContactInstantMessageField>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IContactInstantMessageFieldFactory {
@@ -2225,22 +2225,22 @@ impl IContactInstantMessageFieldFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactJobInfoImpl: Sized {
-    fn CompanyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCompanyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CompanyYomiName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCompanyYomiName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Department(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDepartment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Manager(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetManager(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Office(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetOffice(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CompanyAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCompanyAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CompanyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCompanyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CompanyYomiName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCompanyYomiName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Department(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDepartment(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Manager(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetManager(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Office(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetOffice(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CompanyAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCompanyAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactJobInfo {
@@ -2395,11 +2395,11 @@ impl IContactJobInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactLaunchActionVerbsStaticsImpl: Sized {
-    fn Call(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Map(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Post(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VideoCall(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Call(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Map(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Post(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VideoCall(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactLaunchActionVerbsStatics {
@@ -2478,31 +2478,31 @@ impl IContactLaunchActionVerbsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SourceDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsHidden(&self) -> ::windows::core::Result<bool>;
-    fn SetIsHidden(&self, value: bool) -> ::windows::core::Result<()>;
-    fn OtherAppReadAccess(&self) -> ::windows::core::Result<ContactListOtherAppReadAccess>;
-    fn SetOtherAppReadAccess(&self, value: ContactListOtherAppReadAccess) -> ::windows::core::Result<()>;
-    fn OtherAppWriteAccess(&self) -> ::windows::core::Result<ContactListOtherAppWriteAccess>;
-    fn SetOtherAppWriteAccess(&self, value: ContactListOtherAppWriteAccess) -> ::windows::core::Result<()>;
-    fn ChangeTracker(&self) -> ::windows::core::Result<ContactChangeTracker>;
-    fn SyncManager(&self) -> ::windows::core::Result<ContactListSyncManager>;
-    fn SupportsServerSearch(&self) -> ::windows::core::Result<bool>;
-    fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContactChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveContactChanged(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetContactFromRemoteIdAsync(&self, remoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
-    fn GetMeContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
-    fn GetContactReader(&self) -> ::windows::core::Result<ContactReader>;
-    fn GetContactReaderWithOptions(&self, options: &::core::option::Option<ContactQueryOptions>) -> ::windows::core::Result<ContactReader>;
-    fn SaveContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DeleteContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn GetContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SourceDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsHidden(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsHidden(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn OtherAppReadAccess(&mut self) -> ::windows::core::Result<ContactListOtherAppReadAccess>;
+    fn SetOtherAppReadAccess(&mut self, value: ContactListOtherAppReadAccess) -> ::windows::core::Result<()>;
+    fn OtherAppWriteAccess(&mut self) -> ::windows::core::Result<ContactListOtherAppWriteAccess>;
+    fn SetOtherAppWriteAccess(&mut self, value: ContactListOtherAppWriteAccess) -> ::windows::core::Result<()>;
+    fn ChangeTracker(&mut self) -> ::windows::core::Result<ContactChangeTracker>;
+    fn SyncManager(&mut self) -> ::windows::core::Result<ContactListSyncManager>;
+    fn SupportsServerSearch(&mut self) -> ::windows::core::Result<bool>;
+    fn UserDataAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContactChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveContactChanged(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetContactFromRemoteIdAsync(&mut self, remoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn GetMeContactAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn GetContactReader(&mut self) -> ::windows::core::Result<ContactReader>;
+    fn GetContactReaderWithOptions(&mut self, options: &::core::option::Option<ContactQueryOptions>) -> ::windows::core::Result<ContactReader>;
+    fn SaveContactAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DeleteContactAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetContactAsync(&mut self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactList {
@@ -2786,9 +2786,9 @@ impl IContactListVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactList2Impl: Sized {
-    fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetSupportsServerSearch(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SyncConstraints(&self) -> ::windows::core::Result<ContactListSyncConstraints>;
+    fn RegisterSyncManagerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetSupportsServerSearch(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SyncConstraints(&mut self) -> ::windows::core::Result<ContactListSyncConstraints>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactList2 {
@@ -2836,8 +2836,8 @@ impl IContactList2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactList3Impl: Sized {
-    fn LimitedWriteOperations(&self) -> ::windows::core::Result<ContactListLimitedWriteOperations>;
-    fn GetChangeTracker(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<ContactChangeTracker>;
+    fn LimitedWriteOperations(&mut self) -> ::windows::core::Result<ContactListLimitedWriteOperations>;
+    fn GetChangeTracker(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<ContactChangeTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactList3 {
@@ -2880,8 +2880,8 @@ impl IContactList3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListLimitedWriteOperationsImpl: Sized {
-    fn TryCreateOrUpdateContactAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryDeleteContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryCreateOrUpdateContactAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryDeleteContactAsync(&mut self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListLimitedWriteOperations {
@@ -2924,62 +2924,62 @@ impl IContactListLimitedWriteOperationsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncConstraintsImpl: Sized {
-    fn CanSyncDescriptions(&self) -> ::windows::core::Result<bool>;
-    fn SetCanSyncDescriptions(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MaxHomePhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxHomePhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxMobilePhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxMobilePhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxWorkPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxWorkPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxOtherPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxOtherPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxPagerPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxPagerPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxBusinessFaxPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxBusinessFaxPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxHomeFaxPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxHomeFaxPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxCompanyPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxCompanyPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxAssistantPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxAssistantPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxRadioPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxRadioPhoneNumbers(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxPersonalEmailAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxPersonalEmailAddresses(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxWorkEmailAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxWorkEmailAddresses(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxOtherEmailAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxOtherEmailAddresses(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxHomeAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxHomeAddresses(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxWorkAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxWorkAddresses(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxOtherAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxOtherAddresses(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxBirthdayDates(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxBirthdayDates(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxAnniversaryDates(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxAnniversaryDates(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxOtherDates(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxOtherDates(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxOtherRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxOtherRelationships(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxSpouseRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxSpouseRelationships(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxPartnerRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxPartnerRelationships(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxSiblingRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxSiblingRelationships(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxParentRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxParentRelationships(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxChildRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxChildRelationships(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxJobInfo(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxJobInfo(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
-    fn MaxWebsites(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
-    fn SetMaxWebsites(&self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn CanSyncDescriptions(&mut self) -> ::windows::core::Result<bool>;
+    fn SetCanSyncDescriptions(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MaxHomePhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxHomePhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxMobilePhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxMobilePhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxWorkPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxWorkPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxOtherPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxOtherPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxPagerPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxPagerPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxBusinessFaxPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxBusinessFaxPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxHomeFaxPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxHomeFaxPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxCompanyPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxCompanyPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxAssistantPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxAssistantPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxRadioPhoneNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxRadioPhoneNumbers(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxPersonalEmailAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxPersonalEmailAddresses(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxWorkEmailAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxWorkEmailAddresses(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxOtherEmailAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxOtherEmailAddresses(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxHomeAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxHomeAddresses(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxWorkAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxWorkAddresses(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxOtherAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxOtherAddresses(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxBirthdayDates(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxBirthdayDates(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxAnniversaryDates(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxAnniversaryDates(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxOtherDates(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxOtherDates(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxOtherRelationships(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxOtherRelationships(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxSpouseRelationships(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxSpouseRelationships(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxPartnerRelationships(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxPartnerRelationships(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxSiblingRelationships(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxSiblingRelationships(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxParentRelationships(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxParentRelationships(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxChildRelationships(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxChildRelationships(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxJobInfo(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxJobInfo(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
+    fn MaxWebsites(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>>;
+    fn SetMaxWebsites(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncConstraints {
@@ -3474,12 +3474,12 @@ impl IContactListSyncConstraintsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncManagerImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<ContactListSyncStatus>;
-    fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn LastAttemptedSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SyncStatusChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactListSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSyncStatusChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<ContactListSyncStatus>;
+    fn LastSuccessfulSyncTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn LastAttemptedSyncTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SyncAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SyncStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactListSyncManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSyncStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncManager {
@@ -3563,9 +3563,9 @@ impl IContactListSyncManagerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactListSyncManager2Impl: Sized {
-    fn SetStatus(&self, value: ContactListSyncStatus) -> ::windows::core::Result<()>;
-    fn SetLastSuccessfulSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn SetLastAttemptedSyncTime(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetStatus(&mut self, value: ContactListSyncStatus) -> ::windows::core::Result<()>;
+    fn SetLastSuccessfulSyncTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetLastAttemptedSyncTime(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactListSyncManager2 {
@@ -3599,12 +3599,12 @@ impl IContactListSyncManager2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactLocationFieldImpl: Sized + IContactFieldImpl {
-    fn UnstructuredAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Street(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn City(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Region(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PostalCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UnstructuredAddress(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Street(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn City(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Region(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Country(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PostalCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactLocationField {
@@ -3694,9 +3694,9 @@ impl IContactLocationFieldVtbl {
     }
 }
 pub trait IContactLocationFieldFactoryImpl: Sized {
-    fn CreateLocation_Default(&self, unstructuredaddress: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
-    fn CreateLocation_Category(&self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactLocationField>;
-    fn CreateLocation_All(&self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory, street: &::windows::core::HSTRING, city: &::windows::core::HSTRING, region: &::windows::core::HSTRING, country: &::windows::core::HSTRING, postalcode: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
+    fn CreateLocation_Default(&mut self, unstructuredaddress: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
+    fn CreateLocation_Category(&mut self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactLocationField>;
+    fn CreateLocation_All(&mut self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory, street: &::windows::core::HSTRING, city: &::windows::core::HSTRING, region: &::windows::core::HSTRING, country: &::windows::core::HSTRING, postalcode: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
 }
 impl ::windows::core::RuntimeName for IContactLocationFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";
@@ -3757,16 +3757,16 @@ impl IContactLocationFieldFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 pub trait IContactManagerForUserImpl: Sized {
-    fn ConvertContactToVCardAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
-    fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: &::core::option::Option<Contact>, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
-    fn ConvertVCardToContactAsync(&self, vcard: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
-    fn RequestStoreAsync(&self, accesstype: ContactStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
-    fn RequestAnnotationStoreAsync(&self, accesstype: ContactAnnotationStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>;
-    fn SystemDisplayNameOrder(&self) -> ::windows::core::Result<ContactNameOrder>;
-    fn SetSystemDisplayNameOrder(&self, value: ContactNameOrder) -> ::windows::core::Result<()>;
-    fn SystemSortOrder(&self) -> ::windows::core::Result<ContactNameOrder>;
-    fn SetSystemSortOrder(&self, value: ContactNameOrder) -> ::windows::core::Result<()>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn ConvertContactToVCardAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
+    fn ConvertContactToVCardAsyncWithMaxBytes(&mut self, contact: &::core::option::Option<Contact>, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
+    fn ConvertVCardToContactAsync(&mut self, vcard: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn RequestStoreAsync(&mut self, accesstype: ContactStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
+    fn RequestAnnotationStoreAsync(&mut self, accesstype: ContactAnnotationStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>;
+    fn SystemDisplayNameOrder(&mut self) -> ::windows::core::Result<ContactNameOrder>;
+    fn SetSystemDisplayNameOrder(&mut self, value: ContactNameOrder) -> ::windows::core::Result<()>;
+    fn SystemSortOrder(&mut self) -> ::windows::core::Result<ContactNameOrder>;
+    fn SetSystemSortOrder(&mut self, value: ContactNameOrder) -> ::windows::core::Result<()>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerForUser {
@@ -3891,7 +3891,7 @@ impl IContactManagerForUserVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactManagerForUser2Impl: Sized {
-    fn ShowFullContactCard(&self, contact: &::core::option::Option<Contact>, fullcontactcardoptions: &::core::option::Option<FullContactCardOptions>) -> ::windows::core::Result<()>;
+    fn ShowFullContactCard(&mut self, contact: &::core::option::Option<Contact>, fullcontactcardoptions: &::core::option::Option<FullContactCardOptions>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactManagerForUser2 {
@@ -3915,9 +3915,9 @@ impl IContactManagerForUser2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IContactManagerStaticsImpl: Sized {
-    fn ShowContactCard(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn ShowContactCardWithPlacement(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
-    fn ShowDelayLoadedContactCard(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<ContactCardDelayedDataLoader>;
+    fn ShowContactCard(&mut self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn ShowContactCardWithPlacement(&mut self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>;
+    fn ShowDelayLoadedContactCard(&mut self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<ContactCardDelayedDataLoader>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics {
@@ -3958,7 +3958,7 @@ impl IContactManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics2Impl: Sized + IContactManagerStaticsImpl {
-    fn RequestStoreAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
+    fn RequestStoreAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics2 {
@@ -3989,20 +3989,20 @@ impl IContactManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics3Impl: Sized + IContactManagerStaticsImpl + IContactManagerStatics2Impl {
-    fn ConvertContactToVCardAsync(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
-    fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: &::core::option::Option<Contact>, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
-    fn ConvertVCardToContactAsync(&self, vcard: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
-    fn RequestStoreAsyncWithAccessType(&self, accesstype: ContactStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
-    fn RequestAnnotationStoreAsync(&self, accesstype: ContactAnnotationStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>;
-    fn IsShowContactCardSupported(&self) -> ::windows::core::Result<bool>;
-    fn ShowContactCardWithOptions(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: &::core::option::Option<ContactCardOptions>) -> ::windows::core::Result<()>;
-    fn IsShowDelayLoadedContactCardSupported(&self) -> ::windows::core::Result<bool>;
-    fn ShowDelayLoadedContactCardWithOptions(&self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: &::core::option::Option<ContactCardOptions>) -> ::windows::core::Result<ContactCardDelayedDataLoader>;
-    fn ShowFullContactCard(&self, contact: &::core::option::Option<Contact>, fullcontactcardoptions: &::core::option::Option<FullContactCardOptions>) -> ::windows::core::Result<()>;
-    fn SystemDisplayNameOrder(&self) -> ::windows::core::Result<ContactNameOrder>;
-    fn SetSystemDisplayNameOrder(&self, value: ContactNameOrder) -> ::windows::core::Result<()>;
-    fn SystemSortOrder(&self) -> ::windows::core::Result<ContactNameOrder>;
-    fn SetSystemSortOrder(&self, value: ContactNameOrder) -> ::windows::core::Result<()>;
+    fn ConvertContactToVCardAsync(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
+    fn ConvertContactToVCardAsyncWithMaxBytes(&mut self, contact: &::core::option::Option<Contact>, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>;
+    fn ConvertVCardToContactAsync(&mut self, vcard: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn RequestStoreAsyncWithAccessType(&mut self, accesstype: ContactStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
+    fn RequestAnnotationStoreAsync(&mut self, accesstype: ContactAnnotationStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>;
+    fn IsShowContactCardSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn ShowContactCardWithOptions(&mut self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: &::core::option::Option<ContactCardOptions>) -> ::windows::core::Result<()>;
+    fn IsShowDelayLoadedContactCardSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn ShowDelayLoadedContactCardWithOptions(&mut self, contact: &::core::option::Option<Contact>, selection: &super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: &::core::option::Option<ContactCardOptions>) -> ::windows::core::Result<ContactCardDelayedDataLoader>;
+    fn ShowFullContactCard(&mut self, contact: &::core::option::Option<Contact>, fullcontactcardoptions: &::core::option::Option<FullContactCardOptions>) -> ::windows::core::Result<()>;
+    fn SystemDisplayNameOrder(&mut self) -> ::windows::core::Result<ContactNameOrder>;
+    fn SetSystemDisplayNameOrder(&mut self, value: ContactNameOrder) -> ::windows::core::Result<()>;
+    fn SystemSortOrder(&mut self) -> ::windows::core::Result<ContactNameOrder>;
+    fn SetSystemSortOrder(&mut self, value: ContactNameOrder) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics3 {
@@ -4173,7 +4173,7 @@ impl IContactManagerStatics3Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics4Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ContactManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ContactManagerForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics4 {
@@ -4201,9 +4201,9 @@ impl IContactManagerStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactManagerStatics5Impl: Sized {
-    fn IsShowFullContactCardSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn IncludeMiddleNameInSystemDisplayAndSort(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeMiddleNameInSystemDisplayAndSort(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsShowFullContactCardSupportedAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn IncludeMiddleNameInSystemDisplayAndSort(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeMiddleNameInSystemDisplayAndSort(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactManagerStatics5 {
@@ -4251,9 +4251,9 @@ impl IContactManagerStatics5Vtbl {
 }
 #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactMatchReasonImpl: Sized {
-    fn Field(&self) -> ::windows::core::Result<ContactMatchReasonKind>;
-    fn Segments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Field(&mut self) -> ::windows::core::Result<ContactMatchReasonKind>;
+    fn Segments(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactMatchReason {
@@ -4308,22 +4308,22 @@ impl IContactMatchReasonVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactNameImpl: Sized {
-    fn FirstName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFirstName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LastName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLastName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn MiddleName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMiddleName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn YomiGivenName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetYomiGivenName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn YomiFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetYomiFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn HonorificNameSuffix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHonorificNameSuffix(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn HonorificNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHonorificNamePrefix(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn YomiDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirstName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFirstName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LastName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLastName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn MiddleName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMiddleName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn YomiGivenName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetYomiGivenName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn YomiFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetYomiFamilyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn HonorificNameSuffix(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHonorificNameSuffix(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn HonorificNamePrefix(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHonorificNamePrefix(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn YomiDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactName {
@@ -4485,13 +4485,13 @@ impl IContactNameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait IContactPanelImpl: Sized {
-    fn ClosePanel(&self) -> ::windows::core::Result<()>;
-    fn HeaderColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::UI::Color>>;
-    fn SetHeaderColor(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::UI::Color>>) -> ::windows::core::Result<()>;
-    fn LaunchFullAppRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLaunchFullAppRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Closing(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosing(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ClosePanel(&mut self) -> ::windows::core::Result<()>;
+    fn HeaderColor(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::UI::Color>>;
+    fn SetHeaderColor(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::UI::Color>>) -> ::windows::core::Result<()>;
+    fn LaunchFullAppRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLaunchFullAppRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Closing(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosing(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPanel {
@@ -4566,7 +4566,7 @@ impl IContactPanelVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactPanelClosingEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPanelClosingEventArgs {
@@ -4597,8 +4597,8 @@ impl IContactPanelClosingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactPanelLaunchFullAppRequestedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn SetHandled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactPanelLaunchFullAppRequestedEventArgs {
@@ -4634,12 +4634,12 @@ impl IContactPanelLaunchFullAppRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactPhoneImpl: Sized {
-    fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Kind(&self) -> ::windows::core::Result<ContactPhoneKind>;
-    fn SetKind(&self, value: ContactPhoneKind) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Number(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNumber(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<ContactPhoneKind>;
+    fn SetKind(&mut self, value: ContactPhoneKind) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactPhone {
@@ -4709,13 +4709,13 @@ impl IContactPhoneVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactPickerImpl: Sized {
-    fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetCommitButtonText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SelectionMode(&self) -> ::windows::core::Result<ContactSelectionMode>;
-    fn SetSelectionMode(&self, value: ContactSelectionMode) -> ::windows::core::Result<()>;
-    fn DesiredFields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn PickSingleContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>;
-    fn PickMultipleContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>>;
+    fn CommitButtonText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetCommitButtonText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SelectionMode(&mut self) -> ::windows::core::Result<ContactSelectionMode>;
+    fn SetSelectionMode(&mut self, value: ContactSelectionMode) -> ::windows::core::Result<()>;
+    fn DesiredFields(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn PickSingleContactAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>;
+    fn PickMultipleContactsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPicker {
@@ -4804,9 +4804,9 @@ impl IContactPickerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactPicker2Impl: Sized {
-    fn DesiredFieldsWithContactFieldType(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactFieldType>>;
-    fn PickContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
-    fn PickContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>>;
+    fn DesiredFieldsWithContactFieldType(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactFieldType>>;
+    fn PickContactAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn PickContactsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPicker2 {
@@ -4861,7 +4861,7 @@ impl IContactPicker2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IContactPicker3Impl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPicker3 {
@@ -4889,8 +4889,8 @@ impl IContactPicker3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IContactPickerStaticsImpl: Sized {
-    fn CreateForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ContactPicker>;
-    fn IsSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn CreateForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<ContactPicker>;
+    fn IsSupportedAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactPickerStatics {
@@ -4933,15 +4933,15 @@ impl IContactPickerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactQueryOptionsImpl: Sized {
-    fn TextSearch(&self) -> ::windows::core::Result<ContactQueryTextSearch>;
-    fn ContactListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    fn IncludeContactsFromHiddenLists(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeContactsFromHiddenLists(&self, value: bool) -> ::windows::core::Result<()>;
-    fn DesiredFields(&self) -> ::windows::core::Result<ContactQueryDesiredFields>;
-    fn SetDesiredFields(&self, value: ContactQueryDesiredFields) -> ::windows::core::Result<()>;
-    fn DesiredOperations(&self) -> ::windows::core::Result<ContactAnnotationOperations>;
-    fn SetDesiredOperations(&self, value: ContactAnnotationOperations) -> ::windows::core::Result<()>;
-    fn AnnotationListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn TextSearch(&mut self) -> ::windows::core::Result<ContactQueryTextSearch>;
+    fn ContactListIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn IncludeContactsFromHiddenLists(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeContactsFromHiddenLists(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn DesiredFields(&mut self) -> ::windows::core::Result<ContactQueryDesiredFields>;
+    fn SetDesiredFields(&mut self, value: ContactQueryDesiredFields) -> ::windows::core::Result<()>;
+    fn DesiredOperations(&mut self) -> ::windows::core::Result<ContactAnnotationOperations>;
+    fn SetDesiredOperations(&mut self, value: ContactAnnotationOperations) -> ::windows::core::Result<()>;
+    fn AnnotationListIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactQueryOptions {
@@ -5047,8 +5047,8 @@ impl IContactQueryOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactQueryOptionsFactoryImpl: Sized {
-    fn CreateWithText(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<ContactQueryOptions>;
-    fn CreateWithTextAndFields(&self, text: &::windows::core::HSTRING, fields: ContactQuerySearchFields) -> ::windows::core::Result<ContactQueryOptions>;
+    fn CreateWithText(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<ContactQueryOptions>;
+    fn CreateWithTextAndFields(&mut self, text: &::windows::core::HSTRING, fields: ContactQuerySearchFields) -> ::windows::core::Result<ContactQueryOptions>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactQueryOptionsFactory {
@@ -5091,12 +5091,12 @@ impl IContactQueryOptionsFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactQueryTextSearchImpl: Sized {
-    fn Fields(&self) -> ::windows::core::Result<ContactQuerySearchFields>;
-    fn SetFields(&self, value: ContactQuerySearchFields) -> ::windows::core::Result<()>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SearchScope(&self) -> ::windows::core::Result<ContactQuerySearchScope>;
-    fn SetSearchScope(&self, value: ContactQuerySearchScope) -> ::windows::core::Result<()>;
+    fn Fields(&mut self) -> ::windows::core::Result<ContactQuerySearchFields>;
+    fn SetFields(&mut self, value: ContactQuerySearchFields) -> ::windows::core::Result<()>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SearchScope(&mut self) -> ::windows::core::Result<ContactQuerySearchScope>;
+    fn SetSearchScope(&mut self, value: ContactQuerySearchScope) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactQueryTextSearch {
@@ -5166,8 +5166,8 @@ impl IContactQueryTextSearchVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactReaderImpl: Sized {
-    fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactBatch>>;
-    fn GetMatchingPropertiesWithMatchReason(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>>;
+    fn ReadBatchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactBatch>>;
+    fn GetMatchingPropertiesWithMatchReason(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactReader {
@@ -5210,10 +5210,10 @@ impl IContactReaderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactSignificantOtherImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactSignificantOther {
@@ -5266,8 +5266,8 @@ impl IContactSignificantOtherVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactSignificantOther2Impl: Sized + IContactSignificantOtherImpl {
-    fn Relationship(&self) -> ::windows::core::Result<ContactRelationship>;
-    fn SetRelationship(&self, value: ContactRelationship) -> ::windows::core::Result<()>;
+    fn Relationship(&mut self) -> ::windows::core::Result<ContactRelationship>;
+    fn SetRelationship(&mut self, value: ContactRelationship) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactSignificantOther2 {
@@ -5303,9 +5303,9 @@ impl IContactSignificantOther2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactStoreImpl: Sized {
-    fn FindContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
-    fn FindContactsWithSearchTextAsync(&self, searchtext: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
-    fn GetContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn FindContactsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
+    fn FindContactsWithSearchTextAsync(&mut self, searchtext: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>;
+    fn GetContactAsync(&mut self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactStore {
@@ -5360,17 +5360,17 @@ impl IContactStoreVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IContactStore2Impl: Sized + IContactStoreImpl {
-    fn ChangeTracker(&self) -> ::windows::core::Result<ContactChangeTracker>;
-    fn ContactChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveContactChanged(&self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AggregateContactManager(&self) -> ::windows::core::Result<AggregateContactManager>;
-    fn FindContactListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>>;
-    fn GetContactListAsync(&self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>>;
-    fn CreateContactListAsync(&self, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>>;
-    fn GetMeContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
-    fn GetContactReader(&self) -> ::windows::core::Result<ContactReader>;
-    fn GetContactReaderWithOptions(&self, options: &::core::option::Option<ContactQueryOptions>) -> ::windows::core::Result<ContactReader>;
-    fn CreateContactListInAccountAsync(&self, displayname: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>>;
+    fn ChangeTracker(&mut self) -> ::windows::core::Result<ContactChangeTracker>;
+    fn ContactChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveContactChanged(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AggregateContactManager(&mut self) -> ::windows::core::Result<AggregateContactManager>;
+    fn FindContactListsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>>;
+    fn GetContactListAsync(&mut self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>>;
+    fn CreateContactListAsync(&mut self, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>>;
+    fn GetMeContactAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>;
+    fn GetContactReader(&mut self) -> ::windows::core::Result<ContactReader>;
+    fn GetContactReaderWithOptions(&mut self, options: &::core::option::Option<ContactQueryOptions>) -> ::windows::core::Result<ContactReader>;
+    fn CreateContactListInAccountAsync(&mut self, displayname: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactStore2 {
@@ -5514,7 +5514,7 @@ impl IContactStore2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContactStore3Impl: Sized {
-    fn GetChangeTracker(&self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<ContactChangeTracker>;
+    fn GetChangeTracker(&mut self, identity: &::windows::core::HSTRING) -> ::windows::core::Result<ContactChangeTracker>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContactStore3 {
@@ -5557,10 +5557,10 @@ impl IContactStoreNotificationTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactWebsiteImpl: Sized {
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactWebsite {
@@ -5613,8 +5613,8 @@ impl IContactWebsiteVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IContactWebsite2Impl: Sized + IContactWebsiteImpl {
-    fn RawValue(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetRawValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RawValue(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetRawValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IContactWebsite2 {
@@ -5650,8 +5650,8 @@ impl IContactWebsite2Vtbl {
 }
 #[cfg(all(feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 pub trait IFullContactCardOptionsImpl: Sized {
-    fn DesiredRemainingView(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ViewSizePreference>;
-    fn SetDesiredRemainingView(&self, value: super::super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()>;
+    fn DesiredRemainingView(&mut self) -> ::windows::core::Result<super::super::UI::ViewManagement::ViewSizePreference>;
+    fn SetDesiredRemainingView(&mut self, value: super::super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_ViewManagement", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFullContactCardOptions {
@@ -5687,12 +5687,12 @@ impl IFullContactCardOptionsVtbl {
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IKnownContactFieldStaticsImpl: Sized {
-    fn Email(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Location(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InstantMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ConvertNameToType(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ContactFieldType>;
-    fn ConvertTypeToName(&self, r#type: ContactFieldType) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Email(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Location(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InstantMessage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConvertNameToType(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ContactFieldType>;
+    fn ConvertTypeToName(&mut self, r#type: ContactFieldType) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKnownContactFieldStatics {
@@ -5783,7 +5783,7 @@ impl IKnownContactFieldStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPinnedContactIdsQueryResultImpl: Sized {
-    fn ContactIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn ContactIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPinnedContactIdsQueryResult {
@@ -5814,14 +5814,14 @@ impl IPinnedContactIdsQueryResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 pub trait IPinnedContactManagerImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
-    fn IsPinSurfaceSupported(&self, surface: PinnedContactSurface) -> ::windows::core::Result<bool>;
-    fn IsContactPinned(&self, contact: &::core::option::Option<Contact>, surface: PinnedContactSurface) -> ::windows::core::Result<bool>;
-    fn RequestPinContactAsync(&self, contact: &::core::option::Option<Contact>, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestPinContactsAsync(&self, contacts: &::core::option::Option<super::super::Foundation::Collections::IIterable<Contact>>, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestUnpinContactAsync(&self, contact: &::core::option::Option<Contact>, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn SignalContactActivity(&self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<()>;
-    fn GetPinnedContactIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn IsPinSurfaceSupported(&mut self, surface: PinnedContactSurface) -> ::windows::core::Result<bool>;
+    fn IsContactPinned(&mut self, contact: &::core::option::Option<Contact>, surface: PinnedContactSurface) -> ::windows::core::Result<bool>;
+    fn RequestPinContactAsync(&mut self, contact: &::core::option::Option<Contact>, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestPinContactsAsync(&mut self, contacts: &::core::option::Option<super::super::Foundation::Collections::IIterable<Contact>>, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestUnpinContactAsync(&mut self, contact: &::core::option::Option<Contact>, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SignalContactActivity(&mut self, contact: &::core::option::Option<Contact>) -> ::windows::core::Result<()>;
+    fn GetPinnedContactIdsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPinnedContactManager {
@@ -5929,9 +5929,9 @@ impl IPinnedContactManagerVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPinnedContactManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<PinnedContactManager>;
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PinnedContactManager>;
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<PinnedContactManager>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PinnedContactManager>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPinnedContactManagerStatics {

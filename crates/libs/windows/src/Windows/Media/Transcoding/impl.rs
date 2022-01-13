@@ -1,20 +1,20 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaTranscoderImpl: Sized {
-    fn SetTrimStartTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn TrimStartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetTrimStopTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn TrimStopTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetAlwaysReencode(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AlwaysReencode(&self) -> ::windows::core::Result<bool>;
-    fn SetHardwareAccelerationEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn HardwareAccelerationEnabled(&self) -> ::windows::core::Result<bool>;
-    fn AddAudioEffect(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AddAudioEffectWithSettings(&self, activatableclassid: &::windows::core::HSTRING, effectrequired: bool, configuration: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
-    fn AddVideoEffect(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AddVideoEffectWithSettings(&self, activatableclassid: &::windows::core::HSTRING, effectrequired: bool, configuration: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
-    fn ClearEffects(&self) -> ::windows::core::Result<()>;
-    fn PrepareFileTranscodeAsync(&self, source: &::core::option::Option<super::super::Storage::IStorageFile>, destination: &::core::option::Option<super::super::Storage::IStorageFile>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
-    fn PrepareStreamTranscodeAsync(&self, source: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, destination: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
+    fn SetTrimStartTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn TrimStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetTrimStopTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn TrimStopTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetAlwaysReencode(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AlwaysReencode(&mut self) -> ::windows::core::Result<bool>;
+    fn SetHardwareAccelerationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn HardwareAccelerationEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn AddAudioEffect(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AddAudioEffectWithSettings(&mut self, activatableclassid: &::windows::core::HSTRING, effectrequired: bool, configuration: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
+    fn AddVideoEffect(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AddVideoEffectWithSettings(&mut self, activatableclassid: &::windows::core::HSTRING, effectrequired: bool, configuration: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
+    fn ClearEffects(&mut self) -> ::windows::core::Result<()>;
+    fn PrepareFileTranscodeAsync(&mut self, source: &::core::option::Option<super::super::Storage::IStorageFile>, destination: &::core::option::Option<super::super::Storage::IStorageFile>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
+    fn PrepareStreamTranscodeAsync(&mut self, source: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, destination: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaTranscoder {
@@ -158,9 +158,9 @@ impl IMediaTranscoderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaTranscoder2Impl: Sized {
-    fn PrepareMediaStreamSourceTranscodeAsync(&self, source: &::core::option::Option<super::Core::IMediaSource>, destination: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
-    fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()>;
-    fn VideoProcessingAlgorithm(&self) -> ::windows::core::Result<MediaVideoProcessingAlgorithm>;
+    fn PrepareMediaStreamSourceTranscodeAsync(&mut self, source: &::core::option::Option<super::Core::IMediaSource>, destination: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
+    fn SetVideoProcessingAlgorithm(&mut self, value: MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()>;
+    fn VideoProcessingAlgorithm(&mut self) -> ::windows::core::Result<MediaVideoProcessingAlgorithm>;
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaTranscoder2 {
@@ -212,9 +212,9 @@ impl IMediaTranscoder2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrepareTranscodeResultImpl: Sized {
-    fn CanTranscode(&self) -> ::windows::core::Result<bool>;
-    fn FailureReason(&self) -> ::windows::core::Result<TranscodeFailureReason>;
-    fn TranscodeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<f64>>;
+    fn CanTranscode(&mut self) -> ::windows::core::Result<bool>;
+    fn FailureReason(&mut self) -> ::windows::core::Result<TranscodeFailureReason>;
+    fn TranscodeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<f64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrepareTranscodeResult {

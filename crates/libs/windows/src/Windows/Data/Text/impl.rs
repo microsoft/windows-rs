@@ -1,8 +1,8 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAlternateWordFormImpl: Sized {
-    fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment>;
-    fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NormalizationFormat(&self) -> ::windows::core::Result<AlternateNormalizationFormat>;
+    fn SourceTextSegment(&mut self) -> ::windows::core::Result<TextSegment>;
+    fn AlternateText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NormalizationFormat(&mut self) -> ::windows::core::Result<AlternateNormalizationFormat>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAlternateWordForm {
@@ -57,8 +57,8 @@ impl IAlternateWordFormVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectableWordSegmentImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SourceTextSegment(&mut self) -> ::windows::core::Result<TextSegment>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectableWordSegment {
@@ -101,10 +101,10 @@ impl ISelectableWordSegmentVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISelectableWordsSegmenterImpl: Sized {
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetTokenAt(&self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<SelectableWordSegment>;
-    fn GetTokens(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>;
-    fn Tokenize(&self, text: &::windows::core::HSTRING, startindex: u32, handler: &::core::option::Option<SelectableWordSegmentsTokenizingHandler>) -> ::windows::core::Result<()>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetTokenAt(&mut self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<SelectableWordSegment>;
+    fn GetTokens(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>;
+    fn Tokenize(&mut self, text: &::windows::core::HSTRING, startindex: u32, handler: &::core::option::Option<SelectableWordSegmentsTokenizingHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISelectableWordsSegmenter {
@@ -164,7 +164,7 @@ impl ISelectableWordsSegmenterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISelectableWordsSegmenterFactoryImpl: Sized {
-    fn CreateWithLanguage(&self, language: &::windows::core::HSTRING) -> ::windows::core::Result<SelectableWordsSegmenter>;
+    fn CreateWithLanguage(&mut self, language: &::windows::core::HSTRING) -> ::windows::core::Result<SelectableWordsSegmenter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISelectableWordsSegmenterFactory {
@@ -195,8 +195,8 @@ impl ISelectableWordsSegmenterFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISemanticTextQueryImpl: Sized {
-    fn Find(&self, content: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>>;
-    fn FindInProperty(&self, propertycontent: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>>;
+    fn Find(&mut self, content: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>>;
+    fn FindInProperty(&mut self, propertycontent: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISemanticTextQuery {
@@ -239,8 +239,8 @@ impl ISemanticTextQueryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISemanticTextQueryFactoryImpl: Sized {
-    fn Create(&self, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<SemanticTextQuery>;
-    fn CreateWithLanguage(&self, aqsfilter: &::windows::core::HSTRING, filterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<SemanticTextQuery>;
+    fn Create(&mut self, aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<SemanticTextQuery>;
+    fn CreateWithLanguage(&mut self, aqsfilter: &::windows::core::HSTRING, filterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<SemanticTextQuery>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISemanticTextQueryFactory {
@@ -283,10 +283,10 @@ impl ISemanticTextQueryFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITextConversionGeneratorImpl: Sized {
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool>;
-    fn GetCandidatesAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn GetCandidatesWithMaxCountAsync(&self, input: &::windows::core::HSTRING, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LanguageAvailableButNotInstalled(&mut self) -> ::windows::core::Result<bool>;
+    fn GetCandidatesAsync(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn GetCandidatesWithMaxCountAsync(&mut self, input: &::windows::core::HSTRING, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextConversionGenerator {
@@ -353,7 +353,7 @@ impl ITextConversionGeneratorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextConversionGeneratorFactoryImpl: Sized {
-    fn Create(&self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextConversionGenerator>;
+    fn Create(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextConversionGenerator>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextConversionGeneratorFactory {
@@ -381,8 +381,8 @@ impl ITextConversionGeneratorFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextPhonemeImpl: Sized {
-    fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReadingText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReadingText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextPhoneme {
@@ -425,10 +425,10 @@ impl ITextPhonemeVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITextPredictionGeneratorImpl: Sized {
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool>;
-    fn GetCandidatesAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn GetCandidatesWithMaxCountAsync(&self, input: &::windows::core::HSTRING, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LanguageAvailableButNotInstalled(&mut self) -> ::windows::core::Result<bool>;
+    fn GetCandidatesAsync(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn GetCandidatesWithMaxCountAsync(&mut self, input: &::windows::core::HSTRING, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextPredictionGenerator {
@@ -495,10 +495,10 @@ impl ITextPredictionGeneratorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Text_Core", feature = "implement_exclusive"))]
 pub trait ITextPredictionGenerator2Impl: Sized {
-    fn GetCandidatesWithParametersAsync(&self, input: &::windows::core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn GetNextWordCandidatesAsync(&self, maxcandidates: u32, previousstrings: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
-    fn InputScope(&self) -> ::windows::core::Result<super::super::UI::Text::Core::CoreTextInputScope>;
-    fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::Result<()>;
+    fn GetCandidatesWithParametersAsync(&mut self, input: &::windows::core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn GetNextWordCandidatesAsync(&mut self, maxcandidates: u32, previousstrings: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
+    fn InputScope(&mut self) -> ::windows::core::Result<super::super::UI::Text::Core::CoreTextInputScope>;
+    fn SetInputScope(&mut self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Text_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextPredictionGenerator2 {
@@ -558,7 +558,7 @@ impl ITextPredictionGenerator2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextPredictionGeneratorFactoryImpl: Sized {
-    fn Create(&self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextPredictionGenerator>;
+    fn Create(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextPredictionGenerator>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextPredictionGeneratorFactory {
@@ -586,9 +586,9 @@ impl ITextPredictionGeneratorFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITextReverseConversionGeneratorImpl: Sized {
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool>;
-    fn ConvertBackAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LanguageAvailableButNotInstalled(&mut self) -> ::windows::core::Result<bool>;
+    fn ConvertBackAsync(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextReverseConversionGenerator {
@@ -643,7 +643,7 @@ impl ITextReverseConversionGeneratorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITextReverseConversionGenerator2Impl: Sized {
-    fn GetPhonemesAsync(&self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>;
+    fn GetPhonemesAsync(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITextReverseConversionGenerator2 {
@@ -674,7 +674,7 @@ impl ITextReverseConversionGenerator2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITextReverseConversionGeneratorFactoryImpl: Sized {
-    fn Create(&self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextReverseConversionGenerator>;
+    fn Create(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextReverseConversionGenerator>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITextReverseConversionGeneratorFactory {
@@ -705,23 +705,23 @@ impl ITextReverseConversionGeneratorFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUnicodeCharactersStaticsImpl: Sized {
-    fn GetCodepointFromSurrogatePair(&self, highsurrogate: u32, lowsurrogate: u32) -> ::windows::core::Result<u32>;
-    fn GetSurrogatePairFromCodepoint(&self, codepoint: u32, highsurrogate: &mut u16, lowsurrogate: &mut u16) -> ::windows::core::Result<()>;
-    fn IsHighSurrogate(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsLowSurrogate(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsSupplementary(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsNoncharacter(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsWhitespace(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsAlphabetic(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsCased(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsUppercase(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsLowercase(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsIdStart(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsIdContinue(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsGraphemeBase(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn IsGraphemeExtend(&self, codepoint: u32) -> ::windows::core::Result<bool>;
-    fn GetNumericType(&self, codepoint: u32) -> ::windows::core::Result<UnicodeNumericType>;
-    fn GetGeneralCategory(&self, codepoint: u32) -> ::windows::core::Result<UnicodeGeneralCategory>;
+    fn GetCodepointFromSurrogatePair(&mut self, highsurrogate: u32, lowsurrogate: u32) -> ::windows::core::Result<u32>;
+    fn GetSurrogatePairFromCodepoint(&mut self, codepoint: u32, highsurrogate: &mut u16, lowsurrogate: &mut u16) -> ::windows::core::Result<()>;
+    fn IsHighSurrogate(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsLowSurrogate(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsSupplementary(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsNoncharacter(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsWhitespace(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsAlphabetic(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsCased(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsUppercase(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsLowercase(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsIdStart(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsIdContinue(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsGraphemeBase(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn IsGraphemeExtend(&mut self, codepoint: u32) -> ::windows::core::Result<bool>;
+    fn GetNumericType(&mut self, codepoint: u32) -> ::windows::core::Result<UnicodeNumericType>;
+    fn GetGeneralCategory(&mut self, codepoint: u32) -> ::windows::core::Result<UnicodeGeneralCategory>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUnicodeCharactersStatics {
@@ -937,9 +937,9 @@ impl IUnicodeCharactersStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWordSegmentImpl: Sized {
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment>;
-    fn AlternateForms(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AlternateWordForm>>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SourceTextSegment(&mut self) -> ::windows::core::Result<TextSegment>;
+    fn AlternateForms(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AlternateWordForm>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWordSegment {
@@ -994,10 +994,10 @@ impl IWordSegmentVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWordsSegmenterImpl: Sized {
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetTokenAt(&self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<WordSegment>;
-    fn GetTokens(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WordSegment>>;
-    fn Tokenize(&self, text: &::windows::core::HSTRING, startindex: u32, handler: &::core::option::Option<WordSegmentsTokenizingHandler>) -> ::windows::core::Result<()>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetTokenAt(&mut self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<WordSegment>;
+    fn GetTokens(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WordSegment>>;
+    fn Tokenize(&mut self, text: &::windows::core::HSTRING, startindex: u32, handler: &::core::option::Option<WordSegmentsTokenizingHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWordsSegmenter {
@@ -1057,7 +1057,7 @@ impl IWordsSegmenterVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWordsSegmenterFactoryImpl: Sized {
-    fn CreateWithLanguage(&self, language: &::windows::core::HSTRING) -> ::windows::core::Result<WordsSegmenter>;
+    fn CreateWithLanguage(&mut self, language: &::windows::core::HSTRING) -> ::windows::core::Result<WordsSegmenter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWordsSegmenterFactory {

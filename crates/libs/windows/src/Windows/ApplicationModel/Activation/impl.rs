@@ -1,7 +1,7 @@
 pub trait IActivatedEventArgsImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<ActivationKind>;
-    fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState>;
-    fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen>;
+    fn Kind(&mut self) -> ::windows::core::Result<ActivationKind>;
+    fn PreviousExecutionState(&mut self) -> ::windows::core::Result<ApplicationExecutionState>;
+    fn SplashScreen(&mut self) -> ::windows::core::Result<SplashScreen>;
 }
 impl ::windows::core::RuntimeName for IActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IActivatedEventArgs";
@@ -54,7 +54,7 @@ impl IActivatedEventArgsVtbl {
 }
 #[cfg(feature = "System")]
 pub trait IActivatedEventArgsWithUserImpl: Sized + IActivatedEventArgsImpl {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(feature = "System")]
 impl ::windows::core::RuntimeName for IActivatedEventArgsWithUser {
@@ -81,7 +81,7 @@ impl IActivatedEventArgsWithUserVtbl {
     }
 }
 pub trait IApplicationViewActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32>;
+    fn CurrentlyShownApplicationViewId(&mut self) -> ::windows::core::Result<i32>;
 }
 impl ::windows::core::RuntimeName for IApplicationViewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IApplicationViewActivatedEventArgs";
@@ -109,7 +109,7 @@ impl IApplicationViewActivatedEventArgsVtbl {
     }
 }
 pub trait IAppointmentsProviderActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Verb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IAppointmentsProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderActivatedEventArgs";
@@ -138,7 +138,7 @@ impl IAppointmentsProviderActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 pub trait IAppointmentsProviderAddAppointmentActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn AddAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation>;
+    fn AddAppointmentOperation(&mut self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation>;
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl ::windows::core::RuntimeName for IAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -169,7 +169,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 pub trait IAppointmentsProviderRemoveAppointmentActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn RemoveAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>;
+    fn RemoveAppointmentOperation(&mut self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>;
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl ::windows::core::RuntimeName for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -200,7 +200,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 pub trait IAppointmentsProviderReplaceAppointmentActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn ReplaceAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>;
+    fn ReplaceAppointmentOperation(&mut self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>;
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl ::windows::core::RuntimeName for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -231,9 +231,9 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
-    fn LocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RoamingId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InstanceStartDate(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn LocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RoamingId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -288,8 +288,8 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IAppointmentsProviderShowTimeFrameActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IAppointmentsProviderActivatedEventArgsImpl {
-    fn TimeToShow(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn TimeToShow(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -332,7 +332,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Background")]
 pub trait IBackgroundActivatedEventArgsImpl: Sized {
-    fn TaskInstance(&self) -> ::windows::core::Result<super::Background::IBackgroundTaskInstance>;
+    fn TaskInstance(&mut self) -> ::windows::core::Result<super::Background::IBackgroundTaskInstance>;
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::windows::core::RuntimeName for IBackgroundActivatedEventArgs {
@@ -362,7 +362,7 @@ impl IBackgroundActivatedEventArgsVtbl {
     }
 }
 pub trait IBarcodeScannerPreviewActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn ConnectionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConnectionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IBarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs";
@@ -391,7 +391,7 @@ impl IBarcodeScannerPreviewActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Storage_Provider")]
 pub trait ICachedFileUpdaterActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn CachedFileUpdaterUI(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileUpdaterUI>;
+    fn CachedFileUpdaterUI(&mut self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileUpdaterUI>;
 }
 #[cfg(feature = "Storage_Provider")]
 impl ::windows::core::RuntimeName for ICachedFileUpdaterActivatedEventArgs {
@@ -421,8 +421,8 @@ impl ICachedFileUpdaterActivatedEventArgsVtbl {
     }
 }
 pub trait ICameraSettingsActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn VideoDeviceController(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn VideoDeviceExtension(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn VideoDeviceController(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn VideoDeviceExtension(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for ICameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ICameraSettingsActivatedEventArgs";
@@ -462,7 +462,7 @@ impl ICameraSettingsActivatedEventArgsVtbl {
     }
 }
 pub trait ICommandLineActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Operation(&self) -> ::windows::core::Result<CommandLineActivationOperation>;
+    fn Operation(&mut self) -> ::windows::core::Result<CommandLineActivationOperation>;
 }
 impl ::windows::core::RuntimeName for ICommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs";
@@ -491,11 +491,11 @@ impl ICommandLineActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICommandLineActivationOperationImpl: Sized {
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CurrentDirectoryPath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExitCode(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ExitCode(&self) -> ::windows::core::Result<i32>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CurrentDirectoryPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetExitCode(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ExitCode(&mut self) -> ::windows::core::Result<i32>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICommandLineActivationOperation {
@@ -566,7 +566,7 @@ impl ICommandLineActivationOperationVtbl {
     }
 }
 pub trait IContactActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Verb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IContactActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactActivatedEventArgs";
@@ -592,9 +592,9 @@ impl IContactActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactCallActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact>;
+    fn ServiceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServiceUserId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contacts::Contact>;
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl ::windows::core::RuntimeName for IContactCallActivatedEventArgs {
@@ -649,8 +649,8 @@ impl IContactCallActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactMapActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn Address(&self) -> ::windows::core::Result<super::Contacts::ContactAddress>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact>;
+    fn Address(&mut self) -> ::windows::core::Result<super::Contacts::ContactAddress>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contacts::Contact>;
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl ::windows::core::RuntimeName for IContactMapActivatedEventArgs {
@@ -693,9 +693,9 @@ impl IContactMapActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactMessageActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact>;
+    fn ServiceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServiceUserId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contacts::Contact>;
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl ::windows::core::RuntimeName for IContactMessageActivatedEventArgs {
@@ -750,8 +750,8 @@ impl IContactMessageActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactPanelActivatedEventArgsImpl: Sized {
-    fn ContactPanel(&self) -> ::windows::core::Result<super::Contacts::ContactPanel>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact>;
+    fn ContactPanel(&mut self) -> ::windows::core::Result<super::Contacts::ContactPanel>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contacts::Contact>;
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl ::windows::core::RuntimeName for IContactPanelActivatedEventArgs {
@@ -794,7 +794,7 @@ impl IContactPanelActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub trait IContactPickerActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn ContactPickerUI(&self) -> ::windows::core::Result<super::Contacts::Provider::ContactPickerUI>;
+    fn ContactPickerUI(&mut self) -> ::windows::core::Result<super::Contacts::Provider::ContactPickerUI>;
 }
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 impl ::windows::core::RuntimeName for IContactPickerActivatedEventArgs {
@@ -825,9 +825,9 @@ impl IContactPickerActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactPostActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact>;
+    fn ServiceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServiceUserId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contacts::Contact>;
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl ::windows::core::RuntimeName for IContactPostActivatedEventArgs {
@@ -882,9 +882,9 @@ impl IContactPostActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactVideoCallActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + IContactActivatedEventArgsImpl {
-    fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact>;
+    fn ServiceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ServiceUserId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Contact(&mut self) -> ::windows::core::Result<super::Contacts::Contact>;
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl ::windows::core::RuntimeName for IContactVideoCallActivatedEventArgs {
@@ -938,7 +938,7 @@ impl IContactVideoCallActivatedEventArgsVtbl {
     }
 }
 pub trait IContactsProviderActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Verb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IContactsProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactsProviderActivatedEventArgs";
@@ -964,7 +964,7 @@ impl IContactsProviderActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IContinuationActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn ContinuationData(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IContinuationActivatedEventArgs {
@@ -994,8 +994,8 @@ impl IContinuationActivatedEventArgsVtbl {
     }
 }
 pub trait IDeviceActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn DeviceInformationId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DeviceInformationId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Verb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IDeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IDeviceActivatedEventArgs";
@@ -1036,7 +1036,7 @@ impl IDeviceActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Devices_Enumeration")]
 pub trait IDevicePairingActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn DeviceInformation(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
+    fn DeviceInformation(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation>;
 }
 #[cfg(feature = "Devices_Enumeration")]
 impl ::windows::core::RuntimeName for IDevicePairingActivatedEventArgs {
@@ -1066,7 +1066,7 @@ impl IDevicePairingActivatedEventArgsVtbl {
     }
 }
 pub trait IDialReceiverActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + ILaunchActivatedEventArgsImpl {
-    fn AppName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IDialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IDialReceiverActivatedEventArgs";
@@ -1092,8 +1092,8 @@ impl IDialReceiverActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
 pub trait IFileActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>;
-    fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Files(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>;
+    fn Verb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
 impl ::windows::core::RuntimeName for IFileActivatedEventArgs {
@@ -1135,7 +1135,7 @@ impl IFileActivatedEventArgsVtbl {
     }
 }
 pub trait IFileActivatedEventArgsWithCallerPackageFamilyNameImpl: Sized + IActivatedEventArgsImpl {
-    fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CallerPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IFileActivatedEventArgsWithCallerPackageFamilyName {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithCallerPackageFamilyName";
@@ -1164,7 +1164,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyNameVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Search"))]
 pub trait IFileActivatedEventArgsWithNeighboringFilesImpl: Sized + IActivatedEventArgsImpl + IFileActivatedEventArgsImpl {
-    fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::super::Storage::Search::StorageFileQueryResult>;
+    fn NeighboringFilesQuery(&mut self) -> ::windows::core::Result<super::super::Storage::Search::StorageFileQueryResult>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Search"))]
 impl ::windows::core::RuntimeName for IFileActivatedEventArgsWithNeighboringFiles {
@@ -1195,7 +1195,7 @@ impl IFileActivatedEventArgsWithNeighboringFilesVtbl {
 }
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub trait IFileOpenPickerActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn FileOpenPickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI>;
+    fn FileOpenPickerUI(&mut self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI>;
 }
 #[cfg(feature = "Storage_Pickers_Provider")]
 impl ::windows::core::RuntimeName for IFileOpenPickerActivatedEventArgs {
@@ -1225,7 +1225,7 @@ impl IFileOpenPickerActivatedEventArgsVtbl {
     }
 }
 pub trait IFileOpenPickerActivatedEventArgs2Impl: Sized {
-    fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CallerPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IFileOpenPickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs2";
@@ -1254,7 +1254,7 @@ impl IFileOpenPickerActivatedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait IFileOpenPickerContinuationEventArgsImpl: Sized + IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
+    fn Files(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IFileOpenPickerContinuationEventArgs {
@@ -1282,7 +1282,7 @@ impl IFileOpenPickerContinuationEventArgsVtbl {
 }
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub trait IFileSavePickerActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn FileSavePickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI>;
+    fn FileSavePickerUI(&mut self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI>;
 }
 #[cfg(feature = "Storage_Pickers_Provider")]
 impl ::windows::core::RuntimeName for IFileSavePickerActivatedEventArgs {
@@ -1312,8 +1312,8 @@ impl IFileSavePickerActivatedEventArgsVtbl {
     }
 }
 pub trait IFileSavePickerActivatedEventArgs2Impl: Sized {
-    fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EnterpriseId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CallerPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EnterpriseId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IFileSavePickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs2";
@@ -1354,7 +1354,7 @@ impl IFileSavePickerActivatedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait IFileSavePickerContinuationEventArgsImpl: Sized + IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
+    fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IFileSavePickerContinuationEventArgs {
@@ -1382,7 +1382,7 @@ impl IFileSavePickerContinuationEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait IFolderPickerContinuationEventArgsImpl: Sized + IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn Folder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
+    fn Folder(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IFolderPickerContinuationEventArgs {
@@ -1409,8 +1409,8 @@ impl IFolderPickerContinuationEventArgsVtbl {
     }
 }
 pub trait ILaunchActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TileId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for ILaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs";
@@ -1450,7 +1450,7 @@ impl ILaunchActivatedEventArgsVtbl {
     }
 }
 pub trait ILaunchActivatedEventArgs2Impl: Sized + IActivatedEventArgsImpl + ILaunchActivatedEventArgsImpl {
-    fn TileActivatedInfo(&self) -> ::windows::core::Result<TileActivatedInfo>;
+    fn TileActivatedInfo(&mut self) -> ::windows::core::Result<TileActivatedInfo>;
 }
 impl ::windows::core::RuntimeName for ILaunchActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs2";
@@ -1478,7 +1478,7 @@ impl ILaunchActivatedEventArgs2Vtbl {
     }
 }
 pub trait ILockScreenActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Info(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Info(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for ILockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs";
@@ -1504,7 +1504,7 @@ impl ILockScreenActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Calls")]
 pub trait ILockScreenCallActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl + ILaunchActivatedEventArgsImpl {
-    fn CallUI(&self) -> ::windows::core::Result<super::Calls::LockScreenCallUI>;
+    fn CallUI(&mut self) -> ::windows::core::Result<super::Calls::LockScreenCallUI>;
 }
 #[cfg(feature = "ApplicationModel_Calls")]
 impl ::windows::core::RuntimeName for ILockScreenCallActivatedEventArgs {
@@ -1531,7 +1531,7 @@ impl ILockScreenCallActivatedEventArgsVtbl {
     }
 }
 pub trait IPhoneCallActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn LineId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl ::windows::core::RuntimeName for IPhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
@@ -1556,7 +1556,7 @@ impl IPhoneCallActivatedEventArgsVtbl {
     }
 }
 pub trait IPickerReturnedActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn PickerOperationId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PickerOperationId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IPickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs";
@@ -1584,7 +1584,7 @@ impl IPickerReturnedActivatedEventArgsVtbl {
     }
 }
 pub trait IPrelaunchActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn PrelaunchActivated(&self) -> ::windows::core::Result<bool>;
+    fn PrelaunchActivated(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IPrelaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IPrelaunchActivatedEventArgs";
@@ -1613,7 +1613,7 @@ impl IPrelaunchActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub trait IPrint3DWorkflowActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Workflow(&self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow>;
+    fn Workflow(&mut self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow>;
 }
 #[cfg(feature = "Devices_Printers_Extensions")]
 impl ::windows::core::RuntimeName for IPrint3DWorkflowActivatedEventArgs {
@@ -1644,7 +1644,7 @@ impl IPrint3DWorkflowActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub trait IPrintTaskSettingsActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Configuration(&self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>;
+    fn Configuration(&mut self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>;
 }
 #[cfg(feature = "Devices_Printers_Extensions")]
 impl ::windows::core::RuntimeName for IPrintTaskSettingsActivatedEventArgs {
@@ -1675,7 +1675,7 @@ impl IPrintTaskSettingsActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IProtocolActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IProtocolActivatedEventArgs {
@@ -1703,8 +1703,8 @@ impl IProtocolActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataImpl: Sized + IActivatedEventArgsImpl {
-    fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Data(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn CallerPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
@@ -1747,7 +1747,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl {
 }
 #[cfg(feature = "System")]
 pub trait IProtocolForResultsActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn ProtocolForResultsOperation(&self) -> ::windows::core::Result<super::super::System::ProtocolForResultsOperation>;
+    fn ProtocolForResultsOperation(&mut self) -> ::windows::core::Result<super::super::System::ProtocolForResultsOperation>;
 }
 #[cfg(feature = "System")]
 impl ::windows::core::RuntimeName for IProtocolForResultsActivatedEventArgs {
@@ -1777,7 +1777,7 @@ impl IProtocolForResultsActivatedEventArgsVtbl {
     }
 }
 pub trait IRestrictedLaunchActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn SharedContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SharedContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for IRestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IRestrictedLaunchActivatedEventArgs";
@@ -1805,8 +1805,8 @@ impl IRestrictedLaunchActivatedEventArgsVtbl {
     }
 }
 pub trait ISearchActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn QueryText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for ISearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ISearchActivatedEventArgs";
@@ -1847,7 +1847,7 @@ impl ISearchActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Search")]
 pub trait ISearchActivatedEventArgsWithLinguisticDetailsImpl: Sized {
-    fn LinguisticDetails(&self) -> ::windows::core::Result<super::Search::SearchPaneQueryLinguisticDetails>;
+    fn LinguisticDetails(&mut self) -> ::windows::core::Result<super::Search::SearchPaneQueryLinguisticDetails>;
 }
 #[cfg(feature = "ApplicationModel_Search")]
 impl ::windows::core::RuntimeName for ISearchActivatedEventArgsWithLinguisticDetails {
@@ -1878,7 +1878,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetailsVtbl {
 }
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 pub trait IShareTargetActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn ShareOperation(&self) -> ::windows::core::Result<super::DataTransfer::ShareTarget::ShareOperation>;
+    fn ShareOperation(&mut self) -> ::windows::core::Result<super::DataTransfer::ShareTarget::ShareOperation>;
 }
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 impl ::windows::core::RuntimeName for IShareTargetActivatedEventArgs {
@@ -1909,9 +1909,9 @@ impl IShareTargetActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISplashScreenImpl: Sized {
-    fn ImageLocation(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn Dismissed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDismissed(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ImageLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn Dismissed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDismissed(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISplashScreen {
@@ -1958,7 +1958,7 @@ impl ISplashScreenVtbl {
     }
 }
 pub trait IStartupTaskActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IStartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs";
@@ -1984,7 +1984,7 @@ impl IStartupTaskActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications", feature = "implement_exclusive"))]
 pub trait ITileActivatedInfoImpl: Sized {
-    fn RecentlyShownNotifications(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>>;
+    fn RecentlyShownNotifications(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileActivatedInfo {
@@ -2015,8 +2015,8 @@ impl ITileActivatedInfoVtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IToastNotificationActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Argument(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UserInput(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
+    fn Argument(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UserInput(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IToastNotificationActivatedEventArgs {
@@ -2059,7 +2059,7 @@ impl IToastNotificationActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
 pub trait IUserDataAccountProviderActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Operation(&self) -> ::windows::core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation>;
+    fn Operation(&mut self) -> ::windows::core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation>;
 }
 #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
 impl ::windows::core::RuntimeName for IUserDataAccountProviderActivatedEventArgs {
@@ -2090,7 +2090,7 @@ impl IUserDataAccountProviderActivatedEventArgsVtbl {
 }
 #[cfg(feature = "UI_ViewManagement")]
 pub trait IViewSwitcherProviderImpl: Sized + IActivatedEventArgsImpl {
-    fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher>;
+    fn ViewSwitcher(&mut self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher>;
 }
 #[cfg(feature = "UI_ViewManagement")]
 impl ::windows::core::RuntimeName for IViewSwitcherProvider {
@@ -2118,7 +2118,7 @@ impl IViewSwitcherProviderVtbl {
 }
 #[cfg(feature = "Media_SpeechRecognition")]
 pub trait IVoiceCommandActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Result(&self) -> ::windows::core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult>;
+    fn Result(&mut self) -> ::windows::core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult>;
 }
 #[cfg(feature = "Media_SpeechRecognition")]
 impl ::windows::core::RuntimeName for IVoiceCommandActivatedEventArgs {
@@ -2146,9 +2146,9 @@ impl IVoiceCommandActivatedEventArgsVtbl {
 }
 #[cfg(feature = "ApplicationModel_Wallet")]
 pub trait IWalletActionActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ActionKind(&self) -> ::windows::core::Result<super::Wallet::WalletActionKind>;
-    fn ActionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ItemId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ActionKind(&mut self) -> ::windows::core::Result<super::Wallet::WalletActionKind>;
+    fn ActionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "ApplicationModel_Wallet")]
 impl ::windows::core::RuntimeName for IWalletActionActivatedEventArgs {
@@ -2203,7 +2203,7 @@ impl IWalletActionActivatedEventArgsVtbl {
 }
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 pub trait IWebAccountProviderActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
-    fn Operation(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>;
+    fn Operation(&mut self) -> ::windows::core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>;
 }
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 impl ::windows::core::RuntimeName for IWebAccountProviderActivatedEventArgs {
@@ -2234,7 +2234,7 @@ impl IWebAccountProviderActivatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Authentication_Web"))]
 pub trait IWebAuthenticationBrokerContinuationEventArgsImpl: Sized + IActivatedEventArgsImpl + IContinuationActivatedEventArgsImpl {
-    fn WebAuthenticationResult(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult>;
+    fn WebAuthenticationResult(&mut self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Authentication_Web"))]
 impl ::windows::core::RuntimeName for IWebAuthenticationBrokerContinuationEventArgs {

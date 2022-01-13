@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ISysStorageProviderEventReceivedEventArgsImpl: Sized {
-    fn Json(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Json(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISysStorageProviderEventReceivedEventArgs {
@@ -31,7 +31,7 @@ impl ISysStorageProviderEventReceivedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISysStorageProviderEventReceivedEventArgsFactoryImpl: Sized {
-    fn CreateInstance(&self, json: &::windows::core::HSTRING) -> ::windows::core::Result<SysStorageProviderEventReceivedEventArgs>;
+    fn CreateInstance(&mut self, json: &::windows::core::HSTRING) -> ::windows::core::Result<SysStorageProviderEventReceivedEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISysStorageProviderEventReceivedEventArgsFactory {
@@ -62,8 +62,8 @@ impl ISysStorageProviderEventReceivedEventArgsFactoryVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISysStorageProviderEventSourceImpl: Sized {
-    fn EventReceived(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEventReceived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EventReceived(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEventReceived(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISysStorageProviderEventSource {
@@ -98,8 +98,8 @@ impl ISysStorageProviderEventSourceVtbl {
     }
 }
 pub trait ISysStorageProviderHandlerFactoryImpl: Sized {
-    fn GetHttpRequestProvider(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderHttpRequestProvider>;
-    fn GetEventSource(&self, syncrootid: &::windows::core::HSTRING, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderEventSource>;
+    fn GetHttpRequestProvider(&mut self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderHttpRequestProvider>;
+    fn GetEventSource(&mut self, syncrootid: &::windows::core::HSTRING, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderEventSource>;
 }
 impl ::windows::core::RuntimeName for ISysStorageProviderHandlerFactory {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory";
@@ -140,7 +140,7 @@ impl ISysStorageProviderHandlerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
 pub trait ISysStorageProviderHttpRequestProviderImpl: Sized {
-    fn SendRequestAsync(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
+    fn SendRequestAsync(&mut self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
 impl ::windows::core::RuntimeName for ISysStorageProviderHttpRequestProvider {

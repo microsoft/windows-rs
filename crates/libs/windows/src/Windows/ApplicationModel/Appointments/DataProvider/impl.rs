@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCancelMeetingRequestImpl: Sized {
-    fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NotifyInvitees(&self) -> ::windows::core::Result<bool>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AppointmentCalendarLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentOriginalStartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NotifyInvitees(&mut self) -> ::windows::core::Result<bool>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCancelMeetingRequest {
@@ -122,8 +122,8 @@ impl IAppointmentCalendarCancelMeetingRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCancelMeetingRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCancelMeetingRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<AppointmentCalendarCancelMeetingRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCancelMeetingRequestEventArgs {
@@ -166,12 +166,12 @@ impl IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestImpl: Sized {
-    fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Appointment(&self) -> ::windows::core::Result<super::Appointment>;
-    fn NotifyInvitees(&self) -> ::windows::core::Result<bool>;
-    fn ChangedProperties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn ReportCompletedAsync(&self, createdorupdatedappointment: &::core::option::Option<super::Appointment>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AppointmentCalendarLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Appointment(&mut self) -> ::windows::core::Result<super::Appointment>;
+    fn NotifyInvitees(&mut self) -> ::windows::core::Result<bool>;
+    fn ChangedProperties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn ReportCompletedAsync(&mut self, createdorupdatedappointment: &::core::option::Option<super::Appointment>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
@@ -262,8 +262,8 @@ impl IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
@@ -306,15 +306,15 @@ impl IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarForwardMeetingRequestImpl: Sized {
-    fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn Invitees(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::AppointmentInvitee>>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ForwardHeader(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AppointmentCalendarLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentOriginalStartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn Invitees(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::AppointmentInvitee>>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ForwardHeader(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarForwardMeetingRequest {
@@ -441,8 +441,8 @@ impl IAppointmentCalendarForwardMeetingRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarForwardMeetingRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<AppointmentCalendarForwardMeetingRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<AppointmentCalendarForwardMeetingRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarForwardMeetingRequestEventArgs {
@@ -485,15 +485,15 @@ impl IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestImpl: Sized {
-    fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn NewStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn NewDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AppointmentCalendarLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentOriginalStartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn NewStartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn NewDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarProposeNewTimeForMeetingRequest {
@@ -620,8 +620,8 @@ impl IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<AppointmentCalendarProposeNewTimeForMeetingRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<AppointmentCalendarProposeNewTimeForMeetingRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
@@ -664,9 +664,9 @@ impl IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarSyncManagerSyncRequestImpl: Sized {
-    fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AppointmentCalendarLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManagerSyncRequest {
@@ -721,8 +721,8 @@ impl IAppointmentCalendarSyncManagerSyncRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarSyncManagerSyncRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<AppointmentCalendarSyncManagerSyncRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<AppointmentCalendarSyncManagerSyncRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
@@ -765,15 +765,15 @@ impl IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarUpdateMeetingResponseRequestImpl: Sized {
-    fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn Response(&self) -> ::windows::core::Result<super::AppointmentParticipantResponse>;
-    fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SendUpdate(&self) -> ::windows::core::Result<bool>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn AppointmentCalendarLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentLocalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppointmentOriginalStartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn Response(&mut self) -> ::windows::core::Result<super::AppointmentParticipantResponse>;
+    fn Subject(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SendUpdate(&mut self) -> ::windows::core::Result<bool>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarUpdateMeetingResponseRequest {
@@ -900,8 +900,8 @@ impl IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentCalendarUpdateMeetingResponseRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<AppointmentCalendarUpdateMeetingResponseRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<AppointmentCalendarUpdateMeetingResponseRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
@@ -944,19 +944,19 @@ impl IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppointmentDataProviderConnectionImpl: Sized {
-    fn SyncRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSyncRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CreateOrUpdateAppointmentRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCreateOrUpdateAppointmentRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CancelMeetingRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCancelMeetingRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ForwardMeetingRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveForwardMeetingRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ProposeNewTimeForMeetingRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProposeNewTimeForMeetingRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UpdateMeetingResponseRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdateMeetingResponseRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn SyncRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSyncRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateOrUpdateAppointmentRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCreateOrUpdateAppointmentRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CancelMeetingRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCancelMeetingRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ForwardMeetingRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveForwardMeetingRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProposeNewTimeForMeetingRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProposeNewTimeForMeetingRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UpdateMeetingResponseRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdateMeetingResponseRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppointmentDataProviderConnection {
@@ -1082,7 +1082,7 @@ impl IAppointmentDataProviderConnectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppointmentDataProviderTriggerDetailsImpl: Sized {
-    fn Connection(&self) -> ::windows::core::Result<AppointmentDataProviderConnection>;
+    fn Connection(&mut self) -> ::windows::core::Result<AppointmentDataProviderConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppointmentDataProviderTriggerDetails {

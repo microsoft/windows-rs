@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvertisingManagerForUserImpl: Sized {
-    fn AdvertisingId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn User(&self) -> ::windows::core::Result<super::User>;
+    fn AdvertisingId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvertisingManagerForUser {
@@ -44,7 +44,7 @@ impl IAdvertisingManagerForUserVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvertisingManagerStaticsImpl: Sized {
-    fn AdvertisingId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AdvertisingId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvertisingManagerStatics {
@@ -75,7 +75,7 @@ impl IAdvertisingManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvertisingManagerStatics2Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<AdvertisingManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<AdvertisingManagerForUser>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvertisingManagerStatics2 {
@@ -106,9 +106,9 @@ impl IAdvertisingManagerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAssignedAccessSettingsImpl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn IsSingleAppKioskMode(&self) -> ::windows::core::Result<bool>;
-    fn User(&self) -> ::windows::core::Result<super::User>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn IsSingleAppKioskMode(&mut self) -> ::windows::core::Result<bool>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAssignedAccessSettings {
@@ -163,8 +163,8 @@ impl IAssignedAccessSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAssignedAccessSettingsStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<AssignedAccessSettings>;
-    fn GetForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<AssignedAccessSettings>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<AssignedAccessSettings>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<AssignedAccessSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAssignedAccessSettingsStatics {
@@ -207,8 +207,8 @@ impl IAssignedAccessSettingsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDiagnosticsSettingsImpl: Sized {
-    fn CanUseDiagnosticsToTailorExperiences(&self) -> ::windows::core::Result<bool>;
-    fn User(&self) -> ::windows::core::Result<super::User>;
+    fn CanUseDiagnosticsToTailorExperiences(&mut self) -> ::windows::core::Result<bool>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDiagnosticsSettings {
@@ -251,8 +251,8 @@ impl IDiagnosticsSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDiagnosticsSettingsStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<DiagnosticsSettings>;
-    fn GetForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<DiagnosticsSettings>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<DiagnosticsSettings>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<DiagnosticsSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDiagnosticsSettingsStatics {
@@ -310,7 +310,7 @@ impl IFirstSignInSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFirstSignInSettingsStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<FirstSignInSettings>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<FirstSignInSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFirstSignInSettingsStatics {
@@ -341,13 +341,13 @@ impl IFirstSignInSettingsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait IGlobalizationPreferencesForUserImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::User>;
-    fn Calendars(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Clocks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Currencies(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn HomeGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekStartsOn(&self) -> ::windows::core::Result<super::super::Globalization::DayOfWeek>;
+    fn User(&mut self) -> ::windows::core::Result<super::User>;
+    fn Calendars(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Clocks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Currencies(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn HomeGeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekStartsOn(&mut self) -> ::windows::core::Result<super::super::Globalization::DayOfWeek>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalizationPreferencesForUser {
@@ -450,12 +450,12 @@ impl IGlobalizationPreferencesForUserVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait IGlobalizationPreferencesStaticsImpl: Sized {
-    fn Calendars(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Clocks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Currencies(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn HomeGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn WeekStartsOn(&self) -> ::windows::core::Result<super::super::Globalization::DayOfWeek>;
+    fn Calendars(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Clocks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Currencies(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn HomeGeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn WeekStartsOn(&mut self) -> ::windows::core::Result<super::super::Globalization::DayOfWeek>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalizationPreferencesStatics {
@@ -546,8 +546,8 @@ impl IGlobalizationPreferencesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IGlobalizationPreferencesStatics2Impl: Sized {
-    fn TrySetHomeGeographicRegion(&self, region: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn TrySetLanguages(&self, languagetags: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
+    fn TrySetHomeGeographicRegion(&mut self, region: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn TrySetLanguages(&mut self, languagetags: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGlobalizationPreferencesStatics2 {
@@ -590,7 +590,7 @@ impl IGlobalizationPreferencesStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGlobalizationPreferencesStatics3Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<GlobalizationPreferencesForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<GlobalizationPreferencesForUser>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGlobalizationPreferencesStatics3 {
@@ -621,8 +621,8 @@ impl IGlobalizationPreferencesStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILockScreenImageFeedStaticsImpl: Sized {
-    fn RequestSetImageFeedAsync(&self, syndicationfeeduri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>;
-    fn TryRemoveImageFeed(&self) -> ::windows::core::Result<bool>;
+    fn RequestSetImageFeedAsync(&mut self, syndicationfeeduri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>;
+    fn TryRemoveImageFeed(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenImageFeedStatics {
@@ -665,10 +665,10 @@ impl ILockScreenImageFeedStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ILockScreenStaticsImpl: Sized {
-    fn OriginalImageFile(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn GetImageStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
-    fn SetImageFileAsync(&self, value: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetImageStreamAsync(&self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn OriginalImageFile(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn GetImageStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
+    fn SetImageFileAsync(&mut self, value: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetImageStreamAsync(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILockScreenStatics {
@@ -735,21 +735,21 @@ impl ILockScreenStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IUserInformationStaticsImpl: Sized {
-    fn AccountPictureChangeEnabled(&self) -> ::windows::core::Result<bool>;
-    fn NameAccessAllowed(&self) -> ::windows::core::Result<bool>;
-    fn GetAccountPicture(&self, kind: AccountPictureKind) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
-    fn SetAccountPictureAsync(&self, image: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
-    fn SetAccountPicturesAsync(&self, smallimage: &::core::option::Option<super::super::Storage::IStorageFile>, largeimage: &::core::option::Option<super::super::Storage::IStorageFile>, video: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
-    fn SetAccountPictureFromStreamAsync(&self, image: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
-    fn SetAccountPicturesFromStreamsAsync(&self, smallimage: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, largeimage: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, video: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
-    fn AccountPictureChanged(&self, changehandler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAccountPictureChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetDisplayNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetFirstNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetLastNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetPrincipalNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetSessionInitiationProtocolUriAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
-    fn GetDomainNameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn AccountPictureChangeEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn NameAccessAllowed(&mut self) -> ::windows::core::Result<bool>;
+    fn GetAccountPicture(&mut self, kind: AccountPictureKind) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
+    fn SetAccountPictureAsync(&mut self, image: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
+    fn SetAccountPicturesAsync(&mut self, smallimage: &::core::option::Option<super::super::Storage::IStorageFile>, largeimage: &::core::option::Option<super::super::Storage::IStorageFile>, video: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
+    fn SetAccountPictureFromStreamAsync(&mut self, image: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
+    fn SetAccountPicturesFromStreamsAsync(&mut self, smallimage: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, largeimage: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, video: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>;
+    fn AccountPictureChanged(&mut self, changehandler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAccountPictureChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetDisplayNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetFirstNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetLastNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetPrincipalNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetSessionInitiationProtocolUriAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
+    fn GetDomainNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserInformationStatics {
@@ -949,8 +949,8 @@ impl IUserInformationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IUserProfilePersonalizationSettingsImpl: Sized {
-    fn TrySetLockScreenImageAsync(&self, imagefile: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TrySetWallpaperImageAsync(&self, imagefile: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TrySetLockScreenImageAsync(&mut self, imagefile: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TrySetWallpaperImageAsync(&mut self, imagefile: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserProfilePersonalizationSettings {
@@ -993,8 +993,8 @@ impl IUserProfilePersonalizationSettingsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserProfilePersonalizationSettingsStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<UserProfilePersonalizationSettings>;
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn Current(&mut self) -> ::windows::core::Result<UserProfilePersonalizationSettings>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserProfilePersonalizationSettingsStatics {

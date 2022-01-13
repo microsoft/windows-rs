@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesktopWindowTargetImpl: Sized {
-    fn IsTopmost(&self) -> ::windows::core::Result<bool>;
+    fn IsTopmost(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesktopWindowTarget {

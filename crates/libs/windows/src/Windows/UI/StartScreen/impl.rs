@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IJumpListImpl: Sized {
-    fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<JumpListItem>>;
-    fn SystemGroupKind(&self) -> ::windows::core::Result<JumpListSystemGroupKind>;
-    fn SetSystemGroupKind(&self, value: JumpListSystemGroupKind) -> ::windows::core::Result<()>;
-    fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<JumpListItem>>;
+    fn SystemGroupKind(&mut self) -> ::windows::core::Result<JumpListSystemGroupKind>;
+    fn SetSystemGroupKind(&mut self, value: JumpListSystemGroupKind) -> ::windows::core::Result<()>;
+    fn SaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpList {
@@ -63,17 +63,17 @@ impl IJumpListVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IJumpListItemImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<JumpListItemKind>;
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RemovedByUser(&self) -> ::windows::core::Result<bool>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GroupName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetGroupName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetLogo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Kind(&mut self) -> ::windows::core::Result<JumpListItemKind>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RemovedByUser(&mut self) -> ::windows::core::Result<bool>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GroupName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetGroupName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetLogo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpListItem {
@@ -196,8 +196,8 @@ impl IJumpListItemVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IJumpListItemStaticsImpl: Sized {
-    fn CreateWithArguments(&self, arguments: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<JumpListItem>;
-    fn CreateSeparator(&self) -> ::windows::core::Result<JumpListItem>;
+    fn CreateWithArguments(&mut self, arguments: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<JumpListItem>;
+    fn CreateSeparator(&mut self) -> ::windows::core::Result<JumpListItem>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IJumpListItemStatics {
@@ -240,8 +240,8 @@ impl IJumpListItemStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IJumpListStaticsImpl: Sized {
-    fn LoadCurrentAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<JumpList>>;
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn LoadCurrentAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<JumpList>>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IJumpListStatics {
@@ -284,39 +284,39 @@ impl IJumpListStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ISecondaryTileImpl: Sized {
-    fn SetTileId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetArguments(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetShortName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ShortName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLogo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetSmallLogo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn SmallLogo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetWideLogo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn WideLogo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetLockScreenBadgeLogo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn LockScreenBadgeLogo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetLockScreenDisplayBadgeAndTileText(&self, value: bool) -> ::windows::core::Result<()>;
-    fn LockScreenDisplayBadgeAndTileText(&self) -> ::windows::core::Result<bool>;
-    fn SetTileOptions(&self, value: TileOptions) -> ::windows::core::Result<()>;
-    fn TileOptions(&self) -> ::windows::core::Result<TileOptions>;
-    fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()>;
-    fn ForegroundText(&self) -> ::windows::core::Result<ForegroundText>;
-    fn SetBackgroundColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn BackgroundColor(&self) -> ::windows::core::Result<super::Color>;
-    fn RequestCreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestCreateAsyncWithPoint(&self, invocationpoint: &super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestCreateAsyncWithRect(&self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestCreateAsyncWithRectAndPlacement(&self, selection: &super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestDeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestDeleteAsyncWithPoint(&self, invocationpoint: &super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestDeleteAsyncWithRect(&self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestDeleteAsyncWithRectAndPlacement(&self, selection: &super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn UpdateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn SetTileId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TileId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetArguments(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetShortName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ShortName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLogo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetSmallLogo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn SmallLogo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetWideLogo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn WideLogo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetLockScreenBadgeLogo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn LockScreenBadgeLogo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetLockScreenDisplayBadgeAndTileText(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn LockScreenDisplayBadgeAndTileText(&mut self) -> ::windows::core::Result<bool>;
+    fn SetTileOptions(&mut self, value: TileOptions) -> ::windows::core::Result<()>;
+    fn TileOptions(&mut self) -> ::windows::core::Result<TileOptions>;
+    fn SetForegroundText(&mut self, value: ForegroundText) -> ::windows::core::Result<()>;
+    fn ForegroundText(&mut self) -> ::windows::core::Result<ForegroundText>;
+    fn SetBackgroundColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn RequestCreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestCreateAsyncWithPoint(&mut self, invocationpoint: &super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestCreateAsyncWithRect(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestCreateAsyncWithRectAndPlacement(&mut self, selection: &super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestDeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestDeleteAsyncWithPoint(&mut self, invocationpoint: &super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestDeleteAsyncWithRect(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestDeleteAsyncWithRectAndPlacement(&mut self, selection: &super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn UpdateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTile {
@@ -647,13 +647,13 @@ impl ISecondaryTileVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ISecondaryTile2Impl: Sized + ISecondaryTileImpl {
-    fn SetPhoneticName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PhoneticName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VisualElements(&self) -> ::windows::core::Result<SecondaryTileVisualElements>;
-    fn SetRoamingEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RoamingEnabled(&self) -> ::windows::core::Result<bool>;
-    fn VisualElementsRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVisualElementsRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetPhoneticName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PhoneticName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VisualElements(&mut self) -> ::windows::core::Result<SecondaryTileVisualElements>;
+    fn SetRoamingEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RoamingEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn VisualElementsRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVisualElementsRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTile2 {
@@ -735,9 +735,9 @@ impl ISecondaryTile2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileFactoryImpl: Sized {
-    fn CreateTile(&self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
-    fn CreateWideTile(&self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>, widelogoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
-    fn CreateWithId(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<SecondaryTile>;
+    fn CreateTile(&mut self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
+    fn CreateWideTile(&mut self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>, widelogoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
+    fn CreateWithId(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<SecondaryTile>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileFactory {
@@ -807,7 +807,7 @@ impl ISecondaryTileFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileFactory2Impl: Sized + ISecondaryTileFactoryImpl {
-    fn CreateMinimalTile(&self, tileid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, square150x150logo: &::core::option::Option<super::super::Foundation::Uri>, desiredsize: TileSize) -> ::windows::core::Result<SecondaryTile>;
+    fn CreateMinimalTile(&mut self, tileid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, square150x150logo: &::core::option::Option<super::super::Foundation::Uri>, desiredsize: TileSize) -> ::windows::core::Result<SecondaryTile>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileFactory2 {
@@ -844,10 +844,10 @@ impl ISecondaryTileFactory2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISecondaryTileStaticsImpl: Sized {
-    fn Exists(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
-    fn FindAllForApplicationAsync(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
-    fn FindAllForPackageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
+    fn Exists(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn FindAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
+    fn FindAllForApplicationAsync(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
+    fn FindAllForPackageAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileStatics {
@@ -914,26 +914,26 @@ impl ISecondaryTileStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileVisualElementsImpl: Sized {
-    fn SetSquare30x30Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Square30x30Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetSquare70x70Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Square70x70Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetSquare150x150Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Square150x150Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetWide310x150Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Wide310x150Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetSquare310x310Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Square310x310Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()>;
-    fn ForegroundText(&self) -> ::windows::core::Result<ForegroundText>;
-    fn SetBackgroundColor(&self, value: &super::Color) -> ::windows::core::Result<()>;
-    fn BackgroundColor(&self) -> ::windows::core::Result<super::Color>;
-    fn SetShowNameOnSquare150x150Logo(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShowNameOnSquare150x150Logo(&self) -> ::windows::core::Result<bool>;
-    fn SetShowNameOnWide310x150Logo(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShowNameOnWide310x150Logo(&self) -> ::windows::core::Result<bool>;
-    fn SetShowNameOnSquare310x310Logo(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShowNameOnSquare310x310Logo(&self) -> ::windows::core::Result<bool>;
+    fn SetSquare30x30Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Square30x30Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetSquare70x70Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Square70x70Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetSquare150x150Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Square150x150Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetWide310x150Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Wide310x150Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetSquare310x310Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Square310x310Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetForegroundText(&mut self, value: ForegroundText) -> ::windows::core::Result<()>;
+    fn ForegroundText(&mut self) -> ::windows::core::Result<ForegroundText>;
+    fn SetBackgroundColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::Color>;
+    fn SetShowNameOnSquare150x150Logo(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShowNameOnSquare150x150Logo(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShowNameOnWide310x150Logo(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShowNameOnWide310x150Logo(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShowNameOnSquare310x310Logo(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShowNameOnSquare310x310Logo(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileVisualElements {
@@ -1122,8 +1122,8 @@ impl ISecondaryTileVisualElementsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileVisualElements2Impl: Sized {
-    fn SetSquare71x71Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Square71x71Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetSquare71x71Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Square71x71Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileVisualElements2 {
@@ -1159,8 +1159,8 @@ impl ISecondaryTileVisualElements2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISecondaryTileVisualElements3Impl: Sized {
-    fn SetSquare44x44Logo(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Square44x44Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetSquare44x44Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Square44x44Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISecondaryTileVisualElements3 {
@@ -1196,7 +1196,7 @@ impl ISecondaryTileVisualElements3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISecondaryTileVisualElements4Impl: Sized {
-    fn MixedRealityModel(&self) -> ::windows::core::Result<TileMixedRealityModel>;
+    fn MixedRealityModel(&mut self) -> ::windows::core::Result<TileMixedRealityModel>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISecondaryTileVisualElements4 {
@@ -1227,10 +1227,10 @@ impl ISecondaryTileVisualElements4Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IStartScreenManagerImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
-    fn SupportsAppListEntry(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<bool>;
-    fn ContainsAppListEntryAsync(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RequestAddAppListEntryAsync(&self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn SupportsAppListEntry(&mut self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<bool>;
+    fn ContainsAppListEntryAsync(&mut self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RequestAddAppListEntryAsync(&mut self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartScreenManager {
@@ -1297,8 +1297,8 @@ impl IStartScreenManagerVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IStartScreenManager2Impl: Sized + IStartScreenManagerImpl {
-    fn ContainsSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn TryRemoveSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn ContainsSecondaryTileAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn TryRemoveSecondaryTileAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartScreenManager2 {
@@ -1341,8 +1341,8 @@ impl IStartScreenManager2Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IStartScreenManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<StartScreenManager>;
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StartScreenManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<StartScreenManager>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StartScreenManager>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartScreenManagerStatics {
@@ -1385,10 +1385,10 @@ impl IStartScreenManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ITileMixedRealityModelImpl: Sized {
-    fn SetUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetBoundingBox(&self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>) -> ::windows::core::Result<()>;
-    fn BoundingBox(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>;
+    fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetBoundingBox(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>) -> ::windows::core::Result<()>;
+    fn BoundingBox(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITileMixedRealityModel {
@@ -1441,8 +1441,8 @@ impl ITileMixedRealityModelVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITileMixedRealityModel2Impl: Sized {
-    fn SetActivationBehavior(&self, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::Result<()>;
-    fn ActivationBehavior(&self) -> ::windows::core::Result<TileMixedRealityModelActivationBehavior>;
+    fn SetActivationBehavior(&mut self, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::Result<()>;
+    fn ActivationBehavior(&mut self) -> ::windows::core::Result<TileMixedRealityModelActivationBehavior>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITileMixedRealityModel2 {
@@ -1478,10 +1478,10 @@ impl ITileMixedRealityModel2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVisualElementsRequestImpl: Sized {
-    fn VisualElements(&self) -> ::windows::core::Result<SecondaryTileVisualElements>;
-    fn AlternateVisualElements(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>>;
-    fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn GetDeferral(&self) -> ::windows::core::Result<VisualElementsRequestDeferral>;
+    fn VisualElements(&mut self) -> ::windows::core::Result<SecondaryTileVisualElements>;
+    fn AlternateVisualElements(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<VisualElementsRequestDeferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVisualElementsRequest {
@@ -1548,7 +1548,7 @@ impl IVisualElementsRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisualElementsRequestDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualElementsRequestDeferral {
@@ -1569,7 +1569,7 @@ impl IVisualElementsRequestDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVisualElementsRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<VisualElementsRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<VisualElementsRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualElementsRequestedEventArgs {

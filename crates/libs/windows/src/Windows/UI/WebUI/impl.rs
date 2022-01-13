@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IActivatedDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IActivatedDeferral {
@@ -20,7 +20,7 @@ impl IActivatedDeferralVtbl {
     }
 }
 pub trait IActivatedEventArgsDeferralImpl: Sized {
-    fn ActivatedOperation(&self) -> ::windows::core::Result<ActivatedOperation>;
+    fn ActivatedOperation(&mut self) -> ::windows::core::Result<ActivatedOperation>;
 }
 impl ::windows::core::RuntimeName for IActivatedEventArgsDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
@@ -49,7 +49,7 @@ impl IActivatedEventArgsDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IActivatedOperationImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<ActivatedDeferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<ActivatedDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IActivatedOperation {
@@ -77,24 +77,24 @@ impl IActivatedOperationVtbl {
 }
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 pub trait IHtmlPrintDocumentSourceImpl: Sized + IPrintDocumentSourceImpl {
-    fn Content(&self) -> ::windows::core::Result<PrintContent>;
-    fn SetContent(&self, value: PrintContent) -> ::windows::core::Result<()>;
-    fn LeftMargin(&self) -> ::windows::core::Result<f32>;
-    fn SetLeftMargin(&self, value: f32) -> ::windows::core::Result<()>;
-    fn TopMargin(&self) -> ::windows::core::Result<f32>;
-    fn SetTopMargin(&self, value: f32) -> ::windows::core::Result<()>;
-    fn RightMargin(&self) -> ::windows::core::Result<f32>;
-    fn SetRightMargin(&self, value: f32) -> ::windows::core::Result<()>;
-    fn BottomMargin(&self) -> ::windows::core::Result<f32>;
-    fn SetBottomMargin(&self, value: f32) -> ::windows::core::Result<()>;
-    fn EnableHeaderFooter(&self) -> ::windows::core::Result<bool>;
-    fn SetEnableHeaderFooter(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ShrinkToFit(&self) -> ::windows::core::Result<bool>;
-    fn SetShrinkToFit(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PercentScale(&self) -> ::windows::core::Result<f32>;
-    fn SetPercentScale(&self, scalepercent: f32) -> ::windows::core::Result<()>;
-    fn PageRange(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TrySetPageRange(&self, strpagerange: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn Content(&mut self) -> ::windows::core::Result<PrintContent>;
+    fn SetContent(&mut self, value: PrintContent) -> ::windows::core::Result<()>;
+    fn LeftMargin(&mut self) -> ::windows::core::Result<f32>;
+    fn SetLeftMargin(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn TopMargin(&mut self) -> ::windows::core::Result<f32>;
+    fn SetTopMargin(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn RightMargin(&mut self) -> ::windows::core::Result<f32>;
+    fn SetRightMargin(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn BottomMargin(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBottomMargin(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn EnableHeaderFooter(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnableHeaderFooter(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ShrinkToFit(&mut self) -> ::windows::core::Result<bool>;
+    fn SetShrinkToFit(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PercentScale(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPercentScale(&mut self, scalepercent: f32) -> ::windows::core::Result<()>;
+    fn PageRange(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TrySetPageRange(&mut self, strpagerange: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Graphics_Printing", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHtmlPrintDocumentSource {
@@ -273,10 +273,10 @@ impl IHtmlPrintDocumentSourceVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait INewWebUIViewCreatedEventArgsImpl: Sized {
-    fn WebUIView(&self) -> ::windows::core::Result<WebUIView>;
-    fn ActivatedEventArgs(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::IActivatedEventArgs>;
-    fn HasPendingNavigate(&self) -> ::windows::core::Result<bool>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn WebUIView(&mut self) -> ::windows::core::Result<WebUIView>;
+    fn ActivatedEventArgs(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::IActivatedEventArgs>;
+    fn HasPendingNavigate(&mut self) -> ::windows::core::Result<bool>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for INewWebUIViewCreatedEventArgs {
@@ -343,14 +343,14 @@ impl INewWebUIViewCreatedEventArgsVtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStaticsImpl: Sized {
-    fn Activated(&self, handler: &::core::option::Option<ActivatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Suspending(&self, handler: &::core::option::Option<SuspendingEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSuspending(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Resuming(&self, handler: &::core::option::Option<ResumingEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveResuming(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Navigated(&self, handler: &::core::option::Option<NavigatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNavigated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Activated(&mut self, handler: &::core::option::Option<ActivatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActivated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Suspending(&mut self, handler: &::core::option::Option<SuspendingEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSuspending(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Resuming(&mut self, handler: &::core::option::Option<ResumingEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveResuming(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Navigated(&mut self, handler: &::core::option::Option<NavigatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNavigated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics {
@@ -437,11 +437,11 @@ impl IWebUIActivationStaticsVtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStatics2Impl: Sized {
-    fn LeavingBackground(&self, handler: &::core::option::Option<LeavingBackgroundEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLeavingBackground(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnteredBackground(&self, handler: &::core::option::Option<EnteredBackgroundEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnteredBackground(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnablePrelaunch(&self, value: bool) -> ::windows::core::Result<()>;
+    fn LeavingBackground(&mut self, handler: &::core::option::Option<LeavingBackgroundEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLeavingBackground(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnteredBackground(&mut self, handler: &::core::option::Option<EnteredBackgroundEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnteredBackground(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnablePrelaunch(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics2 {
@@ -499,8 +499,8 @@ impl IWebUIActivationStatics2Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStatics3Impl: Sized {
-    fn RequestRestartAsync(&self, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>;
-    fn RequestRestartForUserAsync(&self, user: &::core::option::Option<super::super::System::User>, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>;
+    fn RequestRestartAsync(&mut self, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>;
+    fn RequestRestartForUserAsync(&mut self, user: &::core::option::Option<super::super::System::User>, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics3 {
@@ -543,10 +543,10 @@ impl IWebUIActivationStatics3Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIActivationStatics4Impl: Sized {
-    fn NewWebUIViewCreated(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNewWebUIViewCreated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn BackgroundActivated(&self, handler: &::core::option::Option<BackgroundActivatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBackgroundActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NewWebUIViewCreated(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNewWebUIViewCreated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn BackgroundActivated(&mut self, handler: &::core::option::Option<BackgroundActivatedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBackgroundActivated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIActivationStatics4 {
@@ -598,8 +598,8 @@ impl IWebUIActivationStatics4Vtbl {
     }
 }
 pub trait IWebUIBackgroundTaskInstanceImpl: Sized {
-    fn Succeeded(&self) -> ::windows::core::Result<bool>;
-    fn SetSucceeded(&self, succeeded: bool) -> ::windows::core::Result<()>;
+    fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSucceeded(&mut self, succeeded: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
@@ -633,7 +633,7 @@ impl IWebUIBackgroundTaskInstanceVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebUIBackgroundTaskInstanceStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<IWebUIBackgroundTaskInstance>;
+    fn Current(&mut self) -> ::windows::core::Result<IWebUIBackgroundTaskInstance>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebUIBackgroundTaskInstanceStatics {
@@ -664,7 +664,7 @@ impl IWebUIBackgroundTaskInstanceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebUINavigatedDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebUINavigatedDeferral {
@@ -684,7 +684,7 @@ impl IWebUINavigatedDeferralVtbl {
     }
 }
 pub trait IWebUINavigatedEventArgsImpl: Sized {
-    fn NavigatedOperation(&self) -> ::windows::core::Result<WebUINavigatedOperation>;
+    fn NavigatedOperation(&mut self) -> ::windows::core::Result<WebUINavigatedOperation>;
 }
 impl ::windows::core::RuntimeName for IWebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
@@ -713,7 +713,7 @@ impl IWebUINavigatedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebUINavigatedOperationImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<WebUINavigatedDeferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<WebUINavigatedDeferral>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebUINavigatedOperation {
@@ -741,13 +741,13 @@ impl IWebUINavigatedOperationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIViewImpl: Sized {
-    fn ApplicationViewId(&self) -> ::windows::core::Result<i32>;
-    fn Closed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WebUIView, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Activated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WebUIView, super::super::ApplicationModel::Activation::IActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn IgnoreApplicationContentUriRulesNavigationRestrictions(&self) -> ::windows::core::Result<bool>;
-    fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&self, value: bool) -> ::windows::core::Result<()>;
+    fn ApplicationViewId(&mut self) -> ::windows::core::Result<i32>;
+    fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WebUIView, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Activated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<WebUIView, super::super::ApplicationModel::Activation::IActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActivated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IgnoreApplicationContentUriRulesNavigationRestrictions(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIView {
@@ -829,8 +829,8 @@ impl IWebUIViewVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebUIViewStaticsImpl: Sized {
-    fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>;
-    fn CreateWithUriAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>;
+    fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>;
+    fn CreateWithUriAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebUIViewStatics {

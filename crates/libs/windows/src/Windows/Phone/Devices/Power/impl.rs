@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IBatteryImpl: Sized {
-    fn RemainingChargePercent(&self) -> ::windows::core::Result<i32>;
-    fn RemainingDischargeTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn RemainingChargePercentChanged(&self, changehandler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRemainingChargePercentChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RemainingChargePercent(&mut self) -> ::windows::core::Result<i32>;
+    fn RemainingDischargeTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn RemainingChargePercentChanged(&mut self, changehandler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRemainingChargePercentChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IBattery {
@@ -63,7 +63,7 @@ impl IBatteryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IBatteryStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<Battery>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<Battery>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBatteryStatics {

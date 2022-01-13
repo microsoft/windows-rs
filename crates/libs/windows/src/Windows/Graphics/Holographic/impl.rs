@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicCameraImpl: Sized {
-    fn RenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn ViewportScaleFactor(&self) -> ::windows::core::Result<f64>;
-    fn SetViewportScaleFactor(&self, value: f64) -> ::windows::core::Result<()>;
-    fn IsStereo(&self) -> ::windows::core::Result<bool>;
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn SetNearPlaneDistance(&self, value: f64) -> ::windows::core::Result<()>;
-    fn SetFarPlaneDistance(&self, value: f64) -> ::windows::core::Result<()>;
+    fn RenderTargetSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn ViewportScaleFactor(&mut self) -> ::windows::core::Result<f64>;
+    fn SetViewportScaleFactor(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn IsStereo(&mut self) -> ::windows::core::Result<bool>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn SetNearPlaneDistance(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn SetFarPlaneDistance(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCamera {
@@ -88,9 +88,9 @@ impl IHolographicCameraVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicCamera2Impl: Sized + IHolographicCameraImpl {
-    fn LeftViewportParameters(&self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
-    fn RightViewportParameters(&self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
-    fn Display(&self) -> ::windows::core::Result<HolographicDisplay>;
+    fn LeftViewportParameters(&mut self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
+    fn RightViewportParameters(&mut self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
+    fn Display(&mut self) -> ::windows::core::Result<HolographicDisplay>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCamera2 {
@@ -145,10 +145,10 @@ impl IHolographicCamera2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicCamera3Impl: Sized + IHolographicCameraImpl + IHolographicCamera2Impl {
-    fn IsPrimaryLayerEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsPrimaryLayerEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn MaxQuadLayerCount(&self) -> ::windows::core::Result<u32>;
-    fn QuadLayers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicQuadLayer>>;
+    fn IsPrimaryLayerEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsPrimaryLayerEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn MaxQuadLayerCount(&mut self) -> ::windows::core::Result<u32>;
+    fn QuadLayers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicQuadLayer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCamera3 {
@@ -208,7 +208,7 @@ impl IHolographicCamera3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicCamera4Impl: Sized {
-    fn CanOverrideViewport(&self) -> ::windows::core::Result<bool>;
+    fn CanOverrideViewport(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicCamera4 {
@@ -239,9 +239,9 @@ impl IHolographicCamera4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicCamera5Impl: Sized {
-    fn IsHardwareContentProtectionSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsHardwareContentProtectionEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsHardwareContentProtectionEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsHardwareContentProtectionSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsHardwareContentProtectionEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsHardwareContentProtectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicCamera5 {
@@ -289,7 +289,7 @@ impl IHolographicCamera5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicCamera6Impl: Sized {
-    fn ViewConfiguration(&self) -> ::windows::core::Result<HolographicViewConfiguration>;
+    fn ViewConfiguration(&mut self) -> ::windows::core::Result<HolographicViewConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicCamera6 {
@@ -320,14 +320,14 @@ impl IHolographicCamera6Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraPoseImpl: Sized {
-    fn HolographicCamera(&self) -> ::windows::core::Result<HolographicCamera>;
-    fn Viewport(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn TryGetViewTransform(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<HolographicStereoTransform>>;
-    fn ProjectionTransform(&self) -> ::windows::core::Result<HolographicStereoTransform>;
-    fn TryGetCullingFrustum(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>;
-    fn TryGetVisibleFrustum(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>;
-    fn NearPlaneDistance(&self) -> ::windows::core::Result<f64>;
-    fn FarPlaneDistance(&self) -> ::windows::core::Result<f64>;
+    fn HolographicCamera(&mut self) -> ::windows::core::Result<HolographicCamera>;
+    fn Viewport(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn TryGetViewTransform(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<HolographicStereoTransform>>;
+    fn ProjectionTransform(&mut self) -> ::windows::core::Result<HolographicStereoTransform>;
+    fn TryGetCullingFrustum(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>;
+    fn TryGetVisibleFrustum(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>;
+    fn NearPlaneDistance(&mut self) -> ::windows::core::Result<f64>;
+    fn FarPlaneDistance(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraPose {
@@ -442,9 +442,9 @@ impl IHolographicCameraPoseVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraPose2Impl: Sized {
-    fn OverrideViewTransform(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, coordinatesystemtoviewtransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
-    fn OverrideProjectionTransform(&self, projectiontransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
-    fn OverrideViewport(&self, leftviewport: &super::super::Foundation::Rect, rightviewport: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn OverrideViewTransform(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, coordinatesystemtoviewtransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
+    fn OverrideProjectionTransform(&mut self, projectiontransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
+    fn OverrideViewport(&mut self, leftviewport: &super::super::Foundation::Rect, rightviewport: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraPose2 {
@@ -478,11 +478,11 @@ impl IHolographicCameraPose2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraRenderingParametersImpl: Sized {
-    fn SetFocusPoint(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn SetFocusPointWithNormal(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, normal: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn SetFocusPointWithNormalLinearVelocity(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, normal: &super::super::Foundation::Numerics::Vector3, linearvelocity: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
-    fn Direct3D11Device(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DDevice>;
-    fn Direct3D11BackBuffer(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
+    fn SetFocusPoint(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn SetFocusPointWithNormal(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, normal: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn SetFocusPointWithNormalLinearVelocity(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, normal: &super::super::Foundation::Numerics::Vector3, linearvelocity: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
+    fn Direct3D11Device(&mut self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DDevice>;
+    fn Direct3D11BackBuffer(&mut self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters {
@@ -553,9 +553,9 @@ impl IHolographicCameraRenderingParametersVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraRenderingParameters2Impl: Sized + IHolographicCameraRenderingParametersImpl {
-    fn ReprojectionMode(&self) -> ::windows::core::Result<HolographicReprojectionMode>;
-    fn SetReprojectionMode(&self, value: HolographicReprojectionMode) -> ::windows::core::Result<()>;
-    fn CommitDirect3D11DepthBuffer(&self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<()>;
+    fn ReprojectionMode(&mut self) -> ::windows::core::Result<HolographicReprojectionMode>;
+    fn SetReprojectionMode(&mut self, value: HolographicReprojectionMode) -> ::windows::core::Result<()>;
+    fn CommitDirect3D11DepthBuffer(&mut self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters2 {
@@ -596,8 +596,8 @@ impl IHolographicCameraRenderingParameters2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicCameraRenderingParameters3Impl: Sized + IHolographicCameraRenderingParametersImpl + IHolographicCameraRenderingParameters2Impl {
-    fn IsContentProtectionEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsContentProtectionEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsContentProtectionEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsContentProtectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters3 {
@@ -633,8 +633,8 @@ impl IHolographicCameraRenderingParameters3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicCameraRenderingParameters4Impl: Sized {
-    fn DepthReprojectionMethod(&self) -> ::windows::core::Result<HolographicDepthReprojectionMethod>;
-    fn SetDepthReprojectionMethod(&self, value: HolographicDepthReprojectionMethod) -> ::windows::core::Result<()>;
+    fn DepthReprojectionMethod(&mut self) -> ::windows::core::Result<HolographicDepthReprojectionMethod>;
+    fn SetDepthReprojectionMethod(&mut self, value: HolographicDepthReprojectionMethod) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters4 {
@@ -670,8 +670,8 @@ impl IHolographicCameraRenderingParameters4Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait IHolographicCameraViewportParametersImpl: Sized {
-    fn HiddenAreaMesh(&self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
-    fn VisibleAreaMesh(&self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
+    fn HiddenAreaMesh(&mut self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
+    fn VisibleAreaMesh(&mut self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicCameraViewportParameters {
@@ -716,12 +716,12 @@ impl IHolographicCameraViewportParametersVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicDisplayImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MaxViewportSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn IsStereo(&self) -> ::windows::core::Result<bool>;
-    fn IsOpaque(&self) -> ::windows::core::Result<bool>;
-    fn AdapterId(&self) -> ::windows::core::Result<HolographicAdapterId>;
-    fn SpatialLocator(&self) -> ::windows::core::Result<super::super::Perception::Spatial::SpatialLocator>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MaxViewportSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn IsStereo(&mut self) -> ::windows::core::Result<bool>;
+    fn IsOpaque(&mut self) -> ::windows::core::Result<bool>;
+    fn AdapterId(&mut self) -> ::windows::core::Result<HolographicAdapterId>;
+    fn SpatialLocator(&mut self) -> ::windows::core::Result<super::super::Perception::Spatial::SpatialLocator>;
 }
 #[cfg(all(feature = "Foundation", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicDisplay {
@@ -812,7 +812,7 @@ impl IHolographicDisplayVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicDisplay2Impl: Sized {
-    fn RefreshRate(&self) -> ::windows::core::Result<f64>;
+    fn RefreshRate(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicDisplay2 {
@@ -840,7 +840,7 @@ impl IHolographicDisplay2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicDisplay3Impl: Sized {
-    fn TryGetViewConfiguration(&self, kind: HolographicViewConfigurationKind) -> ::windows::core::Result<HolographicViewConfiguration>;
+    fn TryGetViewConfiguration(&mut self, kind: HolographicViewConfigurationKind) -> ::windows::core::Result<HolographicViewConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicDisplay3 {
@@ -871,7 +871,7 @@ impl IHolographicDisplay3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicDisplayStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<HolographicDisplay>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<HolographicDisplay>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicDisplayStatics {
@@ -899,15 +899,15 @@ impl IHolographicDisplayStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicFrameImpl: Sized {
-    fn AddedCameras(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
-    fn RemovedCameras(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
-    fn GetRenderingParameters(&self, camerapose: &::core::option::Option<HolographicCameraPose>) -> ::windows::core::Result<HolographicCameraRenderingParameters>;
-    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn CurrentPrediction(&self) -> ::windows::core::Result<HolographicFramePrediction>;
-    fn UpdateCurrentPrediction(&self) -> ::windows::core::Result<()>;
-    fn PresentUsingCurrentPrediction(&self) -> ::windows::core::Result<HolographicFramePresentResult>;
-    fn PresentUsingCurrentPredictionWithBehavior(&self, waitbehavior: HolographicFramePresentWaitBehavior) -> ::windows::core::Result<HolographicFramePresentResult>;
-    fn WaitForFrameToFinish(&self) -> ::windows::core::Result<()>;
+    fn AddedCameras(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
+    fn RemovedCameras(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
+    fn GetRenderingParameters(&mut self, camerapose: &::core::option::Option<HolographicCameraPose>) -> ::windows::core::Result<HolographicCameraRenderingParameters>;
+    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn CurrentPrediction(&mut self) -> ::windows::core::Result<HolographicFramePrediction>;
+    fn UpdateCurrentPrediction(&mut self) -> ::windows::core::Result<()>;
+    fn PresentUsingCurrentPrediction(&mut self) -> ::windows::core::Result<HolographicFramePresentResult>;
+    fn PresentUsingCurrentPredictionWithBehavior(&mut self, waitbehavior: HolographicFramePresentWaitBehavior) -> ::windows::core::Result<HolographicFramePresentResult>;
+    fn WaitForFrameToFinish(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrame {
@@ -1020,7 +1020,7 @@ impl IHolographicFrameVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicFrame2Impl: Sized + IHolographicFrameImpl {
-    fn GetQuadLayerUpdateParameters(&self, layer: &::core::option::Option<HolographicQuadLayer>) -> ::windows::core::Result<HolographicQuadLayerUpdateParameters>;
+    fn GetQuadLayerUpdateParameters(&mut self, layer: &::core::option::Option<HolographicQuadLayer>) -> ::windows::core::Result<HolographicQuadLayerUpdateParameters>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrame2 {
@@ -1051,7 +1051,7 @@ impl IHolographicFrame2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicFrame3Impl: Sized {
-    fn Id(&self) -> ::windows::core::Result<HolographicFrameId>;
+    fn Id(&mut self) -> ::windows::core::Result<HolographicFrameId>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicFrame3 {
@@ -1079,8 +1079,8 @@ impl IHolographicFrame3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
 pub trait IHolographicFramePredictionImpl: Sized {
-    fn CameraPoses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCameraPose>>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Perception::PerceptionTimestamp>;
+    fn CameraPoses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCameraPose>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Perception::PerceptionTimestamp>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFramePrediction {
@@ -1123,7 +1123,7 @@ impl IHolographicFramePredictionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IHolographicFramePresentationMonitorImpl: Sized + IClosableImpl {
-    fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicFramePresentationReport>>;
+    fn ReadReports(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicFramePresentationReport>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFramePresentationMonitor {
@@ -1154,11 +1154,11 @@ impl IHolographicFramePresentationMonitorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 pub trait IHolographicFramePresentationReportImpl: Sized {
-    fn CompositorGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn AppGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn AppGpuOverrun(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn MissedPresentationOpportunityCount(&self) -> ::windows::core::Result<u32>;
-    fn PresentationCount(&self) -> ::windows::core::Result<u32>;
+    fn CompositorGpuDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn AppGpuDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn AppGpuOverrun(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn MissedPresentationOpportunityCount(&mut self) -> ::windows::core::Result<u32>;
+    fn PresentationCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFramePresentationReport {
@@ -1237,11 +1237,11 @@ impl IHolographicFramePresentationReportVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicFrameRenderingReportImpl: Sized {
-    fn FrameId(&self) -> ::windows::core::Result<HolographicFrameId>;
-    fn MissedLatchCount(&self) -> ::windows::core::Result<u32>;
-    fn SystemRelativeFrameReadyTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SystemRelativeActualGpuFinishTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SystemRelativeTargetLatchTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn FrameId(&mut self) -> ::windows::core::Result<HolographicFrameId>;
+    fn MissedLatchCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SystemRelativeFrameReadyTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SystemRelativeActualGpuFinishTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SystemRelativeTargetLatchTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrameRenderingReport {
@@ -1320,7 +1320,7 @@ impl IHolographicFrameRenderingReportVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicFrameScanoutMonitorImpl: Sized + IClosableImpl {
-    fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicFrameScanoutReport>>;
+    fn ReadReports(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicFrameScanoutReport>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrameScanoutMonitor {
@@ -1351,11 +1351,11 @@ impl IHolographicFrameScanoutMonitorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicFrameScanoutReportImpl: Sized {
-    fn RenderingReport(&self) -> ::windows::core::Result<HolographicFrameRenderingReport>;
-    fn MissedScanoutCount(&self) -> ::windows::core::Result<u32>;
-    fn SystemRelativeLatchTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SystemRelativeScanoutStartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SystemRelativePhotonTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn RenderingReport(&mut self) -> ::windows::core::Result<HolographicFrameRenderingReport>;
+    fn MissedScanoutCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SystemRelativeLatchTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SystemRelativeScanoutStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SystemRelativePhotonTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicFrameScanoutReport {
@@ -1434,8 +1434,8 @@ impl IHolographicFrameScanoutReportVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerImpl: Sized {
-    fn PixelFormat(&self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn PixelFormat(&mut self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayer {
@@ -1478,8 +1478,8 @@ impl IHolographicQuadLayerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerFactoryImpl: Sized {
-    fn Create(&self, size: &super::super::Foundation::Size) -> ::windows::core::Result<HolographicQuadLayer>;
-    fn CreateWithPixelFormat(&self, size: &super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<HolographicQuadLayer>;
+    fn Create(&mut self, size: &super::super::Foundation::Size) -> ::windows::core::Result<HolographicQuadLayer>;
+    fn CreateWithPixelFormat(&mut self, size: &super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<HolographicQuadLayer>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerFactory {
@@ -1522,12 +1522,12 @@ impl IHolographicQuadLayerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerUpdateParametersImpl: Sized {
-    fn AcquireBufferToUpdateContent(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
-    fn UpdateViewport(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn UpdateContentProtectionEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn UpdateExtents(&self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
-    fn UpdateLocationWithStationaryMode(&self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
-    fn UpdateLocationWithDisplayRelativeMode(&self, position: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn AcquireBufferToUpdateContent(&mut self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
+    fn UpdateViewport(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn UpdateContentProtectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn UpdateExtents(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
+    fn UpdateLocationWithStationaryMode(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
+    fn UpdateLocationWithDisplayRelativeMode(&mut self, position: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParameters {
@@ -1589,8 +1589,8 @@ impl IHolographicQuadLayerUpdateParametersVtbl {
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IHolographicQuadLayerUpdateParameters2Impl: Sized {
-    fn CanAcquireWithHardwareProtection(&self) -> ::windows::core::Result<bool>;
-    fn AcquireBufferToUpdateContentWithHardwareProtection(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
+    fn CanAcquireWithHardwareProtection(&mut self) -> ::windows::core::Result<bool>;
+    fn AcquireBufferToUpdateContentWithHardwareProtection(&mut self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParameters2 {
@@ -1633,13 +1633,13 @@ impl IHolographicQuadLayerUpdateParameters2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceImpl: Sized {
-    fn PrimaryAdapterId(&self) -> ::windows::core::Result<HolographicAdapterId>;
-    fn SetDirect3D11Device(&self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
-    fn CameraAdded(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCameraAdded(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CameraRemoved(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCameraRemoved(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CreateNextFrame(&self) -> ::windows::core::Result<HolographicFrame>;
+    fn PrimaryAdapterId(&mut self) -> ::windows::core::Result<HolographicAdapterId>;
+    fn SetDirect3D11Device(&mut self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
+    fn CameraAdded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCameraAdded(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CameraRemoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCameraRemoved(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateNextFrame(&mut self) -> ::windows::core::Result<HolographicFrame>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpace {
@@ -1721,12 +1721,12 @@ impl IHolographicSpaceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicSpace2Impl: Sized {
-    fn UserPresence(&self) -> ::windows::core::Result<HolographicSpaceUserPresence>;
-    fn UserPresenceChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUserPresenceChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn WaitForNextFrameReady(&self) -> ::windows::core::Result<()>;
-    fn WaitForNextFrameReadyWithHeadStart(&self, requestedheadstartduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn CreateFramePresentationMonitor(&self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFramePresentationMonitor>;
+    fn UserPresence(&mut self) -> ::windows::core::Result<HolographicSpaceUserPresence>;
+    fn UserPresenceChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUserPresenceChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn WaitForNextFrameReady(&mut self) -> ::windows::core::Result<()>;
+    fn WaitForNextFrameReadyWithHeadStart(&mut self, requestedheadstartduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CreateFramePresentationMonitor(&mut self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFramePresentationMonitor>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpace2 {
@@ -1796,7 +1796,7 @@ impl IHolographicSpace2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicSpace3Impl: Sized {
-    fn CreateFrameScanoutMonitor(&self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFrameScanoutMonitor>;
+    fn CreateFrameScanoutMonitor(&mut self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFrameScanoutMonitor>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicSpace3 {
@@ -1827,8 +1827,8 @@ impl IHolographicSpace3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceCameraAddedEventArgsImpl: Sized {
-    fn Camera(&self) -> ::windows::core::Result<HolographicCamera>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn Camera(&mut self) -> ::windows::core::Result<HolographicCamera>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpaceCameraAddedEventArgs {
@@ -1871,7 +1871,7 @@ impl IHolographicSpaceCameraAddedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicSpaceCameraRemovedEventArgsImpl: Sized {
-    fn Camera(&self) -> ::windows::core::Result<HolographicCamera>;
+    fn Camera(&mut self) -> ::windows::core::Result<HolographicCamera>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicSpaceCameraRemovedEventArgs {
@@ -1902,7 +1902,7 @@ impl IHolographicSpaceCameraRemovedEventArgsVtbl {
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceStaticsImpl: Sized {
-    fn CreateForCoreWindow(&self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<HolographicSpace>;
+    fn CreateForCoreWindow(&mut self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<HolographicSpace>;
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpaceStatics {
@@ -1933,10 +1933,10 @@ impl IHolographicSpaceStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHolographicSpaceStatics2Impl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsAvailable(&self) -> ::windows::core::Result<bool>;
-    fn IsAvailableChanged(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIsAvailableChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsAvailable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsAvailableChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIsAvailableChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicSpaceStatics2 {
@@ -1996,7 +1996,7 @@ impl IHolographicSpaceStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHolographicSpaceStatics3Impl: Sized {
-    fn IsConfigured(&self) -> ::windows::core::Result<bool>;
+    fn IsConfigured(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHolographicSpaceStatics3 {
@@ -2027,18 +2027,18 @@ impl IHolographicSpaceStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait IHolographicViewConfigurationImpl: Sized {
-    fn NativeRenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn RenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn RequestRenderTargetSize(&self, size: &super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn SupportedPixelFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::DirectX::DirectXPixelFormat>>;
-    fn PixelFormat(&self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat>;
-    fn SetPixelFormat(&self, value: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
-    fn IsStereo(&self) -> ::windows::core::Result<bool>;
-    fn RefreshRate(&self) -> ::windows::core::Result<f64>;
-    fn Kind(&self) -> ::windows::core::Result<HolographicViewConfigurationKind>;
-    fn Display(&self) -> ::windows::core::Result<HolographicDisplay>;
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn NativeRenderTargetSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn RenderTargetSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn RequestRenderTargetSize(&mut self, size: &super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn SupportedPixelFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::DirectX::DirectXPixelFormat>>;
+    fn PixelFormat(&mut self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat>;
+    fn SetPixelFormat(&mut self, value: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
+    fn IsStereo(&mut self) -> ::windows::core::Result<bool>;
+    fn RefreshRate(&mut self) -> ::windows::core::Result<f64>;
+    fn Kind(&mut self) -> ::windows::core::Result<HolographicViewConfigurationKind>;
+    fn Display(&mut self) -> ::windows::core::Result<HolographicDisplay>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicViewConfiguration {
@@ -2187,7 +2187,7 @@ impl IHolographicViewConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHolographicViewConfiguration2Impl: Sized {
-    fn SupportedDepthReprojectionMethods(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicDepthReprojectionMethod>>;
+    fn SupportedDepthReprojectionMethods(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicDepthReprojectionMethod>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHolographicViewConfiguration2 {

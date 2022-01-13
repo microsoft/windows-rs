@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceInfoImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn UpdateTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn TryGetBounds(&self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>;
-    fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>;
-    fn TryComputeLatestMeshWithOptionsAsync(&self, maxtrianglespercubicmeter: f64, options: &::core::option::Option<SpatialSurfaceMeshOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn UpdateTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn TryGetBounds(&mut self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>;
+    fn TryComputeLatestMeshAsync(&mut self, maxtrianglespercubicmeter: f64) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>;
+    fn TryComputeLatestMeshWithOptionsAsync(&mut self, maxtrianglespercubicmeter: f64, options: &::core::option::Option<SpatialSurfaceMeshOptions>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceInfo {
@@ -83,12 +83,12 @@ impl ISpatialSurfaceInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshImpl: Sized {
-    fn SurfaceInfo(&self) -> ::windows::core::Result<SpatialSurfaceInfo>;
-    fn CoordinateSystem(&self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
-    fn TriangleIndices(&self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
-    fn VertexPositions(&self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
-    fn VertexPositionScale(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn VertexNormals(&self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
+    fn SurfaceInfo(&mut self) -> ::windows::core::Result<SpatialSurfaceInfo>;
+    fn CoordinateSystem(&mut self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
+    fn TriangleIndices(&mut self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
+    fn VertexPositions(&mut self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
+    fn VertexPositionScale(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn VertexNormals(&mut self) -> ::windows::core::Result<SpatialSurfaceMeshBuffer>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMesh {
@@ -179,10 +179,10 @@ impl ISpatialSurfaceMeshVtbl {
 }
 #[cfg(all(feature = "Graphics_DirectX", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshBufferImpl: Sized {
-    fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn Stride(&self) -> ::windows::core::Result<u32>;
-    fn ElementCount(&self) -> ::windows::core::Result<u32>;
-    fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
+    fn Format(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn Stride(&mut self) -> ::windows::core::Result<u32>;
+    fn ElementCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Data(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Graphics_DirectX", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMeshBuffer {
@@ -249,14 +249,14 @@ impl ISpatialSurfaceMeshBufferVtbl {
 }
 #[cfg(all(feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshOptionsImpl: Sized {
-    fn VertexPositionFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn SetVertexPositionFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
-    fn TriangleIndexFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn SetTriangleIndexFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
-    fn VertexNormalFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
-    fn SetVertexNormalFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
-    fn IncludeVertexNormals(&self) -> ::windows::core::Result<bool>;
-    fn SetIncludeVertexNormals(&self, value: bool) -> ::windows::core::Result<()>;
+    fn VertexPositionFormat(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn SetVertexPositionFormat(&mut self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
+    fn TriangleIndexFormat(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn SetTriangleIndexFormat(&mut self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
+    fn VertexNormalFormat(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
+    fn SetVertexNormalFormat(&mut self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()>;
+    fn IncludeVertexNormals(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIncludeVertexNormals(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMeshOptions {
@@ -343,9 +343,9 @@ impl ISpatialSurfaceMeshOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceMeshOptionsStaticsImpl: Sized {
-    fn SupportedVertexPositionFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
-    fn SupportedTriangleIndexFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
-    fn SupportedVertexNormalFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
+    fn SupportedVertexPositionFormats(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
+    fn SupportedTriangleIndexFormats(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
+    fn SupportedVertexNormalFormats(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceMeshOptionsStatics {
@@ -400,11 +400,11 @@ impl ISpatialSurfaceMeshOptionsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceObserverImpl: Sized {
-    fn GetObservedSurfaces(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, SpatialSurfaceInfo>>;
-    fn SetBoundingVolume(&self, bounds: &::core::option::Option<super::SpatialBoundingVolume>) -> ::windows::core::Result<()>;
-    fn SetBoundingVolumes(&self, bounds: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>) -> ::windows::core::Result<()>;
-    fn ObservedSurfacesChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveObservedSurfacesChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetObservedSurfaces(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, SpatialSurfaceInfo>>;
+    fn SetBoundingVolume(&mut self, bounds: &::core::option::Option<super::SpatialBoundingVolume>) -> ::windows::core::Result<()>;
+    fn SetBoundingVolumes(&mut self, bounds: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>) -> ::windows::core::Result<()>;
+    fn ObservedSurfacesChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveObservedSurfacesChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceObserver {
@@ -462,7 +462,7 @@ impl ISpatialSurfaceObserverVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceObserverStaticsImpl: Sized {
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceObserverStatics {
@@ -493,7 +493,7 @@ impl ISpatialSurfaceObserverStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialSurfaceObserverStatics2Impl: Sized + ISpatialSurfaceObserverStaticsImpl {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialSurfaceObserverStatics2 {

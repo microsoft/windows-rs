@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWiFiAdapterImpl: Sized {
-    fn NetworkAdapter(&self) -> ::windows::core::Result<super::super::Networking::Connectivity::NetworkAdapter>;
-    fn ScanAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn NetworkReport(&self) -> ::windows::core::Result<WiFiNetworkReport>;
-    fn AvailableNetworksChanged(&self, args: &::core::option::Option<super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAvailableNetworksChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ConnectAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
-    fn ConnectWithPasswordCredentialAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
-    fn ConnectWithPasswordCredentialAndSsidAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, ssid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
-    fn Disconnect(&self) -> ::windows::core::Result<()>;
+    fn NetworkAdapter(&mut self) -> ::windows::core::Result<super::super::Networking::Connectivity::NetworkAdapter>;
+    fn ScanAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn NetworkReport(&mut self) -> ::windows::core::Result<WiFiNetworkReport>;
+    fn AvailableNetworksChanged(&mut self, args: &::core::option::Option<super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAvailableNetworksChanged(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ConnectAsync(&mut self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
+    fn ConnectWithPasswordCredentialAsync(&mut self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
+    fn ConnectWithPasswordCredentialAndSsidAsync(&mut self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, ssid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
+    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAdapter {
@@ -126,8 +126,8 @@ impl IWiFiAdapterVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 pub trait IWiFiAdapter2Impl: Sized {
-    fn GetWpsConfigurationAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>;
-    fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(&self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, ssid: &::windows::core::HSTRING, connectionmethod: WiFiConnectionMethod) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
+    fn GetWpsConfigurationAsync(&mut self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>;
+    fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(&mut self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, ssid: &::windows::core::HSTRING, connectionmethod: WiFiConnectionMethod) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAdapter2 {
@@ -176,10 +176,10 @@ impl IWiFiAdapter2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWiFiAdapterStaticsImpl: Sized {
-    fn FindAllAdaptersAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>>;
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAccessStatus>>;
+    fn FindAllAdaptersAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAccessStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAdapterStatics {
@@ -246,17 +246,17 @@ impl IWiFiAdapterStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 pub trait IWiFiAvailableNetworkImpl: Sized {
-    fn Uptime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Ssid(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Bssid(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ChannelCenterFrequencyInKilohertz(&self) -> ::windows::core::Result<i32>;
-    fn NetworkRssiInDecibelMilliwatts(&self) -> ::windows::core::Result<f64>;
-    fn SignalBars(&self) -> ::windows::core::Result<u8>;
-    fn NetworkKind(&self) -> ::windows::core::Result<WiFiNetworkKind>;
-    fn PhyKind(&self) -> ::windows::core::Result<WiFiPhyKind>;
-    fn SecuritySettings(&self) -> ::windows::core::Result<super::super::Networking::Connectivity::NetworkSecuritySettings>;
-    fn BeaconInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn IsWiFiDirect(&self) -> ::windows::core::Result<bool>;
+    fn Uptime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Ssid(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Bssid(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ChannelCenterFrequencyInKilohertz(&mut self) -> ::windows::core::Result<i32>;
+    fn NetworkRssiInDecibelMilliwatts(&mut self) -> ::windows::core::Result<f64>;
+    fn SignalBars(&mut self) -> ::windows::core::Result<u8>;
+    fn NetworkKind(&mut self) -> ::windows::core::Result<WiFiNetworkKind>;
+    fn PhyKind(&mut self) -> ::windows::core::Result<WiFiPhyKind>;
+    fn SecuritySettings(&mut self) -> ::windows::core::Result<super::super::Networking::Connectivity::NetworkSecuritySettings>;
+    fn BeaconInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn IsWiFiDirect(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiAvailableNetwork {
@@ -407,7 +407,7 @@ impl IWiFiAvailableNetworkVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWiFiConnectionResultImpl: Sized {
-    fn ConnectionStatus(&self) -> ::windows::core::Result<WiFiConnectionStatus>;
+    fn ConnectionStatus(&mut self) -> ::windows::core::Result<WiFiConnectionStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWiFiConnectionResult {
@@ -438,8 +438,8 @@ impl IWiFiConnectionResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWiFiNetworkReportImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn AvailableNetworks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiAvailableNetwork>>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn AvailableNetworks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiAvailableNetwork>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiNetworkReport {
@@ -482,8 +482,8 @@ impl IWiFiNetworkReportVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IWiFiWpsConfigurationResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<WiFiWpsConfigurationStatus>;
-    fn SupportedWpsKinds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiWpsKind>>;
+    fn Status(&mut self) -> ::windows::core::Result<WiFiWpsConfigurationStatus>;
+    fn SupportedWpsKinds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiWpsKind>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWiFiWpsConfigurationResult {

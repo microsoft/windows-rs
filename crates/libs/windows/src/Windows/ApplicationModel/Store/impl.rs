@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICurrentAppImpl: Sized {
-    fn LicenseInformation(&self) -> ::windows::core::Result<LicenseInformation>;
-    fn LinkUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn AppId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RequestAppPurchaseAsync(&self, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn RequestProductPurchaseAsync(&self, productid: &::windows::core::HSTRING, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn LoadListingInformationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
-    fn GetAppReceiptAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetProductReceiptAsync(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn LicenseInformation(&mut self) -> ::windows::core::Result<LicenseInformation>;
+    fn LinkUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn AppId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RequestAppPurchaseAsync(&mut self, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn RequestProductPurchaseAsync(&mut self, productid: &::windows::core::HSTRING, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn LoadListingInformationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
+    fn GetAppReceiptAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetProductReceiptAsync(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentApp {
@@ -122,8 +122,8 @@ impl ICurrentAppVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICurrentApp2StaticsImpl: Sized {
-    fn GetCustomerPurchaseIdAsync(&self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetCustomerCollectionsIdAsync(&self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetCustomerPurchaseIdAsync(&mut self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetCustomerCollectionsIdAsync(&mut self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentApp2Statics {
@@ -166,15 +166,15 @@ impl ICurrentApp2StaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait ICurrentAppSimulatorImpl: Sized {
-    fn LicenseInformation(&self) -> ::windows::core::Result<LicenseInformation>;
-    fn LinkUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn AppId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RequestAppPurchaseAsync(&self, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn RequestProductPurchaseAsync(&self, productid: &::windows::core::HSTRING, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn LoadListingInformationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
-    fn GetAppReceiptAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn GetProductReceiptAsync(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
-    fn ReloadSimulatorAsync(&self, simulatorsettingsfile: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn LicenseInformation(&mut self) -> ::windows::core::Result<LicenseInformation>;
+    fn LinkUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn AppId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RequestAppPurchaseAsync(&mut self, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn RequestProductPurchaseAsync(&mut self, productid: &::windows::core::HSTRING, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn LoadListingInformationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
+    fn GetAppReceiptAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetProductReceiptAsync(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn ReloadSimulatorAsync(&mut self, simulatorsettingsfile: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentAppSimulator {
@@ -301,8 +301,8 @@ impl ICurrentAppSimulatorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICurrentAppSimulatorStaticsWithFilteringImpl: Sized {
-    fn LoadListingInformationByProductIdsAsync(&self, productids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
-    fn LoadListingInformationByKeywordsAsync(&self, keywords: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
+    fn LoadListingInformationByProductIdsAsync(&mut self, productids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
+    fn LoadListingInformationByKeywordsAsync(&mut self, keywords: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentAppSimulatorStaticsWithFiltering {
@@ -345,7 +345,7 @@ impl ICurrentAppSimulatorStaticsWithFilteringVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICurrentAppSimulatorWithCampaignIdImpl: Sized {
-    fn GetAppPurchaseCampaignIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetAppPurchaseCampaignIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentAppSimulatorWithCampaignId {
@@ -376,10 +376,10 @@ impl ICurrentAppSimulatorWithCampaignIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICurrentAppSimulatorWithConsumablesImpl: Sized {
-    fn ReportConsumableFulfillmentAsync(&self, productid: &::windows::core::HSTRING, transactionid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>>;
-    fn RequestProductPurchaseWithResultsAsync(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
-    fn RequestProductPurchaseWithDisplayPropertiesAsync(&self, productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &::core::option::Option<ProductPurchaseDisplayProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
-    fn GetUnfulfilledConsumablesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>>;
+    fn ReportConsumableFulfillmentAsync(&mut self, productid: &::windows::core::HSTRING, transactionid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>>;
+    fn RequestProductPurchaseWithResultsAsync(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
+    fn RequestProductPurchaseWithDisplayPropertiesAsync(&mut self, productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &::core::option::Option<ProductPurchaseDisplayProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
+    fn GetUnfulfilledConsumablesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentAppSimulatorWithConsumables {
@@ -450,9 +450,9 @@ impl ICurrentAppSimulatorWithConsumablesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICurrentAppStaticsWithFilteringImpl: Sized {
-    fn LoadListingInformationByProductIdsAsync(&self, productids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
-    fn LoadListingInformationByKeywordsAsync(&self, keywords: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
-    fn ReportProductFulfillment(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LoadListingInformationByProductIdsAsync(&mut self, productids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
+    fn LoadListingInformationByKeywordsAsync(&mut self, keywords: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
+    fn ReportProductFulfillment(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentAppStaticsWithFiltering {
@@ -500,7 +500,7 @@ impl ICurrentAppStaticsWithFilteringVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICurrentAppWithCampaignIdImpl: Sized {
-    fn GetAppPurchaseCampaignIdAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
+    fn GetAppPurchaseCampaignIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentAppWithCampaignId {
@@ -531,10 +531,10 @@ impl ICurrentAppWithCampaignIdVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICurrentAppWithConsumablesImpl: Sized {
-    fn ReportConsumableFulfillmentAsync(&self, productid: &::windows::core::HSTRING, transactionid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>>;
-    fn RequestProductPurchaseWithResultsAsync(&self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
-    fn RequestProductPurchaseWithDisplayPropertiesAsync(&self, productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &::core::option::Option<ProductPurchaseDisplayProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
-    fn GetUnfulfilledConsumablesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>>;
+    fn ReportConsumableFulfillmentAsync(&mut self, productid: &::windows::core::HSTRING, transactionid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>>;
+    fn RequestProductPurchaseWithResultsAsync(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
+    fn RequestProductPurchaseWithDisplayPropertiesAsync(&mut self, productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &::core::option::Option<ProductPurchaseDisplayProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
+    fn GetUnfulfilledConsumablesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICurrentAppWithConsumables {
@@ -605,12 +605,12 @@ impl ICurrentAppWithConsumablesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILicenseInformationImpl: Sized {
-    fn ProductLicenses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductLicense>>;
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn IsTrial(&self) -> ::windows::core::Result<bool>;
-    fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn LicenseChanged(&self, handler: &::core::option::Option<LicenseChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLicenseChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ProductLicenses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductLicense>>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn IsTrial(&mut self) -> ::windows::core::Result<bool>;
+    fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn LicenseChanged(&mut self, handler: &::core::option::Option<LicenseChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLicenseChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILicenseInformation {
@@ -694,12 +694,12 @@ impl ILicenseInformationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IListingInformationImpl: Sized {
-    fn CurrentMarket(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProductListings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductListing>>;
-    fn FormattedPrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AgeRating(&self) -> ::windows::core::Result<u32>;
+    fn CurrentMarket(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductListings(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductListing>>;
+    fn FormattedPrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AgeRating(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListingInformation {
@@ -790,10 +790,10 @@ impl IListingInformationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IListingInformation2Impl: Sized {
-    fn FormattedBasePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SaleEndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn IsOnSale(&self) -> ::windows::core::Result<bool>;
-    fn CurrencyCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormattedBasePrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SaleEndDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn IsOnSale(&mut self) -> ::windows::core::Result<bool>;
+    fn CurrencyCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IListingInformation2 {
@@ -860,9 +860,9 @@ impl IListingInformation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProductLicenseImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsActive(&self) -> ::windows::core::Result<bool>;
-    fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsActive(&mut self) -> ::windows::core::Result<bool>;
+    fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProductLicense {
@@ -917,7 +917,7 @@ impl IProductLicenseVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProductLicenseWithFulfillmentImpl: Sized + IProductLicenseImpl {
-    fn IsConsumable(&self) -> ::windows::core::Result<bool>;
+    fn IsConsumable(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProductLicenseWithFulfillment {
@@ -948,9 +948,9 @@ impl IProductLicenseWithFulfillmentVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProductListingImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormattedPrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormattedPrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProductListing {
@@ -1005,10 +1005,10 @@ impl IProductListingVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProductListing2Impl: Sized {
-    fn FormattedBasePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SaleEndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn IsOnSale(&self) -> ::windows::core::Result<bool>;
-    fn CurrencyCode(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormattedBasePrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SaleEndDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn IsOnSale(&mut self) -> ::windows::core::Result<bool>;
+    fn CurrencyCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProductListing2 {
@@ -1075,7 +1075,7 @@ impl IProductListing2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProductListingWithConsumablesImpl: Sized {
-    fn ProductType(&self) -> ::windows::core::Result<ProductType>;
+    fn ProductType(&mut self) -> ::windows::core::Result<ProductType>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProductListingWithConsumables {
@@ -1106,11 +1106,11 @@ impl IProductListingWithConsumablesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProductListingWithMetadataImpl: Sized + IProductListingImpl {
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>;
-    fn ProductType(&self) -> ::windows::core::Result<ProductType>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ImageUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Keywords(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>;
+    fn ProductType(&mut self) -> ::windows::core::Result<ProductType>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ImageUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProductListingWithMetadata {
@@ -1189,12 +1189,12 @@ impl IProductListingWithMetadataVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProductPurchaseDisplayPropertiesImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Image(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetImage(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Image(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetImage(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProductPurchaseDisplayProperties {
@@ -1264,7 +1264,7 @@ impl IProductPurchaseDisplayPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProductPurchaseDisplayPropertiesFactoryImpl: Sized {
-    fn CreateProductPurchaseDisplayProperties(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ProductPurchaseDisplayProperties>;
+    fn CreateProductPurchaseDisplayProperties(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ProductPurchaseDisplayProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProductPurchaseDisplayPropertiesFactory {
@@ -1295,10 +1295,10 @@ impl IProductPurchaseDisplayPropertiesFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPurchaseResultsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<ProductPurchaseStatus>;
-    fn TransactionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ReceiptXml(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OfferId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<ProductPurchaseStatus>;
+    fn TransactionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ReceiptXml(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OfferId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPurchaseResults {
@@ -1365,9 +1365,9 @@ impl IPurchaseResultsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUnfulfilledConsumableImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TransactionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn OfferId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TransactionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn OfferId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUnfulfilledConsumable {

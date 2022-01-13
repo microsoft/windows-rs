@@ -15,12 +15,12 @@ impl IRequestingFocusOnKeyboardInputEventArgsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISearchSuggestionImpl: Sized {
-    fn Kind(&self) -> ::windows::core::Result<SearchSuggestionKind>;
-    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DetailText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Image(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn ImageAlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Kind(&mut self) -> ::windows::core::Result<SearchSuggestionKind>;
+    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DetailText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Image(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn ImageAlternateText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchSuggestion {
@@ -111,22 +111,22 @@ impl ISearchSuggestionVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISearchSuggestionManagerImpl: Sized {
-    fn SearchHistoryEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetSearchHistoryEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SearchHistoryContext(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSearchHistoryContext(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetLocalContentSuggestionSettings(&self, settings: &::core::option::Option<super::LocalContentSuggestionSettings>) -> ::windows::core::Result<()>;
-    fn SetQuery(&self, querytext: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetQueryWithLanguage(&self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn SetQueryWithSearchQueryLinguisticDetails(&self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING, linguisticdetails: &::core::option::Option<super::SearchQueryLinguisticDetails>) -> ::windows::core::Result<()>;
-    fn Suggestions(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>>;
-    fn AddToHistory(&self, querytext: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn AddToHistoryWithLanguage(&self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ClearHistory(&self) -> ::windows::core::Result<()>;
-    fn SuggestionsRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSuggestionsRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RequestingFocusOnKeyboardInput(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRequestingFocusOnKeyboardInput(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SearchHistoryEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetSearchHistoryEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SearchHistoryContext(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSearchHistoryContext(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetLocalContentSuggestionSettings(&mut self, settings: &::core::option::Option<super::LocalContentSuggestionSettings>) -> ::windows::core::Result<()>;
+    fn SetQuery(&mut self, querytext: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetQueryWithLanguage(&mut self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetQueryWithSearchQueryLinguisticDetails(&mut self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING, linguisticdetails: &::core::option::Option<super::SearchQueryLinguisticDetails>) -> ::windows::core::Result<()>;
+    fn Suggestions(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>>;
+    fn AddToHistory(&mut self, querytext: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn AddToHistoryWithLanguage(&mut self, querytext: &::windows::core::HSTRING, language: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ClearHistory(&mut self) -> ::windows::core::Result<()>;
+    fn SuggestionsRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSuggestionsRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RequestingFocusOnKeyboardInput(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRequestingFocusOnKeyboardInput(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISearchSuggestionManager {
@@ -266,10 +266,10 @@ impl ISearchSuggestionManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISearchSuggestionsRequestedEventArgsImpl: Sized {
-    fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LinguisticDetails(&self) -> ::windows::core::Result<super::SearchQueryLinguisticDetails>;
-    fn Request(&self) -> ::windows::core::Result<super::SearchSuggestionsRequest>;
+    fn QueryText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LinguisticDetails(&mut self) -> ::windows::core::Result<super::SearchQueryLinguisticDetails>;
+    fn Request(&mut self) -> ::windows::core::Result<super::SearchSuggestionsRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISearchSuggestionsRequestedEventArgs {

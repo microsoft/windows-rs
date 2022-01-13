@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppListEntryImpl: Sized {
-    fn DisplayInfo(&self) -> ::windows::core::Result<super::AppDisplayInfo>;
-    fn LaunchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn DisplayInfo(&mut self) -> ::windows::core::Result<super::AppDisplayInfo>;
+    fn LaunchAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppListEntry {
@@ -44,7 +44,7 @@ impl IAppListEntryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppListEntry2Impl: Sized {
-    fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppListEntry2 {
@@ -72,7 +72,7 @@ impl IAppListEntry2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IAppListEntry3Impl: Sized {
-    fn LaunchForUserAsync(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchForUserAsync(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppListEntry3 {
@@ -103,7 +103,7 @@ impl IAppListEntry3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppListEntry4Impl: Sized {
-    fn AppInfo(&self) -> ::windows::core::Result<super::AppInfo>;
+    fn AppInfo(&mut self) -> ::windows::core::Result<super::AppInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppListEntry4 {
@@ -131,15 +131,15 @@ impl IAppListEntry4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICoreApplicationImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Suspending(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::SuspendingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSuspending(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Resuming(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveResuming(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
-    fn GetCurrentView(&self) -> ::windows::core::Result<CoreApplicationView>;
-    fn Run(&self, viewsource: &::core::option::Option<IFrameworkViewSource>) -> ::windows::core::Result<()>;
-    fn RunWithActivationFactories(&self, activationfactorycallback: &::core::option::Option<super::super::Foundation::IGetActivationFactory>) -> ::windows::core::Result<()>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Suspending(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::SuspendingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSuspending(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Resuming(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveResuming(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn GetCurrentView(&mut self) -> ::windows::core::Result<CoreApplicationView>;
+    fn Run(&mut self, viewsource: &::core::option::Option<IFrameworkViewSource>) -> ::windows::core::Result<()>;
+    fn RunWithActivationFactories(&mut self, activationfactorycallback: &::core::option::Option<super::super::Foundation::IGetActivationFactory>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplication {
@@ -238,13 +238,13 @@ impl ICoreApplicationVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreApplication2Impl: Sized {
-    fn BackgroundActivated(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveBackgroundActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn LeavingBackground(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLeavingBackground(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnteredBackground(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::EnteredBackgroundEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveEnteredBackground(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnablePrelaunch(&self, value: bool) -> ::windows::core::Result<()>;
+    fn BackgroundActivated(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveBackgroundActivated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn LeavingBackground(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLeavingBackground(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnteredBackground(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<super::EnteredBackgroundEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveEnteredBackground(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnablePrelaunch(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplication2 {
@@ -319,8 +319,8 @@ impl ICoreApplication2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait ICoreApplication3Impl: Sized {
-    fn RequestRestartAsync(&self, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>;
-    fn RequestRestartForUserAsync(&self, user: &::core::option::Option<super::super::System::User>, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>;
+    fn RequestRestartAsync(&mut self, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>;
+    fn RequestRestartForUserAsync(&mut self, user: &::core::option::Option<super::super::System::User>, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplication3 {
@@ -363,9 +363,9 @@ impl ICoreApplication3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreApplicationExitImpl: Sized {
-    fn Exit(&self) -> ::windows::core::Result<()>;
-    fn Exiting(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveExiting(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Exit(&mut self) -> ::windows::core::Result<()>;
+    fn Exiting(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveExiting(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplicationExit {
@@ -406,8 +406,8 @@ impl ICoreApplicationExitVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ICoreApplicationUnhandledErrorImpl: Sized {
-    fn UnhandledErrorDetected(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUnhandledErrorDetected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UnhandledErrorDetected(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUnhandledErrorDetected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICoreApplicationUnhandledError {
@@ -443,8 +443,8 @@ impl ICoreApplicationUnhandledErrorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreApplicationUseCountImpl: Sized {
-    fn IncrementApplicationUseCount(&self) -> ::windows::core::Result<()>;
-    fn DecrementApplicationUseCount(&self) -> ::windows::core::Result<()>;
+    fn IncrementApplicationUseCount(&mut self) -> ::windows::core::Result<()>;
+    fn DecrementApplicationUseCount(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreApplicationUseCount {
@@ -473,11 +473,11 @@ impl ICoreApplicationUseCountVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait ICoreApplicationViewImpl: Sized {
-    fn CoreWindow(&self) -> ::windows::core::Result<super::super::UI::Core::CoreWindow>;
-    fn Activated(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationView, super::Activation::IActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveActivated(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn IsMain(&self) -> ::windows::core::Result<bool>;
-    fn IsHosted(&self) -> ::windows::core::Result<bool>;
+    fn CoreWindow(&mut self) -> ::windows::core::Result<super::super::UI::Core::CoreWindow>;
+    fn Activated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationView, super::Activation::IActivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveActivated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsMain(&mut self) -> ::windows::core::Result<bool>;
+    fn IsHosted(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplicationView {
@@ -549,7 +549,7 @@ impl ICoreApplicationViewVtbl {
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 pub trait ICoreApplicationView2Impl: Sized {
-    fn Dispatcher(&self) -> ::windows::core::Result<super::super::UI::Core::CoreDispatcher>;
+    fn Dispatcher(&mut self) -> ::windows::core::Result<super::super::UI::Core::CoreDispatcher>;
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplicationView2 {
@@ -577,10 +577,10 @@ impl ICoreApplicationView2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreApplicationView3Impl: Sized {
-    fn IsComponent(&self) -> ::windows::core::Result<bool>;
-    fn TitleBar(&self) -> ::windows::core::Result<CoreApplicationViewTitleBar>;
-    fn HostedViewClosing(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationView, HostedViewClosingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHostedViewClosing(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsComponent(&mut self) -> ::windows::core::Result<bool>;
+    fn TitleBar(&mut self) -> ::windows::core::Result<CoreApplicationViewTitleBar>;
+    fn HostedViewClosing(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationView, HostedViewClosingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHostedViewClosing(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplicationView3 {
@@ -640,7 +640,7 @@ impl ICoreApplicationView3Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICoreApplicationView5Impl: Sized {
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplicationView5 {
@@ -668,7 +668,7 @@ impl ICoreApplicationView5Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait ICoreApplicationView6Impl: Sized {
-    fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplicationView6 {
@@ -699,16 +699,16 @@ impl ICoreApplicationView6Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICoreApplicationViewTitleBarImpl: Sized {
-    fn SetExtendViewIntoTitleBar(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ExtendViewIntoTitleBar(&self) -> ::windows::core::Result<bool>;
-    fn SystemOverlayLeftInset(&self) -> ::windows::core::Result<f64>;
-    fn SystemOverlayRightInset(&self) -> ::windows::core::Result<f64>;
-    fn Height(&self) -> ::windows::core::Result<f64>;
-    fn LayoutMetricsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveLayoutMetricsChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn IsVisible(&self) -> ::windows::core::Result<bool>;
-    fn IsVisibleChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveIsVisibleChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetExtendViewIntoTitleBar(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ExtendViewIntoTitleBar(&mut self) -> ::windows::core::Result<bool>;
+    fn SystemOverlayLeftInset(&mut self) -> ::windows::core::Result<f64>;
+    fn SystemOverlayRightInset(&mut self) -> ::windows::core::Result<f64>;
+    fn Height(&mut self) -> ::windows::core::Result<f64>;
+    fn LayoutMetricsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveLayoutMetricsChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IsVisible(&mut self) -> ::windows::core::Result<bool>;
+    fn IsVisibleChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveIsVisibleChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreApplicationViewTitleBar {
@@ -826,9 +826,9 @@ impl ICoreApplicationViewTitleBarVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ICoreImmersiveApplicationImpl: Sized {
-    fn Views(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CoreApplicationView>>;
-    fn CreateNewView(&self, runtimetype: &::windows::core::HSTRING, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<CoreApplicationView>;
-    fn MainView(&self) -> ::windows::core::Result<CoreApplicationView>;
+    fn Views(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CoreApplicationView>>;
+    fn CreateNewView(&mut self, runtimetype: &::windows::core::HSTRING, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<CoreApplicationView>;
+    fn MainView(&mut self) -> ::windows::core::Result<CoreApplicationView>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICoreImmersiveApplication {
@@ -883,7 +883,7 @@ impl ICoreImmersiveApplicationVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreImmersiveApplication2Impl: Sized {
-    fn CreateNewViewFromMainView(&self) -> ::windows::core::Result<CoreApplicationView>;
+    fn CreateNewViewFromMainView(&mut self) -> ::windows::core::Result<CoreApplicationView>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreImmersiveApplication2 {
@@ -914,7 +914,7 @@ impl ICoreImmersiveApplication2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICoreImmersiveApplication3Impl: Sized {
-    fn CreateNewViewWithViewSource(&self, viewsource: &::core::option::Option<IFrameworkViewSource>) -> ::windows::core::Result<CoreApplicationView>;
+    fn CreateNewViewWithViewSource(&mut self, viewsource: &::core::option::Option<IFrameworkViewSource>) -> ::windows::core::Result<CoreApplicationView>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICoreImmersiveApplication3 {
@@ -945,11 +945,11 @@ impl ICoreImmersiveApplication3Vtbl {
 }
 #[cfg(feature = "UI_Core")]
 pub trait IFrameworkViewImpl: Sized {
-    fn Initialize(&self, applicationview: &::core::option::Option<CoreApplicationView>) -> ::windows::core::Result<()>;
-    fn SetWindow(&self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<()>;
-    fn Load(&self, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Run(&self) -> ::windows::core::Result<()>;
-    fn Uninitialize(&self) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, applicationview: &::core::option::Option<CoreApplicationView>) -> ::windows::core::Result<()>;
+    fn SetWindow(&mut self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<()>;
+    fn Load(&mut self, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Run(&mut self) -> ::windows::core::Result<()>;
+    fn Uninitialize(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "UI_Core")]
 impl ::windows::core::RuntimeName for IFrameworkView {
@@ -992,7 +992,7 @@ impl IFrameworkViewVtbl {
     }
 }
 pub trait IFrameworkViewSourceImpl: Sized {
-    fn CreateView(&self) -> ::windows::core::Result<IFrameworkView>;
+    fn CreateView(&mut self) -> ::windows::core::Result<IFrameworkView>;
 }
 impl ::windows::core::RuntimeName for IFrameworkViewSource {
     const NAME: &'static str = "Windows.ApplicationModel.Core.IFrameworkViewSource";
@@ -1018,7 +1018,7 @@ impl IFrameworkViewSourceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IHostedViewClosingEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHostedViewClosingEventArgs {
@@ -1049,8 +1049,8 @@ impl IHostedViewClosingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUnhandledErrorImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<bool>;
-    fn Propagate(&self) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<bool>;
+    fn Propagate(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUnhandledError {
@@ -1086,7 +1086,7 @@ impl IUnhandledErrorVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUnhandledErrorDetectedEventArgsImpl: Sized {
-    fn UnhandledError(&self) -> ::windows::core::Result<UnhandledError>;
+    fn UnhandledError(&mut self) -> ::windows::core::Result<UnhandledError>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUnhandledErrorDetectedEventArgs {

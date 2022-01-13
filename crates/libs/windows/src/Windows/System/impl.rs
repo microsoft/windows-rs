@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppActivationResultImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn AppResourceGroupInfo(&self) -> ::windows::core::Result<AppResourceGroupInfo>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn AppResourceGroupInfo(&mut self) -> ::windows::core::Result<AppResourceGroupInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppActivationResult {
@@ -44,7 +44,7 @@ impl IAppActivationResultVtbl {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "implement_exclusive"))]
 pub trait IAppDiagnosticInfoImpl: Sized {
-    fn AppInfo(&self) -> ::windows::core::Result<super::ApplicationModel::AppInfo>;
+    fn AppInfo(&mut self) -> ::windows::core::Result<super::ApplicationModel::AppInfo>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDiagnosticInfo {
@@ -72,8 +72,8 @@ impl IAppDiagnosticInfoVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppDiagnosticInfo2Impl: Sized {
-    fn GetResourceGroups(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppResourceGroupInfo>>;
-    fn CreateResourceGroupWatcher(&self) -> ::windows::core::Result<AppResourceGroupInfoWatcher>;
+    fn GetResourceGroups(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppResourceGroupInfo>>;
+    fn CreateResourceGroupWatcher(&mut self) -> ::windows::core::Result<AppResourceGroupInfoWatcher>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDiagnosticInfo2 {
@@ -116,7 +116,7 @@ impl IAppDiagnosticInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppDiagnosticInfo3Impl: Sized {
-    fn LaunchAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppActivationResult>>;
+    fn LaunchAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppActivationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDiagnosticInfo3 {
@@ -144,7 +144,7 @@ impl IAppDiagnosticInfo3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppDiagnosticInfoStaticsImpl: Sized {
-    fn RequestInfoAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
+    fn RequestInfoAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDiagnosticInfoStatics {
@@ -175,11 +175,11 @@ impl IAppDiagnosticInfoStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppDiagnosticInfoStatics2Impl: Sized {
-    fn CreateWatcher(&self) -> ::windows::core::Result<AppDiagnosticInfoWatcher>;
-    fn RequestAccessAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>>;
-    fn RequestInfoForPackageAsync(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
-    fn RequestInfoForAppAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
-    fn RequestInfoForAppUserModelId(&self, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
+    fn CreateWatcher(&mut self) -> ::windows::core::Result<AppDiagnosticInfoWatcher>;
+    fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>>;
+    fn RequestInfoForPackageAsync(&mut self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
+    fn RequestInfoForAppAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
+    fn RequestInfoForAppUserModelId(&mut self, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDiagnosticInfoStatics2 {
@@ -258,17 +258,17 @@ impl IAppDiagnosticInfoStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppDiagnosticInfoWatcherImpl: Sized {
-    fn Added(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAdded(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Removed(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoved(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<AppDiagnosticInfoWatcherStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Added(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAdded(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Removed(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoved(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<AppDiagnosticInfoWatcherStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDiagnosticInfoWatcher {
@@ -377,7 +377,7 @@ impl IAppDiagnosticInfoWatcherVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppDiagnosticInfoWatcherEventArgsImpl: Sized {
-    fn AppDiagnosticInfo(&self) -> ::windows::core::Result<AppDiagnosticInfo>;
+    fn AppDiagnosticInfo(&mut self) -> ::windows::core::Result<AppDiagnosticInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppDiagnosticInfoWatcherEventArgs {
@@ -408,7 +408,7 @@ impl IAppDiagnosticInfoWatcherEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppExecutionStateChangeResultImpl: Sized {
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppExecutionStateChangeResult {
@@ -439,10 +439,10 @@ impl IAppExecutionStateChangeResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppMemoryReportImpl: Sized {
-    fn PrivateCommitUsage(&self) -> ::windows::core::Result<u64>;
-    fn PeakPrivateCommitUsage(&self) -> ::windows::core::Result<u64>;
-    fn TotalCommitUsage(&self) -> ::windows::core::Result<u64>;
-    fn TotalCommitLimit(&self) -> ::windows::core::Result<u64>;
+    fn PrivateCommitUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn PeakPrivateCommitUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn TotalCommitUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn TotalCommitLimit(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppMemoryReport {
@@ -509,7 +509,7 @@ impl IAppMemoryReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppMemoryReport2Impl: Sized {
-    fn ExpectedTotalCommitLimit(&self) -> ::windows::core::Result<u64>;
+    fn ExpectedTotalCommitLimit(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppMemoryReport2 {
@@ -540,8 +540,8 @@ impl IAppMemoryReport2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppMemoryUsageLimitChangingEventArgsImpl: Sized {
-    fn OldLimit(&self) -> ::windows::core::Result<u64>;
-    fn NewLimit(&self) -> ::windows::core::Result<u64>;
+    fn OldLimit(&mut self) -> ::windows::core::Result<u64>;
+    fn NewLimit(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppMemoryUsageLimitChangingEventArgs {
@@ -584,10 +584,10 @@ impl IAppMemoryUsageLimitChangingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppResourceGroupBackgroundTaskReportImpl: Sized {
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Trigger(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EntryPoint(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Trigger(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EntryPoint(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppResourceGroupBackgroundTaskReport {
@@ -654,12 +654,12 @@ impl IAppResourceGroupBackgroundTaskReportVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppResourceGroupInfoImpl: Sized {
-    fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsShared(&self) -> ::windows::core::Result<bool>;
-    fn GetBackgroundTaskReports(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>>;
-    fn GetMemoryReport(&self) -> ::windows::core::Result<AppResourceGroupMemoryReport>;
-    fn GetProcessDiagnosticInfos(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>>;
-    fn GetStateReport(&self) -> ::windows::core::Result<AppResourceGroupStateReport>;
+    fn InstanceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IsShared(&mut self) -> ::windows::core::Result<bool>;
+    fn GetBackgroundTaskReports(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>>;
+    fn GetMemoryReport(&mut self) -> ::windows::core::Result<AppResourceGroupMemoryReport>;
+    fn GetProcessDiagnosticInfos(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>>;
+    fn GetStateReport(&mut self) -> ::windows::core::Result<AppResourceGroupStateReport>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppResourceGroupInfo {
@@ -750,9 +750,9 @@ impl IAppResourceGroupInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppResourceGroupInfo2Impl: Sized {
-    fn StartSuspendAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>;
-    fn StartResumeAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>;
-    fn StartTerminateAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>;
+    fn StartSuspendAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>;
+    fn StartResumeAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>;
+    fn StartTerminateAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppResourceGroupInfo2 {
@@ -807,19 +807,19 @@ impl IAppResourceGroupInfo2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppResourceGroupInfoWatcherImpl: Sized {
-    fn Added(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAdded(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Removed(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoved(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ExecutionStateChanged(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveExecutionStateChanged(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Status(&self) -> ::windows::core::Result<AppResourceGroupInfoWatcherStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Added(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAdded(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Removed(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoved(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ExecutionStateChanged(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveExecutionStateChanged(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<AppResourceGroupInfoWatcherStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppResourceGroupInfoWatcher {
@@ -945,8 +945,8 @@ impl IAppResourceGroupInfoWatcherVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppResourceGroupInfoWatcherEventArgsImpl: Sized {
-    fn AppDiagnosticInfos(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>;
-    fn AppResourceGroupInfo(&self) -> ::windows::core::Result<AppResourceGroupInfo>;
+    fn AppDiagnosticInfos(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>;
+    fn AppResourceGroupInfo(&mut self) -> ::windows::core::Result<AppResourceGroupInfo>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppResourceGroupInfoWatcherEventArgs {
@@ -989,8 +989,8 @@ impl IAppResourceGroupInfoWatcherEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppResourceGroupInfoWatcherExecutionStateChangedEventArgsImpl: Sized {
-    fn AppDiagnosticInfos(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>;
-    fn AppResourceGroupInfo(&self) -> ::windows::core::Result<AppResourceGroupInfo>;
+    fn AppDiagnosticInfos(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>;
+    fn AppResourceGroupInfo(&mut self) -> ::windows::core::Result<AppResourceGroupInfo>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -1033,10 +1033,10 @@ impl IAppResourceGroupInfoWatcherExecutionStateChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppResourceGroupMemoryReportImpl: Sized {
-    fn CommitUsageLimit(&self) -> ::windows::core::Result<u64>;
-    fn CommitUsageLevel(&self) -> ::windows::core::Result<AppMemoryUsageLevel>;
-    fn PrivateCommitUsage(&self) -> ::windows::core::Result<u64>;
-    fn TotalCommitUsage(&self) -> ::windows::core::Result<u64>;
+    fn CommitUsageLimit(&mut self) -> ::windows::core::Result<u64>;
+    fn CommitUsageLevel(&mut self) -> ::windows::core::Result<AppMemoryUsageLevel>;
+    fn PrivateCommitUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn TotalCommitUsage(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppResourceGroupMemoryReport {
@@ -1103,8 +1103,8 @@ impl IAppResourceGroupMemoryReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppResourceGroupStateReportImpl: Sized {
-    fn ExecutionState(&self) -> ::windows::core::Result<AppResourceGroupExecutionState>;
-    fn EnergyQuotaState(&self) -> ::windows::core::Result<AppResourceGroupEnergyQuotaState>;
+    fn ExecutionState(&mut self) -> ::windows::core::Result<AppResourceGroupExecutionState>;
+    fn EnergyQuotaState(&mut self) -> ::windows::core::Result<AppResourceGroupEnergyQuotaState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppResourceGroupStateReport {
@@ -1147,8 +1147,8 @@ impl IAppResourceGroupStateReportVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUriHandlerHostImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUriHandlerHost {
@@ -1184,8 +1184,8 @@ impl IAppUriHandlerHostVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUriHandlerHost2Impl: Sized {
-    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUriHandlerHost2 {
@@ -1221,7 +1221,7 @@ impl IAppUriHandlerHost2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUriHandlerHostFactoryImpl: Sized {
-    fn CreateInstance(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerHost>;
+    fn CreateInstance(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerHost>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUriHandlerHostFactory {
@@ -1252,10 +1252,10 @@ impl IAppUriHandlerHostFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppUriHandlerRegistrationImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn User(&self) -> ::windows::core::Result<User>;
-    fn GetAppAddedHostsAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>>;
-    fn SetAppAddedHostsAsync(&self, hosts: &::core::option::Option<super::Foundation::Collections::IIterable<AppUriHandlerHost>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn User(&mut self) -> ::windows::core::Result<User>;
+    fn GetAppAddedHostsAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>>;
+    fn SetAppAddedHostsAsync(&mut self, hosts: &::core::option::Option<super::Foundation::Collections::IIterable<AppUriHandlerHost>>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppUriHandlerRegistration {
@@ -1322,9 +1322,9 @@ impl IAppUriHandlerRegistrationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppUriHandlerRegistration2Impl: Sized {
-    fn GetAllHosts(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppUriHandlerHost>>;
-    fn UpdateHosts(&self, hosts: &::core::option::Option<super::Foundation::Collections::IIterable<AppUriHandlerHost>>) -> ::windows::core::Result<()>;
-    fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAllHosts(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppUriHandlerHost>>;
+    fn UpdateHosts(&mut self, hosts: &::core::option::Option<super::Foundation::Collections::IIterable<AppUriHandlerHost>>) -> ::windows::core::Result<()>;
+    fn PackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppUriHandlerRegistration2 {
@@ -1372,8 +1372,8 @@ impl IAppUriHandlerRegistration2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUriHandlerRegistrationManagerImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<User>;
-    fn TryGetRegistration(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerRegistration>;
+    fn User(&mut self) -> ::windows::core::Result<User>;
+    fn TryGetRegistration(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerRegistration>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUriHandlerRegistrationManager {
@@ -1416,7 +1416,7 @@ impl IAppUriHandlerRegistrationManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUriHandlerRegistrationManager2Impl: Sized {
-    fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUriHandlerRegistrationManager2 {
@@ -1447,8 +1447,8 @@ impl IAppUriHandlerRegistrationManager2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUriHandlerRegistrationManagerStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
-    fn GetForUser(&self, user: &::core::option::Option<User>) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
+    fn GetForUser(&mut self, user: &::core::option::Option<User>) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUriHandlerRegistrationManagerStatics {
@@ -1491,8 +1491,8 @@ impl IAppUriHandlerRegistrationManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppUriHandlerRegistrationManagerStatics2Impl: Sized {
-    fn GetForPackage(&self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
-    fn GetForPackageForUser(&self, packagefamilyname: &::windows::core::HSTRING, user: &::core::option::Option<User>) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
+    fn GetForPackage(&mut self, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
+    fn GetForPackageForUser(&mut self, packagefamilyname: &::windows::core::HSTRING, user: &::core::option::Option<User>) -> ::windows::core::Result<AppUriHandlerRegistrationManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppUriHandlerRegistrationManagerStatics2 {
@@ -1535,7 +1535,7 @@ impl IAppUriHandlerRegistrationManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDateTimeSettingsStaticsImpl: Sized {
-    fn SetSystemDateTime(&self, utcdatetime: &super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn SetSystemDateTime(&mut self, utcdatetime: &super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDateTimeSettingsStatics {
@@ -1559,13 +1559,13 @@ impl IDateTimeSettingsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDispatcherQueueImpl: Sized {
-    fn CreateTimer(&self) -> ::windows::core::Result<DispatcherQueueTimer>;
-    fn TryEnqueue(&self, callback: &::core::option::Option<DispatcherQueueHandler>) -> ::windows::core::Result<bool>;
-    fn TryEnqueueWithPriority(&self, priority: DispatcherQueuePriority, callback: &::core::option::Option<DispatcherQueueHandler>) -> ::windows::core::Result<bool>;
-    fn ShutdownStarting(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveShutdownStarting(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ShutdownCompleted(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<DispatcherQueue, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveShutdownCompleted(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CreateTimer(&mut self) -> ::windows::core::Result<DispatcherQueueTimer>;
+    fn TryEnqueue(&mut self, callback: &::core::option::Option<DispatcherQueueHandler>) -> ::windows::core::Result<bool>;
+    fn TryEnqueueWithPriority(&mut self, priority: DispatcherQueuePriority, callback: &::core::option::Option<DispatcherQueueHandler>) -> ::windows::core::Result<bool>;
+    fn ShutdownStarting(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveShutdownStarting(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ShutdownCompleted(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<DispatcherQueue, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveShutdownCompleted(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDispatcherQueue {
@@ -1654,7 +1654,7 @@ impl IDispatcherQueueVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDispatcherQueue2Impl: Sized {
-    fn HasThreadAccess(&self) -> ::windows::core::Result<bool>;
+    fn HasThreadAccess(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDispatcherQueue2 {
@@ -1685,8 +1685,8 @@ impl IDispatcherQueue2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDispatcherQueueControllerImpl: Sized {
-    fn DispatcherQueue(&self) -> ::windows::core::Result<DispatcherQueue>;
-    fn ShutdownQueueAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn DispatcherQueue(&mut self) -> ::windows::core::Result<DispatcherQueue>;
+    fn ShutdownQueueAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDispatcherQueueController {
@@ -1729,7 +1729,7 @@ impl IDispatcherQueueControllerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDispatcherQueueControllerStaticsImpl: Sized {
-    fn CreateOnDedicatedThread(&self) -> ::windows::core::Result<DispatcherQueueController>;
+    fn CreateOnDedicatedThread(&mut self) -> ::windows::core::Result<DispatcherQueueController>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDispatcherQueueControllerStatics {
@@ -1760,7 +1760,7 @@ impl IDispatcherQueueControllerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDispatcherQueueShutdownStartingEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDispatcherQueueShutdownStartingEventArgs {
@@ -1791,7 +1791,7 @@ impl IDispatcherQueueShutdownStartingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDispatcherQueueStaticsImpl: Sized {
-    fn GetForCurrentThread(&self) -> ::windows::core::Result<DispatcherQueue>;
+    fn GetForCurrentThread(&mut self) -> ::windows::core::Result<DispatcherQueue>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDispatcherQueueStatics {
@@ -1822,15 +1822,15 @@ impl IDispatcherQueueStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDispatcherQueueTimerImpl: Sized {
-    fn Interval(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
-    fn SetInterval(&self, value: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn IsRunning(&self) -> ::windows::core::Result<bool>;
-    fn IsRepeating(&self) -> ::windows::core::Result<bool>;
-    fn SetIsRepeating(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Tick(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<DispatcherQueueTimer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveTick(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Interval(&mut self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
+    fn SetInterval(&mut self, value: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn IsRunning(&mut self) -> ::windows::core::Result<bool>;
+    fn IsRepeating(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsRepeating(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Tick(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<DispatcherQueueTimer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveTick(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDispatcherQueueTimer {
@@ -1922,7 +1922,7 @@ impl IDispatcherQueueTimerVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IFolderLauncherOptionsImpl: Sized {
-    fn ItemsToSelect(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<super::Storage::IStorageItem>>;
+    fn ItemsToSelect(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVector<super::Storage::IStorageItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFolderLauncherOptions {
@@ -1953,15 +1953,15 @@ impl IFolderLauncherOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownUserPropertiesStaticsImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FirstName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LastName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AccountName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GuestHost(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PrincipalName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DomainName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SessionInitiationProtocolUri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FirstName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LastName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProviderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AccountName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GuestHost(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PrincipalName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DomainName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SessionInitiationProtocolUri(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownUserPropertiesStatics {
@@ -2088,7 +2088,7 @@ impl IKnownUserPropertiesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKnownUserPropertiesStatics2Impl: Sized {
-    fn AgeEnforcementRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AgeEnforcementRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKnownUserPropertiesStatics2 {
@@ -2119,8 +2119,8 @@ impl IKnownUserPropertiesStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILaunchUriResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<LaunchUriStatus>;
-    fn Result(&self) -> ::windows::core::Result<super::Foundation::Collections::ValueSet>;
+    fn Status(&mut self) -> ::windows::core::Result<LaunchUriStatus>;
+    fn Result(&mut self) -> ::windows::core::Result<super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILaunchUriResult {
@@ -2163,19 +2163,19 @@ impl ILaunchUriResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILauncherOptionsImpl: Sized {
-    fn TreatAsUntrusted(&self) -> ::windows::core::Result<bool>;
-    fn SetTreatAsUntrusted(&self, value: bool) -> ::windows::core::Result<()>;
-    fn DisplayApplicationPicker(&self) -> ::windows::core::Result<bool>;
-    fn SetDisplayApplicationPicker(&self, value: bool) -> ::windows::core::Result<()>;
-    fn UI(&self) -> ::windows::core::Result<LauncherUIOptions>;
-    fn PreferredApplicationPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPreferredApplicationPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PreferredApplicationDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPreferredApplicationDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FallbackUri(&self) -> ::windows::core::Result<super::Foundation::Uri>;
-    fn SetFallbackUri(&self, value: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetContentType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn TreatAsUntrusted(&mut self) -> ::windows::core::Result<bool>;
+    fn SetTreatAsUntrusted(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn DisplayApplicationPicker(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDisplayApplicationPicker(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn UI(&mut self) -> ::windows::core::Result<LauncherUIOptions>;
+    fn PreferredApplicationPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPreferredApplicationPackageFamilyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PreferredApplicationDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPreferredApplicationDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FallbackUri(&mut self) -> ::windows::core::Result<super::Foundation::Uri>;
+    fn SetFallbackUri(&mut self, value: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetContentType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherOptions {
@@ -2308,10 +2308,10 @@ impl ILauncherOptionsVtbl {
 }
 #[cfg(all(feature = "Storage_Search", feature = "implement_exclusive"))]
 pub trait ILauncherOptions2Impl: Sized {
-    fn TargetApplicationPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTargetApplicationPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::Storage::Search::StorageFileQueryResult>;
-    fn SetNeighboringFilesQuery(&self, value: &::core::option::Option<super::Storage::Search::StorageFileQueryResult>) -> ::windows::core::Result<()>;
+    fn TargetApplicationPackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTargetApplicationPackageFamilyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NeighboringFilesQuery(&mut self) -> ::windows::core::Result<super::Storage::Search::StorageFileQueryResult>;
+    fn SetNeighboringFilesQuery(&mut self, value: &::core::option::Option<super::Storage::Search::StorageFileQueryResult>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Search", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherOptions2 {
@@ -2364,8 +2364,8 @@ impl ILauncherOptions2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILauncherOptions3Impl: Sized {
-    fn IgnoreAppUriHandlers(&self) -> ::windows::core::Result<bool>;
-    fn SetIgnoreAppUriHandlers(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IgnoreAppUriHandlers(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIgnoreAppUriHandlers(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILauncherOptions3 {
@@ -2401,8 +2401,8 @@ impl ILauncherOptions3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILauncherOptions4Impl: Sized {
-    fn LimitPickerToCurrentAppAndAppUriHandlers(&self) -> ::windows::core::Result<bool>;
-    fn SetLimitPickerToCurrentAppAndAppUriHandlers(&self, value: bool) -> ::windows::core::Result<()>;
+    fn LimitPickerToCurrentAppAndAppUriHandlers(&mut self) -> ::windows::core::Result<bool>;
+    fn SetLimitPickerToCurrentAppAndAppUriHandlers(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILauncherOptions4 {
@@ -2438,10 +2438,10 @@ impl ILauncherOptions4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait ILauncherStaticsImpl: Sized {
-    fn LaunchFileAsync(&self, file: &::core::option::Option<super::Storage::IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn LaunchFileWithOptionsAsync(&self, file: &::core::option::Option<super::Storage::IStorageFile>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn LaunchUriAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn LaunchUriWithOptionsAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFileAsync(&mut self, file: &::core::option::Option<super::Storage::IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFileWithOptionsAsync(&mut self, file: &::core::option::Option<super::Storage::IStorageFile>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchUriAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchUriWithOptionsAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherStatics {
@@ -2508,16 +2508,16 @@ impl ILauncherStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait ILauncherStatics2Impl: Sized {
-    fn LaunchUriForResultsAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
-    fn LaunchUriForResultsWithDataAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
-    fn LaunchUriWithDataAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn QueryUriSupportAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
-    fn QueryUriSupportWithPackageFamilyNameAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
-    fn QueryFileSupportAsync(&self, file: &::core::option::Option<super::Storage::StorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
-    fn QueryFileSupportWithPackageFamilyNameAsync(&self, file: &::core::option::Option<super::Storage::StorageFile>, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
-    fn FindUriSchemeHandlersAsync(&self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
-    fn FindUriSchemeHandlersWithLaunchUriTypeAsync(&self, scheme: &::windows::core::HSTRING, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
-    fn FindFileHandlersAsync(&self, extension: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
+    fn LaunchUriForResultsAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
+    fn LaunchUriForResultsWithDataAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
+    fn LaunchUriWithDataAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn QueryUriSupportAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
+    fn QueryUriSupportWithPackageFamilyNameAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
+    fn QueryFileSupportAsync(&mut self, file: &::core::option::Option<super::Storage::StorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
+    fn QueryFileSupportWithPackageFamilyNameAsync(&mut self, file: &::core::option::Option<super::Storage::StorageFile>, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
+    fn FindUriSchemeHandlersAsync(&mut self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
+    fn FindUriSchemeHandlersWithLaunchUriTypeAsync(&mut self, scheme: &::windows::core::HSTRING, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
+    fn FindFileHandlersAsync(&mut self, extension: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherStatics2 {
@@ -2664,8 +2664,8 @@ impl ILauncherStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 pub trait ILauncherStatics3Impl: Sized {
-    fn LaunchFolderAsync(&self, folder: &::core::option::Option<super::Storage::IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn LaunchFolderWithOptionsAsync(&self, folder: &::core::option::Option<super::Storage::IStorageFolder>, options: &::core::option::Option<FolderLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFolderAsync(&mut self, folder: &::core::option::Option<super::Storage::IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFolderWithOptionsAsync(&mut self, folder: &::core::option::Option<super::Storage::IStorageFolder>, options: &::core::option::Option<FolderLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherStatics3 {
@@ -2708,14 +2708,14 @@ impl ILauncherStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILauncherStatics4Impl: Sized {
-    fn QueryAppUriSupportAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
-    fn QueryAppUriSupportWithPackageFamilyNameAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
-    fn FindAppUriHandlersAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
-    fn LaunchUriForUserAsync(&self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>;
-    fn LaunchUriWithOptionsForUserAsync(&self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>;
-    fn LaunchUriWithDataForUserAsync(&self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>;
-    fn LaunchUriForResultsForUserAsync(&self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
-    fn LaunchUriForResultsWithDataForUserAsync(&self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
+    fn QueryAppUriSupportAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
+    fn QueryAppUriSupportWithPackageFamilyNameAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>;
+    fn FindAppUriHandlersAsync(&mut self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>;
+    fn LaunchUriForUserAsync(&mut self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>;
+    fn LaunchUriWithOptionsForUserAsync(&mut self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>;
+    fn LaunchUriWithDataForUserAsync(&mut self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>;
+    fn LaunchUriForResultsForUserAsync(&mut self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
+    fn LaunchUriForResultsWithDataForUserAsync(&mut self, user: &::core::option::Option<User>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<LauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherStatics4 {
@@ -2840,10 +2840,10 @@ impl ILauncherStatics4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILauncherStatics5Impl: Sized {
-    fn LaunchFolderPathAsync(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn LaunchFolderPathWithOptionsAsync(&self, path: &::windows::core::HSTRING, options: &::core::option::Option<FolderLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn LaunchFolderPathForUserAsync(&self, user: &::core::option::Option<User>, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
-    fn LaunchFolderPathWithOptionsForUserAsync(&self, user: &::core::option::Option<User>, path: &::windows::core::HSTRING, options: &::core::option::Option<FolderLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFolderPathAsync(&mut self, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFolderPathWithOptionsAsync(&mut self, path: &::windows::core::HSTRING, options: &::core::option::Option<FolderLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFolderPathForUserAsync(&mut self, user: &::core::option::Option<User>, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn LaunchFolderPathWithOptionsForUserAsync(&mut self, user: &::core::option::Option<User>, path: &::windows::core::HSTRING, options: &::core::option::Option<FolderLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherStatics5 {
@@ -2910,12 +2910,12 @@ impl ILauncherStatics5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 pub trait ILauncherUIOptionsImpl: Sized {
-    fn InvocationPoint(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::Point>>;
-    fn SetInvocationPoint(&self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::Point>>) -> ::windows::core::Result<()>;
-    fn SelectionRect(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::Rect>>;
-    fn SetSelectionRect(&self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::Rect>>) -> ::windows::core::Result<()>;
-    fn PreferredPlacement(&self) -> ::windows::core::Result<super::UI::Popups::Placement>;
-    fn SetPreferredPlacement(&self, value: super::UI::Popups::Placement) -> ::windows::core::Result<()>;
+    fn InvocationPoint(&mut self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::Point>>;
+    fn SetInvocationPoint(&mut self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::Point>>) -> ::windows::core::Result<()>;
+    fn SelectionRect(&mut self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::Rect>>;
+    fn SetSelectionRect(&mut self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::Rect>>) -> ::windows::core::Result<()>;
+    fn PreferredPlacement(&mut self) -> ::windows::core::Result<super::UI::Popups::Placement>;
+    fn SetPreferredPlacement(&mut self, value: super::UI::Popups::Placement) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILauncherUIOptions {
@@ -2985,8 +2985,8 @@ impl ILauncherUIOptionsVtbl {
 }
 #[cfg(feature = "UI_ViewManagement")]
 pub trait ILauncherViewOptionsImpl: Sized {
-    fn DesiredRemainingView(&self) -> ::windows::core::Result<super::UI::ViewManagement::ViewSizePreference>;
-    fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()>;
+    fn DesiredRemainingView(&mut self) -> ::windows::core::Result<super::UI::ViewManagement::ViewSizePreference>;
+    fn SetDesiredRemainingView(&mut self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "UI_ViewManagement")]
 impl ::windows::core::RuntimeName for ILauncherViewOptions {
@@ -3022,15 +3022,15 @@ impl ILauncherViewOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMemoryManagerStaticsImpl: Sized {
-    fn AppMemoryUsage(&self) -> ::windows::core::Result<u64>;
-    fn AppMemoryUsageLimit(&self) -> ::windows::core::Result<u64>;
-    fn AppMemoryUsageLevel(&self) -> ::windows::core::Result<AppMemoryUsageLevel>;
-    fn AppMemoryUsageIncreased(&self, handler: &::core::option::Option<super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAppMemoryUsageIncreased(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AppMemoryUsageDecreased(&self, handler: &::core::option::Option<super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAppMemoryUsageDecreased(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AppMemoryUsageLimitChanging(&self, handler: &::core::option::Option<super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAppMemoryUsageLimitChanging(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AppMemoryUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn AppMemoryUsageLimit(&mut self) -> ::windows::core::Result<u64>;
+    fn AppMemoryUsageLevel(&mut self) -> ::windows::core::Result<AppMemoryUsageLevel>;
+    fn AppMemoryUsageIncreased(&mut self, handler: &::core::option::Option<super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAppMemoryUsageIncreased(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AppMemoryUsageDecreased(&mut self, handler: &::core::option::Option<super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAppMemoryUsageDecreased(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AppMemoryUsageLimitChanging(&mut self, handler: &::core::option::Option<super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAppMemoryUsageLimitChanging(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMemoryManagerStatics {
@@ -3136,8 +3136,8 @@ impl IMemoryManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMemoryManagerStatics2Impl: Sized {
-    fn GetAppMemoryReport(&self) -> ::windows::core::Result<AppMemoryReport>;
-    fn GetProcessMemoryReport(&self) -> ::windows::core::Result<ProcessMemoryReport>;
+    fn GetAppMemoryReport(&mut self) -> ::windows::core::Result<AppMemoryReport>;
+    fn GetProcessMemoryReport(&mut self) -> ::windows::core::Result<ProcessMemoryReport>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMemoryManagerStatics2 {
@@ -3180,7 +3180,7 @@ impl IMemoryManagerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMemoryManagerStatics3Impl: Sized {
-    fn TrySetAppMemoryUsageLimit(&self, value: u64) -> ::windows::core::Result<bool>;
+    fn TrySetAppMemoryUsageLimit(&mut self, value: u64) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMemoryManagerStatics3 {
@@ -3211,7 +3211,7 @@ impl IMemoryManagerStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMemoryManagerStatics4Impl: Sized {
-    fn ExpectedAppMemoryUsageLimit(&self) -> ::windows::core::Result<u64>;
+    fn ExpectedAppMemoryUsageLimit(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMemoryManagerStatics4 {
@@ -3242,14 +3242,14 @@ impl IMemoryManagerStatics4Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IProcessLauncherOptionsImpl: Sized {
-    fn StandardInput(&self) -> ::windows::core::Result<super::Storage::Streams::IInputStream>;
-    fn SetStandardInput(&self, value: &::core::option::Option<super::Storage::Streams::IInputStream>) -> ::windows::core::Result<()>;
-    fn StandardOutput(&self) -> ::windows::core::Result<super::Storage::Streams::IOutputStream>;
-    fn SetStandardOutput(&self, value: &::core::option::Option<super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<()>;
-    fn StandardError(&self) -> ::windows::core::Result<super::Storage::Streams::IOutputStream>;
-    fn SetStandardError(&self, value: &::core::option::Option<super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<()>;
-    fn WorkingDirectory(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetWorkingDirectory(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn StandardInput(&mut self) -> ::windows::core::Result<super::Storage::Streams::IInputStream>;
+    fn SetStandardInput(&mut self, value: &::core::option::Option<super::Storage::Streams::IInputStream>) -> ::windows::core::Result<()>;
+    fn StandardOutput(&mut self) -> ::windows::core::Result<super::Storage::Streams::IOutputStream>;
+    fn SetStandardOutput(&mut self, value: &::core::option::Option<super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<()>;
+    fn StandardError(&mut self) -> ::windows::core::Result<super::Storage::Streams::IOutputStream>;
+    fn SetStandardError(&mut self, value: &::core::option::Option<super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<()>;
+    fn WorkingDirectory(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetWorkingDirectory(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessLauncherOptions {
@@ -3336,7 +3336,7 @@ impl IProcessLauncherOptionsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessLauncherResultImpl: Sized {
-    fn ExitCode(&self) -> ::windows::core::Result<u32>;
+    fn ExitCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessLauncherResult {
@@ -3364,8 +3364,8 @@ impl IProcessLauncherResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IProcessLauncherStaticsImpl: Sized {
-    fn RunToCompletionAsync(&self, filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>;
-    fn RunToCompletionAsyncWithOptions(&self, filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING, options: &::core::option::Option<ProcessLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>;
+    fn RunToCompletionAsync(&mut self, filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>;
+    fn RunToCompletionAsyncWithOptions(&mut self, filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING, options: &::core::option::Option<ProcessLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProcessLauncherStatics {
@@ -3408,8 +3408,8 @@ impl IProcessLauncherStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IProcessMemoryReportImpl: Sized {
-    fn PrivateWorkingSetUsage(&self) -> ::windows::core::Result<u64>;
-    fn TotalWorkingSetUsage(&self) -> ::windows::core::Result<u64>;
+    fn PrivateWorkingSetUsage(&mut self) -> ::windows::core::Result<u64>;
+    fn TotalWorkingSetUsage(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IProcessMemoryReport {
@@ -3452,7 +3452,7 @@ impl IProcessMemoryReportVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IProtocolForResultsOperationImpl: Sized {
-    fn ReportCompleted(&self, data: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
+    fn ReportCompleted(&mut self, data: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IProtocolForResultsOperation {
@@ -3476,9 +3476,9 @@ impl IProtocolForResultsOperationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRemoteLauncherOptionsImpl: Sized {
-    fn FallbackUri(&self) -> ::windows::core::Result<super::Foundation::Uri>;
-    fn SetFallbackUri(&self, value: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn PreferredAppIds(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn FallbackUri(&mut self) -> ::windows::core::Result<super::Foundation::Uri>;
+    fn SetFallbackUri(&mut self, value: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn PreferredAppIds(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteLauncherOptions {
@@ -3526,9 +3526,9 @@ impl IRemoteLauncherOptionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 pub trait IRemoteLauncherStaticsImpl: Sized {
-    fn LaunchUriAsync(&self, remotesystemconnectionrequest: &::core::option::Option<RemoteSystems::RemoteSystemConnectionRequest>, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>;
-    fn LaunchUriWithOptionsAsync(&self, remotesystemconnectionrequest: &::core::option::Option<RemoteSystems::RemoteSystemConnectionRequest>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<RemoteLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>;
-    fn LaunchUriWithDataAsync(&self, remotesystemconnectionrequest: &::core::option::Option<RemoteSystems::RemoteSystemConnectionRequest>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<RemoteLauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>;
+    fn LaunchUriAsync(&mut self, remotesystemconnectionrequest: &::core::option::Option<RemoteSystems::RemoteSystemConnectionRequest>, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>;
+    fn LaunchUriWithOptionsAsync(&mut self, remotesystemconnectionrequest: &::core::option::Option<RemoteSystems::RemoteSystemConnectionRequest>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<RemoteLauncherOptions>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>;
+    fn LaunchUriWithDataAsync(&mut self, remotesystemconnectionrequest: &::core::option::Option<RemoteSystems::RemoteSystemConnectionRequest>, uri: &::core::option::Option<super::Foundation::Uri>, options: &::core::option::Option<RemoteLauncherOptions>, inputdata: &::core::option::Option<super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRemoteLauncherStatics {
@@ -3592,8 +3592,8 @@ impl IRemoteLauncherStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IShutdownManagerStaticsImpl: Sized {
-    fn BeginShutdown(&self, shutdownkind: ShutdownKind, timeout: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn CancelShutdown(&self) -> ::windows::core::Result<()>;
+    fn BeginShutdown(&mut self, shutdownkind: ShutdownKind, timeout: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn CancelShutdown(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShutdownManagerStatics {
@@ -3622,9 +3622,9 @@ impl IShutdownManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IShutdownManagerStatics2Impl: Sized + IShutdownManagerStaticsImpl {
-    fn IsPowerStateSupported(&self, powerstate: PowerState) -> ::windows::core::Result<bool>;
-    fn EnterPowerState(&self, powerstate: PowerState) -> ::windows::core::Result<()>;
-    fn EnterPowerStateWithTimeSpan(&self, powerstate: PowerState, wakeupafter: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn IsPowerStateSupported(&mut self, powerstate: PowerState) -> ::windows::core::Result<bool>;
+    fn EnterPowerState(&mut self, powerstate: PowerState) -> ::windows::core::Result<()>;
+    fn EnterPowerStateWithTimeSpan(&mut self, powerstate: PowerState, wakeupafter: &super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShutdownManagerStatics2 {
@@ -3665,10 +3665,10 @@ impl IShutdownManagerStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ITimeZoneSettingsStaticsImpl: Sized {
-    fn CurrentTimeZoneDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SupportedTimeZoneDisplayNames(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn CanChangeTimeZone(&self) -> ::windows::core::Result<bool>;
-    fn ChangeTimeZoneByDisplayName(&self, timezonedisplayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CurrentTimeZoneDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SupportedTimeZoneDisplayNames(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn CanChangeTimeZone(&mut self) -> ::windows::core::Result<bool>;
+    fn ChangeTimeZoneByDisplayName(&mut self, timezonedisplayname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimeZoneSettingsStatics {
@@ -3728,7 +3728,7 @@ impl ITimeZoneSettingsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ITimeZoneSettingsStatics2Impl: Sized {
-    fn AutoUpdateTimeZoneAsync(&self, timeout: &super::Foundation::TimeSpan) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>>;
+    fn AutoUpdateTimeZoneAsync(&mut self, timeout: &super::Foundation::TimeSpan) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ITimeZoneSettingsStatics2 {
@@ -3759,12 +3759,12 @@ impl ITimeZoneSettingsStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserImpl: Sized {
-    fn NonRoamableId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AuthenticationStatus(&self) -> ::windows::core::Result<UserAuthenticationStatus>;
-    fn Type(&self) -> ::windows::core::Result<UserType>;
-    fn GetPropertyAsync(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::IInspectable>>;
-    fn GetPropertiesAsync(&self, values: &::core::option::Option<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>;
-    fn GetPictureAsync(&self, desiredsize: UserPictureSize) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>;
+    fn NonRoamableId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AuthenticationStatus(&mut self) -> ::windows::core::Result<UserAuthenticationStatus>;
+    fn Type(&mut self) -> ::windows::core::Result<UserType>;
+    fn GetPropertyAsync(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::IInspectable>>;
+    fn GetPropertiesAsync(&mut self, values: &::core::option::Option<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>;
+    fn GetPictureAsync(&mut self, desiredsize: UserPictureSize) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUser {
@@ -3855,7 +3855,7 @@ impl IUserVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUser2Impl: Sized {
-    fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> ::windows::core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>>;
+    fn CheckUserAgeConsentGroupAsync(&mut self, consentgroup: UserAgeConsentGroup) -> ::windows::core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUser2 {
@@ -3886,7 +3886,7 @@ impl IUser2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserAuthenticationStatusChangeDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserAuthenticationStatusChangeDeferral {
@@ -3910,10 +3910,10 @@ impl IUserAuthenticationStatusChangeDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserAuthenticationStatusChangingEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<UserAuthenticationStatusChangeDeferral>;
-    fn User(&self) -> ::windows::core::Result<User>;
-    fn NewStatus(&self) -> ::windows::core::Result<UserAuthenticationStatus>;
-    fn CurrentStatus(&self) -> ::windows::core::Result<UserAuthenticationStatus>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<UserAuthenticationStatusChangeDeferral>;
+    fn User(&mut self) -> ::windows::core::Result<User>;
+    fn NewStatus(&mut self) -> ::windows::core::Result<UserAuthenticationStatus>;
+    fn CurrentStatus(&mut self) -> ::windows::core::Result<UserAuthenticationStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserAuthenticationStatusChangingEventArgs {
@@ -3980,7 +3980,7 @@ impl IUserAuthenticationStatusChangingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserChangedEventArgsImpl: Sized {
-    fn User(&self) -> ::windows::core::Result<User>;
+    fn User(&mut self) -> ::windows::core::Result<User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserChangedEventArgs {
@@ -4008,7 +4008,7 @@ impl IUserChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserChangedEventArgs2Impl: Sized {
-    fn ChangedPropertyKinds(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>>;
+    fn ChangedPropertyKinds(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserChangedEventArgs2 {
@@ -4039,9 +4039,9 @@ impl IUserChangedEventArgs2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserDeviceAssociationChangedEventArgsImpl: Sized {
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NewUser(&self) -> ::windows::core::Result<User>;
-    fn OldUser(&self) -> ::windows::core::Result<User>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NewUser(&mut self) -> ::windows::core::Result<User>;
+    fn OldUser(&mut self) -> ::windows::core::Result<User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserDeviceAssociationChangedEventArgs {
@@ -4096,9 +4096,9 @@ impl IUserDeviceAssociationChangedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDeviceAssociationStaticsImpl: Sized {
-    fn FindUserFromDeviceId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<User>;
-    fn UserDeviceAssociationChanged(&self, handler: &::core::option::Option<super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveUserDeviceAssociationChanged(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn FindUserFromDeviceId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<User>;
+    fn UserDeviceAssociationChanged(&mut self, handler: &::core::option::Option<super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveUserDeviceAssociationChanged(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDeviceAssociationStatics {
@@ -4146,11 +4146,11 @@ impl IUserDeviceAssociationStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserPickerImpl: Sized {
-    fn AllowGuestAccounts(&self) -> ::windows::core::Result<bool>;
-    fn SetAllowGuestAccounts(&self, value: bool) -> ::windows::core::Result<()>;
-    fn SuggestedSelectedUser(&self) -> ::windows::core::Result<User>;
-    fn SetSuggestedSelectedUser(&self, value: &::core::option::Option<User>) -> ::windows::core::Result<()>;
-    fn PickSingleUserAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<User>>;
+    fn AllowGuestAccounts(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAllowGuestAccounts(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn SuggestedSelectedUser(&mut self) -> ::windows::core::Result<User>;
+    fn SetSuggestedSelectedUser(&mut self, value: &::core::option::Option<User>) -> ::windows::core::Result<()>;
+    fn PickSingleUserAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<User>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserPicker {
@@ -4215,7 +4215,7 @@ impl IUserPickerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserPickerStaticsImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserPickerStatics {
@@ -4243,11 +4243,11 @@ impl IUserPickerStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IUserStaticsImpl: Sized {
-    fn CreateWatcher(&self) -> ::windows::core::Result<UserWatcher>;
-    fn FindAllAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>;
-    fn FindAllAsyncByType(&self, r#type: UserType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>;
-    fn FindAllAsyncByTypeAndStatus(&self, r#type: UserType, status: UserAuthenticationStatus) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>;
-    fn GetFromId(&self, nonroamableid: &::windows::core::HSTRING) -> ::windows::core::Result<User>;
+    fn CreateWatcher(&mut self) -> ::windows::core::Result<UserWatcher>;
+    fn FindAllAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>;
+    fn FindAllAsyncByType(&mut self, r#type: UserType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>;
+    fn FindAllAsyncByTypeAndStatus(&mut self, r#type: UserType, status: UserAuthenticationStatus) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>;
+    fn GetFromId(&mut self, nonroamableid: &::windows::core::HSTRING) -> ::windows::core::Result<User>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserStatics {
@@ -4326,7 +4326,7 @@ impl IUserStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserStatics2Impl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<User>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<User>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserStatics2 {
@@ -4354,23 +4354,23 @@ impl IUserStatics2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserWatcherImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<UserWatcherStatus>;
-    fn Start(&self) -> ::windows::core::Result<()>;
-    fn Stop(&self) -> ::windows::core::Result<()>;
-    fn Added(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAdded(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Removed(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveRemoved(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Updated(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveUpdated(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AuthenticationStatusChanged(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAuthenticationStatusChanged(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AuthenticationStatusChanging(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveAuthenticationStatusChanging(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn EnumerationCompleted(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveEnumerationCompleted(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Stopped(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemoveStopped(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<UserWatcherStatus>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
+    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Added(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAdded(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Removed(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveRemoved(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Updated(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveUpdated(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AuthenticationStatusChanged(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAuthenticationStatusChanged(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AuthenticationStatusChanging(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveAuthenticationStatusChanging(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn EnumerationCompleted(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveEnumerationCompleted(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Stopped(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemoveStopped(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserWatcher {

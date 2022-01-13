@@ -15,14 +15,14 @@ impl IEllipseVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILineImpl: Sized {
-    fn X1(&self) -> ::windows::core::Result<f64>;
-    fn SetX1(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Y1(&self) -> ::windows::core::Result<f64>;
-    fn SetY1(&self, value: f64) -> ::windows::core::Result<()>;
-    fn X2(&self) -> ::windows::core::Result<f64>;
-    fn SetX2(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Y2(&self) -> ::windows::core::Result<f64>;
-    fn SetY2(&self, value: f64) -> ::windows::core::Result<()>;
+    fn X1(&mut self) -> ::windows::core::Result<f64>;
+    fn SetX1(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Y1(&mut self) -> ::windows::core::Result<f64>;
+    fn SetY1(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn X2(&mut self) -> ::windows::core::Result<f64>;
+    fn SetX2(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Y2(&mut self) -> ::windows::core::Result<f64>;
+    fn SetY2(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILine {
@@ -109,10 +109,10 @@ impl ILineVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILineStaticsImpl: Sized {
-    fn X1Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn Y1Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn X2Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn Y2Property(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn X1Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn Y1Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn X2Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn Y2Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILineStatics {
@@ -179,8 +179,8 @@ impl ILineStaticsVtbl {
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IPathImpl: Sized {
-    fn Data(&self) -> ::windows::core::Result<super::Media::Geometry>;
-    fn SetData(&self, value: &::core::option::Option<super::Media::Geometry>) -> ::windows::core::Result<()>;
+    fn Data(&mut self) -> ::windows::core::Result<super::Media::Geometry>;
+    fn SetData(&mut self, value: &::core::option::Option<super::Media::Geometry>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPath {
@@ -216,7 +216,7 @@ impl IPathVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPathFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Path>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Path>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPathFactory {
@@ -244,7 +244,7 @@ impl IPathFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPathStaticsImpl: Sized {
-    fn DataProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn DataProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPathStatics {
@@ -272,10 +272,10 @@ impl IPathStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IPolygonImpl: Sized {
-    fn FillRule(&self) -> ::windows::core::Result<super::Media::FillRule>;
-    fn SetFillRule(&self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
-    fn Points(&self) -> ::windows::core::Result<super::Media::PointCollection>;
-    fn SetPoints(&self, value: &::core::option::Option<super::Media::PointCollection>) -> ::windows::core::Result<()>;
+    fn FillRule(&mut self) -> ::windows::core::Result<super::Media::FillRule>;
+    fn SetFillRule(&mut self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
+    fn Points(&mut self) -> ::windows::core::Result<super::Media::PointCollection>;
+    fn SetPoints(&mut self, value: &::core::option::Option<super::Media::PointCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPolygon {
@@ -328,8 +328,8 @@ impl IPolygonVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPolygonStaticsImpl: Sized {
-    fn FillRuleProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn PointsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FillRuleProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn PointsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPolygonStatics {
@@ -372,10 +372,10 @@ impl IPolygonStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IPolylineImpl: Sized {
-    fn FillRule(&self) -> ::windows::core::Result<super::Media::FillRule>;
-    fn SetFillRule(&self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
-    fn Points(&self) -> ::windows::core::Result<super::Media::PointCollection>;
-    fn SetPoints(&self, value: &::core::option::Option<super::Media::PointCollection>) -> ::windows::core::Result<()>;
+    fn FillRule(&mut self) -> ::windows::core::Result<super::Media::FillRule>;
+    fn SetFillRule(&mut self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
+    fn Points(&mut self) -> ::windows::core::Result<super::Media::PointCollection>;
+    fn SetPoints(&mut self, value: &::core::option::Option<super::Media::PointCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPolyline {
@@ -428,8 +428,8 @@ impl IPolylineVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPolylineStaticsImpl: Sized {
-    fn FillRuleProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn PointsProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FillRuleProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn PointsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPolylineStatics {
@@ -472,10 +472,10 @@ impl IPolylineStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRectangleImpl: Sized {
-    fn RadiusX(&self) -> ::windows::core::Result<f64>;
-    fn SetRadiusX(&self, value: f64) -> ::windows::core::Result<()>;
-    fn RadiusY(&self) -> ::windows::core::Result<f64>;
-    fn SetRadiusY(&self, value: f64) -> ::windows::core::Result<()>;
+    fn RadiusX(&mut self) -> ::windows::core::Result<f64>;
+    fn SetRadiusX(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn RadiusY(&mut self) -> ::windows::core::Result<f64>;
+    fn SetRadiusY(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRectangle {
@@ -528,8 +528,8 @@ impl IRectangleVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRectangleStaticsImpl: Sized {
-    fn RadiusXProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn RadiusYProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn RadiusXProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn RadiusYProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRectangleStatics {
@@ -572,29 +572,29 @@ impl IRectangleStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 pub trait IShapeImpl: Sized {
-    fn Fill(&self) -> ::windows::core::Result<super::Media::Brush>;
-    fn SetFill(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn Stroke(&self) -> ::windows::core::Result<super::Media::Brush>;
-    fn SetStroke(&self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
-    fn StrokeMiterLimit(&self) -> ::windows::core::Result<f64>;
-    fn SetStrokeMiterLimit(&self, value: f64) -> ::windows::core::Result<()>;
-    fn StrokeThickness(&self) -> ::windows::core::Result<f64>;
-    fn SetStrokeThickness(&self, value: f64) -> ::windows::core::Result<()>;
-    fn StrokeStartLineCap(&self) -> ::windows::core::Result<super::Media::PenLineCap>;
-    fn SetStrokeStartLineCap(&self, value: super::Media::PenLineCap) -> ::windows::core::Result<()>;
-    fn StrokeEndLineCap(&self) -> ::windows::core::Result<super::Media::PenLineCap>;
-    fn SetStrokeEndLineCap(&self, value: super::Media::PenLineCap) -> ::windows::core::Result<()>;
-    fn StrokeLineJoin(&self) -> ::windows::core::Result<super::Media::PenLineJoin>;
-    fn SetStrokeLineJoin(&self, value: super::Media::PenLineJoin) -> ::windows::core::Result<()>;
-    fn StrokeDashOffset(&self) -> ::windows::core::Result<f64>;
-    fn SetStrokeDashOffset(&self, value: f64) -> ::windows::core::Result<()>;
-    fn StrokeDashCap(&self) -> ::windows::core::Result<super::Media::PenLineCap>;
-    fn SetStrokeDashCap(&self, value: super::Media::PenLineCap) -> ::windows::core::Result<()>;
-    fn StrokeDashArray(&self) -> ::windows::core::Result<super::Media::DoubleCollection>;
-    fn SetStrokeDashArray(&self, value: &::core::option::Option<super::Media::DoubleCollection>) -> ::windows::core::Result<()>;
-    fn Stretch(&self) -> ::windows::core::Result<super::Media::Stretch>;
-    fn SetStretch(&self, value: super::Media::Stretch) -> ::windows::core::Result<()>;
-    fn GeometryTransform(&self) -> ::windows::core::Result<super::Media::Transform>;
+    fn Fill(&mut self) -> ::windows::core::Result<super::Media::Brush>;
+    fn SetFill(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn Stroke(&mut self) -> ::windows::core::Result<super::Media::Brush>;
+    fn SetStroke(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
+    fn StrokeMiterLimit(&mut self) -> ::windows::core::Result<f64>;
+    fn SetStrokeMiterLimit(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn StrokeThickness(&mut self) -> ::windows::core::Result<f64>;
+    fn SetStrokeThickness(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn StrokeStartLineCap(&mut self) -> ::windows::core::Result<super::Media::PenLineCap>;
+    fn SetStrokeStartLineCap(&mut self, value: super::Media::PenLineCap) -> ::windows::core::Result<()>;
+    fn StrokeEndLineCap(&mut self) -> ::windows::core::Result<super::Media::PenLineCap>;
+    fn SetStrokeEndLineCap(&mut self, value: super::Media::PenLineCap) -> ::windows::core::Result<()>;
+    fn StrokeLineJoin(&mut self) -> ::windows::core::Result<super::Media::PenLineJoin>;
+    fn SetStrokeLineJoin(&mut self, value: super::Media::PenLineJoin) -> ::windows::core::Result<()>;
+    fn StrokeDashOffset(&mut self) -> ::windows::core::Result<f64>;
+    fn SetStrokeDashOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn StrokeDashCap(&mut self) -> ::windows::core::Result<super::Media::PenLineCap>;
+    fn SetStrokeDashCap(&mut self, value: super::Media::PenLineCap) -> ::windows::core::Result<()>;
+    fn StrokeDashArray(&mut self) -> ::windows::core::Result<super::Media::DoubleCollection>;
+    fn SetStrokeDashArray(&mut self, value: &::core::option::Option<super::Media::DoubleCollection>) -> ::windows::core::Result<()>;
+    fn Stretch(&mut self) -> ::windows::core::Result<super::Media::Stretch>;
+    fn SetStretch(&mut self, value: super::Media::Stretch) -> ::windows::core::Result<()>;
+    fn GeometryTransform(&mut self) -> ::windows::core::Result<super::Media::Transform>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShape {
@@ -812,7 +812,7 @@ impl IShapeVtbl {
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 pub trait IShape2Impl: Sized {
-    fn GetAlphaMask(&self) -> ::windows::core::Result<super::super::Composition::CompositionBrush>;
+    fn GetAlphaMask(&mut self) -> ::windows::core::Result<super::super::Composition::CompositionBrush>;
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IShape2 {
@@ -840,7 +840,7 @@ impl IShape2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IShapeFactoryImpl: Sized {
-    fn CreateInstance(&self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Shape>;
+    fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Shape>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IShapeFactory {
@@ -868,17 +868,17 @@ impl IShapeFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IShapeStaticsImpl: Sized {
-    fn FillProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeMiterLimitProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeThicknessProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeStartLineCapProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeEndLineCapProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeLineJoinProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeDashOffsetProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeDashCapProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StrokeDashArrayProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
-    fn StretchProperty(&self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn FillProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeMiterLimitProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeThicknessProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeStartLineCapProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeEndLineCapProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeLineJoinProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeDashOffsetProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeDashCapProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StrokeDashArrayProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
+    fn StretchProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IShapeStatics {

@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ICredentialFactoryImpl: Sized {
-    fn CreatePasswordCredential(&self, resource: &::windows::core::HSTRING, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING) -> ::windows::core::Result<PasswordCredential>;
+    fn CreatePasswordCredential(&mut self, resource: &::windows::core::HSTRING, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING) -> ::windows::core::Result<PasswordCredential>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICredentialFactory {
@@ -35,11 +35,11 @@ impl ICredentialFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyCredentialImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RetrievePublicKeyWithDefaultBlobType(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn RetrievePublicKeyWithBlobType(&self, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn RequestSignAsync(&self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>;
-    fn GetAttestationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RetrievePublicKeyWithDefaultBlobType(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn RetrievePublicKeyWithBlobType(&mut self, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn RequestSignAsync(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>;
+    fn GetAttestationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredential {
@@ -118,9 +118,9 @@ impl IKeyCredentialVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyCredentialAttestationResultImpl: Sized {
-    fn CertificateChainBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn AttestationBuffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Status(&self) -> ::windows::core::Result<KeyCredentialAttestationStatus>;
+    fn CertificateChainBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn AttestationBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Status(&mut self) -> ::windows::core::Result<KeyCredentialAttestationStatus>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredentialAttestationResult {
@@ -175,11 +175,11 @@ impl IKeyCredentialAttestationResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IKeyCredentialManagerStaticsImpl: Sized {
-    fn IsSupportedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
-    fn RenewAttestationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RequestCreateAsync(&self, name: &::windows::core::HSTRING, option: KeyCredentialCreationOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>;
-    fn OpenAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>;
-    fn DeleteAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn IsSupportedAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn RenewAttestationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RequestCreateAsync(&mut self, name: &::windows::core::HSTRING, option: KeyCredentialCreationOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>;
+    fn OpenAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>;
+    fn DeleteAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredentialManagerStatics {
@@ -258,8 +258,8 @@ impl IKeyCredentialManagerStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IKeyCredentialOperationResultImpl: Sized {
-    fn Result(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Status(&self) -> ::windows::core::Result<KeyCredentialStatus>;
+    fn Result(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Status(&mut self) -> ::windows::core::Result<KeyCredentialStatus>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IKeyCredentialOperationResult {
@@ -302,8 +302,8 @@ impl IKeyCredentialOperationResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeyCredentialRetrievalResultImpl: Sized {
-    fn Credential(&self) -> ::windows::core::Result<KeyCredential>;
-    fn Status(&self) -> ::windows::core::Result<KeyCredentialStatus>;
+    fn Credential(&mut self) -> ::windows::core::Result<KeyCredential>;
+    fn Status(&mut self) -> ::windows::core::Result<KeyCredentialStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyCredentialRetrievalResult {
@@ -346,14 +346,14 @@ impl IKeyCredentialRetrievalResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPasswordCredentialImpl: Sized {
-    fn Resource(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetResource(&self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetUserName(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Password(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetPassword(&self, password: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RetrievePassword(&self) -> ::windows::core::Result<()>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn Resource(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetResource(&mut self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn UserName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetUserName(&mut self, username: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Password(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetPassword(&mut self, password: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RetrievePassword(&mut self) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPasswordCredential {
@@ -440,12 +440,12 @@ impl IPasswordCredentialVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPasswordVaultImpl: Sized {
-    fn Add(&self, credential: &::core::option::Option<PasswordCredential>) -> ::windows::core::Result<()>;
-    fn Remove(&self, credential: &::core::option::Option<PasswordCredential>) -> ::windows::core::Result<()>;
-    fn Retrieve(&self, resource: &::windows::core::HSTRING, username: &::windows::core::HSTRING) -> ::windows::core::Result<PasswordCredential>;
-    fn FindAllByResource(&self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
-    fn FindAllByUserName(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
-    fn RetrieveAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
+    fn Add(&mut self, credential: &::core::option::Option<PasswordCredential>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, credential: &::core::option::Option<PasswordCredential>) -> ::windows::core::Result<()>;
+    fn Retrieve(&mut self, resource: &::windows::core::HSTRING, username: &::windows::core::HSTRING) -> ::windows::core::Result<PasswordCredential>;
+    fn FindAllByResource(&mut self, resource: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
+    fn FindAllByUserName(&mut self, username: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
+    fn RetrieveAll(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PasswordCredential>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPasswordVault {
@@ -521,9 +521,9 @@ impl IPasswordVaultVtbl {
     }
 }
 pub trait IWebAccountImpl: Sized {
-    fn WebAccountProvider(&self) -> ::windows::core::Result<WebAccountProvider>;
-    fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&self) -> ::windows::core::Result<WebAccountState>;
+    fn WebAccountProvider(&mut self) -> ::windows::core::Result<WebAccountProvider>;
+    fn UserName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<WebAccountState>;
 }
 impl ::windows::core::RuntimeName for IWebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccount";
@@ -576,11 +576,11 @@ impl IWebAccountVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IWebAccount2Impl: Sized + IWebAccountImpl {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
-    fn SignOutAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SignOutWithClientIdAsync(&self, clientid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn GetPictureAsync(&mut self, desizedsize: WebAccountPictureSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
+    fn SignOutAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SignOutWithClientIdAsync(&mut self, clientid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccount2 {
@@ -659,7 +659,7 @@ impl IWebAccount2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebAccountFactoryImpl: Sized {
-    fn CreateWebAccount(&self, webaccountprovider: &::core::option::Option<WebAccountProvider>, username: &::windows::core::HSTRING, state: WebAccountState) -> ::windows::core::Result<WebAccount>;
+    fn CreateWebAccount(&mut self, webaccountprovider: &::core::option::Option<WebAccountProvider>, username: &::windows::core::HSTRING, state: WebAccountState) -> ::windows::core::Result<WebAccount>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebAccountFactory {
@@ -690,9 +690,9 @@ impl IWebAccountFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IconUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProvider {
@@ -747,8 +747,8 @@ impl IWebAccountProviderVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountProvider2Impl: Sized + IWebAccountProviderImpl {
-    fn DisplayPurpose(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Authority(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayPurpose(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Authority(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProvider2 {
@@ -791,7 +791,7 @@ impl IWebAccountProvider2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IWebAccountProvider3Impl: Sized + IWebAccountProviderImpl + IWebAccountProvider2Impl {
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProvider3 {
@@ -819,7 +819,7 @@ impl IWebAccountProvider3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IWebAccountProvider4Impl: Sized {
-    fn IsSystemProvider(&self) -> ::windows::core::Result<bool>;
+    fn IsSystemProvider(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IWebAccountProvider4 {
@@ -850,7 +850,7 @@ impl IWebAccountProvider4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWebAccountProviderFactoryImpl: Sized {
-    fn CreateWebAccountProvider(&self, id: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<WebAccountProvider>;
+    fn CreateWebAccountProvider(&mut self, id: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, iconuri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<WebAccountProvider>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderFactory {

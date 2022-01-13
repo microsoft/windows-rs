@@ -1,17 +1,17 @@
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 pub trait IClosedCaptionPropertiesStaticsImpl: Sized {
-    fn FontColor(&self) -> ::windows::core::Result<ClosedCaptionColor>;
-    fn ComputedFontColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn FontOpacity(&self) -> ::windows::core::Result<ClosedCaptionOpacity>;
-    fn FontSize(&self) -> ::windows::core::Result<ClosedCaptionSize>;
-    fn FontStyle(&self) -> ::windows::core::Result<ClosedCaptionStyle>;
-    fn FontEffect(&self) -> ::windows::core::Result<ClosedCaptionEdgeEffect>;
-    fn BackgroundColor(&self) -> ::windows::core::Result<ClosedCaptionColor>;
-    fn ComputedBackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn BackgroundOpacity(&self) -> ::windows::core::Result<ClosedCaptionOpacity>;
-    fn RegionColor(&self) -> ::windows::core::Result<ClosedCaptionColor>;
-    fn ComputedRegionColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn RegionOpacity(&self) -> ::windows::core::Result<ClosedCaptionOpacity>;
+    fn FontColor(&mut self) -> ::windows::core::Result<ClosedCaptionColor>;
+    fn ComputedFontColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn FontOpacity(&mut self) -> ::windows::core::Result<ClosedCaptionOpacity>;
+    fn FontSize(&mut self) -> ::windows::core::Result<ClosedCaptionSize>;
+    fn FontStyle(&mut self) -> ::windows::core::Result<ClosedCaptionStyle>;
+    fn FontEffect(&mut self) -> ::windows::core::Result<ClosedCaptionEdgeEffect>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<ClosedCaptionColor>;
+    fn ComputedBackgroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn BackgroundOpacity(&mut self) -> ::windows::core::Result<ClosedCaptionOpacity>;
+    fn RegionColor(&mut self) -> ::windows::core::Result<ClosedCaptionColor>;
+    fn ComputedRegionColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn RegionOpacity(&mut self) -> ::windows::core::Result<ClosedCaptionOpacity>;
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IClosedCaptionPropertiesStatics {

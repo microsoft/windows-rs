@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiChannelPressureMessageImpl: Sized + IMidiMessageImpl {
-    fn Channel(&self) -> ::windows::core::Result<u8>;
-    fn Pressure(&self) -> ::windows::core::Result<u8>;
+    fn Channel(&mut self) -> ::windows::core::Result<u8>;
+    fn Pressure(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiChannelPressureMessage {
@@ -44,7 +44,7 @@ impl IMidiChannelPressureMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiChannelPressureMessageFactoryImpl: Sized {
-    fn CreateMidiChannelPressureMessage(&self, channel: u8, pressure: u8) -> ::windows::core::Result<MidiChannelPressureMessage>;
+    fn CreateMidiChannelPressureMessage(&mut self, channel: u8, pressure: u8) -> ::windows::core::Result<MidiChannelPressureMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiChannelPressureMessageFactory {
@@ -75,9 +75,9 @@ impl IMidiChannelPressureMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiControlChangeMessageImpl: Sized + IMidiMessageImpl {
-    fn Channel(&self) -> ::windows::core::Result<u8>;
-    fn Controller(&self) -> ::windows::core::Result<u8>;
-    fn ControlValue(&self) -> ::windows::core::Result<u8>;
+    fn Channel(&mut self) -> ::windows::core::Result<u8>;
+    fn Controller(&mut self) -> ::windows::core::Result<u8>;
+    fn ControlValue(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiControlChangeMessage {
@@ -132,7 +132,7 @@ impl IMidiControlChangeMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiControlChangeMessageFactoryImpl: Sized {
-    fn CreateMidiControlChangeMessage(&self, channel: u8, controller: u8, controlvalue: u8) -> ::windows::core::Result<MidiControlChangeMessage>;
+    fn CreateMidiControlChangeMessage(&mut self, channel: u8, controller: u8, controlvalue: u8) -> ::windows::core::Result<MidiControlChangeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiControlChangeMessageFactory {
@@ -163,9 +163,9 @@ impl IMidiControlChangeMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMidiInPortImpl: Sized + IClosableImpl {
-    fn MessageReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveMessageReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MessageReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveMessageReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiInPort {
@@ -213,8 +213,8 @@ impl IMidiInPortVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMidiInPortStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiInPortStatics {
@@ -257,9 +257,9 @@ impl IMidiInPortStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IMidiMessageImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn RawData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Type(&self) -> ::windows::core::Result<MidiMessageType>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn RawData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Type(&mut self) -> ::windows::core::Result<MidiMessageType>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IMidiMessage {
@@ -314,7 +314,7 @@ impl IMidiMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiMessageReceivedEventArgsImpl: Sized {
-    fn Message(&self) -> ::windows::core::Result<IMidiMessage>;
+    fn Message(&mut self) -> ::windows::core::Result<IMidiMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiMessageReceivedEventArgs {
@@ -342,9 +342,9 @@ impl IMidiMessageReceivedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiNoteOffMessageImpl: Sized + IMidiMessageImpl {
-    fn Channel(&self) -> ::windows::core::Result<u8>;
-    fn Note(&self) -> ::windows::core::Result<u8>;
-    fn Velocity(&self) -> ::windows::core::Result<u8>;
+    fn Channel(&mut self) -> ::windows::core::Result<u8>;
+    fn Note(&mut self) -> ::windows::core::Result<u8>;
+    fn Velocity(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiNoteOffMessage {
@@ -399,7 +399,7 @@ impl IMidiNoteOffMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiNoteOffMessageFactoryImpl: Sized {
-    fn CreateMidiNoteOffMessage(&self, channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOffMessage>;
+    fn CreateMidiNoteOffMessage(&mut self, channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOffMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiNoteOffMessageFactory {
@@ -430,9 +430,9 @@ impl IMidiNoteOffMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiNoteOnMessageImpl: Sized + IMidiMessageImpl {
-    fn Channel(&self) -> ::windows::core::Result<u8>;
-    fn Note(&self) -> ::windows::core::Result<u8>;
-    fn Velocity(&self) -> ::windows::core::Result<u8>;
+    fn Channel(&mut self) -> ::windows::core::Result<u8>;
+    fn Note(&mut self) -> ::windows::core::Result<u8>;
+    fn Velocity(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiNoteOnMessage {
@@ -487,7 +487,7 @@ impl IMidiNoteOnMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiNoteOnMessageFactoryImpl: Sized {
-    fn CreateMidiNoteOnMessage(&self, channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOnMessage>;
+    fn CreateMidiNoteOnMessage(&mut self, channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOnMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiNoteOnMessageFactory {
@@ -518,9 +518,9 @@ impl IMidiNoteOnMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IMidiOutPortImpl: Sized + IClosableImpl {
-    fn SendMessage(&self, midimessage: &::core::option::Option<IMidiMessage>) -> ::windows::core::Result<()>;
-    fn SendBuffer(&self, mididata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SendMessage(&mut self, midimessage: &::core::option::Option<IMidiMessage>) -> ::windows::core::Result<()>;
+    fn SendBuffer(&mut self, mididata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IMidiOutPort {
@@ -561,8 +561,8 @@ impl IMidiOutPortVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMidiOutPortStaticsImpl: Sized {
-    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>>;
-    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>>;
+    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiOutPortStatics {
@@ -605,8 +605,8 @@ impl IMidiOutPortStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiPitchBendChangeMessageImpl: Sized + IMidiMessageImpl {
-    fn Channel(&self) -> ::windows::core::Result<u8>;
-    fn Bend(&self) -> ::windows::core::Result<u16>;
+    fn Channel(&mut self) -> ::windows::core::Result<u8>;
+    fn Bend(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiPitchBendChangeMessage {
@@ -649,7 +649,7 @@ impl IMidiPitchBendChangeMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiPitchBendChangeMessageFactoryImpl: Sized {
-    fn CreateMidiPitchBendChangeMessage(&self, channel: u8, bend: u16) -> ::windows::core::Result<MidiPitchBendChangeMessage>;
+    fn CreateMidiPitchBendChangeMessage(&mut self, channel: u8, bend: u16) -> ::windows::core::Result<MidiPitchBendChangeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiPitchBendChangeMessageFactory {
@@ -680,9 +680,9 @@ impl IMidiPitchBendChangeMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiPolyphonicKeyPressureMessageImpl: Sized + IMidiMessageImpl {
-    fn Channel(&self) -> ::windows::core::Result<u8>;
-    fn Note(&self) -> ::windows::core::Result<u8>;
-    fn Pressure(&self) -> ::windows::core::Result<u8>;
+    fn Channel(&mut self) -> ::windows::core::Result<u8>;
+    fn Note(&mut self) -> ::windows::core::Result<u8>;
+    fn Pressure(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiPolyphonicKeyPressureMessage {
@@ -737,7 +737,7 @@ impl IMidiPolyphonicKeyPressureMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiPolyphonicKeyPressureMessageFactoryImpl: Sized {
-    fn CreateMidiPolyphonicKeyPressureMessage(&self, channel: u8, note: u8, pressure: u8) -> ::windows::core::Result<MidiPolyphonicKeyPressureMessage>;
+    fn CreateMidiPolyphonicKeyPressureMessage(&mut self, channel: u8, note: u8, pressure: u8) -> ::windows::core::Result<MidiPolyphonicKeyPressureMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiPolyphonicKeyPressureMessageFactory {
@@ -768,8 +768,8 @@ impl IMidiPolyphonicKeyPressureMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiProgramChangeMessageImpl: Sized + IMidiMessageImpl {
-    fn Channel(&self) -> ::windows::core::Result<u8>;
-    fn Program(&self) -> ::windows::core::Result<u8>;
+    fn Channel(&mut self) -> ::windows::core::Result<u8>;
+    fn Program(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiProgramChangeMessage {
@@ -812,7 +812,7 @@ impl IMidiProgramChangeMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiProgramChangeMessageFactoryImpl: Sized {
-    fn CreateMidiProgramChangeMessage(&self, channel: u8, program: u8) -> ::windows::core::Result<MidiProgramChangeMessage>;
+    fn CreateMidiProgramChangeMessage(&mut self, channel: u8, program: u8) -> ::windows::core::Result<MidiProgramChangeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiProgramChangeMessageFactory {
@@ -843,7 +843,7 @@ impl IMidiProgramChangeMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiSongPositionPointerMessageImpl: Sized + IMidiMessageImpl {
-    fn Beats(&self) -> ::windows::core::Result<u16>;
+    fn Beats(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiSongPositionPointerMessage {
@@ -871,7 +871,7 @@ impl IMidiSongPositionPointerMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiSongPositionPointerMessageFactoryImpl: Sized {
-    fn CreateMidiSongPositionPointerMessage(&self, beats: u16) -> ::windows::core::Result<MidiSongPositionPointerMessage>;
+    fn CreateMidiSongPositionPointerMessage(&mut self, beats: u16) -> ::windows::core::Result<MidiSongPositionPointerMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiSongPositionPointerMessageFactory {
@@ -902,7 +902,7 @@ impl IMidiSongPositionPointerMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiSongSelectMessageImpl: Sized + IMidiMessageImpl {
-    fn Song(&self) -> ::windows::core::Result<u8>;
+    fn Song(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiSongSelectMessage {
@@ -930,7 +930,7 @@ impl IMidiSongSelectMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiSongSelectMessageFactoryImpl: Sized {
-    fn CreateMidiSongSelectMessage(&self, song: u8) -> ::windows::core::Result<MidiSongSelectMessage>;
+    fn CreateMidiSongSelectMessage(&mut self, song: u8) -> ::windows::core::Result<MidiSongSelectMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiSongSelectMessageFactory {
@@ -961,9 +961,9 @@ impl IMidiSongSelectMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiSynthesizerImpl: Sized + IClosableImpl + IMidiOutPortImpl {
-    fn AudioDevice(&self) -> ::windows::core::Result<super::Enumeration::DeviceInformation>;
-    fn Volume(&self) -> ::windows::core::Result<f64>;
-    fn SetVolume(&self, value: f64) -> ::windows::core::Result<()>;
+    fn AudioDevice(&mut self) -> ::windows::core::Result<super::Enumeration::DeviceInformation>;
+    fn Volume(&mut self) -> ::windows::core::Result<f64>;
+    fn SetVolume(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiSynthesizer {
@@ -1011,9 +1011,9 @@ impl IMidiSynthesizerVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMidiSynthesizerStaticsImpl: Sized {
-    fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>;
-    fn CreateFromAudioDeviceAsync(&self, audiodevice: &::core::option::Option<super::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>;
-    fn IsSynthesizer(&self, mididevice: &::core::option::Option<super::Enumeration::DeviceInformation>) -> ::windows::core::Result<bool>;
+    fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>;
+    fn CreateFromAudioDeviceAsync(&mut self, audiodevice: &::core::option::Option<super::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>;
+    fn IsSynthesizer(&mut self, mididevice: &::core::option::Option<super::Enumeration::DeviceInformation>) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiSynthesizerStatics {
@@ -1068,7 +1068,7 @@ impl IMidiSynthesizerStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiSystemExclusiveMessageFactoryImpl: Sized {
-    fn CreateMidiSystemExclusiveMessage(&self, rawdata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<MidiSystemExclusiveMessage>;
+    fn CreateMidiSystemExclusiveMessage(&mut self, rawdata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<MidiSystemExclusiveMessage>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiSystemExclusiveMessageFactory {
@@ -1099,8 +1099,8 @@ impl IMidiSystemExclusiveMessageFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMidiTimeCodeMessageImpl: Sized + IMidiMessageImpl {
-    fn FrameType(&self) -> ::windows::core::Result<u8>;
-    fn Values(&self) -> ::windows::core::Result<u8>;
+    fn FrameType(&mut self) -> ::windows::core::Result<u8>;
+    fn Values(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMidiTimeCodeMessage {
@@ -1143,7 +1143,7 @@ impl IMidiTimeCodeMessageVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMidiTimeCodeMessageFactoryImpl: Sized {
-    fn CreateMidiTimeCodeMessage(&self, frametype: u8, values: u8) -> ::windows::core::Result<MidiTimeCodeMessage>;
+    fn CreateMidiTimeCodeMessage(&mut self, frametype: u8, values: u8) -> ::windows::core::Result<MidiTimeCodeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMidiTimeCodeMessageFactory {

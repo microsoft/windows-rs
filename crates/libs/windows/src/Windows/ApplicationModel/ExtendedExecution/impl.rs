@@ -1,6 +1,6 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IExtendedExecutionRevokedEventArgsImpl: Sized {
-    fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionRevokedReason>;
+    fn Reason(&mut self) -> ::windows::core::Result<ExtendedExecutionRevokedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExtendedExecutionRevokedEventArgs {
@@ -28,15 +28,15 @@ impl IExtendedExecutionRevokedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IExtendedExecutionSessionImpl: Sized + IClosableImpl {
-    fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionReason>;
-    fn SetReason(&self, value: ExtendedExecutionReason) -> ::windows::core::Result<()>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PercentProgress(&self) -> ::windows::core::Result<u32>;
-    fn SetPercentProgress(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Revoked(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ExtendedExecutionRevokedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRevoked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RequestExtensionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>>;
+    fn Reason(&mut self) -> ::windows::core::Result<ExtendedExecutionReason>;
+    fn SetReason(&mut self, value: ExtendedExecutionReason) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDescription(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PercentProgress(&mut self) -> ::windows::core::Result<u32>;
+    fn SetPercentProgress(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Revoked(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ExtendedExecutionRevokedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRevoked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RequestExtensionAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IExtendedExecutionSession {

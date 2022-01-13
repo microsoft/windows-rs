@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAudioEncodingPropertiesImpl: Sized + IMediaEncodingPropertiesImpl {
-    fn SetBitrate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Bitrate(&self) -> ::windows::core::Result<u32>;
-    fn SetChannelCount(&self, value: u32) -> ::windows::core::Result<()>;
-    fn ChannelCount(&self) -> ::windows::core::Result<u32>;
-    fn SetSampleRate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn SampleRate(&self) -> ::windows::core::Result<u32>;
-    fn SetBitsPerSample(&self, value: u32) -> ::windows::core::Result<()>;
-    fn BitsPerSample(&self) -> ::windows::core::Result<u32>;
+    fn SetBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Bitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetChannelCount(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn ChannelCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SetSampleRate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn SampleRate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetBitsPerSample(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn BitsPerSample(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioEncodingProperties {
@@ -94,7 +94,7 @@ impl IAudioEncodingPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioEncodingProperties2Impl: Sized {
-    fn IsSpatial(&self) -> ::windows::core::Result<bool>;
+    fn IsSpatial(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioEncodingProperties2 {
@@ -122,7 +122,7 @@ impl IAudioEncodingProperties2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioEncodingProperties3Impl: Sized {
-    fn Copy(&self) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn Copy(&mut self) -> ::windows::core::Result<AudioEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioEncodingProperties3 {
@@ -150,11 +150,11 @@ impl IAudioEncodingProperties3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioEncodingPropertiesStaticsImpl: Sized {
-    fn CreateAac(&self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
-    fn CreateAacAdts(&self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
-    fn CreateMp3(&self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
-    fn CreatePcm(&self, samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties>;
-    fn CreateWma(&self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn CreateAac(&mut self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn CreateAacAdts(&mut self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn CreateMp3(&mut self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn CreatePcm(&mut self, samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn CreateWma(&mut self, samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::core::Result<AudioEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioEncodingPropertiesStatics {
@@ -233,8 +233,8 @@ impl IAudioEncodingPropertiesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioEncodingPropertiesStatics2Impl: Sized {
-    fn CreateAlac(&self, samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties>;
-    fn CreateFlac(&self, samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn CreateAlac(&mut self, samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn CreateFlac(&mut self, samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::core::Result<AudioEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioEncodingPropertiesStatics2 {
@@ -277,8 +277,8 @@ impl IAudioEncodingPropertiesStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioEncodingPropertiesWithFormatUserDataImpl: Sized {
-    fn SetFormatUserData(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn SetFormatUserData(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetFormatUserData(&mut self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioEncodingPropertiesWithFormatUserData {
@@ -322,7 +322,7 @@ impl IContainerEncodingPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IContainerEncodingProperties2Impl: Sized {
-    fn Copy(&self) -> ::windows::core::Result<ContainerEncodingProperties>;
+    fn Copy(&mut self) -> ::windows::core::Result<ContainerEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContainerEncodingProperties2 {
@@ -350,16 +350,16 @@ impl IContainerEncodingProperties2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IH264ProfileIdsStaticsImpl: Sized {
-    fn ConstrainedBaseline(&self) -> ::windows::core::Result<i32>;
-    fn Baseline(&self) -> ::windows::core::Result<i32>;
-    fn Extended(&self) -> ::windows::core::Result<i32>;
-    fn Main(&self) -> ::windows::core::Result<i32>;
-    fn High(&self) -> ::windows::core::Result<i32>;
-    fn High10(&self) -> ::windows::core::Result<i32>;
-    fn High422(&self) -> ::windows::core::Result<i32>;
-    fn High444(&self) -> ::windows::core::Result<i32>;
-    fn StereoHigh(&self) -> ::windows::core::Result<i32>;
-    fn MultiviewHigh(&self) -> ::windows::core::Result<i32>;
+    fn ConstrainedBaseline(&mut self) -> ::windows::core::Result<i32>;
+    fn Baseline(&mut self) -> ::windows::core::Result<i32>;
+    fn Extended(&mut self) -> ::windows::core::Result<i32>;
+    fn Main(&mut self) -> ::windows::core::Result<i32>;
+    fn High(&mut self) -> ::windows::core::Result<i32>;
+    fn High10(&mut self) -> ::windows::core::Result<i32>;
+    fn High422(&mut self) -> ::windows::core::Result<i32>;
+    fn High444(&mut self) -> ::windows::core::Result<i32>;
+    fn StereoHigh(&mut self) -> ::windows::core::Result<i32>;
+    fn MultiviewHigh(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IH264ProfileIdsStatics {
@@ -498,10 +498,10 @@ impl IH264ProfileIdsStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IImageEncodingPropertiesImpl: Sized + IMediaEncodingPropertiesImpl {
-    fn SetWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Width(&self) -> ::windows::core::Result<u32>;
-    fn SetHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Height(&self) -> ::windows::core::Result<u32>;
+    fn SetWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
+    fn SetHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IImageEncodingProperties {
@@ -554,7 +554,7 @@ impl IImageEncodingPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IImageEncodingProperties2Impl: Sized {
-    fn Copy(&self) -> ::windows::core::Result<ImageEncodingProperties>;
+    fn Copy(&mut self) -> ::windows::core::Result<ImageEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IImageEncodingProperties2 {
@@ -582,9 +582,9 @@ impl IImageEncodingProperties2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IImageEncodingPropertiesStaticsImpl: Sized {
-    fn CreateJpeg(&self) -> ::windows::core::Result<ImageEncodingProperties>;
-    fn CreatePng(&self) -> ::windows::core::Result<ImageEncodingProperties>;
-    fn CreateJpegXR(&self) -> ::windows::core::Result<ImageEncodingProperties>;
+    fn CreateJpeg(&mut self) -> ::windows::core::Result<ImageEncodingProperties>;
+    fn CreatePng(&mut self) -> ::windows::core::Result<ImageEncodingProperties>;
+    fn CreateJpegXR(&mut self) -> ::windows::core::Result<ImageEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IImageEncodingPropertiesStatics {
@@ -639,8 +639,8 @@ impl IImageEncodingPropertiesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IImageEncodingPropertiesStatics2Impl: Sized {
-    fn CreateUncompressed(&self, format: MediaPixelFormat) -> ::windows::core::Result<ImageEncodingProperties>;
-    fn CreateBmp(&self) -> ::windows::core::Result<ImageEncodingProperties>;
+    fn CreateUncompressed(&mut self, format: MediaPixelFormat) -> ::windows::core::Result<ImageEncodingProperties>;
+    fn CreateBmp(&mut self) -> ::windows::core::Result<ImageEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IImageEncodingPropertiesStatics2 {
@@ -683,7 +683,7 @@ impl IImageEncodingPropertiesStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IImageEncodingPropertiesStatics3Impl: Sized {
-    fn CreateHeif(&self) -> ::windows::core::Result<ImageEncodingProperties>;
+    fn CreateHeif(&mut self) -> ::windows::core::Result<ImageEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IImageEncodingPropertiesStatics3 {
@@ -714,12 +714,12 @@ impl IImageEncodingPropertiesStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingProfileImpl: Sized {
-    fn SetAudio(&self, value: &::core::option::Option<AudioEncodingProperties>) -> ::windows::core::Result<()>;
-    fn Audio(&self) -> ::windows::core::Result<AudioEncodingProperties>;
-    fn SetVideo(&self, value: &::core::option::Option<VideoEncodingProperties>) -> ::windows::core::Result<()>;
-    fn Video(&self) -> ::windows::core::Result<VideoEncodingProperties>;
-    fn SetContainer(&self, value: &::core::option::Option<ContainerEncodingProperties>) -> ::windows::core::Result<()>;
-    fn Container(&self) -> ::windows::core::Result<ContainerEncodingProperties>;
+    fn SetAudio(&mut self, value: &::core::option::Option<AudioEncodingProperties>) -> ::windows::core::Result<()>;
+    fn Audio(&mut self) -> ::windows::core::Result<AudioEncodingProperties>;
+    fn SetVideo(&mut self, value: &::core::option::Option<VideoEncodingProperties>) -> ::windows::core::Result<()>;
+    fn Video(&mut self) -> ::windows::core::Result<VideoEncodingProperties>;
+    fn SetContainer(&mut self, value: &::core::option::Option<ContainerEncodingProperties>) -> ::windows::core::Result<()>;
+    fn Container(&mut self) -> ::windows::core::Result<ContainerEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingProfile {
@@ -789,10 +789,10 @@ impl IMediaEncodingProfileVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
 pub trait IMediaEncodingProfile2Impl: Sized {
-    fn SetAudioTracks(&self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>) -> ::windows::core::Result<()>;
-    fn GetAudioTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Core::AudioStreamDescriptor>>;
-    fn SetVideoTracks(&self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>) -> ::windows::core::Result<()>;
-    fn GetVideoTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Core::VideoStreamDescriptor>>;
+    fn SetAudioTracks(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>) -> ::windows::core::Result<()>;
+    fn GetAudioTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Core::AudioStreamDescriptor>>;
+    fn SetVideoTracks(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>) -> ::windows::core::Result<()>;
+    fn GetVideoTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Core::VideoStreamDescriptor>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaEncodingProfile2 {
@@ -845,8 +845,8 @@ impl IMediaEncodingProfile2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
 pub trait IMediaEncodingProfile3Impl: Sized {
-    fn SetTimedMetadataTracks(&self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>) -> ::windows::core::Result<()>;
-    fn GetTimedMetadataTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Core::TimedMetadataStreamDescriptor>>;
+    fn SetTimedMetadataTracks(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>) -> ::windows::core::Result<()>;
+    fn GetTimedMetadataTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Core::TimedMetadataStreamDescriptor>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaEncodingProfile3 {
@@ -882,13 +882,13 @@ impl IMediaEncodingProfile3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IMediaEncodingProfileStaticsImpl: Sized {
-    fn CreateM4a(&self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateMp3(&self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateWma(&self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateMp4(&self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateWmv(&self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateFromFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>;
-    fn CreateFromStreamAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>;
+    fn CreateM4a(&mut self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateMp3(&mut self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateWma(&mut self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateMp4(&mut self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateWmv(&mut self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateFromFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>;
+    fn CreateFromStreamAsync(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaEncodingProfileStatics {
@@ -991,8 +991,8 @@ impl IMediaEncodingProfileStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingProfileStatics2Impl: Sized {
-    fn CreateWav(&self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateAvi(&self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateWav(&mut self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateAvi(&mut self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingProfileStatics2 {
@@ -1035,9 +1035,9 @@ impl IMediaEncodingProfileStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingProfileStatics3Impl: Sized {
-    fn CreateAlac(&self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateFlac(&self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
-    fn CreateHevc(&self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateAlac(&mut self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateFlac(&mut self, quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
+    fn CreateHevc(&mut self, quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingProfileStatics3 {
@@ -1092,10 +1092,10 @@ impl IMediaEncodingProfileStatics3Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaEncodingPropertiesImpl: Sized {
-    fn Properties(&self) -> ::windows::core::Result<MediaPropertySet>;
-    fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSubtype(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&mut self) -> ::windows::core::Result<MediaPropertySet>;
+    fn Type(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSubtype(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Subtype(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IMediaEncodingProperties {
@@ -1155,46 +1155,46 @@ impl IMediaEncodingPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingSubtypesStaticsImpl: Sized {
-    fn Aac(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AacAdts(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ac3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AmrNb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AmrWb(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Argb32(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Asf(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Avi(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Bgra8(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Bmp(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Eac3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Float(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Gif(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn H263(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn H264(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn H264Es(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Hevc(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HevcEs(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Iyuv(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Jpeg(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn JpegXr(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mjpg(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mpeg(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mpeg1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mpeg2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mp3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Mpeg4(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Nv12(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Pcm(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Png(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rgb24(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Rgb32(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Tiff(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wave(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wma8(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wma9(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wmv3(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Wvc1(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Yuy2(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Yv12(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Aac(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AacAdts(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ac3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AmrNb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AmrWb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Argb32(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Asf(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Avi(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Bgra8(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Bmp(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Eac3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Float(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Gif(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn H263(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn H264(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn H264Es(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Hevc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HevcEs(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Iyuv(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Jpeg(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn JpegXr(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mjpg(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mpeg(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mpeg1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mpeg2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mp3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Mpeg4(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Nv12(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pcm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Png(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rgb24(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Rgb32(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Tiff(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wave(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wma8(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wma9(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wmv3(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Wvc1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Yuy2(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Yv12(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingSubtypesStatics {
@@ -1693,10 +1693,10 @@ impl IMediaEncodingSubtypesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingSubtypesStatics2Impl: Sized {
-    fn Vp9(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn L8(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn L16(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn D16(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Vp9(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn L8(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn L16(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn D16(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingSubtypesStatics2 {
@@ -1763,8 +1763,8 @@ impl IMediaEncodingSubtypesStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingSubtypesStatics3Impl: Sized {
-    fn Alac(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Flac(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Alac(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Flac(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingSubtypesStatics3 {
@@ -1807,7 +1807,7 @@ impl IMediaEncodingSubtypesStatics3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingSubtypesStatics4Impl: Sized {
-    fn P010(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn P010(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingSubtypesStatics4 {
@@ -1835,7 +1835,7 @@ impl IMediaEncodingSubtypesStatics4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingSubtypesStatics5Impl: Sized {
-    fn Heif(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Heif(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingSubtypesStatics5 {
@@ -1863,10 +1863,10 @@ impl IMediaEncodingSubtypesStatics5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaEncodingSubtypesStatics6Impl: Sized {
-    fn Pgs(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Srt(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Ssa(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn VobSub(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Pgs(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Srt(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Ssa(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn VobSub(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaEncodingSubtypesStatics6 {
@@ -1933,10 +1933,10 @@ impl IMediaEncodingSubtypesStatics6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaRatioImpl: Sized {
-    fn SetNumerator(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Numerator(&self) -> ::windows::core::Result<u32>;
-    fn SetDenominator(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Denominator(&self) -> ::windows::core::Result<u32>;
+    fn SetNumerator(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Numerator(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDenominator(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Denominator(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaRatio {
@@ -1989,11 +1989,11 @@ impl IMediaRatioVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMpeg2ProfileIdsStaticsImpl: Sized {
-    fn Simple(&self) -> ::windows::core::Result<i32>;
-    fn Main(&self) -> ::windows::core::Result<i32>;
-    fn SignalNoiseRatioScalable(&self) -> ::windows::core::Result<i32>;
-    fn SpatiallyScalable(&self) -> ::windows::core::Result<i32>;
-    fn High(&self) -> ::windows::core::Result<i32>;
+    fn Simple(&mut self) -> ::windows::core::Result<i32>;
+    fn Main(&mut self) -> ::windows::core::Result<i32>;
+    fn SignalNoiseRatioScalable(&mut self) -> ::windows::core::Result<i32>;
+    fn SpatiallyScalable(&mut self) -> ::windows::core::Result<i32>;
+    fn High(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMpeg2ProfileIdsStatics {
@@ -2072,9 +2072,9 @@ impl IMpeg2ProfileIdsStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedMetadataEncodingPropertiesImpl: Sized {
-    fn SetFormatUserData(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
-    fn Copy(&self) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
+    fn SetFormatUserData(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetFormatUserData(&mut self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn Copy(&mut self) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedMetadataEncodingProperties {
@@ -2115,10 +2115,10 @@ impl ITimedMetadataEncodingPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITimedMetadataEncodingPropertiesStaticsImpl: Sized {
-    fn CreatePgs(&self) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
-    fn CreateSrt(&self) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
-    fn CreateSsa(&self, formatuserdata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
-    fn CreateVobSub(&self, formatuserdata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
+    fn CreatePgs(&mut self) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
+    fn CreateSrt(&mut self) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
+    fn CreateSsa(&mut self, formatuserdata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
+    fn CreateVobSub(&mut self, formatuserdata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TimedMetadataEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimedMetadataEncodingPropertiesStatics {
@@ -2185,14 +2185,14 @@ impl ITimedMetadataEncodingPropertiesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVideoEncodingPropertiesImpl: Sized + IMediaEncodingPropertiesImpl {
-    fn SetBitrate(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Bitrate(&self) -> ::windows::core::Result<u32>;
-    fn SetWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Width(&self) -> ::windows::core::Result<u32>;
-    fn SetHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn Height(&self) -> ::windows::core::Result<u32>;
-    fn FrameRate(&self) -> ::windows::core::Result<MediaRatio>;
-    fn PixelAspectRatio(&self) -> ::windows::core::Result<MediaRatio>;
+    fn SetBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Bitrate(&mut self) -> ::windows::core::Result<u32>;
+    fn SetWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Width(&mut self) -> ::windows::core::Result<u32>;
+    fn SetHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn Height(&mut self) -> ::windows::core::Result<u32>;
+    fn FrameRate(&mut self) -> ::windows::core::Result<MediaRatio>;
+    fn PixelAspectRatio(&mut self) -> ::windows::core::Result<MediaRatio>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoEncodingProperties {
@@ -2286,10 +2286,10 @@ impl IVideoEncodingPropertiesVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoEncodingProperties2Impl: Sized {
-    fn SetFormatUserData(&self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn GetFormatUserData(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
-    fn SetProfileId(&self, value: i32) -> ::windows::core::Result<()>;
-    fn ProfileId(&self) -> ::windows::core::Result<i32>;
+    fn SetFormatUserData(&mut self, value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetFormatUserData(&mut self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn SetProfileId(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ProfileId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoEncodingProperties2 {
@@ -2335,7 +2335,7 @@ impl IVideoEncodingProperties2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoEncodingProperties3Impl: Sized {
-    fn StereoscopicVideoPackingMode(&self) -> ::windows::core::Result<StereoscopicVideoPackingMode>;
+    fn StereoscopicVideoPackingMode(&mut self) -> ::windows::core::Result<StereoscopicVideoPackingMode>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoEncodingProperties3 {
@@ -2366,7 +2366,7 @@ impl IVideoEncodingProperties3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoEncodingProperties4Impl: Sized {
-    fn SphericalVideoFrameFormat(&self) -> ::windows::core::Result<SphericalVideoFrameFormat>;
+    fn SphericalVideoFrameFormat(&mut self) -> ::windows::core::Result<SphericalVideoFrameFormat>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoEncodingProperties4 {
@@ -2397,7 +2397,7 @@ impl IVideoEncodingProperties4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoEncodingProperties5Impl: Sized {
-    fn Copy(&self) -> ::windows::core::Result<VideoEncodingProperties>;
+    fn Copy(&mut self) -> ::windows::core::Result<VideoEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoEncodingProperties5 {
@@ -2425,9 +2425,9 @@ impl IVideoEncodingProperties5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoEncodingPropertiesStaticsImpl: Sized {
-    fn CreateH264(&self) -> ::windows::core::Result<VideoEncodingProperties>;
-    fn CreateMpeg2(&self) -> ::windows::core::Result<VideoEncodingProperties>;
-    fn CreateUncompressed(&self, subtype: &::windows::core::HSTRING, width: u32, height: u32) -> ::windows::core::Result<VideoEncodingProperties>;
+    fn CreateH264(&mut self) -> ::windows::core::Result<VideoEncodingProperties>;
+    fn CreateMpeg2(&mut self) -> ::windows::core::Result<VideoEncodingProperties>;
+    fn CreateUncompressed(&mut self, subtype: &::windows::core::HSTRING, width: u32, height: u32) -> ::windows::core::Result<VideoEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoEncodingPropertiesStatics {
@@ -2482,7 +2482,7 @@ impl IVideoEncodingPropertiesStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoEncodingPropertiesStatics2Impl: Sized {
-    fn CreateHevc(&self) -> ::windows::core::Result<VideoEncodingProperties>;
+    fn CreateHevc(&mut self) -> ::windows::core::Result<VideoEncodingProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoEncodingPropertiesStatics2 {

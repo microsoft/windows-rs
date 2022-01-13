@@ -1,23 +1,23 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDateTimeFormatterImpl: Sized {
-    fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Calendar(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Clock(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NumeralSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNumeralSystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Patterns(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn Template(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Format(&self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IncludeYear(&self) -> ::windows::core::Result<YearFormat>;
-    fn IncludeMonth(&self) -> ::windows::core::Result<MonthFormat>;
-    fn IncludeDayOfWeek(&self) -> ::windows::core::Result<DayOfWeekFormat>;
-    fn IncludeDay(&self) -> ::windows::core::Result<DayFormat>;
-    fn IncludeHour(&self) -> ::windows::core::Result<HourFormat>;
-    fn IncludeMinute(&self) -> ::windows::core::Result<MinuteFormat>;
-    fn IncludeSecond(&self) -> ::windows::core::Result<SecondFormat>;
-    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ResolvedGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn GeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Calendar(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Clock(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NumeralSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNumeralSystem(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Patterns(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn Template(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Format(&mut self, value: &super::super::Foundation::DateTime) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IncludeYear(&mut self) -> ::windows::core::Result<YearFormat>;
+    fn IncludeMonth(&mut self) -> ::windows::core::Result<MonthFormat>;
+    fn IncludeDayOfWeek(&mut self) -> ::windows::core::Result<DayOfWeekFormat>;
+    fn IncludeDay(&mut self) -> ::windows::core::Result<DayFormat>;
+    fn IncludeHour(&mut self) -> ::windows::core::Result<HourFormat>;
+    fn IncludeMinute(&mut self) -> ::windows::core::Result<MinuteFormat>;
+    fn IncludeSecond(&mut self) -> ::windows::core::Result<SecondFormat>;
+    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ResolvedGeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDateTimeFormatter {
@@ -245,7 +245,7 @@ impl IDateTimeFormatterVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDateTimeFormatter2Impl: Sized {
-    fn FormatUsingTimeZone(&self, datetime: &super::super::Foundation::DateTime, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatUsingTimeZone(&mut self, datetime: &super::super::Foundation::DateTime, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDateTimeFormatter2 {
@@ -276,13 +276,13 @@ impl IDateTimeFormatter2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDateTimeFormatterFactoryImpl: Sized {
-    fn CreateDateTimeFormatter(&self, formattemplate: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
-    fn CreateDateTimeFormatterLanguages(&self, formattemplate: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DateTimeFormatter>;
-    fn CreateDateTimeFormatterContext(&self, formattemplate: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
-    fn CreateDateTimeFormatterDate(&self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat) -> ::windows::core::Result<DateTimeFormatter>;
-    fn CreateDateTimeFormatterTime(&self, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat) -> ::windows::core::Result<DateTimeFormatter>;
-    fn CreateDateTimeFormatterDateTimeLanguages(&self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DateTimeFormatter>;
-    fn CreateDateTimeFormatterDateTimeContext(&self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
+    fn CreateDateTimeFormatter(&mut self, formattemplate: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
+    fn CreateDateTimeFormatterLanguages(&mut self, formattemplate: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DateTimeFormatter>;
+    fn CreateDateTimeFormatterContext(&mut self, formattemplate: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
+    fn CreateDateTimeFormatterDate(&mut self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat) -> ::windows::core::Result<DateTimeFormatter>;
+    fn CreateDateTimeFormatterTime(&mut self, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat) -> ::windows::core::Result<DateTimeFormatter>;
+    fn CreateDateTimeFormatterDateTimeLanguages(&mut self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<DateTimeFormatter>;
+    fn CreateDateTimeFormatterDateTimeContext(&mut self, yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDateTimeFormatterFactory {
@@ -403,10 +403,10 @@ impl IDateTimeFormatterFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDateTimeFormatterStaticsImpl: Sized {
-    fn LongDate(&self) -> ::windows::core::Result<DateTimeFormatter>;
-    fn LongTime(&self) -> ::windows::core::Result<DateTimeFormatter>;
-    fn ShortDate(&self) -> ::windows::core::Result<DateTimeFormatter>;
-    fn ShortTime(&self) -> ::windows::core::Result<DateTimeFormatter>;
+    fn LongDate(&mut self) -> ::windows::core::Result<DateTimeFormatter>;
+    fn LongTime(&mut self) -> ::windows::core::Result<DateTimeFormatter>;
+    fn ShortDate(&mut self) -> ::windows::core::Result<DateTimeFormatter>;
+    fn ShortTime(&mut self) -> ::windows::core::Result<DateTimeFormatter>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDateTimeFormatterStatics {

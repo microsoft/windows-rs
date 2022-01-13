@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DWorkflowImpl: Sized {
-    fn DeviceID(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetPrintModelPackage(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn IsPrintReady(&self) -> ::windows::core::Result<bool>;
-    fn SetIsPrintReady(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PrintRequested(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePrintRequested(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeviceID(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetPrintModelPackage(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn IsPrintReady(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsPrintReady(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PrintRequested(&mut self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePrintRequested(&mut self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DWorkflow {
@@ -82,8 +82,8 @@ impl IPrint3DWorkflowVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrint3DWorkflow2Impl: Sized {
-    fn PrinterChanged(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePrinterChanged(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PrinterChanged(&mut self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePrinterChanged(&mut self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrint3DWorkflow2 {
@@ -119,10 +119,10 @@ impl IPrint3DWorkflow2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrint3DWorkflowPrintRequestedEventArgsImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<Print3DWorkflowStatus>;
-    fn SetExtendedStatus(&self, value: Print3DWorkflowDetail) -> ::windows::core::Result<()>;
-    fn SetSource(&self, source: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn SetSourceChanged(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Status(&mut self) -> ::windows::core::Result<Print3DWorkflowStatus>;
+    fn SetExtendedStatus(&mut self, value: Print3DWorkflowDetail) -> ::windows::core::Result<()>;
+    fn SetSource(&mut self, source: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SetSourceChanged(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrint3DWorkflowPrintRequestedEventArgs {
@@ -168,7 +168,7 @@ impl IPrint3DWorkflowPrintRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrint3DWorkflowPrinterChangedEventArgsImpl: Sized {
-    fn NewDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NewDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrint3DWorkflowPrinterChangedEventArgs {
@@ -199,7 +199,7 @@ impl IPrint3DWorkflowPrinterChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintExtensionContextStaticImpl: Sized {
-    fn FromDeviceId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn FromDeviceId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintExtensionContextStatic {
@@ -230,9 +230,9 @@ impl IPrintExtensionContextStaticVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintNotificationEventDetailsImpl: Sized {
-    fn PrinterName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EventData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetEventData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PrinterName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EventData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetEventData(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintNotificationEventDetails {
@@ -280,9 +280,9 @@ impl IPrintNotificationEventDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintTaskConfigurationImpl: Sized {
-    fn PrinterExtensionContext(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SaveRequested(&self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSaveRequested(&self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PrinterExtensionContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SaveRequested(&mut self, eventhandler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSaveRequested(&mut self, eventcookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTaskConfiguration {
@@ -330,10 +330,10 @@ impl IPrintTaskConfigurationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPrintTaskConfigurationSaveRequestImpl: Sized {
-    fn Cancel(&self) -> ::windows::core::Result<()>;
-    fn Save(&self, printerextensioncontext: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetDeferral(&self) -> ::windows::core::Result<PrintTaskConfigurationSaveRequestedDeferral>;
-    fn Deadline(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn Save(&mut self, printerextensioncontext: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<PrintTaskConfigurationSaveRequestedDeferral>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPrintTaskConfigurationSaveRequest {
@@ -386,7 +386,7 @@ impl IPrintTaskConfigurationSaveRequestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintTaskConfigurationSaveRequestedDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintTaskConfigurationSaveRequestedDeferral {
@@ -410,7 +410,7 @@ impl IPrintTaskConfigurationSaveRequestedDeferralVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPrintTaskConfigurationSaveRequestedEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<PrintTaskConfigurationSaveRequest>;
+    fn Request(&mut self) -> ::windows::core::Result<PrintTaskConfigurationSaveRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPrintTaskConfigurationSaveRequestedEventArgs {

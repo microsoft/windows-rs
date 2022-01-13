@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelImpl: Sized {
-    fn Uri(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn Close(&self) -> ::windows::core::Result<()>;
-    fn PushNotificationReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PushNotificationChannel, PushNotificationReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePushNotificationReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Uri(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn PushNotificationReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PushNotificationChannel, PushNotificationReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePushNotificationReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannel {
@@ -69,10 +69,10 @@ impl IPushNotificationChannelVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerForUserImpl: Sized {
-    fn CreatePushNotificationChannelForApplicationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
-    fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
-    fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
-    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
+    fn CreatePushNotificationChannelForApplicationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn CreatePushNotificationChannelForApplicationAsyncWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn CreatePushNotificationChannelForSecondaryTileAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerForUser {
@@ -139,8 +139,8 @@ impl IPushNotificationChannelManagerForUserVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerForUser2Impl: Sized {
-    fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync(&self, appserverkey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, channelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
-    fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId(&self, appserverkey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, channelid: &::windows::core::HSTRING, appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync(&mut self, appserverkey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, channelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId(&mut self, appserverkey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, channelid: &::windows::core::HSTRING, appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerForUser2 {
@@ -187,9 +187,9 @@ impl IPushNotificationChannelManagerForUser2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerStaticsImpl: Sized {
-    fn CreatePushNotificationChannelForApplicationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
-    fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
-    fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn CreatePushNotificationChannelForApplicationAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn CreatePushNotificationChannelForApplicationAsyncWithId(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
+    fn CreatePushNotificationChannelForSecondaryTileAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics {
@@ -244,7 +244,7 @@ impl IPushNotificationChannelManagerStaticsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerStatics2Impl: Sized {
-    fn GetForUser(&self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PushNotificationChannelManagerForUser>;
+    fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<PushNotificationChannelManagerForUser>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics2 {
@@ -275,7 +275,7 @@ impl IPushNotificationChannelManagerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPushNotificationChannelManagerStatics3Impl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<PushNotificationChannelManagerForUser>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<PushNotificationChannelManagerForUser>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics3 {
@@ -306,8 +306,8 @@ impl IPushNotificationChannelManagerStatics3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPushNotificationChannelManagerStatics4Impl: Sized {
-    fn ChannelsRevoked(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<PushNotificationChannelsRevokedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChannelsRevoked(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ChannelsRevoked(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<PushNotificationChannelsRevokedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChannelsRevoked(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationChannelManagerStatics4 {
@@ -358,13 +358,13 @@ impl IPushNotificationChannelsRevokedEventArgsVtbl {
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 pub trait IPushNotificationReceivedEventArgsImpl: Sized {
-    fn SetCancel(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Cancel(&self) -> ::windows::core::Result<bool>;
-    fn NotificationType(&self) -> ::windows::core::Result<PushNotificationType>;
-    fn ToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification>;
-    fn TileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification>;
-    fn BadgeNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeNotification>;
-    fn RawNotification(&self) -> ::windows::core::Result<RawNotification>;
+    fn SetCancel(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Cancel(&mut self) -> ::windows::core::Result<bool>;
+    fn NotificationType(&mut self) -> ::windows::core::Result<PushNotificationType>;
+    fn ToastNotification(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification>;
+    fn TileNotification(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification>;
+    fn BadgeNotification(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeNotification>;
+    fn RawNotification(&mut self) -> ::windows::core::Result<RawNotification>;
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPushNotificationReceivedEventArgs {
@@ -460,7 +460,7 @@ impl IPushNotificationReceivedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRawNotificationImpl: Sized {
-    fn Content(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Content(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRawNotification {
@@ -488,8 +488,8 @@ impl IRawNotificationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRawNotification2Impl: Sized {
-    fn Headers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
-    fn ChannelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Headers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn ChannelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawNotification2 {
@@ -532,7 +532,7 @@ impl IRawNotification2Vtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IRawNotification3Impl: Sized {
-    fn ContentBytes(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn ContentBytes(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRawNotification3 {

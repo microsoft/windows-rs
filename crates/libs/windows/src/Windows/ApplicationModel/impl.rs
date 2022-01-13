@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAppDisplayInfoImpl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetLogo(&self, size: &super::Foundation::Size) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLogo(&mut self, size: &super::Foundation::Size) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppDisplayInfo {
@@ -57,10 +57,10 @@ impl IAppDisplayInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInfoImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayInfo(&self) -> ::windows::core::Result<AppDisplayInfo>;
-    fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayInfo(&mut self) -> ::windows::core::Result<AppDisplayInfo>;
+    fn PackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInfo {
@@ -127,7 +127,7 @@ impl IAppInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInfo2Impl: Sized {
-    fn Package(&self) -> ::windows::core::Result<Package>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInfo2 {
@@ -155,7 +155,7 @@ impl IAppInfo2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInfo3Impl: Sized {
-    fn ExecutionContext(&self) -> ::windows::core::Result<AppExecutionContext>;
+    fn ExecutionContext(&mut self) -> ::windows::core::Result<AppExecutionContext>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInfo3 {
@@ -183,7 +183,7 @@ impl IAppInfo3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInfo4Impl: Sized {
-    fn SupportedFileExtensions(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
+    fn SupportedFileExtensions(&mut self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInfo4 {
@@ -215,9 +215,9 @@ impl IAppInfo4Vtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IAppInfoStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<AppInfo>;
-    fn GetFromAppUserModelId(&self, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo>;
-    fn GetFromAppUserModelIdForUser(&self, user: &::core::option::Option<super::System::User>, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo>;
+    fn Current(&mut self) -> ::windows::core::Result<AppInfo>;
+    fn GetFromAppUserModelId(&mut self, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo>;
+    fn GetFromAppUserModelIdForUser(&mut self, user: &::core::option::Option<super::System::User>, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInfoStatics {
@@ -272,7 +272,7 @@ impl IAppInfoStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAppInstallerInfoImpl: Sized {
-    fn Uri(&self) -> ::windows::core::Result<super::Foundation::Uri>;
+    fn Uri(&mut self) -> ::windows::core::Result<super::Foundation::Uri>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallerInfo {
@@ -300,21 +300,21 @@ impl IAppInstallerInfoVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstallerInfo2Impl: Sized {
-    fn OnLaunch(&self) -> ::windows::core::Result<bool>;
-    fn HoursBetweenUpdateChecks(&self) -> ::windows::core::Result<u32>;
-    fn ShowPrompt(&self) -> ::windows::core::Result<bool>;
-    fn UpdateBlocksActivation(&self) -> ::windows::core::Result<bool>;
-    fn AutomaticBackgroundTask(&self) -> ::windows::core::Result<bool>;
-    fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool>;
-    fn IsAutoRepairEnabled(&self) -> ::windows::core::Result<bool>;
-    fn Version(&self) -> ::windows::core::Result<PackageVersion>;
-    fn LastChecked(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
-    fn PausedUntil(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::DateTime>>;
-    fn UpdateUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
-    fn RepairUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
-    fn DependencyPackageUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
-    fn OptionalPackageUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
-    fn PolicySource(&self) -> ::windows::core::Result<AppInstallerPolicySource>;
+    fn OnLaunch(&mut self) -> ::windows::core::Result<bool>;
+    fn HoursBetweenUpdateChecks(&mut self) -> ::windows::core::Result<u32>;
+    fn ShowPrompt(&mut self) -> ::windows::core::Result<bool>;
+    fn UpdateBlocksActivation(&mut self) -> ::windows::core::Result<bool>;
+    fn AutomaticBackgroundTask(&mut self) -> ::windows::core::Result<bool>;
+    fn ForceUpdateFromAnyVersion(&mut self) -> ::windows::core::Result<bool>;
+    fn IsAutoRepairEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn Version(&mut self) -> ::windows::core::Result<PackageVersion>;
+    fn LastChecked(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn PausedUntil(&mut self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::DateTime>>;
+    fn UpdateUris(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
+    fn RepairUris(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
+    fn DependencyPackageUris(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
+    fn OptionalPackageUris(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>;
+    fn PolicySource(&mut self) -> ::windows::core::Result<AppInstallerPolicySource>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstallerInfo2 {
@@ -513,9 +513,9 @@ impl IAppInstallerInfo2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAppInstanceImpl: Sized {
-    fn Key(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsCurrentInstance(&self) -> ::windows::core::Result<bool>;
-    fn RedirectActivationTo(&self) -> ::windows::core::Result<()>;
+    fn Key(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsCurrentInstance(&mut self) -> ::windows::core::Result<bool>;
+    fn RedirectActivationTo(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAppInstance {
@@ -563,11 +563,11 @@ impl IAppInstanceVtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAppInstanceStaticsImpl: Sized {
-    fn RecommendedInstance(&self) -> ::windows::core::Result<AppInstance>;
-    fn GetActivatedEventArgs(&self) -> ::windows::core::Result<Activation::IActivatedEventArgs>;
-    fn FindOrRegisterInstanceForKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<AppInstance>;
-    fn Unregister(&self) -> ::windows::core::Result<()>;
-    fn GetInstances(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppInstance>>;
+    fn RecommendedInstance(&mut self) -> ::windows::core::Result<AppInstance>;
+    fn GetActivatedEventArgs(&mut self) -> ::windows::core::Result<Activation::IActivatedEventArgs>;
+    fn FindOrRegisterInstanceForKey(&mut self, key: &::windows::core::HSTRING) -> ::windows::core::Result<AppInstance>;
+    fn Unregister(&mut self) -> ::windows::core::Result<()>;
+    fn GetInstances(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppInstance>>;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAppInstanceStatics {
@@ -639,7 +639,7 @@ impl IAppInstanceStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICameraApplicationManagerStaticsImpl: Sized {
-    fn ShowInstalledApplicationsUI(&self) -> ::windows::core::Result<()>;
+    fn ShowInstalledApplicationsUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICameraApplicationManagerStatics {
@@ -663,7 +663,7 @@ impl ICameraApplicationManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesignModeStaticsImpl: Sized {
-    fn DesignModeEnabled(&self) -> ::windows::core::Result<bool>;
+    fn DesignModeEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesignModeStatics {
@@ -694,7 +694,7 @@ impl IDesignModeStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDesignModeStatics2Impl: Sized {
-    fn DesignMode2Enabled(&self) -> ::windows::core::Result<bool>;
+    fn DesignMode2Enabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDesignModeStatics2 {
@@ -725,7 +725,7 @@ impl IDesignModeStatics2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IEnteredBackgroundEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::Foundation::Deferral>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IEnteredBackgroundEventArgs {
@@ -756,8 +756,8 @@ impl IEnteredBackgroundEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFullTrustProcessLaunchResultImpl: Sized {
-    fn LaunchResult(&self) -> ::windows::core::Result<FullTrustLaunchResult>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn LaunchResult(&mut self) -> ::windows::core::Result<FullTrustLaunchResult>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFullTrustProcessLaunchResult {
@@ -800,10 +800,10 @@ impl IFullTrustProcessLaunchResultVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFullTrustProcessLauncherStaticsImpl: Sized {
-    fn LaunchFullTrustProcessForCurrentAppAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn LaunchFullTrustProcessForCurrentAppWithParametersAsync(&self, parametergroupid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn LaunchFullTrustProcessForAppAsync(&self, fulltrustpackagerelativeappid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn LaunchFullTrustProcessForAppWithParametersAsync(&self, fulltrustpackagerelativeappid: &::windows::core::HSTRING, parametergroupid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn LaunchFullTrustProcessForCurrentAppAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn LaunchFullTrustProcessForCurrentAppWithParametersAsync(&mut self, parametergroupid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn LaunchFullTrustProcessForAppAsync(&mut self, fulltrustpackagerelativeappid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn LaunchFullTrustProcessForAppWithParametersAsync(&mut self, fulltrustpackagerelativeappid: &::windows::core::HSTRING, parametergroupid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFullTrustProcessLauncherStatics {
@@ -870,8 +870,8 @@ impl IFullTrustProcessLauncherStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFullTrustProcessLauncherStatics2Impl: Sized {
-    fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync(&self, commandline: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>;
-    fn LaunchFullTrustProcessForAppWithArgumentsAsync(&self, fulltrustpackagerelativeappid: &::windows::core::HSTRING, commandline: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>;
+    fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync(&mut self, commandline: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>;
+    fn LaunchFullTrustProcessForAppWithArgumentsAsync(&mut self, fulltrustpackagerelativeappid: &::windows::core::HSTRING, commandline: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFullTrustProcessLauncherStatics2 {
@@ -914,7 +914,7 @@ impl IFullTrustProcessLauncherStatics2Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ILeavingBackgroundEventArgsImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::Foundation::Deferral>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ILeavingBackgroundEventArgs {
@@ -945,9 +945,9 @@ impl ILeavingBackgroundEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILimitedAccessFeatureRequestResultImpl: Sized {
-    fn FeatureId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Status(&self) -> ::windows::core::Result<LimitedAccessFeatureStatus>;
-    fn EstimatedRemovalDate(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::DateTime>>;
+    fn FeatureId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Status(&mut self) -> ::windows::core::Result<LimitedAccessFeatureStatus>;
+    fn EstimatedRemovalDate(&mut self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::DateTime>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILimitedAccessFeatureRequestResult {
@@ -1002,7 +1002,7 @@ impl ILimitedAccessFeatureRequestResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ILimitedAccessFeaturesStaticsImpl: Sized {
-    fn TryUnlockFeature(&self, featureid: &::windows::core::HSTRING, token: &::windows::core::HSTRING, attestation: &::windows::core::HSTRING) -> ::windows::core::Result<LimitedAccessFeatureRequestResult>;
+    fn TryUnlockFeature(&mut self, featureid: &::windows::core::HSTRING, token: &::windows::core::HSTRING, attestation: &::windows::core::HSTRING) -> ::windows::core::Result<LimitedAccessFeatureRequestResult>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILimitedAccessFeaturesStatics {
@@ -1037,10 +1037,10 @@ impl ILimitedAccessFeaturesStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPackageImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<PackageId>;
-    fn InstalledLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
-    fn IsFramework(&self) -> ::windows::core::Result<bool>;
-    fn Dependencies(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
+    fn Id(&mut self) -> ::windows::core::Result<PackageId>;
+    fn InstalledLocation(&mut self) -> ::windows::core::Result<super::Storage::StorageFolder>;
+    fn IsFramework(&mut self) -> ::windows::core::Result<bool>;
+    fn Dependencies(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage {
@@ -1107,13 +1107,13 @@ impl IPackageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackage2Impl: Sized {
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublisherDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Logo(&self) -> ::windows::core::Result<super::Foundation::Uri>;
-    fn IsResourcePackage(&self) -> ::windows::core::Result<bool>;
-    fn IsBundle(&self) -> ::windows::core::Result<bool>;
-    fn IsDevelopmentMode(&self) -> ::windows::core::Result<bool>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublisherDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Logo(&mut self) -> ::windows::core::Result<super::Foundation::Uri>;
+    fn IsResourcePackage(&mut self) -> ::windows::core::Result<bool>;
+    fn IsBundle(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDevelopmentMode(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage2 {
@@ -1216,9 +1216,9 @@ impl IPackage2Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackage3Impl: Sized {
-    fn Status(&self) -> ::windows::core::Result<PackageStatus>;
-    fn InstalledDate(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
-    fn GetAppListEntriesAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<Core::AppListEntry>>>;
+    fn Status(&mut self) -> ::windows::core::Result<PackageStatus>;
+    fn InstalledDate(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn GetAppListEntriesAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<Core::AppListEntry>>>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage3 {
@@ -1273,9 +1273,9 @@ impl IPackage3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackage4Impl: Sized {
-    fn SignatureKind(&self) -> ::windows::core::Result<PackageSignatureKind>;
-    fn IsOptional(&self) -> ::windows::core::Result<bool>;
-    fn VerifyContentIntegrityAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn SignatureKind(&mut self) -> ::windows::core::Result<PackageSignatureKind>;
+    fn IsOptional(&mut self) -> ::windows::core::Result<bool>;
+    fn VerifyContentIntegrityAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage4 {
@@ -1330,11 +1330,11 @@ impl IPackage4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackage5Impl: Sized {
-    fn GetContentGroupsAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
-    fn GetContentGroupAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageContentGroup>>;
-    fn StageContentGroupsAsync(&self, names: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
-    fn StageContentGroupsWithPriorityAsync(&self, names: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
-    fn SetInUseAsync(&self, inuse: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
+    fn GetContentGroupsAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
+    fn GetContentGroupAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageContentGroup>>;
+    fn StageContentGroupsAsync(&mut self, names: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
+    fn StageContentGroupsWithPriorityAsync(&mut self, names: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>;
+    fn SetInUseAsync(&mut self, inuse: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage5 {
@@ -1413,8 +1413,8 @@ impl IPackage5Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackage6Impl: Sized {
-    fn GetAppInstallerInfo(&self) -> ::windows::core::Result<AppInstallerInfo>;
-    fn CheckUpdateAvailabilityAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageUpdateAvailabilityResult>>;
+    fn GetAppInstallerInfo(&mut self) -> ::windows::core::Result<AppInstallerInfo>;
+    fn CheckUpdateAvailabilityAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageUpdateAvailabilityResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage6 {
@@ -1457,8 +1457,8 @@ impl IPackage6Vtbl {
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 pub trait IPackage7Impl: Sized {
-    fn MutableLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
-    fn EffectiveLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
+    fn MutableLocation(&mut self) -> ::windows::core::Result<super::Storage::StorageFolder>;
+    fn EffectiveLocation(&mut self) -> ::windows::core::Result<super::Storage::StorageFolder>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage7 {
@@ -1501,18 +1501,18 @@ impl IPackage7Vtbl {
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPackage8Impl: Sized {
-    fn EffectiveExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
-    fn MachineExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
-    fn UserExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder>;
-    fn InstalledPath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MutablePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EffectivePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EffectiveExternalPath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn MachineExternalPath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn UserExternalPath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetLogoAsRandomAccessStreamReference(&self, size: &super::Foundation::Size) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference>;
-    fn GetAppListEntries(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Core::AppListEntry>>;
-    fn IsStub(&self) -> ::windows::core::Result<bool>;
+    fn EffectiveExternalLocation(&mut self) -> ::windows::core::Result<super::Storage::StorageFolder>;
+    fn MachineExternalLocation(&mut self) -> ::windows::core::Result<super::Storage::StorageFolder>;
+    fn UserExternalLocation(&mut self) -> ::windows::core::Result<super::Storage::StorageFolder>;
+    fn InstalledPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MutablePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EffectivePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EffectiveExternalPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MachineExternalPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn UserExternalPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLogoAsRandomAccessStreamReference(&mut self, size: &super::Foundation::Size) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference>;
+    fn GetAppListEntries(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Core::AppListEntry>>;
+    fn IsStub(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackage8 {
@@ -1675,16 +1675,16 @@ impl IPackage8Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackageCatalogImpl: Sized {
-    fn PackageStaging(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemovePackageStaging(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PackageInstalling(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemovePackageInstalling(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PackageUpdating(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemovePackageUpdating(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PackageUninstalling(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemovePackageUninstalling(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PackageStatusChanged(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemovePackageStatusChanged(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PackageStaging(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemovePackageStaging(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PackageInstalling(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemovePackageInstalling(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PackageUpdating(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemovePackageUpdating(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PackageUninstalling(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemovePackageUninstalling(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PackageStatusChanged(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemovePackageStatusChanged(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog {
@@ -1788,9 +1788,9 @@ impl IPackageCatalogVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackageCatalog2Impl: Sized {
-    fn PackageContentGroupStaging(&self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
-    fn RemovePackageContentGroupStaging(&self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AddOptionalPackageAsync(&self, optionalpackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>>;
+    fn PackageContentGroupStaging(&mut self, handler: &::core::option::Option<super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>;
+    fn RemovePackageContentGroupStaging(&mut self, token: &super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AddOptionalPackageAsync(&mut self, optionalpackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog2 {
@@ -1838,7 +1838,7 @@ impl IPackageCatalog2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalog3Impl: Sized {
-    fn RemoveOptionalPackagesAsync(&self, optionalpackagefamilynames: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>;
+    fn RemoveOptionalPackagesAsync(&mut self, optionalpackagefamilynames: &::core::option::Option<super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog3 {
@@ -1869,8 +1869,8 @@ impl IPackageCatalog3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalog4Impl: Sized {
-    fn AddResourcePackageAsync(&self, resourcepackagefamilyname: &::windows::core::HSTRING, resourceid: &::windows::core::HSTRING, options: AddResourcePackageOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>;
-    fn RemoveResourcePackagesAsync(&self, resourcepackages: &::core::option::Option<super::Foundation::Collections::IIterable<Package>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>;
+    fn AddResourcePackageAsync(&mut self, resourcepackagefamilyname: &::windows::core::HSTRING, resourceid: &::windows::core::HSTRING, options: AddResourcePackageOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>;
+    fn RemoveResourcePackagesAsync(&mut self, resourcepackages: &::core::option::Option<super::Foundation::Collections::IIterable<Package>>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalog4 {
@@ -1913,8 +1913,8 @@ impl IPackageCatalog4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageCatalogAddOptionalPackageResultImpl: Sized {
-    fn Package(&self) -> ::windows::core::Result<Package>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageCatalogAddOptionalPackageResult {
@@ -1957,9 +1957,9 @@ impl IPackageCatalogAddOptionalPackageResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageCatalogAddResourcePackageResultImpl: Sized {
-    fn Package(&self) -> ::windows::core::Result<Package>;
-    fn IsComplete(&self) -> ::windows::core::Result<bool>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
+    fn IsComplete(&mut self) -> ::windows::core::Result<bool>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageCatalogAddResourcePackageResult {
@@ -2014,8 +2014,8 @@ impl IPackageCatalogAddResourcePackageResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalogRemoveOptionalPackagesResultImpl: Sized {
-    fn PackagesRemoved(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn PackagesRemoved(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalogRemoveOptionalPackagesResult {
@@ -2058,8 +2058,8 @@ impl IPackageCatalogRemoveOptionalPackagesResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IPackageCatalogRemoveResourcePackagesResultImpl: Sized {
-    fn PackagesRemoved(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn PackagesRemoved(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageCatalogRemoveResourcePackagesResult {
@@ -2102,8 +2102,8 @@ impl IPackageCatalogRemoveResourcePackagesResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageCatalogStaticsImpl: Sized {
-    fn OpenForCurrentPackage(&self) -> ::windows::core::Result<PackageCatalog>;
-    fn OpenForCurrentUser(&self) -> ::windows::core::Result<PackageCatalog>;
+    fn OpenForCurrentPackage(&mut self) -> ::windows::core::Result<PackageCatalog>;
+    fn OpenForCurrentUser(&mut self) -> ::windows::core::Result<PackageCatalog>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageCatalogStatics {
@@ -2146,10 +2146,10 @@ impl IPackageCatalogStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageContentGroupImpl: Sized {
-    fn Package(&self) -> ::windows::core::Result<Package>;
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&self) -> ::windows::core::Result<PackageContentGroupState>;
-    fn IsRequired(&self) -> ::windows::core::Result<bool>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&mut self) -> ::windows::core::Result<PackageContentGroupState>;
+    fn IsRequired(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageContentGroup {
@@ -2216,13 +2216,13 @@ impl IPackageContentGroupVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageContentGroupStagingEventArgsImpl: Sized {
-    fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Package(&self) -> ::windows::core::Result<Package>;
-    fn Progress(&self) -> ::windows::core::Result<f64>;
-    fn IsComplete(&self) -> ::windows::core::Result<bool>;
-    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn ContentGroupName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsContentGroupRequired(&self) -> ::windows::core::Result<bool>;
+    fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
+    fn Progress(&mut self) -> ::windows::core::Result<f64>;
+    fn IsComplete(&mut self) -> ::windows::core::Result<bool>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ContentGroupName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsContentGroupRequired(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageContentGroupStagingEventArgs {
@@ -2325,7 +2325,7 @@ impl IPackageContentGroupStagingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageContentGroupStaticsImpl: Sized {
-    fn RequiredGroupName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RequiredGroupName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageContentGroupStatics {
@@ -2356,14 +2356,14 @@ impl IPackageContentGroupStaticsVtbl {
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 pub trait IPackageIdImpl: Sized {
-    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Version(&self) -> ::windows::core::Result<PackageVersion>;
-    fn Architecture(&self) -> ::windows::core::Result<super::System::ProcessorArchitecture>;
-    fn ResourceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn PublisherId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FullName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Version(&mut self) -> ::windows::core::Result<PackageVersion>;
+    fn Architecture(&mut self) -> ::windows::core::Result<super::System::ProcessorArchitecture>;
+    fn ResourceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Publisher(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn PublisherId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FullName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageId {
@@ -2478,8 +2478,8 @@ impl IPackageIdVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageIdWithMetadataImpl: Sized {
-    fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Author(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageIdWithMetadata {
@@ -2522,11 +2522,11 @@ impl IPackageIdWithMetadataVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageInstallingEventArgsImpl: Sized {
-    fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Package(&self) -> ::windows::core::Result<Package>;
-    fn Progress(&self) -> ::windows::core::Result<f64>;
-    fn IsComplete(&self) -> ::windows::core::Result<bool>;
-    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
+    fn Progress(&mut self) -> ::windows::core::Result<f64>;
+    fn IsComplete(&mut self) -> ::windows::core::Result<bool>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageInstallingEventArgs {
@@ -2605,11 +2605,11 @@ impl IPackageInstallingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageStagingEventArgsImpl: Sized {
-    fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Package(&self) -> ::windows::core::Result<Package>;
-    fn Progress(&self) -> ::windows::core::Result<f64>;
-    fn IsComplete(&self) -> ::windows::core::Result<bool>;
-    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
+    fn Progress(&mut self) -> ::windows::core::Result<f64>;
+    fn IsComplete(&mut self) -> ::windows::core::Result<bool>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageStagingEventArgs {
@@ -2688,7 +2688,7 @@ impl IPackageStagingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageStaticsImpl: Sized {
-    fn Current(&self) -> ::windows::core::Result<Package>;
+    fn Current(&mut self) -> ::windows::core::Result<Package>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageStatics {
@@ -2716,18 +2716,18 @@ impl IPackageStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageStatusImpl: Sized {
-    fn VerifyIsOK(&self) -> ::windows::core::Result<bool>;
-    fn NotAvailable(&self) -> ::windows::core::Result<bool>;
-    fn PackageOffline(&self) -> ::windows::core::Result<bool>;
-    fn DataOffline(&self) -> ::windows::core::Result<bool>;
-    fn Disabled(&self) -> ::windows::core::Result<bool>;
-    fn NeedsRemediation(&self) -> ::windows::core::Result<bool>;
-    fn LicenseIssue(&self) -> ::windows::core::Result<bool>;
-    fn Modified(&self) -> ::windows::core::Result<bool>;
-    fn Tampered(&self) -> ::windows::core::Result<bool>;
-    fn DependencyIssue(&self) -> ::windows::core::Result<bool>;
-    fn Servicing(&self) -> ::windows::core::Result<bool>;
-    fn DeploymentInProgress(&self) -> ::windows::core::Result<bool>;
+    fn VerifyIsOK(&mut self) -> ::windows::core::Result<bool>;
+    fn NotAvailable(&mut self) -> ::windows::core::Result<bool>;
+    fn PackageOffline(&mut self) -> ::windows::core::Result<bool>;
+    fn DataOffline(&mut self) -> ::windows::core::Result<bool>;
+    fn Disabled(&mut self) -> ::windows::core::Result<bool>;
+    fn NeedsRemediation(&mut self) -> ::windows::core::Result<bool>;
+    fn LicenseIssue(&mut self) -> ::windows::core::Result<bool>;
+    fn Modified(&mut self) -> ::windows::core::Result<bool>;
+    fn Tampered(&mut self) -> ::windows::core::Result<bool>;
+    fn DependencyIssue(&mut self) -> ::windows::core::Result<bool>;
+    fn Servicing(&mut self) -> ::windows::core::Result<bool>;
+    fn DeploymentInProgress(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageStatus {
@@ -2890,7 +2890,7 @@ impl IPackageStatusVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageStatus2Impl: Sized {
-    fn IsPartiallyStaged(&self) -> ::windows::core::Result<bool>;
+    fn IsPartiallyStaged(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageStatus2 {
@@ -2921,7 +2921,7 @@ impl IPackageStatus2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageStatusChangedEventArgsImpl: Sized {
-    fn Package(&self) -> ::windows::core::Result<Package>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageStatusChangedEventArgs {
@@ -2949,11 +2949,11 @@ impl IPackageStatusChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageUninstallingEventArgsImpl: Sized {
-    fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Package(&self) -> ::windows::core::Result<Package>;
-    fn Progress(&self) -> ::windows::core::Result<f64>;
-    fn IsComplete(&self) -> ::windows::core::Result<bool>;
-    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Package(&mut self) -> ::windows::core::Result<Package>;
+    fn Progress(&mut self) -> ::windows::core::Result<f64>;
+    fn IsComplete(&mut self) -> ::windows::core::Result<bool>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageUninstallingEventArgs {
@@ -3032,8 +3032,8 @@ impl IPackageUninstallingEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageUpdateAvailabilityResultImpl: Sized {
-    fn Availability(&self) -> ::windows::core::Result<PackageUpdateAvailability>;
-    fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Availability(&mut self) -> ::windows::core::Result<PackageUpdateAvailability>;
+    fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageUpdateAvailabilityResult {
@@ -3076,12 +3076,12 @@ impl IPackageUpdateAvailabilityResultVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPackageUpdatingEventArgsImpl: Sized {
-    fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SourcePackage(&self) -> ::windows::core::Result<Package>;
-    fn TargetPackage(&self) -> ::windows::core::Result<Package>;
-    fn Progress(&self) -> ::windows::core::Result<f64>;
-    fn IsComplete(&self) -> ::windows::core::Result<bool>;
-    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SourcePackage(&mut self) -> ::windows::core::Result<Package>;
+    fn TargetPackage(&mut self) -> ::windows::core::Result<Package>;
+    fn Progress(&mut self) -> ::windows::core::Result<f64>;
+    fn IsComplete(&mut self) -> ::windows::core::Result<bool>;
+    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPackageUpdatingEventArgs {
@@ -3172,9 +3172,9 @@ impl IPackageUpdatingEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPackageWithMetadataImpl: Sized {
-    fn InstallDate(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
-    fn GetThumbnailToken(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Launch(&self, parameters: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn InstallDate(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn GetThumbnailToken(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Launch(&mut self, parameters: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPackageWithMetadata {
@@ -3222,10 +3222,10 @@ impl IPackageWithMetadataVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IStartupTaskImpl: Sized {
-    fn RequestEnableAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTaskState>>;
-    fn Disable(&self) -> ::windows::core::Result<()>;
-    fn State(&self) -> ::windows::core::Result<StartupTaskState>;
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RequestEnableAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTaskState>>;
+    fn Disable(&mut self) -> ::windows::core::Result<()>;
+    fn State(&mut self) -> ::windows::core::Result<StartupTaskState>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartupTask {
@@ -3285,8 +3285,8 @@ impl IStartupTaskVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IStartupTaskStaticsImpl: Sized {
-    fn GetForCurrentPackageAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StartupTask>>>;
-    fn GetAsync(&self, taskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTask>>;
+    fn GetForCurrentPackageAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StartupTask>>>;
+    fn GetAsync(&mut self, taskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTask>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IStartupTaskStatics {
@@ -3328,7 +3328,7 @@ impl IStartupTaskStaticsVtbl {
     }
 }
 pub trait ISuspendingDeferralImpl: Sized {
-    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
@@ -3346,7 +3346,7 @@ impl ISuspendingDeferralVtbl {
     }
 }
 pub trait ISuspendingEventArgsImpl: Sized {
-    fn SuspendingOperation(&self) -> ::windows::core::Result<SuspendingOperation>;
+    fn SuspendingOperation(&mut self) -> ::windows::core::Result<SuspendingOperation>;
 }
 impl ::windows::core::RuntimeName for ISuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
@@ -3375,8 +3375,8 @@ impl ISuspendingEventArgsVtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISuspendingOperationImpl: Sized {
-    fn GetDeferral(&self) -> ::windows::core::Result<SuspendingDeferral>;
-    fn Deadline(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<SuspendingDeferral>;
+    fn Deadline(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISuspendingOperation {

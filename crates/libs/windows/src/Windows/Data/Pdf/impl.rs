@@ -1,8 +1,8 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IPdfDocumentImpl: Sized {
-    fn GetPage(&self, pageindex: u32) -> ::windows::core::Result<PdfPage>;
-    fn PageCount(&self) -> ::windows::core::Result<u32>;
-    fn IsPasswordProtected(&self) -> ::windows::core::Result<bool>;
+    fn GetPage(&mut self, pageindex: u32) -> ::windows::core::Result<PdfPage>;
+    fn PageCount(&mut self) -> ::windows::core::Result<u32>;
+    fn IsPasswordProtected(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPdfDocument {
@@ -57,10 +57,10 @@ impl IPdfDocumentVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPdfDocumentStaticsImpl: Sized {
-    fn LoadFromFileAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
-    fn LoadFromFileWithPasswordAsync(&self, file: &::core::option::Option<super::super::Storage::IStorageFile>, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
-    fn LoadFromStreamAsync(&self, inputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
-    fn LoadFromStreamWithPasswordAsync(&self, inputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
+    fn LoadFromFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
+    fn LoadFromFileWithPasswordAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
+    fn LoadFromStreamAsync(&mut self, inputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
+    fn LoadFromStreamWithPasswordAsync(&mut self, inputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPdfDocumentStatics {
@@ -127,14 +127,14 @@ impl IPdfDocumentStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IPdfPageImpl: Sized {
-    fn RenderToStreamAsync(&self, outputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn RenderWithOptionsToStreamAsync(&self, outputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, options: &::core::option::Option<PdfPageRenderOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn PreparePageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Index(&self) -> ::windows::core::Result<u32>;
-    fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn Dimensions(&self) -> ::windows::core::Result<PdfPageDimensions>;
-    fn Rotation(&self) -> ::windows::core::Result<PdfPageRotation>;
-    fn PreferredZoom(&self) -> ::windows::core::Result<f32>;
+    fn RenderToStreamAsync(&mut self, outputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn RenderWithOptionsToStreamAsync(&mut self, outputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, options: &::core::option::Option<PdfPageRenderOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn PreparePageAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Index(&mut self) -> ::windows::core::Result<u32>;
+    fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn Dimensions(&mut self) -> ::windows::core::Result<PdfPageDimensions>;
+    fn Rotation(&mut self) -> ::windows::core::Result<PdfPageRotation>;
+    fn PreferredZoom(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPdfPage {
@@ -249,11 +249,11 @@ impl IPdfPageVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IPdfPageDimensionsImpl: Sized {
-    fn MediaBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn CropBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn BleedBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn TrimBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn ArtBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn MediaBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn CropBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn BleedBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn TrimBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn ArtBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPdfPageDimensions {
@@ -332,18 +332,18 @@ impl IPdfPageDimensionsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 pub trait IPdfPageRenderOptionsImpl: Sized {
-    fn SourceRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SetSourceRect(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn DestinationWidth(&self) -> ::windows::core::Result<u32>;
-    fn SetDestinationWidth(&self, value: u32) -> ::windows::core::Result<()>;
-    fn DestinationHeight(&self) -> ::windows::core::Result<u32>;
-    fn SetDestinationHeight(&self, value: u32) -> ::windows::core::Result<()>;
-    fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color>;
-    fn SetBackgroundColor(&self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
-    fn IsIgnoringHighContrast(&self) -> ::windows::core::Result<bool>;
-    fn SetIsIgnoringHighContrast(&self, value: bool) -> ::windows::core::Result<()>;
-    fn BitmapEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetBitmapEncoderId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SourceRect(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SetSourceRect(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn DestinationWidth(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDestinationWidth(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn DestinationHeight(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDestinationHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
+    fn SetBackgroundColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
+    fn IsIgnoringHighContrast(&mut self) -> ::windows::core::Result<bool>;
+    fn SetIsIgnoringHighContrast(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn BitmapEncoderId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetBitmapEncoderId(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPdfPageRenderOptions {

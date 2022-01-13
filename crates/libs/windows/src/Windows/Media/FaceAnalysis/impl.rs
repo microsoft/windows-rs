@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IDetectedFaceImpl: Sized {
-    fn FaceBox(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapBounds>;
+    fn FaceBox(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapBounds>;
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDetectedFace {
@@ -28,12 +28,12 @@ impl IDetectedFaceVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceDetectorImpl: Sized {
-    fn DetectFacesAsync(&self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
-    fn DetectFacesWithSearchAreaAsync(&self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>, searcharea: &super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
-    fn MinDetectableFaceSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
-    fn SetMinDetectableFaceSize(&self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
-    fn MaxDetectableFaceSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
-    fn SetMaxDetectableFaceSize(&self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
+    fn DetectFacesAsync(&mut self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
+    fn DetectFacesWithSearchAreaAsync(&mut self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>, searcharea: &super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
+    fn MinDetectableFaceSize(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
+    fn SetMinDetectableFaceSize(&mut self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
+    fn MaxDetectableFaceSize(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
+    fn SetMaxDetectableFaceSize(&mut self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceDetector {
@@ -110,10 +110,10 @@ impl IFaceDetectorVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceDetectorStaticsImpl: Sized {
-    fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceDetector>>;
-    fn GetSupportedBitmapPixelFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
-    fn IsBitmapPixelFormatSupported(&self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceDetector>>;
+    fn GetSupportedBitmapPixelFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
+    fn IsBitmapPixelFormatSupported(&mut self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceDetectorStatics {
@@ -180,11 +180,11 @@ impl IFaceDetectorStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceTrackerImpl: Sized {
-    fn ProcessNextFrameAsync(&self, videoframe: &::core::option::Option<super::VideoFrame>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
-    fn MinDetectableFaceSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
-    fn SetMinDetectableFaceSize(&self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
-    fn MaxDetectableFaceSize(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
-    fn SetMaxDetectableFaceSize(&self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
+    fn ProcessNextFrameAsync(&mut self, videoframe: &::core::option::Option<super::VideoFrame>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
+    fn MinDetectableFaceSize(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
+    fn SetMinDetectableFaceSize(&mut self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
+    fn MaxDetectableFaceSize(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
+    fn SetMaxDetectableFaceSize(&mut self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceTracker {
@@ -249,10 +249,10 @@ impl IFaceTrackerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 pub trait IFaceTrackerStaticsImpl: Sized {
-    fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceTracker>>;
-    fn GetSupportedBitmapPixelFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
-    fn IsBitmapPixelFormatSupported(&self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
+    fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceTracker>>;
+    fn GetSupportedBitmapPixelFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
+    fn IsBitmapPixelFormatSupported(&mut self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFaceTrackerStatics {

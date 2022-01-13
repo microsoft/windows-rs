@@ -1,13 +1,13 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait ILocalCategoriesStaticsImpl: Sized {
-    fn BankAndCreditUnions(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn EatDrink(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Hospitals(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn HotelsAndMotels(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn All(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Parking(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SeeDo(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Shop(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn BankAndCreditUnions(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn EatDrink(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Hospitals(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn HotelsAndMotels(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn All(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Parking(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SeeDo(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Shop(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILocalCategoriesStatics {
@@ -122,13 +122,13 @@ impl ILocalCategoriesStaticsVtbl {
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 pub trait ILocalLocationImpl: Sized {
-    fn Address(&self) -> ::windows::core::Result<super::MapAddress>;
-    fn Identifier(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Point(&self) -> ::windows::core::Result<super::super::super::Devices::Geolocation::Geopoint>;
-    fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DataAttribution(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Address(&mut self) -> ::windows::core::Result<super::MapAddress>;
+    fn Identifier(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Point(&mut self) -> ::windows::core::Result<super::super::super::Devices::Geolocation::Geopoint>;
+    fn PhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DataAttribution(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalLocation {
@@ -231,9 +231,9 @@ impl ILocalLocationVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILocalLocation2Impl: Sized {
-    fn Category(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn RatingInfo(&self) -> ::windows::core::Result<LocalLocationRatingInfo>;
-    fn HoursOfOperation(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>>;
+    fn Category(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn RatingInfo(&mut self) -> ::windows::core::Result<LocalLocationRatingInfo>;
+    fn HoursOfOperation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalLocation2 {
@@ -288,8 +288,8 @@ impl ILocalLocation2Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ILocalLocationFinderResultImpl: Sized {
-    fn LocalLocations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>>;
-    fn Status(&self) -> ::windows::core::Result<LocalLocationFinderStatus>;
+    fn LocalLocations(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>>;
+    fn Status(&mut self) -> ::windows::core::Result<LocalLocationFinderStatus>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalLocationFinderResult {
@@ -332,7 +332,7 @@ impl ILocalLocationFinderResultVtbl {
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILocalLocationFinderStaticsImpl: Sized {
-    fn FindLocalLocationsAsync(&self, searchterm: &::windows::core::HSTRING, searcharea: &::core::option::Option<super::super::super::Devices::Geolocation::Geocircle>, localcategory: &::windows::core::HSTRING, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>;
+    fn FindLocalLocationsAsync(&mut self, searchterm: &::windows::core::HSTRING, searcharea: &::core::option::Option<super::super::super::Devices::Geolocation::Geocircle>, localcategory: &::windows::core::HSTRING, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>;
 }
 #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalLocationFinderStatics {
@@ -368,9 +368,9 @@ impl ILocalLocationFinderStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 pub trait ILocalLocationHoursOfOperationItemImpl: Sized {
-    fn Day(&self) -> ::windows::core::Result<super::super::super::Globalization::DayOfWeek>;
-    fn Start(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Span(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Day(&mut self) -> ::windows::core::Result<super::super::super::Globalization::DayOfWeek>;
+    fn Start(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Span(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalLocationHoursOfOperationItem {
@@ -425,9 +425,9 @@ impl ILocalLocationHoursOfOperationItemVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ILocalLocationRatingInfoImpl: Sized {
-    fn AggregateRating(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
-    fn RatingCount(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i32>>;
-    fn ProviderIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AggregateRating(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
+    fn RatingCount(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i32>>;
+    fn ProviderIdentifier(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILocalLocationRatingInfo {
@@ -482,7 +482,7 @@ impl ILocalLocationRatingInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IPlaceInfoHelperStaticsImpl: Sized {
-    fn CreateFromLocalLocation(&self, location: &::core::option::Option<LocalLocation>) -> ::windows::core::Result<super::PlaceInfo>;
+    fn CreateFromLocalLocation(&mut self, location: &::core::option::Option<LocalLocation>) -> ::windows::core::Result<super::PlaceInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlaceInfoHelperStatics {

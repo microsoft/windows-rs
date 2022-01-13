@@ -1,7 +1,7 @@
 pub trait ICustomGameControllerFactoryImpl: Sized {
-    fn CreateGameController(&self, provider: &::core::option::Option<IGameControllerProvider>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn OnGameControllerAdded(&self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
-    fn OnGameControllerRemoved(&self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
+    fn CreateGameController(&mut self, provider: &::core::option::Option<IGameControllerProvider>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn OnGameControllerAdded(&mut self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
+    fn OnGameControllerRemoved(&mut self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICustomGameControllerFactory {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.ICustomGameControllerFactory";
@@ -40,9 +40,9 @@ impl ICustomGameControllerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGameControllerFactoryManagerStaticsImpl: Sized {
-    fn RegisterCustomFactoryForGipInterface(&self, factory: &::core::option::Option<ICustomGameControllerFactory>, interfaceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RegisterCustomFactoryForHardwareId(&self, factory: &::core::option::Option<ICustomGameControllerFactory>, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::Result<()>;
-    fn RegisterCustomFactoryForXusbType(&self, factory: &::core::option::Option<ICustomGameControllerFactory>, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::Result<()>;
+    fn RegisterCustomFactoryForGipInterface(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, interfaceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterCustomFactoryForHardwareId(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::Result<()>;
+    fn RegisterCustomFactoryForXusbType(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGameControllerFactoryManagerStatics {
@@ -76,7 +76,7 @@ impl IGameControllerFactoryManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGameControllerFactoryManagerStatics2Impl: Sized + IGameControllerFactoryManagerStaticsImpl {
-    fn TryGetFactoryControllerFromGameController(&self, factory: &::core::option::Option<ICustomGameControllerFactory>, gamecontroller: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<super::IGameController>;
+    fn TryGetFactoryControllerFromGameController(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, gamecontroller: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<super::IGameController>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGameControllerFactoryManagerStatics2 {
@@ -106,8 +106,8 @@ impl IGameControllerFactoryManagerStatics2Vtbl {
     }
 }
 pub trait IGameControllerInputSinkImpl: Sized {
-    fn OnInputResumed(&self, timestamp: u64) -> ::windows::core::Result<()>;
-    fn OnInputSuspended(&self, timestamp: u64) -> ::windows::core::Result<()>;
+    fn OnInputResumed(&mut self, timestamp: u64) -> ::windows::core::Result<()>;
+    fn OnInputSuspended(&mut self, timestamp: u64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerInputSink";
@@ -133,11 +133,11 @@ impl IGameControllerInputSinkVtbl {
     }
 }
 pub trait IGameControllerProviderImpl: Sized {
-    fn FirmwareVersionInfo(&self) -> ::windows::core::Result<GameControllerVersionInfo>;
-    fn HardwareProductId(&self) -> ::windows::core::Result<u16>;
-    fn HardwareVendorId(&self) -> ::windows::core::Result<u16>;
-    fn HardwareVersionInfo(&self) -> ::windows::core::Result<GameControllerVersionInfo>;
-    fn IsConnected(&self) -> ::windows::core::Result<bool>;
+    fn FirmwareVersionInfo(&mut self) -> ::windows::core::Result<GameControllerVersionInfo>;
+    fn HardwareProductId(&mut self) -> ::windows::core::Result<u16>;
+    fn HardwareVendorId(&mut self) -> ::windows::core::Result<u16>;
+    fn HardwareVersionInfo(&mut self) -> ::windows::core::Result<GameControllerVersionInfo>;
+    fn IsConnected(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerProvider";
@@ -214,9 +214,9 @@ impl IGameControllerProviderVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IGipFirmwareUpdateResultImpl: Sized {
-    fn ExtendedErrorCode(&self) -> ::windows::core::Result<u32>;
-    fn FinalComponentId(&self) -> ::windows::core::Result<u32>;
-    fn Status(&self) -> ::windows::core::Result<GipFirmwareUpdateStatus>;
+    fn ExtendedErrorCode(&mut self) -> ::windows::core::Result<u32>;
+    fn FinalComponentId(&mut self) -> ::windows::core::Result<u32>;
+    fn Status(&mut self) -> ::windows::core::Result<GipFirmwareUpdateStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGipFirmwareUpdateResult {
@@ -270,8 +270,8 @@ impl IGipFirmwareUpdateResultVtbl {
     }
 }
 pub trait IGipGameControllerInputSinkImpl: Sized + IGameControllerInputSinkImpl {
-    fn OnKeyReceived(&self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
-    fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnKeyReceived(&mut self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
+    fn OnMessageReceived(&mut self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGipGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGipGameControllerInputSink";
@@ -298,9 +298,9 @@ impl IGipGameControllerInputSinkVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IGipGameControllerProviderImpl: Sized + IGameControllerProviderImpl {
-    fn SendMessage(&self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn SendReceiveMessage(&self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], responsemessagebuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn UpdateFirmwareAsync(&self, firmwareimage: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>;
+    fn SendMessage(&mut self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn SendReceiveMessage(&mut self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], responsemessagebuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn UpdateFirmwareAsync(&mut self, firmwareimage: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IGipGameControllerProvider {
@@ -340,7 +340,7 @@ impl IGipGameControllerProviderVtbl {
     }
 }
 pub trait IHidGameControllerInputSinkImpl: Sized + IGameControllerInputSinkImpl {
-    fn OnInputReportReceived(&self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnInputReportReceived(&mut self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IHidGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IHidGameControllerInputSink";
@@ -362,11 +362,11 @@ impl IHidGameControllerInputSinkVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IHidGameControllerProviderImpl: Sized + IGameControllerProviderImpl {
-    fn UsageId(&self) -> ::windows::core::Result<u16>;
-    fn UsagePage(&self) -> ::windows::core::Result<u16>;
-    fn GetFeatureReport(&self, reportid: u8, reportbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn SendFeatureReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
-    fn SendOutputReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn UsageId(&mut self) -> ::windows::core::Result<u16>;
+    fn UsagePage(&mut self) -> ::windows::core::Result<u16>;
+    fn GetFeatureReport(&mut self, reportid: u8, reportbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn SendFeatureReport(&mut self, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn SendOutputReport(&mut self, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IHidGameControllerProvider {
@@ -423,7 +423,7 @@ impl IHidGameControllerProviderVtbl {
     }
 }
 pub trait IXusbGameControllerInputSinkImpl: Sized + IGameControllerInputSinkImpl {
-    fn OnInputReceived(&self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn OnInputReceived(&mut self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXusbGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IXusbGameControllerInputSink";
@@ -445,7 +445,7 @@ impl IXusbGameControllerInputSinkVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IXusbGameControllerProviderImpl: Sized + IGameControllerProviderImpl {
-    fn SetVibration(&self, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::core::Result<()>;
+    fn SetVibration(&mut self, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXusbGameControllerProvider {

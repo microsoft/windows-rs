@@ -1,7 +1,7 @@
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedPhotoCaptureSettingsImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<AdvancedPhotoMode>;
-    fn SetMode(&self, value: AdvancedPhotoMode) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<AdvancedPhotoMode>;
+    fn SetMode(&mut self, value: AdvancedPhotoMode) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedPhotoCaptureSettings {
@@ -37,10 +37,10 @@ impl IAdvancedPhotoCaptureSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAdvancedPhotoControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>>;
-    fn Mode(&self) -> ::windows::core::Result<AdvancedPhotoMode>;
-    fn Configure(&self, settings: &::core::option::Option<AdvancedPhotoCaptureSettings>) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>>;
+    fn Mode(&mut self) -> ::windows::core::Result<AdvancedPhotoMode>;
+    fn Configure(&mut self, settings: &::core::option::Option<AdvancedPhotoCaptureSettings>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdvancedPhotoControl {
@@ -100,8 +100,8 @@ impl IAdvancedPhotoControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceControllerImpl: Sized {
-    fn SetDeviceProperty(&self, propertyid: &::windows::core::HSTRING, propertyvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetDeviceProperty(&self, propertyid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetDeviceProperty(&mut self, propertyid: &::windows::core::HSTRING, propertyvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetDeviceProperty(&mut self, propertyid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController {
@@ -137,7 +137,7 @@ impl IAdvancedVideoCaptureDeviceControllerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceController10Impl: Sized {
-    fn CameraOcclusionInfo(&self) -> ::windows::core::Result<CameraOcclusionInfo>;
+    fn CameraOcclusionInfo(&mut self) -> ::windows::core::Result<CameraOcclusionInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController10 {
@@ -168,19 +168,19 @@ impl IAdvancedVideoCaptureDeviceController10Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceController2Impl: Sized {
-    fn LowLagPhotoSequence(&self) -> ::windows::core::Result<LowLagPhotoSequenceControl>;
-    fn LowLagPhoto(&self) -> ::windows::core::Result<LowLagPhotoControl>;
-    fn SceneModeControl(&self) -> ::windows::core::Result<SceneModeControl>;
-    fn TorchControl(&self) -> ::windows::core::Result<TorchControl>;
-    fn FlashControl(&self) -> ::windows::core::Result<FlashControl>;
-    fn WhiteBalanceControl(&self) -> ::windows::core::Result<WhiteBalanceControl>;
-    fn ExposureControl(&self) -> ::windows::core::Result<ExposureControl>;
-    fn FocusControl(&self) -> ::windows::core::Result<FocusControl>;
-    fn ExposureCompensationControl(&self) -> ::windows::core::Result<ExposureCompensationControl>;
-    fn IsoSpeedControl(&self) -> ::windows::core::Result<IsoSpeedControl>;
-    fn RegionsOfInterestControl(&self) -> ::windows::core::Result<RegionsOfInterestControl>;
-    fn PrimaryUse(&self) -> ::windows::core::Result<CaptureUse>;
-    fn SetPrimaryUse(&self, value: CaptureUse) -> ::windows::core::Result<()>;
+    fn LowLagPhotoSequence(&mut self) -> ::windows::core::Result<LowLagPhotoSequenceControl>;
+    fn LowLagPhoto(&mut self) -> ::windows::core::Result<LowLagPhotoControl>;
+    fn SceneModeControl(&mut self) -> ::windows::core::Result<SceneModeControl>;
+    fn TorchControl(&mut self) -> ::windows::core::Result<TorchControl>;
+    fn FlashControl(&mut self) -> ::windows::core::Result<FlashControl>;
+    fn WhiteBalanceControl(&mut self) -> ::windows::core::Result<WhiteBalanceControl>;
+    fn ExposureControl(&mut self) -> ::windows::core::Result<ExposureControl>;
+    fn FocusControl(&mut self) -> ::windows::core::Result<FocusControl>;
+    fn ExposureCompensationControl(&mut self) -> ::windows::core::Result<ExposureCompensationControl>;
+    fn IsoSpeedControl(&mut self) -> ::windows::core::Result<IsoSpeedControl>;
+    fn RegionsOfInterestControl(&mut self) -> ::windows::core::Result<RegionsOfInterestControl>;
+    fn PrimaryUse(&mut self) -> ::windows::core::Result<CaptureUse>;
+    fn SetPrimaryUse(&mut self, value: CaptureUse) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController2 {
@@ -348,9 +348,9 @@ impl IAdvancedVideoCaptureDeviceController2Vtbl {
 }
 #[cfg(all(feature = "Media_Devices_Core", feature = "implement_exclusive"))]
 pub trait IAdvancedVideoCaptureDeviceController3Impl: Sized {
-    fn VariablePhotoSequenceController(&self) -> ::windows::core::Result<Core::VariablePhotoSequenceController>;
-    fn PhotoConfirmationControl(&self) -> ::windows::core::Result<PhotoConfirmationControl>;
-    fn ZoomControl(&self) -> ::windows::core::Result<ZoomControl>;
+    fn VariablePhotoSequenceController(&mut self) -> ::windows::core::Result<Core::VariablePhotoSequenceController>;
+    fn PhotoConfirmationControl(&mut self) -> ::windows::core::Result<PhotoConfirmationControl>;
+    fn ZoomControl(&mut self) -> ::windows::core::Result<ZoomControl>;
 }
 #[cfg(all(feature = "Media_Devices_Core", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController3 {
@@ -405,12 +405,12 @@ impl IAdvancedVideoCaptureDeviceController3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceController4Impl: Sized {
-    fn ExposurePriorityVideoControl(&self) -> ::windows::core::Result<ExposurePriorityVideoControl>;
-    fn DesiredOptimization(&self) -> ::windows::core::Result<MediaCaptureOptimization>;
-    fn SetDesiredOptimization(&self, value: MediaCaptureOptimization) -> ::windows::core::Result<()>;
-    fn HdrVideoControl(&self) -> ::windows::core::Result<HdrVideoControl>;
-    fn OpticalImageStabilizationControl(&self) -> ::windows::core::Result<OpticalImageStabilizationControl>;
-    fn AdvancedPhotoControl(&self) -> ::windows::core::Result<AdvancedPhotoControl>;
+    fn ExposurePriorityVideoControl(&mut self) -> ::windows::core::Result<ExposurePriorityVideoControl>;
+    fn DesiredOptimization(&mut self) -> ::windows::core::Result<MediaCaptureOptimization>;
+    fn SetDesiredOptimization(&mut self, value: MediaCaptureOptimization) -> ::windows::core::Result<()>;
+    fn HdrVideoControl(&mut self) -> ::windows::core::Result<HdrVideoControl>;
+    fn OpticalImageStabilizationControl(&mut self) -> ::windows::core::Result<OpticalImageStabilizationControl>;
+    fn AdvancedPhotoControl(&mut self) -> ::windows::core::Result<AdvancedPhotoControl>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController4 {
@@ -494,11 +494,11 @@ impl IAdvancedVideoCaptureDeviceController4Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IAdvancedVideoCaptureDeviceController5Impl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDevicePropertyById(&self, propertyid: &::windows::core::HSTRING, maxpropertyvaluesize: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>;
-    fn SetDevicePropertyById(&self, propertyid: &::windows::core::HSTRING, propertyvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus>;
-    fn GetDevicePropertyByExtendedId(&self, extendedpropertyid: &[<u8 as ::windows::core::DefaultType>::DefaultType], maxpropertyvaluesize: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>;
-    fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[<u8 as ::windows::core::DefaultType>::DefaultType], propertyvalue: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDevicePropertyById(&mut self, propertyid: &::windows::core::HSTRING, maxpropertyvaluesize: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>;
+    fn SetDevicePropertyById(&mut self, propertyid: &::windows::core::HSTRING, propertyvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus>;
+    fn GetDevicePropertyByExtendedId(&mut self, extendedpropertyid: &[<u8 as ::windows::core::DefaultType>::DefaultType], maxpropertyvaluesize: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult>;
+    fn SetDevicePropertyByExtendedId(&mut self, extendedpropertyid: &[<u8 as ::windows::core::DefaultType>::DefaultType], propertyvalue: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController5 {
@@ -577,7 +577,7 @@ impl IAdvancedVideoCaptureDeviceController5Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceController6Impl: Sized {
-    fn VideoTemporalDenoisingControl(&self) -> ::windows::core::Result<VideoTemporalDenoisingControl>;
+    fn VideoTemporalDenoisingControl(&mut self) -> ::windows::core::Result<VideoTemporalDenoisingControl>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController6 {
@@ -608,7 +608,7 @@ impl IAdvancedVideoCaptureDeviceController6Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceController7Impl: Sized {
-    fn InfraredTorchControl(&self) -> ::windows::core::Result<InfraredTorchControl>;
+    fn InfraredTorchControl(&mut self) -> ::windows::core::Result<InfraredTorchControl>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController7 {
@@ -639,7 +639,7 @@ impl IAdvancedVideoCaptureDeviceController7Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceController8Impl: Sized {
-    fn PanelBasedOptimizationControl(&self) -> ::windows::core::Result<PanelBasedOptimizationControl>;
+    fn PanelBasedOptimizationControl(&mut self) -> ::windows::core::Result<PanelBasedOptimizationControl>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController8 {
@@ -670,7 +670,7 @@ impl IAdvancedVideoCaptureDeviceController8Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAdvancedVideoCaptureDeviceController9Impl: Sized {
-    fn DigitalWindowControl(&self) -> ::windows::core::Result<DigitalWindowControl>;
+    fn DigitalWindowControl(&mut self) -> ::windows::core::Result<DigitalWindowControl>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAdvancedVideoCaptureDeviceController9 {
@@ -701,10 +701,10 @@ impl IAdvancedVideoCaptureDeviceController9Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IAudioDeviceControllerImpl: Sized + IMediaDeviceControllerImpl {
-    fn SetMuted(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Muted(&self) -> ::windows::core::Result<bool>;
-    fn SetVolumePercent(&self, value: f32) -> ::windows::core::Result<()>;
-    fn VolumePercent(&self) -> ::windows::core::Result<f32>;
+    fn SetMuted(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Muted(&mut self) -> ::windows::core::Result<bool>;
+    fn SetVolumePercent(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn VolumePercent(&mut self) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioDeviceController {
@@ -757,12 +757,12 @@ impl IAudioDeviceControllerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAudioDeviceModuleImpl: Sized {
-    fn ClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn InstanceId(&self) -> ::windows::core::Result<u32>;
-    fn MajorVersion(&self) -> ::windows::core::Result<u32>;
-    fn MinorVersion(&self) -> ::windows::core::Result<u32>;
-    fn SendCommandAsync(&self, command: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>;
+    fn ClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn InstanceId(&mut self) -> ::windows::core::Result<u32>;
+    fn MajorVersion(&mut self) -> ::windows::core::Result<u32>;
+    fn MinorVersion(&mut self) -> ::windows::core::Result<u32>;
+    fn SendCommandAsync(&mut self, command: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioDeviceModule {
@@ -853,8 +853,8 @@ impl IAudioDeviceModuleVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IAudioDeviceModuleNotificationEventArgsImpl: Sized {
-    fn Module(&self) -> ::windows::core::Result<AudioDeviceModule>;
-    fn NotificationData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Module(&mut self) -> ::windows::core::Result<AudioDeviceModule>;
+    fn NotificationData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioDeviceModuleNotificationEventArgs {
@@ -897,10 +897,10 @@ impl IAudioDeviceModuleNotificationEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IAudioDeviceModulesManagerImpl: Sized {
-    fn ModuleNotificationReceived(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveModuleNotificationReceived(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn FindAllById(&self, moduleid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>;
-    fn FindAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>;
+    fn ModuleNotificationReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveModuleNotificationReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn FindAllById(&mut self, moduleid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>;
+    fn FindAll(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IAudioDeviceModulesManager {
@@ -960,7 +960,7 @@ impl IAudioDeviceModulesManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IAudioDeviceModulesManagerFactoryImpl: Sized {
-    fn Create(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioDeviceModulesManager>;
+    fn Create(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioDeviceModulesManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAudioDeviceModulesManagerFactory {
@@ -988,23 +988,23 @@ impl IAudioDeviceModulesManagerFactoryVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICallControlImpl: Sized {
-    fn IndicateNewIncomingCall(&self, enableringer: bool, callerid: &::windows::core::HSTRING) -> ::windows::core::Result<u64>;
-    fn IndicateNewOutgoingCall(&self) -> ::windows::core::Result<u64>;
-    fn IndicateActiveCall(&self, calltoken: u64) -> ::windows::core::Result<()>;
-    fn EndCall(&self, calltoken: u64) -> ::windows::core::Result<()>;
-    fn HasRinger(&self) -> ::windows::core::Result<bool>;
-    fn AnswerRequested(&self, handler: &::core::option::Option<CallControlEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAnswerRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HangUpRequested(&self, handler: &::core::option::Option<CallControlEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHangUpRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DialRequested(&self, handler: &::core::option::Option<DialRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDialRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RedialRequested(&self, handler: &::core::option::Option<RedialRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRedialRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn KeypadPressed(&self, handler: &::core::option::Option<KeypadPressedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveKeypadPressed(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn AudioTransferRequested(&self, handler: &::core::option::Option<CallControlEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveAudioTransferRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn IndicateNewIncomingCall(&mut self, enableringer: bool, callerid: &::windows::core::HSTRING) -> ::windows::core::Result<u64>;
+    fn IndicateNewOutgoingCall(&mut self) -> ::windows::core::Result<u64>;
+    fn IndicateActiveCall(&mut self, calltoken: u64) -> ::windows::core::Result<()>;
+    fn EndCall(&mut self, calltoken: u64) -> ::windows::core::Result<()>;
+    fn HasRinger(&mut self) -> ::windows::core::Result<bool>;
+    fn AnswerRequested(&mut self, handler: &::core::option::Option<CallControlEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAnswerRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HangUpRequested(&mut self, handler: &::core::option::Option<CallControlEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHangUpRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DialRequested(&mut self, handler: &::core::option::Option<DialRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDialRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RedialRequested(&mut self, handler: &::core::option::Option<RedialRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRedialRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn KeypadPressed(&mut self, handler: &::core::option::Option<KeypadPressedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveKeypadPressed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn AudioTransferRequested(&mut self, handler: &::core::option::Option<CallControlEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveAudioTransferRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICallControl {
@@ -1171,8 +1171,8 @@ impl ICallControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICallControlStaticsImpl: Sized {
-    fn GetDefault(&self) -> ::windows::core::Result<CallControl>;
-    fn FromId(&self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<CallControl>;
+    fn GetDefault(&mut self) -> ::windows::core::Result<CallControl>;
+    fn FromId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<CallControl>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICallControlStatics {
@@ -1215,10 +1215,10 @@ impl ICallControlStaticsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ICameraOcclusionInfoImpl: Sized {
-    fn GetState(&self) -> ::windows::core::Result<CameraOcclusionState>;
-    fn IsOcclusionKindSupported(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool>;
-    fn StateChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveStateChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetState(&mut self) -> ::windows::core::Result<CameraOcclusionState>;
+    fn IsOcclusionKindSupported(&mut self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool>;
+    fn StateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ICameraOcclusionInfo {
@@ -1278,8 +1278,8 @@ impl ICameraOcclusionInfoVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICameraOcclusionStateImpl: Sized {
-    fn IsOccluded(&self) -> ::windows::core::Result<bool>;
-    fn IsOcclusionKind(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool>;
+    fn IsOccluded(&mut self) -> ::windows::core::Result<bool>;
+    fn IsOcclusionKind(&mut self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICameraOcclusionState {
@@ -1322,7 +1322,7 @@ impl ICameraOcclusionStateVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ICameraOcclusionStateChangedEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<CameraOcclusionState>;
+    fn State(&mut self) -> ::windows::core::Result<CameraOcclusionState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICameraOcclusionStateChangedEventArgs {
@@ -1352,8 +1352,8 @@ impl ICameraOcclusionStateChangedEventArgsVtbl {
     }
 }
 pub trait IDefaultAudioDeviceChangedEventArgsImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Role(&self) -> ::windows::core::Result<AudioDeviceRole>;
+    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Role(&mut self) -> ::windows::core::Result<AudioDeviceRole>;
 }
 impl ::windows::core::RuntimeName for IDefaultAudioDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs";
@@ -1394,8 +1394,8 @@ impl IDefaultAudioDeviceChangedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDialRequestedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<()>;
-    fn Contact(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Handled(&mut self) -> ::windows::core::Result<()>;
+    fn Contact(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDialRequestedEventArgs {
@@ -1431,12 +1431,12 @@ impl IDialRequestedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IDigitalWindowBoundsImpl: Sized {
-    fn NormalizedOriginTop(&self) -> ::windows::core::Result<f64>;
-    fn SetNormalizedOriginTop(&self, value: f64) -> ::windows::core::Result<()>;
-    fn NormalizedOriginLeft(&self) -> ::windows::core::Result<f64>;
-    fn SetNormalizedOriginLeft(&self, value: f64) -> ::windows::core::Result<()>;
-    fn Scale(&self) -> ::windows::core::Result<f64>;
-    fn SetScale(&self, value: f64) -> ::windows::core::Result<()>;
+    fn NormalizedOriginTop(&mut self) -> ::windows::core::Result<f64>;
+    fn SetNormalizedOriginTop(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn NormalizedOriginLeft(&mut self) -> ::windows::core::Result<f64>;
+    fn SetNormalizedOriginLeft(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn Scale(&mut self) -> ::windows::core::Result<f64>;
+    fn SetScale(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDigitalWindowBounds {
@@ -1506,12 +1506,12 @@ impl IDigitalWindowBoundsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IDigitalWindowCapabilityImpl: Sized {
-    fn Width(&self) -> ::windows::core::Result<i32>;
-    fn Height(&self) -> ::windows::core::Result<i32>;
-    fn MinScaleValue(&self) -> ::windows::core::Result<f64>;
-    fn MaxScaleValue(&self) -> ::windows::core::Result<f64>;
-    fn MinScaleValueWithoutUpsampling(&self) -> ::windows::core::Result<f64>;
-    fn NormalizedFieldOfViewLimit(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn Width(&mut self) -> ::windows::core::Result<i32>;
+    fn Height(&mut self) -> ::windows::core::Result<i32>;
+    fn MinScaleValue(&mut self) -> ::windows::core::Result<f64>;
+    fn MaxScaleValue(&mut self) -> ::windows::core::Result<f64>;
+    fn MinScaleValueWithoutUpsampling(&mut self) -> ::windows::core::Result<f64>;
+    fn NormalizedFieldOfViewLimit(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDigitalWindowCapability {
@@ -1602,14 +1602,14 @@ impl IDigitalWindowCapabilityVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IDigitalWindowControlImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedModes(&self) -> ::windows::core::Result<::windows::core::Array<DigitalWindowMode>>;
-    fn CurrentMode(&self) -> ::windows::core::Result<DigitalWindowMode>;
-    fn GetBounds(&self) -> ::windows::core::Result<DigitalWindowBounds>;
-    fn Configure(&self, digitalwindowmode: DigitalWindowMode) -> ::windows::core::Result<()>;
-    fn ConfigureWithBounds(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: &::core::option::Option<DigitalWindowBounds>) -> ::windows::core::Result<()>;
-    fn SupportedCapabilities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>>;
-    fn GetCapabilityForSize(&self, width: i32, height: i32) -> ::windows::core::Result<DigitalWindowCapability>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<::windows::core::Array<DigitalWindowMode>>;
+    fn CurrentMode(&mut self) -> ::windows::core::Result<DigitalWindowMode>;
+    fn GetBounds(&mut self) -> ::windows::core::Result<DigitalWindowBounds>;
+    fn Configure(&mut self, digitalwindowmode: DigitalWindowMode) -> ::windows::core::Result<()>;
+    fn ConfigureWithBounds(&mut self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: &::core::option::Option<DigitalWindowBounds>) -> ::windows::core::Result<()>;
+    fn SupportedCapabilities(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>>;
+    fn GetCapabilityForSize(&mut self, width: i32, height: i32) -> ::windows::core::Result<DigitalWindowCapability>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IDigitalWindowControl {
@@ -1711,12 +1711,12 @@ impl IDigitalWindowControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IExposureCompensationControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn Min(&self) -> ::windows::core::Result<f32>;
-    fn Max(&self) -> ::windows::core::Result<f32>;
-    fn Step(&self) -> ::windows::core::Result<f32>;
-    fn Value(&self) -> ::windows::core::Result<f32>;
-    fn SetValueAsync(&self, value: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn Min(&mut self) -> ::windows::core::Result<f32>;
+    fn Max(&mut self) -> ::windows::core::Result<f32>;
+    fn Step(&mut self) -> ::windows::core::Result<f32>;
+    fn Value(&mut self) -> ::windows::core::Result<f32>;
+    fn SetValueAsync(&mut self, value: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IExposureCompensationControl {
@@ -1807,14 +1807,14 @@ impl IExposureCompensationControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IExposureControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn Auto(&self) -> ::windows::core::Result<bool>;
-    fn SetAutoAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Min(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Max(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Step(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn Value(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetValueAsync(&self, shutterduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn Auto(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutoAsync(&mut self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Min(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Max(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Step(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn Value(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetValueAsync(&mut self, shutterduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IExposureControl {
@@ -1929,9 +1929,9 @@ impl IExposureControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IExposurePriorityVideoControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IExposurePriorityVideoControl {
@@ -1979,17 +1979,17 @@ impl IExposurePriorityVideoControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlashControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn PowerSupported(&self) -> ::windows::core::Result<bool>;
-    fn RedEyeReductionSupported(&self) -> ::windows::core::Result<bool>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Auto(&self) -> ::windows::core::Result<bool>;
-    fn SetAuto(&self, value: bool) -> ::windows::core::Result<()>;
-    fn RedEyeReduction(&self) -> ::windows::core::Result<bool>;
-    fn SetRedEyeReduction(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PowerPercent(&self) -> ::windows::core::Result<f32>;
-    fn SetPowerPercent(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn PowerSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn RedEyeReductionSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Auto(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAuto(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn RedEyeReduction(&mut self) -> ::windows::core::Result<bool>;
+    fn SetRedEyeReduction(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PowerPercent(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPowerPercent(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlashControl {
@@ -2112,9 +2112,9 @@ impl IFlashControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IFlashControl2Impl: Sized {
-    fn AssistantLightSupported(&self) -> ::windows::core::Result<bool>;
-    fn AssistantLightEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAssistantLightEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn AssistantLightSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn AssistantLightEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAssistantLightEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IFlashControl2 {
@@ -2162,17 +2162,17 @@ impl IFlashControl2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFocusControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedPresets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusPreset>>;
-    fn Preset(&self) -> ::windows::core::Result<FocusPreset>;
-    fn SetPresetAsync(&self, preset: FocusPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Min(&self) -> ::windows::core::Result<u32>;
-    fn Max(&self) -> ::windows::core::Result<u32>;
-    fn Step(&self) -> ::windows::core::Result<u32>;
-    fn Value(&self) -> ::windows::core::Result<u32>;
-    fn SetValueAsync(&self, focus: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn FocusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedPresets(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusPreset>>;
+    fn Preset(&mut self) -> ::windows::core::Result<FocusPreset>;
+    fn SetPresetAsync(&mut self, preset: FocusPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetPresetWithCompletionOptionAsync(&mut self, preset: FocusPreset, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Min(&mut self) -> ::windows::core::Result<u32>;
+    fn Max(&mut self) -> ::windows::core::Result<u32>;
+    fn Step(&mut self) -> ::windows::core::Result<u32>;
+    fn Value(&mut self) -> ::windows::core::Result<u32>;
+    fn SetValueAsync(&mut self, focus: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn FocusAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFocusControl {
@@ -2323,16 +2323,16 @@ impl IFocusControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IFocusControl2Impl: Sized {
-    fn FocusChangedSupported(&self) -> ::windows::core::Result<bool>;
-    fn WaitForFocusSupported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedFocusModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusMode>>;
-    fn SupportedFocusDistances(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>>;
-    fn SupportedFocusRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AutoFocusRange>>;
-    fn Mode(&self) -> ::windows::core::Result<FocusMode>;
-    fn FocusState(&self) -> ::windows::core::Result<MediaCaptureFocusState>;
-    fn UnlockAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn LockAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Configure(&self, settings: &::core::option::Option<FocusSettings>) -> ::windows::core::Result<()>;
+    fn FocusChangedSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn WaitForFocusSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedFocusModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusMode>>;
+    fn SupportedFocusDistances(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>>;
+    fn SupportedFocusRanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AutoFocusRange>>;
+    fn Mode(&mut self) -> ::windows::core::Result<FocusMode>;
+    fn FocusState(&mut self) -> ::windows::core::Result<MediaCaptureFocusState>;
+    fn UnlockAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn LockAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Configure(&mut self, settings: &::core::option::Option<FocusSettings>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFocusControl2 {
@@ -2464,18 +2464,18 @@ impl IFocusControl2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IFocusSettingsImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<FocusMode>;
-    fn SetMode(&self, value: FocusMode) -> ::windows::core::Result<()>;
-    fn AutoFocusRange(&self) -> ::windows::core::Result<AutoFocusRange>;
-    fn SetAutoFocusRange(&self, value: AutoFocusRange) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
-    fn SetValue(&self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
-    fn Distance(&self) -> ::windows::core::Result<super::super::Foundation::IReference<ManualFocusDistance>>;
-    fn SetDistance(&self, value: &::core::option::Option<super::super::Foundation::IReference<ManualFocusDistance>>) -> ::windows::core::Result<()>;
-    fn WaitForFocus(&self) -> ::windows::core::Result<bool>;
-    fn SetWaitForFocus(&self, value: bool) -> ::windows::core::Result<()>;
-    fn DisableDriverFallback(&self) -> ::windows::core::Result<bool>;
-    fn SetDisableDriverFallback(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<FocusMode>;
+    fn SetMode(&mut self, value: FocusMode) -> ::windows::core::Result<()>;
+    fn AutoFocusRange(&mut self) -> ::windows::core::Result<AutoFocusRange>;
+    fn SetAutoFocusRange(&mut self, value: AutoFocusRange) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
+    fn SetValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
+    fn Distance(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<ManualFocusDistance>>;
+    fn SetDistance(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<ManualFocusDistance>>) -> ::windows::core::Result<()>;
+    fn WaitForFocus(&mut self) -> ::windows::core::Result<bool>;
+    fn SetWaitForFocus(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn DisableDriverFallback(&mut self) -> ::windows::core::Result<bool>;
+    fn SetDisableDriverFallback(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IFocusSettings {
@@ -2596,10 +2596,10 @@ impl IFocusSettingsVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IHdrVideoControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HdrVideoMode>>;
-    fn Mode(&self) -> ::windows::core::Result<HdrVideoMode>;
-    fn SetMode(&self, value: HdrVideoMode) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HdrVideoMode>>;
+    fn Mode(&mut self) -> ::windows::core::Result<HdrVideoMode>;
+    fn SetMode(&mut self, value: HdrVideoMode) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IHdrVideoControl {
@@ -2659,15 +2659,15 @@ impl IHdrVideoControlVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IInfraredTorchControlImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<InfraredTorchMode>>;
-    fn CurrentMode(&self) -> ::windows::core::Result<InfraredTorchMode>;
-    fn SetCurrentMode(&self, value: InfraredTorchMode) -> ::windows::core::Result<()>;
-    fn MinPower(&self) -> ::windows::core::Result<i32>;
-    fn MaxPower(&self) -> ::windows::core::Result<i32>;
-    fn PowerStep(&self) -> ::windows::core::Result<i32>;
-    fn Power(&self) -> ::windows::core::Result<i32>;
-    fn SetPower(&self, value: i32) -> ::windows::core::Result<()>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<InfraredTorchMode>>;
+    fn CurrentMode(&mut self) -> ::windows::core::Result<InfraredTorchMode>;
+    fn SetCurrentMode(&mut self, value: InfraredTorchMode) -> ::windows::core::Result<()>;
+    fn MinPower(&mut self) -> ::windows::core::Result<i32>;
+    fn MaxPower(&mut self) -> ::windows::core::Result<i32>;
+    fn PowerStep(&mut self) -> ::windows::core::Result<i32>;
+    fn Power(&mut self) -> ::windows::core::Result<i32>;
+    fn SetPower(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IInfraredTorchControl {
@@ -2780,10 +2780,10 @@ impl IInfraredTorchControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IIsoSpeedControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedPresets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsoSpeedPreset>>;
-    fn Preset(&self) -> ::windows::core::Result<IsoSpeedPreset>;
-    fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedPresets(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsoSpeedPreset>>;
+    fn Preset(&mut self) -> ::windows::core::Result<IsoSpeedPreset>;
+    fn SetPresetAsync(&mut self, preset: IsoSpeedPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsoSpeedControl {
@@ -2850,13 +2850,13 @@ impl IIsoSpeedControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IIsoSpeedControl2Impl: Sized {
-    fn Min(&self) -> ::windows::core::Result<u32>;
-    fn Max(&self) -> ::windows::core::Result<u32>;
-    fn Step(&self) -> ::windows::core::Result<u32>;
-    fn Value(&self) -> ::windows::core::Result<u32>;
-    fn SetValueAsync(&self, isospeed: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Auto(&self) -> ::windows::core::Result<bool>;
-    fn SetAutoAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Min(&mut self) -> ::windows::core::Result<u32>;
+    fn Max(&mut self) -> ::windows::core::Result<u32>;
+    fn Step(&mut self) -> ::windows::core::Result<u32>;
+    fn Value(&mut self) -> ::windows::core::Result<u32>;
+    fn SetValueAsync(&mut self, isospeed: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Auto(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutoAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IIsoSpeedControl2 {
@@ -2959,7 +2959,7 @@ impl IIsoSpeedControl2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IKeypadPressedEventArgsImpl: Sized {
-    fn TelephonyKey(&self) -> ::windows::core::Result<TelephonyKey>;
+    fn TelephonyKey(&mut self) -> ::windows::core::Result<TelephonyKey>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeypadPressedEventArgs {
@@ -2990,15 +2990,15 @@ impl IKeypadPressedEventArgsVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait ILowLagPhotoControlImpl: Sized {
-    fn GetHighestConcurrentFrameRate(&self, captureproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
-    fn GetCurrentFrameRate(&self) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
-    fn ThumbnailEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetThumbnailEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ThumbnailFormat(&self) -> ::windows::core::Result<super::MediaProperties::MediaThumbnailFormat>;
-    fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()>;
-    fn DesiredThumbnailSize(&self) -> ::windows::core::Result<u32>;
-    fn SetDesiredThumbnailSize(&self, value: u32) -> ::windows::core::Result<()>;
-    fn HardwareAcceleratedThumbnailSupported(&self) -> ::windows::core::Result<u32>;
+    fn GetHighestConcurrentFrameRate(&mut self, captureproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
+    fn GetCurrentFrameRate(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
+    fn ThumbnailEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetThumbnailEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ThumbnailFormat(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaThumbnailFormat>;
+    fn SetThumbnailFormat(&mut self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()>;
+    fn DesiredThumbnailSize(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDesiredThumbnailSize(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn HardwareAcceleratedThumbnailSupported(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLagPhotoControl {
@@ -3104,22 +3104,22 @@ impl ILowLagPhotoControlVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait ILowLagPhotoSequenceControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn MaxPastPhotos(&self) -> ::windows::core::Result<u32>;
-    fn MaxPhotosPerSecond(&self) -> ::windows::core::Result<f32>;
-    fn PastPhotoLimit(&self) -> ::windows::core::Result<u32>;
-    fn SetPastPhotoLimit(&self, value: u32) -> ::windows::core::Result<()>;
-    fn PhotosPerSecondLimit(&self) -> ::windows::core::Result<f32>;
-    fn SetPhotosPerSecondLimit(&self, value: f32) -> ::windows::core::Result<()>;
-    fn GetHighestConcurrentFrameRate(&self, captureproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
-    fn GetCurrentFrameRate(&self) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
-    fn ThumbnailEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetThumbnailEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn ThumbnailFormat(&self) -> ::windows::core::Result<super::MediaProperties::MediaThumbnailFormat>;
-    fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()>;
-    fn DesiredThumbnailSize(&self) -> ::windows::core::Result<u32>;
-    fn SetDesiredThumbnailSize(&self, value: u32) -> ::windows::core::Result<()>;
-    fn HardwareAcceleratedThumbnailSupported(&self) -> ::windows::core::Result<u32>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn MaxPastPhotos(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxPhotosPerSecond(&mut self) -> ::windows::core::Result<f32>;
+    fn PastPhotoLimit(&mut self) -> ::windows::core::Result<u32>;
+    fn SetPastPhotoLimit(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn PhotosPerSecondLimit(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPhotosPerSecondLimit(&mut self, value: f32) -> ::windows::core::Result<()>;
+    fn GetHighestConcurrentFrameRate(&mut self, captureproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
+    fn GetCurrentFrameRate(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaRatio>;
+    fn ThumbnailEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetThumbnailEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn ThumbnailFormat(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaThumbnailFormat>;
+    fn SetThumbnailFormat(&mut self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()>;
+    fn DesiredThumbnailSize(&mut self) -> ::windows::core::Result<u32>;
+    fn SetDesiredThumbnailSize(&mut self, value: u32) -> ::windows::core::Result<()>;
+    fn HardwareAcceleratedThumbnailSupported(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ILowLagPhotoSequenceControl {
@@ -3295,11 +3295,11 @@ impl ILowLagPhotoSequenceControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaDeviceControlImpl: Sized {
-    fn Capabilities(&self) -> ::windows::core::Result<MediaDeviceControlCapabilities>;
-    fn TryGetValue(&self, value: &mut f64) -> ::windows::core::Result<bool>;
-    fn TrySetValue(&self, value: f64) -> ::windows::core::Result<bool>;
-    fn TryGetAuto(&self, value: &mut bool) -> ::windows::core::Result<bool>;
-    fn TrySetAuto(&self, value: bool) -> ::windows::core::Result<bool>;
+    fn Capabilities(&mut self) -> ::windows::core::Result<MediaDeviceControlCapabilities>;
+    fn TryGetValue(&mut self, value: &mut f64) -> ::windows::core::Result<bool>;
+    fn TrySetValue(&mut self, value: f64) -> ::windows::core::Result<bool>;
+    fn TryGetAuto(&mut self, value: &mut bool) -> ::windows::core::Result<bool>;
+    fn TrySetAuto(&mut self, value: bool) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaDeviceControl {
@@ -3378,12 +3378,12 @@ impl IMediaDeviceControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IMediaDeviceControlCapabilitiesImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn Min(&self) -> ::windows::core::Result<f64>;
-    fn Max(&self) -> ::windows::core::Result<f64>;
-    fn Step(&self) -> ::windows::core::Result<f64>;
-    fn Default(&self) -> ::windows::core::Result<f64>;
-    fn AutoModeSupported(&self) -> ::windows::core::Result<bool>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn Min(&mut self) -> ::windows::core::Result<f64>;
+    fn Max(&mut self) -> ::windows::core::Result<f64>;
+    fn Step(&mut self) -> ::windows::core::Result<f64>;
+    fn Default(&mut self) -> ::windows::core::Result<f64>;
+    fn AutoModeSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaDeviceControlCapabilities {
@@ -3474,9 +3474,9 @@ impl IMediaDeviceControlCapabilitiesVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 pub trait IMediaDeviceControllerImpl: Sized {
-    fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
-    fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>;
-    fn SetMediaStreamPropertiesAsync(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetAvailableMediaStreamProperties(&mut self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
+    fn GetMediaStreamProperties(&mut self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>;
+    fn SetMediaStreamPropertiesAsync(&mut self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IMediaDeviceController {
@@ -3531,15 +3531,15 @@ impl IMediaDeviceControllerVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IMediaDeviceStaticsImpl: Sized {
-    fn GetAudioCaptureSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAudioRenderSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetVideoCaptureSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDefaultAudioCaptureId(&self, role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDefaultAudioRenderId(&self, role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DefaultAudioCaptureDeviceChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDefaultAudioCaptureDeviceChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DefaultAudioRenderDeviceChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDefaultAudioRenderDeviceChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetAudioCaptureSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAudioRenderSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetVideoCaptureSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDefaultAudioCaptureId(&mut self, role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDefaultAudioRenderId(&mut self, role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DefaultAudioCaptureDeviceChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDefaultAudioCaptureDeviceChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DefaultAudioRenderDeviceChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDefaultAudioRenderDeviceChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IMediaDeviceStatics {
@@ -3652,8 +3652,8 @@ impl IMediaDeviceStaticsVtbl {
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait IModuleCommandResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<SendCommandStatus>;
-    fn Result(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Status(&mut self) -> ::windows::core::Result<SendCommandStatus>;
+    fn Result(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IModuleCommandResult {
@@ -3696,10 +3696,10 @@ impl IModuleCommandResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IOpticalImageStabilizationControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OpticalImageStabilizationMode>>;
-    fn Mode(&self) -> ::windows::core::Result<OpticalImageStabilizationMode>;
-    fn SetMode(&self, value: OpticalImageStabilizationMode) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OpticalImageStabilizationMode>>;
+    fn Mode(&mut self) -> ::windows::core::Result<OpticalImageStabilizationMode>;
+    fn SetMode(&mut self, value: OpticalImageStabilizationMode) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IOpticalImageStabilizationControl {
@@ -3759,9 +3759,9 @@ impl IOpticalImageStabilizationControlVtbl {
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 pub trait IPanelBasedOptimizationControlImpl: Sized {
-    fn IsSupported(&self) -> ::windows::core::Result<bool>;
-    fn Panel(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::Panel>;
-    fn SetPanel(&self, value: super::super::Devices::Enumeration::Panel) -> ::windows::core::Result<()>;
+    fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn Panel(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::Panel>;
+    fn SetPanel(&mut self, value: super::super::Devices::Enumeration::Panel) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPanelBasedOptimizationControl {
@@ -3809,11 +3809,11 @@ impl IPanelBasedOptimizationControlVtbl {
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IPhotoConfirmationControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PixelFormat(&self) -> ::windows::core::Result<super::MediaProperties::MediaPixelFormat>;
-    fn SetPixelFormat(&self, format: super::MediaProperties::MediaPixelFormat) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PixelFormat(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaPixelFormat>;
+    fn SetPixelFormat(&mut self, format: super::MediaProperties::MediaPixelFormat) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IPhotoConfirmationControl {
@@ -3878,7 +3878,7 @@ impl IPhotoConfirmationControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRedialRequestedEventArgsImpl: Sized {
-    fn Handled(&self) -> ::windows::core::Result<()>;
+    fn Handled(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRedialRequestedEventArgs {
@@ -3899,14 +3899,14 @@ impl IRedialRequestedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IRegionOfInterestImpl: Sized {
-    fn AutoFocusEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAutoFocusEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AutoWhiteBalanceEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAutoWhiteBalanceEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn AutoExposureEnabled(&self) -> ::windows::core::Result<bool>;
-    fn SetAutoExposureEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Bounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SetBounds(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn AutoFocusEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutoFocusEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AutoWhiteBalanceEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutoWhiteBalanceEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn AutoExposureEnabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetAutoExposureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Bounds(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SetBounds(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRegionOfInterest {
@@ -3993,12 +3993,12 @@ impl IRegionOfInterestVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IRegionOfInterest2Impl: Sized {
-    fn Type(&self) -> ::windows::core::Result<RegionOfInterestType>;
-    fn SetType(&self, value: RegionOfInterestType) -> ::windows::core::Result<()>;
-    fn BoundsNormalized(&self) -> ::windows::core::Result<bool>;
-    fn SetBoundsNormalized(&self, value: bool) -> ::windows::core::Result<()>;
-    fn Weight(&self) -> ::windows::core::Result<u32>;
-    fn SetWeight(&self, value: u32) -> ::windows::core::Result<()>;
+    fn Type(&mut self) -> ::windows::core::Result<RegionOfInterestType>;
+    fn SetType(&mut self, value: RegionOfInterestType) -> ::windows::core::Result<()>;
+    fn BoundsNormalized(&mut self) -> ::windows::core::Result<bool>;
+    fn SetBoundsNormalized(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn Weight(&mut self) -> ::windows::core::Result<u32>;
+    fn SetWeight(&mut self, value: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRegionOfInterest2 {
@@ -4068,13 +4068,13 @@ impl IRegionOfInterest2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IRegionsOfInterestControlImpl: Sized {
-    fn MaxRegions(&self) -> ::windows::core::Result<u32>;
-    fn SetRegionsAsync(&self, regions: &::core::option::Option<super::super::Foundation::Collections::IIterable<RegionOfInterest>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetRegionsWithLockAsync(&self, regions: &::core::option::Option<super::super::Foundation::Collections::IIterable<RegionOfInterest>>, lockvalues: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn ClearRegionsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn AutoFocusSupported(&self) -> ::windows::core::Result<bool>;
-    fn AutoWhiteBalanceSupported(&self) -> ::windows::core::Result<bool>;
-    fn AutoExposureSupported(&self) -> ::windows::core::Result<bool>;
+    fn MaxRegions(&mut self) -> ::windows::core::Result<u32>;
+    fn SetRegionsAsync(&mut self, regions: &::core::option::Option<super::super::Foundation::Collections::IIterable<RegionOfInterest>>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetRegionsWithLockAsync(&mut self, regions: &::core::option::Option<super::super::Foundation::Collections::IIterable<RegionOfInterest>>, lockvalues: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ClearRegionsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn AutoFocusSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn AutoWhiteBalanceSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn AutoExposureSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IRegionsOfInterestControl {
@@ -4177,9 +4177,9 @@ impl IRegionsOfInterestControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait ISceneModeControlImpl: Sized {
-    fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CaptureSceneMode>>;
-    fn Value(&self) -> ::windows::core::Result<CaptureSceneMode>;
-    fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CaptureSceneMode>>;
+    fn Value(&mut self) -> ::windows::core::Result<CaptureSceneMode>;
+    fn SetValueAsync(&mut self, scenemode: CaptureSceneMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISceneModeControl {
@@ -4234,12 +4234,12 @@ impl ISceneModeControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ITorchControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn PowerSupported(&self) -> ::windows::core::Result<bool>;
-    fn Enabled(&self) -> ::windows::core::Result<bool>;
-    fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()>;
-    fn PowerPercent(&self) -> ::windows::core::Result<f32>;
-    fn SetPowerPercent(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn PowerSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
+    fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn PowerPercent(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPowerPercent(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITorchControl {
@@ -4316,19 +4316,19 @@ impl ITorchControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 pub trait IVideoDeviceControllerImpl: Sized + IMediaDeviceControllerImpl {
-    fn Brightness(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Contrast(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Hue(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn WhiteBalance(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn BacklightCompensation(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Pan(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Tilt(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Zoom(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Roll(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Exposure(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn Focus(&self) -> ::windows::core::Result<MediaDeviceControl>;
-    fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> ::windows::core::Result<bool>;
-    fn TryGetPowerlineFrequency(&self, value: &mut super::Capture::PowerlineFrequency) -> ::windows::core::Result<bool>;
+    fn Brightness(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Contrast(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Hue(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn WhiteBalance(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn BacklightCompensation(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Pan(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Tilt(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Zoom(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Roll(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Exposure(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn Focus(&mut self) -> ::windows::core::Result<MediaDeviceControl>;
+    fn TrySetPowerlineFrequency(&mut self, value: super::Capture::PowerlineFrequency) -> ::windows::core::Result<bool>;
+    fn TryGetPowerlineFrequency(&mut self, value: &mut super::Capture::PowerlineFrequency) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoDeviceController {
@@ -4503,8 +4503,8 @@ impl IVideoDeviceControllerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IVideoDeviceControllerGetDevicePropertyResultImpl: Sized {
-    fn Status(&self) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyStatus>;
-    fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Status(&mut self) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyStatus>;
+    fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVideoDeviceControllerGetDevicePropertyResult {
@@ -4547,10 +4547,10 @@ impl IVideoDeviceControllerGetDevicePropertyResultVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IVideoTemporalDenoisingControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<VideoTemporalDenoisingMode>>;
-    fn Mode(&self) -> ::windows::core::Result<VideoTemporalDenoisingMode>;
-    fn SetMode(&self, value: VideoTemporalDenoisingMode) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<VideoTemporalDenoisingMode>>;
+    fn Mode(&mut self) -> ::windows::core::Result<VideoTemporalDenoisingMode>;
+    fn SetMode(&mut self, value: VideoTemporalDenoisingMode) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IVideoTemporalDenoisingControl {
@@ -4610,14 +4610,14 @@ impl IVideoTemporalDenoisingControlVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IWhiteBalanceControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn Preset(&self) -> ::windows::core::Result<ColorTemperaturePreset>;
-    fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn Min(&self) -> ::windows::core::Result<u32>;
-    fn Max(&self) -> ::windows::core::Result<u32>;
-    fn Step(&self) -> ::windows::core::Result<u32>;
-    fn Value(&self) -> ::windows::core::Result<u32>;
-    fn SetValueAsync(&self, temperature: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn Preset(&mut self) -> ::windows::core::Result<ColorTemperaturePreset>;
+    fn SetPresetAsync(&mut self, preset: ColorTemperaturePreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn Min(&mut self) -> ::windows::core::Result<u32>;
+    fn Max(&mut self) -> ::windows::core::Result<u32>;
+    fn Step(&mut self) -> ::windows::core::Result<u32>;
+    fn Value(&mut self) -> ::windows::core::Result<u32>;
+    fn SetValueAsync(&mut self, temperature: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IWhiteBalanceControl {
@@ -4732,12 +4732,12 @@ impl IWhiteBalanceControlVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IZoomControlImpl: Sized {
-    fn Supported(&self) -> ::windows::core::Result<bool>;
-    fn Min(&self) -> ::windows::core::Result<f32>;
-    fn Max(&self) -> ::windows::core::Result<f32>;
-    fn Step(&self) -> ::windows::core::Result<f32>;
-    fn Value(&self) -> ::windows::core::Result<f32>;
-    fn SetValue(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Supported(&mut self) -> ::windows::core::Result<bool>;
+    fn Min(&mut self) -> ::windows::core::Result<f32>;
+    fn Max(&mut self) -> ::windows::core::Result<f32>;
+    fn Step(&mut self) -> ::windows::core::Result<f32>;
+    fn Value(&mut self) -> ::windows::core::Result<f32>;
+    fn SetValue(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IZoomControl {
@@ -4821,9 +4821,9 @@ impl IZoomControlVtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 pub trait IZoomControl2Impl: Sized {
-    fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ZoomTransitionMode>>;
-    fn Mode(&self) -> ::windows::core::Result<ZoomTransitionMode>;
-    fn Configure(&self, settings: &::core::option::Option<ZoomSettings>) -> ::windows::core::Result<()>;
+    fn SupportedModes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ZoomTransitionMode>>;
+    fn Mode(&mut self) -> ::windows::core::Result<ZoomTransitionMode>;
+    fn Configure(&mut self, settings: &::core::option::Option<ZoomSettings>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IZoomControl2 {
@@ -4871,10 +4871,10 @@ impl IZoomControl2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IZoomSettingsImpl: Sized {
-    fn Mode(&self) -> ::windows::core::Result<ZoomTransitionMode>;
-    fn SetMode(&self, value: ZoomTransitionMode) -> ::windows::core::Result<()>;
-    fn Value(&self) -> ::windows::core::Result<f32>;
-    fn SetValue(&self, value: f32) -> ::windows::core::Result<()>;
+    fn Mode(&mut self) -> ::windows::core::Result<ZoomTransitionMode>;
+    fn SetMode(&mut self, value: ZoomTransitionMode) -> ::windows::core::Result<()>;
+    fn Value(&mut self) -> ::windows::core::Result<f32>;
+    fn SetValue(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IZoomSettings {

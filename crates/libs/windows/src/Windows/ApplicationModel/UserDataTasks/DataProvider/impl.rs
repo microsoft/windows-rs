@@ -1,16 +1,16 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskDataProviderConnectionImpl: Sized {
-    fn CreateOrUpdateTaskRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListCreateOrUpdateTaskRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCreateOrUpdateTaskRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SyncRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSyncRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SkipOccurrenceRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListSkipOccurrenceRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSkipOccurrenceRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CompleteTaskRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListCompleteTaskRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleteTaskRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DeleteTaskRequested(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListDeleteTaskRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDeleteTaskRequested(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Start(&self) -> ::windows::core::Result<()>;
+    fn CreateOrUpdateTaskRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListCreateOrUpdateTaskRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCreateOrUpdateTaskRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SyncRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSyncRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SkipOccurrenceRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListSkipOccurrenceRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSkipOccurrenceRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CompleteTaskRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListCompleteTaskRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleteTaskRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DeleteTaskRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListDeleteTaskRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveDeleteTaskRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Start(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskDataProviderConnection {
@@ -119,7 +119,7 @@ impl IUserDataTaskDataProviderConnectionVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait IUserDataTaskDataProviderTriggerDetailsImpl: Sized {
-    fn Connection(&self) -> ::windows::core::Result<UserDataTaskDataProviderConnection>;
+    fn Connection(&mut self) -> ::windows::core::Result<UserDataTaskDataProviderConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUserDataTaskDataProviderTriggerDetails {
@@ -150,10 +150,10 @@ impl IUserDataTaskDataProviderTriggerDetailsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListCompleteTaskRequestImpl: Sized {
-    fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self, completedtaskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn TaskListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self, completedtaskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListCompleteTaskRequest {
@@ -220,8 +220,8 @@ impl IUserDataTaskListCompleteTaskRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListCompleteTaskRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<UserDataTaskListCompleteTaskRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<UserDataTaskListCompleteTaskRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListCompleteTaskRequestEventArgs {
@@ -264,10 +264,10 @@ impl IUserDataTaskListCompleteTaskRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListCreateOrUpdateTaskRequestImpl: Sized {
-    fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Task(&self) -> ::windows::core::Result<super::UserDataTask>;
-    fn ReportCompletedAsync(&self, createdorupdateduserdatatask: &::core::option::Option<super::UserDataTask>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn TaskListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Task(&mut self) -> ::windows::core::Result<super::UserDataTask>;
+    fn ReportCompletedAsync(&mut self, createdorupdateduserdatatask: &::core::option::Option<super::UserDataTask>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListCreateOrUpdateTaskRequest {
@@ -334,8 +334,8 @@ impl IUserDataTaskListCreateOrUpdateTaskRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListCreateOrUpdateTaskRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<UserDataTaskListCreateOrUpdateTaskRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<UserDataTaskListCreateOrUpdateTaskRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -378,10 +378,10 @@ impl IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListDeleteTaskRequestImpl: Sized {
-    fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn TaskListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListDeleteTaskRequest {
@@ -448,8 +448,8 @@ impl IUserDataTaskListDeleteTaskRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListDeleteTaskRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<UserDataTaskListDeleteTaskRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<UserDataTaskListDeleteTaskRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListDeleteTaskRequestEventArgs {
@@ -492,10 +492,10 @@ impl IUserDataTaskListDeleteTaskRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListSkipOccurrenceRequestImpl: Sized {
-    fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn TaskListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListSkipOccurrenceRequest {
@@ -562,8 +562,8 @@ impl IUserDataTaskListSkipOccurrenceRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListSkipOccurrenceRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<UserDataTaskListSkipOccurrenceRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<UserDataTaskListSkipOccurrenceRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -606,9 +606,9 @@ impl IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListSyncManagerSyncRequestImpl: Sized {
-    fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
-    fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn TaskListId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListSyncManagerSyncRequest {
@@ -663,8 +663,8 @@ impl IUserDataTaskListSyncManagerSyncRequestVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait IUserDataTaskListSyncManagerSyncRequestEventArgsImpl: Sized {
-    fn Request(&self) -> ::windows::core::Result<UserDataTaskListSyncManagerSyncRequest>;
-    fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
+    fn Request(&mut self) -> ::windows::core::Result<UserDataTaskListSyncManagerSyncRequest>;
+    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for IUserDataTaskListSyncManagerSyncRequestEventArgs {

@@ -1,37 +1,37 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 pub trait ISpatialGestureRecognizerImpl: Sized {
-    fn RecognitionStarted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecognitionStarted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn RecognitionEnded(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveRecognitionEnded(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Tapped(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveTapped(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HoldStarted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHoldStarted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HoldCompleted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHoldCompleted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HoldCanceled(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHoldCanceled(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ManipulationStarted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveManipulationStarted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ManipulationUpdated(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveManipulationUpdated(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ManipulationCompleted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveManipulationCompleted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn ManipulationCanceled(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveManipulationCanceled(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NavigationStarted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNavigationStarted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NavigationUpdated(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNavigationUpdated(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NavigationCompleted(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNavigationCompleted(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn NavigationCanceled(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveNavigationCanceled(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CaptureInteraction(&self, interaction: &::core::option::Option<SpatialInteraction>) -> ::windows::core::Result<()>;
-    fn CancelPendingGestures(&self) -> ::windows::core::Result<()>;
-    fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> ::windows::core::Result<bool>;
-    fn GestureSettings(&self) -> ::windows::core::Result<SpatialGestureSettings>;
+    fn RecognitionStarted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecognitionStarted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn RecognitionEnded(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveRecognitionEnded(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Tapped(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveTapped(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HoldStarted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHoldStarted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HoldCompleted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHoldCompleted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HoldCanceled(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHoldCanceled(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ManipulationStarted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveManipulationStarted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ManipulationUpdated(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveManipulationUpdated(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ManipulationCompleted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveManipulationCompleted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn ManipulationCanceled(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveManipulationCanceled(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NavigationStarted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNavigationStarted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NavigationUpdated(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNavigationUpdated(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NavigationCompleted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNavigationCompleted(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn NavigationCanceled(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveNavigationCanceled(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CaptureInteraction(&mut self, interaction: &::core::option::Option<SpatialInteraction>) -> ::windows::core::Result<()>;
+    fn CancelPendingGestures(&mut self) -> ::windows::core::Result<()>;
+    fn TrySetGestureSettings(&mut self, settings: SpatialGestureSettings) -> ::windows::core::Result<bool>;
+    fn GestureSettings(&mut self) -> ::windows::core::Result<SpatialGestureSettings>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialGestureRecognizer {
@@ -322,7 +322,7 @@ impl ISpatialGestureRecognizerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialGestureRecognizerFactoryImpl: Sized {
-    fn Create(&self, settings: SpatialGestureSettings) -> ::windows::core::Result<SpatialGestureRecognizer>;
+    fn Create(&mut self, settings: SpatialGestureSettings) -> ::windows::core::Result<SpatialGestureRecognizer>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialGestureRecognizerFactory {
@@ -350,7 +350,7 @@ impl ISpatialGestureRecognizerFactoryVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialHoldCanceledEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialHoldCanceledEventArgs {
@@ -381,7 +381,7 @@ impl ISpatialHoldCanceledEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialHoldCompletedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialHoldCompletedEventArgs {
@@ -412,8 +412,8 @@ impl ISpatialHoldCompletedEventArgsVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialHoldStartedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetPointerPose(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetPointerPose(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialHoldStartedEventArgs {
@@ -456,7 +456,7 @@ impl ISpatialHoldStartedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialInteractionImpl: Sized {
-    fn SourceState(&self) -> ::windows::core::Result<SpatialInteractionSourceState>;
+    fn SourceState(&mut self) -> ::windows::core::Result<SpatialInteractionSourceState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialInteraction {
@@ -484,12 +484,12 @@ impl ISpatialInteractionVtbl {
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionControllerImpl: Sized {
-    fn HasTouchpad(&self) -> ::windows::core::Result<bool>;
-    fn HasThumbstick(&self) -> ::windows::core::Result<bool>;
-    fn SimpleHapticsController(&self) -> ::windows::core::Result<super::super::super::Devices::Haptics::SimpleHapticsController>;
-    fn VendorId(&self) -> ::windows::core::Result<u16>;
-    fn ProductId(&self) -> ::windows::core::Result<u16>;
-    fn Version(&self) -> ::windows::core::Result<u16>;
+    fn HasTouchpad(&mut self) -> ::windows::core::Result<bool>;
+    fn HasThumbstick(&mut self) -> ::windows::core::Result<bool>;
+    fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::super::Devices::Haptics::SimpleHapticsController>;
+    fn VendorId(&mut self) -> ::windows::core::Result<u16>;
+    fn ProductId(&mut self) -> ::windows::core::Result<u16>;
+    fn Version(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionController {
@@ -580,7 +580,7 @@ impl ISpatialInteractionControllerVtbl {
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionController2Impl: Sized + ISpatialInteractionControllerImpl {
-    fn TryGetRenderableModelAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
+    fn TryGetRenderableModelAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>>;
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionController2 {
@@ -611,7 +611,7 @@ impl ISpatialInteractionController2Vtbl {
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "Devices_Power", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionController3Impl: Sized + ISpatialInteractionControllerImpl + ISpatialInteractionController2Impl {
-    fn TryGetBatteryReport(&self) -> ::windows::core::Result<super::super::super::Devices::Power::BatteryReport>;
+    fn TryGetBatteryReport(&mut self) -> ::windows::core::Result<super::super::super::Devices::Power::BatteryReport>;
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "Devices_Power", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionController3 {
@@ -642,13 +642,13 @@ impl ISpatialInteractionController3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialInteractionControllerPropertiesImpl: Sized {
-    fn IsTouchpadTouched(&self) -> ::windows::core::Result<bool>;
-    fn IsTouchpadPressed(&self) -> ::windows::core::Result<bool>;
-    fn IsThumbstickPressed(&self) -> ::windows::core::Result<bool>;
-    fn ThumbstickX(&self) -> ::windows::core::Result<f64>;
-    fn ThumbstickY(&self) -> ::windows::core::Result<f64>;
-    fn TouchpadX(&self) -> ::windows::core::Result<f64>;
-    fn TouchpadY(&self) -> ::windows::core::Result<f64>;
+    fn IsTouchpadTouched(&mut self) -> ::windows::core::Result<bool>;
+    fn IsTouchpadPressed(&mut self) -> ::windows::core::Result<bool>;
+    fn IsThumbstickPressed(&mut self) -> ::windows::core::Result<bool>;
+    fn ThumbstickX(&mut self) -> ::windows::core::Result<f64>;
+    fn ThumbstickY(&mut self) -> ::windows::core::Result<f64>;
+    fn TouchpadX(&mut self) -> ::windows::core::Result<f64>;
+    fn TouchpadY(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialInteractionControllerProperties {
@@ -751,9 +751,9 @@ impl ISpatialInteractionControllerPropertiesVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionDetectedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetPointerPose(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
-    fn Interaction(&self) -> ::windows::core::Result<SpatialInteraction>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetPointerPose(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn Interaction(&mut self) -> ::windows::core::Result<SpatialInteraction>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionDetectedEventArgs {
@@ -808,7 +808,7 @@ impl ISpatialInteractionDetectedEventArgsVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionDetectedEventArgs2Impl: Sized + ISpatialInteractionDetectedEventArgsImpl {
-    fn InteractionSource(&self) -> ::windows::core::Result<SpatialInteractionSource>;
+    fn InteractionSource(&mut self) -> ::windows::core::Result<SpatialInteractionSource>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionDetectedEventArgs2 {
@@ -839,19 +839,19 @@ impl ISpatialInteractionDetectedEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionManagerImpl: Sized {
-    fn SourceDetected(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourceDetected(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SourceLost(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourceLost(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SourceUpdated(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourceUpdated(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SourcePressed(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourcePressed(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SourceReleased(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSourceReleased(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn InteractionDetected(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveInteractionDetected(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetDetectedSourcesAtTimestamp(&self, timestamp: &::core::option::Option<super::super::super::Perception::PerceptionTimestamp>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>;
+    fn SourceDetected(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourceDetected(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SourceLost(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourceLost(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SourceUpdated(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourceUpdated(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SourcePressed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourcePressed(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SourceReleased(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSourceReleased(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn InteractionDetected(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveInteractionDetected(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetDetectedSourcesAtTimestamp(&mut self, timestamp: &::core::option::Option<super::super::super::Perception::PerceptionTimestamp>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionManager {
@@ -984,7 +984,7 @@ impl ISpatialInteractionManagerVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialInteractionManagerStaticsImpl: Sized {
-    fn GetForCurrentView(&self) -> ::windows::core::Result<SpatialInteractionManager>;
+    fn GetForCurrentView(&mut self) -> ::windows::core::Result<SpatialInteractionManager>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialInteractionManagerStatics {
@@ -1015,7 +1015,7 @@ impl ISpatialInteractionManagerStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialInteractionManagerStatics2Impl: Sized {
-    fn IsSourceKindSupported(&self, kind: SpatialInteractionSourceKind) -> ::windows::core::Result<bool>;
+    fn IsSourceKindSupported(&mut self, kind: SpatialInteractionSourceKind) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialInteractionManagerStatics2 {
@@ -1046,8 +1046,8 @@ impl ISpatialInteractionManagerStatics2Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialInteractionSourceImpl: Sized {
-    fn Id(&self) -> ::windows::core::Result<u32>;
-    fn Kind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn Id(&mut self) -> ::windows::core::Result<u32>;
+    fn Kind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialInteractionSource {
@@ -1090,11 +1090,11 @@ impl ISpatialInteractionSourceVtbl {
 }
 #[cfg(all(feature = "Perception", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSource2Impl: Sized + ISpatialInteractionSourceImpl {
-    fn IsPointingSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsMenuSupported(&self) -> ::windows::core::Result<bool>;
-    fn IsGraspSupported(&self) -> ::windows::core::Result<bool>;
-    fn Controller(&self) -> ::windows::core::Result<SpatialInteractionController>;
-    fn TryGetStateAtTimestamp(&self, timestamp: &::core::option::Option<super::super::super::Perception::PerceptionTimestamp>) -> ::windows::core::Result<SpatialInteractionSourceState>;
+    fn IsPointingSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsMenuSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn IsGraspSupported(&mut self) -> ::windows::core::Result<bool>;
+    fn Controller(&mut self) -> ::windows::core::Result<SpatialInteractionController>;
+    fn TryGetStateAtTimestamp(&mut self, timestamp: &::core::option::Option<super::super::super::Perception::PerceptionTimestamp>) -> ::windows::core::Result<SpatialInteractionSourceState>;
 }
 #[cfg(all(feature = "Perception", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSource2 {
@@ -1173,7 +1173,7 @@ impl ISpatialInteractionSource2Vtbl {
 }
 #[cfg(all(feature = "Perception", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSource3Impl: Sized + ISpatialInteractionSourceImpl + ISpatialInteractionSource2Impl {
-    fn Handedness(&self) -> ::windows::core::Result<SpatialInteractionSourceHandedness>;
+    fn Handedness(&mut self) -> ::windows::core::Result<SpatialInteractionSourceHandedness>;
 }
 #[cfg(all(feature = "Perception", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSource3 {
@@ -1201,8 +1201,8 @@ impl ISpatialInteractionSource3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Perception_People", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSource4Impl: Sized {
-    fn TryCreateHandMeshObserver(&self) -> ::windows::core::Result<super::super::super::Perception::People::HandMeshObserver>;
-    fn TryCreateHandMeshObserverAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>>;
+    fn TryCreateHandMeshObserver(&mut self) -> ::windows::core::Result<super::super::super::Perception::People::HandMeshObserver>;
+    fn TryCreateHandMeshObserverAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Perception_People", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSource4 {
@@ -1245,7 +1245,7 @@ impl ISpatialInteractionSource4Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialInteractionSourceEventArgsImpl: Sized {
-    fn State(&self) -> ::windows::core::Result<SpatialInteractionSourceState>;
+    fn State(&mut self) -> ::windows::core::Result<SpatialInteractionSourceState>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceEventArgs {
@@ -1273,7 +1273,7 @@ impl ISpatialInteractionSourceEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialInteractionSourceEventArgs2Impl: Sized + ISpatialInteractionSourceEventArgsImpl {
-    fn PressKind(&self) -> ::windows::core::Result<SpatialInteractionPressKind>;
+    fn PressKind(&mut self) -> ::windows::core::Result<SpatialInteractionPressKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceEventArgs2 {
@@ -1304,8 +1304,8 @@ impl ISpatialInteractionSourceEventArgs2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSourceLocationImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
-    fn Velocity(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
+    fn Velocity(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceLocation {
@@ -1348,7 +1348,7 @@ impl ISpatialInteractionSourceLocationVtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSourceLocation2Impl: Sized {
-    fn Orientation(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>>;
+    fn Orientation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceLocation2 {
@@ -1379,9 +1379,9 @@ impl ISpatialInteractionSourceLocation2Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSourceLocation3Impl: Sized + ISpatialInteractionSourceLocation2Impl {
-    fn PositionAccuracy(&self) -> ::windows::core::Result<SpatialInteractionSourcePositionAccuracy>;
-    fn AngularVelocity(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
-    fn SourcePointerPose(&self) -> ::windows::core::Result<SpatialPointerInteractionSourcePose>;
+    fn PositionAccuracy(&mut self) -> ::windows::core::Result<SpatialInteractionSourcePositionAccuracy>;
+    fn AngularVelocity(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
+    fn SourcePointerPose(&mut self) -> ::windows::core::Result<SpatialPointerInteractionSourcePose>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceLocation3 {
@@ -1436,9 +1436,9 @@ impl ISpatialInteractionSourceLocation3Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSourcePropertiesImpl: Sized {
-    fn TryGetSourceLossMitigationDirection(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
-    fn SourceLossRisk(&self) -> ::windows::core::Result<f64>;
-    fn TryGetLocation(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialInteractionSourceLocation>;
+    fn TryGetSourceLossMitigationDirection(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
+    fn SourceLossRisk(&mut self) -> ::windows::core::Result<f64>;
+    fn TryGetLocation(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialInteractionSourceLocation>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceProperties {
@@ -1493,11 +1493,11 @@ impl ISpatialInteractionSourcePropertiesVtbl {
 }
 #[cfg(all(feature = "Perception", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSourceStateImpl: Sized {
-    fn Source(&self) -> ::windows::core::Result<SpatialInteractionSource>;
-    fn Properties(&self) -> ::windows::core::Result<SpatialInteractionSourceProperties>;
-    fn IsPressed(&self) -> ::windows::core::Result<bool>;
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Perception::PerceptionTimestamp>;
-    fn TryGetPointerPose(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn Source(&mut self) -> ::windows::core::Result<SpatialInteractionSource>;
+    fn Properties(&mut self) -> ::windows::core::Result<SpatialInteractionSourceProperties>;
+    fn IsPressed(&mut self) -> ::windows::core::Result<bool>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Perception::PerceptionTimestamp>;
+    fn TryGetPointerPose(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
 }
 #[cfg(all(feature = "Perception", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceState {
@@ -1576,11 +1576,11 @@ impl ISpatialInteractionSourceStateVtbl {
 }
 #[cfg(all(feature = "Perception", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSourceState2Impl: Sized + ISpatialInteractionSourceStateImpl {
-    fn IsSelectPressed(&self) -> ::windows::core::Result<bool>;
-    fn IsMenuPressed(&self) -> ::windows::core::Result<bool>;
-    fn IsGrasped(&self) -> ::windows::core::Result<bool>;
-    fn SelectPressedValue(&self) -> ::windows::core::Result<f64>;
-    fn ControllerProperties(&self) -> ::windows::core::Result<SpatialInteractionControllerProperties>;
+    fn IsSelectPressed(&mut self) -> ::windows::core::Result<bool>;
+    fn IsMenuPressed(&mut self) -> ::windows::core::Result<bool>;
+    fn IsGrasped(&mut self) -> ::windows::core::Result<bool>;
+    fn SelectPressedValue(&mut self) -> ::windows::core::Result<f64>;
+    fn ControllerProperties(&mut self) -> ::windows::core::Result<SpatialInteractionControllerProperties>;
 }
 #[cfg(all(feature = "Perception", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceState2 {
@@ -1659,7 +1659,7 @@ impl ISpatialInteractionSourceState2Vtbl {
 }
 #[cfg(all(feature = "Perception", feature = "Perception_People", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialInteractionSourceState3Impl: Sized + ISpatialInteractionSourceStateImpl + ISpatialInteractionSourceState2Impl {
-    fn TryGetHandPose(&self) -> ::windows::core::Result<super::super::super::Perception::People::HandPose>;
+    fn TryGetHandPose(&mut self) -> ::windows::core::Result<super::super::super::Perception::People::HandPose>;
 }
 #[cfg(all(feature = "Perception", feature = "Perception_People", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialInteractionSourceState3 {
@@ -1690,7 +1690,7 @@ impl ISpatialInteractionSourceState3Vtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialManipulationCanceledEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialManipulationCanceledEventArgs {
@@ -1721,8 +1721,8 @@ impl ISpatialManipulationCanceledEventArgsVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialManipulationCompletedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetCumulativeDelta(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialManipulationDelta>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetCumulativeDelta(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialManipulationDelta>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialManipulationCompletedEventArgs {
@@ -1765,7 +1765,7 @@ impl ISpatialManipulationCompletedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialManipulationDeltaImpl: Sized {
-    fn Translation(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn Translation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialManipulationDelta {
@@ -1796,8 +1796,8 @@ impl ISpatialManipulationDeltaVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialManipulationStartedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetPointerPose(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetPointerPose(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialManipulationStartedEventArgs {
@@ -1840,8 +1840,8 @@ impl ISpatialManipulationStartedEventArgsVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialManipulationUpdatedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetCumulativeDelta(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialManipulationDelta>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetCumulativeDelta(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialManipulationDelta>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialManipulationUpdatedEventArgs {
@@ -1884,7 +1884,7 @@ impl ISpatialManipulationUpdatedEventArgsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialNavigationCanceledEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialNavigationCanceledEventArgs {
@@ -1915,8 +1915,8 @@ impl ISpatialNavigationCanceledEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialNavigationCompletedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn NormalizedOffset(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn NormalizedOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialNavigationCompletedEventArgs {
@@ -1959,11 +1959,11 @@ impl ISpatialNavigationCompletedEventArgsVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialNavigationStartedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetPointerPose(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
-    fn IsNavigatingX(&self) -> ::windows::core::Result<bool>;
-    fn IsNavigatingY(&self) -> ::windows::core::Result<bool>;
-    fn IsNavigatingZ(&self) -> ::windows::core::Result<bool>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetPointerPose(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn IsNavigatingX(&mut self) -> ::windows::core::Result<bool>;
+    fn IsNavigatingY(&mut self) -> ::windows::core::Result<bool>;
+    fn IsNavigatingZ(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialNavigationStartedEventArgs {
@@ -2042,8 +2042,8 @@ impl ISpatialNavigationStartedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialNavigationUpdatedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn NormalizedOffset(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn NormalizedOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialNavigationUpdatedEventArgs {
@@ -2086,9 +2086,9 @@ impl ISpatialNavigationUpdatedEventArgsVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialPointerInteractionSourcePoseImpl: Sized {
-    fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn ForwardDirection(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
-    fn UpDirection(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn ForwardDirection(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
+    fn UpDirection(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialPointerInteractionSourcePose {
@@ -2143,8 +2143,8 @@ impl ISpatialPointerInteractionSourcePoseVtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 pub trait ISpatialPointerInteractionSourcePose2Impl: Sized + ISpatialPointerInteractionSourcePoseImpl {
-    fn Orientation(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Quaternion>;
-    fn PositionAccuracy(&self) -> ::windows::core::Result<SpatialInteractionSourcePositionAccuracy>;
+    fn Orientation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Quaternion>;
+    fn PositionAccuracy(&mut self) -> ::windows::core::Result<SpatialInteractionSourcePositionAccuracy>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialPointerInteractionSourcePose2 {
@@ -2187,8 +2187,8 @@ impl ISpatialPointerInteractionSourcePose2Vtbl {
 }
 #[cfg(all(feature = "Perception", feature = "Perception_People", feature = "implement_exclusive"))]
 pub trait ISpatialPointerPoseImpl: Sized {
-    fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Perception::PerceptionTimestamp>;
-    fn Head(&self) -> ::windows::core::Result<super::super::super::Perception::People::HeadPose>;
+    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Perception::PerceptionTimestamp>;
+    fn Head(&mut self) -> ::windows::core::Result<super::super::super::Perception::People::HeadPose>;
 }
 #[cfg(all(feature = "Perception", feature = "Perception_People", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialPointerPose {
@@ -2231,7 +2231,7 @@ impl ISpatialPointerPoseVtbl {
 }
 #[cfg(all(feature = "Perception", feature = "Perception_People", feature = "implement_exclusive"))]
 pub trait ISpatialPointerPose2Impl: Sized + ISpatialPointerPoseImpl {
-    fn TryGetInteractionSourcePose(&self, source: &::core::option::Option<SpatialInteractionSource>) -> ::windows::core::Result<SpatialPointerInteractionSourcePose>;
+    fn TryGetInteractionSourcePose(&mut self, source: &::core::option::Option<SpatialInteractionSource>) -> ::windows::core::Result<SpatialPointerInteractionSourcePose>;
 }
 #[cfg(all(feature = "Perception", feature = "Perception_People", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialPointerPose2 {
@@ -2262,8 +2262,8 @@ impl ISpatialPointerPose2Vtbl {
 }
 #[cfg(all(feature = "Perception_People", feature = "implement_exclusive"))]
 pub trait ISpatialPointerPose3Impl: Sized {
-    fn Eyes(&self) -> ::windows::core::Result<super::super::super::Perception::People::EyesPose>;
-    fn IsHeadCapturedBySystem(&self) -> ::windows::core::Result<bool>;
+    fn Eyes(&mut self) -> ::windows::core::Result<super::super::super::Perception::People::EyesPose>;
+    fn IsHeadCapturedBySystem(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Perception_People", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialPointerPose3 {
@@ -2306,7 +2306,7 @@ impl ISpatialPointerPose3Vtbl {
 }
 #[cfg(all(feature = "Perception", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialPointerPoseStaticsImpl: Sized {
-    fn TryGetAtTimestamp(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>, timestamp: &::core::option::Option<super::super::super::Perception::PerceptionTimestamp>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn TryGetAtTimestamp(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>, timestamp: &::core::option::Option<super::super::super::Perception::PerceptionTimestamp>) -> ::windows::core::Result<SpatialPointerPose>;
 }
 #[cfg(all(feature = "Perception", feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialPointerPoseStatics {
@@ -2337,7 +2337,7 @@ impl ISpatialPointerPoseStaticsVtbl {
 }
 #[cfg(feature = "implement_exclusive")]
 pub trait ISpatialRecognitionEndedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
 }
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISpatialRecognitionEndedEventArgs {
@@ -2368,9 +2368,9 @@ impl ISpatialRecognitionEndedEventArgsVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialRecognitionStartedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetPointerPose(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
-    fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> ::windows::core::Result<bool>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetPointerPose(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn IsGesturePossible(&mut self, gesture: SpatialGestureSettings) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialRecognitionStartedEventArgs {
@@ -2425,9 +2425,9 @@ impl ISpatialRecognitionStartedEventArgsVtbl {
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 pub trait ISpatialTappedEventArgsImpl: Sized {
-    fn InteractionSourceKind(&self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
-    fn TryGetPointerPose(&self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
-    fn TapCount(&self) -> ::windows::core::Result<u32>;
+    fn InteractionSourceKind(&mut self) -> ::windows::core::Result<SpatialInteractionSourceKind>;
+    fn TryGetPointerPose(&mut self, coordinatesystem: &::core::option::Option<super::super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialPointerPose>;
+    fn TapCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Perception_Spatial", feature = "implement_exclusive"))]
 impl ::windows::core::RuntimeName for ISpatialTappedEventArgs {
