@@ -397,6 +397,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 
         quote! { (#this #(#params),*) -> ::windows::core::Result<#return_sig> }
     } else {
+         TODO: need to handle the various win32 function kinds here (generics can't be generic)
         quote!{
             ()
         }
