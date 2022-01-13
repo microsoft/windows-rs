@@ -15,5 +15,19 @@
 2. Create a new GitHub release, create a tag, and generate release notes
 4. Cargo publish
 5. Update all samples to point at new version of crate
-6. Generate new documentation for `windows` locally
+6. Generate new documentation for `windows` locally (see "building documentation")
 7. Push the generated `windows` docs to GitHub pages
+
+## Building documentation
+
+1. Clone the `windows-rs` docs repo
+2. Delete all contents in the repo
+3. In the `windows-rs` repo build the docs with the following command:
+
+```powershell
+C:\git\windows-rs> cargo doc -p windows --all-features --no-deps --target-dir d:\git\docs-rs\docs
+```
+
+## References
+
+- [windows-rs docs repo](https://github.com/microsoft/windows-docs-rs)
