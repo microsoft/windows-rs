@@ -47,8 +47,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         let invoke_upcall = if def.is_winrt() {
              gen_winrt_upcall(&signature, quote! { (*this).#name }, gen)
         } else {
-             TODO: need a win32 upcall
-            quote! { panic!() } 
+            gen_win32_upcall(&signature, quote! { (*this).#name })
         };
 
         quote! {

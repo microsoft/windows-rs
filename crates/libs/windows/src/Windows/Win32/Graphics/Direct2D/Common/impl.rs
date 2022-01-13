@@ -1,41 +1,41 @@
 pub trait ID2D1SimplifiedGeometrySinkImpl: Sized {
-    fn SetFillMode();
-    fn SetSegmentFlags();
-    fn BeginFigure();
-    fn AddLines();
-    fn AddBeziers();
-    fn EndFigure();
-    fn Close();
+    fn SetFillMode(&mut self, fillmode: D2D1_FILL_MODE);
+    fn SetSegmentFlags(&mut self, vertexflags: D2D1_PATH_SEGMENT);
+    fn BeginFigure(&mut self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN);
+    fn AddLines(&mut self, points: *const D2D_POINT_2F, pointscount: u32);
+    fn AddBeziers(&mut self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32);
+    fn EndFigure(&mut self, figureend: D2D1_FIGURE_END);
+    fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 impl ID2D1SimplifiedGeometrySinkVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID2D1SimplifiedGeometrySinkVtbl {
         unsafe extern "system" fn SetFillMode<Impl: ID2D1SimplifiedGeometrySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetFillMode(::core::mem::transmute_copy(&fillmode))
         }
         unsafe extern "system" fn SetSegmentFlags<Impl: ID2D1SimplifiedGeometrySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSegmentFlags(::core::mem::transmute_copy(&vertexflags))
         }
         unsafe extern "system" fn BeginFigure<Impl: ID2D1SimplifiedGeometrySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginFigure(::core::mem::transmute_copy(&startpoint), ::core::mem::transmute_copy(&figurebegin))
         }
         unsafe extern "system" fn AddLines<Impl: ID2D1SimplifiedGeometrySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddLines(::core::mem::transmute_copy(&points), ::core::mem::transmute_copy(&pointscount))
         }
         unsafe extern "system" fn AddBeziers<Impl: ID2D1SimplifiedGeometrySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddBeziers(::core::mem::transmute_copy(&beziers), ::core::mem::transmute_copy(&bezierscount))
         }
         unsafe extern "system" fn EndFigure<Impl: ID2D1SimplifiedGeometrySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EndFigure(::core::mem::transmute_copy(&figureend))
         }
         unsafe extern "system" fn Close<Impl: ID2D1SimplifiedGeometrySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),

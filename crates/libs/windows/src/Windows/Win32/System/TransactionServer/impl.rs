@@ -1,28 +1,40 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogImpl: Sized + IDispatchImpl {
-    fn GetCollection();
-    fn Connect();
-    fn MajorVersion();
-    fn MinorVersion();
+    fn GetCollection(&mut self, bstrcollname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Connect(&mut self, bstrconnectstring: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn MajorVersion(&mut self, retval: *mut i32) -> ::windows::core::Result<()>;
+    fn MinorVersion(&mut self, retval: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICatalogVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICatalogVtbl {
         unsafe extern "system" fn GetCollection<Impl: ICatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppcatalogcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCollection(::core::mem::transmute_copy(&bstrcollname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Connect<Impl: ICatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppcatalogcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Connect(::core::mem::transmute_copy(&bstrconnectstring)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MajorVersion<Impl: ICatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MajorVersion(::core::mem::transmute_copy(&retval)).into()
         }
         unsafe extern "system" fn MinorVersion<Impl: ICatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MinorVersion(::core::mem::transmute_copy(&retval)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -38,29 +50,29 @@ impl ICatalogVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComponentUtilImpl: Sized + IDispatchImpl {
-    fn InstallComponent();
-    fn ImportComponent();
-    fn ImportComponentByName();
-    fn GetCLSIDs();
+    fn InstallComponent(&mut self, bstrdllfile: super::super::Foundation::BSTR, bstrtypelibfile: super::super::Foundation::BSTR, bstrproxystubdllfile: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ImportComponent(&mut self, bstrclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ImportComponentByName(&mut self, bstrprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetCLSIDs(&mut self, bstrdllfile: super::super::Foundation::BSTR, bstrtypelibfile: super::super::Foundation::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComponentUtilVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentUtilImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentUtilVtbl {
         unsafe extern "system" fn InstallComponent<Impl: IComponentUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrtypelibfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrproxystubdllfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallComponent(::core::mem::transmute_copy(&bstrdllfile), ::core::mem::transmute_copy(&bstrtypelibfile), ::core::mem::transmute_copy(&bstrproxystubdllfile)).into()
         }
         unsafe extern "system" fn ImportComponent<Impl: IComponentUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ImportComponent(::core::mem::transmute_copy(&bstrclsid)).into()
         }
         unsafe extern "system" fn ImportComponentByName<Impl: IComponentUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ImportComponentByName(::core::mem::transmute_copy(&bstrprogid)).into()
         }
         unsafe extern "system" fn GetCLSIDs<Impl: IComponentUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrtypelibfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetCLSIDs(::core::mem::transmute_copy(&bstrdllfile), ::core::mem::transmute_copy(&bstrtypelibfile), ::core::mem::transmute_copy(&aclsids)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -76,24 +88,24 @@ impl IComponentUtilVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPackageUtilImpl: Sized + IDispatchImpl {
-    fn InstallPackage();
-    fn ExportPackage();
-    fn ShutdownPackage();
+    fn InstallPackage(&mut self, bstrpackagefile: super::super::Foundation::BSTR, bstrinstallpath: super::super::Foundation::BSTR, loptions: i32) -> ::windows::core::Result<()>;
+    fn ExportPackage(&mut self, bstrpackageid: super::super::Foundation::BSTR, bstrpackagefile: super::super::Foundation::BSTR, loptions: i32) -> ::windows::core::Result<()>;
+    fn ShutdownPackage(&mut self, bstrpackageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPackageUtilVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPackageUtilImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPackageUtilVtbl {
         unsafe extern "system" fn InstallPackage<Impl: IPackageUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackagefile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrinstallpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallPackage(::core::mem::transmute_copy(&bstrpackagefile), ::core::mem::transmute_copy(&bstrinstallpath), ::core::mem::transmute_copy(&loptions)).into()
         }
         unsafe extern "system" fn ExportPackage<Impl: IPackageUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpackagefile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ExportPackage(::core::mem::transmute_copy(&bstrpackageid), ::core::mem::transmute_copy(&bstrpackagefile), ::core::mem::transmute_copy(&loptions)).into()
         }
         unsafe extern "system" fn ShutdownPackage<Impl: IPackageUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ShutdownPackage(::core::mem::transmute_copy(&bstrpackageid)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -108,19 +120,19 @@ impl IPackageUtilVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRemoteComponentUtilImpl: Sized + IDispatchImpl {
-    fn InstallRemoteComponent();
-    fn InstallRemoteComponentByName();
+    fn InstallRemoteComponent(&mut self, bstrserver: super::super::Foundation::BSTR, bstrpackageid: super::super::Foundation::BSTR, bstrclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallRemoteComponentByName(&mut self, bstrserver: super::super::Foundation::BSTR, bstrpackagename: super::super::Foundation::BSTR, bstrprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteComponentUtilVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteComponentUtilImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteComponentUtilVtbl {
         unsafe extern "system" fn InstallRemoteComponent<Impl: IRemoteComponentUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpackageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallRemoteComponent(::core::mem::transmute_copy(&bstrserver), ::core::mem::transmute_copy(&bstrpackageid), ::core::mem::transmute_copy(&bstrclsid)).into()
         }
         unsafe extern "system" fn InstallRemoteComponentByName<Impl: IRemoteComponentUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpackagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallRemoteComponentByName(::core::mem::transmute_copy(&bstrserver), ::core::mem::transmute_copy(&bstrpackagename), ::core::mem::transmute_copy(&bstrprogid)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -134,19 +146,19 @@ impl IRemoteComponentUtilVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRoleAssociationUtilImpl: Sized + IDispatchImpl {
-    fn AssociateRole();
-    fn AssociateRoleByName();
+    fn AssociateRole(&mut self, bstrroleid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AssociateRoleByName(&mut self, bstrrolename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRoleAssociationUtilVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRoleAssociationUtilImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRoleAssociationUtilVtbl {
         unsafe extern "system" fn AssociateRole<Impl: IRoleAssociationUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AssociateRole(::core::mem::transmute_copy(&bstrroleid)).into()
         }
         unsafe extern "system" fn AssociateRoleByName<Impl: IRoleAssociationUtilImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AssociateRoleByName(::core::mem::transmute_copy(&bstrrolename)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),

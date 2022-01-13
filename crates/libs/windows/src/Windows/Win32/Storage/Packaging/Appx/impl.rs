@@ -1,16 +1,22 @@
 pub trait IAppxBlockMapBlockImpl: Sized {
-    fn GetHash();
-    fn GetCompressedSize();
+    fn GetHash(&mut self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn GetCompressedSize(&mut self) -> ::windows::core::Result<u32>;
 }
 impl IAppxBlockMapBlockVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBlockMapBlockImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBlockMapBlockVtbl {
         unsafe extern "system" fn GetHash<Impl: IAppxBlockMapBlockImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetHash(::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&buffer)).into()
         }
         unsafe extern "system" fn GetCompressedSize<Impl: IAppxBlockMapBlockImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCompressedSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *size = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -24,24 +30,42 @@ impl IAppxBlockMapBlockVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBlockMapBlocksEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBlockMapBlock>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBlockMapBlocksEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBlockMapBlocksEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBlockMapBlocksEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxBlockMapBlocksEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, block: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *block = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxBlockMapBlocksEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxBlockMapBlocksEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -56,34 +80,64 @@ impl IAppxBlockMapBlocksEnumeratorVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBlockMapFileImpl: Sized {
-    fn GetBlocks();
-    fn GetLocalFileHeaderSize();
-    fn GetName();
-    fn GetUncompressedSize();
-    fn ValidateFileHash();
+    fn GetBlocks(&mut self) -> ::windows::core::Result<IAppxBlockMapBlocksEnumerator>;
+    fn GetLocalFileHeaderSize(&mut self) -> ::windows::core::Result<u32>;
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetUncompressedSize(&mut self) -> ::windows::core::Result<u64>;
+    fn ValidateFileHash(&mut self, filestream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBlockMapFileVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBlockMapFileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBlockMapFileVtbl {
         unsafe extern "system" fn GetBlocks<Impl: IAppxBlockMapFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blocks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetBlocks() {
+                ::core::result::Result::Ok(ok__) => {
+                    *blocks = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetLocalFileHeaderSize<Impl: IAppxBlockMapFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfhsize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetLocalFileHeaderSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *lfhsize = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetName<Impl: IAppxBlockMapFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetUncompressedSize<Impl: IAppxBlockMapFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetUncompressedSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *size = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ValidateFileHash<Impl: IAppxBlockMapFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filestream: ::windows::core::RawPtr, isvalid: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ValidateFileHash(::core::mem::transmute(&filestream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *isvalid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -100,24 +154,42 @@ impl IAppxBlockMapFileVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBlockMapFilesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBlockMapFile>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBlockMapFilesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBlockMapFilesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBlockMapFilesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxBlockMapFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *file = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxBlockMapFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxBlockMapFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -132,29 +204,53 @@ impl IAppxBlockMapFilesEnumeratorVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBlockMapReaderImpl: Sized {
-    fn GetFile();
-    fn GetFiles();
-    fn GetHashMethod();
-    fn GetStream();
+    fn GetFile(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxBlockMapFile>;
+    fn GetFiles(&mut self) -> ::windows::core::Result<IAppxBlockMapFilesEnumerator>;
+    fn GetHashMethod(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IUri>;
+    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBlockMapReaderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBlockMapReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBlockMapReaderVtbl {
         unsafe extern "system" fn GetFile<Impl: IAppxBlockMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFile(::core::mem::transmute_copy(&filename)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *file = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFiles<Impl: IAppxBlockMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFiles() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enumerator = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHashMethod<Impl: IAppxBlockMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hashmethod: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHashMethod() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hashmethod = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStream<Impl: IAppxBlockMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blockmapstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStream() {
+                ::core::result::Result::Ok(ok__) => {
+                    *blockmapstream = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -170,24 +266,42 @@ impl IAppxBlockMapReaderVtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleFactoryImpl: Sized {
-    fn CreateBundleWriter();
-    fn CreateBundleReader();
-    fn CreateBundleManifestReader();
+    fn CreateBundleWriter(&mut self, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64) -> ::windows::core::Result<IAppxBundleWriter>;
+    fn CreateBundleReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBundleReader>;
+    fn CreateBundleManifestReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBundleManifestReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleFactoryVtbl {
         unsafe extern "system" fn CreateBundleWriter<Impl: IAppxBundleFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, bundleversion: u64, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateBundleWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&bundleversion)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *bundlewriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateBundleReader<Impl: IAppxBundleFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, bundlereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateBundleReader(::core::mem::transmute(&inputstream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *bundlereader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateBundleManifestReader<Impl: IAppxBundleFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateBundleManifestReader(::core::mem::transmute(&inputstream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -202,24 +316,42 @@ impl IAppxBundleFactoryVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestOptionalBundleInfoImpl: Sized {
-    fn GetPackageId();
-    fn GetFileName();
-    fn GetPackageInfoItems();
+    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetFileName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPackageInfoItems(&mut self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestOptionalBundleInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestOptionalBundleInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestOptionalBundleInfoVtbl {
         unsafe extern "system" fn GetPackageId<Impl: IAppxBundleManifestOptionalBundleInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFileName<Impl: IAppxBundleManifestOptionalBundleInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFileName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *filename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageInfoItems<Impl: IAppxBundleManifestOptionalBundleInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageinfoitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageInfoItems() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageinfoitems = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -234,24 +366,42 @@ impl IAppxBundleManifestOptionalBundleInfoVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestOptionalBundleInfoEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfo>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestOptionalBundleInfoEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestOptionalBundleInfoEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestOptionalBundleInfoEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxBundleManifestOptionalBundleInfoEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionalbundle: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *optionalbundle = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxBundleManifestOptionalBundleInfoEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxBundleManifestOptionalBundleInfoEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -266,39 +416,75 @@ impl IAppxBundleManifestOptionalBundleInfoEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfoImpl: Sized {
-    fn GetPackageType();
-    fn GetPackageId();
-    fn GetFileName();
-    fn GetOffset();
-    fn GetSize();
-    fn GetResources();
+    fn GetPackageType(&mut self) -> ::windows::core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>;
+    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetFileName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetOffset(&mut self) -> ::windows::core::Result<u64>;
+    fn GetSize(&mut self) -> ::windows::core::Result<u64>;
+    fn GetResources(&mut self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestPackageInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestPackageInfoVtbl {
         unsafe extern "system" fn GetPackageType<Impl: IAppxBundleManifestPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagetype: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageType() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagetype = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageId<Impl: IAppxBundleManifestPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFileName<Impl: IAppxBundleManifestPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFileName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *filename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetOffset<Impl: IAppxBundleManifestPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetOffset() {
+                ::core::result::Result::Ok(ok__) => {
+                    *offset = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSize<Impl: IAppxBundleManifestPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *size = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetResources<Impl: IAppxBundleManifestPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetResources() {
+                ::core::result::Result::Ok(ok__) => {
+                    *resources = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -316,24 +502,42 @@ impl IAppxBundleManifestPackageInfoVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfo2Impl: Sized {
-    fn GetIsPackageReference();
-    fn GetIsNonQualifiedResourcePackage();
-    fn GetIsDefaultApplicablePackage();
+    fn GetIsPackageReference(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsNonQualifiedResourcePackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsDefaultApplicablePackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfo2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestPackageInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestPackageInfo2Vtbl {
         unsafe extern "system" fn GetIsPackageReference<Impl: IAppxBundleManifestPackageInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ispackagereference: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIsPackageReference() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ispackagereference = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Impl: IAppxBundleManifestPackageInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIsNonQualifiedResourcePackage() {
+                ::core::result::Result::Ok(ok__) => {
+                    *isnonqualifiedresourcepackage = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIsDefaultApplicablePackage<Impl: IAppxBundleManifestPackageInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isdefaultapplicablepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIsDefaultApplicablePackage() {
+                ::core::result::Result::Ok(ok__) => {
+                    *isdefaultapplicablepackage = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -347,13 +551,19 @@ impl IAppxBundleManifestPackageInfo2Vtbl {
     }
 }
 pub trait IAppxBundleManifestPackageInfo3Impl: Sized {
-    fn GetTargetDeviceFamilies();
+    fn GetTargetDeviceFamilies(&mut self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
 impl IAppxBundleManifestPackageInfo3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestPackageInfo3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestPackageInfo3Vtbl {
         unsafe extern "system" fn GetTargetDeviceFamilies<Impl: IAppxBundleManifestPackageInfo3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetdevicefamilies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTargetDeviceFamilies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *targetdevicefamilies = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetTargetDeviceFamilies: GetTargetDeviceFamilies::<Impl, IMPL_OFFSET> }
     }
@@ -363,14 +573,20 @@ impl IAppxBundleManifestPackageInfo3Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfo4Impl: Sized {
-    fn GetIsStub();
+    fn GetIsStub(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfo4Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestPackageInfo4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestPackageInfo4Vtbl {
         unsafe extern "system" fn GetIsStub<Impl: IAppxBundleManifestPackageInfo4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isstub: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIsStub() {
+                ::core::result::Result::Ok(ok__) => {
+                    *isstub = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetIsStub: GetIsStub::<Impl, IMPL_OFFSET> }
     }
@@ -380,24 +596,42 @@ impl IAppxBundleManifestPackageInfo4Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfoEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBundleManifestPackageInfo>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfoEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestPackageInfoEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestPackageInfoEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxBundleManifestPackageInfoEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageinfo = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxBundleManifestPackageInfoEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxBundleManifestPackageInfoEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -412,24 +646,42 @@ impl IAppxBundleManifestPackageInfoEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleManifestReaderImpl: Sized {
-    fn GetPackageId();
-    fn GetPackageInfoItems();
-    fn GetStream();
+    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetPackageInfoItems(&mut self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator>;
+    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleManifestReaderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestReaderVtbl {
         unsafe extern "system" fn GetPackageId<Impl: IAppxBundleManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageInfoItems<Impl: IAppxBundleManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageinfoitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageInfoItems() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageinfoitems = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStream<Impl: IAppxBundleManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manifeststream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStream() {
+                ::core::result::Result::Ok(ok__) => {
+                    *manifeststream = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -443,13 +695,19 @@ impl IAppxBundleManifestReaderVtbl {
     }
 }
 pub trait IAppxBundleManifestReader2Impl: Sized {
-    fn GetOptionalBundles();
+    fn GetOptionalBundles(&mut self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator>;
 }
 impl IAppxBundleManifestReader2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestReader2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleManifestReader2Vtbl {
         unsafe extern "system" fn GetOptionalBundles<Impl: IAppxBundleManifestReader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionalbundles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetOptionalBundles() {
+                ::core::result::Result::Ok(ok__) => {
+                    *optionalbundles = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetOptionalBundles: GetOptionalBundles::<Impl, IMPL_OFFSET> }
     }
@@ -459,34 +717,64 @@ impl IAppxBundleManifestReader2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleReaderImpl: Sized {
-    fn GetFootprintFile();
-    fn GetBlockMap();
-    fn GetManifest();
-    fn GetPayloadPackages();
-    fn GetPayloadPackage();
+    fn GetFootprintFile(&mut self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile>;
+    fn GetBlockMap(&mut self) -> ::windows::core::Result<IAppxBlockMapReader>;
+    fn GetManifest(&mut self) -> ::windows::core::Result<IAppxBundleManifestReader>;
+    fn GetPayloadPackages(&mut self) -> ::windows::core::Result<IAppxFilesEnumerator>;
+    fn GetPayloadPackage(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxFile>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleReaderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleReaderVtbl {
         unsafe extern "system" fn GetFootprintFile<Impl: IAppxBundleReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE, footprintfile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFootprintFile(::core::mem::transmute_copy(&filetype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *footprintfile = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetBlockMap<Impl: IAppxBundleReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetBlockMap() {
+                ::core::result::Result::Ok(ok__) => {
+                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetManifest<Impl: IAppxBundleReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetManifest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPayloadPackages<Impl: IAppxBundleReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, payloadpackages: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPayloadPackages() {
+                ::core::result::Result::Ok(ok__) => {
+                    *payloadpackages = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPayloadPackage<Impl: IAppxBundleReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, payloadpackage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPayloadPackage(::core::mem::transmute_copy(&filename)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *payloadpackage = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -503,19 +791,19 @@ impl IAppxBundleReaderVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriterImpl: Sized {
-    fn AddPayloadPackage();
-    fn Close();
+    fn AddPayloadPackage(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleWriterVtbl {
         unsafe extern "system" fn AddPayloadPackage<Impl: IAppxBundleWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadPackage(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&packagestream)).into()
         }
         unsafe extern "system" fn Close<Impl: IAppxBundleWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -529,14 +817,14 @@ impl IAppxBundleWriterVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriter2Impl: Sized {
-    fn AddExternalPackageReference();
+    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriter2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleWriter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleWriter2Vtbl {
         unsafe extern "system" fn AddExternalPackageReference<Impl: IAppxBundleWriter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddExternalPackageReference(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&inputstream)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -549,19 +837,19 @@ impl IAppxBundleWriter2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriter3Impl: Sized {
-    fn AddPackageReference();
-    fn Close();
+    fn AddPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&mut self, hashmethodstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriter3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleWriter3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleWriter3Vtbl {
         unsafe extern "system" fn AddPackageReference<Impl: IAppxBundleWriter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPackageReference(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&inputstream)).into()
         }
         unsafe extern "system" fn Close<Impl: IAppxBundleWriter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hashmethodstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close(::core::mem::transmute_copy(&hashmethodstring)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -575,24 +863,24 @@ impl IAppxBundleWriter3Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriter4Impl: Sized {
-    fn AddPayloadPackage();
-    fn AddPackageReference();
-    fn AddExternalPackageReference();
+    fn AddPayloadPackage(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: ::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriter4Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleWriter4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxBundleWriter4Vtbl {
         unsafe extern "system" fn AddPayloadPackage<Impl: IAppxBundleWriter4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadPackage(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&packagestream), ::core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
         unsafe extern "system" fn AddPackageReference<Impl: IAppxBundleWriter4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPackageReference(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
         unsafe extern "system" fn AddExternalPackageReference<Impl: IAppxBundleWriter4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddExternalPackageReference(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -607,19 +895,31 @@ impl IAppxBundleWriter4Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupImpl: Sized {
-    fn GetName();
-    fn GetFiles();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetFiles(&mut self) -> ::windows::core::Result<IAppxContentGroupFilesEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxContentGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxContentGroupVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxContentGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, groupname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *groupname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFiles<Impl: IAppxContentGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFiles() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enumerator = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -633,24 +933,42 @@ impl IAppxContentGroupVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupFilesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupFilesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxContentGroupFilesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxContentGroupFilesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxContentGroupFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *file = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxContentGroupFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxContentGroupFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -664,18 +982,30 @@ impl IAppxContentGroupFilesEnumeratorVtbl {
     }
 }
 pub trait IAppxContentGroupMapReaderImpl: Sized {
-    fn GetRequiredGroup();
-    fn GetAutomaticGroups();
+    fn GetRequiredGroup(&mut self) -> ::windows::core::Result<IAppxContentGroup>;
+    fn GetAutomaticGroups(&mut self) -> ::windows::core::Result<IAppxContentGroupsEnumerator>;
 }
 impl IAppxContentGroupMapReaderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxContentGroupMapReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxContentGroupMapReaderVtbl {
         unsafe extern "system" fn GetRequiredGroup<Impl: IAppxContentGroupMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetRequiredGroup() {
+                ::core::result::Result::Ok(ok__) => {
+                    *requiredgroup = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetAutomaticGroups<Impl: IAppxContentGroupMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, automaticgroupsenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetAutomaticGroups() {
+                ::core::result::Result::Ok(ok__) => {
+                    *automaticgroupsenumerator = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -689,24 +1019,24 @@ impl IAppxContentGroupMapReaderVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupMapWriterImpl: Sized {
-    fn AddAutomaticGroup();
-    fn AddAutomaticFile();
-    fn Close();
+    fn AddAutomaticGroup(&mut self, groupname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddAutomaticFile(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupMapWriterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxContentGroupMapWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxContentGroupMapWriterVtbl {
         unsafe extern "system" fn AddAutomaticGroup<Impl: IAppxContentGroupMapWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, groupname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddAutomaticGroup(::core::mem::transmute_copy(&groupname)).into()
         }
         unsafe extern "system" fn AddAutomaticFile<Impl: IAppxContentGroupMapWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddAutomaticFile(::core::mem::transmute_copy(&filename)).into()
         }
         unsafe extern "system" fn Close<Impl: IAppxContentGroupMapWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -721,24 +1051,42 @@ impl IAppxContentGroupMapWriterVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupsEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxContentGroup>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupsEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxContentGroupsEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxContentGroupsEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxContentGroupsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *stream = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxContentGroupsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxContentGroupsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -753,19 +1101,19 @@ impl IAppxContentGroupsEnumeratorVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedBundleWriterImpl: Sized {
-    fn AddPayloadPackageEncrypted();
-    fn Close();
+    fn AddPayloadPackageEncrypted(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedBundleWriterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptedBundleWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptedBundleWriterVtbl {
         unsafe extern "system" fn AddPayloadPackageEncrypted<Impl: IAppxEncryptedBundleWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadPackageEncrypted(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&packagestream)).into()
         }
         unsafe extern "system" fn Close<Impl: IAppxEncryptedBundleWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -779,14 +1127,14 @@ impl IAppxEncryptedBundleWriterVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedBundleWriter2Impl: Sized {
-    fn AddExternalPackageReference();
+    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedBundleWriter2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptedBundleWriter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptedBundleWriter2Vtbl {
         unsafe extern "system" fn AddExternalPackageReference<Impl: IAppxEncryptedBundleWriter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddExternalPackageReference(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&inputstream)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -799,19 +1147,19 @@ impl IAppxEncryptedBundleWriter2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedBundleWriter3Impl: Sized {
-    fn AddPayloadPackageEncrypted();
-    fn AddExternalPackageReference();
+    fn AddPayloadPackageEncrypted(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: ::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedBundleWriter3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptedBundleWriter3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptedBundleWriter3Vtbl {
         unsafe extern "system" fn AddPayloadPackageEncrypted<Impl: IAppxEncryptedBundleWriter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadPackageEncrypted(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&packagestream), ::core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
         unsafe extern "system" fn AddExternalPackageReference<Impl: IAppxEncryptedBundleWriter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddExternalPackageReference(::core::mem::transmute_copy(&filename), ::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -825,19 +1173,19 @@ impl IAppxEncryptedBundleWriter3Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedPackageWriterImpl: Sized {
-    fn AddPayloadFileEncrypted();
-    fn Close();
+    fn AddPayloadFileEncrypted(&mut self, filename: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedPackageWriterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptedPackageWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptedPackageWriterVtbl {
         unsafe extern "system" fn AddPayloadFileEncrypted<Impl: IAppxEncryptedPackageWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadFileEncrypted(::core::mem::transmute_copy(&filename), ::core::mem::transmute_copy(&compressionoption), ::core::mem::transmute(&inputstream)).into()
         }
         unsafe extern "system" fn Close<Impl: IAppxEncryptedPackageWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -851,14 +1199,14 @@ impl IAppxEncryptedPackageWriterVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedPackageWriter2Impl: Sized {
-    fn AddPayloadFilesEncrypted();
+    fn AddPayloadFilesEncrypted(&mut self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedPackageWriter2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptedPackageWriter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptedPackageWriter2Vtbl {
         unsafe extern "system" fn AddPayloadFilesEncrypted<Impl: IAppxEncryptedPackageWriter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadFilesEncrypted(::core::mem::transmute_copy(&filecount), ::core::mem::transmute_copy(&payloadfiles), ::core::mem::transmute_copy(&memorylimit)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), AddPayloadFilesEncrypted: AddPayloadFilesEncrypted::<Impl, IMPL_OFFSET> }
     }
@@ -868,49 +1216,73 @@ impl IAppxEncryptedPackageWriter2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactoryImpl: Sized {
-    fn EncryptPackage();
-    fn DecryptPackage();
-    fn CreateEncryptedPackageWriter();
-    fn CreateEncryptedPackageReader();
-    fn EncryptBundle();
-    fn DecryptBundle();
-    fn CreateEncryptedBundleWriter();
-    fn CreateEncryptedBundleReader();
+    fn EncryptPackage(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn DecryptPackage(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
+    fn CreateEncryptedPackageWriter(&mut self, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
+    fn CreateEncryptedPackageReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxPackageReader>;
+    fn EncryptBundle(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn DecryptBundle(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
+    fn CreateEncryptedBundleWriter(&mut self, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>;
+    fn CreateEncryptedBundleReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxBundleReader>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptionFactoryVtbl {
         unsafe extern "system" fn EncryptPackage<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EncryptPackage(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)).into()
         }
         unsafe extern "system" fn DecryptPackage<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DecryptPackage(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&keyinfo)).into()
         }
         unsafe extern "system" fn CreateEncryptedPackageWriter<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateEncryptedPackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute(&manifeststream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateEncryptedPackageReader<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO, packagereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateEncryptedPackageReader(::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&keyinfo)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagereader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EncryptBundle<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EncryptBundle(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)).into()
         }
         unsafe extern "system" fn DecryptBundle<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DecryptBundle(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&keyinfo)).into()
         }
         unsafe extern "system" fn CreateEncryptedBundleWriter<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateEncryptedBundleWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&bundleversion), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *bundlewriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateEncryptedBundleReader<Impl: IAppxEncryptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO, bundlereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateEncryptedBundleReader(::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&keyinfo)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *bundlereader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -930,14 +1302,20 @@ impl IAppxEncryptionFactoryVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactory2Impl: Sized {
-    fn CreateEncryptedPackageWriter();
+    fn CreateEncryptedPackageWriter(&mut self, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: ::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmapstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactory2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptionFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptionFactory2Vtbl {
         unsafe extern "system" fn CreateEncryptedPackageWriter<Impl: IAppxEncryptionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, contentgroupmapstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateEncryptedPackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute(&manifeststream), ::core::mem::transmute(&contentgroupmapstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -950,29 +1328,41 @@ impl IAppxEncryptionFactory2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactory3Impl: Sized {
-    fn EncryptPackage();
-    fn CreateEncryptedPackageWriter();
-    fn EncryptBundle();
-    fn CreateEncryptedBundleWriter();
+    fn EncryptPackage(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn CreateEncryptedPackageWriter(&mut self, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: ::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmapstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
+    fn EncryptBundle(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn CreateEncryptedBundleWriter(&mut self, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactory3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptionFactory3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptionFactory3Vtbl {
         unsafe extern "system" fn EncryptPackage<Impl: IAppxEncryptionFactory3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EncryptPackage(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)).into()
         }
         unsafe extern "system" fn CreateEncryptedPackageWriter<Impl: IAppxEncryptionFactory3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, contentgroupmapstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateEncryptedPackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute(&manifeststream), ::core::mem::transmute(&contentgroupmapstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EncryptBundle<Impl: IAppxEncryptionFactory3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EncryptBundle(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)).into()
         }
         unsafe extern "system" fn CreateEncryptedBundleWriter<Impl: IAppxEncryptionFactory3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateEncryptedBundleWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&bundleversion), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *bundlewriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -988,14 +1378,14 @@ impl IAppxEncryptionFactory3Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactory4Impl: Sized {
-    fn EncryptPackage();
+    fn EncryptPackage(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactory4Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxEncryptionFactory4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxEncryptionFactory4Vtbl {
         unsafe extern "system" fn EncryptPackage<Impl: IAppxEncryptionFactory4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EncryptPackage(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles), ::core::mem::transmute_copy(&memorylimit)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), EncryptPackage: EncryptPackage::<Impl, IMPL_OFFSET> }
     }
@@ -1005,34 +1395,64 @@ impl IAppxEncryptionFactory4Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxFactoryImpl: Sized {
-    fn CreatePackageWriter();
-    fn CreatePackageReader();
-    fn CreateManifestReader();
-    fn CreateBlockMapReader();
-    fn CreateValidatedBlockMapReader();
+    fn CreatePackageWriter(&mut self, outputstream: ::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows::core::Result<IAppxPackageWriter>;
+    fn CreatePackageReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxPackageReader>;
+    fn CreateManifestReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxManifestReader>;
+    fn CreateBlockMapReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBlockMapReader>;
+    fn CreateValidatedBlockMapReader(&mut self, blockmapstream: ::core::option::Option<super::super::super::System::Com::IStream>, signaturefilename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxBlockMapReader>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxFactoryVtbl {
         unsafe extern "system" fn CreatePackageWriter<Impl: IAppxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, settings: *const APPX_PACKAGE_SETTINGS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreatePackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreatePackageReader<Impl: IAppxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, packagereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreatePackageReader(::core::mem::transmute(&inputstream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagereader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateManifestReader<Impl: IAppxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateManifestReader(::core::mem::transmute(&inputstream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateBlockMapReader<Impl: IAppxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateBlockMapReader(::core::mem::transmute(&inputstream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateValidatedBlockMapReader<Impl: IAppxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blockmapstream: ::windows::core::RawPtr, signaturefilename: super::super::super::Foundation::PWSTR, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateValidatedBlockMapReader(::core::mem::transmute(&blockmapstream), ::core::mem::transmute_copy(&signaturefilename)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1049,24 +1469,42 @@ impl IAppxFactoryVtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory2Impl: Sized {
-    fn CreateContentGroupMapReader();
-    fn CreateSourceContentGroupMapReader();
-    fn CreateContentGroupMapWriter();
+    fn CreateContentGroupMapReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxContentGroupMapReader>;
+    fn CreateSourceContentGroupMapReader(&mut self, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxSourceContentGroupMapReader>;
+    fn CreateContentGroupMapWriter(&mut self, stream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxContentGroupMapWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxFactory2Vtbl {
         unsafe extern "system" fn CreateContentGroupMapReader<Impl: IAppxFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, contentgroupmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateContentGroupMapReader(::core::mem::transmute(&inputstream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *contentgroupmapreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateSourceContentGroupMapReader<Impl: IAppxFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, reader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSourceContentGroupMapReader(::core::mem::transmute(&inputstream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *reader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateContentGroupMapWriter<Impl: IAppxFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, contentgroupmapwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateContentGroupMapWriter(::core::mem::transmute(&stream)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *contentgroupmapwriter = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1081,34 +1519,64 @@ impl IAppxFactory2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxFileImpl: Sized {
-    fn GetCompressionOption();
-    fn GetContentType();
-    fn GetName();
-    fn GetSize();
-    fn GetStream();
+    fn GetCompressionOption(&mut self) -> ::windows::core::Result<APPX_COMPRESSION_OPTION>;
+    fn GetContentType(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetSize(&mut self) -> ::windows::core::Result<u64>;
+    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxFileVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxFileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxFileVtbl {
         unsafe extern "system" fn GetCompressionOption<Impl: IAppxFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compressionoption: *mut APPX_COMPRESSION_OPTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCompressionOption() {
+                ::core::result::Result::Ok(ok__) => {
+                    *compressionoption = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetContentType<Impl: IAppxFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetContentType() {
+                ::core::result::Result::Ok(ok__) => {
+                    *contenttype = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetName<Impl: IAppxFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *filename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSize<Impl: IAppxFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *size = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStream<Impl: IAppxFileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStream() {
+                ::core::result::Result::Ok(ok__) => {
+                    *stream = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1125,24 +1593,42 @@ impl IAppxFileVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxFilesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxFile>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxFilesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxFilesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxFilesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *file = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxFilesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1157,19 +1643,31 @@ impl IAppxFilesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestApplicationImpl: Sized {
-    fn GetStringValue();
-    fn GetAppUserModelId();
+    fn GetStringValue(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetAppUserModelId(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestApplicationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestApplicationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestApplicationVtbl {
         unsafe extern "system" fn GetStringValue<Impl: IAppxManifestApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStringValue(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetAppUserModelId<Impl: IAppxManifestApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appusermodelid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetAppUserModelId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *appusermodelid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1183,24 +1681,42 @@ impl IAppxManifestApplicationVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestApplicationsEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestApplication>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestApplicationsEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestApplicationsEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestApplicationsEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestApplicationsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, application: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *application = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestApplicationsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestApplicationsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1215,24 +1731,42 @@ impl IAppxManifestApplicationsEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestCapabilitiesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestCapabilitiesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestCapabilitiesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestCapabilitiesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestCapabilitiesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capability: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *capability = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestCapabilitiesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestCapabilitiesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1247,24 +1781,42 @@ impl IAppxManifestCapabilitiesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDeviceCapabilitiesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDeviceCapabilitiesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestDeviceCapabilitiesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestDeviceCapabilitiesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestDeviceCapabilitiesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicecapability: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *devicecapability = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestDeviceCapabilitiesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestDeviceCapabilitiesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1279,24 +1831,42 @@ impl IAppxManifestDeviceCapabilitiesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverConstraintImpl: Sized {
-    fn GetName();
-    fn GetMinVersion();
-    fn GetMinDate();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
+    fn GetMinDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverConstraintVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestDriverConstraintImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestDriverConstraintVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxManifestDriverConstraintImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetMinVersion<Impl: IAppxManifestDriverConstraintImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMinVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *minversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetMinDate<Impl: IAppxManifestDriverConstraintImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mindate: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMinDate() {
+                ::core::result::Result::Ok(ok__) => {
+                    *mindate = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1311,24 +1881,42 @@ impl IAppxManifestDriverConstraintVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverConstraintsEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestDriverConstraint>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverConstraintsEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestDriverConstraintsEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestDriverConstraintsEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestDriverConstraintsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, driverconstraint: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *driverconstraint = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestDriverConstraintsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestDriverConstraintsEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1343,24 +1931,42 @@ impl IAppxManifestDriverConstraintsEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverDependenciesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestDriverDependency>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverDependenciesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestDriverDependenciesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestDriverDependenciesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestDriverDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, driverdependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *driverdependency = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestDriverDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestDriverDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1374,13 +1980,19 @@ impl IAppxManifestDriverDependenciesEnumeratorVtbl {
     }
 }
 pub trait IAppxManifestDriverDependencyImpl: Sized {
-    fn GetDriverConstraints();
+    fn GetDriverConstraints(&mut self) -> ::windows::core::Result<IAppxManifestDriverConstraintsEnumerator>;
 }
 impl IAppxManifestDriverDependencyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestDriverDependencyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestDriverDependencyVtbl {
         unsafe extern "system" fn GetDriverConstraints<Impl: IAppxManifestDriverDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, driverconstraints: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDriverConstraints() {
+                ::core::result::Result::Ok(ok__) => {
+                    *driverconstraints = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetDriverConstraints: GetDriverConstraints::<Impl, IMPL_OFFSET> }
     }
@@ -1390,24 +2002,42 @@ impl IAppxManifestDriverDependencyVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestHostRuntimeDependenciesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependency>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestHostRuntimeDependenciesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestHostRuntimeDependenciesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestHostRuntimeDependenciesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestHostRuntimeDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostruntimedependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hostruntimedependency = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestHostRuntimeDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestHostRuntimeDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1422,24 +2052,42 @@ impl IAppxManifestHostRuntimeDependenciesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestHostRuntimeDependencyImpl: Sized {
-    fn GetName();
-    fn GetPublisher();
-    fn GetMinVersion();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestHostRuntimeDependencyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestHostRuntimeDependencyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestHostRuntimeDependencyVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxManifestHostRuntimeDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPublisher<Impl: IAppxManifestHostRuntimeDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPublisher() {
+                ::core::result::Result::Ok(ok__) => {
+                    *publisher = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetMinVersion<Impl: IAppxManifestHostRuntimeDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMinVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *minversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1454,14 +2102,20 @@ impl IAppxManifestHostRuntimeDependencyVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestHostRuntimeDependency2Impl: Sized {
-    fn GetPackageFamilyName();
+    fn GetPackageFamilyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestHostRuntimeDependency2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestHostRuntimeDependency2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestHostRuntimeDependency2Vtbl {
         unsafe extern "system" fn GetPackageFamilyName<Impl: IAppxManifestHostRuntimeDependency2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageFamilyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagefamilyname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetPackageFamilyName: GetPackageFamilyName::<Impl, IMPL_OFFSET> }
     }
@@ -1471,24 +2125,42 @@ impl IAppxManifestHostRuntimeDependency2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestMainPackageDependenciesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestMainPackageDependency>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestMainPackageDependenciesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestMainPackageDependenciesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestMainPackageDependenciesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestMainPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainpackagedependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *mainpackagedependency = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestMainPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestMainPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1503,24 +2175,42 @@ impl IAppxManifestMainPackageDependenciesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestMainPackageDependencyImpl: Sized {
-    fn GetName();
-    fn GetPublisher();
-    fn GetPackageFamilyName();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPackageFamilyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestMainPackageDependencyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestMainPackageDependencyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestMainPackageDependencyVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxManifestMainPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPublisher<Impl: IAppxManifestMainPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPublisher() {
+                ::core::result::Result::Ok(ok__) => {
+                    *publisher = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageFamilyName<Impl: IAppxManifestMainPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageFamilyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagefamilyname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1535,24 +2225,42 @@ impl IAppxManifestMainPackageDependencyVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOSPackageDependenciesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestOSPackageDependency>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOSPackageDependenciesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestOSPackageDependenciesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestOSPackageDependenciesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestOSPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ospackagedependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ospackagedependency = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestOSPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestOSPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1567,19 +2275,31 @@ impl IAppxManifestOSPackageDependenciesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOSPackageDependencyImpl: Sized {
-    fn GetName();
-    fn GetVersion();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetVersion(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOSPackageDependencyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestOSPackageDependencyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestOSPackageDependencyVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxManifestOSPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetVersion<Impl: IAppxManifestOSPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, version: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *version = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1593,19 +2313,31 @@ impl IAppxManifestOSPackageDependencyVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOptionalPackageInfoImpl: Sized {
-    fn GetIsOptionalPackage();
-    fn GetMainPackageName();
+    fn GetIsOptionalPackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetMainPackageName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOptionalPackageInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestOptionalPackageInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestOptionalPackageInfoVtbl {
         unsafe extern "system" fn GetIsOptionalPackage<Impl: IAppxManifestOptionalPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isoptionalpackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIsOptionalPackage() {
+                ::core::result::Result::Ok(ok__) => {
+                    *isoptionalpackage = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetMainPackageName<Impl: IAppxManifestOptionalPackageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainpackagename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMainPackageName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *mainpackagename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1619,24 +2351,42 @@ impl IAppxManifestOptionalPackageInfoVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependenciesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestPackageDependency>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependenciesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestPackageDependenciesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestPackageDependenciesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependency: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *dependency = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestPackageDependenciesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1651,24 +2401,42 @@ impl IAppxManifestPackageDependenciesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependencyImpl: Sized {
-    fn GetName();
-    fn GetPublisher();
-    fn GetMinVersion();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependencyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestPackageDependencyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestPackageDependencyVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxManifestPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPublisher<Impl: IAppxManifestPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPublisher() {
+                ::core::result::Result::Ok(ok__) => {
+                    *publisher = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetMinVersion<Impl: IAppxManifestPackageDependencyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMinVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *minversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1683,14 +2451,20 @@ impl IAppxManifestPackageDependencyVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependency2Impl: Sized + IAppxManifestPackageDependencyImpl {
-    fn GetMaxMajorVersionTested();
+    fn GetMaxMajorVersionTested(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependency2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestPackageDependency2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestPackageDependency2Vtbl {
         unsafe extern "system" fn GetMaxMajorVersionTested<Impl: IAppxManifestPackageDependency2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxmajorversiontested: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMaxMajorVersionTested() {
+                ::core::result::Result::Ok(ok__) => {
+                    *maxmajorversiontested = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IAppxManifestPackageDependencyVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1703,14 +2477,20 @@ impl IAppxManifestPackageDependency2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependency3Impl: Sized {
-    fn GetIsOptional();
+    fn GetIsOptional(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependency3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestPackageDependency3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestPackageDependency3Vtbl {
         unsafe extern "system" fn GetIsOptional<Impl: IAppxManifestPackageDependency3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isoptional: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIsOptional() {
+                ::core::result::Result::Ok(ok__) => {
+                    *isoptional = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetIsOptional: GetIsOptional::<Impl, IMPL_OFFSET> }
     }
@@ -1720,49 +2500,97 @@ impl IAppxManifestPackageDependency3Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageIdImpl: Sized {
-    fn GetName();
-    fn GetArchitecture();
-    fn GetPublisher();
-    fn GetVersion();
-    fn GetResourceId();
-    fn ComparePublisher();
-    fn GetPackageFullName();
-    fn GetPackageFamilyName();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetArchitecture(&mut self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE>;
+    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetVersion(&mut self) -> ::windows::core::Result<u64>;
+    fn GetResourceId(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn ComparePublisher(&mut self, other: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetPackageFullName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPackageFamilyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageIdVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestPackageIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestPackageIdVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetArchitecture<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetArchitecture() {
+                ::core::result::Result::Ok(ok__) => {
+                    *architecture = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPublisher<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publisher: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPublisher() {
+                ::core::result::Result::Ok(ok__) => {
+                    *publisher = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetVersion<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageversion: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetResourceId<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetResourceId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *resourceid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ComparePublisher<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, other: super::super::super::Foundation::PWSTR, issame: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ComparePublisher(::core::mem::transmute_copy(&other)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *issame = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageFullName<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageFullName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagefullname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageFamilyName<Impl: IAppxManifestPackageIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageFamilyName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packagefamilyname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1782,14 +2610,20 @@ impl IAppxManifestPackageIdVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageId2Impl: Sized + IAppxManifestPackageIdImpl {
-    fn GetArchitecture2();
+    fn GetArchitecture2(&mut self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE2>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageId2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestPackageId2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestPackageId2Vtbl {
         unsafe extern "system" fn GetArchitecture2<Impl: IAppxManifestPackageId2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetArchitecture2() {
+                ::core::result::Result::Ok(ok__) => {
+                    *architecture = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: IAppxManifestPackageIdVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetArchitecture2: GetArchitecture2::<Impl, IMPL_OFFSET> }
     }
@@ -1799,19 +2633,31 @@ impl IAppxManifestPackageId2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPropertiesImpl: Sized {
-    fn GetBoolValue();
-    fn GetStringValue();
+    fn GetBoolValue(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetStringValue(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPropertiesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestPropertiesVtbl {
         unsafe extern "system" fn GetBoolValue<Impl: IAppxManifestPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetBoolValue(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStringValue<Impl: IAppxManifestPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStringValue(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1825,24 +2671,42 @@ impl IAppxManifestPropertiesVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestQualifiedResourceImpl: Sized {
-    fn GetLanguage();
-    fn GetScale();
-    fn GetDXFeatureLevel();
+    fn GetLanguage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetScale(&mut self) -> ::windows::core::Result<u32>;
+    fn GetDXFeatureLevel(&mut self) -> ::windows::core::Result<DX_FEATURE_LEVEL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestQualifiedResourceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestQualifiedResourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestQualifiedResourceVtbl {
         unsafe extern "system" fn GetLanguage<Impl: IAppxManifestQualifiedResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetLanguage() {
+                ::core::result::Result::Ok(ok__) => {
+                    *language = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetScale<Impl: IAppxManifestQualifiedResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scale: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetScale() {
+                ::core::result::Result::Ok(ok__) => {
+                    *scale = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetDXFeatureLevel<Impl: IAppxManifestQualifiedResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxfeaturelevel: *mut DX_FEATURE_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDXFeatureLevel() {
+                ::core::result::Result::Ok(ok__) => {
+                    *dxfeaturelevel = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1857,24 +2721,42 @@ impl IAppxManifestQualifiedResourceVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestQualifiedResourcesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestQualifiedResource>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestQualifiedResourcesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestQualifiedResourcesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestQualifiedResourcesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestQualifiedResourcesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *resource = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestQualifiedResourcesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestQualifiedResourcesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1889,54 +2771,108 @@ impl IAppxManifestQualifiedResourcesEnumeratorVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReaderImpl: Sized {
-    fn GetPackageId();
-    fn GetProperties();
-    fn GetPackageDependencies();
-    fn GetCapabilities();
-    fn GetResources();
-    fn GetDeviceCapabilities();
-    fn GetPrerequisite();
-    fn GetApplications();
-    fn GetStream();
+    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetProperties(&mut self) -> ::windows::core::Result<IAppxManifestProperties>;
+    fn GetPackageDependencies(&mut self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator>;
+    fn GetCapabilities(&mut self) -> ::windows::core::Result<APPX_CAPABILITIES>;
+    fn GetResources(&mut self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator>;
+    fn GetDeviceCapabilities(&mut self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator>;
+    fn GetPrerequisite(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<u64>;
+    fn GetApplications(&mut self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator>;
+    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReaderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestReaderVtbl {
         unsafe extern "system" fn GetPackageId<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetProperties<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetProperties() {
+                ::core::result::Result::Ok(ok__) => {
+                    *packageproperties = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageDependencies<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPackageDependencies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *dependencies = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetCapabilities<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capabilities: *mut APPX_CAPABILITIES) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCapabilities() {
+                ::core::result::Result::Ok(ok__) => {
+                    *capabilities = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetResources<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetResources() {
+                ::core::result::Result::Ok(ok__) => {
+                    *resources = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetDeviceCapabilities<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicecapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDeviceCapabilities() {
+                ::core::result::Result::Ok(ok__) => {
+                    *devicecapabilities = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPrerequisite<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPrerequisite(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetApplications<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applications: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetApplications() {
+                ::core::result::Result::Ok(ok__) => {
+                    *applications = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStream<Impl: IAppxManifestReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manifeststream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStream() {
+                ::core::result::Result::Ok(ok__) => {
+                    *manifeststream = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1957,14 +2893,20 @@ impl IAppxManifestReaderVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReader2Impl: Sized + IAppxManifestReaderImpl {
-    fn GetQualifiedResources();
+    fn GetQualifiedResources(&mut self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReader2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestReader2Vtbl {
         unsafe extern "system" fn GetQualifiedResources<Impl: IAppxManifestReader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetQualifiedResources() {
+                ::core::result::Result::Ok(ok__) => {
+                    *resources = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IAppxManifestReaderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1977,19 +2919,31 @@ impl IAppxManifestReader2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReader3Impl: Sized + IAppxManifestReaderImpl + IAppxManifestReader2Impl {
-    fn GetCapabilitiesByCapabilityClass();
-    fn GetTargetDeviceFamilies();
+    fn GetCapabilitiesByCapabilityClass(&mut self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator>;
+    fn GetTargetDeviceFamilies(&mut self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReader3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestReader3Vtbl {
         unsafe extern "system" fn GetCapabilitiesByCapabilityClass<Impl: IAppxManifestReader3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCapabilitiesByCapabilityClass(::core::mem::transmute_copy(&capabilityclass)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *capabilities = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetTargetDeviceFamilies<Impl: IAppxManifestReader3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetdevicefamilies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTargetDeviceFamilies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *targetdevicefamilies = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IAppxManifestReader2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2003,14 +2957,20 @@ impl IAppxManifestReader3Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReader4Impl: Sized + IAppxManifestReaderImpl + IAppxManifestReader2Impl + IAppxManifestReader3Impl {
-    fn GetOptionalPackageInfo();
+    fn GetOptionalPackageInfo(&mut self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReader4Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestReader4Vtbl {
         unsafe extern "system" fn GetOptionalPackageInfo<Impl: IAppxManifestReader4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionalpackageinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetOptionalPackageInfo() {
+                ::core::result::Result::Ok(ok__) => {
+                    *optionalpackageinfo = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IAppxManifestReader3Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2022,13 +2982,19 @@ impl IAppxManifestReader4Vtbl {
     }
 }
 pub trait IAppxManifestReader5Impl: Sized {
-    fn GetMainPackageDependencies();
+    fn GetMainPackageDependencies(&mut self) -> ::windows::core::Result<IAppxManifestMainPackageDependenciesEnumerator>;
 }
 impl IAppxManifestReader5Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestReader5Vtbl {
         unsafe extern "system" fn GetMainPackageDependencies<Impl: IAppxManifestReader5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainpackagedependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMainPackageDependencies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *mainpackagedependencies = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetMainPackageDependencies: GetMainPackageDependencies::<Impl, IMPL_OFFSET> }
     }
@@ -2038,14 +3004,20 @@ impl IAppxManifestReader5Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestReader6Impl: Sized {
-    fn GetIsNonQualifiedResourcePackage();
+    fn GetIsNonQualifiedResourcePackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestReader6Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestReader6Vtbl {
         unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Impl: IAppxManifestReader6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIsNonQualifiedResourcePackage() {
+                ::core::result::Result::Ok(ok__) => {
+                    *isnonqualifiedresourcepackage = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2057,23 +3029,41 @@ impl IAppxManifestReader6Vtbl {
     }
 }
 pub trait IAppxManifestReader7Impl: Sized {
-    fn GetDriverDependencies();
-    fn GetOSPackageDependencies();
-    fn GetHostRuntimeDependencies();
+    fn GetDriverDependencies(&mut self) -> ::windows::core::Result<IAppxManifestDriverDependenciesEnumerator>;
+    fn GetOSPackageDependencies(&mut self) -> ::windows::core::Result<IAppxManifestOSPackageDependenciesEnumerator>;
+    fn GetHostRuntimeDependencies(&mut self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependenciesEnumerator>;
 }
 impl IAppxManifestReader7Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestReader7Vtbl {
         unsafe extern "system" fn GetDriverDependencies<Impl: IAppxManifestReader7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, driverdependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDriverDependencies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *driverdependencies = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetOSPackageDependencies<Impl: IAppxManifestReader7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ospackagedependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetOSPackageDependencies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ospackagedependencies = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHostRuntimeDependencies<Impl: IAppxManifestReader7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostruntimedependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHostRuntimeDependencies() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hostruntimedependencies = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2088,24 +3078,42 @@ impl IAppxManifestReader7Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestResourcesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestResourcesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestResourcesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestResourcesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestResourcesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *resource = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestResourcesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestResourcesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2120,24 +3128,42 @@ impl IAppxManifestResourcesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestTargetDeviceFamiliesEnumeratorImpl: Sized {
-    fn GetCurrent();
-    fn GetHasCurrent();
-    fn MoveNext();
+    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamily>;
+    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestTargetDeviceFamiliesEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestTargetDeviceFamiliesEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestTargetDeviceFamiliesEnumeratorVtbl {
         unsafe extern "system" fn GetCurrent<Impl: IAppxManifestTargetDeviceFamiliesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetdevicefamily: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *targetdevicefamily = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHasCurrent<Impl: IAppxManifestTargetDeviceFamiliesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHasCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MoveNext<Impl: IAppxManifestTargetDeviceFamiliesEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hasnext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2152,24 +3178,42 @@ impl IAppxManifestTargetDeviceFamiliesEnumeratorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestTargetDeviceFamilyImpl: Sized {
-    fn GetName();
-    fn GetMinVersion();
-    fn GetMaxVersionTested();
+    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
+    fn GetMaxVersionTested(&mut self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestTargetDeviceFamilyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestTargetDeviceFamilyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxManifestTargetDeviceFamilyVtbl {
         unsafe extern "system" fn GetName<Impl: IAppxManifestTargetDeviceFamilyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetMinVersion<Impl: IAppxManifestTargetDeviceFamilyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMinVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *minversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetMaxVersionTested<Impl: IAppxManifestTargetDeviceFamilyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxversiontested: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMaxVersionTested() {
+                ::core::result::Result::Ok(ok__) => {
+                    *maxversiontested = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2184,39 +3228,39 @@ impl IAppxManifestTargetDeviceFamilyVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxPackageEditorImpl: Sized {
-    fn SetWorkingDirectory();
-    fn CreateDeltaPackage();
-    fn CreateDeltaPackageUsingBaselineBlockMap();
-    fn UpdatePackage();
-    fn UpdateEncryptedPackage();
-    fn UpdatePackageManifest();
+    fn SetWorkingDirectory(&mut self, workingdirectory: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateDeltaPackage(&mut self, updatedpackagestream: ::core::option::Option<super::super::super::System::Com::IStream>, baselinepackagestream: ::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn CreateDeltaPackageUsingBaselineBlockMap(&mut self, updatedpackagestream: ::core::option::Option<super::super::super::System::Com::IStream>, baselineblockmapstream: ::core::option::Option<super::super::super::System::Com::IStream>, baselinepackagefullname: super::super::super::Foundation::PWSTR, deltapackagestream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn UpdatePackage(&mut self, baselinepackagestream: ::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: ::core::option::Option<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::Result<()>;
+    fn UpdateEncryptedPackage(&mut self, baselineencryptedpackagestream: ::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: ::core::option::Option<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
+    fn UpdatePackageManifest(&mut self, packagestream: ::core::option::Option<super::super::super::System::Com::IStream>, updatedmanifeststream: ::core::option::Option<super::super::super::System::Com::IStream>, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxPackageEditorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackageEditorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxPackageEditorVtbl {
         unsafe extern "system" fn SetWorkingDirectory<Impl: IAppxPackageEditorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, workingdirectory: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetWorkingDirectory(::core::mem::transmute_copy(&workingdirectory)).into()
         }
         unsafe extern "system" fn CreateDeltaPackage<Impl: IAppxPackageEditorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updatedpackagestream: ::windows::core::RawPtr, baselinepackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateDeltaPackage(::core::mem::transmute(&updatedpackagestream), ::core::mem::transmute(&baselinepackagestream), ::core::mem::transmute(&deltapackagestream)).into()
         }
         unsafe extern "system" fn CreateDeltaPackageUsingBaselineBlockMap<Impl: IAppxPackageEditorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updatedpackagestream: ::windows::core::RawPtr, baselineblockmapstream: ::windows::core::RawPtr, baselinepackagefullname: super::super::super::Foundation::PWSTR, deltapackagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateDeltaPackageUsingBaselineBlockMap(::core::mem::transmute(&updatedpackagestream), ::core::mem::transmute(&baselineblockmapstream), ::core::mem::transmute_copy(&baselinepackagefullname), ::core::mem::transmute(&deltapackagestream)).into()
         }
         unsafe extern "system" fn UpdatePackage<Impl: IAppxPackageEditorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselinepackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UpdatePackage(::core::mem::transmute(&baselinepackagestream), ::core::mem::transmute(&deltapackagestream), ::core::mem::transmute_copy(&updateoption)).into()
         }
         unsafe extern "system" fn UpdateEncryptedPackage<Impl: IAppxPackageEditorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineencryptedpackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UpdateEncryptedPackage(::core::mem::transmute(&baselineencryptedpackagestream), ::core::mem::transmute(&deltapackagestream), ::core::mem::transmute_copy(&updateoption), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo)).into()
         }
         unsafe extern "system" fn UpdatePackageManifest<Impl: IAppxPackageEditorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagestream: ::windows::core::RawPtr, updatedmanifeststream: ::windows::core::RawPtr, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UpdatePackageManifest(::core::mem::transmute(&packagestream), ::core::mem::transmute(&updatedmanifeststream), ::core::mem::transmute_copy(&ispackageencrypted), ::core::mem::transmute_copy(&options)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2234,34 +3278,64 @@ impl IAppxPackageEditorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxPackageReaderImpl: Sized {
-    fn GetBlockMap();
-    fn GetFootprintFile();
-    fn GetPayloadFile();
-    fn GetPayloadFiles();
-    fn GetManifest();
+    fn GetBlockMap(&mut self) -> ::windows::core::Result<IAppxBlockMapReader>;
+    fn GetFootprintFile(&mut self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile>;
+    fn GetPayloadFile(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxFile>;
+    fn GetPayloadFiles(&mut self) -> ::windows::core::Result<IAppxFilesEnumerator>;
+    fn GetManifest(&mut self) -> ::windows::core::Result<IAppxManifestReader>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxPackageReaderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackageReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxPackageReaderVtbl {
         unsafe extern "system" fn GetBlockMap<Impl: IAppxPackageReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetBlockMap() {
+                ::core::result::Result::Ok(ok__) => {
+                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFootprintFile<Impl: IAppxPackageReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: APPX_FOOTPRINT_FILE_TYPE, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFootprintFile(::core::mem::transmute_copy(&r#type)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *file = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPayloadFile<Impl: IAppxPackageReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, file: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPayloadFile(::core::mem::transmute_copy(&filename)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *file = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPayloadFiles<Impl: IAppxPackageReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filesenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPayloadFiles() {
+                ::core::result::Result::Ok(ok__) => {
+                    *filesenumerator = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetManifest<Impl: IAppxPackageReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetManifest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2278,19 +3352,19 @@ impl IAppxPackageReaderVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxPackageWriterImpl: Sized {
-    fn AddPayloadFile();
-    fn Close();
+    fn AddPayloadFile(&mut self, filename: super::super::super::Foundation::PWSTR, contenttype: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&mut self, manifest: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxPackageWriterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackageWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxPackageWriterVtbl {
         unsafe extern "system" fn AddPayloadFile<Impl: IAppxPackageWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, contenttype: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadFile(::core::mem::transmute_copy(&filename), ::core::mem::transmute_copy(&contenttype), ::core::mem::transmute_copy(&compressionoption), ::core::mem::transmute(&inputstream)).into()
         }
         unsafe extern "system" fn Close<Impl: IAppxPackageWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manifest: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close(::core::mem::transmute(&manifest)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2304,14 +3378,14 @@ impl IAppxPackageWriterVtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageWriter2Impl: Sized {
-    fn Close();
+    fn Close(&mut self, manifest: ::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmap: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackageWriter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxPackageWriter2Vtbl {
         unsafe extern "system" fn Close<Impl: IAppxPackageWriter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manifest: ::windows::core::RawPtr, contentgroupmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close(::core::mem::transmute(&manifest), ::core::mem::transmute(&contentgroupmap)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Close: Close::<Impl, IMPL_OFFSET> }
     }
@@ -2321,14 +3395,14 @@ impl IAppxPackageWriter2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxPackageWriter3Impl: Sized {
-    fn AddPayloadFiles();
+    fn AddPayloadFiles(&mut self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxPackageWriter3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackageWriter3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxPackageWriter3Vtbl {
         unsafe extern "system" fn AddPayloadFiles<Impl: IAppxPackageWriter3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddPayloadFiles(::core::mem::transmute_copy(&filecount), ::core::mem::transmute_copy(&payloadfiles), ::core::mem::transmute_copy(&memorylimit)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), AddPayloadFiles: AddPayloadFiles::<Impl, IMPL_OFFSET> }
     }
@@ -2338,19 +3412,19 @@ impl IAppxPackageWriter3Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxPackagingDiagnosticEventSinkImpl: Sized {
-    fn ReportContextChange();
-    fn ReportError();
+    fn ReportContextChange(&mut self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: super::super::super::Foundation::PSTR, contextmessage: super::super::super::Foundation::PWSTR, detailsmessage: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReportError(&mut self, errormessage: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxPackagingDiagnosticEventSinkVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackagingDiagnosticEventSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxPackagingDiagnosticEventSinkVtbl {
         unsafe extern "system" fn ReportContextChange<Impl: IAppxPackagingDiagnosticEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: super::super::super::Foundation::PSTR, contextmessage: super::super::super::Foundation::PWSTR, detailsmessage: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReportContextChange(::core::mem::transmute_copy(&changetype), ::core::mem::transmute_copy(&contextid), ::core::mem::transmute_copy(&contextname), ::core::mem::transmute_copy(&contextmessage), ::core::mem::transmute_copy(&detailsmessage)).into()
         }
         unsafe extern "system" fn ReportError<Impl: IAppxPackagingDiagnosticEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errormessage: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReportError(::core::mem::transmute_copy(&errormessage)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2363,13 +3437,13 @@ impl IAppxPackagingDiagnosticEventSinkVtbl {
     }
 }
 pub trait IAppxPackagingDiagnosticEventSinkManagerImpl: Sized {
-    fn SetSinkForProcess();
+    fn SetSinkForProcess(&mut self, sink: ::core::option::Option<IAppxPackagingDiagnosticEventSink>) -> ::windows::core::Result<()>;
 }
 impl IAppxPackagingDiagnosticEventSinkManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackagingDiagnosticEventSinkManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxPackagingDiagnosticEventSinkManagerVtbl {
         unsafe extern "system" fn SetSinkForProcess<Impl: IAppxPackagingDiagnosticEventSinkManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSinkForProcess(::core::mem::transmute(&sink)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetSinkForProcess: SetSinkForProcess::<Impl, IMPL_OFFSET> }
     }
@@ -2378,18 +3452,30 @@ impl IAppxPackagingDiagnosticEventSinkManagerVtbl {
     }
 }
 pub trait IAppxSourceContentGroupMapReaderImpl: Sized {
-    fn GetRequiredGroup();
-    fn GetAutomaticGroups();
+    fn GetRequiredGroup(&mut self) -> ::windows::core::Result<IAppxContentGroup>;
+    fn GetAutomaticGroups(&mut self) -> ::windows::core::Result<IAppxContentGroupsEnumerator>;
 }
 impl IAppxSourceContentGroupMapReaderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxSourceContentGroupMapReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppxSourceContentGroupMapReaderVtbl {
         unsafe extern "system" fn GetRequiredGroup<Impl: IAppxSourceContentGroupMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetRequiredGroup() {
+                ::core::result::Result::Ok(ok__) => {
+                    *requiredgroup = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetAutomaticGroups<Impl: IAppxSourceContentGroupMapReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, automaticgroupsenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetAutomaticGroups() {
+                ::core::result::Result::Ok(ok__) => {
+                    *automaticgroupsenumerator = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),

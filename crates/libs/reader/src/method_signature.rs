@@ -69,7 +69,6 @@ impl MethodSignature {
 
                     return SignatureKind::ResultVoid;
                 }
-                // TODO: collapse the next two (they're both TypeDef)
                 ElementType::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
                     return SignatureKind::ResultVoid;
                 }

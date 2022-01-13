@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub trait IDDEInitializerImpl: Sized {
-    fn Initialize();
+    fn Initialize(&mut self, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::core::option::Option<super::super::super::UI::Shell::IShellItem>, site: ::core::option::Option<::windows::core::IUnknown>, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl IDDEInitializerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDDEInitializerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDDEInitializerVtbl {
         unsafe extern "system" fn Initialize<Impl: IDDEInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Initialize(::core::mem::transmute_copy(&fileextensionorprotocol), ::core::mem::transmute_copy(&method), ::core::mem::transmute_copy(&currentdirectory), ::core::mem::transmute(&exectarget), ::core::mem::transmute(&site), ::core::mem::transmute_copy(&application), ::core::mem::transmute_copy(&targetfile), ::core::mem::transmute_copy(&arguments), ::core::mem::transmute_copy(&verb)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Initialize: Initialize::<Impl, IMPL_OFFSET> }
     }

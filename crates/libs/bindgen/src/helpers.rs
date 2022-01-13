@@ -306,6 +306,47 @@ pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
      }
 }
 
+pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
+    match sig.kind() {
+        SignatureKind::ResultValue => {
+            let invoke_args = sig.params[..sig.params.len() - 1].iter().map(|param| gen_win32_invoke_arg(param));
+
+            let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
+
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::core::result::Result::Ok(ok__) => {
+                        *#result = ::core::mem::transmute(ok__);
+                        ::windows::core::HRESULT(0)
+                    }
+                    ::core::result::Result::Err(err) => err.into()
+                }
+            }
+        }
+        SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => {
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+
+            quote! {
+                #inner(#(#invoke_args,)*).into()
+            }
+        }
+        SignatureKind::ReturnStruct => {
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+
+            quote! {
+                #inner(#(#invoke_args,)*)
+            }
+        }
+        _ => {
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+
+            quote! {
+                #inner(#(#invoke_args,)*)
+            }
+        }
+    }
+}
+
 pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
     let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(param, gen));
 
@@ -341,6 +382,17 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
     }
 }
 
+fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
+    let name = gen_param_name(&param.param);
+
+    if param.signature.pointers == 0 && param.signature.kind.is_nullable() {
+        quote! { ::core::mem::transmute(&#name) }
+    } else {
+        quote! { ::core::mem::transmute_copy(&#name) }
+    }
+}
+
+
 fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_element_name(&param.signature.kind, gen);
@@ -360,6 +412,7 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
             quote! { #name }
+            // TODO: probably don't need the explicit type casts s here anymore since we have traits to auto deduce
         } else if param.signature.is_const {
             quote! { &*(#name as *const <#kind as ::windows::core::Abi>::Abi as *const <#kind as ::windows::core::DefaultType>::DefaultType) }
         } else {
@@ -371,13 +424,13 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
-    let sig = method.signature(&def.generics);
-    let is_delegate = def.kind() == TypeKind::Delegate;
+    let signature = method.signature(&def.generics);
 
     if def.is_winrt() {
-        let params = sig.params.iter().map(|p| gen_winrt_produce_type(p,  !is_delegate, gen));
+        let is_delegate = def.kind() == TypeKind::Delegate;
+        let params = signature.params.iter().map(|p| gen_winrt_produce_type(p,  !is_delegate, gen));
 
-        let return_sig = if let Some(return_sig) = &sig.return_sig {
+        let return_sig = if let Some(return_sig) = &signature.return_sig {
             let tokens = gen_element_name(&return_sig.kind, gen);
     
             if return_sig.is_array {
@@ -397,11 +450,40 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 
         quote! { (#this #(#params),*) -> ::windows::core::Result<#return_sig> }
     } else {
-         TODO: need to handle the various win32 function kinds here (generics can't be generic)
-        quote!{
-            ()
+        let signature_kind = signature.kind();
+        let mut params = quote!{};
+
+        if signature_kind == SignatureKind::ResultValue {
+            for param in &signature.params[..signature.params.len() - 1] {
+                params.combine(&gen_win32_produce_type(param, gen));
+            }
+        } else {
+            for param in &signature.params {
+                params.combine(&gen_win32_produce_type(param, gen));
+            }
         }
+
+        let return_sig = match signature_kind {
+            SignatureKind::ReturnVoid => quote! {},
+            SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
+            SignatureKind::ResultValue => {
+                let mut return_sig = signature.params[signature.params.len() - 1].signature.clone();
+                return_sig.pointers -= 1;
+                let return_sig = gen_result_sig(&return_sig, gen);
+    
+                quote! { -> ::windows::core::Result<#return_sig> }
+            }
+            _ => gen_return_sig(&signature, gen),
+        };
+
+        quote! { (&mut self, #params) #return_sig }
     }
+}
+
+fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
+    let name = gen_param_name(&param.param);
+    let kind = gen_param_sig(param, gen);
+    quote! { #name: #kind, }
 }
 
 fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {

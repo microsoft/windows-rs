@@ -1,28 +1,52 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManImpl: Sized + IDispatchImpl {
-    fn CreateSession();
-    fn CreateConnectionOptions();
-    fn CommandLine();
-    fn Error();
+    fn CreateSession(&mut self, connection: super::super::Foundation::BSTR, flags: i32, connectionoptions: ::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn CreateConnectionOptions(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn CommandLine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManVtbl {
         unsafe extern "system" fn CreateSession<Impl: IWSManImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::core::RawPtr, session: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSession(::core::mem::transmute_copy(&connection), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&connectionoptions)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *session = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateConnectionOptions<Impl: IWSManImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateConnectionOptions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *connectionoptions = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CommandLine<Impl: IWSManImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CommandLine() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Error<Impl: IWSManImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Error() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -38,24 +62,30 @@ impl IWSManVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsImpl: Sized + IDispatchImpl {
-    fn UserName();
-    fn SetUserName();
-    fn SetPassword();
+    fn UserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetUserName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPassword(&mut self, password: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManConnectionOptionsVtbl {
         unsafe extern "system" fn UserName<Impl: IWSManConnectionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).UserName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetUserName<Impl: IWSManConnectionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetUserName(::core::mem::transmute_copy(&name)).into()
         }
         unsafe extern "system" fn SetPassword<Impl: IWSManConnectionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetPassword(::core::mem::transmute_copy(&password)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -70,19 +100,25 @@ impl IWSManConnectionOptionsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsExImpl: Sized + IDispatchImpl + IWSManConnectionOptionsImpl {
-    fn CertificateThumbprint();
-    fn SetCertificateThumbprint();
+    fn CertificateThumbprint(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCertificateThumbprint(&mut self, thumbprint: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptionsExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManConnectionOptionsExVtbl {
         unsafe extern "system" fn CertificateThumbprint<Impl: IWSManConnectionOptionsExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CertificateThumbprint() {
+                ::core::result::Result::Ok(ok__) => {
+                    *thumbprint = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetCertificateThumbprint<Impl: IWSManConnectionOptionsExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCertificateThumbprint(::core::mem::transmute_copy(&thumbprint)).into()
         }
         Self {
             base: IWSManConnectionOptionsVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -96,49 +132,91 @@ impl IWSManConnectionOptionsExVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsEx2Impl: Sized + IDispatchImpl + IWSManConnectionOptionsImpl + IWSManConnectionOptionsExImpl {
-    fn SetProxy();
-    fn ProxyIEConfig();
-    fn ProxyWinHttpConfig();
-    fn ProxyAutoDetect();
-    fn ProxyNoProxyServer();
-    fn ProxyAuthenticationUseNegotiate();
-    fn ProxyAuthenticationUseBasic();
-    fn ProxyAuthenticationUseDigest();
+    fn SetProxy(&mut self, accesstype: i32, authenticationmechanism: i32, username: super::super::Foundation::BSTR, password: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ProxyIEConfig(&mut self) -> ::windows::core::Result<i32>;
+    fn ProxyWinHttpConfig(&mut self) -> ::windows::core::Result<i32>;
+    fn ProxyAutoDetect(&mut self) -> ::windows::core::Result<i32>;
+    fn ProxyNoProxyServer(&mut self) -> ::windows::core::Result<i32>;
+    fn ProxyAuthenticationUseNegotiate(&mut self) -> ::windows::core::Result<i32>;
+    fn ProxyAuthenticationUseBasic(&mut self) -> ::windows::core::Result<i32>;
+    fn ProxyAuthenticationUseDigest(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsEx2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptionsEx2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManConnectionOptionsEx2Vtbl {
         unsafe extern "system" fn SetProxy<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetProxy(::core::mem::transmute_copy(&accesstype), ::core::mem::transmute_copy(&authenticationmechanism), ::core::mem::transmute_copy(&username), ::core::mem::transmute_copy(&password)).into()
         }
         unsafe extern "system" fn ProxyIEConfig<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProxyIEConfig() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProxyWinHttpConfig<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProxyWinHttpConfig() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProxyAutoDetect<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProxyAutoDetect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProxyNoProxyServer<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProxyNoProxyServer() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProxyAuthenticationUseNegotiate<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProxyAuthenticationUseNegotiate() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProxyAuthenticationUseBasic<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProxyAuthenticationUseBasic() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProxyAuthenticationUseDigest<Impl: IWSManConnectionOptionsEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProxyAuthenticationUseDigest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IWSManConnectionOptionsExVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -158,24 +236,42 @@ impl IWSManConnectionOptionsEx2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEnumeratorImpl: Sized + IDispatchImpl {
-    fn ReadItem();
-    fn AtEndOfStream();
-    fn Error();
+    fn ReadItem(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AtEndOfStream(&mut self) -> ::windows::core::Result<i16>;
+    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEnumeratorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManEnumeratorVtbl {
         unsafe extern "system" fn ReadItem<Impl: IWSManEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ReadItem() {
+                ::core::result::Result::Ok(ok__) => {
+                    *resource = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AtEndOfStream<Impl: IWSManEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eos: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AtEndOfStream() {
+                ::core::result::Result::Ok(ok__) => {
+                    *eos = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Error<Impl: IWSManEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Error() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -190,109 +286,229 @@ impl IWSManEnumeratorVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManExImpl: Sized + IDispatchImpl + IWSManImpl {
-    fn CreateResourceLocator();
-    fn SessionFlagUTF8();
-    fn SessionFlagCredUsernamePassword();
-    fn SessionFlagSkipCACheck();
-    fn SessionFlagSkipCNCheck();
-    fn SessionFlagUseDigest();
-    fn SessionFlagUseNegotiate();
-    fn SessionFlagUseBasic();
-    fn SessionFlagUseKerberos();
-    fn SessionFlagNoEncryption();
-    fn SessionFlagEnableSPNServerPort();
-    fn SessionFlagUseNoAuthentication();
-    fn EnumerationFlagNonXmlText();
-    fn EnumerationFlagReturnEPR();
-    fn EnumerationFlagReturnObjectAndEPR();
-    fn GetErrorMessage();
-    fn EnumerationFlagHierarchyDeep();
-    fn EnumerationFlagHierarchyShallow();
-    fn EnumerationFlagHierarchyDeepBasePropsOnly();
-    fn EnumerationFlagReturnObject();
+    fn CreateResourceLocator(&mut self, strresourcelocator: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn SessionFlagUTF8(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagCredUsernamePassword(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagSkipCACheck(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagSkipCNCheck(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseDigest(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseNegotiate(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseBasic(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseKerberos(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagNoEncryption(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagEnableSPNServerPort(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseNoAuthentication(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagNonXmlText(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagReturnEPR(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagReturnObjectAndEPR(&mut self) -> ::windows::core::Result<i32>;
+    fn GetErrorMessage(&mut self, errornumber: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EnumerationFlagHierarchyDeep(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagHierarchyShallow(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagHierarchyDeepBasePropsOnly(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagReturnObject(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManExVtbl {
         unsafe extern "system" fn CreateResourceLocator<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strresourcelocator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateResourceLocator(::core::mem::transmute_copy(&strresourcelocator)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *newresourcelocator = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUTF8<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUTF8() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagCredUsernamePassword<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagCredUsernamePassword() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagSkipCACheck<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagSkipCACheck() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagSkipCNCheck<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagSkipCNCheck() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUseDigest<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseDigest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUseNegotiate<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseNegotiate() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUseBasic<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseBasic() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUseKerberos<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseKerberos() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagNoEncryption<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagNoEncryption() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagEnableSPNServerPort<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagEnableSPNServerPort() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUseNoAuthentication<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseNoAuthentication() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagNonXmlText<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagNonXmlText() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagReturnEPR<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagReturnEPR() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagReturnObjectAndEPR<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagReturnObjectAndEPR() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetErrorMessage<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errornumber: u32, errormessage: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetErrorMessage(::core::mem::transmute_copy(&errornumber)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *errormessage = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagHierarchyDeep<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagHierarchyDeep() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagHierarchyShallow<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagHierarchyShallow() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagHierarchyDeepBasePropsOnly<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagHierarchyDeepBasePropsOnly() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagReturnObject<Impl: IWSManExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagReturnObject() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IWSManVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -324,14 +540,20 @@ impl IWSManExVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx2Impl: Sized + IDispatchImpl + IWSManImpl + IWSManExImpl {
-    fn SessionFlagUseClientCertificate();
+    fn SessionFlagUseClientCertificate(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEx2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManEx2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManEx2Vtbl {
         unsafe extern "system" fn SessionFlagUseClientCertificate<Impl: IWSManEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseClientCertificate() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IWSManExVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -344,44 +566,86 @@ impl IWSManEx2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx3Impl: Sized + IDispatchImpl + IWSManImpl + IWSManExImpl + IWSManEx2Impl {
-    fn SessionFlagUTF16();
-    fn SessionFlagUseCredSsp();
-    fn EnumerationFlagAssociationInstance();
-    fn EnumerationFlagAssociatedInstance();
-    fn SessionFlagSkipRevocationCheck();
-    fn SessionFlagAllowNegotiateImplicitCredentials();
-    fn SessionFlagUseSsl();
+    fn SessionFlagUTF16(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseCredSsp(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagAssociationInstance(&mut self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagAssociatedInstance(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagSkipRevocationCheck(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagAllowNegotiateImplicitCredentials(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseSsl(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEx3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManEx3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManEx3Vtbl {
         unsafe extern "system" fn SessionFlagUTF16<Impl: IWSManEx3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUTF16() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUseCredSsp<Impl: IWSManEx3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseCredSsp() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagAssociationInstance<Impl: IWSManEx3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagAssociationInstance() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumerationFlagAssociatedInstance<Impl: IWSManEx3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumerationFlagAssociatedInstance() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagSkipRevocationCheck<Impl: IWSManEx3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagSkipRevocationCheck() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagAllowNegotiateImplicitCredentials<Impl: IWSManEx3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagAllowNegotiateImplicitCredentials() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SessionFlagUseSsl<Impl: IWSManEx3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SessionFlagUseSsl() {
+                ::core::result::Result::Ok(ok__) => {
+                    *flags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IWSManEx2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -400,14 +664,20 @@ impl IWSManEx3Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManInternalImpl: Sized + IDispatchImpl {
-    fn ConfigSDDL();
+    fn ConfigSDDL(&mut self, session: ::core::option::Option<super::Com::IDispatch>, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManInternalVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManInternalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManInternalVtbl {
         unsafe extern "system" fn ConfigSDDL<Impl: IWSManInternalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ConfigSDDL(::core::mem::transmute(&session), ::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *resource = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ConfigSDDL: ConfigSDDL::<Impl, IMPL_OFFSET> }
     }
@@ -417,74 +687,104 @@ impl IWSManInternalVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManResourceLocatorImpl: Sized + IDispatchImpl {
-    fn SetResourceURI();
-    fn ResourceURI();
-    fn AddSelector();
-    fn ClearSelectors();
-    fn FragmentPath();
-    fn SetFragmentPath();
-    fn FragmentDialect();
-    fn SetFragmentDialect();
-    fn AddOption();
-    fn SetMustUnderstandOptions();
-    fn MustUnderstandOptions();
-    fn ClearOptions();
-    fn Error();
+    fn SetResourceURI(&mut self, uri: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ResourceURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AddSelector(&mut self, resourceselname: super::super::Foundation::BSTR, selvalue: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ClearSelectors(&mut self) -> ::windows::core::Result<()>;
+    fn FragmentPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFragmentPath(&mut self, text: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FragmentDialect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFragmentDialect(&mut self, text: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddOption(&mut self, optionname: super::super::Foundation::BSTR, optionvalue: super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetMustUnderstandOptions(&mut self, mustunderstand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn MustUnderstandOptions(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ClearOptions(&mut self) -> ::windows::core::Result<()>;
+    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManResourceLocatorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManResourceLocatorVtbl {
         unsafe extern "system" fn SetResourceURI<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetResourceURI(::core::mem::transmute_copy(&uri)).into()
         }
         unsafe extern "system" fn ResourceURI<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ResourceURI() {
+                ::core::result::Result::Ok(ok__) => {
+                    *uri = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddSelector<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceselname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, selvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddSelector(::core::mem::transmute_copy(&resourceselname), ::core::mem::transmute_copy(&selvalue)).into()
         }
         unsafe extern "system" fn ClearSelectors<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ClearSelectors().into()
         }
         unsafe extern "system" fn FragmentPath<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).FragmentPath() {
+                ::core::result::Result::Ok(ok__) => {
+                    *text = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetFragmentPath<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetFragmentPath(::core::mem::transmute_copy(&text)).into()
         }
         unsafe extern "system" fn FragmentDialect<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).FragmentDialect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *text = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetFragmentDialect<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetFragmentDialect(::core::mem::transmute_copy(&text)).into()
         }
         unsafe extern "system" fn AddOption<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddOption(::core::mem::transmute_copy(&optionname), ::core::mem::transmute_copy(&optionvalue), ::core::mem::transmute_copy(&mustcomply)).into()
         }
         unsafe extern "system" fn SetMustUnderstandOptions<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mustunderstand: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMustUnderstandOptions(::core::mem::transmute_copy(&mustunderstand)).into()
         }
         unsafe extern "system" fn MustUnderstandOptions<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mustunderstand: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MustUnderstandOptions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *mustunderstand = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ClearOptions<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ClearOptions().into()
         }
         unsafe extern "system" fn Error<Impl: IWSManResourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Error() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -518,69 +818,123 @@ impl IWSManResourceLocatorInternalVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManSessionImpl: Sized + IDispatchImpl {
-    fn Get();
-    fn Put();
-    fn Create();
-    fn Delete();
-    fn Invoke();
-    fn Enumerate();
-    fn Identify();
-    fn Error();
-    fn BatchItems();
-    fn SetBatchItems();
-    fn Timeout();
-    fn SetTimeout();
+    fn Get(&mut self, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Put(&mut self, resourceuri: super::Com::VARIANT, resource: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Create(&mut self, resourceuri: super::Com::VARIANT, resource: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Delete(&mut self, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::Result<()>;
+    fn Invoke(&mut self, actionuri: super::super::Foundation::BSTR, resourceuri: super::Com::VARIANT, parameters: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Enumerate(&mut self, resourceuri: super::Com::VARIANT, filter: super::super::Foundation::BSTR, dialect: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Identify(&mut self, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BatchItems(&mut self) -> ::windows::core::Result<i32>;
+    fn SetBatchItems(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Timeout(&mut self) -> ::windows::core::Result<i32>;
+    fn SetTimeout(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManSessionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSManSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSManSessionVtbl {
         unsafe extern "system" fn Get<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Get(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *resource = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Put<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultresource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Put(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&resource), ::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *resultresource = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Create<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, newuri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Create(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&resource), ::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *newuri = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Delete<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Delete(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn Invoke<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, parameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, result: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Invoke(::core::mem::transmute_copy(&actionuri), ::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&parameters), ::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Enumerate<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, filter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dialect: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enumerate(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&filter), ::core::mem::transmute_copy(&dialect), ::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *resultset = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Identify<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, result: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Identify(::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Error<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Error() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn BatchItems<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).BatchItems() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetBatchItems<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetBatchItems(::core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn Timeout<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Timeout() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetTimeout<Impl: IWSManSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTimeout(::core::mem::transmute_copy(&value)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),

@@ -179,6 +179,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut Met
         SignatureKind::ReturnStruct => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
+            // TODO: why is this using gen_abi_element_name?
             let return_sig = gen_abi_element_name(&signature.return_sig.unwrap(), gen);
 
             quote! {
@@ -193,6 +194,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut Met
         SignatureKind::PreserveSig => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
+            // TODO: why gen_return_sig exists? Don't we always know it will be not ReturnVoid?
             let return_sig = gen_return_sig(&signature, gen);
 
             quote! {

@@ -1,78 +1,138 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDynamicPortMappingImpl: Sized + IDispatchImpl {
-    fn ExternalIPAddress();
-    fn RemoteHost();
-    fn ExternalPort();
-    fn Protocol();
-    fn InternalPort();
-    fn InternalClient();
-    fn Enabled();
-    fn Description();
-    fn LeaseDuration();
-    fn RenewLease();
-    fn EditInternalClient();
-    fn Enable();
-    fn EditDescription();
-    fn EditInternalPort();
+    fn ExternalIPAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RemoteHost(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ExternalPort(&mut self) -> ::windows::core::Result<i32>;
+    fn Protocol(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InternalPort(&mut self) -> ::windows::core::Result<i32>;
+    fn InternalClient(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
+    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn LeaseDuration(&mut self) -> ::windows::core::Result<i32>;
+    fn RenewLease(&mut self, lleasedurationdesired: i32) -> ::windows::core::Result<i32>;
+    fn EditInternalClient(&mut self, bstrinternalclient: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enable(&mut self, vb: i16) -> ::windows::core::Result<()>;
+    fn EditDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EditInternalPort(&mut self, linternalport: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDynamicPortMappingVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMappingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDynamicPortMappingVtbl {
         unsafe extern "system" fn ExternalIPAddress<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ExternalIPAddress() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RemoteHost<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteHost() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ExternalPort<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ExternalPort() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Protocol<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Protocol() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InternalPort<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InternalPort() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InternalClient<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InternalClient() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Enabled<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Description<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Description() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn LeaseDuration<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LeaseDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RenewLease<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lleasedurationdesired: i32, pleasedurationreturned: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RenewLease(::core::mem::transmute_copy(&lleasedurationdesired)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pleasedurationreturned = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EditInternalClient<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EditInternalClient(::core::mem::transmute_copy(&bstrinternalclient)).into()
         }
         unsafe extern "system" fn Enable<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vb: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Enable(::core::mem::transmute_copy(&vb)).into()
         }
         unsafe extern "system" fn EditDescription<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EditDescription(::core::mem::transmute_copy(&bstrdescription)).into()
         }
         unsafe extern "system" fn EditInternalPort<Impl: IDynamicPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EditInternalPort(::core::mem::transmute_copy(&linternalport)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -98,34 +158,58 @@ impl IDynamicPortMappingVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDynamicPortMappingCollectionImpl: Sized + IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn Remove();
-    fn Add();
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&mut self, bstrremotehost: super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<IDynamicPortMapping>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Remove(&mut self, bstrremotehost: super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Add(&mut self, bstrremotehost: super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR, linternalport: i32, bstrinternalclient: super::super::Foundation::BSTR, benabled: i16, bstrdescription: super::super::Foundation::BSTR, lleaseduration: i32) -> ::windows::core::Result<IDynamicPortMapping>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDynamicPortMappingCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMappingCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDynamicPortMappingCollectionVtbl {
         unsafe extern "system" fn _NewEnum<Impl: IDynamicPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: IDynamicPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdpm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppdpm = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: IDynamicPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Remove<Impl: IDynamicPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Remove(::core::mem::transmute_copy(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)).into()
         }
         unsafe extern "system" fn Add<Impl: IDynamicPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternalport: i32, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, benabled: i16, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lleaseduration: i32, ppdpm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Add(::core::mem::transmute_copy(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol), ::core::mem::transmute_copy(&linternalport), ::core::mem::transmute_copy(&bstrinternalclient), ::core::mem::transmute_copy(&benabled), ::core::mem::transmute_copy(&bstrdescription), ::core::mem::transmute_copy(&lleaseduration)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppdpm = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -141,28 +225,34 @@ impl IDynamicPortMappingCollectionVtbl {
     }
 }
 pub trait IEnumNetConnectionImpl: Sized {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
+    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<INetConnection>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetConnection>;
 }
 impl IEnumNetConnectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumNetConnectionVtbl {
         unsafe extern "system" fn Next<Impl: IEnumNetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Impl: IEnumNetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Impl: IEnumNetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reset().into()
         }
         unsafe extern "system" fn Clone<Impl: IEnumNetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -178,29 +268,35 @@ impl IEnumNetConnectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetSharingEveryConnectionImpl: Sized {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
+    fn Next(&mut self, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetSharingEveryConnection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetSharingEveryConnectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetSharingEveryConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumNetSharingEveryConnectionVtbl {
         unsafe extern "system" fn Next<Impl: IEnumNetSharingEveryConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgvar), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Impl: IEnumNetSharingEveryConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Impl: IEnumNetSharingEveryConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reset().into()
         }
         unsafe extern "system" fn Clone<Impl: IEnumNetSharingEveryConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -216,29 +312,35 @@ impl IEnumNetSharingEveryConnectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetSharingPortMappingImpl: Sized {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
+    fn Next(&mut self, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetSharingPortMapping>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetSharingPortMappingVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetSharingPortMappingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumNetSharingPortMappingVtbl {
         unsafe extern "system" fn Next<Impl: IEnumNetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgvar), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Impl: IEnumNetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Impl: IEnumNetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reset().into()
         }
         unsafe extern "system" fn Clone<Impl: IEnumNetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -254,29 +356,35 @@ impl IEnumNetSharingPortMappingVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetSharingPrivateConnectionImpl: Sized {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
+    fn Next(&mut self, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetSharingPrivateConnection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetSharingPrivateConnectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetSharingPrivateConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumNetSharingPrivateConnectionVtbl {
         unsafe extern "system" fn Next<Impl: IEnumNetSharingPrivateConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgvar), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Impl: IEnumNetSharingPrivateConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Impl: IEnumNetSharingPrivateConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reset().into()
         }
         unsafe extern "system" fn Clone<Impl: IEnumNetSharingPrivateConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -292,29 +400,35 @@ impl IEnumNetSharingPrivateConnectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetSharingPublicConnectionImpl: Sized {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
+    fn Next(&mut self, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetSharingPublicConnection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetSharingPublicConnectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetSharingPublicConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumNetSharingPublicConnectionVtbl {
         unsafe extern "system" fn Next<Impl: IEnumNetSharingPublicConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgvar), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Impl: IEnumNetSharingPublicConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Impl: IEnumNetSharingPublicConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reset().into()
         }
         unsafe extern "system" fn Clone<Impl: IEnumNetSharingPublicConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -330,19 +444,19 @@ impl IEnumNetSharingPublicConnectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INATEventManagerImpl: Sized + IDispatchImpl {
-    fn SetExternalIPAddressCallback();
-    fn SetNumberOfEntriesCallback();
+    fn SetExternalIPAddressCallback(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetNumberOfEntriesCallback(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INATEventManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INATEventManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INATEventManagerVtbl {
         unsafe extern "system" fn SetExternalIPAddressCallback<Impl: INATEventManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetExternalIPAddressCallback(::core::mem::transmute(&punk)).into()
         }
         unsafe extern "system" fn SetNumberOfEntriesCallback<Impl: INATEventManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetNumberOfEntriesCallback(::core::mem::transmute(&punk)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -356,14 +470,14 @@ impl INATEventManagerVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INATExternalIPAddressCallbackImpl: Sized {
-    fn NewExternalIPAddress();
+    fn NewExternalIPAddress(&mut self, bstrnewexternalipaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INATExternalIPAddressCallbackVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INATExternalIPAddressCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INATExternalIPAddressCallbackVtbl {
         unsafe extern "system" fn NewExternalIPAddress<Impl: INATExternalIPAddressCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnewexternalipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).NewExternalIPAddress(::core::mem::transmute_copy(&bstrnewexternalipaddress)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), NewExternalIPAddress: NewExternalIPAddress::<Impl, IMPL_OFFSET> }
     }
@@ -372,13 +486,13 @@ impl INATExternalIPAddressCallbackVtbl {
     }
 }
 pub trait INATNumberOfEntriesCallbackImpl: Sized {
-    fn NewNumberOfEntries();
+    fn NewNumberOfEntries(&mut self, lnewnumberofentries: i32) -> ::windows::core::Result<()>;
 }
 impl INATNumberOfEntriesCallbackVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INATNumberOfEntriesCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INATNumberOfEntriesCallbackVtbl {
         unsafe extern "system" fn NewNumberOfEntries<Impl: INATNumberOfEntriesCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnewnumberofentries: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).NewNumberOfEntries(::core::mem::transmute_copy(&lnewnumberofentries)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), NewNumberOfEntries: NewNumberOfEntries::<Impl, IMPL_OFFSET> }
     }
@@ -388,44 +502,62 @@ impl INATNumberOfEntriesCallbackVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetConnectionImpl: Sized {
-    fn Connect();
-    fn Disconnect();
-    fn Delete();
-    fn Duplicate();
-    fn GetProperties();
-    fn GetUiObjectClassId();
-    fn Rename();
+    fn Connect(&mut self) -> ::windows::core::Result<()>;
+    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
+    fn Delete(&mut self) -> ::windows::core::Result<()>;
+    fn Duplicate(&mut self, pszwduplicatename: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetConnection>;
+    fn GetProperties(&mut self) -> ::windows::core::Result<*mut NETCON_PROPERTIES>;
+    fn GetUiObjectClassId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Rename(&mut self, pszwnewname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetConnectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetConnectionVtbl {
         unsafe extern "system" fn Connect<Impl: INetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Connect().into()
         }
         unsafe extern "system" fn Disconnect<Impl: INetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Disconnect().into()
         }
         unsafe extern "system" fn Delete<Impl: INetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Delete().into()
         }
         unsafe extern "system" fn Duplicate<Impl: INetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwduplicatename: super::super::Foundation::PWSTR, ppcon: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Duplicate(::core::mem::transmute_copy(&pszwduplicatename)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcon = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetProperties<Impl: INetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprops: *mut *mut NETCON_PROPERTIES) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetProperties() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppprops = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetUiObjectClassId<Impl: INetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetUiObjectClassId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pclsid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Rename<Impl: INetConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwnewname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Rename(::core::mem::transmute_copy(&pszwnewname)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -444,24 +576,24 @@ impl INetConnectionVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetConnectionConnectUiImpl: Sized {
-    fn SetConnection();
-    fn Connect();
-    fn Disconnect();
+    fn SetConnection(&mut self, pcon: ::core::option::Option<INetConnection>) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
+    fn Disconnect(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetConnectionConnectUiVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetConnectionConnectUiImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetConnectionConnectUiVtbl {
         unsafe extern "system" fn SetConnection<Impl: INetConnectionConnectUiImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcon: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetConnection(::core::mem::transmute(&pcon)).into()
         }
         unsafe extern "system" fn Connect<Impl: INetConnectionConnectUiImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Connect(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Disconnect<Impl: INetConnectionConnectUiImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Disconnect(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -475,13 +607,19 @@ impl INetConnectionConnectUiVtbl {
     }
 }
 pub trait INetConnectionManagerImpl: Sized {
-    fn EnumConnections();
+    fn EnumConnections(&mut self, flags: NETCONMGR_ENUM_FLAGS) -> ::windows::core::Result<IEnumNetConnection>;
 }
 impl INetConnectionManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetConnectionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetConnectionManagerVtbl {
         unsafe extern "system" fn EnumConnections<Impl: INetConnectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: NETCONMGR_ENUM_FLAGS, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumConnections(::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), EnumConnections: EnumConnections::<Impl, IMPL_OFFSET> }
     }
@@ -491,39 +629,75 @@ impl INetConnectionManagerVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetConnectionPropsImpl: Sized + IDispatchImpl {
-    fn Guid();
-    fn Name();
-    fn DeviceName();
-    fn Status();
-    fn MediaType();
-    fn Characteristics();
+    fn Guid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DeviceName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Status(&mut self) -> ::windows::core::Result<NETCON_STATUS>;
+    fn MediaType(&mut self) -> ::windows::core::Result<NETCON_MEDIATYPE>;
+    fn Characteristics(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetConnectionPropsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetConnectionPropsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetConnectionPropsVtbl {
         unsafe extern "system" fn Guid<Impl: INetConnectionPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Guid() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrguid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Name<Impl: INetConnectionPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DeviceName<Impl: INetConnectionPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DeviceName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrdevicename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Status<Impl: INetConnectionPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut NETCON_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Status() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pstatus = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MediaType<Impl: INetConnectionPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmediatype: *mut NETCON_MEDIATYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MediaType() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pmediatype = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Characteristics<Impl: INetConnectionPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Characteristics() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -541,69 +715,105 @@ impl INetConnectionPropsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwAuthorizedApplicationImpl: Sized + IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn ProcessImageFileName();
-    fn SetProcessImageFileName();
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
+    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ProcessImageFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetProcessImageFileName(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IpVersion(&mut self) -> ::windows::core::Result<NET_FW_IP_VERSION>;
+    fn SetIpVersion(&mut self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()>;
+    fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
+    fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
+    fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwAuthorizedApplicationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplicationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwAuthorizedApplicationVtbl {
         unsafe extern "system" fn Name<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetName<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetName(::core::mem::transmute_copy(&name)).into()
         }
         unsafe extern "system" fn ProcessImageFileName<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProcessImageFileName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *imagefilename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetProcessImageFileName<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetProcessImageFileName(::core::mem::transmute_copy(&imagefilename)).into()
         }
         unsafe extern "system" fn IpVersion<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IpVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ipversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetIpVersion<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetIpVersion(::core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Scope<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Scope() {
+                ::core::result::Result::Ok(ok__) => {
+                    *scope = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetScope<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetScope(::core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteAddresses() {
+                ::core::result::Result::Ok(ok__) => {
+                    *remoteaddrs = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemoteAddresses<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetEnabled<Impl: INetFwAuthorizedApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -627,34 +837,52 @@ impl INetFwAuthorizedApplicationVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwAuthorizedApplicationsImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn Item();
-    fn _NewEnum();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Add(&mut self, app: ::core::option::Option<INetFwAuthorizedApplication>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Item(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<INetFwAuthorizedApplication>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwAuthorizedApplicationsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplicationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwAuthorizedApplicationsVtbl {
         unsafe extern "system" fn Count<Impl: INetFwAuthorizedApplicationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *count = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Add<Impl: INetFwAuthorizedApplicationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, app: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Add(::core::mem::transmute(&app)).into()
         }
         unsafe extern "system" fn Remove<Impl: INetFwAuthorizedApplicationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Remove(::core::mem::transmute_copy(&imagefilename)).into()
         }
         unsafe extern "system" fn Item<Impl: INetFwAuthorizedApplicationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, app: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&imagefilename)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *app = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: INetFwAuthorizedApplicationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *newenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -671,109 +899,169 @@ impl INetFwAuthorizedApplicationsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwIcmpSettingsImpl: Sized + IDispatchImpl {
-    fn AllowOutboundDestinationUnreachable();
-    fn SetAllowOutboundDestinationUnreachable();
-    fn AllowRedirect();
-    fn SetAllowRedirect();
-    fn AllowInboundEchoRequest();
-    fn SetAllowInboundEchoRequest();
-    fn AllowOutboundTimeExceeded();
-    fn SetAllowOutboundTimeExceeded();
-    fn AllowOutboundParameterProblem();
-    fn SetAllowOutboundParameterProblem();
-    fn AllowOutboundSourceQuench();
-    fn SetAllowOutboundSourceQuench();
-    fn AllowInboundRouterRequest();
-    fn SetAllowInboundRouterRequest();
-    fn AllowInboundTimestampRequest();
-    fn SetAllowInboundTimestampRequest();
-    fn AllowInboundMaskRequest();
-    fn SetAllowInboundMaskRequest();
-    fn AllowOutboundPacketTooBig();
-    fn SetAllowOutboundPacketTooBig();
+    fn AllowOutboundDestinationUnreachable(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowOutboundDestinationUnreachable(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowRedirect(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowRedirect(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowInboundEchoRequest(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowInboundEchoRequest(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowOutboundTimeExceeded(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowOutboundTimeExceeded(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowOutboundParameterProblem(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowOutboundParameterProblem(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowOutboundSourceQuench(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowOutboundSourceQuench(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowInboundRouterRequest(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowInboundRouterRequest(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowInboundTimestampRequest(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowInboundTimestampRequest(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowInboundMaskRequest(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowInboundMaskRequest(&mut self, allow: i16) -> ::windows::core::Result<()>;
+    fn AllowOutboundPacketTooBig(&mut self) -> ::windows::core::Result<i16>;
+    fn SetAllowOutboundPacketTooBig(&mut self, allow: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwIcmpSettingsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwIcmpSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwIcmpSettingsVtbl {
         unsafe extern "system" fn AllowOutboundDestinationUnreachable<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowOutboundDestinationUnreachable() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowOutboundDestinationUnreachable<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowOutboundDestinationUnreachable(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowRedirect<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowRedirect() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowRedirect<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowRedirect(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundEchoRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowInboundEchoRequest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowInboundEchoRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowInboundEchoRequest(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundTimeExceeded<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowOutboundTimeExceeded() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowOutboundTimeExceeded<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowOutboundTimeExceeded(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundParameterProblem<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowOutboundParameterProblem() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowOutboundParameterProblem<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowOutboundParameterProblem(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundSourceQuench<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowOutboundSourceQuench() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowOutboundSourceQuench<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowOutboundSourceQuench(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundRouterRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowInboundRouterRequest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowInboundRouterRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowInboundRouterRequest(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundTimestampRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowInboundTimestampRequest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowInboundTimestampRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowInboundTimestampRequest(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundMaskRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowInboundMaskRequest() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowInboundMaskRequest<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowInboundMaskRequest(::core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundPacketTooBig<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AllowOutboundPacketTooBig() {
+                ::core::result::Result::Ok(ok__) => {
+                    *allow = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAllowOutboundPacketTooBig<Impl: INetFwIcmpSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAllowOutboundPacketTooBig(::core::mem::transmute_copy(&allow)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -805,34 +1093,46 @@ impl INetFwIcmpSettingsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwMgrImpl: Sized + IDispatchImpl {
-    fn LocalPolicy();
-    fn CurrentProfileType();
-    fn RestoreDefaults();
-    fn IsPortAllowed();
-    fn IsIcmpTypeAllowed();
+    fn LocalPolicy(&mut self) -> ::windows::core::Result<INetFwPolicy>;
+    fn CurrentProfileType(&mut self) -> ::windows::core::Result<NET_FW_PROFILE_TYPE>;
+    fn RestoreDefaults(&mut self) -> ::windows::core::Result<()>;
+    fn IsPortAllowed(&mut self, imagefilename: super::super::Foundation::BSTR, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: super::super::Foundation::BSTR, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn IsIcmpTypeAllowed(&mut self, ipversion: NET_FW_IP_VERSION, localaddress: super::super::Foundation::BSTR, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwMgrVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwMgrImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwMgrVtbl {
         unsafe extern "system" fn LocalPolicy<Impl: INetFwMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localpolicy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LocalPolicy() {
+                ::core::result::Result::Ok(ok__) => {
+                    *localpolicy = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CurrentProfileType<Impl: INetFwMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: *mut NET_FW_PROFILE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CurrentProfileType() {
+                ::core::result::Result::Ok(ok__) => {
+                    *profiletype = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RestoreDefaults<Impl: INetFwMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RestoreDefaults().into()
         }
         unsafe extern "system" fn IsPortAllowed<Impl: INetFwMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsPortAllowed(::core::mem::transmute_copy(&imagefilename), ::core::mem::transmute_copy(&ipversion), ::core::mem::transmute_copy(&portnumber), ::core::mem::transmute_copy(&localaddress), ::core::mem::transmute_copy(&ipprotocol), ::core::mem::transmute_copy(&allowed), ::core::mem::transmute_copy(&restricted)).into()
         }
         unsafe extern "system" fn IsIcmpTypeAllowed<Impl: INetFwMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsIcmpTypeAllowed(::core::mem::transmute_copy(&ipversion), ::core::mem::transmute_copy(&localaddress), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&allowed), ::core::mem::transmute_copy(&restricted)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -849,84 +1149,132 @@ impl INetFwMgrVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwOpenPortImpl: Sized + IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Protocol();
-    fn SetProtocol();
-    fn Port();
-    fn SetPort();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
-    fn BuiltIn();
+    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IpVersion(&mut self) -> ::windows::core::Result<NET_FW_IP_VERSION>;
+    fn SetIpVersion(&mut self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()>;
+    fn Protocol(&mut self) -> ::windows::core::Result<NET_FW_IP_PROTOCOL>;
+    fn SetProtocol(&mut self, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<()>;
+    fn Port(&mut self) -> ::windows::core::Result<i32>;
+    fn SetPort(&mut self, portnumber: i32) -> ::windows::core::Result<()>;
+    fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
+    fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
+    fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
+    fn BuiltIn(&mut self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwOpenPortVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwOpenPortImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwOpenPortVtbl {
         unsafe extern "system" fn Name<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetName<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetName(::core::mem::transmute_copy(&name)).into()
         }
         unsafe extern "system" fn IpVersion<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IpVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ipversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetIpVersion<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetIpVersion(::core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Protocol<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipprotocol: *mut NET_FW_IP_PROTOCOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Protocol() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ipprotocol = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetProtocol<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetProtocol(::core::mem::transmute_copy(&ipprotocol)).into()
         }
         unsafe extern "system" fn Port<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumber: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Port() {
+                ::core::result::Result::Ok(ok__) => {
+                    *portnumber = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetPort<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumber: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetPort(::core::mem::transmute_copy(&portnumber)).into()
         }
         unsafe extern "system" fn Scope<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Scope() {
+                ::core::result::Result::Ok(ok__) => {
+                    *scope = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetScope<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetScope(::core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteAddresses() {
+                ::core::result::Result::Ok(ok__) => {
+                    *remoteaddrs = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemoteAddresses<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetEnabled<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn BuiltIn<Impl: INetFwOpenPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, builtin: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).BuiltIn() {
+                ::core::result::Result::Ok(ok__) => {
+                    *builtin = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -953,34 +1301,52 @@ impl INetFwOpenPortVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwOpenPortsImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn Item();
-    fn _NewEnum();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Add(&mut self, port: ::core::option::Option<INetFwOpenPort>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<()>;
+    fn Item(&mut self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<INetFwOpenPort>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwOpenPortsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwOpenPortsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwOpenPortsVtbl {
         unsafe extern "system" fn Count<Impl: INetFwOpenPortsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *count = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Add<Impl: INetFwOpenPortsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, port: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Add(::core::mem::transmute(&port)).into()
         }
         unsafe extern "system" fn Remove<Impl: INetFwOpenPortsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Remove(::core::mem::transmute_copy(&portnumber), ::core::mem::transmute_copy(&ipprotocol)).into()
         }
         unsafe extern "system" fn Item<Impl: INetFwOpenPortsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL, openport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&portnumber), ::core::mem::transmute_copy(&ipprotocol)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *openport = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: INetFwOpenPortsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *newenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -997,19 +1363,31 @@ impl INetFwOpenPortsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwPolicyImpl: Sized + IDispatchImpl {
-    fn CurrentProfile();
-    fn GetProfileByType();
+    fn CurrentProfile(&mut self) -> ::windows::core::Result<INetFwProfile>;
+    fn GetProfileByType(&mut self, profiletype: NET_FW_PROFILE_TYPE) -> ::windows::core::Result<INetFwProfile>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwPolicyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwPolicyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwPolicyVtbl {
         unsafe extern "system" fn CurrentProfile<Impl: INetFwPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CurrentProfile() {
+                ::core::result::Result::Ok(ok__) => {
+                    *profile = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetProfileByType<Impl: INetFwPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE, profile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetProfileByType(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *profile = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1023,119 +1401,197 @@ impl INetFwPolicyVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwPolicy2Impl: Sized + IDispatchImpl {
-    fn CurrentProfileTypes();
-    fn FirewallEnabled();
-    fn SetFirewallEnabled();
-    fn ExcludedInterfaces();
-    fn SetExcludedInterfaces();
-    fn BlockAllInboundTraffic();
-    fn SetBlockAllInboundTraffic();
-    fn NotificationsDisabled();
-    fn SetNotificationsDisabled();
-    fn UnicastResponsesToMulticastBroadcastDisabled();
-    fn SetUnicastResponsesToMulticastBroadcastDisabled();
-    fn Rules();
-    fn ServiceRestriction();
-    fn EnableRuleGroup();
-    fn IsRuleGroupEnabled();
-    fn RestoreLocalFirewallDefaults();
-    fn DefaultInboundAction();
-    fn SetDefaultInboundAction();
-    fn DefaultOutboundAction();
-    fn SetDefaultOutboundAction();
-    fn IsRuleGroupCurrentlyEnabled();
-    fn LocalPolicyModifyState();
+    fn CurrentProfileTypes(&mut self) -> ::windows::core::Result<i32>;
+    fn FirewallEnabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16>;
+    fn SetFirewallEnabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2, enabled: i16) -> ::windows::core::Result<()>;
+    fn ExcludedInterfaces(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetExcludedInterfaces(&mut self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BlockAllInboundTraffic(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16>;
+    fn SetBlockAllInboundTraffic(&mut self, profiletype: NET_FW_PROFILE_TYPE2, block: i16) -> ::windows::core::Result<()>;
+    fn NotificationsDisabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16>;
+    fn SetNotificationsDisabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2, disabled: i16) -> ::windows::core::Result<()>;
+    fn UnicastResponsesToMulticastBroadcastDisabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16>;
+    fn SetUnicastResponsesToMulticastBroadcastDisabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2, disabled: i16) -> ::windows::core::Result<()>;
+    fn Rules(&mut self) -> ::windows::core::Result<INetFwRules>;
+    fn ServiceRestriction(&mut self) -> ::windows::core::Result<INetFwServiceRestriction>;
+    fn EnableRuleGroup(&mut self, profiletypesbitmask: i32, group: super::super::Foundation::BSTR, enable: i16) -> ::windows::core::Result<()>;
+    fn IsRuleGroupEnabled(&mut self, profiletypesbitmask: i32, group: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn RestoreLocalFirewallDefaults(&mut self) -> ::windows::core::Result<()>;
+    fn DefaultInboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<NET_FW_ACTION>;
+    fn SetDefaultInboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::Result<()>;
+    fn DefaultOutboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<NET_FW_ACTION>;
+    fn SetDefaultOutboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::Result<()>;
+    fn IsRuleGroupCurrentlyEnabled(&mut self, group: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn LocalPolicyModifyState(&mut self) -> ::windows::core::Result<NET_FW_MODIFY_STATE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwPolicy2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwPolicy2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwPolicy2Vtbl {
         unsafe extern "system" fn CurrentProfileTypes<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CurrentProfileTypes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *profiletypesbitmask = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn FirewallEnabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).FirewallEnabled(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetFirewallEnabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetFirewallEnabled(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn ExcludedInterfaces<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ExcludedInterfaces(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *interfaces = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetExcludedInterfaces<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetExcludedInterfaces(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&interfaces)).into()
         }
         unsafe extern "system" fn BlockAllInboundTraffic<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).BlockAllInboundTraffic(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *block = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetBlockAllInboundTraffic<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetBlockAllInboundTraffic(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&block)).into()
         }
         unsafe extern "system" fn NotificationsDisabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).NotificationsDisabled(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *disabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetNotificationsDisabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetNotificationsDisabled(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn UnicastResponsesToMulticastBroadcastDisabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).UnicastResponsesToMulticastBroadcastDisabled(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *disabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetUnicastResponsesToMulticastBroadcastDisabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetUnicastResponsesToMulticastBroadcastDisabled(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn Rules<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Rules() {
+                ::core::result::Result::Ok(ok__) => {
+                    *rules = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ServiceRestriction<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicerestriction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ServiceRestriction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *servicerestriction = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnableRuleGroup<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32, group: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enable: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EnableRuleGroup(::core::mem::transmute_copy(&profiletypesbitmask), ::core::mem::transmute_copy(&group), ::core::mem::transmute_copy(&enable)).into()
         }
         unsafe extern "system" fn IsRuleGroupEnabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32, group: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsRuleGroupEnabled(::core::mem::transmute_copy(&profiletypesbitmask), ::core::mem::transmute_copy(&group)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RestoreLocalFirewallDefaults<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RestoreLocalFirewallDefaults().into()
         }
         unsafe extern "system" fn DefaultInboundAction<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: *mut NET_FW_ACTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DefaultInboundAction(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *action = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDefaultInboundAction<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDefaultInboundAction(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&action)).into()
         }
         unsafe extern "system" fn DefaultOutboundAction<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: *mut NET_FW_ACTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DefaultOutboundAction(::core::mem::transmute_copy(&profiletype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *action = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDefaultOutboundAction<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDefaultOutboundAction(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&action)).into()
         }
         unsafe extern "system" fn IsRuleGroupCurrentlyEnabled<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsRuleGroupCurrentlyEnabled(::core::mem::transmute_copy(&group)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn LocalPolicyModifyState<Impl: INetFwPolicy2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifystate: *mut NET_FW_MODIFY_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LocalPolicyModifyState() {
+                ::core::result::Result::Ok(ok__) => {
+                    *modifystate = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1169,34 +1625,52 @@ impl INetFwPolicy2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwProductImpl: Sized + IDispatchImpl {
-    fn RuleCategories();
-    fn SetRuleCategories();
-    fn DisplayName();
-    fn SetDisplayName();
-    fn PathToSignedProductExe();
+    fn RuleCategories(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetRuleCategories(&mut self, rulecategories: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDisplayName(&mut self, displayname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PathToSignedProductExe(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwProductVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwProductImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwProductVtbl {
         unsafe extern "system" fn RuleCategories<Impl: INetFwProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rulecategories: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RuleCategories() {
+                ::core::result::Result::Ok(ok__) => {
+                    *rulecategories = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRuleCategories<Impl: INetFwProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rulecategories: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRuleCategories(::core::mem::transmute_copy(&rulecategories)).into()
         }
         unsafe extern "system" fn DisplayName<Impl: INetFwProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DisplayName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *displayname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDisplayName<Impl: INetFwProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDisplayName(::core::mem::transmute_copy(&displayname)).into()
         }
         unsafe extern "system" fn PathToSignedProductExe<Impl: INetFwProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PathToSignedProductExe() {
+                ::core::result::Result::Ok(ok__) => {
+                    *path = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1213,29 +1687,53 @@ impl INetFwProductVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwProductsImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Register();
-    fn Item();
-    fn _NewEnum();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Register(&mut self, product: ::core::option::Option<INetFwProduct>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&mut self, index: i32) -> ::windows::core::Result<INetFwProduct>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwProductsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwProductsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwProductsVtbl {
         unsafe extern "system" fn Count<Impl: INetFwProductsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *count = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Register<Impl: INetFwProductsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, product: ::windows::core::RawPtr, registration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Register(::core::mem::transmute(&product)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *registration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: INetFwProductsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, product: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *product = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: INetFwProductsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *newenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1251,79 +1749,139 @@ impl INetFwProductsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwProfileImpl: Sized + IDispatchImpl {
-    fn Type();
-    fn FirewallEnabled();
-    fn SetFirewallEnabled();
-    fn ExceptionsNotAllowed();
-    fn SetExceptionsNotAllowed();
-    fn NotificationsDisabled();
-    fn SetNotificationsDisabled();
-    fn UnicastResponsesToMulticastBroadcastDisabled();
-    fn SetUnicastResponsesToMulticastBroadcastDisabled();
-    fn RemoteAdminSettings();
-    fn IcmpSettings();
-    fn GloballyOpenPorts();
-    fn Services();
-    fn AuthorizedApplications();
+    fn Type(&mut self) -> ::windows::core::Result<NET_FW_PROFILE_TYPE>;
+    fn FirewallEnabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetFirewallEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
+    fn ExceptionsNotAllowed(&mut self) -> ::windows::core::Result<i16>;
+    fn SetExceptionsNotAllowed(&mut self, notallowed: i16) -> ::windows::core::Result<()>;
+    fn NotificationsDisabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetNotificationsDisabled(&mut self, disabled: i16) -> ::windows::core::Result<()>;
+    fn UnicastResponsesToMulticastBroadcastDisabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetUnicastResponsesToMulticastBroadcastDisabled(&mut self, disabled: i16) -> ::windows::core::Result<()>;
+    fn RemoteAdminSettings(&mut self) -> ::windows::core::Result<INetFwRemoteAdminSettings>;
+    fn IcmpSettings(&mut self) -> ::windows::core::Result<INetFwIcmpSettings>;
+    fn GloballyOpenPorts(&mut self) -> ::windows::core::Result<INetFwOpenPorts>;
+    fn Services(&mut self) -> ::windows::core::Result<INetFwServices>;
+    fn AuthorizedApplications(&mut self) -> ::windows::core::Result<INetFwAuthorizedApplications>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwProfileVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwProfileVtbl {
         unsafe extern "system" fn Type<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut NET_FW_PROFILE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Type() {
+                ::core::result::Result::Ok(ok__) => {
+                    *r#type = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn FirewallEnabled<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).FirewallEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetFirewallEnabled<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetFirewallEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn ExceptionsNotAllowed<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notallowed: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ExceptionsNotAllowed() {
+                ::core::result::Result::Ok(ok__) => {
+                    *notallowed = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetExceptionsNotAllowed<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notallowed: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetExceptionsNotAllowed(::core::mem::transmute_copy(&notallowed)).into()
         }
         unsafe extern "system" fn NotificationsDisabled<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).NotificationsDisabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *disabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetNotificationsDisabled<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetNotificationsDisabled(::core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn UnicastResponsesToMulticastBroadcastDisabled<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).UnicastResponsesToMulticastBroadcastDisabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *disabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetUnicastResponsesToMulticastBroadcastDisabled<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetUnicastResponsesToMulticastBroadcastDisabled(::core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn RemoteAdminSettings<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteadminsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteAdminSettings() {
+                ::core::result::Result::Ok(ok__) => {
+                    *remoteadminsettings = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IcmpSettings<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icmpsettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IcmpSettings() {
+                ::core::result::Result::Ok(ok__) => {
+                    *icmpsettings = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GloballyOpenPorts<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, openports: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GloballyOpenPorts() {
+                ::core::result::Result::Ok(ok__) => {
+                    *openports = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Services<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, services: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Services() {
+                ::core::result::Result::Ok(ok__) => {
+                    *services = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AuthorizedApplications<Impl: INetFwProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apps: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AuthorizedApplications() {
+                ::core::result::Result::Ok(ok__) => {
+                    *apps = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1349,49 +1907,73 @@ impl INetFwProfileVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRemoteAdminSettingsImpl: Sized + IDispatchImpl {
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
+    fn IpVersion(&mut self) -> ::windows::core::Result<NET_FW_IP_VERSION>;
+    fn SetIpVersion(&mut self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()>;
+    fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
+    fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
+    fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwRemoteAdminSettingsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRemoteAdminSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwRemoteAdminSettingsVtbl {
         unsafe extern "system" fn IpVersion<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IpVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ipversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetIpVersion<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetIpVersion(::core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Scope<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Scope() {
+                ::core::result::Result::Ok(ok__) => {
+                    *scope = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetScope<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetScope(::core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteAddresses() {
+                ::core::result::Result::Ok(ok__) => {
+                    *remoteaddrs = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemoteAddresses<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetEnabled<Impl: INetFwRemoteAdminSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1411,189 +1993,297 @@ impl INetFwRemoteAdminSettingsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRuleImpl: Sized + IDispatchImpl {
-    fn Name();
-    fn SetName();
-    fn Description();
-    fn SetDescription();
-    fn ApplicationName();
-    fn SetApplicationName();
-    fn ServiceName();
-    fn SetServiceName();
-    fn Protocol();
-    fn SetProtocol();
-    fn LocalPorts();
-    fn SetLocalPorts();
-    fn RemotePorts();
-    fn SetRemotePorts();
-    fn LocalAddresses();
-    fn SetLocalAddresses();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn IcmpTypesAndCodes();
-    fn SetIcmpTypesAndCodes();
-    fn Direction();
-    fn SetDirection();
-    fn Interfaces();
-    fn SetInterfaces();
-    fn InterfaceTypes();
-    fn SetInterfaceTypes();
-    fn Enabled();
-    fn SetEnabled();
-    fn Grouping();
-    fn SetGrouping();
-    fn Profiles();
-    fn SetProfiles();
-    fn EdgeTraversal();
-    fn SetEdgeTraversal();
-    fn Action();
-    fn SetAction();
+    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&mut self, desc: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ApplicationName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetApplicationName(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ServiceName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServiceName(&mut self, servicename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Protocol(&mut self) -> ::windows::core::Result<i32>;
+    fn SetProtocol(&mut self, protocol: i32) -> ::windows::core::Result<()>;
+    fn LocalPorts(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalPorts(&mut self, portnumbers: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemotePorts(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemotePorts(&mut self, portnumbers: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LocalAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalAddresses(&mut self, localaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IcmpTypesAndCodes(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetIcmpTypesAndCodes(&mut self, icmptypesandcodes: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Direction(&mut self) -> ::windows::core::Result<NET_FW_RULE_DIRECTION>;
+    fn SetDirection(&mut self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()>;
+    fn Interfaces(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetInterfaces(&mut self, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn InterfaceTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetInterfaceTypes(&mut self, interfacetypes: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
+    fn Grouping(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetGrouping(&mut self, context: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Profiles(&mut self) -> ::windows::core::Result<i32>;
+    fn SetProfiles(&mut self, profiletypesbitmask: i32) -> ::windows::core::Result<()>;
+    fn EdgeTraversal(&mut self) -> ::windows::core::Result<i16>;
+    fn SetEdgeTraversal(&mut self, enabled: i16) -> ::windows::core::Result<()>;
+    fn Action(&mut self) -> ::windows::core::Result<NET_FW_ACTION>;
+    fn SetAction(&mut self, action: NET_FW_ACTION) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwRuleVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRuleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwRuleVtbl {
         unsafe extern "system" fn Name<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetName<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetName(::core::mem::transmute_copy(&name)).into()
         }
         unsafe extern "system" fn Description<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Description() {
+                ::core::result::Result::Ok(ok__) => {
+                    *desc = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDescription<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desc: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDescription(::core::mem::transmute_copy(&desc)).into()
         }
         unsafe extern "system" fn ApplicationName<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ApplicationName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *imagefilename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetApplicationName<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetApplicationName(::core::mem::transmute_copy(&imagefilename)).into()
         }
         unsafe extern "system" fn ServiceName<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ServiceName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *servicename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetServiceName<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetServiceName(::core::mem::transmute_copy(&servicename)).into()
         }
         unsafe extern "system" fn Protocol<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protocol: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Protocol() {
+                ::core::result::Result::Ok(ok__) => {
+                    *protocol = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetProtocol<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protocol: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetProtocol(::core::mem::transmute_copy(&protocol)).into()
         }
         unsafe extern "system" fn LocalPorts<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumbers: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LocalPorts() {
+                ::core::result::Result::Ok(ok__) => {
+                    *portnumbers = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetLocalPorts<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumbers: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLocalPorts(::core::mem::transmute_copy(&portnumbers)).into()
         }
         unsafe extern "system" fn RemotePorts<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumbers: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemotePorts() {
+                ::core::result::Result::Ok(ok__) => {
+                    *portnumbers = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemotePorts<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumbers: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemotePorts(::core::mem::transmute_copy(&portnumbers)).into()
         }
         unsafe extern "system" fn LocalAddresses<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LocalAddresses() {
+                ::core::result::Result::Ok(ok__) => {
+                    *localaddrs = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetLocalAddresses<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLocalAddresses(::core::mem::transmute_copy(&localaddrs)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteAddresses() {
+                ::core::result::Result::Ok(ok__) => {
+                    *remoteaddrs = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemoteAddresses<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
         }
         unsafe extern "system" fn IcmpTypesAndCodes<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icmptypesandcodes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IcmpTypesAndCodes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *icmptypesandcodes = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetIcmpTypesAndCodes<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icmptypesandcodes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetIcmpTypesAndCodes(::core::mem::transmute_copy(&icmptypesandcodes)).into()
         }
         unsafe extern "system" fn Direction<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dir: *mut NET_FW_RULE_DIRECTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Direction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *dir = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDirection<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDirection(::core::mem::transmute_copy(&dir)).into()
         }
         unsafe extern "system" fn Interfaces<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaces: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Interfaces() {
+                ::core::result::Result::Ok(ok__) => {
+                    *interfaces = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInterfaces<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaces: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInterfaces(::core::mem::transmute_copy(&interfaces)).into()
         }
         unsafe extern "system" fn InterfaceTypes<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacetypes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InterfaceTypes() {
+                ::core::result::Result::Ok(ok__) => {
+                    *interfacetypes = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInterfaceTypes<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacetypes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInterfaceTypes(::core::mem::transmute_copy(&interfacetypes)).into()
         }
         unsafe extern "system" fn Enabled<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetEnabled<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn Grouping<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Grouping() {
+                ::core::result::Result::Ok(ok__) => {
+                    *context = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetGrouping<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetGrouping(::core::mem::transmute_copy(&context)).into()
         }
         unsafe extern "system" fn Profiles<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Profiles() {
+                ::core::result::Result::Ok(ok__) => {
+                    *profiletypesbitmask = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetProfiles<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetProfiles(::core::mem::transmute_copy(&profiletypesbitmask)).into()
         }
         unsafe extern "system" fn EdgeTraversal<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EdgeTraversal() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetEdgeTraversal<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetEdgeTraversal(::core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn Action<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, action: *mut NET_FW_ACTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Action() {
+                ::core::result::Result::Ok(ok__) => {
+                    *action = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAction<Impl: INetFwRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, action: NET_FW_ACTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAction(::core::mem::transmute_copy(&action)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1641,19 +2331,25 @@ impl INetFwRuleVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRule2Impl: Sized + IDispatchImpl + INetFwRuleImpl {
-    fn EdgeTraversalOptions();
-    fn SetEdgeTraversalOptions();
+    fn EdgeTraversalOptions(&mut self) -> ::windows::core::Result<i32>;
+    fn SetEdgeTraversalOptions(&mut self, loptions: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwRule2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwRule2Vtbl {
         unsafe extern "system" fn EdgeTraversalOptions<Impl: INetFwRule2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EdgeTraversalOptions() {
+                ::core::result::Result::Ok(ok__) => {
+                    *loptions = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetEdgeTraversalOptions<Impl: INetFwRule2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetEdgeTraversalOptions(::core::mem::transmute_copy(&loptions)).into()
         }
         Self {
             base: INetFwRuleVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1667,69 +2363,105 @@ impl INetFwRule2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRule3Impl: Sized + IDispatchImpl + INetFwRuleImpl + INetFwRule2Impl {
-    fn LocalAppPackageId();
-    fn SetLocalAppPackageId();
-    fn LocalUserOwner();
-    fn SetLocalUserOwner();
-    fn LocalUserAuthorizedList();
-    fn SetLocalUserAuthorizedList();
-    fn RemoteUserAuthorizedList();
-    fn SetRemoteUserAuthorizedList();
-    fn RemoteMachineAuthorizedList();
-    fn SetRemoteMachineAuthorizedList();
-    fn SecureFlags();
-    fn SetSecureFlags();
+    fn LocalAppPackageId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalAppPackageId(&mut self, wszpackageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LocalUserOwner(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalUserOwner(&mut self, wszuserowner: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LocalUserAuthorizedList(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalUserAuthorizedList(&mut self, wszuserauthlist: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoteUserAuthorizedList(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemoteUserAuthorizedList(&mut self, wszuserauthlist: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoteMachineAuthorizedList(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemoteMachineAuthorizedList(&mut self, wszuserauthlist: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SecureFlags(&mut self) -> ::windows::core::Result<i32>;
+    fn SetSecureFlags(&mut self, loptions: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwRule3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwRule3Vtbl {
         unsafe extern "system" fn LocalAppPackageId<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpackageid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LocalAppPackageId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *wszpackageid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetLocalAppPackageId<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpackageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLocalAppPackageId(::core::mem::transmute_copy(&wszpackageid)).into()
         }
         unsafe extern "system" fn LocalUserOwner<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserowner: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LocalUserOwner() {
+                ::core::result::Result::Ok(ok__) => {
+                    *wszuserowner = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetLocalUserOwner<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserowner: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLocalUserOwner(::core::mem::transmute_copy(&wszuserowner)).into()
         }
         unsafe extern "system" fn LocalUserAuthorizedList<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).LocalUserAuthorizedList() {
+                ::core::result::Result::Ok(ok__) => {
+                    *wszuserauthlist = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetLocalUserAuthorizedList<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLocalUserAuthorizedList(::core::mem::transmute_copy(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn RemoteUserAuthorizedList<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteUserAuthorizedList() {
+                ::core::result::Result::Ok(ok__) => {
+                    *wszuserauthlist = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemoteUserAuthorizedList<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemoteUserAuthorizedList(::core::mem::transmute_copy(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn RemoteMachineAuthorizedList<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteMachineAuthorizedList() {
+                ::core::result::Result::Ok(ok__) => {
+                    *wszuserauthlist = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemoteMachineAuthorizedList<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemoteMachineAuthorizedList(::core::mem::transmute_copy(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn SecureFlags<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SecureFlags() {
+                ::core::result::Result::Ok(ok__) => {
+                    *loptions = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetSecureFlags<Impl: INetFwRule3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSecureFlags(::core::mem::transmute_copy(&loptions)).into()
         }
         Self {
             base: INetFwRule2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1753,34 +2485,52 @@ impl INetFwRule3Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRulesImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Add();
-    fn Remove();
-    fn Item();
-    fn _NewEnum();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Add(&mut self, rule: ::core::option::Option<INetFwRule>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<INetFwRule>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwRulesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRulesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwRulesVtbl {
         unsafe extern "system" fn Count<Impl: INetFwRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *count = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Add<Impl: INetFwRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rule: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Add(::core::mem::transmute(&rule)).into()
         }
         unsafe extern "system" fn Remove<Impl: INetFwRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Remove(::core::mem::transmute_copy(&name)).into()
         }
         unsafe extern "system" fn Item<Impl: INetFwRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *rule = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: INetFwRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *newenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1797,69 +2547,117 @@ impl INetFwRulesVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwServiceImpl: Sized + IDispatchImpl {
-    fn Name();
-    fn Type();
-    fn Customized();
-    fn IpVersion();
-    fn SetIpVersion();
-    fn Scope();
-    fn SetScope();
-    fn RemoteAddresses();
-    fn SetRemoteAddresses();
-    fn Enabled();
-    fn SetEnabled();
-    fn GloballyOpenPorts();
+    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Type(&mut self) -> ::windows::core::Result<NET_FW_SERVICE_TYPE>;
+    fn Customized(&mut self) -> ::windows::core::Result<i16>;
+    fn IpVersion(&mut self) -> ::windows::core::Result<NET_FW_IP_VERSION>;
+    fn SetIpVersion(&mut self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()>;
+    fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
+    fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
+    fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
+    fn GloballyOpenPorts(&mut self) -> ::windows::core::Result<INetFwOpenPorts>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwServiceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwServiceVtbl {
         unsafe extern "system" fn Name<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *name = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Type<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut NET_FW_SERVICE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Type() {
+                ::core::result::Result::Ok(ok__) => {
+                    *r#type = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Customized<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customized: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Customized() {
+                ::core::result::Result::Ok(ok__) => {
+                    *customized = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IpVersion<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IpVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ipversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetIpVersion<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetIpVersion(::core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Scope<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Scope() {
+                ::core::result::Result::Ok(ok__) => {
+                    *scope = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetScope<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetScope(::core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoteAddresses() {
+                ::core::result::Result::Ok(ok__) => {
+                    *remoteaddrs = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetRemoteAddresses<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *enabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetEnabled<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetEnabled(::core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn GloballyOpenPorts<Impl: INetFwServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, openports: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GloballyOpenPorts() {
+                ::core::result::Result::Ok(ok__) => {
+                    *openports = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1883,24 +2681,36 @@ impl INetFwServiceVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwServiceRestrictionImpl: Sized + IDispatchImpl {
-    fn RestrictService();
-    fn ServiceRestricted();
-    fn Rules();
+    fn RestrictService(&mut self, servicename: super::super::Foundation::BSTR, appname: super::super::Foundation::BSTR, restrictservice: i16, servicesidrestricted: i16) -> ::windows::core::Result<()>;
+    fn ServiceRestricted(&mut self, servicename: super::super::Foundation::BSTR, appname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn Rules(&mut self) -> ::windows::core::Result<INetFwRules>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwServiceRestrictionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwServiceRestrictionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwServiceRestrictionVtbl {
         unsafe extern "system" fn RestrictService<Impl: INetFwServiceRestrictionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, restrictservice: i16, servicesidrestricted: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RestrictService(::core::mem::transmute_copy(&servicename), ::core::mem::transmute_copy(&appname), ::core::mem::transmute_copy(&restrictservice), ::core::mem::transmute_copy(&servicesidrestricted)).into()
         }
         unsafe extern "system" fn ServiceRestricted<Impl: INetFwServiceRestrictionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, servicerestricted: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ServiceRestricted(::core::mem::transmute_copy(&servicename), ::core::mem::transmute_copy(&appname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *servicerestricted = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Rules<Impl: INetFwServiceRestrictionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Rules() {
+                ::core::result::Result::Ok(ok__) => {
+                    *rules = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1915,24 +2725,42 @@ impl INetFwServiceRestrictionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwServicesImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Item(&mut self, svctype: NET_FW_SERVICE_TYPE) -> ::windows::core::Result<INetFwService>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwServicesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetFwServicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetFwServicesVtbl {
         unsafe extern "system" fn Count<Impl: INetFwServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *count = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: INetFwServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, svctype: NET_FW_SERVICE_TYPE, service: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&svctype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *service = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: INetFwServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *newenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1947,59 +2775,89 @@ impl INetFwServicesVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingConfigurationImpl: Sized + IDispatchImpl {
-    fn SharingEnabled();
-    fn SharingConnectionType();
-    fn DisableSharing();
-    fn EnableSharing();
-    fn InternetFirewallEnabled();
-    fn DisableInternetFirewall();
-    fn EnableInternetFirewall();
-    fn EnumPortMappings();
-    fn AddPortMapping();
-    fn RemovePortMapping();
+    fn SharingEnabled(&mut self) -> ::windows::core::Result<i16>;
+    fn SharingConnectionType(&mut self) -> ::windows::core::Result<SHARINGCONNECTIONTYPE>;
+    fn DisableSharing(&mut self) -> ::windows::core::Result<()>;
+    fn EnableSharing(&mut self, r#type: SHARINGCONNECTIONTYPE) -> ::windows::core::Result<()>;
+    fn InternetFirewallEnabled(&mut self) -> ::windows::core::Result<i16>;
+    fn DisableInternetFirewall(&mut self) -> ::windows::core::Result<()>;
+    fn EnableInternetFirewall(&mut self) -> ::windows::core::Result<()>;
+    fn EnumPortMappings(&mut self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPortMappingCollection>;
+    fn AddPortMapping(&mut self, bstrname: super::super::Foundation::BSTR, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: super::super::Foundation::BSTR, etargettype: ICS_TARGETTYPE) -> ::windows::core::Result<INetSharingPortMapping>;
+    fn RemovePortMapping(&mut self, pmapping: ::core::option::Option<INetSharingPortMapping>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingConfigurationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingConfigurationVtbl {
         unsafe extern "system" fn SharingEnabled<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SharingEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbenabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SharingConnectionType<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut SHARINGCONNECTIONTYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SharingConnectionType() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ptype = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DisableSharing<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DisableSharing().into()
         }
         unsafe extern "system" fn EnableSharing<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: SHARINGCONNECTIONTYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EnableSharing(::core::mem::transmute_copy(&r#type)).into()
         }
         unsafe extern "system" fn InternetFirewallEnabled<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InternetFirewallEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbenabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DisableInternetFirewall<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DisableInternetFirewall().into()
         }
         unsafe extern "system" fn EnableInternetFirewall<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EnableInternetFirewall().into()
         }
         unsafe extern "system" fn EnumPortMappings<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumPortMappings(::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcoll = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddPortMapping<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, etargettype: ICS_TARGETTYPE, ppmapping: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AddPortMapping(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&ucipprotocol), ::core::mem::transmute_copy(&usexternalport), ::core::mem::transmute_copy(&usinternalport), ::core::mem::transmute_copy(&dwoptions), ::core::mem::transmute_copy(&bstrtargetnameoripaddress), ::core::mem::transmute_copy(&etargettype)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppmapping = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RemovePortMapping<Impl: INetSharingConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmapping: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RemovePortMapping(::core::mem::transmute(&pmapping)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2021,19 +2879,31 @@ impl INetSharingConfigurationVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingEveryConnectionCollectionImpl: Sized + IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingEveryConnectionCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingEveryConnectionCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingEveryConnectionCollectionVtbl {
         unsafe extern "system" fn _NewEnum<Impl: INetSharingEveryConnectionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: INetSharingEveryConnectionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2047,39 +2917,75 @@ impl INetSharingEveryConnectionCollectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingManagerImpl: Sized + IDispatchImpl {
-    fn SharingInstalled();
-    fn EnumPublicConnections();
-    fn EnumPrivateConnections();
-    fn INetSharingConfigurationForINetConnection();
-    fn EnumEveryConnection();
-    fn NetConnectionProps();
+    fn SharingInstalled(&mut self) -> ::windows::core::Result<i16>;
+    fn EnumPublicConnections(&mut self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPublicConnectionCollection>;
+    fn EnumPrivateConnections(&mut self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPrivateConnectionCollection>;
+    fn INetSharingConfigurationForINetConnection(&mut self, pnetconnection: ::core::option::Option<INetConnection>) -> ::windows::core::Result<INetSharingConfiguration>;
+    fn EnumEveryConnection(&mut self) -> ::windows::core::Result<INetSharingEveryConnectionCollection>;
+    fn NetConnectionProps(&mut self, pnetconnection: ::core::option::Option<INetConnection>) -> ::windows::core::Result<INetConnectionProps>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingManagerVtbl {
         unsafe extern "system" fn SharingInstalled<Impl: INetSharingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbinstalled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SharingInstalled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbinstalled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumPublicConnections<Impl: INetSharingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumPublicConnections(::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcoll = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumPrivateConnections<Impl: INetSharingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumPrivateConnections(::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcoll = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn INetSharingConfigurationForINetConnection<Impl: INetSharingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetconnection: ::windows::core::RawPtr, ppnetsharingconfiguration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).INetSharingConfigurationForINetConnection(::core::mem::transmute(&pnetconnection)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppnetsharingconfiguration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EnumEveryConnection<Impl: INetSharingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcoll: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumEveryConnection() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcoll = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn NetConnectionProps<Impl: INetSharingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetconnection: ::windows::core::RawPtr, ppprops: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).NetConnectionProps(::core::mem::transmute(&pnetconnection)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppprops = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2097,29 +3003,35 @@ impl INetSharingManagerVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingPortMappingImpl: Sized + IDispatchImpl {
-    fn Disable();
-    fn Enable();
-    fn Properties();
-    fn Delete();
+    fn Disable(&mut self) -> ::windows::core::Result<()>;
+    fn Enable(&mut self) -> ::windows::core::Result<()>;
+    fn Properties(&mut self) -> ::windows::core::Result<INetSharingPortMappingProps>;
+    fn Delete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingPortMappingVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingPortMappingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingPortMappingVtbl {
         unsafe extern "system" fn Disable<Impl: INetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Disable().into()
         }
         unsafe extern "system" fn Enable<Impl: INetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Enable().into()
         }
         unsafe extern "system" fn Properties<Impl: INetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnspmp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Properties() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppnspmp = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Delete<Impl: INetSharingPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Delete().into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2135,19 +3047,31 @@ impl INetSharingPortMappingVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingPortMappingCollectionImpl: Sized + IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingPortMappingCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingPortMappingCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingPortMappingCollectionVtbl {
         unsafe extern "system" fn _NewEnum<Impl: INetSharingPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: INetSharingPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2161,49 +3085,97 @@ impl INetSharingPortMappingCollectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingPortMappingPropsImpl: Sized + IDispatchImpl {
-    fn Name();
-    fn IPProtocol();
-    fn ExternalPort();
-    fn InternalPort();
-    fn Options();
-    fn TargetName();
-    fn TargetIPAddress();
-    fn Enabled();
+    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IPProtocol(&mut self) -> ::windows::core::Result<u8>;
+    fn ExternalPort(&mut self) -> ::windows::core::Result<i32>;
+    fn InternalPort(&mut self) -> ::windows::core::Result<i32>;
+    fn Options(&mut self) -> ::windows::core::Result<i32>;
+    fn TargetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn TargetIPAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingPortMappingPropsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingPortMappingPropsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingPortMappingPropsVtbl {
         unsafe extern "system" fn Name<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IPProtocol<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pucipprot: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IPProtocol() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pucipprot = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ExternalPort<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusport: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ExternalPort() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pusport = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InternalPort<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusport: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InternalPort() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pusport = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Options<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwoptions: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Options() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwoptions = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn TargetName<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtargetname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).TargetName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrtargetname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn TargetIPAddress<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtargetipaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).TargetIPAddress() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrtargetipaddress = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Enabled<Impl: INetSharingPortMappingPropsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbool = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2223,19 +3195,31 @@ impl INetSharingPortMappingPropsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingPrivateConnectionCollectionImpl: Sized + IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingPrivateConnectionCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingPrivateConnectionCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingPrivateConnectionCollectionVtbl {
         unsafe extern "system" fn _NewEnum<Impl: INetSharingPrivateConnectionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: INetSharingPrivateConnectionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2249,19 +3233,31 @@ impl INetSharingPrivateConnectionCollectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetSharingPublicConnectionCollectionImpl: Sized + IDispatchImpl {
-    fn _NewEnum();
-    fn Count();
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingPublicConnectionCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingPublicConnectionCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INetSharingPublicConnectionCollectionVtbl {
         unsafe extern "system" fn _NewEnum<Impl: INetSharingPublicConnectionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: INetSharingPublicConnectionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2275,64 +3271,106 @@ impl INetSharingPublicConnectionCollectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IStaticPortMappingImpl: Sized + IDispatchImpl {
-    fn ExternalIPAddress();
-    fn ExternalPort();
-    fn InternalPort();
-    fn Protocol();
-    fn InternalClient();
-    fn Enabled();
-    fn Description();
-    fn EditInternalClient();
-    fn Enable();
-    fn EditDescription();
-    fn EditInternalPort();
+    fn ExternalIPAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ExternalPort(&mut self) -> ::windows::core::Result<i32>;
+    fn InternalPort(&mut self) -> ::windows::core::Result<i32>;
+    fn Protocol(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InternalClient(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
+    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EditInternalClient(&mut self, bstrinternalclient: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enable(&mut self, vb: i16) -> ::windows::core::Result<()>;
+    fn EditDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EditInternalPort(&mut self, linternalport: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IStaticPortMappingVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMappingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStaticPortMappingVtbl {
         unsafe extern "system" fn ExternalIPAddress<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ExternalIPAddress() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ExternalPort<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ExternalPort() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InternalPort<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InternalPort() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Protocol<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Protocol() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InternalClient<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InternalClient() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Enabled<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Enabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Description<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Description() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EditInternalClient<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EditInternalClient(::core::mem::transmute_copy(&bstrinternalclient)).into()
         }
         unsafe extern "system" fn Enable<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vb: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Enable(::core::mem::transmute_copy(&vb)).into()
         }
         unsafe extern "system" fn EditDescription<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EditDescription(::core::mem::transmute_copy(&bstrdescription)).into()
         }
         unsafe extern "system" fn EditInternalPort<Impl: IStaticPortMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EditInternalPort(::core::mem::transmute_copy(&linternalport)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2355,34 +3393,58 @@ impl IStaticPortMappingVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IStaticPortMappingCollectionImpl: Sized + IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn Remove();
-    fn Add();
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&mut self, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<IStaticPortMapping>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Remove(&mut self, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Add(&mut self, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR, linternalport: i32, bstrinternalclient: super::super::Foundation::BSTR, benabled: i16, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<IStaticPortMapping>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IStaticPortMappingCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMappingCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStaticPortMappingCollectionVtbl {
         unsafe extern "system" fn _NewEnum<Impl: IStaticPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: IStaticPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppspm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppspm = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: IStaticPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Remove<Impl: IStaticPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Remove(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)).into()
         }
         unsafe extern "system" fn Add<Impl: IStaticPortMappingCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternalport: i32, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, benabled: i16, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppspm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Add(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol), ::core::mem::transmute_copy(&linternalport), ::core::mem::transmute_copy(&bstrinternalclient), ::core::mem::transmute_copy(&benabled), ::core::mem::transmute_copy(&bstrdescription)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppspm = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2399,24 +3461,42 @@ impl IStaticPortMappingCollectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPNATImpl: Sized + IDispatchImpl {
-    fn StaticPortMappingCollection();
-    fn DynamicPortMappingCollection();
-    fn NATEventManager();
+    fn StaticPortMappingCollection(&mut self) -> ::windows::core::Result<IStaticPortMappingCollection>;
+    fn DynamicPortMappingCollection(&mut self) -> ::windows::core::Result<IDynamicPortMappingCollection>;
+    fn NATEventManager(&mut self) -> ::windows::core::Result<INATEventManager>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPNATVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPNATImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPNATVtbl {
         unsafe extern "system" fn StaticPortMappingCollection<Impl: IUPnPNATImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppspms: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).StaticPortMappingCollection() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppspms = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DynamicPortMappingCollection<Impl: IUPnPNATImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdpms: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DynamicPortMappingCollection() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppdpms = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn NATEventManager<Impl: IUPnPNATImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).NATEventManager() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppnem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),

@@ -1,253 +1,397 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInertiaProcessorImpl: Sized {
-    fn InitialOriginX();
-    fn SetInitialOriginX();
-    fn InitialOriginY();
-    fn SetInitialOriginY();
-    fn InitialVelocityX();
-    fn SetInitialVelocityX();
-    fn InitialVelocityY();
-    fn SetInitialVelocityY();
-    fn InitialAngularVelocity();
-    fn SetInitialAngularVelocity();
-    fn InitialExpansionVelocity();
-    fn SetInitialExpansionVelocity();
-    fn InitialRadius();
-    fn SetInitialRadius();
-    fn BoundaryLeft();
-    fn SetBoundaryLeft();
-    fn BoundaryTop();
-    fn SetBoundaryTop();
-    fn BoundaryRight();
-    fn SetBoundaryRight();
-    fn BoundaryBottom();
-    fn SetBoundaryBottom();
-    fn ElasticMarginLeft();
-    fn SetElasticMarginLeft();
-    fn ElasticMarginTop();
-    fn SetElasticMarginTop();
-    fn ElasticMarginRight();
-    fn SetElasticMarginRight();
-    fn ElasticMarginBottom();
-    fn SetElasticMarginBottom();
-    fn DesiredDisplacement();
-    fn SetDesiredDisplacement();
-    fn DesiredRotation();
-    fn SetDesiredRotation();
-    fn DesiredExpansion();
-    fn SetDesiredExpansion();
-    fn DesiredDeceleration();
-    fn SetDesiredDeceleration();
-    fn DesiredAngularDeceleration();
-    fn SetDesiredAngularDeceleration();
-    fn DesiredExpansionDeceleration();
-    fn SetDesiredExpansionDeceleration();
-    fn InitialTimestamp();
-    fn SetInitialTimestamp();
-    fn Reset();
-    fn Process();
-    fn ProcessTime();
-    fn Complete();
-    fn CompleteTime();
+    fn InitialOriginX(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialOriginX(&mut self, x: f32) -> ::windows::core::Result<()>;
+    fn InitialOriginY(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialOriginY(&mut self, y: f32) -> ::windows::core::Result<()>;
+    fn InitialVelocityX(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialVelocityX(&mut self, x: f32) -> ::windows::core::Result<()>;
+    fn InitialVelocityY(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialVelocityY(&mut self, y: f32) -> ::windows::core::Result<()>;
+    fn InitialAngularVelocity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialAngularVelocity(&mut self, velocity: f32) -> ::windows::core::Result<()>;
+    fn InitialExpansionVelocity(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialExpansionVelocity(&mut self, velocity: f32) -> ::windows::core::Result<()>;
+    fn InitialRadius(&mut self) -> ::windows::core::Result<f32>;
+    fn SetInitialRadius(&mut self, radius: f32) -> ::windows::core::Result<()>;
+    fn BoundaryLeft(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryLeft(&mut self, left: f32) -> ::windows::core::Result<()>;
+    fn BoundaryTop(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryTop(&mut self, top: f32) -> ::windows::core::Result<()>;
+    fn BoundaryRight(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryRight(&mut self, right: f32) -> ::windows::core::Result<()>;
+    fn BoundaryBottom(&mut self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryBottom(&mut self, bottom: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginLeft(&mut self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginLeft(&mut self, left: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginTop(&mut self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginTop(&mut self, top: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginRight(&mut self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginRight(&mut self, right: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginBottom(&mut self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginBottom(&mut self, bottom: f32) -> ::windows::core::Result<()>;
+    fn DesiredDisplacement(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDesiredDisplacement(&mut self, displacement: f32) -> ::windows::core::Result<()>;
+    fn DesiredRotation(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDesiredRotation(&mut self, rotation: f32) -> ::windows::core::Result<()>;
+    fn DesiredExpansion(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDesiredExpansion(&mut self, expansion: f32) -> ::windows::core::Result<()>;
+    fn DesiredDeceleration(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDesiredDeceleration(&mut self, deceleration: f32) -> ::windows::core::Result<()>;
+    fn DesiredAngularDeceleration(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDesiredAngularDeceleration(&mut self, deceleration: f32) -> ::windows::core::Result<()>;
+    fn DesiredExpansionDeceleration(&mut self) -> ::windows::core::Result<f32>;
+    fn SetDesiredExpansionDeceleration(&mut self, deceleration: f32) -> ::windows::core::Result<()>;
+    fn InitialTimestamp(&mut self) -> ::windows::core::Result<u32>;
+    fn SetInitialTimestamp(&mut self, timestamp: u32) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Process(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn ProcessTime(&mut self, timestamp: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn Complete(&mut self) -> ::windows::core::Result<()>;
+    fn CompleteTime(&mut self, timestamp: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInertiaProcessorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInertiaProcessorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInertiaProcessorVtbl {
         unsafe extern "system" fn InitialOriginX<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialOriginX() {
+                ::core::result::Result::Ok(ok__) => {
+                    *x = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialOriginX<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialOriginX(::core::mem::transmute_copy(&x)).into()
         }
         unsafe extern "system" fn InitialOriginY<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, y: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialOriginY() {
+                ::core::result::Result::Ok(ok__) => {
+                    *y = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialOriginY<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, y: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialOriginY(::core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn InitialVelocityX<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialVelocityX() {
+                ::core::result::Result::Ok(ok__) => {
+                    *x = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialVelocityX<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialVelocityX(::core::mem::transmute_copy(&x)).into()
         }
         unsafe extern "system" fn InitialVelocityY<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, y: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialVelocityY() {
+                ::core::result::Result::Ok(ok__) => {
+                    *y = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialVelocityY<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, y: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialVelocityY(::core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn InitialAngularVelocity<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocity: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialAngularVelocity() {
+                ::core::result::Result::Ok(ok__) => {
+                    *velocity = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialAngularVelocity<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocity: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialAngularVelocity(::core::mem::transmute_copy(&velocity)).into()
         }
         unsafe extern "system" fn InitialExpansionVelocity<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocity: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialExpansionVelocity() {
+                ::core::result::Result::Ok(ok__) => {
+                    *velocity = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialExpansionVelocity<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocity: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialExpansionVelocity(::core::mem::transmute_copy(&velocity)).into()
         }
         unsafe extern "system" fn InitialRadius<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, radius: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialRadius() {
+                ::core::result::Result::Ok(ok__) => {
+                    *radius = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialRadius<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialRadius(::core::mem::transmute_copy(&radius)).into()
         }
         unsafe extern "system" fn BoundaryLeft<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).BoundaryLeft() {
+                ::core::result::Result::Ok(ok__) => {
+                    *left = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetBoundaryLeft<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetBoundaryLeft(::core::mem::transmute_copy(&left)).into()
         }
         unsafe extern "system" fn BoundaryTop<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, top: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).BoundaryTop() {
+                ::core::result::Result::Ok(ok__) => {
+                    *top = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetBoundaryTop<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetBoundaryTop(::core::mem::transmute_copy(&top)).into()
         }
         unsafe extern "system" fn BoundaryRight<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, right: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).BoundaryRight() {
+                ::core::result::Result::Ok(ok__) => {
+                    *right = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetBoundaryRight<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetBoundaryRight(::core::mem::transmute_copy(&right)).into()
         }
         unsafe extern "system" fn BoundaryBottom<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bottom: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).BoundaryBottom() {
+                ::core::result::Result::Ok(ok__) => {
+                    *bottom = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetBoundaryBottom<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetBoundaryBottom(::core::mem::transmute_copy(&bottom)).into()
         }
         unsafe extern "system" fn ElasticMarginLeft<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ElasticMarginLeft() {
+                ::core::result::Result::Ok(ok__) => {
+                    *left = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetElasticMarginLeft<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetElasticMarginLeft(::core::mem::transmute_copy(&left)).into()
         }
         unsafe extern "system" fn ElasticMarginTop<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, top: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ElasticMarginTop() {
+                ::core::result::Result::Ok(ok__) => {
+                    *top = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetElasticMarginTop<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetElasticMarginTop(::core::mem::transmute_copy(&top)).into()
         }
         unsafe extern "system" fn ElasticMarginRight<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, right: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ElasticMarginRight() {
+                ::core::result::Result::Ok(ok__) => {
+                    *right = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetElasticMarginRight<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetElasticMarginRight(::core::mem::transmute_copy(&right)).into()
         }
         unsafe extern "system" fn ElasticMarginBottom<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bottom: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ElasticMarginBottom() {
+                ::core::result::Result::Ok(ok__) => {
+                    *bottom = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetElasticMarginBottom<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetElasticMarginBottom(::core::mem::transmute_copy(&bottom)).into()
         }
         unsafe extern "system" fn DesiredDisplacement<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displacement: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DesiredDisplacement() {
+                ::core::result::Result::Ok(ok__) => {
+                    *displacement = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDesiredDisplacement<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displacement: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDesiredDisplacement(::core::mem::transmute_copy(&displacement)).into()
         }
         unsafe extern "system" fn DesiredRotation<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotation: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DesiredRotation() {
+                ::core::result::Result::Ok(ok__) => {
+                    *rotation = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDesiredRotation<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotation: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDesiredRotation(::core::mem::transmute_copy(&rotation)).into()
         }
         unsafe extern "system" fn DesiredExpansion<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expansion: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DesiredExpansion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *expansion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDesiredExpansion<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expansion: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDesiredExpansion(::core::mem::transmute_copy(&expansion)).into()
         }
         unsafe extern "system" fn DesiredDeceleration<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DesiredDeceleration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *deceleration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDesiredDeceleration<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDesiredDeceleration(::core::mem::transmute_copy(&deceleration)).into()
         }
         unsafe extern "system" fn DesiredAngularDeceleration<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DesiredAngularDeceleration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *deceleration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDesiredAngularDeceleration<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDesiredAngularDeceleration(::core::mem::transmute_copy(&deceleration)).into()
         }
         unsafe extern "system" fn DesiredExpansionDeceleration<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deceleration: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DesiredExpansionDeceleration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *deceleration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDesiredExpansionDeceleration<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deceleration: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDesiredExpansionDeceleration(::core::mem::transmute_copy(&deceleration)).into()
         }
         unsafe extern "system" fn InitialTimestamp<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InitialTimestamp() {
+                ::core::result::Result::Ok(ok__) => {
+                    *timestamp = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialTimestamp<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialTimestamp(::core::mem::transmute_copy(&timestamp)).into()
         }
         unsafe extern "system" fn Reset<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reset().into()
         }
         unsafe extern "system" fn Process<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Process() {
+                ::core::result::Result::Ok(ok__) => {
+                    *completed = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProcessTime<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u32, completed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProcessTime(::core::mem::transmute_copy(&timestamp)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *completed = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Complete<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Complete().into()
         }
         unsafe extern "system" fn CompleteTime<Impl: IInertiaProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CompleteTime(::core::mem::transmute_copy(&timestamp)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -307,113 +451,167 @@ impl IInertiaProcessorVtbl {
     }
 }
 pub trait IManipulationProcessorImpl: Sized {
-    fn SupportedManipulations();
-    fn SetSupportedManipulations();
-    fn PivotPointX();
-    fn SetPivotPointX();
-    fn PivotPointY();
-    fn SetPivotPointY();
-    fn PivotRadius();
-    fn SetPivotRadius();
-    fn CompleteManipulation();
-    fn ProcessDown();
-    fn ProcessMove();
-    fn ProcessUp();
-    fn ProcessDownWithTime();
-    fn ProcessMoveWithTime();
-    fn ProcessUpWithTime();
-    fn GetVelocityX();
-    fn GetVelocityY();
-    fn GetExpansionVelocity();
-    fn GetAngularVelocity();
-    fn MinimumScaleRotateRadius();
-    fn SetMinimumScaleRotateRadius();
+    fn SupportedManipulations(&mut self) -> ::windows::core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS>;
+    fn SetSupportedManipulations(&mut self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::Result<()>;
+    fn PivotPointX(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPivotPointX(&mut self, pivotpointx: f32) -> ::windows::core::Result<()>;
+    fn PivotPointY(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPivotPointY(&mut self, pivotpointy: f32) -> ::windows::core::Result<()>;
+    fn PivotRadius(&mut self) -> ::windows::core::Result<f32>;
+    fn SetPivotRadius(&mut self, pivotradius: f32) -> ::windows::core::Result<()>;
+    fn CompleteManipulation(&mut self) -> ::windows::core::Result<()>;
+    fn ProcessDown(&mut self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ProcessMove(&mut self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ProcessUp(&mut self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ProcessDownWithTime(&mut self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
+    fn ProcessMoveWithTime(&mut self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
+    fn ProcessUpWithTime(&mut self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
+    fn GetVelocityX(&mut self) -> ::windows::core::Result<f32>;
+    fn GetVelocityY(&mut self) -> ::windows::core::Result<f32>;
+    fn GetExpansionVelocity(&mut self) -> ::windows::core::Result<f32>;
+    fn GetAngularVelocity(&mut self) -> ::windows::core::Result<f32>;
+    fn MinimumScaleRotateRadius(&mut self) -> ::windows::core::Result<f32>;
+    fn SetMinimumScaleRotateRadius(&mut self, minradius: f32) -> ::windows::core::Result<()>;
 }
 impl IManipulationProcessorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationProcessorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationProcessorVtbl {
         unsafe extern "system" fn SupportedManipulations<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulations: *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SupportedManipulations() {
+                ::core::result::Result::Ok(ok__) => {
+                    *manipulations = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetSupportedManipulations<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSupportedManipulations(::core::mem::transmute_copy(&manipulations)).into()
         }
         unsafe extern "system" fn PivotPointX<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivotpointx: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PivotPointX() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pivotpointx = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetPivotPointX<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivotpointx: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetPivotPointX(::core::mem::transmute_copy(&pivotpointx)).into()
         }
         unsafe extern "system" fn PivotPointY<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivotpointy: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PivotPointY() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pivotpointy = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetPivotPointY<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivotpointy: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetPivotPointY(::core::mem::transmute_copy(&pivotpointy)).into()
         }
         unsafe extern "system" fn PivotRadius<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivotradius: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PivotRadius() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pivotradius = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetPivotRadius<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivotradius: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetPivotRadius(::core::mem::transmute_copy(&pivotradius)).into()
         }
         unsafe extern "system" fn CompleteManipulation<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CompleteManipulation().into()
         }
         unsafe extern "system" fn ProcessDown<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ProcessDown(::core::mem::transmute_copy(&manipulatorid), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn ProcessMove<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ProcessMove(::core::mem::transmute_copy(&manipulatorid), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn ProcessUp<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ProcessUp(::core::mem::transmute_copy(&manipulatorid), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn ProcessDownWithTime<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ProcessDownWithTime(::core::mem::transmute_copy(&manipulatorid), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&timestamp)).into()
         }
         unsafe extern "system" fn ProcessMoveWithTime<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ProcessMoveWithTime(::core::mem::transmute_copy(&manipulatorid), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&timestamp)).into()
         }
         unsafe extern "system" fn ProcessUpWithTime<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ProcessUpWithTime(::core::mem::transmute_copy(&manipulatorid), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&timestamp)).into()
         }
         unsafe extern "system" fn GetVelocityX<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocityx: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetVelocityX() {
+                ::core::result::Result::Ok(ok__) => {
+                    *velocityx = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetVelocityY<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocityy: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetVelocityY() {
+                ::core::result::Result::Ok(ok__) => {
+                    *velocityy = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetExpansionVelocity<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expansionvelocity: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetExpansionVelocity() {
+                ::core::result::Result::Ok(ok__) => {
+                    *expansionvelocity = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetAngularVelocity<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, angularvelocity: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetAngularVelocity() {
+                ::core::result::Result::Ok(ok__) => {
+                    *angularvelocity = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MinimumScaleRotateRadius<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minradius: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MinimumScaleRotateRadius() {
+                ::core::result::Result::Ok(ok__) => {
+                    *minradius = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetMinimumScaleRotateRadius<Impl: IManipulationProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minradius: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMinimumScaleRotateRadius(::core::mem::transmute_copy(&minradius)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -445,23 +643,38 @@ impl IManipulationProcessorVtbl {
     }
 }
 pub trait _IManipulationEventsImpl: Sized {
-    fn ManipulationStarted();
-    fn ManipulationDelta();
-    fn ManipulationCompleted();
+    fn ManipulationStarted(&mut self, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ManipulationDelta(&mut self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
+    fn ManipulationCompleted(&mut self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
 }
 impl _IManipulationEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IManipulationEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _IManipulationEventsVtbl {
         unsafe extern "system" fn ManipulationStarted<Impl: _IManipulationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32, y: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ManipulationStarted(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn ManipulationDelta<Impl: _IManipulationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this)
+                .ManipulationDelta(
+                    ::core::mem::transmute_copy(&x),
+                    ::core::mem::transmute_copy(&y),
+                    ::core::mem::transmute_copy(&translationdeltax),
+                    ::core::mem::transmute_copy(&translationdeltay),
+                    ::core::mem::transmute_copy(&scaledelta),
+                    ::core::mem::transmute_copy(&expansiondelta),
+                    ::core::mem::transmute_copy(&rotationdelta),
+                    ::core::mem::transmute_copy(&cumulativetranslationx),
+                    ::core::mem::transmute_copy(&cumulativetranslationy),
+                    ::core::mem::transmute_copy(&cumulativescale),
+                    ::core::mem::transmute_copy(&cumulativeexpansion),
+                    ::core::mem::transmute_copy(&cumulativerotation),
+                )
+                .into()
         }
         unsafe extern "system" fn ManipulationCompleted<Impl: _IManipulationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ManipulationCompleted(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&cumulativetranslationx), ::core::mem::transmute_copy(&cumulativetranslationy), ::core::mem::transmute_copy(&cumulativescale), ::core::mem::transmute_copy(&cumulativeexpansion), ::core::mem::transmute_copy(&cumulativerotation)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),

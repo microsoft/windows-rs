@@ -1,36 +1,36 @@
 pub trait IMarshalImpl: Sized {
-    fn GetUnmarshalClass();
-    fn GetMarshalSizeMax();
-    fn MarshalInterface();
-    fn UnmarshalInterface();
-    fn ReleaseMarshalData();
-    fn DisconnectObject();
+    fn GetUnmarshalClass(&mut self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetMarshalSizeMax(&mut self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()>;
+    fn MarshalInterface(&mut self, pstm: ::core::option::Option<super::IStream>, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>;
+    fn UnmarshalInterface(&mut self, pstm: ::core::option::Option<super::IStream>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ReleaseMarshalData(&mut self, pstm: ::core::option::Option<super::IStream>) -> ::windows::core::Result<()>;
+    fn DisconnectObject(&mut self, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 impl IMarshalVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarshalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarshalVtbl {
         unsafe extern "system" fn GetUnmarshalClass<Impl: IMarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetUnmarshalClass(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pv), ::core::mem::transmute_copy(&dwdestcontext), ::core::mem::transmute_copy(&pvdestcontext), ::core::mem::transmute_copy(&mshlflags), ::core::mem::transmute_copy(&pcid)).into()
         }
         unsafe extern "system" fn GetMarshalSizeMax<Impl: IMarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetMarshalSizeMax(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pv), ::core::mem::transmute_copy(&dwdestcontext), ::core::mem::transmute_copy(&pvdestcontext), ::core::mem::transmute_copy(&mshlflags), ::core::mem::transmute_copy(&psize)).into()
         }
         unsafe extern "system" fn MarshalInterface<Impl: IMarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MarshalInterface(::core::mem::transmute(&pstm), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pv), ::core::mem::transmute_copy(&dwdestcontext), ::core::mem::transmute_copy(&pvdestcontext), ::core::mem::transmute_copy(&mshlflags)).into()
         }
         unsafe extern "system" fn UnmarshalInterface<Impl: IMarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UnmarshalInterface(::core::mem::transmute(&pstm), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn ReleaseMarshalData<Impl: IMarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReleaseMarshalData(::core::mem::transmute(&pstm)).into()
         }
         unsafe extern "system" fn DisconnectObject<Impl: IMarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DisconnectObject(::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -57,14 +57,20 @@ impl IMarshal2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IMarshalingStreamImpl: Sized + ISequentialStreamImpl + IStreamImpl {
-    fn GetMarshalingContextAttribute();
+    fn GetMarshalingContextAttribute(&mut self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMarshalingStreamVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarshalingStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarshalingStreamVtbl {
         unsafe extern "system" fn GetMarshalingContextAttribute<Impl: IMarshalingStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMarshalingContextAttribute(::core::mem::transmute_copy(&attribute)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pattributevalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IStreamVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),

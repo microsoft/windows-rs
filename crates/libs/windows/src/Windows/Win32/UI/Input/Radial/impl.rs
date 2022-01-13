@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerConfigurationInteropImpl: Sized {
-    fn GetForWindow();
+    fn GetForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRadialControllerConfigurationInterop {
@@ -11,7 +11,7 @@ impl IRadialControllerConfigurationInteropVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationInteropVtbl {
         unsafe extern "system" fn GetForWindow<Impl: IRadialControllerConfigurationInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerConfigurationInterop, BASE_OFFSET>(),
@@ -24,7 +24,7 @@ impl IRadialControllerConfigurationInteropVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerIndependentInputSourceInteropImpl: Sized {
-    fn CreateForWindow();
+    fn CreateForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSourceInterop {
@@ -35,7 +35,7 @@ impl IRadialControllerIndependentInputSourceInteropVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerIndependentInputSourceInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerIndependentInputSourceInteropVtbl {
         unsafe extern "system" fn CreateForWindow<Impl: IRadialControllerIndependentInputSourceInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerIndependentInputSourceInterop, BASE_OFFSET>(),
@@ -48,7 +48,7 @@ impl IRadialControllerIndependentInputSourceInteropVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerInteropImpl: Sized {
-    fn CreateForWindow();
+    fn CreateForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRadialControllerInterop {
@@ -59,7 +59,7 @@ impl IRadialControllerInteropVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerInteropVtbl {
         unsafe extern "system" fn CreateForWindow<Impl: IRadialControllerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IRadialControllerInterop, BASE_OFFSET>(),

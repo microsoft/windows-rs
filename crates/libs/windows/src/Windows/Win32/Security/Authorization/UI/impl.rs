@@ -1,13 +1,13 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEffectivePermissionImpl: Sized {
-    fn GetEffectivePermission();
+    fn GetEffectivePermission(&mut self, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEffectivePermissionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEffectivePermissionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEffectivePermissionVtbl {
         unsafe extern "system" fn GetEffectivePermission<Impl: IEffectivePermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetEffectivePermission(::core::mem::transmute_copy(&pguidobjecttype), ::core::mem::transmute_copy(&pusersid), ::core::mem::transmute_copy(&pszservername), ::core::mem::transmute_copy(&psd), ::core::mem::transmute_copy(&ppobjecttypelist), ::core::mem::transmute_copy(&pcobjecttypelistlength), ::core::mem::transmute_copy(&ppgrantedaccesslist), ::core::mem::transmute_copy(&pcgrantedaccesslistlength)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetEffectivePermission: GetEffectivePermission::<Impl, IMPL_OFFSET> }
     }
@@ -17,7 +17,23 @@ impl IEffectivePermissionVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEffectivePermission2Impl: Sized {
-    fn ComputeEffectivePermissionWithSecondarySecurity();
+    fn ComputeEffectivePermissionWithSecondarySecurity(
+        &mut self,
+        psid: super::super::super::Foundation::PSID,
+        pdevicesid: super::super::super::Foundation::PSID,
+        pszservername: super::super::super::Foundation::PWSTR,
+        psecurityobjects: *mut SECURITY_OBJECT,
+        dwsecurityobjectcount: u32,
+        pusergroups: *const super::super::TOKEN_GROUPS,
+        pauthzusergroupsoperations: *const super::AUTHZ_SID_OPERATION,
+        pdevicegroups: *const super::super::TOKEN_GROUPS,
+        pauthzdevicegroupsoperations: *const super::AUTHZ_SID_OPERATION,
+        pauthzuserclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
+        pauthzuserclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
+        pauthzdeviceclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
+        pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
+        peffpermresultlists: *mut EFFPERM_RESULT_LIST,
+    ) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEffectivePermission2Vtbl {
@@ -40,7 +56,24 @@ impl IEffectivePermission2Vtbl {
             peffpermresultlists: *mut EFFPERM_RESULT_LIST,
         ) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this)
+                .ComputeEffectivePermissionWithSecondarySecurity(
+                    ::core::mem::transmute_copy(&psid),
+                    ::core::mem::transmute_copy(&pdevicesid),
+                    ::core::mem::transmute_copy(&pszservername),
+                    ::core::mem::transmute_copy(&psecurityobjects),
+                    ::core::mem::transmute_copy(&dwsecurityobjectcount),
+                    ::core::mem::transmute_copy(&pusergroups),
+                    ::core::mem::transmute_copy(&pauthzusergroupsoperations),
+                    ::core::mem::transmute_copy(&pdevicegroups),
+                    ::core::mem::transmute_copy(&pauthzdevicegroupsoperations),
+                    ::core::mem::transmute_copy(&pauthzuserclaims),
+                    ::core::mem::transmute_copy(&pauthzuserclaimsoperations),
+                    ::core::mem::transmute_copy(&pauthzdeviceclaims),
+                    ::core::mem::transmute_copy(&pauthzdeviceclaimsoperations),
+                    ::core::mem::transmute_copy(&peffpermresultlists),
+                )
+                .into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -53,44 +86,44 @@ impl IEffectivePermission2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub trait ISecurityInformationImpl: Sized {
-    fn GetObjectInformation();
-    fn GetSecurity();
-    fn SetSecurity();
-    fn GetAccessRights();
-    fn MapGeneric();
-    fn GetInheritTypes();
-    fn PropertySheetPageCallback();
+    fn GetObjectInformation(&mut self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::Result<()>;
+    fn GetSecurity(&mut self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetSecurity(&mut self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::Result<()>;
+    fn GetAccessRights(&mut self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()>;
+    fn MapGeneric(&mut self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()>;
+    fn GetInheritTypes(&mut self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::Result<()>;
+    fn PropertySheetPageCallback(&mut self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ISecurityInformationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityInformationVtbl {
         unsafe extern "system" fn GetObjectInformation<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetObjectInformation(::core::mem::transmute_copy(&pobjectinfo)).into()
         }
         unsafe extern "system" fn GetSecurity<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetSecurity(::core::mem::transmute_copy(&requestedinformation), ::core::mem::transmute_copy(&ppsecuritydescriptor), ::core::mem::transmute_copy(&fdefault)).into()
         }
         unsafe extern "system" fn SetSecurity<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSecurity(::core::mem::transmute_copy(&securityinformation), ::core::mem::transmute_copy(&psecuritydescriptor)).into()
         }
         unsafe extern "system" fn GetAccessRights<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetAccessRights(::core::mem::transmute_copy(&pguidobjecttype), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&ppaccess), ::core::mem::transmute_copy(&pcaccesses), ::core::mem::transmute_copy(&pidefaultaccess)).into()
         }
         unsafe extern "system" fn MapGeneric<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MapGeneric(::core::mem::transmute_copy(&pguidobjecttype), ::core::mem::transmute_copy(&paceflags), ::core::mem::transmute_copy(&pmask)).into()
         }
         unsafe extern "system" fn GetInheritTypes<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetInheritTypes(::core::mem::transmute_copy(&ppinherittypes), ::core::mem::transmute_copy(&pcinherittypes)).into()
         }
         unsafe extern "system" fn PropertySheetPageCallback<Impl: ISecurityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PropertySheetPageCallback(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&umsg), ::core::mem::transmute_copy(&upage)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -109,19 +142,19 @@ impl ISecurityInformationVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISecurityInformation2Impl: Sized {
-    fn IsDaclCanonical();
-    fn LookupSids();
+    fn IsDaclCanonical(&mut self, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL;
+    fn LookupSids(&mut self, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISecurityInformation2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityInformation2Vtbl {
         unsafe extern "system" fn IsDaclCanonical<Impl: ISecurityInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsDaclCanonical(::core::mem::transmute_copy(&pdacl))
         }
         unsafe extern "system" fn LookupSids<Impl: ISecurityInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).LookupSids(::core::mem::transmute_copy(&csids), ::core::mem::transmute_copy(&rgpsids), ::core::mem::transmute_copy(&ppdo)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -135,19 +168,25 @@ impl ISecurityInformation2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityInformation3Impl: Sized {
-    fn GetFullResourceName();
-    fn OpenElevatedEditor();
+    fn GetFullResourceName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn OpenElevatedEditor(&mut self, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityInformation3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityInformation3Vtbl {
         unsafe extern "system" fn GetFullResourceName<Impl: ISecurityInformation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszresourcename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFullResourceName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppszresourcename = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn OpenElevatedEditor<Impl: ISecurityInformation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OpenElevatedEditor(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&upage)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -161,14 +200,14 @@ impl ISecurityInformation3Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityInformation4Impl: Sized {
-    fn GetSecondarySecurity();
+    fn GetSecondarySecurity(&mut self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityInformation4Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityInformation4Vtbl {
         unsafe extern "system" fn GetSecondarySecurity<Impl: ISecurityInformation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetSecondarySecurity(::core::mem::transmute_copy(&psecurityobjects), ::core::mem::transmute_copy(&psecurityobjectcount)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetSecondarySecurity: GetSecondarySecurity::<Impl, IMPL_OFFSET> }
     }
@@ -178,14 +217,14 @@ impl ISecurityInformation4Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityObjectTypeInfoImpl: Sized {
-    fn GetInheritSource();
+    fn GetInheritSource(&mut self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityObjectTypeInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityObjectTypeInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityObjectTypeInfoVtbl {
         unsafe extern "system" fn GetInheritSource<Impl: ISecurityObjectTypeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetInheritSource(::core::mem::transmute_copy(&si), ::core::mem::transmute_copy(&pacl), ::core::mem::transmute_copy(&ppinheritarray)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetInheritSource: GetInheritSource::<Impl, IMPL_OFFSET> }
     }

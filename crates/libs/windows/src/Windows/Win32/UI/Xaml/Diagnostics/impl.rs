@@ -1,28 +1,46 @@
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IBitmapDataImpl: Sized {
-    fn CopyBytesTo();
-    fn GetStride();
-    fn GetBitmapDescription();
-    fn GetSourceBitmapDescription();
+    fn CopyBytesTo(&mut self, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStride(&mut self) -> ::windows::core::Result<u32>;
+    fn GetBitmapDescription(&mut self) -> ::windows::core::Result<BitmapDescription>;
+    fn GetSourceBitmapDescription(&mut self) -> ::windows::core::Result<BitmapDescription>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IBitmapDataVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBitmapDataVtbl {
         unsafe extern "system" fn CopyBytesTo<Impl: IBitmapDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CopyBytesTo(::core::mem::transmute_copy(&sourceoffsetinbytes), ::core::mem::transmute_copy(&maxbytestocopy), ::core::mem::transmute_copy(&pvbytes), ::core::mem::transmute_copy(&numberofbytescopied)).into()
         }
         unsafe extern "system" fn GetStride<Impl: IBitmapDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstride: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStride() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pstride = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetBitmapDescription<Impl: IBitmapDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbitmapdescription: *mut BitmapDescription) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetBitmapDescription() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbitmapdescription = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSourceBitmapDescription<Impl: IBitmapDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbitmapdescription: *mut BitmapDescription) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetSourceBitmapDescription() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbitmapdescription = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -38,69 +56,81 @@ impl IBitmapDataVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVisualTreeServiceImpl: Sized {
-    fn AdviseVisualTreeChange();
-    fn UnadviseVisualTreeChange();
-    fn GetEnums();
-    fn CreateInstance();
-    fn GetPropertyValuesChain();
-    fn SetProperty();
-    fn ClearProperty();
-    fn GetCollectionCount();
-    fn GetCollectionElements();
-    fn AddChild();
-    fn RemoveChild();
-    fn ClearChildren();
+    fn AdviseVisualTreeChange(&mut self, pcallback: ::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
+    fn UnadviseVisualTreeChange(&mut self, pcallback: ::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
+    fn GetEnums(&mut self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()>;
+    fn CreateInstance(&mut self, typename: super::super::super::Foundation::BSTR, value: super::super::super::Foundation::BSTR) -> ::windows::core::Result<u64>;
+    fn GetPropertyValuesChain(&mut self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()>;
+    fn SetProperty(&mut self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()>;
+    fn ClearProperty(&mut self, instancehandle: u64, propertyindex: u32) -> ::windows::core::Result<()>;
+    fn GetCollectionCount(&mut self, instancehandle: u64) -> ::windows::core::Result<u32>;
+    fn GetCollectionElements(&mut self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()>;
+    fn AddChild(&mut self, parent: u64, child: u64, index: u32) -> ::windows::core::Result<()>;
+    fn RemoveChild(&mut self, parent: u64, index: u32) -> ::windows::core::Result<()>;
+    fn ClearChildren(&mut self, parent: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeServiceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualTreeServiceVtbl {
         unsafe extern "system" fn AdviseVisualTreeChange<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AdviseVisualTreeChange(::core::mem::transmute(&pcallback)).into()
         }
         unsafe extern "system" fn UnadviseVisualTreeChange<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UnadviseVisualTreeChange(::core::mem::transmute(&pcallback)).into()
         }
         unsafe extern "system" fn GetEnums<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetEnums(::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppenums)).into()
         }
         unsafe extern "system" fn CreateInstance<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateInstance(::core::mem::transmute_copy(&typename), ::core::mem::transmute_copy(&value)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pinstancehandle = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPropertyValuesChain<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetPropertyValuesChain(::core::mem::transmute_copy(&instancehandle), ::core::mem::transmute_copy(&psourcecount), ::core::mem::transmute_copy(&pppropertysources), ::core::mem::transmute_copy(&ppropertycount), ::core::mem::transmute_copy(&pppropertyvalues)).into()
         }
         unsafe extern "system" fn SetProperty<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetProperty(::core::mem::transmute_copy(&instancehandle), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&propertyindex)).into()
         }
         unsafe extern "system" fn ClearProperty<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, propertyindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ClearProperty(::core::mem::transmute_copy(&instancehandle), ::core::mem::transmute_copy(&propertyindex)).into()
         }
         unsafe extern "system" fn GetCollectionCount<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, pcollectionsize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCollectionCount(::core::mem::transmute_copy(&instancehandle)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcollectionsize = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetCollectionElements<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetCollectionElements(::core::mem::transmute_copy(&instancehandle), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&pelementcount), ::core::mem::transmute_copy(&ppelementvalues)).into()
         }
         unsafe extern "system" fn AddChild<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: u64, child: u64, index: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddChild(::core::mem::transmute_copy(&parent), ::core::mem::transmute_copy(&child), ::core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn RemoveChild<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: u64, index: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RemoveChild(::core::mem::transmute_copy(&parent), ::core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn ClearChildren<Impl: IVisualTreeServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ClearChildren(::core::mem::transmute_copy(&parent)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -124,29 +154,47 @@ impl IVisualTreeServiceVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVisualTreeService2Impl: Sized + IVisualTreeServiceImpl {
-    fn GetPropertyIndex();
-    fn GetProperty();
-    fn ReplaceResource();
-    fn RenderTargetBitmap();
+    fn GetPropertyIndex(&mut self, object: u64, propertyname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn GetProperty(&mut self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64>;
+    fn ReplaceResource(&mut self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::Result<()>;
+    fn RenderTargetBitmap(&mut self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualTreeService2Vtbl {
         unsafe extern "system" fn GetPropertyIndex<Impl: IVisualTreeService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: u64, propertyname: super::super::super::Foundation::PWSTR, ppropertyindex: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPropertyIndex(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&propertyname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppropertyindex = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetProperty<Impl: IVisualTreeService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: u64, propertyindex: u32, pvalue: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetProperty(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&propertyindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ReplaceResource<Impl: IVisualTreeService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReplaceResource(::core::mem::transmute_copy(&resourcedictionary), ::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&newvalue)).into()
         }
         unsafe extern "system" fn RenderTargetBitmap<Impl: IVisualTreeService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RenderTargetBitmap(::core::mem::transmute_copy(&handle), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&maxpixelwidth), ::core::mem::transmute_copy(&maxpixelheight)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppbitmapdata = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IVisualTreeServiceVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -162,29 +210,35 @@ impl IVisualTreeService2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVisualTreeService3Impl: Sized + IVisualTreeServiceImpl + IVisualTreeService2Impl {
-    fn ResolveResource();
-    fn GetDictionaryItem();
-    fn AddDictionaryItem();
-    fn RemoveDictionaryItem();
+    fn ResolveResource(&mut self, resourcecontext: u64, resourcename: super::super::super::Foundation::PWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()>;
+    fn GetDictionaryItem(&mut self, dictionaryhandle: u64, resourcename: super::super::super::Foundation::PWSTR, resourceisimplicitstyle: super::super::super::Foundation::BOOL) -> ::windows::core::Result<u64>;
+    fn AddDictionaryItem(&mut self, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::Result<()>;
+    fn RemoveDictionaryItem(&mut self, dictionaryhandle: u64, resourcekey: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService3Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualTreeService3Vtbl {
         unsafe extern "system" fn ResolveResource<Impl: IVisualTreeService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcecontext: u64, resourcename: super::super::super::Foundation::PWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ResolveResource(::core::mem::transmute_copy(&resourcecontext), ::core::mem::transmute_copy(&resourcename), ::core::mem::transmute_copy(&resourcetype), ::core::mem::transmute_copy(&propertyindex)).into()
         }
         unsafe extern "system" fn GetDictionaryItem<Impl: IVisualTreeService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcename: super::super::super::Foundation::PWSTR, resourceisimplicitstyle: super::super::super::Foundation::BOOL, resourcehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDictionaryItem(::core::mem::transmute_copy(&dictionaryhandle), ::core::mem::transmute_copy(&resourcename), ::core::mem::transmute_copy(&resourceisimplicitstyle)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *resourcehandle = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddDictionaryItem<Impl: IVisualTreeService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddDictionaryItem(::core::mem::transmute_copy(&dictionaryhandle), ::core::mem::transmute_copy(&resourcekey), ::core::mem::transmute_copy(&resourcehandle)).into()
         }
         unsafe extern "system" fn RemoveDictionaryItem<Impl: IVisualTreeService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcekey: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RemoveDictionaryItem(::core::mem::transmute_copy(&dictionaryhandle), ::core::mem::transmute_copy(&resourcekey)).into()
         }
         Self {
             base: IVisualTreeService2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -200,14 +254,14 @@ impl IVisualTreeService3Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVisualTreeServiceCallbackImpl: Sized {
-    fn OnVisualTreeChange();
+    fn OnVisualTreeChange(&mut self, relation: ParentChildRelation, element: VisualElement, mutationtype: VisualMutationType) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallbackVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualTreeServiceCallbackVtbl {
         unsafe extern "system" fn OnVisualTreeChange<Impl: IVisualTreeServiceCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnVisualTreeChange(::core::mem::transmute_copy(&relation), ::core::mem::transmute_copy(&element), ::core::mem::transmute_copy(&mutationtype)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Impl, IMPL_OFFSET> }
     }
@@ -217,14 +271,14 @@ impl IVisualTreeServiceCallbackVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVisualTreeServiceCallback2Impl: Sized + IVisualTreeServiceCallbackImpl {
-    fn OnElementStateChanged();
+    fn OnElementStateChanged(&mut self, element: u64, elementstate: VisualElementState, context: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualTreeServiceCallback2Vtbl {
         unsafe extern "system" fn OnElementStateChanged<Impl: IVisualTreeServiceCallback2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: u64, elementstate: VisualElementState, context: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnElementStateChanged(::core::mem::transmute_copy(&element), ::core::mem::transmute_copy(&elementstate), ::core::mem::transmute_copy(&context)).into()
         }
         Self {
             base: IVisualTreeServiceCallbackVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -237,49 +291,91 @@ impl IVisualTreeServiceCallback2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXamlDiagnosticsImpl: Sized {
-    fn GetDispatcher();
-    fn GetUiLayer();
-    fn GetApplication();
-    fn GetIInspectableFromHandle();
-    fn GetHandleFromIInspectable();
-    fn HitTest();
-    fn RegisterInstance();
-    fn GetInitializationData();
+    fn GetDispatcher(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetUiLayer(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetApplication(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetIInspectableFromHandle(&mut self, instancehandle: u64) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetHandleFromIInspectable(&mut self, pinstance: ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
+    fn HitTest(&mut self, rect: super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()>;
+    fn RegisterInstance(&mut self, pinstance: ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
+    fn GetInitializationData(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXamlDiagnosticsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDiagnosticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDiagnosticsVtbl {
         unsafe extern "system" fn GetDispatcher<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdispatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDispatcher() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppdispatcher = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetUiLayer<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplayer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetUiLayer() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pplayer = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetApplication<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetApplication() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppapplication = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIInspectableFromHandle<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, ppinstance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIInspectableFromHandle(::core::mem::transmute_copy(&instancehandle)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppinstance = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetHandleFromIInspectable<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstance: *mut ::core::ffi::c_void, phandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetHandleFromIInspectable(::core::mem::transmute(&pinstance)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *phandle = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn HitTest<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rect: super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).HitTest(::core::mem::transmute_copy(&rect), ::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppinstancehandles)).into()
         }
         unsafe extern "system" fn RegisterInstance<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstance: *mut ::core::ffi::c_void, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RegisterInstance(::core::mem::transmute(&pinstance)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pinstancehandle = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetInitializationData<Impl: IXamlDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinitializationdata: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetInitializationData() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pinitializationdata = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),

@@ -1,18 +1,24 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDesktopWindowXamlSourceNativeImpl: Sized {
-    fn AttachToWindow();
-    fn WindowHandle();
+    fn AttachToWindow(&mut self, parentwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn WindowHandle(&mut self) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDesktopWindowXamlSourceNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowXamlSourceNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDesktopWindowXamlSourceNativeVtbl {
         unsafe extern "system" fn AttachToWindow<Impl: IDesktopWindowXamlSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AttachToWindow(::core::mem::transmute_copy(&parentwnd)).into()
         }
         unsafe extern "system" fn WindowHandle<Impl: IDesktopWindowXamlSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).WindowHandle() {
+                ::core::result::Result::Ok(ok__) => {
+                    *hwnd = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -26,14 +32,14 @@ impl IDesktopWindowXamlSourceNativeVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDesktopWindowXamlSourceNative2Impl: Sized + IDesktopWindowXamlSourceNativeImpl {
-    fn PreTranslateMessage();
+    fn PreTranslateMessage(&mut self, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IDesktopWindowXamlSourceNative2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowXamlSourceNative2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDesktopWindowXamlSourceNative2Vtbl {
         unsafe extern "system" fn PreTranslateMessage<Impl: IDesktopWindowXamlSourceNative2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PreTranslateMessage(::core::mem::transmute_copy(&message), ::core::mem::transmute_copy(&result)).into()
         }
         Self {
             base: IDesktopWindowXamlSourceNativeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -45,13 +51,13 @@ impl IDesktopWindowXamlSourceNative2Vtbl {
     }
 }
 pub trait IFindReferenceTargetsCallbackImpl: Sized {
-    fn FoundTrackerTarget();
+    fn FoundTrackerTarget(&mut self, target: ::core::option::Option<IReferenceTrackerTarget>) -> ::windows::core::Result<()>;
 }
 impl IFindReferenceTargetsCallbackVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFindReferenceTargetsCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFindReferenceTargetsCallbackVtbl {
         unsafe extern "system" fn FoundTrackerTarget<Impl: IFindReferenceTargetsCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FoundTrackerTarget(::core::mem::transmute(&target)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), FoundTrackerTarget: FoundTrackerTarget::<Impl, IMPL_OFFSET> }
     }
@@ -60,43 +66,49 @@ impl IFindReferenceTargetsCallbackVtbl {
     }
 }
 pub trait IReferenceTrackerImpl: Sized {
-    fn ConnectFromTrackerSource();
-    fn DisconnectFromTrackerSource();
-    fn FindTrackerTargets();
-    fn GetReferenceTrackerManager();
-    fn AddRefFromTrackerSource();
-    fn ReleaseFromTrackerSource();
-    fn PegFromTrackerSource();
+    fn ConnectFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
+    fn DisconnectFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
+    fn FindTrackerTargets(&mut self, callback: ::core::option::Option<IFindReferenceTargetsCallback>) -> ::windows::core::Result<()>;
+    fn GetReferenceTrackerManager(&mut self) -> ::windows::core::Result<IReferenceTrackerManager>;
+    fn AddRefFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
+    fn ReleaseFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
+    fn PegFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
 }
 impl IReferenceTrackerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReferenceTrackerVtbl {
         unsafe extern "system" fn ConnectFromTrackerSource<Impl: IReferenceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ConnectFromTrackerSource().into()
         }
         unsafe extern "system" fn DisconnectFromTrackerSource<Impl: IReferenceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DisconnectFromTrackerSource().into()
         }
         unsafe extern "system" fn FindTrackerTargets<Impl: IReferenceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FindTrackerTargets(::core::mem::transmute(&callback)).into()
         }
         unsafe extern "system" fn GetReferenceTrackerManager<Impl: IReferenceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetReferenceTrackerManager() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddRefFromTrackerSource<Impl: IReferenceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddRefFromTrackerSource().into()
         }
         unsafe extern "system" fn ReleaseFromTrackerSource<Impl: IReferenceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReleaseFromTrackerSource().into()
         }
         unsafe extern "system" fn PegFromTrackerSource<Impl: IReferenceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PegFromTrackerSource().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -123,38 +135,44 @@ impl IReferenceTrackerExtensionVtbl {
     }
 }
 pub trait IReferenceTrackerHostImpl: Sized {
-    fn DisconnectUnusedReferenceSources();
-    fn ReleaseDisconnectedReferenceSources();
-    fn NotifyEndOfReferenceTrackingOnThread();
-    fn GetTrackerTarget();
-    fn AddMemoryPressure();
-    fn RemoveMemoryPressure();
+    fn DisconnectUnusedReferenceSources(&mut self, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::core::Result<()>;
+    fn ReleaseDisconnectedReferenceSources(&mut self) -> ::windows::core::Result<()>;
+    fn NotifyEndOfReferenceTrackingOnThread(&mut self) -> ::windows::core::Result<()>;
+    fn GetTrackerTarget(&mut self, unknown: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IReferenceTrackerTarget>;
+    fn AddMemoryPressure(&mut self, bytesallocated: u64) -> ::windows::core::Result<()>;
+    fn RemoveMemoryPressure(&mut self, bytesallocated: u64) -> ::windows::core::Result<()>;
 }
 impl IReferenceTrackerHostVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerHostImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReferenceTrackerHostVtbl {
         unsafe extern "system" fn DisconnectUnusedReferenceSources<Impl: IReferenceTrackerHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DisconnectUnusedReferenceSources(::core::mem::transmute_copy(&options)).into()
         }
         unsafe extern "system" fn ReleaseDisconnectedReferenceSources<Impl: IReferenceTrackerHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReleaseDisconnectedReferenceSources().into()
         }
         unsafe extern "system" fn NotifyEndOfReferenceTrackingOnThread<Impl: IReferenceTrackerHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).NotifyEndOfReferenceTrackingOnThread().into()
         }
         unsafe extern "system" fn GetTrackerTarget<Impl: IReferenceTrackerHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unknown: *mut ::core::ffi::c_void, newreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTrackerTarget(::core::mem::transmute(&unknown)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *newreference = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddMemoryPressure<Impl: IReferenceTrackerHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bytesallocated: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddMemoryPressure(::core::mem::transmute_copy(&bytesallocated)).into()
         }
         unsafe extern "system" fn RemoveMemoryPressure<Impl: IReferenceTrackerHostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bytesallocated: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RemoveMemoryPressure(::core::mem::transmute_copy(&bytesallocated)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -171,28 +189,28 @@ impl IReferenceTrackerHostVtbl {
     }
 }
 pub trait IReferenceTrackerManagerImpl: Sized {
-    fn ReferenceTrackingStarted();
-    fn FindTrackerTargetsCompleted();
-    fn ReferenceTrackingCompleted();
-    fn SetReferenceTrackerHost();
+    fn ReferenceTrackingStarted(&mut self) -> ::windows::core::Result<()>;
+    fn FindTrackerTargetsCompleted(&mut self, findfailed: u8) -> ::windows::core::Result<()>;
+    fn ReferenceTrackingCompleted(&mut self) -> ::windows::core::Result<()>;
+    fn SetReferenceTrackerHost(&mut self, value: ::core::option::Option<IReferenceTrackerHost>) -> ::windows::core::Result<()>;
 }
 impl IReferenceTrackerManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReferenceTrackerManagerVtbl {
         unsafe extern "system" fn ReferenceTrackingStarted<Impl: IReferenceTrackerManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReferenceTrackingStarted().into()
         }
         unsafe extern "system" fn FindTrackerTargetsCompleted<Impl: IReferenceTrackerManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, findfailed: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FindTrackerTargetsCompleted(::core::mem::transmute_copy(&findfailed)).into()
         }
         unsafe extern "system" fn ReferenceTrackingCompleted<Impl: IReferenceTrackerManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReferenceTrackingCompleted().into()
         }
         unsafe extern "system" fn SetReferenceTrackerHost<Impl: IReferenceTrackerManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetReferenceTrackerHost(::core::mem::transmute(&value)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -207,28 +225,28 @@ impl IReferenceTrackerManagerVtbl {
     }
 }
 pub trait IReferenceTrackerTargetImpl: Sized {
-    fn AddRefFromReferenceTracker();
-    fn ReleaseFromReferenceTracker();
-    fn Peg();
-    fn Unpeg();
+    fn AddRefFromReferenceTracker(&mut self) -> u32;
+    fn ReleaseFromReferenceTracker(&mut self) -> u32;
+    fn Peg(&mut self) -> ::windows::core::Result<()>;
+    fn Unpeg(&mut self) -> ::windows::core::Result<()>;
 }
 impl IReferenceTrackerTargetVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReferenceTrackerTargetVtbl {
         unsafe extern "system" fn AddRefFromReferenceTracker<Impl: IReferenceTrackerTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddRefFromReferenceTracker()
         }
         unsafe extern "system" fn ReleaseFromReferenceTracker<Impl: IReferenceTrackerTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReleaseFromReferenceTracker()
         }
         unsafe extern "system" fn Peg<Impl: IReferenceTrackerTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Peg().into()
         }
         unsafe extern "system" fn Unpeg<Impl: IReferenceTrackerTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Unpeg().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -243,13 +261,13 @@ impl IReferenceTrackerTargetVtbl {
     }
 }
 pub trait ISurfaceImageSourceManagerNativeImpl: Sized {
-    fn FlushAllSurfacesWithDevice();
+    fn FlushAllSurfacesWithDevice(&mut self, device: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ISurfaceImageSourceManagerNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceManagerNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISurfaceImageSourceManagerNativeVtbl {
         unsafe extern "system" fn FlushAllSurfacesWithDevice<Impl: ISurfaceImageSourceManagerNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FlushAllSurfacesWithDevice(::core::mem::transmute(&device)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), FlushAllSurfacesWithDevice: FlushAllSurfacesWithDevice::<Impl, IMPL_OFFSET> }
     }
@@ -259,24 +277,24 @@ impl ISurfaceImageSourceManagerNativeVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub trait ISurfaceImageSourceNativeImpl: Sized {
-    fn SetDevice();
-    fn BeginDraw();
-    fn EndDraw();
+    fn SetDevice(&mut self, device: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>) -> ::windows::core::Result<()>;
+    fn BeginDraw(&mut self, updaterect: super::super::super::Foundation::RECT, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn EndDraw(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ISurfaceImageSourceNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISurfaceImageSourceNativeVtbl {
         unsafe extern "system" fn SetDevice<Impl: ISurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDevice(::core::mem::transmute(&device)).into()
         }
         unsafe extern "system" fn BeginDraw<Impl: ISurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: super::super::super::Foundation::RECT, surface: *mut ::windows::core::RawPtr, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginDraw(::core::mem::transmute_copy(&updaterect), ::core::mem::transmute_copy(&surface), ::core::mem::transmute_copy(&offset)).into()
         }
         unsafe extern "system" fn EndDraw<Impl: ISurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EndDraw().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -291,34 +309,34 @@ impl ISurfaceImageSourceNativeVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISurfaceImageSourceNativeWithD2DImpl: Sized {
-    fn SetDevice();
-    fn BeginDraw();
-    fn EndDraw();
-    fn SuspendDraw();
-    fn ResumeDraw();
+    fn SetDevice(&mut self, device: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn BeginDraw(&mut self, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn EndDraw(&mut self) -> ::windows::core::Result<()>;
+    fn SuspendDraw(&mut self) -> ::windows::core::Result<()>;
+    fn ResumeDraw(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISurfaceImageSourceNativeWithD2DVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceNativeWithD2DImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISurfaceImageSourceNativeWithD2DVtbl {
         unsafe extern "system" fn SetDevice<Impl: ISurfaceImageSourceNativeWithD2DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDevice(::core::mem::transmute(&device)).into()
         }
         unsafe extern "system" fn BeginDraw<Impl: ISurfaceImageSourceNativeWithD2DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginDraw(::core::mem::transmute_copy(&updaterect), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&updateobject), ::core::mem::transmute_copy(&offset)).into()
         }
         unsafe extern "system" fn EndDraw<Impl: ISurfaceImageSourceNativeWithD2DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EndDraw().into()
         }
         unsafe extern "system" fn SuspendDraw<Impl: ISurfaceImageSourceNativeWithD2DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SuspendDraw().into()
         }
         unsafe extern "system" fn ResumeDraw<Impl: ISurfaceImageSourceNativeWithD2DImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ResumeDraw().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -335,14 +353,14 @@ impl ISurfaceImageSourceNativeWithD2DVtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ISwapChainBackgroundPanelNativeImpl: Sized {
-    fn SetSwapChain();
+    fn SetSwapChain(&mut self, swapchain: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ISwapChainBackgroundPanelNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainBackgroundPanelNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwapChainBackgroundPanelNativeVtbl {
         unsafe extern "system" fn SetSwapChain<Impl: ISwapChainBackgroundPanelNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSwapChain(::core::mem::transmute(&swapchain)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetSwapChain: SetSwapChain::<Impl, IMPL_OFFSET> }
     }
@@ -352,14 +370,14 @@ impl ISwapChainBackgroundPanelNativeVtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ISwapChainPanelNativeImpl: Sized {
-    fn SetSwapChain();
+    fn SetSwapChain(&mut self, swapchain: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ISwapChainPanelNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainPanelNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwapChainPanelNativeVtbl {
         unsafe extern "system" fn SetSwapChain<Impl: ISwapChainPanelNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSwapChain(::core::mem::transmute(&swapchain)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetSwapChain: SetSwapChain::<Impl, IMPL_OFFSET> }
     }
@@ -369,14 +387,14 @@ impl ISwapChainPanelNativeVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub trait ISwapChainPanelNative2Impl: Sized + ISwapChainPanelNativeImpl {
-    fn SetSwapChainHandle();
+    fn SetSwapChainHandle(&mut self, swapchainhandle: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ISwapChainPanelNative2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainPanelNative2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwapChainPanelNative2Vtbl {
         unsafe extern "system" fn SetSwapChainHandle<Impl: ISwapChainPanelNative2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchainhandle: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSwapChainHandle(::core::mem::transmute_copy(&swapchainhandle)).into()
         }
         Self { base: ISwapChainPanelNativeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetSwapChainHandle: SetSwapChainHandle::<Impl, IMPL_OFFSET> }
     }
@@ -385,28 +403,34 @@ impl ISwapChainPanelNative2Vtbl {
     }
 }
 pub trait ITrackerOwnerImpl: Sized {
-    fn CreateTrackerHandle();
-    fn DeleteTrackerHandle();
-    fn SetTrackerValue();
-    fn TryGetSafeTrackerValue();
+    fn CreateTrackerHandle(&mut self) -> ::windows::core::Result<*mut TrackerHandle__>;
+    fn DeleteTrackerHandle(&mut self, handle: *const TrackerHandle__) -> ::windows::core::Result<()>;
+    fn SetTrackerValue(&mut self, handle: *const TrackerHandle__, value: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn TryGetSafeTrackerValue(&mut self, handle: *const TrackerHandle__, returnvalue: *mut ::core::option::Option<::windows::core::IUnknown>) -> u8;
 }
 impl ITrackerOwnerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITrackerOwnerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITrackerOwnerVtbl {
         unsafe extern "system" fn CreateTrackerHandle<Impl: ITrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, returnvalue: *mut *mut TrackerHandle__) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateTrackerHandle() {
+                ::core::result::Result::Ok(ok__) => {
+                    *returnvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DeleteTrackerHandle<Impl: ITrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: *const TrackerHandle__) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DeleteTrackerHandle(::core::mem::transmute_copy(&handle)).into()
         }
         unsafe extern "system" fn SetTrackerValue<Impl: ITrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: *const TrackerHandle__, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTrackerValue(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn TryGetSafeTrackerValue<Impl: ITrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: *const TrackerHandle__, returnvalue: *mut *mut ::core::ffi::c_void) -> u8 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TryGetSafeTrackerValue(::core::mem::transmute_copy(&handle), ::core::mem::transmute_copy(&returnvalue))
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -422,39 +446,51 @@ impl ITrackerOwnerVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub trait IVirtualSurfaceImageSourceNativeImpl: Sized + ISurfaceImageSourceNativeImpl {
-    fn Invalidate();
-    fn GetUpdateRectCount();
-    fn GetUpdateRects();
-    fn GetVisibleBounds();
-    fn RegisterForUpdatesNeeded();
-    fn Resize();
+    fn Invalidate(&mut self, updaterect: super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn GetUpdateRectCount(&mut self) -> ::windows::core::Result<u32>;
+    fn GetUpdateRects(&mut self, updates: *mut super::super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()>;
+    fn GetVisibleBounds(&mut self) -> ::windows::core::Result<super::super::super::Foundation::RECT>;
+    fn RegisterForUpdatesNeeded(&mut self, callback: ::core::option::Option<IVirtualSurfaceUpdatesCallbackNative>) -> ::windows::core::Result<()>;
+    fn Resize(&mut self, newwidth: i32, newheight: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl IVirtualSurfaceImageSourceNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceImageSourceNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVirtualSurfaceImageSourceNativeVtbl {
         unsafe extern "system" fn Invalidate<Impl: IVirtualSurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: super::super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Invalidate(::core::mem::transmute_copy(&updaterect)).into()
         }
         unsafe extern "system" fn GetUpdateRectCount<Impl: IVirtualSurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetUpdateRectCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *count = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetUpdateRects<Impl: IVirtualSurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updates: *mut super::super::super::Foundation::RECT, count: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetUpdateRects(::core::mem::transmute_copy(&updates), ::core::mem::transmute_copy(&count)).into()
         }
         unsafe extern "system" fn GetVisibleBounds<Impl: IVirtualSurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bounds: *mut super::super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetVisibleBounds() {
+                ::core::result::Result::Ok(ok__) => {
+                    *bounds = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RegisterForUpdatesNeeded<Impl: IVirtualSurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RegisterForUpdatesNeeded(::core::mem::transmute(&callback)).into()
         }
         unsafe extern "system" fn Resize<Impl: IVirtualSurfaceImageSourceNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newwidth: i32, newheight: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Resize(::core::mem::transmute_copy(&newwidth), ::core::mem::transmute_copy(&newheight)).into()
         }
         Self {
             base: ISurfaceImageSourceNativeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -471,13 +507,13 @@ impl IVirtualSurfaceImageSourceNativeVtbl {
     }
 }
 pub trait IVirtualSurfaceUpdatesCallbackNativeImpl: Sized {
-    fn UpdatesNeeded();
+    fn UpdatesNeeded(&mut self) -> ::windows::core::Result<()>;
 }
 impl IVirtualSurfaceUpdatesCallbackNativeVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceUpdatesCallbackNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVirtualSurfaceUpdatesCallbackNativeVtbl {
         unsafe extern "system" fn UpdatesNeeded<Impl: IVirtualSurfaceUpdatesCallbackNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UpdatesNeeded().into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), UpdatesNeeded: UpdatesNeeded::<Impl, IMPL_OFFSET> }
     }

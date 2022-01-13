@@ -1,103 +1,139 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait ICallFrameImpl: Sized {
-    fn GetInfo();
-    fn GetIIDAndMethod();
-    fn GetNames();
-    fn GetStackLocation();
-    fn SetStackLocation();
-    fn SetReturnValue();
-    fn GetReturnValue();
-    fn GetParamInfo();
-    fn SetParam();
-    fn GetParam();
-    fn Copy();
-    fn Free();
-    fn FreeParam();
-    fn WalkFrame();
-    fn GetMarshalSizeMax();
-    fn Marshal();
-    fn Unmarshal();
-    fn ReleaseMarshalData();
-    fn Invoke();
+    fn GetInfo(&mut self) -> ::windows::core::Result<CALLFRAMEINFO>;
+    fn GetIIDAndMethod(&mut self, piid: *mut ::windows::core::GUID, pimethod: *mut u32) -> ::windows::core::Result<()>;
+    fn GetNames(&mut self, pwszinterface: *mut super::super::super::Foundation::PWSTR, pwszmethod: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStackLocation(&mut self) -> *mut ::core::ffi::c_void;
+    fn SetStackLocation(&mut self, pvstack: *const ::core::ffi::c_void);
+    fn SetReturnValue(&mut self, hr: ::windows::core::HRESULT);
+    fn GetReturnValue(&mut self) -> ::windows::core::Result<()>;
+    fn GetParamInfo(&mut self, iparam: u32) -> ::windows::core::Result<CALLFRAMEPARAMINFO>;
+    fn SetParam(&mut self, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn GetParam(&mut self, iparam: u32) -> ::windows::core::Result<super::VARIANT>;
+    fn Copy(&mut self, copycontrol: CALLFRAME_COPY, pwalker: ::core::option::Option<ICallFrameWalker>) -> ::windows::core::Result<ICallFrame>;
+    fn Free(&mut self, pframeargsdest: ::core::option::Option<ICallFrame>, pwalkerdestfree: ::core::option::Option<ICallFrameWalker>, pwalkercopy: ::core::option::Option<ICallFrameWalker>, freeflags: u32, pwalkerfree: ::core::option::Option<ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
+    fn FreeParam(&mut self, iparam: u32, freeflags: u32, pwalkerfree: ::core::option::Option<ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
+    fn WalkFrame(&mut self, walkwhat: u32, pwalker: ::core::option::Option<ICallFrameWalker>) -> ::windows::core::Result<()>;
+    fn GetMarshalSizeMax(&mut self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> ::windows::core::Result<u32>;
+    fn Marshal(&mut self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::Result<()>;
+    fn Unmarshal(&mut self, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<u32>;
+    fn ReleaseMarshalData(&mut self, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<()>;
+    fn Invoke(&mut self, pvreceiver: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ICallFrameVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallFrameVtbl {
         unsafe extern "system" fn GetInfo<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut CALLFRAMEINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetInfo() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pinfo = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIIDAndMethod<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID, pimethod: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetIIDAndMethod(::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&pimethod)).into()
         }
         unsafe extern "system" fn GetNames<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszinterface: *mut super::super::super::Foundation::PWSTR, pwszmethod: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetNames(::core::mem::transmute_copy(&pwszinterface), ::core::mem::transmute_copy(&pwszmethod)).into()
         }
         unsafe extern "system" fn GetStackLocation<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetStackLocation()
         }
         unsafe extern "system" fn SetStackLocation<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvstack: *const ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetStackLocation(::core::mem::transmute_copy(&pvstack))
         }
         unsafe extern "system" fn SetReturnValue<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetReturnValue(::core::mem::transmute_copy(&hr))
         }
         unsafe extern "system" fn GetReturnValue<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetReturnValue().into()
         }
         unsafe extern "system" fn GetParamInfo<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, pinfo: *mut CALLFRAMEPARAMINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetParamInfo(::core::mem::transmute_copy(&iparam)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pinfo = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetParam<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetParam(::core::mem::transmute_copy(&iparam), ::core::mem::transmute_copy(&pvar)).into()
         }
         unsafe extern "system" fn GetParam<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetParam(::core::mem::transmute_copy(&iparam)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvar = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Copy<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copycontrol: CALLFRAME_COPY, pwalker: ::windows::core::RawPtr, ppframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Copy(::core::mem::transmute_copy(&copycontrol), ::core::mem::transmute(&pwalker)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppframe = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Free<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pframeargsdest: ::windows::core::RawPtr, pwalkerdestfree: ::windows::core::RawPtr, pwalkercopy: ::windows::core::RawPtr, freeflags: u32, pwalkerfree: ::windows::core::RawPtr, nullflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Free(::core::mem::transmute(&pframeargsdest), ::core::mem::transmute(&pwalkerdestfree), ::core::mem::transmute(&pwalkercopy), ::core::mem::transmute_copy(&freeflags), ::core::mem::transmute(&pwalkerfree), ::core::mem::transmute_copy(&nullflags)).into()
         }
         unsafe extern "system" fn FreeParam<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, freeflags: u32, pwalkerfree: ::windows::core::RawPtr, nullflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FreeParam(::core::mem::transmute_copy(&iparam), ::core::mem::transmute_copy(&freeflags), ::core::mem::transmute(&pwalkerfree), ::core::mem::transmute_copy(&nullflags)).into()
         }
         unsafe extern "system" fn WalkFrame<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, walkwhat: u32, pwalker: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).WalkFrame(::core::mem::transmute_copy(&walkwhat), ::core::mem::transmute(&pwalker)).into()
         }
         unsafe extern "system" fn GetMarshalSizeMax<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pcbbufferneeded: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMarshalSizeMax(::core::mem::transmute_copy(&pmshlcontext), ::core::mem::transmute_copy(&mshlflags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcbbufferneeded = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Marshal<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Marshal(::core::mem::transmute_copy(&pmshlcontext), ::core::mem::transmute_copy(&mshlflags), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcbbufferused), ::core::mem::transmute_copy(&pdatarep), ::core::mem::transmute_copy(&prpcflags)).into()
         }
         unsafe extern "system" fn Unmarshal<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Unmarshal(::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&datarep), ::core::mem::transmute_copy(&pcontext)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcbunmarshalled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ReleaseMarshalData<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReleaseMarshalData(::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&ibfirstrelease), ::core::mem::transmute_copy(&datarep), ::core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn Invoke<Impl: ICallFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvreceiver: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Invoke(::core::mem::transmute_copy(&pvreceiver)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -127,13 +163,13 @@ impl ICallFrameVtbl {
     }
 }
 pub trait ICallFrameEventsImpl: Sized {
-    fn OnCall();
+    fn OnCall(&mut self, pframe: ::core::option::Option<ICallFrame>) -> ::windows::core::Result<()>;
 }
 impl ICallFrameEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallFrameEventsVtbl {
         unsafe extern "system" fn OnCall<Impl: ICallFrameEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pframe: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCall(::core::mem::transmute(&pframe)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnCall: OnCall::<Impl, IMPL_OFFSET> }
     }
@@ -143,14 +179,14 @@ impl ICallFrameEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallFrameWalkerImpl: Sized {
-    fn OnWalkInterface();
+    fn OnWalkInterface(&mut self, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICallFrameWalkerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameWalkerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallFrameWalkerVtbl {
         unsafe extern "system" fn OnWalkInterface<Impl: ICallFrameWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnWalkInterface(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&ppvinterface), ::core::mem::transmute_copy(&fin), ::core::mem::transmute_copy(&fout)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnWalkInterface: OnWalkInterface::<Impl, IMPL_OFFSET> }
     }
@@ -160,29 +196,35 @@ impl ICallFrameWalkerVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallIndirectImpl: Sized {
-    fn CallIndirect();
-    fn GetMethodInfo();
-    fn GetStackSize();
-    fn GetIID();
+    fn CallIndirect(&mut self, phrreturn: *mut ::windows::core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows::core::Result<()>;
+    fn GetMethodInfo(&mut self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStackSize(&mut self, imethod: u32) -> ::windows::core::Result<u32>;
+    fn GetIID(&mut self, piid: *mut ::windows::core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICallIndirectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallIndirectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallIndirectVtbl {
         unsafe extern "system" fn CallIndirect<Impl: ICallIndirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrreturn: *mut ::windows::core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CallIndirect(::core::mem::transmute_copy(&phrreturn), ::core::mem::transmute_copy(&imethod), ::core::mem::transmute_copy(&pvargs), ::core::mem::transmute_copy(&cbargs)).into()
         }
         unsafe extern "system" fn GetMethodInfo<Impl: ICallIndirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetMethodInfo(::core::mem::transmute_copy(&imethod), ::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&pwszmethod)).into()
         }
         unsafe extern "system" fn GetStackSize<Impl: ICallIndirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imethod: u32, cbargs: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStackSize(::core::mem::transmute_copy(&imethod)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *cbargs = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIID<Impl: ICallIndirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetIID(::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&pfderivesfromidispatch), ::core::mem::transmute_copy(&pcmethod), ::core::mem::transmute_copy(&pwszinterface)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -198,19 +240,25 @@ impl ICallIndirectVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallInterceptorImpl: Sized + ICallIndirectImpl {
-    fn RegisterSink();
-    fn GetRegisteredSink();
+    fn RegisterSink(&mut self, psink: ::core::option::Option<ICallFrameEvents>) -> ::windows::core::Result<()>;
+    fn GetRegisteredSink(&mut self) -> ::windows::core::Result<ICallFrameEvents>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICallInterceptorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallInterceptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallInterceptorVtbl {
         unsafe extern "system" fn RegisterSink<Impl: ICallInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RegisterSink(::core::mem::transmute(&psink)).into()
         }
         unsafe extern "system" fn GetRegisteredSink<Impl: ICallInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetRegisteredSink() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppsink = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ICallIndirectVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -224,19 +272,19 @@ impl ICallInterceptorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallUnmarshalImpl: Sized {
-    fn Unmarshal();
-    fn ReleaseMarshalData();
+    fn Unmarshal(&mut self, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::core::option::Option<ICallFrame>) -> ::windows::core::Result<()>;
+    fn ReleaseMarshalData(&mut self, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICallUnmarshalVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallUnmarshalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallUnmarshalVtbl {
         unsafe extern "system" fn Unmarshal<Impl: ICallUnmarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Unmarshal(::core::mem::transmute_copy(&imethod), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&fforcebuffercopy), ::core::mem::transmute_copy(&datarep), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&pcbunmarshalled), ::core::mem::transmute_copy(&ppframe)).into()
         }
         unsafe extern "system" fn ReleaseMarshalData<Impl: ICallUnmarshalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReleaseMarshalData(::core::mem::transmute_copy(&imethod), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&ibfirstrelease), ::core::mem::transmute_copy(&datarep), ::core::mem::transmute_copy(&pcontext)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -249,18 +297,24 @@ impl ICallUnmarshalVtbl {
     }
 }
 pub trait IInterfaceRelatedImpl: Sized {
-    fn SetIID();
-    fn GetIID();
+    fn SetIID(&mut self, iid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetIID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl IInterfaceRelatedVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInterfaceRelatedImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInterfaceRelatedVtbl {
         unsafe extern "system" fn SetIID<Impl: IInterfaceRelatedImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetIID(::core::mem::transmute_copy(&iid)).into()
         }
         unsafe extern "system" fn GetIID<Impl: IInterfaceRelatedImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIID() {
+                ::core::result::Result::Ok(ok__) => {
+                    *piid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetIID: SetIID::<Impl, IMPL_OFFSET>, GetIID: GetIID::<Impl, IMPL_OFFSET> }
     }

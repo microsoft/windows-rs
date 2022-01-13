@@ -1,33 +1,63 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ContextInfoImpl: Sized + IDispatchImpl {
-    fn IsInTransaction();
-    fn GetTransaction();
-    fn GetTransactionId();
-    fn GetActivityId();
-    fn GetContextId();
+    fn IsInTransaction(&mut self) -> ::windows::core::Result<i16>;
+    fn GetTransaction(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetTransactionId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetActivityId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetContextId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ContextInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ContextInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ContextInfoVtbl {
         unsafe extern "system" fn IsInTransaction<Impl: ContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisintx: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsInTransaction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbisintx = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetTransaction<Impl: ContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptx: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTransaction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pptx = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetTransactionId<Impl: ContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtxid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTransactionId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrtxid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetActivityId<Impl: ContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstractivityid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetActivityId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstractivityid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetContextId<Impl: ContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrctxid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetContextId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrctxid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -44,24 +74,42 @@ impl ContextInfoVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ContextInfo2Impl: Sized + IDispatchImpl + ContextInfoImpl {
-    fn GetPartitionId();
-    fn GetApplicationId();
-    fn GetApplicationInstanceId();
+    fn GetPartitionId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetApplicationId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetApplicationInstanceId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ContextInfo2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ContextInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ContextInfo2Vtbl {
         unsafe extern "system" fn GetPartitionId<Impl: ContextInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__contextinfo20000: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPartitionId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *__midl__contextinfo20000 = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetApplicationId<Impl: ContextInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__contextinfo20001: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetApplicationId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *__midl__contextinfo20001 = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetApplicationInstanceId<Impl: ContextInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__contextinfo20002: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetApplicationInstanceId() {
+                ::core::result::Result::Ok(ok__) => {
+                    *__midl__contextinfo20002 = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ContextInfoVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -76,19 +124,19 @@ impl ContextInfo2Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAppDomainHelperImpl: Sized + IDispatchImpl {
-    fn Initialize();
-    fn DoCallback();
+    fn Initialize(&mut self, punkad: ::core::option::Option<::windows::core::IUnknown>, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn DoCallback(&mut self, punkad: ::core::option::Option<::windows::core::IUnknown>, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAppDomainHelperVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppDomainHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppDomainHelperVtbl {
         unsafe extern "system" fn Initialize<Impl: IAppDomainHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Initialize(::core::mem::transmute(&punkad), ::core::mem::transmute_copy(&__midl__iappdomainhelper0000), ::core::mem::transmute_copy(&ppool)).into()
         }
         unsafe extern "system" fn DoCallback<Impl: IAppDomainHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DoCallback(::core::mem::transmute(&punkad), ::core::mem::transmute_copy(&__midl__iappdomainhelper0001), ::core::mem::transmute_copy(&ppool)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -102,14 +150,20 @@ impl IAppDomainHelperVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAssemblyLocatorImpl: Sized + IDispatchImpl {
-    fn GetModules();
+    fn GetModules(&mut self, applicationdir: super::super::Foundation::BSTR, applicationname: super::super::Foundation::BSTR, assemblyname: super::super::Foundation::BSTR) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAssemblyLocatorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyLocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAssemblyLocatorVtbl {
         unsafe extern "system" fn GetModules<Impl: IAssemblyLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, applicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, assemblyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pmodules: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetModules(::core::mem::transmute_copy(&applicationdir), ::core::mem::transmute_copy(&applicationname), ::core::mem::transmute_copy(&assemblyname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pmodules = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetModules: GetModules::<Impl, IMPL_OFFSET> }
     }
@@ -118,13 +172,13 @@ impl IAssemblyLocatorVtbl {
     }
 }
 pub trait IAsyncErrorNotifyImpl: Sized {
-    fn OnError();
+    fn OnError(&mut self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IAsyncErrorNotifyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsyncErrorNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsyncErrorNotifyVtbl {
         unsafe extern "system" fn OnError<Impl: IAsyncErrorNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnError(::core::mem::transmute_copy(&hr)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnError: OnError::<Impl, IMPL_OFFSET> }
     }
@@ -134,139 +188,175 @@ impl IAsyncErrorNotifyVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICOMAdminCatalogImpl: Sized + IDispatchImpl {
-    fn GetCollection();
-    fn Connect();
-    fn MajorVersion();
-    fn MinorVersion();
-    fn GetCollectionByQuery();
-    fn ImportComponent();
-    fn InstallComponent();
-    fn ShutdownApplication();
-    fn ExportApplication();
-    fn InstallApplication();
-    fn StopRouter();
-    fn RefreshRouter();
-    fn StartRouter();
-    fn Reserved1();
-    fn Reserved2();
-    fn InstallMultipleComponents();
-    fn GetMultipleComponentsInfo();
-    fn RefreshComponents();
-    fn BackupREGDB();
-    fn RestoreREGDB();
-    fn QueryApplicationFile();
-    fn StartApplication();
-    fn ServiceCheck();
-    fn InstallMultipleEventClasses();
-    fn InstallEventClass();
-    fn GetEventClassesForIID();
+    fn GetCollection(&mut self, bstrcollname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Connect(&mut self, bstrcatalogservername: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn MajorVersion(&mut self) -> ::windows::core::Result<i32>;
+    fn MinorVersion(&mut self) -> ::windows::core::Result<i32>;
+    fn GetCollectionByQuery(&mut self, bstrcollname: super::super::Foundation::BSTR, ppsavarquery: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn ImportComponent(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrclsidorprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallComponent(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrdll: super::super::Foundation::BSTR, bstrtlb: super::super::Foundation::BSTR, bstrpsdll: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ShutdownApplication(&mut self, bstrapplidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExportApplication(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrapplicationfile: super::super::Foundation::BSTR, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>;
+    fn InstallApplication(&mut self, bstrapplicationfile: super::super::Foundation::BSTR, bstrdestinationdirectory: super::super::Foundation::BSTR, loptions: COMAdminApplicationInstallOptions, bstruserid: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bstrrsn: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StopRouter(&mut self) -> ::windows::core::Result<()>;
+    fn RefreshRouter(&mut self) -> ::windows::core::Result<()>;
+    fn StartRouter(&mut self) -> ::windows::core::Result<()>;
+    fn Reserved1(&mut self) -> ::windows::core::Result<()>;
+    fn Reserved2(&mut self) -> ::windows::core::Result<()>;
+    fn InstallMultipleComponents(&mut self, bstrapplidorname: super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn GetMultipleComponentsInfo(&mut self, bstrapplidorname: super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn RefreshComponents(&mut self) -> ::windows::core::Result<()>;
+    fn BackupREGDB(&mut self, bstrbackupfilepath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RestoreREGDB(&mut self, bstrbackupfilepath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueryApplicationFile(&mut self, bstrapplicationfile: super::super::Foundation::BSTR, pbstrapplicationname: *mut super::super::Foundation::BSTR, pbstrapplicationdescription: *mut super::super::Foundation::BSTR, pbhasusers: *mut i16, pbisproxy: *mut i16, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn StartApplication(&mut self, bstrapplidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ServiceCheck(&mut self, lservice: i32) -> ::windows::core::Result<i32>;
+    fn InstallMultipleEventClasses(&mut self, bstrapplidorname: super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn InstallEventClass(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrdll: super::super::Foundation::BSTR, bstrtlb: super::super::Foundation::BSTR, bstrpsdll: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetEventClassesForIID(&mut self, bstriid: super::super::Foundation::BSTR, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICOMAdminCatalogVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICOMAdminCatalogImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICOMAdminCatalogVtbl {
         unsafe extern "system" fn GetCollection<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppcatalogcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCollection(::core::mem::transmute_copy(&bstrcollname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Connect<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcatalogservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppcatalogcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Connect(::core::mem::transmute_copy(&bstrcatalogservername)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MajorVersion<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MajorVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plmajorversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MinorVersion<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorversion: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MinorVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plminorversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetCollectionByQuery<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsavarquery: *const *const super::Com::SAFEARRAY, ppcatalogcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCollectionByQuery(::core::mem::transmute_copy(&bstrcollname), ::core::mem::transmute_copy(&ppsavarquery)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ImportComponent<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrclsidorprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ImportComponent(::core::mem::transmute_copy(&bstrapplidorname), ::core::mem::transmute_copy(&bstrclsidorprogid)).into()
         }
         unsafe extern "system" fn InstallComponent<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdll: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrtlb: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpsdll: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallComponent(::core::mem::transmute_copy(&bstrapplidorname), ::core::mem::transmute_copy(&bstrdll), ::core::mem::transmute_copy(&bstrtlb), ::core::mem::transmute_copy(&bstrpsdll)).into()
         }
         unsafe extern "system" fn ShutdownApplication<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ShutdownApplication(::core::mem::transmute_copy(&bstrapplidorname)).into()
         }
         unsafe extern "system" fn ExportApplication<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrapplicationfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loptions: COMAdminApplicationExportOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ExportApplication(::core::mem::transmute_copy(&bstrapplidorname), ::core::mem::transmute_copy(&bstrapplicationfile), ::core::mem::transmute_copy(&loptions)).into()
         }
         unsafe extern "system" fn InstallApplication<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdestinationdirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loptions: COMAdminApplicationInstallOptions, bstruserid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrsn: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallApplication(::core::mem::transmute_copy(&bstrapplicationfile), ::core::mem::transmute_copy(&bstrdestinationdirectory), ::core::mem::transmute_copy(&loptions), ::core::mem::transmute_copy(&bstruserid), ::core::mem::transmute_copy(&bstrpassword), ::core::mem::transmute_copy(&bstrrsn)).into()
         }
         unsafe extern "system" fn StopRouter<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).StopRouter().into()
         }
         unsafe extern "system" fn RefreshRouter<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RefreshRouter().into()
         }
         unsafe extern "system" fn StartRouter<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).StartRouter().into()
         }
         unsafe extern "system" fn Reserved1<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved1().into()
         }
         unsafe extern "system" fn Reserved2<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved2().into()
         }
         unsafe extern "system" fn InstallMultipleComponents<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallMultipleComponents(::core::mem::transmute_copy(&bstrapplidorname), ::core::mem::transmute_copy(&ppsavarfilenames), ::core::mem::transmute_copy(&ppsavarclsids)).into()
         }
         unsafe extern "system" fn GetMultipleComponentsInfo<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetMultipleComponentsInfo(::core::mem::transmute_copy(&bstrapplidorname), ::core::mem::transmute_copy(&ppsavarfilenames), ::core::mem::transmute_copy(&ppsavarclsids), ::core::mem::transmute_copy(&ppsavarclassnames), ::core::mem::transmute_copy(&ppsavarfileflags), ::core::mem::transmute_copy(&ppsavarcomponentflags)).into()
         }
         unsafe extern "system" fn RefreshComponents<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RefreshComponents().into()
         }
         unsafe extern "system" fn BackupREGDB<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BackupREGDB(::core::mem::transmute_copy(&bstrbackupfilepath)).into()
         }
         unsafe extern "system" fn RestoreREGDB<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RestoreREGDB(::core::mem::transmute_copy(&bstrbackupfilepath)).into()
         }
         unsafe extern "system" fn QueryApplicationFile<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrapplicationname: *mut super::super::Foundation::BSTR, pbstrapplicationdescription: *mut super::super::Foundation::BSTR, pbhasusers: *mut i16, pbisproxy: *mut i16, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).QueryApplicationFile(::core::mem::transmute_copy(&bstrapplicationfile), ::core::mem::transmute_copy(&pbstrapplicationname), ::core::mem::transmute_copy(&pbstrapplicationdescription), ::core::mem::transmute_copy(&pbhasusers), ::core::mem::transmute_copy(&pbisproxy), ::core::mem::transmute_copy(&ppsavarfilenames)).into()
         }
         unsafe extern "system" fn StartApplication<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).StartApplication(::core::mem::transmute_copy(&bstrapplidorname)).into()
         }
         unsafe extern "system" fn ServiceCheck<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lservice: i32, plstatus: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ServiceCheck(::core::mem::transmute_copy(&lservice)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *plstatus = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InstallMultipleEventClasses<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallMultipleEventClasses(::core::mem::transmute_copy(&bstrapplidorname), ::core::mem::transmute_copy(&ppsavarfilenames), ::core::mem::transmute_copy(&ppsavarclsids)).into()
         }
         unsafe extern "system" fn InstallEventClass<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdll: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrtlb: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpsdll: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallEventClass(::core::mem::transmute_copy(&bstrapplidorname), ::core::mem::transmute_copy(&bstrdll), ::core::mem::transmute_copy(&bstrtlb), ::core::mem::transmute_copy(&bstrpsdll)).into()
         }
         unsafe extern "system" fn GetEventClassesForIID<Impl: ICOMAdminCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstriid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetEventClassesForIID(::core::mem::transmute_copy(&bstriid), ::core::mem::transmute_copy(&ppsavarclsids), ::core::mem::transmute_copy(&ppsavarprogids), ::core::mem::transmute_copy(&ppsavardescriptions)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -304,164 +394,248 @@ impl ICOMAdminCatalogVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICOMAdminCatalog2Impl: Sized + IDispatchImpl + ICOMAdminCatalogImpl {
-    fn GetCollectionByQuery2();
-    fn GetApplicationInstanceIDFromProcessID();
-    fn ShutdownApplicationInstances();
-    fn PauseApplicationInstances();
-    fn ResumeApplicationInstances();
-    fn RecycleApplicationInstances();
-    fn AreApplicationInstancesPaused();
-    fn DumpApplicationInstance();
-    fn IsApplicationInstanceDumpSupported();
-    fn CreateServiceForApplication();
-    fn DeleteServiceForApplication();
-    fn GetPartitionID();
-    fn GetPartitionName();
-    fn SetCurrentPartition();
-    fn CurrentPartitionID();
-    fn CurrentPartitionName();
-    fn GlobalPartitionID();
-    fn FlushPartitionCache();
-    fn CopyApplications();
-    fn CopyComponents();
-    fn MoveComponents();
-    fn AliasComponent();
-    fn IsSafeToDelete();
-    fn ImportUnconfiguredComponents();
-    fn PromoteUnconfiguredComponents();
-    fn ImportComponents();
-    fn Is64BitCatalogServer();
-    fn ExportPartition();
-    fn InstallPartition();
-    fn QueryApplicationFile2();
-    fn GetComponentVersionCount();
+    fn GetCollectionByQuery2(&mut self, bstrcollectionname: super::super::Foundation::BSTR, pvarquerystrings: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetApplicationInstanceIDFromProcessID(&mut self, lprocessid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ShutdownApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PauseApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ResumeApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RecycleApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT, lreasoncode: i32) -> ::windows::core::Result<()>;
+    fn AreApplicationInstancesPaused(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<i16>;
+    fn DumpApplicationInstance(&mut self, bstrapplicationinstanceid: super::super::Foundation::BSTR, bstrdirectory: super::super::Foundation::BSTR, lmaximages: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IsApplicationInstanceDumpSupported(&mut self) -> ::windows::core::Result<i16>;
+    fn CreateServiceForApplication(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, bstrservicename: super::super::Foundation::BSTR, bstrstarttype: super::super::Foundation::BSTR, bstrerrorcontrol: super::super::Foundation::BSTR, bstrdependencies: super::super::Foundation::BSTR, bstrrunas: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bdesktopok: i16) -> ::windows::core::Result<()>;
+    fn DeleteServiceForApplication(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetPartitionID(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPartitionName(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCurrentPartition(&mut self, bstrpartitionidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CurrentPartitionID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CurrentPartitionName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GlobalPartitionID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FlushPartitionCache(&mut self) -> ::windows::core::Result<()>;
+    fn CopyApplications(&mut self, bstrsourcepartitionidorname: super::super::Foundation::BSTR, pvarapplicationid: *const super::Com::VARIANT, bstrdestinationpartitionidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyComponents(&mut self, bstrsourceapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MoveComponents(&mut self, bstrsourceapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AliasComponent(&mut self, bstrsrcapplicationidorname: super::super::Foundation::BSTR, bstrclsidorprogid: super::super::Foundation::BSTR, bstrdestapplicationidorname: super::super::Foundation::BSTR, bstrnewprogid: super::super::Foundation::BSTR, bstrnewclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsSafeToDelete(&mut self, bstrdllname: super::super::Foundation::BSTR) -> ::windows::core::Result<COMAdminInUse>;
+    fn ImportUnconfiguredComponents(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PromoteUnconfiguredComponents(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ImportComponents(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Is64BitCatalogServer(&mut self) -> ::windows::core::Result<i16>;
+    fn ExportPartition(&mut self, bstrpartitionidorname: super::super::Foundation::BSTR, bstrpartitionfilename: super::super::Foundation::BSTR, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>;
+    fn InstallPartition(&mut self, bstrfilename: super::super::Foundation::BSTR, bstrdestdirectory: super::super::Foundation::BSTR, loptions: COMAdminApplicationInstallOptions, bstruserid: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bstrrsn: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueryApplicationFile2(&mut self, bstrapplicationfile: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetComponentVersionCount(&mut self, bstrclsidorprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICOMAdminCatalog2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICOMAdminCatalog2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICOMAdminCatalog2Vtbl {
         unsafe extern "system" fn GetCollectionByQuery2<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollectionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarquerystrings: *const super::Com::VARIANT, ppcatalogcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCollectionByQuery2(::core::mem::transmute_copy(&bstrcollectionname), ::core::mem::transmute_copy(&pvarquerystrings)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetApplicationInstanceIDFromProcessID<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprocessid: i32, pbstrapplicationinstanceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetApplicationInstanceIDFromProcessID(::core::mem::transmute_copy(&lprocessid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrapplicationinstanceid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ShutdownApplicationInstances<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ShutdownApplicationInstances(::core::mem::transmute_copy(&pvarapplicationinstanceid)).into()
         }
         unsafe extern "system" fn PauseApplicationInstances<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PauseApplicationInstances(::core::mem::transmute_copy(&pvarapplicationinstanceid)).into()
         }
         unsafe extern "system" fn ResumeApplicationInstances<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ResumeApplicationInstances(::core::mem::transmute_copy(&pvarapplicationinstanceid)).into()
         }
         unsafe extern "system" fn RecycleApplicationInstances<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const super::Com::VARIANT, lreasoncode: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RecycleApplicationInstances(::core::mem::transmute_copy(&pvarapplicationinstanceid), ::core::mem::transmute_copy(&lreasoncode)).into()
         }
         unsafe extern "system" fn AreApplicationInstancesPaused<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const super::Com::VARIANT, pvarboolpaused: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AreApplicationInstancesPaused(::core::mem::transmute_copy(&pvarapplicationinstanceid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarboolpaused = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DumpApplicationInstance<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationinstanceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmaximages: i32, pbstrdumpfile: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DumpApplicationInstance(::core::mem::transmute_copy(&bstrapplicationinstanceid), ::core::mem::transmute_copy(&bstrdirectory), ::core::mem::transmute_copy(&lmaximages)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrdumpfile = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsApplicationInstanceDumpSupported<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbooldumpsupported: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsApplicationInstanceDumpSupported() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarbooldumpsupported = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateServiceForApplication<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrservicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrstarttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrerrorcontrol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdependencies: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrunas: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bdesktopok: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateServiceForApplication(::core::mem::transmute_copy(&bstrapplicationidorname), ::core::mem::transmute_copy(&bstrservicename), ::core::mem::transmute_copy(&bstrstarttype), ::core::mem::transmute_copy(&bstrerrorcontrol), ::core::mem::transmute_copy(&bstrdependencies), ::core::mem::transmute_copy(&bstrrunas), ::core::mem::transmute_copy(&bstrpassword), ::core::mem::transmute_copy(&bdesktopok)).into()
         }
         unsafe extern "system" fn DeleteServiceForApplication<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DeleteServiceForApplication(::core::mem::transmute_copy(&bstrapplicationidorname)).into()
         }
         unsafe extern "system" fn GetPartitionID<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrpartitionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPartitionID(::core::mem::transmute_copy(&bstrapplicationidorname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrpartitionid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPartitionName<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrpartitionname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPartitionName(::core::mem::transmute_copy(&bstrapplicationidorname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrpartitionname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetCurrentPartition<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpartitionidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCurrentPartition(::core::mem::transmute_copy(&bstrpartitionidorname)).into()
         }
         unsafe extern "system" fn CurrentPartitionID<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpartitionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CurrentPartitionID() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrpartitionid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CurrentPartitionName<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpartitionname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CurrentPartitionName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrpartitionname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GlobalPartitionID<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrglobalpartitionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GlobalPartitionID() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbstrglobalpartitionid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn FlushPartitionCache<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FlushPartitionCache().into()
         }
         unsafe extern "system" fn CopyApplications<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsourcepartitionidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarapplicationid: *const super::Com::VARIANT, bstrdestinationpartitionidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CopyApplications(::core::mem::transmute_copy(&bstrsourcepartitionidorname), ::core::mem::transmute_copy(&pvarapplicationid), ::core::mem::transmute_copy(&bstrdestinationpartitionidorname)).into()
         }
         unsafe extern "system" fn CopyComponents<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsourceapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CopyComponents(::core::mem::transmute_copy(&bstrsourceapplicationidorname), ::core::mem::transmute_copy(&pvarclsidorprogid), ::core::mem::transmute_copy(&bstrdestinationapplicationidorname)).into()
         }
         unsafe extern "system" fn MoveComponents<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsourceapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MoveComponents(::core::mem::transmute_copy(&bstrsourceapplicationidorname), ::core::mem::transmute_copy(&pvarclsidorprogid), ::core::mem::transmute_copy(&bstrdestinationapplicationidorname)).into()
         }
         unsafe extern "system" fn AliasComponent<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsrcapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrclsidorprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdestapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnewprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnewclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AliasComponent(::core::mem::transmute_copy(&bstrsrcapplicationidorname), ::core::mem::transmute_copy(&bstrclsidorprogid), ::core::mem::transmute_copy(&bstrdestapplicationidorname), ::core::mem::transmute_copy(&bstrnewprogid), ::core::mem::transmute_copy(&bstrnewclsid)).into()
         }
         unsafe extern "system" fn IsSafeToDelete<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcomadmininuse: *mut COMAdminInUse) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsSafeToDelete(::core::mem::transmute_copy(&bstrdllname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcomadmininuse = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ImportUnconfiguredComponents<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ImportUnconfiguredComponents(::core::mem::transmute_copy(&bstrapplicationidorname), ::core::mem::transmute_copy(&pvarclsidorprogid), ::core::mem::transmute_copy(&pvarcomponenttype)).into()
         }
         unsafe extern "system" fn PromoteUnconfiguredComponents<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PromoteUnconfiguredComponents(::core::mem::transmute_copy(&bstrapplicationidorname), ::core::mem::transmute_copy(&pvarclsidorprogid), ::core::mem::transmute_copy(&pvarcomponenttype)).into()
         }
         unsafe extern "system" fn ImportComponents<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ImportComponents(::core::mem::transmute_copy(&bstrapplicationidorname), ::core::mem::transmute_copy(&pvarclsidorprogid), ::core::mem::transmute_copy(&pvarcomponenttype)).into()
         }
         unsafe extern "system" fn Is64BitCatalogServer<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbis64bit: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Is64BitCatalogServer() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbis64bit = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ExportPartition<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpartitionidorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpartitionfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loptions: COMAdminApplicationExportOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ExportPartition(::core::mem::transmute_copy(&bstrpartitionidorname), ::core::mem::transmute_copy(&bstrpartitionfilename), ::core::mem::transmute_copy(&loptions)).into()
         }
         unsafe extern "system" fn InstallPartition<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdestdirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loptions: COMAdminApplicationInstallOptions, bstruserid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrsn: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InstallPartition(::core::mem::transmute_copy(&bstrfilename), ::core::mem::transmute_copy(&bstrdestdirectory), ::core::mem::transmute_copy(&loptions), ::core::mem::transmute_copy(&bstruserid), ::core::mem::transmute_copy(&bstrpassword), ::core::mem::transmute_copy(&bstrrsn)).into()
         }
         unsafe extern "system" fn QueryApplicationFile2<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfilesforimport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).QueryApplicationFile2(::core::mem::transmute_copy(&bstrapplicationfile)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppfilesforimport = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetComponentVersionCount<Impl: ICOMAdminCatalog2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclsidorprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, plversioncount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetComponentVersionCount(::core::mem::transmute_copy(&bstrclsidorprogid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *plversioncount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ICOMAdminCatalogVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -504,29 +678,29 @@ impl ICOMAdminCatalog2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICOMLBArgumentsImpl: Sized {
-    fn GetCLSID();
-    fn SetCLSID();
-    fn GetMachineName();
-    fn SetMachineName();
+    fn GetCLSID(&mut self, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetCLSID(&mut self, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetMachineName(&mut self, cchsvr: u32, szservername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetMachineName(&mut self, cchsvr: u32, szservername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICOMLBArgumentsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICOMLBArgumentsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICOMLBArgumentsVtbl {
         unsafe extern "system" fn GetCLSID<Impl: ICOMLBArgumentsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetCLSID(::core::mem::transmute_copy(&pclsid)).into()
         }
         unsafe extern "system" fn SetCLSID<Impl: ICOMLBArgumentsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCLSID(::core::mem::transmute_copy(&pclsid)).into()
         }
         unsafe extern "system" fn GetMachineName<Impl: ICOMLBArgumentsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchsvr: u32, szservername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetMachineName(::core::mem::transmute_copy(&cchsvr), ::core::mem::transmute_copy(&szservername)).into()
         }
         unsafe extern "system" fn SetMachineName<Impl: ICOMLBArgumentsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchsvr: u32, szservername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMachineName(::core::mem::transmute_copy(&cchsvr), ::core::mem::transmute_copy(&szservername)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -542,89 +716,161 @@ impl ICOMLBArgumentsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogCollectionImpl: Sized + IDispatchImpl {
-    fn _NewEnum();
-    fn Item();
-    fn Count();
-    fn Remove();
-    fn Add();
-    fn Populate();
-    fn SaveChanges();
-    fn GetCollection();
-    fn Name();
-    fn AddEnabled();
-    fn RemoveEnabled();
-    fn GetUtilInterface();
-    fn DataStoreMajorVersion();
-    fn DataStoreMinorVersion();
-    fn PopulateByKey();
-    fn PopulateByQuery();
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Remove(&mut self, lindex: i32) -> ::windows::core::Result<()>;
+    fn Add(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Populate(&mut self) -> ::windows::core::Result<()>;
+    fn SaveChanges(&mut self) -> ::windows::core::Result<i32>;
+    fn GetCollection(&mut self, bstrcollname: super::super::Foundation::BSTR, varobjectkey: super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Name(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn AddEnabled(&mut self) -> ::windows::core::Result<i16>;
+    fn RemoveEnabled(&mut self) -> ::windows::core::Result<i16>;
+    fn GetUtilInterface(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn DataStoreMajorVersion(&mut self) -> ::windows::core::Result<i32>;
+    fn DataStoreMinorVersion(&mut self) -> ::windows::core::Result<i32>;
+    fn PopulateByKey(&mut self, psakeys: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn PopulateByQuery(&mut self, bstrquerystring: super::super::Foundation::BSTR, lquerytype: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICatalogCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICatalogCollectionVtbl {
         unsafe extern "system" fn _NewEnum<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenumvariant = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppcatalogobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogobject = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plobjectcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plobjectcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Remove<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Remove(::core::mem::transmute_copy(&lindex)).into()
         }
         unsafe extern "system" fn Add<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcatalogobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Add() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogobject = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Populate<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Populate().into()
         }
         unsafe extern "system" fn SaveChanges<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcchanges: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SaveChanges() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcchanges = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetCollection<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varobjectkey: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppcatalogcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCollection(::core::mem::transmute_copy(&bstrcollname), ::core::mem::transmute_copy(&varobjectkey)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Name<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarnamel: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarnamel = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddEnabled<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbool: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AddEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarbool = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RemoveEnabled<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbool: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RemoveEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarbool = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetUtilInterface<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppidispatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetUtilInterface() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppidispatch = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DataStoreMajorVersion<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DataStoreMajorVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plmajorversion = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DataStoreMinorVersion<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorversionl: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DataStoreMinorVersion() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plminorversionl = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn PopulateByKey<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psakeys: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PopulateByKey(::core::mem::transmute_copy(&psakeys)).into()
         }
         unsafe extern "system" fn PopulateByQuery<Impl: ICatalogCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrquerystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lquerytype: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PopulateByQuery(::core::mem::transmute_copy(&bstrquerystring), ::core::mem::transmute_copy(&lquerytype)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -652,44 +898,80 @@ impl ICatalogCollectionVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogObjectImpl: Sized + IDispatchImpl {
-    fn Value();
-    fn SetValue();
-    fn Key();
-    fn Name();
-    fn IsPropertyReadOnly();
-    fn Valid();
-    fn IsPropertyWriteOnly();
+    fn Value(&mut self, bstrpropname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetValue(&mut self, bstrpropname: super::super::Foundation::BSTR, val: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Key(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Name(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn IsPropertyReadOnly(&mut self, bstrpropname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn Valid(&mut self) -> ::windows::core::Result<i16>;
+    fn IsPropertyWriteOnly(&mut self, bstrpropname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICatalogObjectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICatalogObjectVtbl {
         unsafe extern "system" fn Value<Impl: ICatalogObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarretval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Value(::core::mem::transmute_copy(&bstrpropname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarretval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetValue<Impl: ICatalogObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, val: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetValue(::core::mem::transmute_copy(&bstrpropname), ::core::mem::transmute_copy(&val)).into()
         }
         unsafe extern "system" fn Key<Impl: ICatalogObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarretval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Key() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarretval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Name<Impl: ICatalogObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarretval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Name() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarretval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsPropertyReadOnly<Impl: ICatalogObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbretval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsPropertyReadOnly(::core::mem::transmute_copy(&bstrpropname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbretval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Valid<Impl: ICatalogObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbretval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Valid() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbretval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsPropertyWriteOnly<Impl: ICatalogObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbretval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsPropertyWriteOnly(::core::mem::transmute_copy(&bstrpropname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbretval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -708,14 +990,14 @@ impl ICatalogObjectVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICheckSxsConfigImpl: Sized {
-    fn IsSameSxsConfig();
+    fn IsSameSxsConfig(&mut self, wszsxsname: super::super::Foundation::PWSTR, wszsxsdirectory: super::super::Foundation::PWSTR, wszsxsappname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICheckSxsConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICheckSxsConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICheckSxsConfigVtbl {
         unsafe extern "system" fn IsSameSxsConfig<Impl: ICheckSxsConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszsxsname: super::super::Foundation::PWSTR, wszsxsdirectory: super::super::Foundation::PWSTR, wszsxsappname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsSameSxsConfig(::core::mem::transmute_copy(&wszsxsname), ::core::mem::transmute_copy(&wszsxsdirectory), ::core::mem::transmute_copy(&wszsxsappname)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), IsSameSxsConfig: IsSameSxsConfig::<Impl, IMPL_OFFSET> }
     }
@@ -725,44 +1007,44 @@ impl ICheckSxsConfigVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComActivityEventsImpl: Sized {
-    fn OnActivityCreate();
-    fn OnActivityDestroy();
-    fn OnActivityEnter();
-    fn OnActivityTimeout();
-    fn OnActivityReenter();
-    fn OnActivityLeave();
-    fn OnActivityLeaveSame();
+    fn OnActivityCreate(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnActivityDestroy(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnActivityEnter(&mut self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32) -> ::windows::core::Result<()>;
+    fn OnActivityTimeout(&mut self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32, dwtimeout: u32) -> ::windows::core::Result<()>;
+    fn OnActivityReenter(&mut self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwthread: u32, dwcalldepth: u32) -> ::windows::core::Result<()>;
+    fn OnActivityLeave(&mut self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidleft: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnActivityLeaveSame(&mut self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwcalldepth: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComActivityEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComActivityEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComActivityEventsVtbl {
         unsafe extern "system" fn OnActivityCreate<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnActivityCreate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity)).into()
         }
         unsafe extern "system" fn OnActivityDestroy<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnActivityDestroy(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity)).into()
         }
         unsafe extern "system" fn OnActivityEnter<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnActivityEnter(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidcurrent), ::core::mem::transmute_copy(&guidentered), ::core::mem::transmute_copy(&dwthread)).into()
         }
         unsafe extern "system" fn OnActivityTimeout<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32, dwtimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnActivityTimeout(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidcurrent), ::core::mem::transmute_copy(&guidentered), ::core::mem::transmute_copy(&dwthread), ::core::mem::transmute_copy(&dwtimeout)).into()
         }
         unsafe extern "system" fn OnActivityReenter<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwthread: u32, dwcalldepth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnActivityReenter(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidcurrent), ::core::mem::transmute_copy(&dwthread), ::core::mem::transmute_copy(&dwcalldepth)).into()
         }
         unsafe extern "system" fn OnActivityLeave<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidleft: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnActivityLeave(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidcurrent), ::core::mem::transmute_copy(&guidleft)).into()
         }
         unsafe extern "system" fn OnActivityLeaveSame<Impl: IComActivityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwcalldepth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnActivityLeaveSame(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidcurrent), ::core::mem::transmute_copy(&dwcalldepth)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -781,34 +1063,34 @@ impl IComActivityEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComApp2EventsImpl: Sized {
-    fn OnAppActivation2();
-    fn OnAppShutdown2();
-    fn OnAppForceShutdown2();
-    fn OnAppPaused2();
-    fn OnAppRecycle2();
+    fn OnAppActivation2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppShutdown2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppForceShutdown2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppPaused2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, bpaused: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnAppRecycle2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID, lreason: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComApp2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComApp2EventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComApp2EventsVtbl {
         unsafe extern "system" fn OnAppActivation2<Impl: IComApp2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppActivation2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp), ::core::mem::transmute_copy(&guidprocess)).into()
         }
         unsafe extern "system" fn OnAppShutdown2<Impl: IComApp2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppShutdown2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         unsafe extern "system" fn OnAppForceShutdown2<Impl: IComApp2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppForceShutdown2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         unsafe extern "system" fn OnAppPaused2<Impl: IComApp2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, bpaused: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppPaused2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp), ::core::mem::transmute_copy(&bpaused)).into()
         }
         unsafe extern "system" fn OnAppRecycle2<Impl: IComApp2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID, lreason: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppRecycle2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp), ::core::mem::transmute_copy(&guidprocess), ::core::mem::transmute_copy(&lreason)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -825,24 +1107,24 @@ impl IComApp2EventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComAppEventsImpl: Sized {
-    fn OnAppActivation();
-    fn OnAppShutdown();
-    fn OnAppForceShutdown();
+    fn OnAppActivation(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppShutdown(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppForceShutdown(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComAppEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComAppEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComAppEventsVtbl {
         unsafe extern "system" fn OnAppActivation<Impl: IComAppEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppActivation(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         unsafe extern "system" fn OnAppShutdown<Impl: IComAppEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppShutdown(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         unsafe extern "system" fn OnAppForceShutdown<Impl: IComAppEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAppForceShutdown(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -857,84 +1139,84 @@ impl IComAppEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComCRMEventsImpl: Sized {
-    fn OnCRMRecoveryStart();
-    fn OnCRMRecoveryDone();
-    fn OnCRMCheckpoint();
-    fn OnCRMBegin();
-    fn OnCRMPrepare();
-    fn OnCRMCommit();
-    fn OnCRMAbort();
-    fn OnCRMIndoubt();
-    fn OnCRMDone();
-    fn OnCRMRelease();
-    fn OnCRMAnalyze();
-    fn OnCRMWrite();
-    fn OnCRMForget();
-    fn OnCRMForce();
-    fn OnCRMDeliver();
+    fn OnCRMRecoveryStart(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMRecoveryDone(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMCheckpoint(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMBegin(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, guidactivity: ::windows::core::GUID, guidtx: ::windows::core::GUID, szprogidcompensator: super::super::Foundation::PWSTR, szdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnCRMPrepare(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMIndoubt(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMDone(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMRelease(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMAnalyze(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> ::windows::core::Result<()>;
+    fn OnCRMWrite(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::Result<()>;
+    fn OnCRMForget(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMForce(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMDeliver(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComCRMEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComCRMEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComCRMEventsVtbl {
         unsafe extern "system" fn OnCRMRecoveryStart<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMRecoveryStart(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         unsafe extern "system" fn OnCRMRecoveryDone<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMRecoveryDone(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         unsafe extern "system" fn OnCRMCheckpoint<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMCheckpoint(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidapp)).into()
         }
         unsafe extern "system" fn OnCRMBegin<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, guidactivity: ::windows::core::GUID, guidtx: ::windows::core::GUID, szprogidcompensator: super::super::Foundation::PWSTR, szdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMBegin(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&szprogidcompensator), ::core::mem::transmute_copy(&szdescription)).into()
         }
         unsafe extern "system" fn OnCRMPrepare<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMPrepare(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMCommit<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMCommit(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMAbort<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMAbort(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMIndoubt<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMIndoubt(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMDone<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMDone(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMRelease<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMRelease(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMAnalyze<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMAnalyze(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid), ::core::mem::transmute_copy(&dwcrmrecordtype), ::core::mem::transmute_copy(&dwrecordsize)).into()
         }
         unsafe extern "system" fn OnCRMWrite<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMWrite(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid), ::core::mem::transmute_copy(&fvariants), ::core::mem::transmute_copy(&dwrecordsize)).into()
         }
         unsafe extern "system" fn OnCRMForget<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMForget(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMForce<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMForce(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid)).into()
         }
         unsafe extern "system" fn OnCRMDeliver<Impl: IComCRMEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCRMDeliver(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidclerkclsid), ::core::mem::transmute_copy(&fvariants), ::core::mem::transmute_copy(&dwrecordsize)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -961,14 +1243,14 @@ impl IComCRMEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComExceptionEventsImpl: Sized {
-    fn OnExceptionUser();
+    fn OnExceptionUser(&mut self, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComExceptionEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComExceptionEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComExceptionEventsVtbl {
         unsafe extern "system" fn OnExceptionUser<Impl: IComExceptionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnExceptionUser(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&code), ::core::mem::transmute_copy(&address), ::core::mem::transmute_copy(&pszstacktrace)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnExceptionUser: OnExceptionUser::<Impl, IMPL_OFFSET> }
     }
@@ -978,14 +1260,14 @@ impl IComExceptionEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComIdentityEventsImpl: Sized {
-    fn OnIISRequestInfo();
+    fn OnIISRequestInfo(&mut self, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: super::super::Foundation::PWSTR, pszserverip: super::super::Foundation::PWSTR, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComIdentityEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComIdentityEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComIdentityEventsVtbl {
         unsafe extern "system" fn OnIISRequestInfo<Impl: IComIdentityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: super::super::Foundation::PWSTR, pszserverip: super::super::Foundation::PWSTR, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnIISRequestInfo(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objid), ::core::mem::transmute_copy(&pszclientip), ::core::mem::transmute_copy(&pszserverip), ::core::mem::transmute_copy(&pszurl)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnIISRequestInfo: OnIISRequestInfo::<Impl, IMPL_OFFSET> }
     }
@@ -995,19 +1277,19 @@ impl IComIdentityEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComInstance2EventsImpl: Sized {
-    fn OnObjectCreate2();
-    fn OnObjectDestroy2();
+    fn OnObjectCreate2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnObjectDestroy2(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComInstance2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComInstance2EventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComInstance2EventsVtbl {
         unsafe extern "system" fn OnObjectCreate2<Impl: IComInstance2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectCreate2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&tsid), ::core::mem::transmute_copy(&ctxtid), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&guidpartition)).into()
         }
         unsafe extern "system" fn OnObjectDestroy2<Impl: IComInstance2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectDestroy2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1021,19 +1303,19 @@ impl IComInstance2EventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComInstanceEventsImpl: Sized {
-    fn OnObjectCreate();
-    fn OnObjectDestroy();
+    fn OnObjectCreate(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()>;
+    fn OnObjectDestroy(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComInstanceEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComInstanceEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComInstanceEventsVtbl {
         unsafe extern "system" fn OnObjectCreate<Impl: IComInstanceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectCreate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&tsid), ::core::mem::transmute_copy(&ctxtid), ::core::mem::transmute_copy(&objectid)).into()
         }
         unsafe extern "system" fn OnObjectDestroy<Impl: IComInstanceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectDestroy(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1047,34 +1329,34 @@ impl IComInstanceEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComLTxEventsImpl: Sized {
-    fn OnLtxTransactionStart();
-    fn OnLtxTransactionPrepare();
-    fn OnLtxTransactionAbort();
-    fn OnLtxTransactionCommit();
-    fn OnLtxTransactionPromote();
+    fn OnLtxTransactionStart(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, tsid: ::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionPrepare(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, fvote: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionPromote(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, txnid: ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComLTxEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComLTxEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComLTxEventsVtbl {
         unsafe extern "system" fn OnLtxTransactionStart<Impl: IComLTxEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, tsid: ::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnLtxTransactionStart(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidltx), ::core::mem::transmute_copy(&tsid), ::core::mem::transmute_copy(&froot), ::core::mem::transmute_copy(&nisolationlevel)).into()
         }
         unsafe extern "system" fn OnLtxTransactionPrepare<Impl: IComLTxEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, fvote: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnLtxTransactionPrepare(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidltx), ::core::mem::transmute_copy(&fvote)).into()
         }
         unsafe extern "system" fn OnLtxTransactionAbort<Impl: IComLTxEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnLtxTransactionAbort(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidltx)).into()
         }
         unsafe extern "system" fn OnLtxTransactionCommit<Impl: IComLTxEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnLtxTransactionCommit(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidltx)).into()
         }
         unsafe extern "system" fn OnLtxTransactionPromote<Impl: IComLTxEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, txnid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnLtxTransactionPromote(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidltx), ::core::mem::transmute_copy(&txnid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1091,24 +1373,24 @@ impl IComLTxEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComMethod2EventsImpl: Sized {
-    fn OnMethodCall2();
-    fn OnMethodReturn2();
-    fn OnMethodException2();
+    fn OnMethodCall2(&mut self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::Result<()>;
+    fn OnMethodReturn2(&mut self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnMethodException2(&mut self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComMethod2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComMethod2EventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComMethod2EventsVtbl {
         unsafe extern "system" fn OnMethodCall2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnMethodCall2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidcid), ::core::mem::transmute_copy(&guidrid), ::core::mem::transmute_copy(&dwthread), ::core::mem::transmute_copy(&imeth)).into()
         }
         unsafe extern "system" fn OnMethodReturn2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnMethodReturn2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidcid), ::core::mem::transmute_copy(&guidrid), ::core::mem::transmute_copy(&dwthread), ::core::mem::transmute_copy(&imeth), ::core::mem::transmute_copy(&hresult)).into()
         }
         unsafe extern "system" fn OnMethodException2<Impl: IComMethod2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnMethodException2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidcid), ::core::mem::transmute_copy(&guidrid), ::core::mem::transmute_copy(&dwthread), ::core::mem::transmute_copy(&imeth)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1123,24 +1405,24 @@ impl IComMethod2EventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComMethodEventsImpl: Sized {
-    fn OnMethodCall();
-    fn OnMethodReturn();
-    fn OnMethodException();
+    fn OnMethodCall(&mut self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::Result<()>;
+    fn OnMethodReturn(&mut self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnMethodException(&mut self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComMethodEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComMethodEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComMethodEventsVtbl {
         unsafe extern "system" fn OnMethodCall<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnMethodCall(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidcid), ::core::mem::transmute_copy(&guidrid), ::core::mem::transmute_copy(&imeth)).into()
         }
         unsafe extern "system" fn OnMethodReturn<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnMethodReturn(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidcid), ::core::mem::transmute_copy(&guidrid), ::core::mem::transmute_copy(&imeth), ::core::mem::transmute_copy(&hresult)).into()
         }
         unsafe extern "system" fn OnMethodException<Impl: IComMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnMethodException(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidcid), ::core::mem::transmute_copy(&guidrid), ::core::mem::transmute_copy(&imeth)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1154,28 +1436,40 @@ impl IComMethodEventsVtbl {
     }
 }
 pub trait IComMtaThreadPoolKnobsImpl: Sized {
-    fn MTASetMaxThreadCount();
-    fn MTAGetMaxThreadCount();
-    fn MTASetThrottleValue();
-    fn MTAGetThrottleValue();
+    fn MTASetMaxThreadCount(&mut self, dwmaxthreads: u32) -> ::windows::core::Result<()>;
+    fn MTAGetMaxThreadCount(&mut self) -> ::windows::core::Result<u32>;
+    fn MTASetThrottleValue(&mut self, dwthrottle: u32) -> ::windows::core::Result<()>;
+    fn MTAGetThrottleValue(&mut self) -> ::windows::core::Result<u32>;
 }
 impl IComMtaThreadPoolKnobsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComMtaThreadPoolKnobsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComMtaThreadPoolKnobsVtbl {
         unsafe extern "system" fn MTASetMaxThreadCount<Impl: IComMtaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmaxthreads: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MTASetMaxThreadCount(::core::mem::transmute_copy(&dwmaxthreads)).into()
         }
         unsafe extern "system" fn MTAGetMaxThreadCount<Impl: IComMtaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmaxthreads: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MTAGetMaxThreadCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwmaxthreads = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MTASetThrottleValue<Impl: IComMtaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwthrottle: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MTASetThrottleValue(::core::mem::transmute_copy(&dwthrottle)).into()
         }
         unsafe extern "system" fn MTAGetThrottleValue<Impl: IComMtaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwthrottle: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MTAGetThrottleValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwthrottle = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1191,14 +1485,14 @@ impl IComMtaThreadPoolKnobsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComObjectConstruction2EventsImpl: Sized {
-    fn OnObjectConstruct2();
+    fn OnObjectConstruct2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComObjectConstruction2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectConstruction2EventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComObjectConstruction2EventsVtbl {
         unsafe extern "system" fn OnObjectConstruct2<Impl: IComObjectConstruction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectConstruct2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&sconstructstring), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidpartition)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnObjectConstruct2: OnObjectConstruct2::<Impl, IMPL_OFFSET> }
     }
@@ -1208,14 +1502,14 @@ impl IComObjectConstruction2EventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComObjectConstructionEventsImpl: Sized {
-    fn OnObjectConstruct();
+    fn OnObjectConstruct(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComObjectConstructionEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectConstructionEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComObjectConstructionEventsVtbl {
         unsafe extern "system" fn OnObjectConstruct<Impl: IComObjectConstructionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectConstruct(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&sconstructstring), ::core::mem::transmute_copy(&oid)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnObjectConstruct: OnObjectConstruct::<Impl, IMPL_OFFSET> }
     }
@@ -1225,39 +1519,39 @@ impl IComObjectConstructionEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComObjectEventsImpl: Sized {
-    fn OnObjectActivate();
-    fn OnObjectDeactivate();
-    fn OnDisableCommit();
-    fn OnEnableCommit();
-    fn OnSetComplete();
-    fn OnSetAbort();
+    fn OnObjectActivate(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()>;
+    fn OnObjectDeactivate(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()>;
+    fn OnDisableCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
+    fn OnEnableCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
+    fn OnSetComplete(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
+    fn OnSetAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComObjectEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComObjectEventsVtbl {
         unsafe extern "system" fn OnObjectActivate<Impl: IComObjectEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectActivate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid), ::core::mem::transmute_copy(&objectid)).into()
         }
         unsafe extern "system" fn OnObjectDeactivate<Impl: IComObjectEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjectDeactivate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid), ::core::mem::transmute_copy(&objectid)).into()
         }
         unsafe extern "system" fn OnDisableCommit<Impl: IComObjectEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnDisableCommit(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid)).into()
         }
         unsafe extern "system" fn OnEnableCommit<Impl: IComObjectEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnEnableCommit(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid)).into()
         }
         unsafe extern "system" fn OnSetComplete<Impl: IComObjectEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnSetComplete(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid)).into()
         }
         unsafe extern "system" fn OnSetAbort<Impl: IComObjectEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnSetAbort(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&ctxtid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1275,29 +1569,29 @@ impl IComObjectEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComObjectPool2EventsImpl: Sized {
-    fn OnObjPoolPutObject2();
-    fn OnObjPoolGetObject2();
-    fn OnObjPoolRecycleToTx2();
-    fn OnObjPoolGetFromTx2();
+    fn OnObjPoolPutObject2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::Result<()>;
+    fn OnObjPoolGetObject2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnObjPoolRecycleToTx2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::Result<()>;
+    fn OnObjPoolGetFromTx2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComObjectPool2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectPool2EventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComObjectPool2EventsVtbl {
         unsafe extern "system" fn OnObjPoolPutObject2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolPutObject2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&nreason), ::core::mem::transmute_copy(&dwavailable), ::core::mem::transmute_copy(&oid)).into()
         }
         unsafe extern "system" fn OnObjPoolGetObject2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolGetObject2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&dwavailable), ::core::mem::transmute_copy(&oid), ::core::mem::transmute_copy(&guidpartition)).into()
         }
         unsafe extern "system" fn OnObjPoolRecycleToTx2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolRecycleToTx2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&objid)).into()
         }
         unsafe extern "system" fn OnObjPoolGetFromTx2<Impl: IComObjectPool2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolGetFromTx2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&objid), ::core::mem::transmute_copy(&guidpartition)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1313,29 +1607,29 @@ impl IComObjectPool2EventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComObjectPoolEventsImpl: Sized {
-    fn OnObjPoolPutObject();
-    fn OnObjPoolGetObject();
-    fn OnObjPoolRecycleToTx();
-    fn OnObjPoolGetFromTx();
+    fn OnObjPoolPutObject(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::Result<()>;
+    fn OnObjPoolGetObject(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64) -> ::windows::core::Result<()>;
+    fn OnObjPoolRecycleToTx(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::Result<()>;
+    fn OnObjPoolGetFromTx(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComObjectPoolEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectPoolEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComObjectPoolEventsVtbl {
         unsafe extern "system" fn OnObjPoolPutObject<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolPutObject(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&nreason), ::core::mem::transmute_copy(&dwavailable), ::core::mem::transmute_copy(&oid)).into()
         }
         unsafe extern "system" fn OnObjPoolGetObject<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolGetObject(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&dwavailable), ::core::mem::transmute_copy(&oid)).into()
         }
         unsafe extern "system" fn OnObjPoolRecycleToTx<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolRecycleToTx(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&objid)).into()
         }
         unsafe extern "system" fn OnObjPoolGetFromTx<Impl: IComObjectPoolEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolGetFromTx(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&objid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1351,34 +1645,34 @@ impl IComObjectPoolEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComObjectPoolEvents2Impl: Sized {
-    fn OnObjPoolCreateObject();
-    fn OnObjPoolDestroyObject();
-    fn OnObjPoolCreateDecision();
-    fn OnObjPoolTimeout();
-    fn OnObjPoolCreatePool();
+    fn OnObjPoolCreateObject(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::Result<()>;
+    fn OnObjPoolDestroyObject(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::Result<()>;
+    fn OnObjPoolCreateDecision(&mut self, pinfo: *const COMSVCSEVENTINFO, dwthreadswaiting: u32, dwavail: u32, dwcreated: u32, dwmin: u32, dwmax: u32) -> ::windows::core::Result<()>;
+    fn OnObjPoolTimeout(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, guidactivity: *const ::windows::core::GUID, dwtimeout: u32) -> ::windows::core::Result<()>;
+    fn OnObjPoolCreatePool(&mut self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComObjectPoolEvents2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComObjectPoolEvents2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComObjectPoolEvents2Vtbl {
         unsafe extern "system" fn OnObjPoolCreateObject<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolCreateObject(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&dwobjscreated), ::core::mem::transmute_copy(&oid)).into()
         }
         unsafe extern "system" fn OnObjPoolDestroyObject<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolDestroyObject(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&dwobjscreated), ::core::mem::transmute_copy(&oid)).into()
         }
         unsafe extern "system" fn OnObjPoolCreateDecision<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, dwthreadswaiting: u32, dwavail: u32, dwcreated: u32, dwmin: u32, dwmax: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolCreateDecision(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&dwthreadswaiting), ::core::mem::transmute_copy(&dwavail), ::core::mem::transmute_copy(&dwcreated), ::core::mem::transmute_copy(&dwmin), ::core::mem::transmute_copy(&dwmax)).into()
         }
         unsafe extern "system" fn OnObjPoolTimeout<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, guidactivity: *const ::windows::core::GUID, dwtimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolTimeout(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&dwtimeout)).into()
         }
         unsafe extern "system" fn OnObjPoolCreatePool<Impl: IComObjectPoolEvents2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnObjPoolCreatePool(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidobject), ::core::mem::transmute_copy(&dwmin), ::core::mem::transmute_copy(&dwmax), ::core::mem::transmute_copy(&dwtimeout)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1395,44 +1689,44 @@ impl IComObjectPoolEvents2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComQCEventsImpl: Sized {
-    fn OnQCRecord();
-    fn OnQCQueueOpen();
-    fn OnQCReceive();
-    fn OnQCReceiveFail();
-    fn OnQCMoveToReTryQueue();
-    fn OnQCMoveToDeadQueue();
-    fn OnQCPlayback();
+    fn OnQCRecord(&mut self, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: super::super::Foundation::PWSTR, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, msmqhr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnQCQueueOpen(&mut self, pinfo: *const COMSVCSEVENTINFO, szqueue: super::super::Foundation::PWSTR, queueid: u64, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnQCReceive(&mut self, pinfo: *const COMSVCSEVENTINFO, queueid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnQCReceiveFail(&mut self, pinfo: *const COMSVCSEVENTINFO, queueid: u64, msmqhr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnQCMoveToReTryQueue(&mut self, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, retryindex: u32) -> ::windows::core::Result<()>;
+    fn OnQCMoveToDeadQueue(&mut self, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnQCPlayback(&mut self, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComQCEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComQCEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComQCEventsVtbl {
         unsafe extern "system" fn OnQCRecord<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: super::super::Foundation::PWSTR, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, msmqhr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnQCRecord(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objid), ::core::mem::transmute_copy(&szqueue), ::core::mem::transmute_copy(&guidmsgid), ::core::mem::transmute_copy(&guidworkflowid), ::core::mem::transmute_copy(&msmqhr)).into()
         }
         unsafe extern "system" fn OnQCQueueOpen<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, szqueue: super::super::Foundation::PWSTR, queueid: u64, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnQCQueueOpen(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&szqueue), ::core::mem::transmute_copy(&queueid), ::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn OnQCReceive<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, queueid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnQCReceive(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&queueid), ::core::mem::transmute_copy(&guidmsgid), ::core::mem::transmute_copy(&guidworkflowid), ::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn OnQCReceiveFail<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, queueid: u64, msmqhr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnQCReceiveFail(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&queueid), ::core::mem::transmute_copy(&msmqhr)).into()
         }
         unsafe extern "system" fn OnQCMoveToReTryQueue<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, retryindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnQCMoveToReTryQueue(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidmsgid), ::core::mem::transmute_copy(&guidworkflowid), ::core::mem::transmute_copy(&retryindex)).into()
         }
         unsafe extern "system" fn OnQCMoveToDeadQueue<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnQCMoveToDeadQueue(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidmsgid), ::core::mem::transmute_copy(&guidworkflowid)).into()
         }
         unsafe extern "system" fn OnQCPlayback<Impl: IComQCEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnQCPlayback(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objid), ::core::mem::transmute_copy(&guidmsgid), ::core::mem::transmute_copy(&guidworkflowid), ::core::mem::transmute_copy(&hr)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1451,34 +1745,34 @@ impl IComQCEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComResourceEventsImpl: Sized {
-    fn OnResourceCreate();
-    fn OnResourceAllocate();
-    fn OnResourceRecycle();
-    fn OnResourceDestroy();
-    fn OnResourceTrack();
+    fn OnResourceCreate(&mut self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnResourceAllocate(&mut self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64, enlisted: super::super::Foundation::BOOL, numrated: u32, rating: u32) -> ::windows::core::Result<()>;
+    fn OnResourceRecycle(&mut self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64) -> ::windows::core::Result<()>;
+    fn OnResourceDestroy(&mut self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, hr: ::windows::core::HRESULT, psztype: super::super::Foundation::PWSTR, resid: u64) -> ::windows::core::Result<()>;
+    fn OnResourceTrack(&mut self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComResourceEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComResourceEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComResourceEventsVtbl {
         unsafe extern "system" fn OnResourceCreate<Impl: IComResourceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnResourceCreate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&psztype), ::core::mem::transmute_copy(&resid), ::core::mem::transmute_copy(&enlisted)).into()
         }
         unsafe extern "system" fn OnResourceAllocate<Impl: IComResourceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64, enlisted: super::super::Foundation::BOOL, numrated: u32, rating: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnResourceAllocate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&psztype), ::core::mem::transmute_copy(&resid), ::core::mem::transmute_copy(&enlisted), ::core::mem::transmute_copy(&numrated), ::core::mem::transmute_copy(&rating)).into()
         }
         unsafe extern "system" fn OnResourceRecycle<Impl: IComResourceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnResourceRecycle(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&psztype), ::core::mem::transmute_copy(&resid)).into()
         }
         unsafe extern "system" fn OnResourceDestroy<Impl: IComResourceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, hr: ::windows::core::HRESULT, psztype: super::super::Foundation::PWSTR, resid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnResourceDestroy(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&psztype), ::core::mem::transmute_copy(&resid)).into()
         }
         unsafe extern "system" fn OnResourceTrack<Impl: IComResourceEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnResourceTrack(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&psztype), ::core::mem::transmute_copy(&resid), ::core::mem::transmute_copy(&enlisted)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1495,19 +1789,19 @@ impl IComResourceEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComSecurityEventsImpl: Sized {
-    fn OnAuthenticate();
-    fn OnAuthenticateFail();
+    fn OnAuthenticate(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnAuthenticateFail(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComSecurityEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComSecurityEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComSecurityEventsVtbl {
         unsafe extern "system" fn OnAuthenticate<Impl: IComSecurityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAuthenticate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&guidiid), ::core::mem::transmute_copy(&imeth), ::core::mem::transmute_copy(&cbbyteorig), ::core::mem::transmute_copy(&psidoriginaluser), ::core::mem::transmute_copy(&cbbytecur), ::core::mem::transmute_copy(&psidcurrentuser), ::core::mem::transmute_copy(&bcurrentuserinpersonatinginproc)).into()
         }
         unsafe extern "system" fn OnAuthenticateFail<Impl: IComSecurityEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnAuthenticateFail(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&guidiid), ::core::mem::transmute_copy(&imeth), ::core::mem::transmute_copy(&cbbyteorig), ::core::mem::transmute_copy(&psidoriginaluser), ::core::mem::transmute_copy(&cbbytecur), ::core::mem::transmute_copy(&psidcurrentuser), ::core::mem::transmute_copy(&bcurrentuserinpersonatinginproc)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1520,63 +1814,99 @@ impl IComSecurityEventsVtbl {
     }
 }
 pub trait IComStaThreadPoolKnobsImpl: Sized {
-    fn SetMinThreadCount();
-    fn GetMinThreadCount();
-    fn SetMaxThreadCount();
-    fn GetMaxThreadCount();
-    fn SetActivityPerThread();
-    fn GetActivityPerThread();
-    fn SetActivityRatio();
-    fn GetActivityRatio();
-    fn GetThreadCount();
-    fn GetQueueDepth();
-    fn SetQueueDepth();
+    fn SetMinThreadCount(&mut self, minthreads: u32) -> ::windows::core::Result<()>;
+    fn GetMinThreadCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxThreadCount(&mut self, maxthreads: u32) -> ::windows::core::Result<()>;
+    fn GetMaxThreadCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SetActivityPerThread(&mut self, activitiesperthread: u32) -> ::windows::core::Result<()>;
+    fn GetActivityPerThread(&mut self) -> ::windows::core::Result<u32>;
+    fn SetActivityRatio(&mut self, activityratio: f64) -> ::windows::core::Result<()>;
+    fn GetActivityRatio(&mut self) -> ::windows::core::Result<f64>;
+    fn GetThreadCount(&mut self) -> ::windows::core::Result<u32>;
+    fn GetQueueDepth(&mut self) -> ::windows::core::Result<u32>;
+    fn SetQueueDepth(&mut self, dwqdepth: i32) -> ::windows::core::Result<()>;
 }
 impl IComStaThreadPoolKnobsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComStaThreadPoolKnobsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComStaThreadPoolKnobsVtbl {
         unsafe extern "system" fn SetMinThreadCount<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minthreads: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMinThreadCount(::core::mem::transmute_copy(&minthreads)).into()
         }
         unsafe extern "system" fn GetMinThreadCount<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minthreads: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMinThreadCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *minthreads = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetMaxThreadCount<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxthreads: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMaxThreadCount(::core::mem::transmute_copy(&maxthreads)).into()
         }
         unsafe extern "system" fn GetMaxThreadCount<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxthreads: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMaxThreadCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *maxthreads = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetActivityPerThread<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activitiesperthread: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetActivityPerThread(::core::mem::transmute_copy(&activitiesperthread)).into()
         }
         unsafe extern "system" fn GetActivityPerThread<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activitiesperthread: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetActivityPerThread() {
+                ::core::result::Result::Ok(ok__) => {
+                    *activitiesperthread = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetActivityRatio<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityratio: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetActivityRatio(::core::mem::transmute_copy(&activityratio)).into()
         }
         unsafe extern "system" fn GetActivityRatio<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityratio: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetActivityRatio() {
+                ::core::result::Result::Ok(ok__) => {
+                    *activityratio = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetThreadCount<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwthreads: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetThreadCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwthreads = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetQueueDepth<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwqdepth: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetQueueDepth() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwqdepth = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetQueueDepth<Impl: IComStaThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwqdepth: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetQueueDepth(::core::mem::transmute_copy(&dwqdepth)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1599,59 +1929,89 @@ impl IComStaThreadPoolKnobsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComStaThreadPoolKnobs2Impl: Sized + IComStaThreadPoolKnobsImpl {
-    fn GetMaxCPULoad();
-    fn SetMaxCPULoad();
-    fn GetCPUMetricEnabled();
-    fn SetCPUMetricEnabled();
-    fn GetCreateThreadsAggressively();
-    fn SetCreateThreadsAggressively();
-    fn GetMaxCSR();
-    fn SetMaxCSR();
-    fn GetWaitTimeForThreadCleanup();
-    fn SetWaitTimeForThreadCleanup();
+    fn GetMaxCPULoad(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxCPULoad(&mut self, pdwload: i32) -> ::windows::core::Result<()>;
+    fn GetCPUMetricEnabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetCPUMetricEnabled(&mut self, bmetricenabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetCreateThreadsAggressively(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetCreateThreadsAggressively(&mut self, bmetricenabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetMaxCSR(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaxCSR(&mut self, dwcsr: i32) -> ::windows::core::Result<()>;
+    fn GetWaitTimeForThreadCleanup(&mut self) -> ::windows::core::Result<u32>;
+    fn SetWaitTimeForThreadCleanup(&mut self, dwthreadcleanupwaittime: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComStaThreadPoolKnobs2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComStaThreadPoolKnobs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComStaThreadPoolKnobs2Vtbl {
         unsafe extern "system" fn GetMaxCPULoad<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwload: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMaxCPULoad() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwload = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetMaxCPULoad<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwload: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMaxCPULoad(::core::mem::transmute_copy(&pdwload)).into()
         }
         unsafe extern "system" fn GetCPUMetricEnabled<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmetricenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCPUMetricEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbmetricenabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetCPUMetricEnabled<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmetricenabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCPUMetricEnabled(::core::mem::transmute_copy(&bmetricenabled)).into()
         }
         unsafe extern "system" fn GetCreateThreadsAggressively<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmetricenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCreateThreadsAggressively() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbmetricenabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetCreateThreadsAggressively<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmetricenabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCreateThreadsAggressively(::core::mem::transmute_copy(&bmetricenabled)).into()
         }
         unsafe extern "system" fn GetMaxCSR<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcsr: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetMaxCSR() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwcsr = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetMaxCSR<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcsr: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMaxCSR(::core::mem::transmute_copy(&dwcsr)).into()
         }
         unsafe extern "system" fn GetWaitTimeForThreadCleanup<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwthreadcleanupwaittime: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetWaitTimeForThreadCleanup() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pdwthreadcleanupwaittime = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetWaitTimeForThreadCleanup<Impl: IComStaThreadPoolKnobs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwthreadcleanupwaittime: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetWaitTimeForThreadCleanup(::core::mem::transmute_copy(&dwthreadcleanupwaittime)).into()
         }
         Self {
             base: IComStaThreadPoolKnobsVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -1673,64 +2033,64 @@ impl IComStaThreadPoolKnobs2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComThreadEventsImpl: Sized {
-    fn OnThreadStart();
-    fn OnThreadTerminate();
-    fn OnThreadBindToApartment();
-    fn OnThreadUnBind();
-    fn OnThreadWorkEnque();
-    fn OnThreadWorkPrivate();
-    fn OnThreadWorkPublic();
-    fn OnThreadWorkRedirect();
-    fn OnThreadWorkReject();
-    fn OnThreadAssignApartment();
-    fn OnThreadUnassignApartment();
+    fn OnThreadStart(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::Result<()>;
+    fn OnThreadTerminate(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::Result<()>;
+    fn OnThreadBindToApartment(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32, dwlowcnt: u32) -> ::windows::core::Result<()>;
+    fn OnThreadUnBind(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32) -> ::windows::core::Result<()>;
+    fn OnThreadWorkEnque(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::Result<()>;
+    fn OnThreadWorkPrivate(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64) -> ::windows::core::Result<()>;
+    fn OnThreadWorkPublic(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::Result<()>;
+    fn OnThreadWorkRedirect(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32, threadnum: u64) -> ::windows::core::Result<()>;
+    fn OnThreadWorkReject(&mut self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::Result<()>;
+    fn OnThreadAssignApartment(&mut self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, aptid: u64) -> ::windows::core::Result<()>;
+    fn OnThreadUnassignApartment(&mut self, pinfo: *const COMSVCSEVENTINFO, aptid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComThreadEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComThreadEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComThreadEventsVtbl {
         unsafe extern "system" fn OnThreadStart<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadStart(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&dwthread), ::core::mem::transmute_copy(&dwtheadcnt)).into()
         }
         unsafe extern "system" fn OnThreadTerminate<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadTerminate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&dwthread), ::core::mem::transmute_copy(&dwtheadcnt)).into()
         }
         unsafe extern "system" fn OnThreadBindToApartment<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32, dwlowcnt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadBindToApartment(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&aptid), ::core::mem::transmute_copy(&dwactcnt), ::core::mem::transmute_copy(&dwlowcnt)).into()
         }
         unsafe extern "system" fn OnThreadUnBind<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadUnBind(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&aptid), ::core::mem::transmute_copy(&dwactcnt)).into()
         }
         unsafe extern "system" fn OnThreadWorkEnque<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadWorkEnque(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&msgworkid), ::core::mem::transmute_copy(&queuelen)).into()
         }
         unsafe extern "system" fn OnThreadWorkPrivate<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadWorkPrivate(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&msgworkid)).into()
         }
         unsafe extern "system" fn OnThreadWorkPublic<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadWorkPublic(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&msgworkid), ::core::mem::transmute_copy(&queuelen)).into()
         }
         unsafe extern "system" fn OnThreadWorkRedirect<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32, threadnum: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadWorkRedirect(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&msgworkid), ::core::mem::transmute_copy(&queuelen), ::core::mem::transmute_copy(&threadnum)).into()
         }
         unsafe extern "system" fn OnThreadWorkReject<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadWorkReject(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&msgworkid), ::core::mem::transmute_copy(&queuelen)).into()
         }
         unsafe extern "system" fn OnThreadAssignApartment<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, aptid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadAssignApartment(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidactivity), ::core::mem::transmute_copy(&aptid)).into()
         }
         unsafe extern "system" fn OnThreadUnassignApartment<Impl: IComThreadEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, aptid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnThreadUnassignApartment(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&aptid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1752,23 +2112,35 @@ impl IComThreadEventsVtbl {
     }
 }
 pub trait IComTrackingInfoCollectionImpl: Sized {
-    fn Type();
-    fn Count();
-    fn Item();
+    fn Type(&mut self) -> ::windows::core::Result<TRACKING_COLL_TYPE>;
+    fn Count(&mut self) -> ::windows::core::Result<u32>;
+    fn Item(&mut self, ulindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IComTrackingInfoCollectionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTrackingInfoCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComTrackingInfoCollectionVtbl {
         unsafe extern "system" fn Type<Impl: IComTrackingInfoCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut TRACKING_COLL_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Type() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ptype = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: IComTrackingInfoCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: IComTrackingInfoCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Item(::core::mem::transmute_copy(&ulindex), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1782,13 +2154,13 @@ impl IComTrackingInfoCollectionVtbl {
     }
 }
 pub trait IComTrackingInfoEventsImpl: Sized {
-    fn OnNewTrackingInfo();
+    fn OnNewTrackingInfo(&mut self, ptoplevelcollection: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IComTrackingInfoEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTrackingInfoEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComTrackingInfoEventsVtbl {
         unsafe extern "system" fn OnNewTrackingInfo<Impl: IComTrackingInfoEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptoplevelcollection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnNewTrackingInfo(::core::mem::transmute(&ptoplevelcollection)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnNewTrackingInfo: OnNewTrackingInfo::<Impl, IMPL_OFFSET> }
     }
@@ -1798,14 +2170,20 @@ impl IComTrackingInfoEventsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComTrackingInfoObjectImpl: Sized {
-    fn GetValue();
+    fn GetValue(&mut self, szpropertyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComTrackingInfoObjectVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTrackingInfoObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComTrackingInfoObjectVtbl {
         unsafe extern "system" fn GetValue<Impl: IComTrackingInfoObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szpropertyname: super::super::Foundation::PWSTR, pvarout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetValue(::core::mem::transmute_copy(&szpropertyname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pvarout = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetValue: GetValue::<Impl, IMPL_OFFSET> }
     }
@@ -1815,19 +2193,31 @@ impl IComTrackingInfoObjectVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComTrackingInfoPropertiesImpl: Sized {
-    fn PropCount();
-    fn GetPropName();
+    fn PropCount(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPropName(&mut self, ulindex: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComTrackingInfoPropertiesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTrackingInfoPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComTrackingInfoPropertiesVtbl {
         unsafe extern "system" fn PropCount<Impl: IComTrackingInfoPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PropCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPropName<Impl: IComTrackingInfoPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, ppszpropname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPropName(::core::mem::transmute_copy(&ulindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppszpropname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1841,29 +2231,29 @@ impl IComTrackingInfoPropertiesVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComTransaction2EventsImpl: Sized {
-    fn OnTransactionStart2();
-    fn OnTransactionPrepare2();
-    fn OnTransactionAbort2();
-    fn OnTransactionCommit2();
+    fn OnTransactionStart2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::Result<()>;
+    fn OnTransactionPrepare2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnTransactionAbort2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnTransactionCommit2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComTransaction2EventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTransaction2EventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComTransaction2EventsVtbl {
         unsafe extern "system" fn OnTransactionStart2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionStart2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&tsid), ::core::mem::transmute_copy(&froot), ::core::mem::transmute_copy(&nisolationlevel)).into()
         }
         unsafe extern "system" fn OnTransactionPrepare2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionPrepare2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&fvoteyes)).into()
         }
         unsafe extern "system" fn OnTransactionAbort2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionAbort2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx)).into()
         }
         unsafe extern "system" fn OnTransactionCommit2<Impl: IComTransaction2EventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionCommit2(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1879,29 +2269,29 @@ impl IComTransaction2EventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComTransactionEventsImpl: Sized {
-    fn OnTransactionStart();
-    fn OnTransactionPrepare();
-    fn OnTransactionAbort();
-    fn OnTransactionCommit();
+    fn OnTransactionStart(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnTransactionPrepare(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnTransactionAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnTransactionCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComTransactionEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTransactionEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComTransactionEventsVtbl {
         unsafe extern "system" fn OnTransactionStart<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, froot: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionStart(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&tsid), ::core::mem::transmute_copy(&froot)).into()
         }
         unsafe extern "system" fn OnTransactionPrepare<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionPrepare(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx), ::core::mem::transmute_copy(&fvoteyes)).into()
         }
         unsafe extern "system" fn OnTransactionAbort<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionAbort(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx)).into()
         }
         unsafe extern "system" fn OnTransactionCommit<Impl: IComTransactionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTransactionCommit(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&guidtx)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1917,14 +2307,14 @@ impl IComTransactionEventsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComUserEventImpl: Sized {
-    fn OnUserEvent();
+    fn OnUserEvent(&mut self, pinfo: *const COMSVCSEVENTINFO, pvarevent: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComUserEventVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComUserEventImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComUserEventVtbl {
         unsafe extern "system" fn OnUserEvent<Impl: IComUserEventImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, pvarevent: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnUserEvent(::core::mem::transmute_copy(&pinfo), ::core::mem::transmute_copy(&pvarevent)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnUserEvent: OnUserEvent::<Impl, IMPL_OFFSET> }
     }
@@ -1934,34 +2324,40 @@ impl IComUserEventVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IContextPropertiesImpl: Sized {
-    fn Count();
-    fn GetProperty();
-    fn EnumNames();
-    fn SetProperty();
-    fn RemoveProperty();
+    fn Count(&mut self, plcount: *mut i32) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, name: super::super::Foundation::BSTR, pproperty: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn EnumNames(&mut self) -> ::windows::core::Result<IEnumNames>;
+    fn SetProperty(&mut self, name: super::super::Foundation::BSTR, property: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveProperty(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IContextPropertiesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContextPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContextPropertiesVtbl {
         unsafe extern "system" fn Count<Impl: IContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Count(::core::mem::transmute_copy(&plcount)).into()
         }
         unsafe extern "system" fn GetProperty<Impl: IContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproperty: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetProperty(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&pproperty)).into()
         }
         unsafe extern "system" fn EnumNames<Impl: IContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetProperty<Impl: IContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, property: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetProperty(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&property)).into()
         }
         unsafe extern "system" fn RemoveProperty<Impl: IContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RemoveProperty(::core::mem::transmute_copy(&name)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1978,19 +2374,19 @@ impl IContextPropertiesVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContextSecurityPerimeterImpl: Sized {
-    fn GetPerimeterFlag();
-    fn SetPerimeterFlag();
+    fn GetPerimeterFlag(&mut self, pflag: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetPerimeterFlag(&mut self, fflag: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContextSecurityPerimeterVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContextSecurityPerimeterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContextSecurityPerimeterVtbl {
         unsafe extern "system" fn GetPerimeterFlag<Impl: IContextSecurityPerimeterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflag: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetPerimeterFlag(::core::mem::transmute_copy(&pflag)).into()
         }
         unsafe extern "system" fn SetPerimeterFlag<Impl: IContextSecurityPerimeterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fflag: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetPerimeterFlag(::core::mem::transmute_copy(&fflag)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2003,28 +2399,28 @@ impl IContextSecurityPerimeterVtbl {
     }
 }
 pub trait IContextStateImpl: Sized {
-    fn SetDeactivateOnReturn();
-    fn GetDeactivateOnReturn();
-    fn SetMyTransactionVote();
-    fn GetMyTransactionVote();
+    fn SetDeactivateOnReturn(&mut self, bdeactivate: i16) -> ::windows::core::Result<()>;
+    fn GetDeactivateOnReturn(&mut self, pbdeactivate: *mut i16) -> ::windows::core::Result<()>;
+    fn SetMyTransactionVote(&mut self, txvote: TransactionVote) -> ::windows::core::Result<()>;
+    fn GetMyTransactionVote(&mut self, ptxvote: *mut TransactionVote) -> ::windows::core::Result<()>;
 }
 impl IContextStateVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContextStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContextStateVtbl {
         unsafe extern "system" fn SetDeactivateOnReturn<Impl: IContextStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bdeactivate: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDeactivateOnReturn(::core::mem::transmute_copy(&bdeactivate)).into()
         }
         unsafe extern "system" fn GetDeactivateOnReturn<Impl: IContextStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdeactivate: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetDeactivateOnReturn(::core::mem::transmute_copy(&pbdeactivate)).into()
         }
         unsafe extern "system" fn SetMyTransactionVote<Impl: IContextStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, txvote: TransactionVote) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMyTransactionVote(::core::mem::transmute_copy(&txvote)).into()
         }
         unsafe extern "system" fn GetMyTransactionVote<Impl: IContextStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptxvote: *mut TransactionVote) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetMyTransactionVote(::core::mem::transmute_copy(&ptxvote)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2039,13 +2435,13 @@ impl IContextStateVtbl {
     }
 }
 pub trait ICreateWithLocalTransactionImpl: Sized {
-    fn CreateInstanceWithSysTx();
+    fn CreateInstanceWithSysTx(&mut self, ptransaction: ::core::option::Option<::windows::core::IUnknown>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ICreateWithLocalTransactionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateWithLocalTransactionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICreateWithLocalTransactionVtbl {
         unsafe extern "system" fn CreateInstanceWithSysTx<Impl: ICreateWithLocalTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateInstanceWithSysTx(::core::mem::transmute(&ptransaction), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pobject)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateInstanceWithSysTx: CreateInstanceWithSysTx::<Impl, IMPL_OFFSET> }
     }
@@ -2055,14 +2451,14 @@ impl ICreateWithLocalTransactionVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICreateWithTipTransactionExImpl: Sized {
-    fn CreateInstance();
+    fn CreateInstance(&mut self, bstrtipurl: super::super::Foundation::BSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICreateWithTipTransactionExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateWithTipTransactionExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICreateWithTipTransactionExVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ICreateWithTipTransactionExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtipurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateInstance(::core::mem::transmute_copy(&bstrtipurl), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pobject)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateInstance: CreateInstance::<Impl, IMPL_OFFSET> }
     }
@@ -2072,14 +2468,14 @@ impl ICreateWithTipTransactionExVtbl {
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ICreateWithTransactionExImpl: Sized {
-    fn CreateInstance();
+    fn CreateInstance(&mut self, ptransaction: ::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl ICreateWithTransactionExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateWithTransactionExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICreateWithTransactionExVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ICreateWithTransactionExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateInstance(::core::mem::transmute(&ptransaction), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pobject)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateInstance: CreateInstance::<Impl, IMPL_OFFSET> }
     }
@@ -2089,59 +2485,83 @@ impl ICreateWithTransactionExVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICrmCompensatorImpl: Sized {
-    fn SetLogControl();
-    fn BeginPrepare();
-    fn PrepareRecord();
-    fn EndPrepare();
-    fn BeginCommit();
-    fn CommitRecord();
-    fn EndCommit();
-    fn BeginAbort();
-    fn AbortRecord();
-    fn EndAbort();
+    fn SetLogControl(&mut self, plogcontrol: ::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
+    fn BeginPrepare(&mut self) -> ::windows::core::Result<()>;
+    fn PrepareRecord(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn EndPrepare(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn BeginCommit(&mut self, frecovery: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn CommitRecord(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn EndCommit(&mut self) -> ::windows::core::Result<()>;
+    fn BeginAbort(&mut self, frecovery: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AbortRecord(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn EndAbort(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ICrmCompensatorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrmCompensatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrmCompensatorVtbl {
         unsafe extern "system" fn SetLogControl<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLogControl(::core::mem::transmute(&plogcontrol)).into()
         }
         unsafe extern "system" fn BeginPrepare<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginPrepare().into()
         }
         unsafe extern "system" fn PrepareRecord<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PrepareRecord(::core::mem::transmute_copy(&crmlogrec)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfforget = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EndPrepare<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfoktoprepare: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EndPrepare() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfoktoprepare = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn BeginCommit<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frecovery: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginCommit(::core::mem::transmute_copy(&frecovery)).into()
         }
         unsafe extern "system" fn CommitRecord<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CommitRecord(::core::mem::transmute_copy(&crmlogrec)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfforget = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EndCommit<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EndCommit().into()
         }
         unsafe extern "system" fn BeginAbort<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frecovery: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginAbort(::core::mem::transmute_copy(&frecovery)).into()
         }
         unsafe extern "system" fn AbortRecord<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AbortRecord(::core::mem::transmute_copy(&crmlogrec)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfforget = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EndAbort<Impl: ICrmCompensatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EndAbort().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2163,59 +2583,83 @@ impl ICrmCompensatorVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmCompensatorVariantsImpl: Sized {
-    fn SetLogControlVariants();
-    fn BeginPrepareVariants();
-    fn PrepareRecordVariants();
-    fn EndPrepareVariants();
-    fn BeginCommitVariants();
-    fn CommitRecordVariants();
-    fn EndCommitVariants();
-    fn BeginAbortVariants();
-    fn AbortRecordVariants();
-    fn EndAbortVariants();
+    fn SetLogControlVariants(&mut self, plogcontrol: ::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
+    fn BeginPrepareVariants(&mut self) -> ::windows::core::Result<()>;
+    fn PrepareRecordVariants(&mut self, plogrecord: *const super::Com::VARIANT) -> ::windows::core::Result<i16>;
+    fn EndPrepareVariants(&mut self) -> ::windows::core::Result<i16>;
+    fn BeginCommitVariants(&mut self, brecovery: i16) -> ::windows::core::Result<()>;
+    fn CommitRecordVariants(&mut self, plogrecord: *const super::Com::VARIANT) -> ::windows::core::Result<i16>;
+    fn EndCommitVariants(&mut self) -> ::windows::core::Result<()>;
+    fn BeginAbortVariants(&mut self, brecovery: i16) -> ::windows::core::Result<()>;
+    fn AbortRecordVariants(&mut self, plogrecord: *const super::Com::VARIANT) -> ::windows::core::Result<i16>;
+    fn EndAbortVariants(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmCompensatorVariantsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrmCompensatorVariantsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrmCompensatorVariantsVtbl {
         unsafe extern "system" fn SetLogControlVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLogControlVariants(::core::mem::transmute(&plogcontrol)).into()
         }
         unsafe extern "system" fn BeginPrepareVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginPrepareVariants().into()
         }
         unsafe extern "system" fn PrepareRecordVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogrecord: *const super::Com::VARIANT, pbforget: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PrepareRecordVariants(::core::mem::transmute_copy(&plogrecord)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbforget = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EndPrepareVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboktoprepare: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EndPrepareVariants() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pboktoprepare = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn BeginCommitVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, brecovery: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginCommitVariants(::core::mem::transmute_copy(&brecovery)).into()
         }
         unsafe extern "system" fn CommitRecordVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogrecord: *const super::Com::VARIANT, pbforget: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CommitRecordVariants(::core::mem::transmute_copy(&plogrecord)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbforget = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EndCommitVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EndCommitVariants().into()
         }
         unsafe extern "system" fn BeginAbortVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, brecovery: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BeginAbortVariants(::core::mem::transmute_copy(&brecovery)).into()
         }
         unsafe extern "system" fn AbortRecordVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogrecord: *const super::Com::VARIANT, pbforget: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AbortRecordVariants(::core::mem::transmute_copy(&plogrecord)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbforget = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EndAbortVariants<Impl: ICrmCompensatorVariantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EndAbortVariants().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2237,29 +2681,53 @@ impl ICrmCompensatorVariantsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmFormatLogRecordsImpl: Sized {
-    fn GetColumnCount();
-    fn GetColumnHeaders();
-    fn GetColumn();
-    fn GetColumnVariants();
+    fn GetColumnCount(&mut self) -> ::windows::core::Result<i32>;
+    fn GetColumnHeaders(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn GetColumn(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn GetColumnVariants(&mut self, logrecord: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmFormatLogRecordsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrmFormatLogRecordsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrmFormatLogRecordsVtbl {
         unsafe extern "system" fn GetColumnCount<Impl: ICrmFormatLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcolumncount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetColumnCount() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plcolumncount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetColumnHeaders<Impl: ICrmFormatLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheaders: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetColumnHeaders() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pheaders = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetColumn<Impl: ICrmFormatLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pformattedlogrecord: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetColumn(::core::mem::transmute_copy(&crmlogrec)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pformattedlogrecord = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetColumnVariants<Impl: ICrmFormatLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logrecord: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pformattedlogrecord: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetColumnVariants(::core::mem::transmute_copy(&logrecord)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pformattedlogrecord = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2275,44 +2743,50 @@ impl ICrmFormatLogRecordsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmLogControlImpl: Sized {
-    fn TransactionUOW();
-    fn RegisterCompensator();
-    fn WriteLogRecordVariants();
-    fn ForceLog();
-    fn ForgetLogRecord();
-    fn ForceTransactionToAbort();
-    fn WriteLogRecord();
+    fn TransactionUOW(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RegisterCompensator(&mut self, lpcwstrprogidcompensator: super::super::Foundation::PWSTR, lpcwstrdescription: super::super::Foundation::PWSTR, lcrmregflags: i32) -> ::windows::core::Result<()>;
+    fn WriteLogRecordVariants(&mut self, plogrecord: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ForceLog(&mut self) -> ::windows::core::Result<()>;
+    fn ForgetLogRecord(&mut self) -> ::windows::core::Result<()>;
+    fn ForceTransactionToAbort(&mut self) -> ::windows::core::Result<()>;
+    fn WriteLogRecord(&mut self, rgblob: *const super::Com::BLOB, cblob: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmLogControlVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrmLogControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrmLogControlVtbl {
         unsafe extern "system" fn TransactionUOW<Impl: ICrmLogControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).TransactionUOW() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RegisterCompensator<Impl: ICrmLogControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcwstrprogidcompensator: super::super::Foundation::PWSTR, lpcwstrdescription: super::super::Foundation::PWSTR, lcrmregflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RegisterCompensator(::core::mem::transmute_copy(&lpcwstrprogidcompensator), ::core::mem::transmute_copy(&lpcwstrdescription), ::core::mem::transmute_copy(&lcrmregflags)).into()
         }
         unsafe extern "system" fn WriteLogRecordVariants<Impl: ICrmLogControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogrecord: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).WriteLogRecordVariants(::core::mem::transmute_copy(&plogrecord)).into()
         }
         unsafe extern "system" fn ForceLog<Impl: ICrmLogControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ForceLog().into()
         }
         unsafe extern "system" fn ForgetLogRecord<Impl: ICrmLogControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ForgetLogRecord().into()
         }
         unsafe extern "system" fn ForceTransactionToAbort<Impl: ICrmLogControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ForceTransactionToAbort().into()
         }
         unsafe extern "system" fn WriteLogRecord<Impl: ICrmLogControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rgblob: *const super::Com::BLOB, cblob: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).WriteLogRecord(::core::mem::transmute_copy(&rgblob), ::core::mem::transmute_copy(&cblob)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2331,19 +2805,31 @@ impl ICrmLogControlVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitorImpl: Sized {
-    fn GetClerks();
-    fn HoldClerk();
+    fn GetClerks(&mut self) -> ::windows::core::Result<ICrmMonitorClerks>;
+    fn HoldClerk(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmMonitorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrmMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrmMonitorVtbl {
         unsafe extern "system" fn GetClerks<Impl: ICrmMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclerks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetClerks() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pclerks = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn HoldClerk<Impl: ICrmMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).HoldClerk(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2357,44 +2843,86 @@ impl ICrmMonitorVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitorClerksImpl: Sized + IDispatchImpl {
-    fn Item();
-    fn _NewEnum();
-    fn Count();
-    fn ProgIdCompensator();
-    fn Description();
-    fn TransactionUOW();
-    fn ActivityId();
+    fn Item(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn ProgIdCompensator(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Description(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn TransactionUOW(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ActivityId(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmMonitorClerksVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrmMonitorClerksImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrmMonitorClerksVtbl {
         unsafe extern "system" fn Item<Impl: ICrmMonitorClerksImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: ICrmMonitorClerksImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: ICrmMonitorClerksImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ProgIdCompensator<Impl: ICrmMonitorClerksImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ProgIdCompensator(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Description<Impl: ICrmMonitorClerksImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Description(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn TransactionUOW<Impl: ICrmMonitorClerksImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).TransactionUOW(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ActivityId<Impl: ICrmMonitorClerksImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ActivityId(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2413,34 +2941,58 @@ impl ICrmMonitorClerksVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitorLogRecordsImpl: Sized {
-    fn Count();
-    fn TransactionState();
-    fn StructuredRecords();
-    fn GetLogRecord();
-    fn GetLogRecordVariants();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn TransactionState(&mut self) -> ::windows::core::Result<CrmTransactionState>;
+    fn StructuredRecords(&mut self) -> ::windows::core::Result<i16>;
+    fn GetLogRecord(&mut self, dwindex: u32, pcrmlogrec: *mut CrmLogRecordRead) -> ::windows::core::Result<()>;
+    fn GetLogRecordVariants(&mut self, indexnumber: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmMonitorLogRecordsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrmMonitorLogRecordsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrmMonitorLogRecordsVtbl {
         unsafe extern "system" fn Count<Impl: ICrmMonitorLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn TransactionState<Impl: ICrmMonitorLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut CrmTransactionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).TransactionState() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn StructuredRecords<Impl: ICrmMonitorLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).StructuredRecords() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetLogRecord<Impl: ICrmMonitorLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pcrmlogrec: *mut CrmLogRecordRead) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetLogRecord(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pcrmlogrec)).into()
         }
         unsafe extern "system" fn GetLogRecordVariants<Impl: ICrmMonitorLogRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexnumber: ::core::mem::ManuallyDrop<super::Com::VARIANT>, plogrecord: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetLogRecordVariants(::core::mem::transmute_copy(&indexnumber)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *plogrecord = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2457,39 +3009,39 @@ impl ICrmMonitorLogRecordsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDispenserDriverImpl: Sized {
-    fn CreateResource();
-    fn RateResource();
-    fn EnlistResource();
-    fn ResetResource();
-    fn DestroyResource();
-    fn DestroyResourceS();
+    fn CreateResource(&mut self, restypid: usize, presid: *mut usize, psecsfreebeforedestroy: *mut i32) -> ::windows::core::Result<()>;
+    fn RateResource(&mut self, restypid: usize, resid: usize, frequirestransactionenlistment: super::super::Foundation::BOOL, prating: *mut u32) -> ::windows::core::Result<()>;
+    fn EnlistResource(&mut self, resid: usize, transid: usize) -> ::windows::core::Result<()>;
+    fn ResetResource(&mut self, resid: usize) -> ::windows::core::Result<()>;
+    fn DestroyResource(&mut self, resid: usize) -> ::windows::core::Result<()>;
+    fn DestroyResourceS(&mut self, resid: *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDispenserDriverVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDispenserDriverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDispenserDriverVtbl {
         unsafe extern "system" fn CreateResource<Impl: IDispenserDriverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restypid: usize, presid: *mut usize, psecsfreebeforedestroy: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateResource(::core::mem::transmute_copy(&restypid), ::core::mem::transmute_copy(&presid), ::core::mem::transmute_copy(&psecsfreebeforedestroy)).into()
         }
         unsafe extern "system" fn RateResource<Impl: IDispenserDriverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restypid: usize, resid: usize, frequirestransactionenlistment: super::super::Foundation::BOOL, prating: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RateResource(::core::mem::transmute_copy(&restypid), ::core::mem::transmute_copy(&resid), ::core::mem::transmute_copy(&frequirestransactionenlistment), ::core::mem::transmute_copy(&prating)).into()
         }
         unsafe extern "system" fn EnlistResource<Impl: IDispenserDriverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resid: usize, transid: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EnlistResource(::core::mem::transmute_copy(&resid), ::core::mem::transmute_copy(&transid)).into()
         }
         unsafe extern "system" fn ResetResource<Impl: IDispenserDriverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resid: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ResetResource(::core::mem::transmute_copy(&resid)).into()
         }
         unsafe extern "system" fn DestroyResource<Impl: IDispenserDriverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resid: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DestroyResource(::core::mem::transmute_copy(&resid)).into()
         }
         unsafe extern "system" fn DestroyResourceS<Impl: IDispenserDriverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resid: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DestroyResourceS(::core::mem::transmute_copy(&resid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2507,19 +3059,25 @@ impl IDispenserDriverVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDispenserManagerImpl: Sized {
-    fn RegisterDispenser();
-    fn GetContext();
+    fn RegisterDispenser(&mut self, __midl__idispensermanager0000: ::core::option::Option<IDispenserDriver>, szdispensername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IHolder>;
+    fn GetContext(&mut self, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDispenserManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDispenserManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDispenserManagerVtbl {
         unsafe extern "system" fn RegisterDispenser<Impl: IDispenserManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__idispensermanager0000: ::windows::core::RawPtr, szdispensername: super::super::Foundation::PWSTR, __midl__idispensermanager0001: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).RegisterDispenser(::core::mem::transmute(&__midl__idispensermanager0000), ::core::mem::transmute_copy(&szdispensername)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *__midl__idispensermanager0001 = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetContext<Impl: IDispenserManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetContext(::core::mem::transmute_copy(&__midl__idispensermanager0002), ::core::mem::transmute_copy(&__midl__idispensermanager0003)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2533,29 +3091,35 @@ impl IDispenserManagerVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumNamesImpl: Sized {
-    fn Next();
-    fn Skip();
-    fn Reset();
-    fn Clone();
+    fn Next(&mut self, celt: u32, rgname: *mut super::super::Foundation::BSTR, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Clone(&mut self) -> ::windows::core::Result<IEnumNames>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumNamesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNamesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumNamesVtbl {
         unsafe extern "system" fn Next<Impl: IEnumNamesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgname: *mut super::super::Foundation::BSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgname), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Impl: IEnumNamesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Impl: IEnumNamesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reset().into()
         }
         unsafe extern "system" fn Clone<Impl: IEnumNamesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2571,24 +3135,24 @@ impl IEnumNamesVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEventServerTraceImpl: Sized + IDispatchImpl {
-    fn StartTraceGuid();
-    fn StopTraceGuid();
-    fn EnumTraceGuid();
+    fn StartTraceGuid(&mut self, bstrguidevent: super::super::Foundation::BSTR, bstrguidfilter: super::super::Foundation::BSTR, lpidfilter: i32) -> ::windows::core::Result<()>;
+    fn StopTraceGuid(&mut self, bstrguidevent: super::super::Foundation::BSTR, bstrguidfilter: super::super::Foundation::BSTR, lpidfilter: i32) -> ::windows::core::Result<()>;
+    fn EnumTraceGuid(&mut self, plcntguids: *mut i32, pbstrguidlist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEventServerTraceVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventServerTraceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventServerTraceVtbl {
         unsafe extern "system" fn StartTraceGuid<Impl: IEventServerTraceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidevent: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrguidfilter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpidfilter: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).StartTraceGuid(::core::mem::transmute_copy(&bstrguidevent), ::core::mem::transmute_copy(&bstrguidfilter), ::core::mem::transmute_copy(&lpidfilter)).into()
         }
         unsafe extern "system" fn StopTraceGuid<Impl: IEventServerTraceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguidevent: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrguidfilter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpidfilter: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).StopTraceGuid(::core::mem::transmute_copy(&bstrguidevent), ::core::mem::transmute_copy(&bstrguidfilter), ::core::mem::transmute_copy(&lpidfilter)).into()
         }
         unsafe extern "system" fn EnumTraceGuid<Impl: IEventServerTraceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcntguids: *mut i32, pbstrguidlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EnumTraceGuid(::core::mem::transmute_copy(&plcntguids), ::core::mem::transmute_copy(&pbstrguidlist)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -2603,44 +3167,56 @@ impl IEventServerTraceVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGetAppTrackerDataImpl: Sized {
-    fn GetApplicationProcesses();
-    fn GetApplicationProcessDetails();
-    fn GetApplicationsInProcess();
-    fn GetComponentsInProcess();
-    fn GetComponentDetails();
-    fn GetTrackerDataAsCollectionObject();
-    fn GetSuggestedPollingInterval();
+    fn GetApplicationProcesses(&mut self, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::Result<()>;
+    fn GetApplicationProcessDetails(&mut self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, flags: u32, summary: *mut ApplicationProcessSummary, statistics: *mut ApplicationProcessStatistics, recycleinfo: *mut ApplicationProcessRecycleInfo, anycomponentshangmonitored: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetApplicationsInProcess(&mut self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> ::windows::core::Result<()>;
+    fn GetComponentsInProcess(&mut self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numcomponentsinprocess: *mut u32, components: *mut *mut ComponentSummary) -> ::windows::core::Result<()>;
+    fn GetComponentDetails(&mut self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, clsid: *const ::windows::core::GUID, flags: u32, summary: *mut ComponentSummary, statistics: *mut ComponentStatistics, hangmonitorinfo: *mut ComponentHangMonitorInfo) -> ::windows::core::Result<()>;
+    fn GetTrackerDataAsCollectionObject(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetSuggestedPollingInterval(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGetAppTrackerDataVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetAppTrackerDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetAppTrackerDataVtbl {
         unsafe extern "system" fn GetApplicationProcesses<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetApplicationProcesses(::core::mem::transmute_copy(&partitionid), ::core::mem::transmute_copy(&applicationid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&numapplicationprocesses), ::core::mem::transmute_copy(&applicationprocesses)).into()
         }
         unsafe extern "system" fn GetApplicationProcessDetails<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, flags: u32, summary: *mut ApplicationProcessSummary, statistics: *mut ApplicationProcessStatistics, recycleinfo: *mut ApplicationProcessRecycleInfo, anycomponentshangmonitored: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetApplicationProcessDetails(::core::mem::transmute_copy(&applicationinstanceid), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&summary), ::core::mem::transmute_copy(&statistics), ::core::mem::transmute_copy(&recycleinfo), ::core::mem::transmute_copy(&anycomponentshangmonitored)).into()
         }
         unsafe extern "system" fn GetApplicationsInProcess<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetApplicationsInProcess(::core::mem::transmute_copy(&applicationinstanceid), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&partitionid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&numapplicationsinprocess), ::core::mem::transmute_copy(&applications)).into()
         }
         unsafe extern "system" fn GetComponentsInProcess<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numcomponentsinprocess: *mut u32, components: *mut *mut ComponentSummary) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetComponentsInProcess(::core::mem::transmute_copy(&applicationinstanceid), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&partitionid), ::core::mem::transmute_copy(&applicationid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&numcomponentsinprocess), ::core::mem::transmute_copy(&components)).into()
         }
         unsafe extern "system" fn GetComponentDetails<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows::core::GUID, processid: u32, clsid: *const ::windows::core::GUID, flags: u32, summary: *mut ComponentSummary, statistics: *mut ComponentStatistics, hangmonitorinfo: *mut ComponentHangMonitorInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetComponentDetails(::core::mem::transmute_copy(&applicationinstanceid), ::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&summary), ::core::mem::transmute_copy(&statistics), ::core::mem::transmute_copy(&hangmonitorinfo)).into()
         }
         unsafe extern "system" fn GetTrackerDataAsCollectionObject<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, toplevelcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTrackerDataAsCollectionObject() {
+                ::core::result::Result::Ok(ok__) => {
+                    *toplevelcollection = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSuggestedPollingInterval<Impl: IGetAppTrackerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pollingintervalinseconds: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetSuggestedPollingInterval() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pollingintervalinseconds = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2659,24 +3235,30 @@ impl IGetAppTrackerDataVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGetContextPropertiesImpl: Sized {
-    fn Count();
-    fn GetProperty();
-    fn EnumNames();
+    fn Count(&mut self, plcount: *mut i32) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, name: super::super::Foundation::BSTR, pproperty: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn EnumNames(&mut self) -> ::windows::core::Result<IEnumNames>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGetContextPropertiesVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetContextPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetContextPropertiesVtbl {
         unsafe extern "system" fn Count<Impl: IGetContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Count(::core::mem::transmute_copy(&plcount)).into()
         }
         unsafe extern "system" fn GetProperty<Impl: IGetContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproperty: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetProperty(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&pproperty)).into()
         }
         unsafe extern "system" fn EnumNames<Impl: IGetContextPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EnumNames() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2691,14 +3273,20 @@ impl IGetContextPropertiesVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGetSecurityCallContextImpl: Sized + IDispatchImpl {
-    fn GetSecurityCallContext();
+    fn GetSecurityCallContext(&mut self) -> ::windows::core::Result<ISecurityCallContext>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGetSecurityCallContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetSecurityCallContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetSecurityCallContextVtbl {
         unsafe extern "system" fn GetSecurityCallContext<Impl: IGetSecurityCallContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetSecurityCallContext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppobject = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetSecurityCallContext: GetSecurityCallContext::<Impl, IMPL_OFFSET> }
     }
@@ -2708,49 +3296,49 @@ impl IGetSecurityCallContextVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHolderImpl: Sized {
-    fn AllocResource();
-    fn FreeResource();
-    fn TrackResource();
-    fn TrackResourceS();
-    fn UntrackResource();
-    fn UntrackResourceS();
-    fn Close();
-    fn RequestDestroyResource();
+    fn AllocResource(&mut self, __midl__iholder0000: usize, __midl__iholder0001: *mut usize) -> ::windows::core::Result<()>;
+    fn FreeResource(&mut self, __midl__iholder0002: usize) -> ::windows::core::Result<()>;
+    fn TrackResource(&mut self, __midl__iholder0003: usize) -> ::windows::core::Result<()>;
+    fn TrackResourceS(&mut self, __midl__iholder0004: *mut u16) -> ::windows::core::Result<()>;
+    fn UntrackResource(&mut self, __midl__iholder0005: usize, __midl__iholder0006: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn UntrackResourceS(&mut self, __midl__iholder0007: *mut u16, __midl__iholder0008: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn RequestDestroyResource(&mut self, __midl__iholder0009: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHolderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolderVtbl {
         unsafe extern "system" fn AllocResource<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iholder0000: usize, __midl__iholder0001: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AllocResource(::core::mem::transmute_copy(&__midl__iholder0000), ::core::mem::transmute_copy(&__midl__iholder0001)).into()
         }
         unsafe extern "system" fn FreeResource<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iholder0002: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FreeResource(::core::mem::transmute_copy(&__midl__iholder0002)).into()
         }
         unsafe extern "system" fn TrackResource<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iholder0003: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TrackResource(::core::mem::transmute_copy(&__midl__iholder0003)).into()
         }
         unsafe extern "system" fn TrackResourceS<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iholder0004: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TrackResourceS(::core::mem::transmute_copy(&__midl__iholder0004)).into()
         }
         unsafe extern "system" fn UntrackResource<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iholder0005: usize, __midl__iholder0006: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UntrackResource(::core::mem::transmute_copy(&__midl__iholder0005), ::core::mem::transmute_copy(&__midl__iholder0006)).into()
         }
         unsafe extern "system" fn UntrackResourceS<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iholder0007: *mut u16, __midl__iholder0008: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UntrackResourceS(::core::mem::transmute_copy(&__midl__iholder0007), ::core::mem::transmute_copy(&__midl__iholder0008)).into()
         }
         unsafe extern "system" fn Close<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Close().into()
         }
         unsafe extern "system" fn RequestDestroyResource<Impl: IHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iholder0009: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RequestDestroyResource(::core::mem::transmute_copy(&__midl__iholder0009)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2770,24 +3358,24 @@ impl IHolderVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILBEventsImpl: Sized {
-    fn TargetUp();
-    fn TargetDown();
-    fn EngineDefined();
+    fn TargetUp(&mut self, bstrservername: super::super::Foundation::BSTR, bstrclsideng: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TargetDown(&mut self, bstrservername: super::super::Foundation::BSTR, bstrclsideng: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EngineDefined(&mut self, bstrpropname: super::super::Foundation::BSTR, varpropvalue: *const super::Com::VARIANT, bstrclsideng: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILBEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILBEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILBEventsVtbl {
         unsafe extern "system" fn TargetUp<Impl: ILBEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrclsideng: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TargetUp(::core::mem::transmute_copy(&bstrservername), ::core::mem::transmute_copy(&bstrclsideng)).into()
         }
         unsafe extern "system" fn TargetDown<Impl: ILBEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrclsideng: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TargetDown(::core::mem::transmute_copy(&bstrservername), ::core::mem::transmute_copy(&bstrclsideng)).into()
         }
         unsafe extern "system" fn EngineDefined<Impl: ILBEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varpropvalue: *const super::Com::VARIANT, bstrclsideng: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EngineDefined(::core::mem::transmute_copy(&bstrpropname), ::core::mem::transmute_copy(&varpropvalue), ::core::mem::transmute_copy(&bstrclsideng)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2801,33 +3389,33 @@ impl ILBEventsVtbl {
     }
 }
 pub trait IMTSActivityImpl: Sized {
-    fn SynchronousCall();
-    fn AsyncCall();
-    fn Reserved1();
-    fn BindToCurrentThread();
-    fn UnbindFromThread();
+    fn SynchronousCall(&mut self, pcall: ::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
+    fn AsyncCall(&mut self, pcall: ::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
+    fn Reserved1(&mut self);
+    fn BindToCurrentThread(&mut self) -> ::windows::core::Result<()>;
+    fn UnbindFromThread(&mut self) -> ::windows::core::Result<()>;
 }
 impl IMTSActivityVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMTSActivityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMTSActivityVtbl {
         unsafe extern "system" fn SynchronousCall<Impl: IMTSActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SynchronousCall(::core::mem::transmute(&pcall)).into()
         }
         unsafe extern "system" fn AsyncCall<Impl: IMTSActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AsyncCall(::core::mem::transmute(&pcall)).into()
         }
         unsafe extern "system" fn Reserved1<Impl: IMTSActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved1()
         }
         unsafe extern "system" fn BindToCurrentThread<Impl: IMTSActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BindToCurrentThread().into()
         }
         unsafe extern "system" fn UnbindFromThread<Impl: IMTSActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UnbindFromThread().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2843,13 +3431,13 @@ impl IMTSActivityVtbl {
     }
 }
 pub trait IMTSCallImpl: Sized {
-    fn OnCall();
+    fn OnCall(&mut self) -> ::windows::core::Result<()>;
 }
 impl IMTSCallVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMTSCallImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMTSCallVtbl {
         unsafe extern "system" fn OnCall<Impl: IMTSCallImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCall().into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnCall: OnCall::<Impl, IMPL_OFFSET> }
     }
@@ -2859,14 +3447,20 @@ impl IMTSCallVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMTSLocatorImpl: Sized + IDispatchImpl {
-    fn GetEventDispatcher();
+    fn GetEventDispatcher(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMTSLocatorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMTSLocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMTSLocatorVtbl {
         unsafe extern "system" fn GetEventDispatcher<Impl: IMTSLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetEventDispatcher() {
+                ::core::result::Result::Ok(ok__) => {
+                    *punk = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetEventDispatcher: GetEventDispatcher::<Impl, IMPL_OFFSET> }
     }
@@ -2876,19 +3470,19 @@ impl IMTSLocatorVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IManagedActivationEventsImpl: Sized {
-    fn CreateManagedStub();
-    fn DestroyManagedStub();
+    fn CreateManagedStub(&mut self, pinfo: ::core::option::Option<IManagedObjectInfo>, fdist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn DestroyManagedStub(&mut self, pinfo: ::core::option::Option<IManagedObjectInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IManagedActivationEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManagedActivationEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManagedActivationEventsVtbl {
         unsafe extern "system" fn CreateManagedStub<Impl: IManagedActivationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: ::windows::core::RawPtr, fdist: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateManagedStub(::core::mem::transmute(&pinfo), ::core::mem::transmute_copy(&fdist)).into()
         }
         unsafe extern "system" fn DestroyManagedStub<Impl: IManagedActivationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DestroyManagedStub(::core::mem::transmute(&pinfo)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2902,29 +3496,41 @@ impl IManagedActivationEventsVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IManagedObjectInfoImpl: Sized {
-    fn GetIUnknown();
-    fn GetIObjectControl();
-    fn SetInPool();
-    fn SetWrapperStrength();
+    fn GetIUnknown(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetIObjectControl(&mut self) -> ::windows::core::Result<IObjectControl>;
+    fn SetInPool(&mut self, binpool: super::super::Foundation::BOOL, ppooledobj: ::core::option::Option<IManagedPooledObj>) -> ::windows::core::Result<()>;
+    fn SetWrapperStrength(&mut self, bstrong: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IManagedObjectInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManagedObjectInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManagedObjectInfoVtbl {
         unsafe extern "system" fn GetIUnknown<Impl: IManagedObjectInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIUnknown() {
+                ::core::result::Result::Ok(ok__) => {
+                    *punk = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIObjectControl<Impl: IManagedObjectInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctrl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIObjectControl() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pctrl = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInPool<Impl: IManagedObjectInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binpool: super::super::Foundation::BOOL, ppooledobj: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInPool(::core::mem::transmute_copy(&binpool), ::core::mem::transmute(&ppooledobj)).into()
         }
         unsafe extern "system" fn SetWrapperStrength<Impl: IManagedObjectInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrong: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetWrapperStrength(::core::mem::transmute_copy(&bstrong)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -2939,13 +3545,13 @@ impl IManagedObjectInfoVtbl {
     }
 }
 pub trait IManagedPoolActionImpl: Sized {
-    fn LastRelease();
+    fn LastRelease(&mut self) -> ::windows::core::Result<()>;
 }
 impl IManagedPoolActionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManagedPoolActionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManagedPoolActionVtbl {
         unsafe extern "system" fn LastRelease<Impl: IManagedPoolActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).LastRelease().into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), LastRelease: LastRelease::<Impl, IMPL_OFFSET> }
     }
@@ -2955,14 +3561,14 @@ impl IManagedPoolActionVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IManagedPooledObjImpl: Sized {
-    fn SetHeld();
+    fn SetHeld(&mut self, m_bheld: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IManagedPooledObjVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManagedPooledObjImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManagedPooledObjVtbl {
         unsafe extern "system" fn SetHeld<Impl: IManagedPooledObjImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, m_bheld: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetHeld(::core::mem::transmute_copy(&m_bheld)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetHeld: SetHeld::<Impl, IMPL_OFFSET> }
     }
@@ -2972,44 +3578,68 @@ impl IManagedPooledObjVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMessageMoverImpl: Sized + IDispatchImpl {
-    fn SourcePath();
-    fn SetSourcePath();
-    fn DestPath();
-    fn SetDestPath();
-    fn CommitBatchSize();
-    fn SetCommitBatchSize();
-    fn MoveMessages();
+    fn SourcePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSourcePath(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DestPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDestPath(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CommitBatchSize(&mut self) -> ::windows::core::Result<i32>;
+    fn SetCommitBatchSize(&mut self, newval: i32) -> ::windows::core::Result<()>;
+    fn MoveMessages(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMessageMoverVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageMoverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageMoverVtbl {
         unsafe extern "system" fn SourcePath<Impl: IMessageMoverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).SourcePath() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetSourcePath<Impl: IMessageMoverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSourcePath(::core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn DestPath<Impl: IMessageMoverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DestPath() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetDestPath<Impl: IMessageMoverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDestPath(::core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn CommitBatchSize<Impl: IMessageMoverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CommitBatchSize() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetCommitBatchSize<Impl: IMessageMoverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCommitBatchSize(::core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn MoveMessages<Impl: IMessageMoverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmessagesmoved: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).MoveMessages() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plmessagesmoved = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3028,34 +3658,64 @@ impl IMessageMoverVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMtsEventInfoImpl: Sized + IDispatchImpl {
-    fn Names();
-    fn DisplayName();
-    fn EventID();
-    fn Count();
-    fn Value();
+    fn Names(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EventID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Value(&mut self, skey: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMtsEventInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMtsEventInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMtsEventInfoVtbl {
         unsafe extern "system" fn Names<Impl: IMtsEventInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Names() {
+                ::core::result::Result::Ok(ok__) => {
+                    *punk = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DisplayName<Impl: IMtsEventInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).DisplayName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *sdisplayname = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EventID<Impl: IMtsEventInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sguideventid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EventID() {
+                ::core::result::Result::Ok(ok__) => {
+                    *sguideventid = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: IMtsEventInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *lcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Value<Impl: IMtsEventInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, skey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Value(::core::mem::transmute_copy(&skey)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3072,34 +3732,58 @@ impl IMtsEventInfoVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMtsEventsImpl: Sized + IDispatchImpl {
-    fn PackageName();
-    fn PackageGuid();
-    fn PostEvent();
-    fn FireEvents();
-    fn GetProcessID();
+    fn PackageName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PackageGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PostEvent(&mut self, vevent: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn FireEvents(&mut self) -> ::windows::core::Result<i16>;
+    fn GetProcessID(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMtsEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMtsEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMtsEventsVtbl {
         unsafe extern "system" fn PackageName<Impl: IMtsEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PackageName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn PackageGuid<Impl: IMtsEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PackageGuid() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn PostEvent<Impl: IMtsEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vevent: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PostEvent(::core::mem::transmute_copy(&vevent)).into()
         }
         unsafe extern "system" fn FireEvents<Impl: IMtsEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).FireEvents() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetProcessID<Impl: IMtsEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetProcessID() {
+                ::core::result::Result::Ok(ok__) => {
+                    *id = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3116,24 +3800,36 @@ impl IMtsEventsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMtsGrpImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn Refresh();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Item(&mut self, lindex: i32) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Refresh(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMtsGrpVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMtsGrpImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMtsGrpVtbl {
         unsafe extern "system" fn Count<Impl: IMtsGrpImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: IMtsGrpImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppunkdispatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppunkdispatcher = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Refresh<Impl: IMtsGrpImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Refresh().into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3147,43 +3843,43 @@ impl IMtsGrpVtbl {
     }
 }
 pub trait IObjPoolImpl: Sized {
-    fn Reserved1();
-    fn Reserved2();
-    fn Reserved3();
-    fn Reserved4();
-    fn PutEndTx();
-    fn Reserved5();
-    fn Reserved6();
+    fn Reserved1(&mut self);
+    fn Reserved2(&mut self);
+    fn Reserved3(&mut self);
+    fn Reserved4(&mut self);
+    fn PutEndTx(&mut self, pobj: ::core::option::Option<::windows::core::IUnknown>);
+    fn Reserved5(&mut self);
+    fn Reserved6(&mut self);
 }
 impl IObjPoolVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjPoolImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjPoolVtbl {
         unsafe extern "system" fn Reserved1<Impl: IObjPoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved1()
         }
         unsafe extern "system" fn Reserved2<Impl: IObjPoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved2()
         }
         unsafe extern "system" fn Reserved3<Impl: IObjPoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved3()
         }
         unsafe extern "system" fn Reserved4<Impl: IObjPoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved4()
         }
         unsafe extern "system" fn PutEndTx<Impl: IObjPoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobj: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PutEndTx(::core::mem::transmute(&pobj))
         }
         unsafe extern "system" fn Reserved5<Impl: IObjPoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved5()
         }
         unsafe extern "system" fn Reserved6<Impl: IObjPoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved6()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3202,14 +3898,14 @@ impl IObjPoolVtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IObjectConstructImpl: Sized {
-    fn Construct();
+    fn Construct(&mut self, pctorobj: ::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IObjectConstructVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectConstructImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectConstructVtbl {
         unsafe extern "system" fn Construct<Impl: IObjectConstructImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctorobj: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Construct(::core::mem::transmute(&pctorobj)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Construct: Construct::<Impl, IMPL_OFFSET> }
     }
@@ -3219,14 +3915,14 @@ impl IObjectConstructVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IObjectConstructStringImpl: Sized + IDispatchImpl {
-    fn ConstructString();
+    fn ConstructString(&mut self, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IObjectConstructStringVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectConstructStringImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectConstructStringVtbl {
         unsafe extern "system" fn ConstructString<Impl: IObjectConstructStringImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ConstructString(::core::mem::transmute_copy(&pval)).into()
         }
         Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ConstructString: ConstructString::<Impl, IMPL_OFFSET> }
     }
@@ -3236,49 +3932,49 @@ impl IObjectConstructStringVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectContextImpl: Sized {
-    fn CreateInstance();
-    fn SetComplete();
-    fn SetAbort();
-    fn EnableCommit();
-    fn DisableCommit();
-    fn IsInTransaction();
-    fn IsSecurityEnabled();
-    fn IsCallerInRole();
+    fn CreateInstance(&mut self, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetComplete(&mut self) -> ::windows::core::Result<()>;
+    fn SetAbort(&mut self) -> ::windows::core::Result<()>;
+    fn EnableCommit(&mut self) -> ::windows::core::Result<()>;
+    fn DisableCommit(&mut self) -> ::windows::core::Result<()>;
+    fn IsInTransaction(&mut self) -> super::super::Foundation::BOOL;
+    fn IsSecurityEnabled(&mut self) -> super::super::Foundation::BOOL;
+    fn IsCallerInRole(&mut self, bstrrole: super::super::Foundation::BSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IObjectContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectContextVtbl {
         unsafe extern "system" fn CreateInstance<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateInstance(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn SetComplete<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetComplete().into()
         }
         unsafe extern "system" fn SetAbort<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAbort().into()
         }
         unsafe extern "system" fn EnableCommit<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EnableCommit().into()
         }
         unsafe extern "system" fn DisableCommit<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DisableCommit().into()
         }
         unsafe extern "system" fn IsInTransaction<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsInTransaction()
         }
         unsafe extern "system" fn IsSecurityEnabled<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsSecurityEnabled()
         }
         unsafe extern "system" fn IsCallerInRole<Impl: IObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrole: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsCallerInRole(::core::mem::transmute_copy(&bstrrole), ::core::mem::transmute_copy(&pfisinrole)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3297,13 +3993,13 @@ impl IObjectContextVtbl {
     }
 }
 pub trait IObjectContextActivityImpl: Sized {
-    fn GetActivityId();
+    fn GetActivityId(&mut self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IObjectContextActivityVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectContextActivityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectContextActivityVtbl {
         unsafe extern "system" fn GetActivityId<Impl: IObjectContextActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetActivityId(::core::mem::transmute_copy(&pguid)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetActivityId: GetActivityId::<Impl, IMPL_OFFSET> }
     }
@@ -3313,34 +4009,40 @@ impl IObjectContextActivityVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectContextInfoImpl: Sized {
-    fn IsInTransaction();
-    fn GetTransaction();
-    fn GetTransactionId();
-    fn GetActivityId();
-    fn GetContextId();
+    fn IsInTransaction(&mut self) -> super::super::Foundation::BOOL;
+    fn GetTransaction(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetTransactionId(&mut self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetActivityId(&mut self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetContextId(&mut self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IObjectContextInfoVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectContextInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectContextInfoVtbl {
         unsafe extern "system" fn IsInTransaction<Impl: IObjectContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsInTransaction()
         }
         unsafe extern "system" fn GetTransaction<Impl: IObjectContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptrans: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTransaction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pptrans = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetTransactionId<Impl: IObjectContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetTransactionId(::core::mem::transmute_copy(&pguid)).into()
         }
         unsafe extern "system" fn GetActivityId<Impl: IObjectContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetActivityId(::core::mem::transmute_copy(&pguid)).into()
         }
         unsafe extern "system" fn GetContextId<Impl: IObjectContextInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetContextId(::core::mem::transmute_copy(&pguid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3357,24 +4059,24 @@ impl IObjectContextInfoVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectContextInfo2Impl: Sized + IObjectContextInfoImpl {
-    fn GetPartitionId();
-    fn GetApplicationId();
-    fn GetApplicationInstanceId();
+    fn GetPartitionId(&mut self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetApplicationId(&mut self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetApplicationInstanceId(&mut self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IObjectContextInfo2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectContextInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectContextInfo2Vtbl {
         unsafe extern "system" fn GetPartitionId<Impl: IObjectContextInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetPartitionId(::core::mem::transmute_copy(&pguid)).into()
         }
         unsafe extern "system" fn GetApplicationId<Impl: IObjectContextInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetApplicationId(::core::mem::transmute_copy(&pguid)).into()
         }
         unsafe extern "system" fn GetApplicationInstanceId<Impl: IObjectContextInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetApplicationInstanceId(::core::mem::transmute_copy(&pguid)).into()
         }
         Self {
             base: IObjectContextInfoVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3389,14 +4091,14 @@ impl IObjectContextInfo2Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectContextTipImpl: Sized {
-    fn GetTipUrl();
+    fn GetTipUrl(&mut self, ptipurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IObjectContextTipVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectContextTipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectContextTipVtbl {
         unsafe extern "system" fn GetTipUrl<Impl: IObjectContextTipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptipurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetTipUrl(::core::mem::transmute_copy(&ptipurl)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetTipUrl: GetTipUrl::<Impl, IMPL_OFFSET> }
     }
@@ -3406,24 +4108,24 @@ impl IObjectContextTipVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IObjectControlImpl: Sized {
-    fn Activate();
-    fn Deactivate();
-    fn CanBePooled();
+    fn Activate(&mut self) -> ::windows::core::Result<()>;
+    fn Deactivate(&mut self);
+    fn CanBePooled(&mut self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IObjectControlVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectControlVtbl {
         unsafe extern "system" fn Activate<Impl: IObjectControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Activate().into()
         }
         unsafe extern "system" fn Deactivate<Impl: IObjectControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Deactivate()
         }
         unsafe extern "system" fn CanBePooled<Impl: IObjectControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CanBePooled()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3437,18 +4139,18 @@ impl IObjectControlVtbl {
     }
 }
 pub trait IPlaybackControlImpl: Sized {
-    fn FinalClientRetry();
-    fn FinalServerRetry();
+    fn FinalClientRetry(&mut self) -> ::windows::core::Result<()>;
+    fn FinalServerRetry(&mut self) -> ::windows::core::Result<()>;
 }
 impl IPlaybackControlVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackControlVtbl {
         unsafe extern "system" fn FinalClientRetry<Impl: IPlaybackControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FinalClientRetry().into()
         }
         unsafe extern "system" fn FinalServerRetry<Impl: IPlaybackControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FinalServerRetry().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3462,14 +4164,14 @@ impl IPlaybackControlVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPoolManagerImpl: Sized + IDispatchImpl {
-    fn ShutdownPool();
+    fn ShutdownPool(&mut self, clsidorprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPoolManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPoolManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPoolManagerVtbl {
         unsafe extern "system" fn ShutdownPool<Impl: IPoolManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidorprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ShutdownPool(::core::mem::transmute_copy(&clsidorprogid)).into()
         }
         Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ShutdownPool: ShutdownPool::<Impl, IMPL_OFFSET> }
     }
@@ -3478,18 +4180,18 @@ impl IPoolManagerVtbl {
     }
 }
 pub trait IProcessInitializerImpl: Sized {
-    fn Startup();
-    fn Shutdown();
+    fn Startup(&mut self, punkprocesscontrol: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
 }
 impl IProcessInitializerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessInitializerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessInitializerVtbl {
         unsafe extern "system" fn Startup<Impl: IProcessInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkprocesscontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Startup(::core::mem::transmute(&punkprocesscontrol)).into()
         }
         unsafe extern "system" fn Shutdown<Impl: IProcessInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Shutdown().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3503,39 +4205,75 @@ impl IProcessInitializerVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityCallContextImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn IsCallerInRole();
-    fn IsSecurityEnabled();
-    fn IsUserInRole();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn IsCallerInRole(&mut self, bstrrole: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsSecurityEnabled(&mut self) -> ::windows::core::Result<i16>;
+    fn IsUserInRole(&mut self, puser: *const super::Com::VARIANT, bstrrole: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISecurityCallContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityCallContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityCallContextVtbl {
         unsafe extern "system" fn Count<Impl: ISecurityCallContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: ISecurityCallContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: ISecurityCallContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsCallerInRole<Impl: ISecurityCallContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrole: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfinrole: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsCallerInRole(::core::mem::transmute_copy(&bstrrole)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfinrole = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsSecurityEnabled<Impl: ISecurityCallContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsSecurityEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfisenabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsUserInRole<Impl: ISecurityCallContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: *const super::Com::VARIANT, bstrrole: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfinrole: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsUserInRole(::core::mem::transmute_copy(&puser), ::core::mem::transmute_copy(&bstrrole)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfinrole = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3553,24 +4291,42 @@ impl ISecurityCallContextVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityCallersCollImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Item(&mut self, lindex: i32) -> ::windows::core::Result<ISecurityIdentityColl>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISecurityCallersCollVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityCallersCollImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityCallersCollVtbl {
         unsafe extern "system" fn Count<Impl: ISecurityCallersCollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: ISecurityCallersCollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pobj = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: ISecurityCallersCollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3585,24 +4341,42 @@ impl ISecurityCallersCollVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityIdentityCollImpl: Sized + IDispatchImpl {
-    fn Count();
-    fn Item();
-    fn _NewEnum();
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISecurityIdentityCollVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityIdentityCollImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityIdentityCollVtbl {
         unsafe extern "system" fn Count<Impl: ISecurityIdentityCollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: ISecurityIdentityCollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: ISecurityIdentityCollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3617,34 +4391,34 @@ impl ISecurityIdentityCollVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityPropertyImpl: Sized {
-    fn GetDirectCreatorSID();
-    fn GetOriginalCreatorSID();
-    fn GetDirectCallerSID();
-    fn GetOriginalCallerSID();
-    fn ReleaseSID();
+    fn GetDirectCreatorSID(&mut self, psid: *mut super::super::Foundation::PSID) -> ::windows::core::Result<()>;
+    fn GetOriginalCreatorSID(&mut self, psid: *mut super::super::Foundation::PSID) -> ::windows::core::Result<()>;
+    fn GetDirectCallerSID(&mut self, psid: *mut super::super::Foundation::PSID) -> ::windows::core::Result<()>;
+    fn GetOriginalCallerSID(&mut self, psid: *mut super::super::Foundation::PSID) -> ::windows::core::Result<()>;
+    fn ReleaseSID(&mut self, psid: super::super::Foundation::PSID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityPropertyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityPropertyVtbl {
         unsafe extern "system" fn GetDirectCreatorSID<Impl: ISecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetDirectCreatorSID(::core::mem::transmute_copy(&psid)).into()
         }
         unsafe extern "system" fn GetOriginalCreatorSID<Impl: ISecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetOriginalCreatorSID(::core::mem::transmute_copy(&psid)).into()
         }
         unsafe extern "system" fn GetDirectCallerSID<Impl: ISecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetDirectCallerSID(::core::mem::transmute_copy(&psid)).into()
         }
         unsafe extern "system" fn GetOriginalCallerSID<Impl: ISecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetOriginalCallerSID(::core::mem::transmute_copy(&psid)).into()
         }
         unsafe extern "system" fn ReleaseSID<Impl: ISecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: super::super::Foundation::PSID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ReleaseSID(::core::mem::transmute_copy(&psid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3660,18 +4434,18 @@ impl ISecurityPropertyVtbl {
     }
 }
 pub trait ISelectCOMLBServerImpl: Sized {
-    fn Init();
-    fn GetLBServer();
+    fn Init(&mut self) -> ::windows::core::Result<()>;
+    fn GetLBServer(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ISelectCOMLBServerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectCOMLBServerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectCOMLBServerVtbl {
         unsafe extern "system" fn Init<Impl: ISelectCOMLBServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Init().into()
         }
         unsafe extern "system" fn GetLBServer<Impl: ISelectCOMLBServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetLBServer(::core::mem::transmute(&punk)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3684,18 +4458,18 @@ impl ISelectCOMLBServerVtbl {
     }
 }
 pub trait ISendMethodEventsImpl: Sized {
-    fn SendMethodCall();
-    fn SendMethodReturn();
+    fn SendMethodCall(&mut self, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32) -> ::windows::core::Result<()>;
+    fn SendMethodReturn(&mut self, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl ISendMethodEventsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISendMethodEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISendMethodEventsVtbl {
         unsafe extern "system" fn SendMethodCall<Impl: ISendMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SendMethodCall(::core::mem::transmute_copy(&pidentity), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&dwmeth)).into()
         }
         unsafe extern "system" fn SendMethodReturn<Impl: ISendMethodEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SendMethodReturn(::core::mem::transmute_copy(&pidentity), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&dwmeth), ::core::mem::transmute_copy(&hrcall), ::core::mem::transmute_copy(&hrserver)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3708,28 +4482,28 @@ impl ISendMethodEventsVtbl {
     }
 }
 pub trait IServiceActivityImpl: Sized {
-    fn SynchronousCall();
-    fn AsynchronousCall();
-    fn BindToCurrentThread();
-    fn UnbindFromThread();
+    fn SynchronousCall(&mut self, piservicecall: ::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
+    fn AsynchronousCall(&mut self, piservicecall: ::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
+    fn BindToCurrentThread(&mut self) -> ::windows::core::Result<()>;
+    fn UnbindFromThread(&mut self) -> ::windows::core::Result<()>;
 }
 impl IServiceActivityVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceActivityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceActivityVtbl {
         unsafe extern "system" fn SynchronousCall<Impl: IServiceActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piservicecall: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SynchronousCall(::core::mem::transmute(&piservicecall)).into()
         }
         unsafe extern "system" fn AsynchronousCall<Impl: IServiceActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piservicecall: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AsynchronousCall(::core::mem::transmute(&piservicecall)).into()
         }
         unsafe extern "system" fn BindToCurrentThread<Impl: IServiceActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BindToCurrentThread().into()
         }
         unsafe extern "system" fn UnbindFromThread<Impl: IServiceActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).UnbindFromThread().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3744,13 +4518,13 @@ impl IServiceActivityVtbl {
     }
 }
 pub trait IServiceCallImpl: Sized {
-    fn OnCall();
+    fn OnCall(&mut self) -> ::windows::core::Result<()>;
 }
 impl IServiceCallVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceCallImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceCallVtbl {
         unsafe extern "system" fn OnCall<Impl: IServiceCallImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCall().into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnCall: OnCall::<Impl, IMPL_OFFSET> }
     }
@@ -3759,13 +4533,13 @@ impl IServiceCallVtbl {
     }
 }
 pub trait IServiceComTIIntrinsicsConfigImpl: Sized {
-    fn ComTIIntrinsicsConfig();
+    fn ComTIIntrinsicsConfig(&mut self, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows::core::Result<()>;
 }
 impl IServiceComTIIntrinsicsConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceComTIIntrinsicsConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceComTIIntrinsicsConfigVtbl {
         unsafe extern "system" fn ComTIIntrinsicsConfig<Impl: IServiceComTIIntrinsicsConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ComTIIntrinsicsConfig(::core::mem::transmute_copy(&comtiintrinsicsconfig)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ComTIIntrinsicsConfig: ComTIIntrinsicsConfig::<Impl, IMPL_OFFSET> }
     }
@@ -3774,13 +4548,13 @@ impl IServiceComTIIntrinsicsConfigVtbl {
     }
 }
 pub trait IServiceIISIntrinsicsConfigImpl: Sized {
-    fn IISIntrinsicsConfig();
+    fn IISIntrinsicsConfig(&mut self, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows::core::Result<()>;
 }
 impl IServiceIISIntrinsicsConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceIISIntrinsicsConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceIISIntrinsicsConfigVtbl {
         unsafe extern "system" fn IISIntrinsicsConfig<Impl: IServiceIISIntrinsicsConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IISIntrinsicsConfig(::core::mem::transmute_copy(&iisintrinsicsconfig)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), IISIntrinsicsConfig: IISIntrinsicsConfig::<Impl, IMPL_OFFSET> }
     }
@@ -3789,13 +4563,13 @@ impl IServiceIISIntrinsicsConfigVtbl {
     }
 }
 pub trait IServiceInheritanceConfigImpl: Sized {
-    fn ContainingContextTreatment();
+    fn ContainingContextTreatment(&mut self, inheritanceconfig: CSC_InheritanceConfig) -> ::windows::core::Result<()>;
 }
 impl IServiceInheritanceConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceInheritanceConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceInheritanceConfigVtbl {
         unsafe extern "system" fn ContainingContextTreatment<Impl: IServiceInheritanceConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inheritanceconfig: CSC_InheritanceConfig) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ContainingContextTreatment(::core::mem::transmute_copy(&inheritanceconfig)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ContainingContextTreatment: ContainingContextTreatment::<Impl, IMPL_OFFSET> }
     }
@@ -3804,18 +4578,18 @@ impl IServiceInheritanceConfigVtbl {
     }
 }
 pub trait IServicePartitionConfigImpl: Sized {
-    fn PartitionConfig();
-    fn PartitionID();
+    fn PartitionConfig(&mut self, partitionconfig: CSC_PartitionConfig) -> ::windows::core::Result<()>;
+    fn PartitionID(&mut self, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IServicePartitionConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServicePartitionConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServicePartitionConfigVtbl {
         unsafe extern "system" fn PartitionConfig<Impl: IServicePartitionConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partitionconfig: CSC_PartitionConfig) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PartitionConfig(::core::mem::transmute_copy(&partitionconfig)).into()
         }
         unsafe extern "system" fn PartitionID<Impl: IServicePartitionConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PartitionID(::core::mem::transmute_copy(&guidpartitionid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3828,23 +4602,23 @@ impl IServicePartitionConfigVtbl {
     }
 }
 pub trait IServicePoolImpl: Sized {
-    fn Initialize();
-    fn GetObject();
-    fn Shutdown();
+    fn Initialize(&mut self, ppoolconfig: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetObject(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
 }
 impl IServicePoolVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServicePoolImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServicePoolVtbl {
         unsafe extern "system" fn Initialize<Impl: IServicePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoolconfig: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Initialize(::core::mem::transmute(&ppoolconfig)).into()
         }
         unsafe extern "system" fn GetObject<Impl: IServicePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetObject(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn Shutdown<Impl: IServicePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Shutdown().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3859,59 +4633,65 @@ impl IServicePoolVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IServicePoolConfigImpl: Sized {
-    fn SetMaxPoolSize();
-    fn MaxPoolSize();
-    fn SetMinPoolSize();
-    fn MinPoolSize();
-    fn SetCreationTimeout();
-    fn CreationTimeout();
-    fn SetTransactionAffinity();
-    fn TransactionAffinity();
-    fn SetClassFactory();
-    fn ClassFactory();
+    fn SetMaxPoolSize(&mut self, dwmaxpool: u32) -> ::windows::core::Result<()>;
+    fn MaxPoolSize(&mut self, pdwmaxpool: *mut u32) -> ::windows::core::Result<()>;
+    fn SetMinPoolSize(&mut self, dwminpool: u32) -> ::windows::core::Result<()>;
+    fn MinPoolSize(&mut self, pdwminpool: *mut u32) -> ::windows::core::Result<()>;
+    fn SetCreationTimeout(&mut self, dwcreationtimeout: u32) -> ::windows::core::Result<()>;
+    fn CreationTimeout(&mut self, pdwcreationtimeout: *mut u32) -> ::windows::core::Result<()>;
+    fn SetTransactionAffinity(&mut self, ftxaffinity: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn TransactionAffinity(&mut self, pftxaffinity: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetClassFactory(&mut self, pfactory: ::core::option::Option<super::Com::IClassFactory>) -> ::windows::core::Result<()>;
+    fn ClassFactory(&mut self) -> ::windows::core::Result<super::Com::IClassFactory>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IServicePoolConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServicePoolConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServicePoolConfigVtbl {
         unsafe extern "system" fn SetMaxPoolSize<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmaxpool: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMaxPoolSize(::core::mem::transmute_copy(&dwmaxpool)).into()
         }
         unsafe extern "system" fn MaxPoolSize<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmaxpool: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MaxPoolSize(::core::mem::transmute_copy(&pdwmaxpool)).into()
         }
         unsafe extern "system" fn SetMinPoolSize<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwminpool: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMinPoolSize(::core::mem::transmute_copy(&dwminpool)).into()
         }
         unsafe extern "system" fn MinPoolSize<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwminpool: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).MinPoolSize(::core::mem::transmute_copy(&pdwminpool)).into()
         }
         unsafe extern "system" fn SetCreationTimeout<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcreationtimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCreationTimeout(::core::mem::transmute_copy(&dwcreationtimeout)).into()
         }
         unsafe extern "system" fn CreationTimeout<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcreationtimeout: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreationTimeout(::core::mem::transmute_copy(&pdwcreationtimeout)).into()
         }
         unsafe extern "system" fn SetTransactionAffinity<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ftxaffinity: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTransactionAffinity(::core::mem::transmute_copy(&ftxaffinity)).into()
         }
         unsafe extern "system" fn TransactionAffinity<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pftxaffinity: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TransactionAffinity(::core::mem::transmute_copy(&pftxaffinity)).into()
         }
         unsafe extern "system" fn SetClassFactory<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetClassFactory(::core::mem::transmute(&pfactory)).into()
         }
         unsafe extern "system" fn ClassFactory<Impl: IServicePoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfactory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ClassFactory() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pfactory = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3933,24 +4713,24 @@ impl IServicePoolConfigVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IServiceSxsConfigImpl: Sized {
-    fn SxsConfig();
-    fn SxsName();
-    fn SxsDirectory();
+    fn SxsConfig(&mut self, scsconfig: CSC_SxsConfig) -> ::windows::core::Result<()>;
+    fn SxsName(&mut self, szsxsname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SxsDirectory(&mut self, szsxsdirectory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IServiceSxsConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceSxsConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceSxsConfigVtbl {
         unsafe extern "system" fn SxsConfig<Impl: IServiceSxsConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scsconfig: CSC_SxsConfig) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SxsConfig(::core::mem::transmute_copy(&scsconfig)).into()
         }
         unsafe extern "system" fn SxsName<Impl: IServiceSxsConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szsxsname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SxsName(::core::mem::transmute_copy(&szsxsname)).into()
         }
         unsafe extern "system" fn SxsDirectory<Impl: IServiceSxsConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szsxsdirectory: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SxsDirectory(::core::mem::transmute_copy(&szsxsdirectory)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -3964,13 +4744,13 @@ impl IServiceSxsConfigVtbl {
     }
 }
 pub trait IServiceSynchronizationConfigImpl: Sized {
-    fn ConfigureSynchronization();
+    fn ConfigureSynchronization(&mut self, synchconfig: CSC_SynchronizationConfig) -> ::windows::core::Result<()>;
 }
 impl IServiceSynchronizationConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceSynchronizationConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceSynchronizationConfigVtbl {
         unsafe extern "system" fn ConfigureSynchronization<Impl: IServiceSynchronizationConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, synchconfig: CSC_SynchronizationConfig) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ConfigureSynchronization(::core::mem::transmute_copy(&synchconfig)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ConfigureSynchronization: ConfigureSynchronization::<Impl, IMPL_OFFSET> }
     }
@@ -3980,14 +4760,14 @@ impl IServiceSynchronizationConfigVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait IServiceSysTxnConfigImpl: Sized + IServiceTransactionConfigBaseImpl + IServiceTransactionConfigImpl {
-    fn ConfigureBYOTSysTxn();
+    fn ConfigureBYOTSysTxn(&mut self, ptxproxy: ::core::option::Option<ITransactionProxy>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 impl IServiceSysTxnConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceSysTxnConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceSysTxnConfigVtbl {
         unsafe extern "system" fn ConfigureBYOTSysTxn<Impl: IServiceSysTxnConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptxproxy: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ConfigureBYOTSysTxn(::core::mem::transmute(&ptxproxy)).into()
         }
         Self {
             base: IServiceTransactionConfigVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3999,18 +4779,18 @@ impl IServiceSysTxnConfigVtbl {
     }
 }
 pub trait IServiceThreadPoolConfigImpl: Sized {
-    fn SelectThreadPool();
-    fn SetBindingInfo();
+    fn SelectThreadPool(&mut self, threadpool: CSC_ThreadPool) -> ::windows::core::Result<()>;
+    fn SetBindingInfo(&mut self, binding: CSC_Binding) -> ::windows::core::Result<()>;
 }
 impl IServiceThreadPoolConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceThreadPoolConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceThreadPoolConfigVtbl {
         unsafe extern "system" fn SelectThreadPool<Impl: IServiceThreadPoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadpool: CSC_ThreadPool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SelectThreadPool(::core::mem::transmute_copy(&threadpool)).into()
         }
         unsafe extern "system" fn SetBindingInfo<Impl: IServiceThreadPoolConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binding: CSC_Binding) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetBindingInfo(::core::mem::transmute_copy(&binding)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4024,14 +4804,14 @@ impl IServiceThreadPoolConfigVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IServiceTrackerConfigImpl: Sized {
-    fn TrackerConfig();
+    fn TrackerConfig(&mut self, trackerconfig: CSC_TrackerConfig, sztrackerappname: super::super::Foundation::PWSTR, sztrackerctxname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IServiceTrackerConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceTrackerConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceTrackerConfigVtbl {
         unsafe extern "system" fn TrackerConfig<Impl: IServiceTrackerConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trackerconfig: CSC_TrackerConfig, sztrackerappname: super::super::Foundation::PWSTR, sztrackerctxname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TrackerConfig(::core::mem::transmute_copy(&trackerconfig), ::core::mem::transmute_copy(&sztrackerappname), ::core::mem::transmute_copy(&sztrackerctxname)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), TrackerConfig: TrackerConfig::<Impl, IMPL_OFFSET> }
     }
@@ -4041,14 +4821,14 @@ impl IServiceTrackerConfigVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait IServiceTransactionConfigImpl: Sized + IServiceTransactionConfigBaseImpl {
-    fn ConfigureBYOT();
+    fn ConfigureBYOT(&mut self, pitxbyot: ::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 impl IServiceTransactionConfigVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceTransactionConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceTransactionConfigVtbl {
         unsafe extern "system" fn ConfigureBYOT<Impl: IServiceTransactionConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitxbyot: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ConfigureBYOT(::core::mem::transmute(&pitxbyot)).into()
         }
         Self { base: IServiceTransactionConfigBaseVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ConfigureBYOT: ConfigureBYOT::<Impl, IMPL_OFFSET> }
     }
@@ -4058,34 +4838,34 @@ impl IServiceTransactionConfigVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IServiceTransactionConfigBaseImpl: Sized {
-    fn ConfigureTransaction();
-    fn IsolationLevel();
-    fn TransactionTimeout();
-    fn BringYourOwnTransaction();
-    fn NewTransactionDescription();
+    fn ConfigureTransaction(&mut self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()>;
+    fn IsolationLevel(&mut self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()>;
+    fn TransactionTimeout(&mut self, ultimeoutsec: u32) -> ::windows::core::Result<()>;
+    fn BringYourOwnTransaction(&mut self, sztipurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn NewTransactionDescription(&mut self, sztxdesc: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IServiceTransactionConfigBaseVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceTransactionConfigBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceTransactionConfigBaseVtbl {
         unsafe extern "system" fn ConfigureTransaction<Impl: IServiceTransactionConfigBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transactionconfig: CSC_TransactionConfig) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ConfigureTransaction(::core::mem::transmute_copy(&transactionconfig)).into()
         }
         unsafe extern "system" fn IsolationLevel<Impl: IServiceTransactionConfigBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsolationLevel(::core::mem::transmute_copy(&option)).into()
         }
         unsafe extern "system" fn TransactionTimeout<Impl: IServiceTransactionConfigBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ultimeoutsec: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).TransactionTimeout(::core::mem::transmute_copy(&ultimeoutsec)).into()
         }
         unsafe extern "system" fn BringYourOwnTransaction<Impl: IServiceTransactionConfigBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sztipurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).BringYourOwnTransaction(::core::mem::transmute_copy(&sztipurl)).into()
         }
         unsafe extern "system" fn NewTransactionDescription<Impl: IServiceTransactionConfigBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sztxdesc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).NewTransactionDescription(::core::mem::transmute_copy(&sztxdesc)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4102,19 +4882,25 @@ impl IServiceTransactionConfigBaseVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyImpl: Sized + IDispatchImpl {
-    fn Value();
-    fn SetValue();
+    fn Value(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetValue(&mut self, val: super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISharedPropertyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedPropertyVtbl {
         unsafe extern "system" fn Value<Impl: ISharedPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Value() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetValue<Impl: ISharedPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetValue(::core::mem::transmute_copy(&val)).into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -4128,29 +4914,41 @@ impl ISharedPropertyVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyGroupImpl: Sized + IDispatchImpl {
-    fn CreatePropertyByPosition();
-    fn PropertyByPosition();
-    fn CreateProperty();
-    fn Property();
+    fn CreatePropertyByPosition(&mut self, index: i32, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
+    fn PropertyByPosition(&mut self, index: i32) -> ::windows::core::Result<ISharedProperty>;
+    fn CreateProperty(&mut self, name: super::super::Foundation::BSTR, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
+    fn Property(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedProperty>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISharedPropertyGroupVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedPropertyGroupVtbl {
         unsafe extern "system" fn CreatePropertyByPosition<Impl: ISharedPropertyGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, fexists: *mut i16, ppprop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreatePropertyByPosition(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&fexists), ::core::mem::transmute_copy(&ppprop)).into()
         }
         unsafe extern "system" fn PropertyByPosition<Impl: ISharedPropertyGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, ppproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).PropertyByPosition(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppproperty = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateProperty<Impl: ISharedPropertyGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fexists: *mut i16, ppprop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateProperty(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&fexists), ::core::mem::transmute_copy(&ppprop)).into()
         }
         unsafe extern "system" fn Property<Impl: ISharedPropertyGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Property(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppproperty = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -4166,24 +4964,36 @@ impl ISharedPropertyGroupVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyGroupManagerImpl: Sized + IDispatchImpl {
-    fn CreatePropertyGroup();
-    fn Group();
-    fn _NewEnum();
+    fn CreatePropertyGroup(&mut self, name: super::super::Foundation::BSTR, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut i16, ppgroup: *mut ::core::option::Option<ISharedPropertyGroup>) -> ::windows::core::Result<()>;
+    fn Group(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedPropertyGroup>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISharedPropertyGroupManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroupManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedPropertyGroupManagerVtbl {
         unsafe extern "system" fn CreatePropertyGroup<Impl: ISharedPropertyGroupManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut i16, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreatePropertyGroup(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&dwisomode), ::core::mem::transmute_copy(&dwrelmode), ::core::mem::transmute_copy(&fexists), ::core::mem::transmute_copy(&ppgroup)).into()
         }
         unsafe extern "system" fn Group<Impl: ISharedPropertyGroupManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Group(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: ISharedPropertyGroupManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *retval = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -4198,19 +5008,19 @@ impl ISharedPropertyGroupManagerVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISystemAppEventDataImpl: Sized {
-    fn Startup();
-    fn OnDataChanged();
+    fn Startup(&mut self) -> ::windows::core::Result<()>;
+    fn OnDataChanged(&mut self, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: super::super::Foundation::BSTR, dwreason: u32, u64tracehandle: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISystemAppEventDataVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemAppEventDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemAppEventDataVtbl {
         unsafe extern "system" fn Startup<Impl: ISystemAppEventDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Startup().into()
         }
         unsafe extern "system" fn OnDataChanged<Impl: ISystemAppEventDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwreason: u32, u64tracehandle: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnDataChanged(::core::mem::transmute_copy(&dwpid), ::core::mem::transmute_copy(&dwmask), ::core::mem::transmute_copy(&dwnumbersinks), ::core::mem::transmute_copy(&bstrdwmethodmask), ::core::mem::transmute_copy(&dwreason), ::core::mem::transmute_copy(&u64tracehandle)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4223,58 +5033,58 @@ impl ISystemAppEventDataVtbl {
     }
 }
 pub trait IThreadPoolKnobsImpl: Sized {
-    fn GetMaxThreads();
-    fn GetCurrentThreads();
-    fn SetMaxThreads();
-    fn GetDeleteDelay();
-    fn SetDeleteDelay();
-    fn GetMaxQueuedRequests();
-    fn GetCurrentQueuedRequests();
-    fn SetMaxQueuedRequests();
-    fn SetMinThreads();
-    fn SetQueueDepth();
+    fn GetMaxThreads(&mut self, plcmaxthreads: *mut i32) -> ::windows::core::Result<()>;
+    fn GetCurrentThreads(&mut self, plccurrentthreads: *mut i32) -> ::windows::core::Result<()>;
+    fn SetMaxThreads(&mut self, lcmaxthreads: i32) -> ::windows::core::Result<()>;
+    fn GetDeleteDelay(&mut self, pmsecdeletedelay: *mut i32) -> ::windows::core::Result<()>;
+    fn SetDeleteDelay(&mut self, msecdeletedelay: i32) -> ::windows::core::Result<()>;
+    fn GetMaxQueuedRequests(&mut self, plcmaxqueuedrequests: *mut i32) -> ::windows::core::Result<()>;
+    fn GetCurrentQueuedRequests(&mut self, plccurrentqueuedrequests: *mut i32) -> ::windows::core::Result<()>;
+    fn SetMaxQueuedRequests(&mut self, lcmaxqueuedrequests: i32) -> ::windows::core::Result<()>;
+    fn SetMinThreads(&mut self, lcminthreads: i32) -> ::windows::core::Result<()>;
+    fn SetQueueDepth(&mut self, lcqueuedepth: i32) -> ::windows::core::Result<()>;
 }
 impl IThreadPoolKnobsVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThreadPoolKnobsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThreadPoolKnobsVtbl {
         unsafe extern "system" fn GetMaxThreads<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcmaxthreads: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetMaxThreads(::core::mem::transmute_copy(&plcmaxthreads)).into()
         }
         unsafe extern "system" fn GetCurrentThreads<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plccurrentthreads: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetCurrentThreads(::core::mem::transmute_copy(&plccurrentthreads)).into()
         }
         unsafe extern "system" fn SetMaxThreads<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcmaxthreads: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMaxThreads(::core::mem::transmute_copy(&lcmaxthreads)).into()
         }
         unsafe extern "system" fn GetDeleteDelay<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmsecdeletedelay: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetDeleteDelay(::core::mem::transmute_copy(&pmsecdeletedelay)).into()
         }
         unsafe extern "system" fn SetDeleteDelay<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msecdeletedelay: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDeleteDelay(::core::mem::transmute_copy(&msecdeletedelay)).into()
         }
         unsafe extern "system" fn GetMaxQueuedRequests<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcmaxqueuedrequests: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetMaxQueuedRequests(::core::mem::transmute_copy(&plcmaxqueuedrequests)).into()
         }
         unsafe extern "system" fn GetCurrentQueuedRequests<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plccurrentqueuedrequests: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetCurrentQueuedRequests(::core::mem::transmute_copy(&plccurrentqueuedrequests)).into()
         }
         unsafe extern "system" fn SetMaxQueuedRequests<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcmaxqueuedrequests: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMaxQueuedRequests(::core::mem::transmute_copy(&lcmaxqueuedrequests)).into()
         }
         unsafe extern "system" fn SetMinThreads<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcminthreads: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetMinThreads(::core::mem::transmute_copy(&lcminthreads)).into()
         }
         unsafe extern "system" fn SetQueueDepth<Impl: IThreadPoolKnobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcqueuedepth: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetQueueDepth(::core::mem::transmute_copy(&lcqueuedepth)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4296,24 +5106,30 @@ impl IThreadPoolKnobsVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITransactionContextImpl: Sized + IDispatchImpl {
-    fn CreateInstance();
-    fn Commit();
-    fn Abort();
+    fn CreateInstance(&mut self, pszprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Commit(&mut self) -> ::windows::core::Result<()>;
+    fn Abort(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITransactionContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionContextVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ITransactionContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pobject: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateInstance(::core::mem::transmute_copy(&pszprogid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pobject = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Commit<Impl: ITransactionContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Commit().into()
         }
         unsafe extern "system" fn Abort<Impl: ITransactionContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Abort().into()
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -4327,23 +5143,23 @@ impl ITransactionContextVtbl {
     }
 }
 pub trait ITransactionContextExImpl: Sized {
-    fn CreateInstance();
-    fn Commit();
-    fn Abort();
+    fn CreateInstance(&mut self, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Commit(&mut self) -> ::windows::core::Result<()>;
+    fn Abort(&mut self) -> ::windows::core::Result<()>;
 }
 impl ITransactionContextExVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionContextExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionContextExVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ITransactionContextExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CreateInstance(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pobject)).into()
         }
         unsafe extern "system" fn Commit<Impl: ITransactionContextExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Commit().into()
         }
         unsafe extern "system" fn Abort<Impl: ITransactionContextExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Abort().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4357,98 +5173,104 @@ impl ITransactionContextExVtbl {
     }
 }
 pub trait ITransactionPropertyImpl: Sized {
-    fn Reserved1();
-    fn Reserved2();
-    fn Reserved3();
-    fn Reserved4();
-    fn Reserved5();
-    fn Reserved6();
-    fn Reserved7();
-    fn Reserved8();
-    fn Reserved9();
-    fn GetTransactionResourcePool();
-    fn Reserved10();
-    fn Reserved11();
-    fn Reserved12();
-    fn Reserved13();
-    fn Reserved14();
-    fn Reserved15();
-    fn Reserved16();
-    fn Reserved17();
+    fn Reserved1(&mut self);
+    fn Reserved2(&mut self);
+    fn Reserved3(&mut self);
+    fn Reserved4(&mut self);
+    fn Reserved5(&mut self);
+    fn Reserved6(&mut self);
+    fn Reserved7(&mut self);
+    fn Reserved8(&mut self);
+    fn Reserved9(&mut self);
+    fn GetTransactionResourcePool(&mut self) -> ::windows::core::Result<ITransactionResourcePool>;
+    fn Reserved10(&mut self);
+    fn Reserved11(&mut self);
+    fn Reserved12(&mut self);
+    fn Reserved13(&mut self);
+    fn Reserved14(&mut self);
+    fn Reserved15(&mut self);
+    fn Reserved16(&mut self);
+    fn Reserved17(&mut self);
 }
 impl ITransactionPropertyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionPropertyVtbl {
         unsafe extern "system" fn Reserved1<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved1()
         }
         unsafe extern "system" fn Reserved2<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved2()
         }
         unsafe extern "system" fn Reserved3<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved3()
         }
         unsafe extern "system" fn Reserved4<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved4()
         }
         unsafe extern "system" fn Reserved5<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved5()
         }
         unsafe extern "system" fn Reserved6<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved6()
         }
         unsafe extern "system" fn Reserved7<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved7()
         }
         unsafe extern "system" fn Reserved8<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved8()
         }
         unsafe extern "system" fn Reserved9<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved9()
         }
         unsafe extern "system" fn GetTransactionResourcePool<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptxpool: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTransactionResourcePool() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pptxpool = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Reserved10<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved10()
         }
         unsafe extern "system" fn Reserved11<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved11()
         }
         unsafe extern "system" fn Reserved12<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved12()
         }
         unsafe extern "system" fn Reserved13<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved13()
         }
         unsafe extern "system" fn Reserved14<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved14()
         }
         unsafe extern "system" fn Reserved15<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved15()
         }
         unsafe extern "system" fn Reserved16<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved16()
         }
         unsafe extern "system" fn Reserved17<Impl: ITransactionPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Reserved17()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4478,44 +5300,56 @@ impl ITransactionPropertyVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait ITransactionProxyImpl: Sized {
-    fn Commit();
-    fn Abort();
-    fn Promote();
-    fn CreateVoter();
-    fn GetIsolationLevel();
-    fn GetIdentifier();
-    fn IsReusable();
+    fn Commit(&mut self, guid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Abort(&mut self) -> ::windows::core::Result<()>;
+    fn Promote(&mut self) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransaction>;
+    fn CreateVoter(&mut self, ptxasync: ::core::option::Option<super::DistributedTransactionCoordinator::ITransactionVoterNotifyAsync2>) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>;
+    fn GetIsolationLevel(&mut self, __midl__itransactionproxy0000: *mut i32) -> ::windows::core::Result<()>;
+    fn GetIdentifier(&mut self, pbstridentifier: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn IsReusable(&mut self, pfisreusable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 impl ITransactionProxyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionProxyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionProxyVtbl {
         unsafe extern "system" fn Commit<Impl: ITransactionProxyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Commit(::core::mem::transmute_copy(&guid)).into()
         }
         unsafe extern "system" fn Abort<Impl: ITransactionProxyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Abort().into()
         }
         unsafe extern "system" fn Promote<Impl: ITransactionProxyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Promote() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ptransaction = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateVoter<Impl: ITransactionProxyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptxasync: ::windows::core::RawPtr, ppballot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateVoter(::core::mem::transmute(&ptxasync)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppballot = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIsolationLevel<Impl: ITransactionProxyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__itransactionproxy0000: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetIsolationLevel(::core::mem::transmute_copy(&__midl__itransactionproxy0000)).into()
         }
         unsafe extern "system" fn GetIdentifier<Impl: ITransactionProxyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstridentifier: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetIdentifier(::core::mem::transmute_copy(&pbstridentifier)).into()
         }
         unsafe extern "system" fn IsReusable<Impl: ITransactionProxyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisreusable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsReusable(::core::mem::transmute_copy(&pfisreusable)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4533,18 +5367,24 @@ impl ITransactionProxyVtbl {
     }
 }
 pub trait ITransactionResourcePoolImpl: Sized {
-    fn PutResource();
-    fn GetResource();
+    fn PutResource(&mut self, ppool: ::core::option::Option<IObjPool>, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetResource(&mut self, ppool: ::core::option::Option<IObjPool>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ITransactionResourcePoolVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionResourcePoolImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionResourcePoolVtbl {
         unsafe extern "system" fn PutResource<Impl: ITransactionResourcePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppool: ::windows::core::RawPtr, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).PutResource(::core::mem::transmute(&ppool), ::core::mem::transmute(&punk)).into()
         }
         unsafe extern "system" fn GetResource<Impl: ITransactionResourcePoolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppool: ::windows::core::RawPtr, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetResource(::core::mem::transmute(&ppool)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppunk = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4557,18 +5397,18 @@ impl ITransactionResourcePoolVtbl {
     }
 }
 pub trait ITransactionStatusImpl: Sized {
-    fn SetTransactionStatus();
-    fn GetTransactionStatus();
+    fn SetTransactionStatus(&mut self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn GetTransactionStatus(&mut self, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl ITransactionStatusVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionStatusVtbl {
         unsafe extern "system" fn SetTransactionStatus<Impl: ITransactionStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTransactionStatus(::core::mem::transmute_copy(&hrstatus)).into()
         }
         unsafe extern "system" fn GetTransactionStatus<Impl: ITransactionStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetTransactionStatus(::core::mem::transmute_copy(&phrstatus)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4581,13 +5421,13 @@ impl ITransactionStatusVtbl {
     }
 }
 pub trait ITxProxyHolderImpl: Sized {
-    fn GetIdentifier();
+    fn GetIdentifier(&mut self, pguidltx: *mut ::windows::core::GUID);
 }
 impl ITxProxyHolderVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITxProxyHolderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITxProxyHolderVtbl {
         unsafe extern "system" fn GetIdentifier<Impl: ITxProxyHolderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidltx: *mut ::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetIdentifier(::core::mem::transmute_copy(&pguidltx))
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetIdentifier: GetIdentifier::<Impl, IMPL_OFFSET> }
     }
@@ -4597,74 +5437,128 @@ impl ITxProxyHolderVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ObjectContextImpl: Sized + IDispatchImpl {
-    fn CreateInstance();
-    fn SetComplete();
-    fn SetAbort();
-    fn EnableCommit();
-    fn DisableCommit();
-    fn IsInTransaction();
-    fn IsSecurityEnabled();
-    fn IsCallerInRole();
-    fn Count();
-    fn Item();
-    fn _NewEnum();
-    fn Security();
-    fn ContextInfo();
+    fn CreateInstance(&mut self, bstrprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetComplete(&mut self) -> ::windows::core::Result<()>;
+    fn SetAbort(&mut self) -> ::windows::core::Result<()>;
+    fn EnableCommit(&mut self) -> ::windows::core::Result<()>;
+    fn DisableCommit(&mut self) -> ::windows::core::Result<()>;
+    fn IsInTransaction(&mut self) -> ::windows::core::Result<i16>;
+    fn IsSecurityEnabled(&mut self) -> ::windows::core::Result<i16>;
+    fn IsCallerInRole(&mut self, bstrrole: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Security(&mut self) -> ::windows::core::Result<SecurityProperty>;
+    fn ContextInfo(&mut self) -> ::windows::core::Result<ContextInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ObjectContextVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ObjectContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ObjectContextVtbl {
         unsafe extern "system" fn CreateInstance<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pobject: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateInstance(::core::mem::transmute_copy(&bstrprogid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pobject = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetComplete<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetComplete().into()
         }
         unsafe extern "system" fn SetAbort<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAbort().into()
         }
         unsafe extern "system" fn EnableCommit<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).EnableCommit().into()
         }
         unsafe extern "system" fn DisableCommit<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).DisableCommit().into()
         }
         unsafe extern "system" fn IsInTransaction<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisintx: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsInTransaction() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbisintx = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsSecurityEnabled<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsSecurityEnabled() {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbisenabled = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn IsCallerInRole<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrole: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbinrole: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).IsCallerInRole(::core::mem::transmute_copy(&bstrrole)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pbinrole = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Count<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    *plcount = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Item(::core::mem::transmute_copy(&name)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pitem = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn _NewEnum<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this)._NewEnum() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppenum = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Security<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Security() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppsecurityproperty = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ContextInfo<Impl: ObjectContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontextinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).ContextInfo() {
+                ::core::result::Result::Ok(ok__) => {
+                    *ppcontextinfo = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -4688,23 +5582,23 @@ impl ObjectContextVtbl {
     }
 }
 pub trait ObjectControlImpl: Sized {
-    fn Activate();
-    fn Deactivate();
-    fn CanBePooled();
+    fn Activate(&mut self) -> ::windows::core::Result<()>;
+    fn Deactivate(&mut self) -> ::windows::core::Result<()>;
+    fn CanBePooled(&mut self, pbpoolable: *mut i16) -> ::windows::core::Result<()>;
 }
 impl ObjectControlVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ObjectControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ObjectControlVtbl {
         unsafe extern "system" fn Activate<Impl: ObjectControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Activate().into()
         }
         unsafe extern "system" fn Deactivate<Impl: ObjectControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Deactivate().into()
         }
         unsafe extern "system" fn CanBePooled<Impl: ObjectControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbpoolable: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).CanBePooled(::core::mem::transmute_copy(&pbpoolable)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -4719,29 +5613,53 @@ impl ObjectControlVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait SecurityPropertyImpl: Sized + IDispatchImpl {
-    fn GetDirectCallerName();
-    fn GetDirectCreatorName();
-    fn GetOriginalCallerName();
-    fn GetOriginalCreatorName();
+    fn GetDirectCallerName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDirectCreatorName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetOriginalCallerName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetOriginalCreatorName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl SecurityPropertyVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: SecurityPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> SecurityPropertyVtbl {
         unsafe extern "system" fn GetDirectCallerName<Impl: SecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDirectCallerName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *bstrusername = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetDirectCreatorName<Impl: SecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDirectCreatorName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *bstrusername = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetOriginalCallerName<Impl: SecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetOriginalCallerName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *bstrusername = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetOriginalCreatorName<Impl: SecurityPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetOriginalCreatorName() {
+                ::core::result::Result::Ok(ok__) => {
+                    *bstrusername = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),

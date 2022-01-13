@@ -1,41 +1,65 @@
 pub trait IUIAnimationInterpolatorImpl: Sized {
-    fn SetInitialValueAndVelocity();
-    fn SetDuration();
-    fn GetDuration();
-    fn GetFinalValue();
-    fn InterpolateValue();
-    fn InterpolateVelocity();
-    fn GetDependencies();
+    fn SetInitialValueAndVelocity(&mut self, initialvalue: f64, initialvelocity: f64) -> ::windows::core::Result<()>;
+    fn SetDuration(&mut self, duration: f64) -> ::windows::core::Result<()>;
+    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
+    fn GetFinalValue(&mut self) -> ::windows::core::Result<f64>;
+    fn InterpolateValue(&mut self, offset: f64) -> ::windows::core::Result<f64>;
+    fn InterpolateVelocity(&mut self, offset: f64) -> ::windows::core::Result<f64>;
+    fn GetDependencies(&mut self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationInterpolatorVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationInterpolatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationInterpolatorVtbl {
         unsafe extern "system" fn SetInitialValueAndVelocity<Impl: IUIAnimationInterpolatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: f64, initialvelocity: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialValueAndVelocity(::core::mem::transmute_copy(&initialvalue), ::core::mem::transmute_copy(&initialvelocity)).into()
         }
         unsafe extern "system" fn SetDuration<Impl: IUIAnimationInterpolatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDuration(::core::mem::transmute_copy(&duration)).into()
         }
         unsafe extern "system" fn GetDuration<Impl: IUIAnimationInterpolatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *duration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFinalValue<Impl: IUIAnimationInterpolatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFinalValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InterpolateValue<Impl: IUIAnimationInterpolatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: f64, value: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InterpolateValue(::core::mem::transmute_copy(&offset)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn InterpolateVelocity<Impl: IUIAnimationInterpolatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: f64, velocity: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).InterpolateVelocity(::core::mem::transmute_copy(&offset)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *velocity = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetDependencies<Impl: IUIAnimationInterpolatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetDependencies(::core::mem::transmute_copy(&initialvaluedependencies), ::core::mem::transmute_copy(&initialvelocitydependencies), ::core::mem::transmute_copy(&durationdependencies)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -53,53 +77,65 @@ impl IUIAnimationInterpolatorVtbl {
     }
 }
 pub trait IUIAnimationInterpolator2Impl: Sized {
-    fn GetDimension();
-    fn SetInitialValueAndVelocity();
-    fn SetDuration();
-    fn GetDuration();
-    fn GetFinalValue();
-    fn InterpolateValue();
-    fn InterpolateVelocity();
-    fn GetPrimitiveInterpolation();
-    fn GetDependencies();
+    fn GetDimension(&mut self) -> ::windows::core::Result<u32>;
+    fn SetInitialValueAndVelocity(&mut self, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetDuration(&mut self, duration: f64) -> ::windows::core::Result<()>;
+    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
+    fn GetFinalValue(&mut self, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn InterpolateValue(&mut self, offset: f64, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn InterpolateVelocity(&mut self, offset: f64, velocity: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetPrimitiveInterpolation(&mut self, interpolation: ::core::option::Option<IUIAnimationPrimitiveInterpolation>, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetDependencies(&mut self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationInterpolator2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationInterpolator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationInterpolator2Vtbl {
         unsafe extern "system" fn GetDimension<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dimension: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDimension() {
+                ::core::result::Result::Ok(ok__) => {
+                    *dimension = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialValueAndVelocity<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialValueAndVelocity(::core::mem::transmute_copy(&initialvalue), ::core::mem::transmute_copy(&initialvelocity), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn SetDuration<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDuration(::core::mem::transmute_copy(&duration)).into()
         }
         unsafe extern "system" fn GetDuration<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *duration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFinalValue<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetFinalValue(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn InterpolateValue<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: f64, value: *mut f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InterpolateValue(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn InterpolateVelocity<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: f64, velocity: *mut f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).InterpolateVelocity(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&velocity), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetPrimitiveInterpolation<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interpolation: ::windows::core::RawPtr, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetPrimitiveInterpolation(::core::mem::transmute(&interpolation), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetDependencies<Impl: IUIAnimationInterpolator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetDependencies(::core::mem::transmute_copy(&initialvaluedependencies), ::core::mem::transmute_copy(&initialvelocitydependencies), ::core::mem::transmute_copy(&durationdependencies)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -119,13 +155,13 @@ impl IUIAnimationInterpolator2Vtbl {
     }
 }
 pub trait IUIAnimationLoopIterationChangeHandler2Impl: Sized {
-    fn OnLoopIterationChanged();
+    fn OnLoopIterationChanged(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard2>, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationLoopIterationChangeHandler2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationLoopIterationChangeHandler2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationLoopIterationChangeHandler2Vtbl {
         unsafe extern "system" fn OnLoopIterationChanged<Impl: IUIAnimationLoopIterationChangeHandler2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnLoopIterationChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&newiterationcount), ::core::mem::transmute_copy(&olditerationcount)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnLoopIterationChanged: OnLoopIterationChanged::<Impl, IMPL_OFFSET> }
     }
@@ -134,103 +170,139 @@ impl IUIAnimationLoopIterationChangeHandler2Vtbl {
     }
 }
 pub trait IUIAnimationManagerImpl: Sized {
-    fn CreateAnimationVariable();
-    fn ScheduleTransition();
-    fn CreateStoryboard();
-    fn FinishAllStoryboards();
-    fn AbandonAllStoryboards();
-    fn Update();
-    fn GetVariableFromTag();
-    fn GetStoryboardFromTag();
-    fn GetStatus();
-    fn SetAnimationMode();
-    fn Pause();
-    fn Resume();
-    fn SetManagerEventHandler();
-    fn SetCancelPriorityComparison();
-    fn SetTrimPriorityComparison();
-    fn SetCompressPriorityComparison();
-    fn SetConcludePriorityComparison();
-    fn SetDefaultLongestAcceptableDelay();
-    fn Shutdown();
+    fn CreateAnimationVariable(&mut self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable>;
+    fn ScheduleTransition(&mut self, variable: ::core::option::Option<IUIAnimationVariable>, transition: ::core::option::Option<IUIAnimationTransition>, timenow: f64) -> ::windows::core::Result<()>;
+    fn CreateStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard>;
+    fn FinishAllStoryboards(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn AbandonAllStoryboards(&mut self) -> ::windows::core::Result<()>;
+    fn Update(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn GetVariableFromTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable>;
+    fn GetStoryboardFromTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard>;
+    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS>;
+    fn SetAnimationMode(&mut self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()>;
+    fn Pause(&mut self) -> ::windows::core::Result<()>;
+    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn SetManagerEventHandler(&mut self, handler: ::core::option::Option<IUIAnimationManagerEventHandler>) -> ::windows::core::Result<()>;
+    fn SetCancelPriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetTrimPriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetCompressPriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetConcludePriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetDefaultLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
+    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationManagerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationManagerVtbl {
         unsafe extern "system" fn CreateAnimationVariable<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: f64, variable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateAnimationVariable(::core::mem::transmute_copy(&initialvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *variable = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ScheduleTransition<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr, timenow: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ScheduleTransition(::core::mem::transmute(&variable), ::core::mem::transmute(&transition), ::core::mem::transmute_copy(&timenow)).into()
         }
         unsafe extern "system" fn CreateStoryboard<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateStoryboard() {
+                ::core::result::Result::Ok(ok__) => {
+                    *storyboard = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn FinishAllStoryboards<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FinishAllStoryboards(::core::mem::transmute_copy(&completiondeadline)).into()
         }
         unsafe extern "system" fn AbandonAllStoryboards<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AbandonAllStoryboards().into()
         }
         unsafe extern "system" fn Update<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Update(::core::mem::transmute_copy(&timenow)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *updateresult = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetVariableFromTag<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, variable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetVariableFromTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *variable = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStoryboardFromTag<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, storyboard: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStoryboardFromTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *storyboard = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStatus<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStatus() {
+                ::core::result::Result::Ok(ok__) => {
+                    *status = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAnimationMode<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAnimationMode(::core::mem::transmute_copy(&mode)).into()
         }
         unsafe extern "system" fn Pause<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Pause().into()
         }
         unsafe extern "system" fn Resume<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Resume().into()
         }
         unsafe extern "system" fn SetManagerEventHandler<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetManagerEventHandler(::core::mem::transmute(&handler)).into()
         }
         unsafe extern "system" fn SetCancelPriorityComparison<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCancelPriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetTrimPriorityComparison<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTrimPriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetCompressPriorityComparison<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCompressPriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetConcludePriorityComparison<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetConcludePriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetDefaultLongestAcceptableDelay<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDefaultLongestAcceptableDelay(::core::mem::transmute_copy(&delay)).into()
         }
         unsafe extern "system" fn Shutdown<Impl: IUIAnimationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Shutdown().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -261,114 +333,162 @@ impl IUIAnimationManagerVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationManager2Impl: Sized {
-    fn CreateAnimationVectorVariable();
-    fn CreateAnimationVariable();
-    fn ScheduleTransition();
-    fn CreateStoryboard();
-    fn FinishAllStoryboards();
-    fn AbandonAllStoryboards();
-    fn Update();
-    fn GetVariableFromTag();
-    fn GetStoryboardFromTag();
-    fn EstimateNextEventTime();
-    fn GetStatus();
-    fn SetAnimationMode();
-    fn Pause();
-    fn Resume();
-    fn SetManagerEventHandler();
-    fn SetCancelPriorityComparison();
-    fn SetTrimPriorityComparison();
-    fn SetCompressPriorityComparison();
-    fn SetConcludePriorityComparison();
-    fn SetDefaultLongestAcceptableDelay();
-    fn Shutdown();
+    fn CreateAnimationVectorVariable(&mut self, initialvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
+    fn CreateAnimationVariable(&mut self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable2>;
+    fn ScheduleTransition(&mut self, variable: ::core::option::Option<IUIAnimationVariable2>, transition: ::core::option::Option<IUIAnimationTransition2>, timenow: f64) -> ::windows::core::Result<()>;
+    fn CreateStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard2>;
+    fn FinishAllStoryboards(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn AbandonAllStoryboards(&mut self) -> ::windows::core::Result<()>;
+    fn Update(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn GetVariableFromTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
+    fn GetStoryboardFromTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard2>;
+    fn EstimateNextEventTime(&mut self) -> ::windows::core::Result<f64>;
+    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS>;
+    fn SetAnimationMode(&mut self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()>;
+    fn Pause(&mut self) -> ::windows::core::Result<()>;
+    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn SetManagerEventHandler(&mut self, handler: ::core::option::Option<IUIAnimationManagerEventHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetCancelPriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetTrimPriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetCompressPriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetConcludePriorityComparison(&mut self, comparison: ::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetDefaultLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
+    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAnimationManager2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationManager2Vtbl {
         unsafe extern "system" fn CreateAnimationVectorVariable<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: *const f64, cdimension: u32, variable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateAnimationVectorVariable(::core::mem::transmute_copy(&initialvalue), ::core::mem::transmute_copy(&cdimension)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *variable = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateAnimationVariable<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: f64, variable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateAnimationVariable(::core::mem::transmute_copy(&initialvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *variable = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ScheduleTransition<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr, timenow: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ScheduleTransition(::core::mem::transmute(&variable), ::core::mem::transmute(&transition), ::core::mem::transmute_copy(&timenow)).into()
         }
         unsafe extern "system" fn CreateStoryboard<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateStoryboard() {
+                ::core::result::Result::Ok(ok__) => {
+                    *storyboard = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn FinishAllStoryboards<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).FinishAllStoryboards(::core::mem::transmute_copy(&completiondeadline)).into()
         }
         unsafe extern "system" fn AbandonAllStoryboards<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AbandonAllStoryboards().into()
         }
         unsafe extern "system" fn Update<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Update(::core::mem::transmute_copy(&timenow)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *updateresult = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetVariableFromTag<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, variable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetVariableFromTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *variable = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStoryboardFromTag<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, storyboard: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStoryboardFromTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *storyboard = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn EstimateNextEventTime<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).EstimateNextEventTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *seconds = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetStatus<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStatus() {
+                ::core::result::Result::Ok(ok__) => {
+                    *status = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetAnimationMode<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetAnimationMode(::core::mem::transmute_copy(&mode)).into()
         }
         unsafe extern "system" fn Pause<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Pause().into()
         }
         unsafe extern "system" fn Resume<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Resume().into()
         }
         unsafe extern "system" fn SetManagerEventHandler<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetManagerEventHandler(::core::mem::transmute(&handler), ::core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
         }
         unsafe extern "system" fn SetCancelPriorityComparison<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCancelPriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetTrimPriorityComparison<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTrimPriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetCompressPriorityComparison<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetCompressPriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetConcludePriorityComparison<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparison: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetConcludePriorityComparison(::core::mem::transmute(&comparison)).into()
         }
         unsafe extern "system" fn SetDefaultLongestAcceptableDelay<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetDefaultLongestAcceptableDelay(::core::mem::transmute_copy(&delay)).into()
         }
         unsafe extern "system" fn Shutdown<Impl: IUIAnimationManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Shutdown().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -400,13 +520,13 @@ impl IUIAnimationManager2Vtbl {
     }
 }
 pub trait IUIAnimationManagerEventHandlerImpl: Sized {
-    fn OnManagerStatusChanged();
+    fn OnManagerStatusChanged(&mut self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationManagerEventHandlerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationManagerEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationManagerEventHandlerVtbl {
         unsafe extern "system" fn OnManagerStatusChanged<Impl: IUIAnimationManagerEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnManagerStatusChanged(::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Impl, IMPL_OFFSET> }
     }
@@ -415,13 +535,13 @@ impl IUIAnimationManagerEventHandlerVtbl {
     }
 }
 pub trait IUIAnimationManagerEventHandler2Impl: Sized {
-    fn OnManagerStatusChanged();
+    fn OnManagerStatusChanged(&mut self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationManagerEventHandler2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationManagerEventHandler2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationManagerEventHandler2Vtbl {
         unsafe extern "system" fn OnManagerStatusChanged<Impl: IUIAnimationManagerEventHandler2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnManagerStatusChanged(::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Impl, IMPL_OFFSET> }
     }
@@ -430,18 +550,18 @@ impl IUIAnimationManagerEventHandler2Vtbl {
     }
 }
 pub trait IUIAnimationPrimitiveInterpolationImpl: Sized {
-    fn AddCubic();
-    fn AddSinusoidal();
+    fn AddCubic(&mut self, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::Result<()>;
+    fn AddSinusoidal(&mut self, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationPrimitiveInterpolationVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationPrimitiveInterpolationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationPrimitiveInterpolationVtbl {
         unsafe extern "system" fn AddCubic<Impl: IUIAnimationPrimitiveInterpolationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddCubic(::core::mem::transmute_copy(&dimension), ::core::mem::transmute_copy(&beginoffset), ::core::mem::transmute_copy(&constantcoefficient), ::core::mem::transmute_copy(&linearcoefficient), ::core::mem::transmute_copy(&quadraticcoefficient), ::core::mem::transmute_copy(&cubiccoefficient)).into()
         }
         unsafe extern "system" fn AddSinusoidal<Impl: IUIAnimationPrimitiveInterpolationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddSinusoidal(::core::mem::transmute_copy(&dimension), ::core::mem::transmute_copy(&beginoffset), ::core::mem::transmute_copy(&bias), ::core::mem::transmute_copy(&amplitude), ::core::mem::transmute_copy(&frequency), ::core::mem::transmute_copy(&phase)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -454,13 +574,13 @@ impl IUIAnimationPrimitiveInterpolationVtbl {
     }
 }
 pub trait IUIAnimationPriorityComparisonImpl: Sized {
-    fn HasPriority();
+    fn HasPriority(&mut self, scheduledstoryboard: ::core::option::Option<IUIAnimationStoryboard>, newstoryboard: ::core::option::Option<IUIAnimationStoryboard>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationPriorityComparisonVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationPriorityComparisonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationPriorityComparisonVtbl {
         unsafe extern "system" fn HasPriority<Impl: IUIAnimationPriorityComparisonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheduledstoryboard: ::windows::core::RawPtr, newstoryboard: ::windows::core::RawPtr, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).HasPriority(::core::mem::transmute(&scheduledstoryboard), ::core::mem::transmute(&newstoryboard), ::core::mem::transmute_copy(&priorityeffect)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), HasPriority: HasPriority::<Impl, IMPL_OFFSET> }
     }
@@ -469,13 +589,13 @@ impl IUIAnimationPriorityComparisonVtbl {
     }
 }
 pub trait IUIAnimationPriorityComparison2Impl: Sized {
-    fn HasPriority();
+    fn HasPriority(&mut self, scheduledstoryboard: ::core::option::Option<IUIAnimationStoryboard2>, newstoryboard: ::core::option::Option<IUIAnimationStoryboard2>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationPriorityComparison2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationPriorityComparison2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationPriorityComparison2Vtbl {
         unsafe extern "system" fn HasPriority<Impl: IUIAnimationPriorityComparison2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheduledstoryboard: ::windows::core::RawPtr, newstoryboard: ::windows::core::RawPtr, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).HasPriority(::core::mem::transmute(&scheduledstoryboard), ::core::mem::transmute(&newstoryboard), ::core::mem::transmute_copy(&priorityeffect)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), HasPriority: HasPriority::<Impl, IMPL_OFFSET> }
     }
@@ -484,93 +604,123 @@ impl IUIAnimationPriorityComparison2Vtbl {
     }
 }
 pub trait IUIAnimationStoryboardImpl: Sized {
-    fn AddTransition();
-    fn AddKeyframeAtOffset();
-    fn AddKeyframeAfterTransition();
-    fn AddTransitionAtKeyframe();
-    fn AddTransitionBetweenKeyframes();
-    fn RepeatBetweenKeyframes();
-    fn HoldVariable();
-    fn SetLongestAcceptableDelay();
-    fn Schedule();
-    fn Conclude();
-    fn Finish();
-    fn Abandon();
-    fn SetTag();
-    fn GetTag();
-    fn GetStatus();
-    fn GetElapsedTime();
-    fn SetStoryboardEventHandler();
+    fn AddTransition(&mut self, variable: ::core::option::Option<IUIAnimationVariable>, transition: ::core::option::Option<IUIAnimationTransition>) -> ::windows::core::Result<()>;
+    fn AddKeyframeAtOffset(&mut self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddKeyframeAfterTransition(&mut self, transition: ::core::option::Option<IUIAnimationTransition>) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddTransitionAtKeyframe(&mut self, variable: ::core::option::Option<IUIAnimationVariable>, transition: ::core::option::Option<IUIAnimationTransition>, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn AddTransitionBetweenKeyframes(&mut self, variable: ::core::option::Option<IUIAnimationVariable>, transition: ::core::option::Option<IUIAnimationTransition>, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn RepeatBetweenKeyframes(&mut self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> ::windows::core::Result<()>;
+    fn HoldVariable(&mut self, variable: ::core::option::Option<IUIAnimationVariable>) -> ::windows::core::Result<()>;
+    fn SetLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
+    fn Schedule(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Conclude(&mut self) -> ::windows::core::Result<()>;
+    fn Finish(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn Abandon(&mut self) -> ::windows::core::Result<()>;
+    fn SetTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS>;
+    fn GetElapsedTime(&mut self) -> ::windows::core::Result<f64>;
+    fn SetStoryboardEventHandler(&mut self, handler: ::core::option::Option<IUIAnimationStoryboardEventHandler>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationStoryboardVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationStoryboardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationStoryboardVtbl {
         unsafe extern "system" fn AddTransition<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddTransition(::core::mem::transmute(&variable), ::core::mem::transmute(&transition)).into()
         }
         unsafe extern "system" fn AddKeyframeAtOffset<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AddKeyframeAtOffset(::core::mem::transmute_copy(&existingkeyframe), ::core::mem::transmute_copy(&offset)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *keyframe = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddKeyframeAfterTransition<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transition: ::windows::core::RawPtr, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AddKeyframeAfterTransition(::core::mem::transmute(&transition)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *keyframe = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddTransitionAtKeyframe<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddTransitionAtKeyframe(::core::mem::transmute(&variable), ::core::mem::transmute(&transition), ::core::mem::transmute_copy(&startkeyframe)).into()
         }
         unsafe extern "system" fn AddTransitionBetweenKeyframes<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddTransitionBetweenKeyframes(::core::mem::transmute(&variable), ::core::mem::transmute(&transition), ::core::mem::transmute_copy(&startkeyframe), ::core::mem::transmute_copy(&endkeyframe)).into()
         }
         unsafe extern "system" fn RepeatBetweenKeyframes<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RepeatBetweenKeyframes(::core::mem::transmute_copy(&startkeyframe), ::core::mem::transmute_copy(&endkeyframe), ::core::mem::transmute_copy(&repetitioncount)).into()
         }
         unsafe extern "system" fn HoldVariable<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).HoldVariable(::core::mem::transmute(&variable)).into()
         }
         unsafe extern "system" fn SetLongestAcceptableDelay<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLongestAcceptableDelay(::core::mem::transmute_copy(&delay)).into()
         }
         unsafe extern "system" fn Schedule<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Schedule(::core::mem::transmute_copy(&timenow)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *schedulingresult = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Conclude<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Conclude().into()
         }
         unsafe extern "system" fn Finish<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Finish(::core::mem::transmute_copy(&completiondeadline)).into()
         }
         unsafe extern "system" fn Abandon<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Abandon().into()
         }
         unsafe extern "system" fn SetTag<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn GetTag<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetTag(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn GetStatus<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStatus() {
+                ::core::result::Result::Ok(ok__) => {
+                    *status = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetElapsedTime<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, elapsedtime: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetElapsedTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *elapsedtime = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetStoryboardEventHandler<Impl: IUIAnimationStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetStoryboardEventHandler(::core::mem::transmute(&handler)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -599,99 +749,129 @@ impl IUIAnimationStoryboardVtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationStoryboard2Impl: Sized {
-    fn AddTransition();
-    fn AddKeyframeAtOffset();
-    fn AddKeyframeAfterTransition();
-    fn AddTransitionAtKeyframe();
-    fn AddTransitionBetweenKeyframes();
-    fn RepeatBetweenKeyframes();
-    fn HoldVariable();
-    fn SetLongestAcceptableDelay();
-    fn SetSkipDuration();
-    fn Schedule();
-    fn Conclude();
-    fn Finish();
-    fn Abandon();
-    fn SetTag();
-    fn GetTag();
-    fn GetStatus();
-    fn GetElapsedTime();
-    fn SetStoryboardEventHandler();
+    fn AddTransition(&mut self, variable: ::core::option::Option<IUIAnimationVariable2>, transition: ::core::option::Option<IUIAnimationTransition2>) -> ::windows::core::Result<()>;
+    fn AddKeyframeAtOffset(&mut self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddKeyframeAfterTransition(&mut self, transition: ::core::option::Option<IUIAnimationTransition2>) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddTransitionAtKeyframe(&mut self, variable: ::core::option::Option<IUIAnimationVariable2>, transition: ::core::option::Option<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn AddTransitionBetweenKeyframes(&mut self, variable: ::core::option::Option<IUIAnimationVariable2>, transition: ::core::option::Option<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn RepeatBetweenKeyframes(&mut self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: ::core::option::Option<IUIAnimationLoopIterationChangeHandler2>, id: usize, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn HoldVariable(&mut self, variable: ::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
+    fn SetLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
+    fn SetSkipDuration(&mut self, secondsduration: f64) -> ::windows::core::Result<()>;
+    fn Schedule(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Conclude(&mut self) -> ::windows::core::Result<()>;
+    fn Finish(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn Abandon(&mut self) -> ::windows::core::Result<()>;
+    fn SetTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS>;
+    fn GetElapsedTime(&mut self) -> ::windows::core::Result<f64>;
+    fn SetStoryboardEventHandler(&mut self, handler: ::core::option::Option<IUIAnimationStoryboardEventHandler2>, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAnimationStoryboard2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationStoryboard2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationStoryboard2Vtbl {
         unsafe extern "system" fn AddTransition<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddTransition(::core::mem::transmute(&variable), ::core::mem::transmute(&transition)).into()
         }
         unsafe extern "system" fn AddKeyframeAtOffset<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AddKeyframeAtOffset(::core::mem::transmute_copy(&existingkeyframe), ::core::mem::transmute_copy(&offset)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *keyframe = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddKeyframeAfterTransition<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transition: ::windows::core::RawPtr, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).AddKeyframeAfterTransition(::core::mem::transmute(&transition)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *keyframe = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddTransitionAtKeyframe<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddTransitionAtKeyframe(::core::mem::transmute(&variable), ::core::mem::transmute(&transition), ::core::mem::transmute_copy(&startkeyframe)).into()
         }
         unsafe extern "system" fn AddTransitionBetweenKeyframes<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr, transition: ::windows::core::RawPtr, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).AddTransitionBetweenKeyframes(::core::mem::transmute(&variable), ::core::mem::transmute(&transition), ::core::mem::transmute_copy(&startkeyframe), ::core::mem::transmute_copy(&endkeyframe)).into()
         }
         unsafe extern "system" fn RepeatBetweenKeyframes<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: ::windows::core::RawPtr, id: usize, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).RepeatBetweenKeyframes(::core::mem::transmute_copy(&startkeyframe), ::core::mem::transmute_copy(&endkeyframe), ::core::mem::transmute_copy(&crepetition), ::core::mem::transmute_copy(&repeatmode), ::core::mem::transmute(&piterationchangehandler), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
         }
         unsafe extern "system" fn HoldVariable<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).HoldVariable(::core::mem::transmute(&variable)).into()
         }
         unsafe extern "system" fn SetLongestAcceptableDelay<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLongestAcceptableDelay(::core::mem::transmute_copy(&delay)).into()
         }
         unsafe extern "system" fn SetSkipDuration<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, secondsduration: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetSkipDuration(::core::mem::transmute_copy(&secondsduration)).into()
         }
         unsafe extern "system" fn Schedule<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).Schedule(::core::mem::transmute_copy(&timenow)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *schedulingresult = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Conclude<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Conclude().into()
         }
         unsafe extern "system" fn Finish<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Finish(::core::mem::transmute_copy(&completiondeadline)).into()
         }
         unsafe extern "system" fn Abandon<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Abandon().into()
         }
         unsafe extern "system" fn SetTag<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn GetTag<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetTag(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn GetStatus<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetStatus() {
+                ::core::result::Result::Ok(ok__) => {
+                    *status = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetElapsedTime<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, elapsedtime: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetElapsedTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *elapsedtime = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetStoryboardEventHandler<Impl: IUIAnimationStoryboard2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetStoryboardEventHandler(::core::mem::transmute(&handler), ::core::mem::transmute_copy(&fregisterstatuschangefornextanimationevent), ::core::mem::transmute_copy(&fregisterupdatefornextanimationevent)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -720,18 +900,18 @@ impl IUIAnimationStoryboard2Vtbl {
     }
 }
 pub trait IUIAnimationStoryboardEventHandlerImpl: Sized {
-    fn OnStoryboardStatusChanged();
-    fn OnStoryboardUpdated();
+    fn OnStoryboardStatusChanged(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
+    fn OnStoryboardUpdated(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationStoryboardEventHandlerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationStoryboardEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationStoryboardEventHandlerVtbl {
         unsafe extern "system" fn OnStoryboardStatusChanged<Impl: IUIAnimationStoryboardEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnStoryboardStatusChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
         unsafe extern "system" fn OnStoryboardUpdated<Impl: IUIAnimationStoryboardEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnStoryboardUpdated(::core::mem::transmute(&storyboard)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -744,18 +924,18 @@ impl IUIAnimationStoryboardEventHandlerVtbl {
     }
 }
 pub trait IUIAnimationStoryboardEventHandler2Impl: Sized {
-    fn OnStoryboardStatusChanged();
-    fn OnStoryboardUpdated();
+    fn OnStoryboardStatusChanged(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard2>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
+    fn OnStoryboardUpdated(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard2>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationStoryboardEventHandler2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationStoryboardEventHandler2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationStoryboardEventHandler2Vtbl {
         unsafe extern "system" fn OnStoryboardStatusChanged<Impl: IUIAnimationStoryboardEventHandler2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnStoryboardStatusChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
         unsafe extern "system" fn OnStoryboardUpdated<Impl: IUIAnimationStoryboardEventHandler2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnStoryboardUpdated(::core::mem::transmute(&storyboard)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -768,43 +948,49 @@ impl IUIAnimationStoryboardEventHandler2Vtbl {
     }
 }
 pub trait IUIAnimationTimerImpl: Sized {
-    fn SetTimerUpdateHandler();
-    fn SetTimerEventHandler();
-    fn Enable();
-    fn Disable();
-    fn IsEnabled();
-    fn GetTime();
-    fn SetFrameRateThreshold();
+    fn SetTimerUpdateHandler(&mut self, updatehandler: ::core::option::Option<IUIAnimationTimerUpdateHandler>, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows::core::Result<()>;
+    fn SetTimerEventHandler(&mut self, handler: ::core::option::Option<IUIAnimationTimerEventHandler>) -> ::windows::core::Result<()>;
+    fn Enable(&mut self) -> ::windows::core::Result<()>;
+    fn Disable(&mut self) -> ::windows::core::Result<()>;
+    fn IsEnabled(&mut self) -> ::windows::core::Result<()>;
+    fn GetTime(&mut self) -> ::windows::core::Result<f64>;
+    fn SetFrameRateThreshold(&mut self, framespersecond: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTimerVtbl {
         unsafe extern "system" fn SetTimerUpdateHandler<Impl: IUIAnimationTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updatehandler: ::windows::core::RawPtr, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTimerUpdateHandler(::core::mem::transmute(&updatehandler), ::core::mem::transmute_copy(&idlebehavior)).into()
         }
         unsafe extern "system" fn SetTimerEventHandler<Impl: IUIAnimationTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTimerEventHandler(::core::mem::transmute(&handler)).into()
         }
         unsafe extern "system" fn Enable<Impl: IUIAnimationTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Enable().into()
         }
         unsafe extern "system" fn Disable<Impl: IUIAnimationTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).Disable().into()
         }
         unsafe extern "system" fn IsEnabled<Impl: IUIAnimationTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsEnabled().into()
         }
         unsafe extern "system" fn GetTime<Impl: IUIAnimationTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetTime() {
+                ::core::result::Result::Ok(ok__) => {
+                    *seconds = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetFrameRateThreshold<Impl: IUIAnimationTimerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetFrameRateThreshold(::core::mem::transmute_copy(&framespersecond)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -822,13 +1008,13 @@ impl IUIAnimationTimerVtbl {
     }
 }
 pub trait IUIAnimationTimerClientEventHandlerImpl: Sized {
-    fn OnTimerClientStatusChanged();
+    fn OnTimerClientStatusChanged(&mut self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimerClientEventHandlerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimerClientEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTimerClientEventHandlerVtbl {
         unsafe extern "system" fn OnTimerClientStatusChanged<Impl: IUIAnimationTimerClientEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnTimerClientStatusChanged(::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnTimerClientStatusChanged: OnTimerClientStatusChanged::<Impl, IMPL_OFFSET> }
     }
@@ -837,23 +1023,23 @@ impl IUIAnimationTimerClientEventHandlerVtbl {
     }
 }
 pub trait IUIAnimationTimerEventHandlerImpl: Sized {
-    fn OnPreUpdate();
-    fn OnPostUpdate();
-    fn OnRenderingTooSlow();
+    fn OnPreUpdate(&mut self) -> ::windows::core::Result<()>;
+    fn OnPostUpdate(&mut self) -> ::windows::core::Result<()>;
+    fn OnRenderingTooSlow(&mut self, framespersecond: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimerEventHandlerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimerEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTimerEventHandlerVtbl {
         unsafe extern "system" fn OnPreUpdate<Impl: IUIAnimationTimerEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnPreUpdate().into()
         }
         unsafe extern "system" fn OnPostUpdate<Impl: IUIAnimationTimerEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnPostUpdate().into()
         }
         unsafe extern "system" fn OnRenderingTooSlow<Impl: IUIAnimationTimerEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnRenderingTooSlow(::core::mem::transmute_copy(&framespersecond)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -867,23 +1053,29 @@ impl IUIAnimationTimerEventHandlerVtbl {
     }
 }
 pub trait IUIAnimationTimerUpdateHandlerImpl: Sized {
-    fn OnUpdate();
-    fn SetTimerClientEventHandler();
-    fn ClearTimerClientEventHandler();
+    fn OnUpdate(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn SetTimerClientEventHandler(&mut self, handler: ::core::option::Option<IUIAnimationTimerClientEventHandler>) -> ::windows::core::Result<()>;
+    fn ClearTimerClientEventHandler(&mut self) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimerUpdateHandlerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimerUpdateHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTimerUpdateHandlerVtbl {
         unsafe extern "system" fn OnUpdate<Impl: IUIAnimationTimerUpdateHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timenow: f64, result: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).OnUpdate(::core::mem::transmute_copy(&timenow)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *result = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetTimerClientEventHandler<Impl: IUIAnimationTimerUpdateHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTimerClientEventHandler(::core::mem::transmute(&handler)).into()
         }
         unsafe extern "system" fn ClearTimerClientEventHandler<Impl: IUIAnimationTimerUpdateHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).ClearTimerClientEventHandler().into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -897,28 +1089,34 @@ impl IUIAnimationTimerUpdateHandlerVtbl {
     }
 }
 pub trait IUIAnimationTransitionImpl: Sized {
-    fn SetInitialValue();
-    fn SetInitialVelocity();
-    fn IsDurationKnown();
-    fn GetDuration();
+    fn SetInitialValue(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn SetInitialVelocity(&mut self, velocity: f64) -> ::windows::core::Result<()>;
+    fn IsDurationKnown(&mut self) -> ::windows::core::Result<()>;
+    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
 }
 impl IUIAnimationTransitionVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTransitionVtbl {
         unsafe extern "system" fn SetInitialValue<Impl: IUIAnimationTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialValue(::core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn SetInitialVelocity<Impl: IUIAnimationTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocity: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialVelocity(::core::mem::transmute_copy(&velocity)).into()
         }
         unsafe extern "system" fn IsDurationKnown<Impl: IUIAnimationTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsDurationKnown().into()
         }
         unsafe extern "system" fn GetDuration<Impl: IUIAnimationTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *duration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -933,43 +1131,55 @@ impl IUIAnimationTransitionVtbl {
     }
 }
 pub trait IUIAnimationTransition2Impl: Sized {
-    fn GetDimension();
-    fn SetInitialValue();
-    fn SetInitialVectorValue();
-    fn SetInitialVelocity();
-    fn SetInitialVectorVelocity();
-    fn IsDurationKnown();
-    fn GetDuration();
+    fn GetDimension(&mut self) -> ::windows::core::Result<u32>;
+    fn SetInitialValue(&mut self, value: f64) -> ::windows::core::Result<()>;
+    fn SetInitialVectorValue(&mut self, value: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetInitialVelocity(&mut self, velocity: f64) -> ::windows::core::Result<()>;
+    fn SetInitialVectorVelocity(&mut self, velocity: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn IsDurationKnown(&mut self) -> ::windows::core::Result<()>;
+    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
 }
 impl IUIAnimationTransition2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTransition2Vtbl {
         unsafe extern "system" fn GetDimension<Impl: IUIAnimationTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dimension: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDimension() {
+                ::core::result::Result::Ok(ok__) => {
+                    *dimension = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetInitialValue<Impl: IUIAnimationTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialValue(::core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn SetInitialVectorValue<Impl: IUIAnimationTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *const f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialVectorValue(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn SetInitialVelocity<Impl: IUIAnimationTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocity: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialVelocity(::core::mem::transmute_copy(&velocity)).into()
         }
         unsafe extern "system" fn SetInitialVectorVelocity<Impl: IUIAnimationTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocity: *const f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetInitialVectorVelocity(::core::mem::transmute_copy(&velocity), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn IsDurationKnown<Impl: IUIAnimationTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).IsDurationKnown().into()
         }
         unsafe extern "system" fn GetDuration<Impl: IUIAnimationTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDuration() {
+                ::core::result::Result::Ok(ok__) => {
+                    *duration = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -987,13 +1197,19 @@ impl IUIAnimationTransition2Vtbl {
     }
 }
 pub trait IUIAnimationTransitionFactoryImpl: Sized {
-    fn CreateTransition();
+    fn CreateTransition(&mut self, interpolator: ::core::option::Option<IUIAnimationInterpolator>) -> ::windows::core::Result<IUIAnimationTransition>;
 }
 impl IUIAnimationTransitionFactoryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTransitionFactoryVtbl {
         unsafe extern "system" fn CreateTransition<Impl: IUIAnimationTransitionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interpolator: ::windows::core::RawPtr, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateTransition(::core::mem::transmute(&interpolator)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateTransition: CreateTransition::<Impl, IMPL_OFFSET> }
     }
@@ -1002,13 +1218,19 @@ impl IUIAnimationTransitionFactoryVtbl {
     }
 }
 pub trait IUIAnimationTransitionFactory2Impl: Sized {
-    fn CreateTransition();
+    fn CreateTransition(&mut self, interpolator: ::core::option::Option<IUIAnimationInterpolator2>) -> ::windows::core::Result<IUIAnimationTransition2>;
 }
 impl IUIAnimationTransitionFactory2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTransitionFactory2Vtbl {
         unsafe extern "system" fn CreateTransition<Impl: IUIAnimationTransitionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interpolator: ::windows::core::RawPtr, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateTransition(::core::mem::transmute(&interpolator)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateTransition: CreateTransition::<Impl, IMPL_OFFSET> }
     }
@@ -1017,68 +1239,140 @@ impl IUIAnimationTransitionFactory2Vtbl {
     }
 }
 pub trait IUIAnimationTransitionLibraryImpl: Sized {
-    fn CreateInstantaneousTransition();
-    fn CreateConstantTransition();
-    fn CreateDiscreteTransition();
-    fn CreateLinearTransition();
-    fn CreateLinearTransitionFromSpeed();
-    fn CreateSinusoidalTransitionFromVelocity();
-    fn CreateSinusoidalTransitionFromRange();
-    fn CreateAccelerateDecelerateTransition();
-    fn CreateReversalTransition();
-    fn CreateCubicTransition();
-    fn CreateSmoothStopTransition();
-    fn CreateParabolicTransitionFromAcceleration();
+    fn CreateInstantaneousTransition(&mut self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateConstantTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateDiscreteTransition(&mut self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateLinearTransition(&mut self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateLinearTransitionFromSpeed(&mut self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateSinusoidalTransitionFromVelocity(&mut self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateSinusoidalTransitionFromRange(&mut self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateAccelerateDecelerateTransition(&mut self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateReversalTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateCubicTransition(&mut self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateSmoothStopTransition(&mut self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateParabolicTransitionFromAcceleration(&mut self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
 }
 impl IUIAnimationTransitionLibraryVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionLibraryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTransitionLibraryVtbl {
         unsafe extern "system" fn CreateInstantaneousTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateInstantaneousTransition(::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateConstantTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateConstantTransition(::core::mem::transmute_copy(&duration)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateDiscreteTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, delay: f64, finalvalue: f64, hold: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateDiscreteTransition(::core::mem::transmute_copy(&delay), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&hold)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateLinearTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateLinearTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateLinearTransitionFromSpeed<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, speed: f64, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateLinearTransitionFromSpeed(::core::mem::transmute_copy(&speed), ::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateSinusoidalTransitionFromVelocity<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, period: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSinusoidalTransitionFromVelocity(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&period)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateSinusoidalTransitionFromRange<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSinusoidalTransitionFromRange(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&minimumvalue), ::core::mem::transmute_copy(&maximumvalue), ::core::mem::transmute_copy(&period), ::core::mem::transmute_copy(&slope)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateAccelerateDecelerateTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateAccelerateDecelerateTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&accelerationratio), ::core::mem::transmute_copy(&decelerationratio)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateReversalTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateReversalTransition(::core::mem::transmute_copy(&duration)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateCubicTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, finalvelocity: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateCubicTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&finalvelocity)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateSmoothStopTransition<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maximumduration: f64, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSmoothStopTransition(::core::mem::transmute_copy(&maximumduration), ::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateParabolicTransitionFromAcceleration<Impl: IUIAnimationTransitionLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: f64, finalvelocity: f64, acceleration: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateParabolicTransitionFromAcceleration(::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&finalvelocity), ::core::mem::transmute_copy(&acceleration)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1101,103 +1395,217 @@ impl IUIAnimationTransitionLibraryVtbl {
     }
 }
 pub trait IUIAnimationTransitionLibrary2Impl: Sized {
-    fn CreateInstantaneousTransition();
-    fn CreateInstantaneousVectorTransition();
-    fn CreateConstantTransition();
-    fn CreateDiscreteTransition();
-    fn CreateDiscreteVectorTransition();
-    fn CreateLinearTransition();
-    fn CreateLinearVectorTransition();
-    fn CreateLinearTransitionFromSpeed();
-    fn CreateLinearVectorTransitionFromSpeed();
-    fn CreateSinusoidalTransitionFromVelocity();
-    fn CreateSinusoidalTransitionFromRange();
-    fn CreateAccelerateDecelerateTransition();
-    fn CreateReversalTransition();
-    fn CreateCubicTransition();
-    fn CreateCubicVectorTransition();
-    fn CreateSmoothStopTransition();
-    fn CreateParabolicTransitionFromAcceleration();
-    fn CreateCubicBezierLinearTransition();
-    fn CreateCubicBezierLinearVectorTransition();
+    fn CreateInstantaneousTransition(&mut self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateInstantaneousVectorTransition(&mut self, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateConstantTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateDiscreteTransition(&mut self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateDiscreteVectorTransition(&mut self, delay: f64, finalvalue: *const f64, cdimension: u32, hold: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearTransition(&mut self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearVectorTransition(&mut self, duration: f64, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearTransitionFromSpeed(&mut self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearVectorTransitionFromSpeed(&mut self, speed: f64, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateSinusoidalTransitionFromVelocity(&mut self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateSinusoidalTransitionFromRange(&mut self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateAccelerateDecelerateTransition(&mut self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateReversalTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicTransition(&mut self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicVectorTransition(&mut self, duration: f64, finalvalue: *const f64, finalvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateSmoothStopTransition(&mut self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateParabolicTransitionFromAcceleration(&mut self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicBezierLinearTransition(&mut self, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicBezierLinearVectorTransition(&mut self, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
 }
 impl IUIAnimationTransitionLibrary2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionLibrary2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationTransitionLibrary2Vtbl {
         unsafe extern "system" fn CreateInstantaneousTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateInstantaneousTransition(::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateInstantaneousVectorTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: *const f64, cdimension: u32, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateInstantaneousVectorTransition(::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&cdimension)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateConstantTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateConstantTransition(::core::mem::transmute_copy(&duration)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateDiscreteTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, delay: f64, finalvalue: f64, hold: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateDiscreteTransition(::core::mem::transmute_copy(&delay), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&hold)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateDiscreteVectorTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, delay: f64, finalvalue: *const f64, cdimension: u32, hold: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateDiscreteVectorTransition(::core::mem::transmute_copy(&delay), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&cdimension), ::core::mem::transmute_copy(&hold)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateLinearTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateLinearTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateLinearVectorTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, cdimension: u32, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateLinearVectorTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&cdimension)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateLinearTransitionFromSpeed<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, speed: f64, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateLinearTransitionFromSpeed(::core::mem::transmute_copy(&speed), ::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateLinearVectorTransitionFromSpeed<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, speed: f64, finalvalue: *const f64, cdimension: u32, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateLinearVectorTransitionFromSpeed(::core::mem::transmute_copy(&speed), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&cdimension)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateSinusoidalTransitionFromVelocity<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, period: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSinusoidalTransitionFromVelocity(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&period)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateSinusoidalTransitionFromRange<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSinusoidalTransitionFromRange(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&minimumvalue), ::core::mem::transmute_copy(&maximumvalue), ::core::mem::transmute_copy(&period), ::core::mem::transmute_copy(&slope)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateAccelerateDecelerateTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateAccelerateDecelerateTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&accelerationratio), ::core::mem::transmute_copy(&decelerationratio)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateReversalTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateReversalTransition(::core::mem::transmute_copy(&duration)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateCubicTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, finalvelocity: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateCubicTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&finalvelocity)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateCubicVectorTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, finalvelocity: *const f64, cdimension: u32, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateCubicVectorTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&finalvelocity), ::core::mem::transmute_copy(&cdimension)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateSmoothStopTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maximumduration: f64, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateSmoothStopTransition(::core::mem::transmute_copy(&maximumduration), ::core::mem::transmute_copy(&finalvalue)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateParabolicTransitionFromAcceleration<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: f64, finalvelocity: f64, acceleration: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateParabolicTransitionFromAcceleration(::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&finalvelocity), ::core::mem::transmute_copy(&acceleration)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *transition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateCubicBezierLinearTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateCubicBezierLinearTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&x1), ::core::mem::transmute_copy(&y1), ::core::mem::transmute_copy(&x2), ::core::mem::transmute_copy(&y2)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pptransition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateCubicBezierLinearVectorTransition<Impl: IUIAnimationTransitionLibrary2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).CreateCubicBezierLinearVectorTransition(::core::mem::transmute_copy(&duration), ::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&cdimension), ::core::mem::transmute_copy(&x1), ::core::mem::transmute_copy(&y1), ::core::mem::transmute_copy(&x2), ::core::mem::transmute_copy(&y2)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *pptransition = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1227,78 +1635,120 @@ impl IUIAnimationTransitionLibrary2Vtbl {
     }
 }
 pub trait IUIAnimationVariableImpl: Sized {
-    fn GetValue();
-    fn GetFinalValue();
-    fn GetPreviousValue();
-    fn GetIntegerValue();
-    fn GetFinalIntegerValue();
-    fn GetPreviousIntegerValue();
-    fn GetCurrentStoryboard();
-    fn SetLowerBound();
-    fn SetUpperBound();
-    fn SetRoundingMode();
-    fn SetTag();
-    fn GetTag();
-    fn SetVariableChangeHandler();
-    fn SetVariableIntegerChangeHandler();
+    fn GetValue(&mut self) -> ::windows::core::Result<f64>;
+    fn GetFinalValue(&mut self) -> ::windows::core::Result<f64>;
+    fn GetPreviousValue(&mut self) -> ::windows::core::Result<f64>;
+    fn GetIntegerValue(&mut self) -> ::windows::core::Result<i32>;
+    fn GetFinalIntegerValue(&mut self) -> ::windows::core::Result<i32>;
+    fn GetPreviousIntegerValue(&mut self) -> ::windows::core::Result<i32>;
+    fn GetCurrentStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard>;
+    fn SetLowerBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetUpperBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetRoundingMode(&mut self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()>;
+    fn SetTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn SetVariableChangeHandler(&mut self, handler: ::core::option::Option<IUIAnimationVariableChangeHandler>) -> ::windows::core::Result<()>;
+    fn SetVariableIntegerChangeHandler(&mut self, handler: ::core::option::Option<IUIAnimationVariableIntegerChangeHandler>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationVariableVtbl {
         unsafe extern "system" fn GetValue<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFinalValue<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFinalValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *finalvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPreviousValue<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previousvalue: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPreviousValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *previousvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIntegerValue<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIntegerValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFinalIntegerValue<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFinalIntegerValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *finalvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPreviousIntegerValue<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previousvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPreviousIntegerValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *previousvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetCurrentStoryboard<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrentStoryboard() {
+                ::core::result::Result::Ok(ok__) => {
+                    *storyboard = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetLowerBound<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLowerBound(::core::mem::transmute_copy(&bound)).into()
         }
         unsafe extern "system" fn SetUpperBound<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetUpperBound(::core::mem::transmute_copy(&bound)).into()
         }
         unsafe extern "system" fn SetRoundingMode<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRoundingMode(::core::mem::transmute_copy(&mode)).into()
         }
         unsafe extern "system" fn SetTag<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn GetTag<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetTag(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn SetVariableChangeHandler<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetVariableChangeHandler(::core::mem::transmute(&handler)).into()
         }
         unsafe extern "system" fn SetVariableIntegerChangeHandler<Impl: IUIAnimationVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetVariableIntegerChangeHandler(::core::mem::transmute(&handler)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1324,139 +1774,187 @@ impl IUIAnimationVariableVtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
 pub trait IUIAnimationVariable2Impl: Sized {
-    fn GetDimension();
-    fn GetValue();
-    fn GetVectorValue();
-    fn GetCurve();
-    fn GetVectorCurve();
-    fn GetFinalValue();
-    fn GetFinalVectorValue();
-    fn GetPreviousValue();
-    fn GetPreviousVectorValue();
-    fn GetIntegerValue();
-    fn GetIntegerVectorValue();
-    fn GetFinalIntegerValue();
-    fn GetFinalIntegerVectorValue();
-    fn GetPreviousIntegerValue();
-    fn GetPreviousIntegerVectorValue();
-    fn GetCurrentStoryboard();
-    fn SetLowerBound();
-    fn SetLowerBoundVector();
-    fn SetUpperBound();
-    fn SetUpperBoundVector();
-    fn SetRoundingMode();
-    fn SetTag();
-    fn GetTag();
-    fn SetVariableChangeHandler();
-    fn SetVariableIntegerChangeHandler();
-    fn SetVariableCurveChangeHandler();
+    fn GetDimension(&mut self) -> ::windows::core::Result<u32>;
+    fn GetValue(&mut self) -> ::windows::core::Result<f64>;
+    fn GetVectorValue(&mut self, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetCurve(&mut self, animation: ::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>) -> ::windows::core::Result<()>;
+    fn GetVectorCurve(&mut self, animation: *const ::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetFinalValue(&mut self) -> ::windows::core::Result<f64>;
+    fn GetFinalVectorValue(&mut self, finalvalue: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetPreviousValue(&mut self) -> ::windows::core::Result<f64>;
+    fn GetPreviousVectorValue(&mut self, previousvalue: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetIntegerValue(&mut self) -> ::windows::core::Result<i32>;
+    fn GetIntegerVectorValue(&mut self, value: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetFinalIntegerValue(&mut self) -> ::windows::core::Result<i32>;
+    fn GetFinalIntegerVectorValue(&mut self, finalvalue: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetPreviousIntegerValue(&mut self) -> ::windows::core::Result<i32>;
+    fn GetPreviousIntegerVectorValue(&mut self, previousvalue: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetCurrentStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard2>;
+    fn SetLowerBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetLowerBoundVector(&mut self, bound: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetUpperBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetUpperBoundVector(&mut self, bound: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetRoundingMode(&mut self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()>;
+    fn SetTag(&mut self, object: ::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn SetVariableChangeHandler(&mut self, handler: ::core::option::Option<IUIAnimationVariableChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetVariableIntegerChangeHandler(&mut self, handler: ::core::option::Option<IUIAnimationVariableIntegerChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetVariableCurveChangeHandler(&mut self, handler: ::core::option::Option<IUIAnimationVariableCurveChangeHandler2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
 impl IUIAnimationVariable2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariable2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationVariable2Vtbl {
         unsafe extern "system" fn GetDimension<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dimension: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetDimension() {
+                ::core::result::Result::Ok(ok__) => {
+                    *dimension = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetVectorValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetVectorValue(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetCurve<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetCurve(::core::mem::transmute(&animation)).into()
         }
         unsafe extern "system" fn GetVectorCurve<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *const ::windows::core::RawPtr, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetVectorCurve(::core::mem::transmute_copy(&animation), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetFinalValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFinalValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *finalvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFinalVectorValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: *mut f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetFinalVectorValue(::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetPreviousValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previousvalue: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPreviousValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *previousvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPreviousVectorValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previousvalue: *mut f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetPreviousVectorValue(::core::mem::transmute_copy(&previousvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetIntegerValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetIntegerValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *value = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetIntegerVectorValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetIntegerVectorValue(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetFinalIntegerValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetFinalIntegerValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *finalvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetFinalIntegerVectorValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finalvalue: *mut i32, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetFinalIntegerVectorValue(::core::mem::transmute_copy(&finalvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetPreviousIntegerValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previousvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetPreviousIntegerValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *previousvalue = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPreviousIntegerVectorValue<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previousvalue: *mut i32, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetPreviousIntegerVectorValue(::core::mem::transmute_copy(&previousvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn GetCurrentStoryboard<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            match (*this).GetCurrentStoryboard() {
+                ::core::result::Result::Ok(ok__) => {
+                    *storyboard = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetLowerBound<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLowerBound(::core::mem::transmute_copy(&bound)).into()
         }
         unsafe extern "system" fn SetLowerBoundVector<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bound: *const f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetLowerBoundVector(::core::mem::transmute_copy(&bound), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn SetUpperBound<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetUpperBound(::core::mem::transmute_copy(&bound)).into()
         }
         unsafe extern "system" fn SetUpperBoundVector<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bound: *const f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetUpperBoundVector(::core::mem::transmute_copy(&bound), ::core::mem::transmute_copy(&cdimension)).into()
         }
         unsafe extern "system" fn SetRoundingMode<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetRoundingMode(::core::mem::transmute_copy(&mode)).into()
         }
         unsafe extern "system" fn SetTag<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetTag(::core::mem::transmute(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn GetTag<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).GetTag(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn SetVariableChangeHandler<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetVariableChangeHandler(::core::mem::transmute(&handler), ::core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
         }
         unsafe extern "system" fn SetVariableIntegerChangeHandler<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetVariableIntegerChangeHandler(::core::mem::transmute(&handler), ::core::mem::transmute_copy(&fregisterfornextanimationevent)).into()
         }
         unsafe extern "system" fn SetVariableCurveChangeHandler<Impl: IUIAnimationVariable2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).SetVariableCurveChangeHandler(::core::mem::transmute(&handler)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
@@ -1493,13 +1991,13 @@ impl IUIAnimationVariable2Vtbl {
     }
 }
 pub trait IUIAnimationVariableChangeHandlerImpl: Sized {
-    fn OnValueChanged();
+    fn OnValueChanged(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard>, variable: ::core::option::Option<IUIAnimationVariable>, newvalue: f64, previousvalue: f64) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableChangeHandlerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableChangeHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationVariableChangeHandlerVtbl {
         unsafe extern "system" fn OnValueChanged<Impl: IUIAnimationVariableChangeHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, variable: ::windows::core::RawPtr, newvalue: f64, previousvalue: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnValueChanged: OnValueChanged::<Impl, IMPL_OFFSET> }
     }
@@ -1508,13 +2006,13 @@ impl IUIAnimationVariableChangeHandlerVtbl {
     }
 }
 pub trait IUIAnimationVariableChangeHandler2Impl: Sized {
-    fn OnValueChanged();
+    fn OnValueChanged(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard2>, variable: ::core::option::Option<IUIAnimationVariable2>, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableChangeHandler2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableChangeHandler2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationVariableChangeHandler2Vtbl {
         unsafe extern "system" fn OnValueChanged<Impl: IUIAnimationVariableChangeHandler2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, variable: ::windows::core::RawPtr, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnValueChanged: OnValueChanged::<Impl, IMPL_OFFSET> }
     }
@@ -1523,13 +2021,13 @@ impl IUIAnimationVariableChangeHandler2Vtbl {
     }
 }
 pub trait IUIAnimationVariableCurveChangeHandler2Impl: Sized {
-    fn OnCurveChanged();
+    fn OnCurveChanged(&mut self, variable: ::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableCurveChangeHandler2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableCurveChangeHandler2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationVariableCurveChangeHandler2Vtbl {
         unsafe extern "system" fn OnCurveChanged<Impl: IUIAnimationVariableCurveChangeHandler2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnCurveChanged(::core::mem::transmute(&variable)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnCurveChanged: OnCurveChanged::<Impl, IMPL_OFFSET> }
     }
@@ -1538,13 +2036,13 @@ impl IUIAnimationVariableCurveChangeHandler2Vtbl {
     }
 }
 pub trait IUIAnimationVariableIntegerChangeHandlerImpl: Sized {
-    fn OnIntegerValueChanged();
+    fn OnIntegerValueChanged(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard>, variable: ::core::option::Option<IUIAnimationVariable>, newvalue: i32, previousvalue: i32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableIntegerChangeHandlerVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableIntegerChangeHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationVariableIntegerChangeHandlerVtbl {
         unsafe extern "system" fn OnIntegerValueChanged<Impl: IUIAnimationVariableIntegerChangeHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, variable: ::windows::core::RawPtr, newvalue: i32, previousvalue: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnIntegerValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Impl, IMPL_OFFSET> }
     }
@@ -1553,13 +2051,13 @@ impl IUIAnimationVariableIntegerChangeHandlerVtbl {
     }
 }
 pub trait IUIAnimationVariableIntegerChangeHandler2Impl: Sized {
-    fn OnIntegerValueChanged();
+    fn OnIntegerValueChanged(&mut self, storyboard: ::core::option::Option<IUIAnimationStoryboard2>, variable: ::core::option::Option<IUIAnimationVariable2>, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableIntegerChangeHandler2Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableIntegerChangeHandler2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAnimationVariableIntegerChangeHandler2Vtbl {
         unsafe extern "system" fn OnIntegerValueChanged<Impl: IUIAnimationVariableIntegerChangeHandler2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, variable: ::windows::core::RawPtr, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            panic!()
+            (*this).OnIntegerValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Impl, IMPL_OFFSET> }
     }
