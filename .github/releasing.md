@@ -10,9 +10,9 @@
 
 ## Releasing
 
-1. Updating versions and changelog in single PR
-2. Tag the release commit
+1. Updating versions in a separate branch
 3. Validate & merge PR
+2. Create a new GitHub release, create a tag, and generate release notes
 4. Cargo publish
 5. Update all samples to point at new version of crate
 6. Generate new documentation for `windows` locally
