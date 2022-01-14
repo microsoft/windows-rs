@@ -32,7 +32,7 @@ impl IDialBranding_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDialEngine_Impl: Sized {
-    fn Initialize(&mut self, pwzconnectoid: super::super::Foundation::PWSTR, pides: ::core::option::Option<IDialEventSink>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pwzconnectoid: super::super::Foundation::PWSTR, pides: &::core::option::Option<IDialEventSink>) -> ::windows::core::Result<()>;
     fn GetProperty(&mut self, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::core::Result<()>;
     fn SetProperty(&mut self, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Dial(&mut self) -> ::windows::core::Result<()>;
@@ -132,7 +132,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
-    fn GetCookieInfoWithUriForAccount(&mut self, webaccount: ::core::option::Option<::windows::core::IInspectable>, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
+    fn GetCookieInfoWithUriForAccount(&mut self, webaccount: &::core::option::Option<::windows::core::IInspectable>, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IProofOfPossessionCookieInfoManager2_Vtbl {

@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICameraUIControl_Impl: Sized {
-    fn Show(&mut self, pwindow: ::core::option::Option<::windows::core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: ::core::option::Option<ICameraUIControlEventCallback>) -> ::windows::core::Result<()>;
+    fn Show(&mut self, pwindow: &::core::option::Option<::windows::core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: &::core::option::Option<ICameraUIControlEventCallback>) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
     fn Suspend(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
@@ -130,7 +130,7 @@ impl ICameraUIControlEventCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IClipServiceNotificationHelper_Impl: Sized {
-    fn ShowToast(&mut self, titletext: super::super::Foundation::BSTR, bodytext: super::super::Foundation::BSTR, packagename: super::super::Foundation::BSTR, appid: super::super::Foundation::BSTR, launchcommand: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ShowToast(&mut self, titletext: &super::super::Foundation::BSTR, bodytext: &super::super::Foundation::BSTR, packagename: &super::super::Foundation::BSTR, appid: &super::super::Foundation::BSTR, launchcommand: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IClipServiceNotificationHelper_Vtbl {
@@ -201,7 +201,7 @@ impl IDeleteBrowsingHistory_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEditionUpgradeBroker_Impl: Sized {
     fn InitializeParentWindow(&mut self, parenthandle: u32) -> ::windows::core::Result<()>;
-    fn UpdateOperatingSystem(&mut self, parameter: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UpdateOperatingSystem(&mut self, parameter: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ShowProductKeyUI(&mut self) -> ::windows::core::Result<()>;
     fn CanUpgrade(&mut self) -> ::windows::core::Result<()>;
 }

@@ -59,7 +59,7 @@ pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersist_Impl + s
     fn SaveData(&mut self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
     fn GetHeaderSize(&mut self, dwhdrsize: *mut u32) -> ::windows::core::Result<()>;
     fn GetDataSize(&mut self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows::core::Result<()>;
-    fn SaveDataToStream(&mut self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SaveDataToStream(&mut self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn LoadFromMem(&mut self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
     fn SaveToMem(&mut self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
 }
@@ -167,7 +167,7 @@ impl IITPropList_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITResultSet_Impl: Sized {
     fn SetColumnPriority(&mut self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::Result<()>;
-    fn SetColumnHeap(&mut self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()>;
+    fn SetColumnHeap(&mut self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: &PFNCOLHEAPFREE) -> ::windows::core::Result<()>;
     fn SetKeyProp(&mut self, propid: u32) -> ::windows::core::Result<()>;
     fn Add(&mut self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::core::Result<()>;
     fn Add2(&mut self, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::core::Result<()>;
@@ -178,8 +178,8 @@ pub trait IITResultSet_Impl: Sized {
     fn Set2(&mut self, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Set3(&mut self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()>;
     fn Set4(&mut self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Copy(&mut self, prscopy: ::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
-    fn AppendRows(&mut self, pressrc: ::core::option::Option<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()>;
+    fn Copy(&mut self, prscopy: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
+    fn AppendRows(&mut self, pressrc: &::core::option::Option<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()>;
     fn Get(&mut self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::core::Result<()>;
     fn GetKeyProp(&mut self, keypropid: *mut u32) -> ::windows::core::Result<()>;
     fn GetColumnPriority(&mut self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> ::windows::core::Result<()>;
@@ -360,19 +360,19 @@ impl IITResultSet_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITWordWheel_Impl: Sized {
-    fn Open(&mut self, lpitdb: ::core::option::Option<IITDatabase>, lpszmoniker: super::super::Foundation::PWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>;
+    fn Open(&mut self, lpitdb: &::core::option::Option<IITDatabase>, lpszmoniker: super::super::Foundation::PWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
     fn GetLocaleInfo(&mut self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()>;
     fn GetSorterInstance(&mut self, pdwobjinstance: *mut u32) -> ::windows::core::Result<()>;
     fn Count(&mut self, pcentries: *mut i32) -> ::windows::core::Result<()>;
     fn Lookup(&mut self, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: super::super::Foundation::BOOL, plentry: *mut i32) -> ::windows::core::Result<()>;
-    fn Lookup2(&mut self, lentry: i32, lpitresult: ::core::option::Option<IITResultSet>, centries: i32) -> ::windows::core::Result<()>;
+    fn Lookup2(&mut self, lentry: i32, lpitresult: &::core::option::Option<IITResultSet>, centries: i32) -> ::windows::core::Result<()>;
     fn Lookup3(&mut self, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::Result<()>;
     fn SetGroup(&mut self, piitgroup: *mut IITGroup) -> ::windows::core::Result<()>;
     fn GetGroup(&mut self, ppiitgroup: *mut *mut IITGroup) -> ::windows::core::Result<()>;
     fn GetDataCount(&mut self, lentry: i32, pdwcount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetData(&mut self, lentry: i32, lpitresult: ::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
-    fn GetDataColumns(&mut self, prs: ::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
+    fn GetData(&mut self, lentry: i32, lpitresult: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
+    fn GetDataColumns(&mut self, prs: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IITWordWheel_Vtbl {
@@ -482,7 +482,7 @@ pub trait IStemmerConfig_Impl: Sized {
     fn GetLocaleInfo(&mut self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()>;
     fn SetControlInfo(&mut self, grfstemflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetControlInfo(&mut self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
-    fn LoadExternalStemmerData(&mut self, pstream: ::core::option::Option<super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
+    fn LoadExternalStemmerData(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStemmerConfig_Vtbl {
@@ -528,8 +528,8 @@ pub trait IWordBreakerConfig_Impl: Sized {
     fn GetBreakWordType(&mut self, pdwbreakwordtype: *mut u32) -> ::windows::core::Result<()>;
     fn SetControlInfo(&mut self, grfbreakflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetControlInfo(&mut self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
-    fn LoadExternalBreakerData(&mut self, pstream: ::core::option::Option<super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
-    fn SetWordStemmer(&mut self, rclsid: *const ::windows::core::GUID, pstemmer: ::core::option::Option<super::super::System::Search::IStemmer>) -> ::windows::core::Result<()>;
+    fn LoadExternalBreakerData(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
+    fn SetWordStemmer(&mut self, rclsid: *const ::windows::core::GUID, pstemmer: &::core::option::Option<super::super::System::Search::IStemmer>) -> ::windows::core::Result<()>;
     fn GetWordStemmer(&mut self) -> ::windows::core::Result<super::super::System::Search::IStemmer>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]

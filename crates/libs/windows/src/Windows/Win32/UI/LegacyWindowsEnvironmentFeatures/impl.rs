@@ -3,7 +3,7 @@ pub trait IADesktopP2_Impl: Sized {
     fn ReReadWallpaper(&mut self) -> ::windows::core::Result<()>;
     fn GetADObjectFlags(&mut self, pdwflags: *mut u32, dwmask: u32) -> ::windows::core::Result<()>;
     fn UpdateAllDesktopSubscriptions(&mut self) -> ::windows::core::Result<()>;
-    fn MakeDynamicChanges(&mut self, poleobj: ::core::option::Option<super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
+    fn MakeDynamicChanges(&mut self, poleobj: &::core::option::Option<super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl IADesktopP2_Vtbl {
@@ -76,7 +76,7 @@ impl IActiveDesktopP_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBriefcaseInitiator_Impl: Sized {
-    fn IsMonikerInBriefcase(&mut self, pmk: ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows::core::Result<()>;
+    fn IsMonikerInBriefcase(&mut self, pmk: &::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IBriefcaseInitiator_Vtbl {
@@ -94,8 +94,8 @@ impl IBriefcaseInitiator_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IEmptyVolumeCache_Impl: Sized {
     fn Initialize(&mut self, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: super::super::Foundation::PWSTR, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSpaceUsed(&mut self, pdwlspaceused: *mut u64, picb: ::core::option::Option<IEmptyVolumeCacheCallBack>) -> ::windows::core::Result<()>;
-    fn Purge(&mut self, dwlspacetofree: u64, picb: ::core::option::Option<IEmptyVolumeCacheCallBack>) -> ::windows::core::Result<()>;
+    fn GetSpaceUsed(&mut self, pdwlspaceused: *mut u64, picb: &::core::option::Option<IEmptyVolumeCacheCallBack>) -> ::windows::core::Result<()>;
+    fn Purge(&mut self, dwlspacetofree: u64, picb: &::core::option::Option<IEmptyVolumeCacheCallBack>) -> ::windows::core::Result<()>;
     fn ShowProperties(&mut self, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn Deactivate(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -186,7 +186,7 @@ impl IEmptyVolumeCacheCallBack_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IReconcilableObject_Impl: Sized {
-    fn Reconcile(&mut self, pinitiator: ::core::option::Option<IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut ::core::option::Option<super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: ::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Reconcile(&mut self, pinitiator: &::core::option::Option<IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut ::core::option::Option<super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: &::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetProgressFeedbackMaxEstimate(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -217,7 +217,7 @@ impl IReconcilableObject_Vtbl {
     }
 }
 pub trait IReconcileInitiator_Impl: Sized {
-    fn SetAbortCallback(&mut self, punkforabort: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetAbortCallback(&mut self, punkforabort: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetProgressFeedback(&mut self, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()>;
 }
 impl IReconcileInitiator_Vtbl {

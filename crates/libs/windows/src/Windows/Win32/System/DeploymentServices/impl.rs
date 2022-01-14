@@ -538,7 +538,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetWdsTransportServer(&mut self, bszservername: super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportServer>;
+    fn GetWdsTransportServer(&mut self, bszservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportServer>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportManager_Vtbl {
@@ -653,15 +653,15 @@ pub trait IWdsTransportNamespace_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&mut self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE>;
     fn Id(&mut self) -> ::windows::core::Result<u32>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bszname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bszname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FriendlyName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFriendlyName(&mut self, bszfriendlyname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFriendlyName(&mut self, bszfriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bszdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bszdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ContentProvider(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetContentProvider(&mut self, bszcontentprovider: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetContentProvider(&mut self, bszcontentprovider: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Configuration(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConfiguration(&mut self, bszconfiguration: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetConfiguration(&mut self, bszconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Registered(&mut self) -> ::windows::core::Result<i16>;
     fn Tombstoned(&mut self) -> ::windows::core::Result<i16>;
     fn TombstoneTime(&mut self) -> ::windows::core::Result<f64>;
@@ -879,9 +879,9 @@ impl IWdsTransportNamespaceAutoCast_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportNamespaceManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreateNamespace(&mut self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: super::super::Foundation::BSTR, bszcontentprovider: super::super::Foundation::BSTR, bszconfiguration: super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
-    fn RetrieveNamespace(&mut self, bsznamespacename: super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
-    fn RetrieveNamespaces(&mut self, bszcontentprovider: super::super::Foundation::BSTR, bsznamespacename: super::super::Foundation::BSTR, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection>;
+    fn CreateNamespace(&mut self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: &super::super::Foundation::BSTR, bszcontentprovider: &super::super::Foundation::BSTR, bszconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
+    fn RetrieveNamespace(&mut self, bsznamespacename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
+    fn RetrieveNamespaces(&mut self, bszcontentprovider: &super::super::Foundation::BSTR, bsznamespacename: &super::super::Foundation::BSTR, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportNamespaceManager_Vtbl {
@@ -1101,9 +1101,9 @@ pub trait IWdsTransportServicePolicy_Impl: Sized + super::Com::IDispatch_Impl + 
     fn IpAddressSource(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>;
     fn SetIpAddressSource(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()>;
     fn StartIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStartIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetStartIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EndIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEndIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEndIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StartPort(&mut self) -> ::windows::core::Result<u32>;
     fn SetStartPort(&mut self, ulstartport: u32) -> ::windows::core::Result<()>;
     fn EndPort(&mut self) -> ::windows::core::Result<u32>;
@@ -1395,8 +1395,8 @@ pub trait IWdsTransportSetupManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Version(&mut self) -> ::windows::core::Result<u64>;
     fn InstalledFeatures(&mut self) -> ::windows::core::Result<u32>;
     fn Protocols(&mut self) -> ::windows::core::Result<u32>;
-    fn RegisterContentProvider(&mut self, bszname: super::super::Foundation::BSTR, bszdescription: super::super::Foundation::BSTR, bszfilepath: super::super::Foundation::BSTR, bszinitializationroutine: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeregisterContentProvider(&mut self, bszname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterContentProvider(&mut self, bszname: &super::super::Foundation::BSTR, bszdescription: &super::super::Foundation::BSTR, bszfilepath: &super::super::Foundation::BSTR, bszinitializationroutine: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeregisterContentProvider(&mut self, bszname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportSetupManager_Vtbl {

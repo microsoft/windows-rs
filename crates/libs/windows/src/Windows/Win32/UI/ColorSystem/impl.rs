@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDeviceModelPlugIn_Impl: Sized {
-    fn Initialize(&mut self, bstrxml: super::super::Foundation::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, bstrxml: &super::super::Foundation::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()>;
     fn GetNumChannels(&mut self) -> ::windows::core::Result<u32>;
     fn DeviceToColorimetricColors(&mut self, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()>;
     fn ColorimetricToDeviceColors(&mut self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> ::windows::core::Result<f32>;
     fn ColorimetricToDeviceColorsWithBlack(&mut self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32>;
-    fn SetTransformDeviceModelInfo(&mut self, imodelposition: u32, pidevicemodelother: ::core::option::Option<IDeviceModelPlugIn>) -> ::windows::core::Result<()>;
+    fn SetTransformDeviceModelInfo(&mut self, imodelposition: u32, pidevicemodelother: &::core::option::Option<IDeviceModelPlugIn>) -> ::windows::core::Result<()>;
     fn GetPrimarySamples(&mut self) -> ::windows::core::Result<PrimaryXYZColors>;
     fn GetGamutBoundaryMeshSize(&mut self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()>;
     fn GetGamutBoundaryMesh(&mut self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::Result<()>;
@@ -110,7 +110,7 @@ impl IDeviceModelPlugIn_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGamutMapModelPlugIn_Impl: Sized {
-    fn Initialize(&mut self, bstrxml: super::super::Foundation::BSTR, psrcplugin: ::core::option::Option<IDeviceModelPlugIn>, pdestplugin: ::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, bstrxml: &super::super::Foundation::BSTR, psrcplugin: &::core::option::Option<IDeviceModelPlugIn>, pdestplugin: &::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
     fn SourceToDestinationAppearanceColors(&mut self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]

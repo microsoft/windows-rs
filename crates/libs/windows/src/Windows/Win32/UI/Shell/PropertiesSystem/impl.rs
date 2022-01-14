@@ -1,5 +1,5 @@
 pub trait ICreateObject_Impl: Sized {
-    fn CreateObject(&mut self, clsid: *const ::windows::core::GUID, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateObject(&mut self, clsid: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ICreateObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICreateObject_Vtbl {
@@ -50,7 +50,7 @@ impl IInitializeWithFile_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInitializeWithStream_Impl: Sized {
-    fn Initialize(&mut self, pstream: ::core::option::Option<super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pstream: &::core::option::Option<super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInitializeWithStream_Vtbl {
@@ -240,9 +240,9 @@ impl IPropertyChange_Vtbl {
 pub trait IPropertyChangeArray_Impl: Sized {
     fn GetCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetAt(&mut self, iindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn InsertAt(&mut self, iindex: u32, ppropchange: ::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, ppropchange: ::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
-    fn AppendOrReplace(&mut self, ppropchange: ::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
+    fn InsertAt(&mut self, iindex: u32, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
+    fn Append(&mut self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
+    fn AppendOrReplace(&mut self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
     fn RemoveAt(&mut self, iindex: u32) -> ::windows::core::Result<()>;
     fn IsKeyInArray(&mut self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
 }
@@ -959,7 +959,7 @@ impl IPropertyStoreCapabilities_Vtbl {
     }
 }
 pub trait IPropertyStoreFactory_Impl: Sized {
-    fn GetPropertyStore(&mut self, flags: GETPROPERTYSTOREFLAGS, punkfactory: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPropertyStore(&mut self, flags: GETPROPERTYSTOREFLAGS, punkfactory: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPropertyStoreForKeys(&mut self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IPropertyStoreFactory_Vtbl {

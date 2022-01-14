@@ -44,7 +44,7 @@ pub trait IWebApplicationHost_Impl: Sized {
     fn HWND(&mut self, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn Document(&mut self) -> ::windows::core::Result<super::super::super::super::Web::MsHtml::IHTMLDocument2>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, interfaceid: *const ::windows::core::GUID, callback: ::core::option::Option<::windows::core::IUnknown>, cookie: *mut u32) -> ::windows::core::Result<()>;
+    fn Advise(&mut self, interfaceid: *const ::windows::core::GUID, callback: &::core::option::Option<::windows::core::IUnknown>, cookie: *mut u32) -> ::windows::core::Result<()>;
     fn Unadvise(&mut self, cookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
@@ -91,10 +91,10 @@ impl IWebApplicationHost_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 pub trait IWebApplicationNavigationEvents_Impl: Sized {
-    fn BeforeNavigate(&mut self, htmlwindow: ::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR, navigationflags: u32, targetframename: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn NavigateComplete(&mut self, htmlwindow: ::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn NavigateError(&mut self, htmlwindow: ::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR, targetframename: super::super::super::super::Foundation::PWSTR, statuscode: u32) -> ::windows::core::Result<()>;
-    fn DocumentComplete(&mut self, htmlwindow: ::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn BeforeNavigate(&mut self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR, navigationflags: u32, targetframename: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn NavigateComplete(&mut self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn NavigateError(&mut self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR, targetframename: super::super::super::super::Foundation::PWSTR, statuscode: u32) -> ::windows::core::Result<()>;
+    fn DocumentComplete(&mut self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn DownloadBegin(&mut self) -> ::windows::core::Result<()>;
     fn DownloadComplete(&mut self) -> ::windows::core::Result<()>;
 }
@@ -141,8 +141,8 @@ impl IWebApplicationNavigationEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 pub trait IWebApplicationScriptEvents_Impl: Sized {
-    fn BeforeScriptExecute(&mut self, htmlwindow: ::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>) -> ::windows::core::Result<()>;
-    fn ScriptError(&mut self, htmlwindow: ::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, scripterror: ::core::option::Option<super::IActiveScriptError>, url: super::super::super::super::Foundation::PWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn BeforeScriptExecute(&mut self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>) -> ::windows::core::Result<()>;
+    fn ScriptError(&mut self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, scripterror: &::core::option::Option<super::IActiveScriptError>, url: super::super::super::super::Foundation::PWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationScriptEvents_Vtbl {

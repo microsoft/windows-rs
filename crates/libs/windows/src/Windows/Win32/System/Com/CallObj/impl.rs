@@ -10,10 +10,10 @@ pub trait ICallFrame_Impl: Sized {
     fn GetParamInfo(&mut self, iparam: u32) -> ::windows::core::Result<CALLFRAMEPARAMINFO>;
     fn SetParam(&mut self, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::Result<()>;
     fn GetParam(&mut self, iparam: u32) -> ::windows::core::Result<super::VARIANT>;
-    fn Copy(&mut self, copycontrol: CALLFRAME_COPY, pwalker: ::core::option::Option<ICallFrameWalker>) -> ::windows::core::Result<ICallFrame>;
-    fn Free(&mut self, pframeargsdest: ::core::option::Option<ICallFrame>, pwalkerdestfree: ::core::option::Option<ICallFrameWalker>, pwalkercopy: ::core::option::Option<ICallFrameWalker>, freeflags: u32, pwalkerfree: ::core::option::Option<ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
-    fn FreeParam(&mut self, iparam: u32, freeflags: u32, pwalkerfree: ::core::option::Option<ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
-    fn WalkFrame(&mut self, walkwhat: u32, pwalker: ::core::option::Option<ICallFrameWalker>) -> ::windows::core::Result<()>;
+    fn Copy(&mut self, copycontrol: CALLFRAME_COPY, pwalker: &::core::option::Option<ICallFrameWalker>) -> ::windows::core::Result<ICallFrame>;
+    fn Free(&mut self, pframeargsdest: &::core::option::Option<ICallFrame>, pwalkerdestfree: &::core::option::Option<ICallFrameWalker>, pwalkercopy: &::core::option::Option<ICallFrameWalker>, freeflags: u32, pwalkerfree: &::core::option::Option<ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
+    fn FreeParam(&mut self, iparam: u32, freeflags: u32, pwalkerfree: &::core::option::Option<ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
+    fn WalkFrame(&mut self, walkwhat: u32, pwalker: &::core::option::Option<ICallFrameWalker>) -> ::windows::core::Result<()>;
     fn GetMarshalSizeMax(&mut self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> ::windows::core::Result<u32>;
     fn Marshal(&mut self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::Result<()>;
     fn Unmarshal(&mut self, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<u32>;
@@ -163,7 +163,7 @@ impl ICallFrame_Vtbl {
     }
 }
 pub trait ICallFrameEvents_Impl: Sized {
-    fn OnCall(&mut self, pframe: ::core::option::Option<ICallFrame>) -> ::windows::core::Result<()>;
+    fn OnCall(&mut self, pframe: &::core::option::Option<ICallFrame>) -> ::windows::core::Result<()>;
 }
 impl ICallFrameEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICallFrameEvents_Vtbl {
@@ -240,7 +240,7 @@ impl ICallIndirect_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallInterceptor_Impl: Sized + ICallIndirect_Impl {
-    fn RegisterSink(&mut self, psink: ::core::option::Option<ICallFrameEvents>) -> ::windows::core::Result<()>;
+    fn RegisterSink(&mut self, psink: &::core::option::Option<ICallFrameEvents>) -> ::windows::core::Result<()>;
     fn GetRegisteredSink(&mut self) -> ::windows::core::Result<ICallFrameEvents>;
 }
 #[cfg(feature = "Win32_Foundation")]

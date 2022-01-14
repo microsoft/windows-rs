@@ -25,7 +25,7 @@ impl IWCNConnectNotify_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWCNDevice_Impl: Sized {
     fn SetPassword(&mut self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::Result<()>;
-    fn Connect(&mut self, pnotify: ::core::option::Option<IWCNConnectNotify>) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, pnotify: &::core::option::Option<IWCNConnectNotify>) -> ::windows::core::Result<()>;
     fn GetAttribute(&mut self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()>;
     fn GetIntegerAttribute(&mut self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32>;
     fn GetStringAttribute(&mut self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;

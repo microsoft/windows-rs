@@ -52,19 +52,19 @@ impl IEnumEventObject_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventClass_Impl: Sized + super::IDispatch_Impl {
     fn EventClassID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetEventClassID(&mut self, bstreventclassid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEventClassID(&mut self, bstreventclassid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EventClassName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetEventClassName(&mut self, bstreventclassname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEventClassName(&mut self, bstreventclassname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn OwnerSID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetOwnerSID(&mut self, bstrownersid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOwnerSID(&mut self, bstrownersid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FiringInterfaceID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetFiringInterfaceID(&mut self, bstrfiringinterfaceid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFiringInterfaceID(&mut self, bstrfiringinterfaceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CustomConfigCLSID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetCustomConfigCLSID(&mut self, bstrcustomconfigclsid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCustomConfigCLSID(&mut self, bstrcustomconfigclsid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TypeLib(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetTypeLib(&mut self, bstrtypelib: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTypeLib(&mut self, bstrtypelib: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IEventClass_Vtbl {
@@ -192,9 +192,9 @@ impl IEventClass_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventClass2_Impl: Sized + super::IDispatch_Impl + IEventClass_Impl {
     fn PublisherID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetPublisherID(&mut self, bstrpublisherid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPublisherID(&mut self, bstrpublisherid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn MultiInterfacePublisherFilterCLSID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetMultiInterfacePublisherFilterCLSID(&mut self, bstrpubfilclsid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMultiInterfacePublisherFilterCLSID(&mut self, bstrpubfilclsid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AllowInprocActivation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetAllowInprocActivation(&mut self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn FireInParallel(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -277,11 +277,11 @@ impl IEventClass2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventControl_Impl: Sized + super::IDispatch_Impl {
-    fn SetPublisherFilter(&mut self, methodname: super::super::super::Foundation::BSTR, ppublisherfilter: ::core::option::Option<IPublisherFilter>) -> ::windows::core::Result<()>;
+    fn SetPublisherFilter(&mut self, methodname: &super::super::super::Foundation::BSTR, ppublisherfilter: &::core::option::Option<IPublisherFilter>) -> ::windows::core::Result<()>;
     fn AllowInprocActivation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetAllowInprocActivation(&mut self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetSubscriptions(&mut self, methodname: super::super::super::Foundation::BSTR, optionalcriteria: super::super::super::Foundation::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection>;
-    fn SetDefaultQuery(&mut self, methodname: super::super::super::Foundation::BSTR, criteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn GetSubscriptions(&mut self, methodname: &super::super::super::Foundation::BSTR, optionalcriteria: &super::super::super::Foundation::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection>;
+    fn SetDefaultQuery(&mut self, methodname: &super::super::super::Foundation::BSTR, criteria: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IEventControl_Vtbl {
@@ -339,9 +339,9 @@ impl IEventControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEventObjectChange_Impl: Sized {
-    fn ChangedSubscription(&mut self, changetype: EOC_ChangeType, bstrsubscriptionid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ChangedEventClass(&mut self, changetype: EOC_ChangeType, bstreventclassid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ChangedPublisher(&mut self, changetype: EOC_ChangeType, bstrpublisherid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ChangedSubscription(&mut self, changetype: EOC_ChangeType, bstrsubscriptionid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ChangedEventClass(&mut self, changetype: EOC_ChangeType, bstreventclassid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ChangedPublisher(&mut self, changetype: EOC_ChangeType, bstrpublisherid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEventObjectChange_Vtbl {
@@ -398,11 +398,11 @@ impl IEventObjectChange2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventObjectCollection_Impl: Sized + super::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, objectid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
+    fn Item(&mut self, objectid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
     fn NewEnum(&mut self) -> ::windows::core::Result<IEnumEventObject>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, item: *const super::VARIANT, objectid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, objectid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Add(&mut self, item: *const super::VARIANT, objectid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, objectid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IEventObjectCollection_Vtbl {
@@ -472,7 +472,7 @@ impl IEventObjectCollection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventProperty_Impl: Sized + super::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetName(&mut self, propertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, propertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Value(&mut self) -> ::windows::core::Result<super::VARIANT>;
     fn SetValue(&mut self, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -522,18 +522,18 @@ impl IEventProperty_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventPublisher_Impl: Sized + super::IDispatch_Impl {
     fn PublisherID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetPublisherID(&mut self, bstrpublisherid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPublisherID(&mut self, bstrpublisherid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PublisherName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetPublisherName(&mut self, bstrpublishername: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPublisherName(&mut self, bstrpublishername: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PublisherType(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetPublisherType(&mut self, bstrpublishertype: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPublisherType(&mut self, bstrpublishertype: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn OwnerSID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetOwnerSID(&mut self, bstrownersid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOwnerSID(&mut self, bstrownersid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetDefaultProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
-    fn PutDefaultProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
-    fn RemoveDefaultProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetDefaultProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
+    fn PutDefaultProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveDefaultProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetDefaultPropertyCollection(&mut self) -> ::windows::core::Result<IEventObjectCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -662,39 +662,39 @@ impl IEventPublisher_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventSubscription_Impl: Sized + super::IDispatch_Impl {
     fn SubscriptionID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetSubscriptionID(&mut self, bstrsubscriptionid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSubscriptionID(&mut self, bstrsubscriptionid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SubscriptionName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetSubscriptionName(&mut self, bstrsubscriptionname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSubscriptionName(&mut self, bstrsubscriptionname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PublisherID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetPublisherID(&mut self, bstrpublisherid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPublisherID(&mut self, bstrpublisherid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EventClassID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetEventClassID(&mut self, bstreventclassid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEventClassID(&mut self, bstreventclassid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn MethodName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetMethodName(&mut self, bstrmethodname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMethodName(&mut self, bstrmethodname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SubscriberCLSID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetSubscriberCLSID(&mut self, bstrsubscriberclsid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSubscriberCLSID(&mut self, bstrsubscriberclsid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SubscriberInterface(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetSubscriberInterface(&mut self, psubscriberinterface: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetSubscriberInterface(&mut self, psubscriberinterface: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn PerUser(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetPerUser(&mut self, fperuser: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn OwnerSID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetOwnerSID(&mut self, bstrownersid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOwnerSID(&mut self, bstrownersid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetEnabled(&mut self, fenabled: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn MachineName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetMachineName(&mut self, bstrmachinename: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetPublisherProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
-    fn PutPublisherProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
-    fn RemovePublisherProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMachineName(&mut self, bstrmachinename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetPublisherProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
+    fn PutPublisherProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn RemovePublisherProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetPublisherPropertyCollection(&mut self) -> ::windows::core::Result<IEventObjectCollection>;
-    fn GetSubscriberProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
-    fn PutSubscriberProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
-    fn RemoveSubscriberProperty(&mut self, bstrpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetSubscriberProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
+    fn PutSubscriberProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveSubscriberProperty(&mut self, bstrpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetSubscriberPropertyCollection(&mut self) -> ::windows::core::Result<IEventObjectCollection>;
     fn InterfaceID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetInterfaceID(&mut self, bstrinterfaceid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetInterfaceID(&mut self, bstrinterfaceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IEventSubscription_Vtbl {
@@ -981,12 +981,12 @@ impl IEventSubscription_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
-    fn Query(&mut self, progid: super::super::super::Foundation::BSTR, querycriteria: super::super::super::Foundation::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Store(&mut self, progid: super::super::super::Foundation::BSTR, pinterface: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, progid: super::super::super::Foundation::BSTR, querycriteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn Query(&mut self, progid: &super::super::super::Foundation::BSTR, querycriteria: &super::super::super::Foundation::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Store(&mut self, progid: &super::super::super::Foundation::BSTR, pinterface: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, progid: &super::super::super::Foundation::BSTR, querycriteria: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
     fn EventObjectChangeEventClassID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn QueryS(&mut self, progid: super::super::super::Foundation::BSTR, querycriteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn RemoveS(&mut self, progid: super::super::super::Foundation::BSTR, querycriteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueryS(&mut self, progid: &super::super::super::Foundation::BSTR, querycriteria: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn RemoveS(&mut self, progid: &super::super::super::Foundation::BSTR, querycriteria: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IEventSystem_Vtbl {
@@ -1049,7 +1049,7 @@ impl IEventSystem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IFiringControl_Impl: Sized + super::IDispatch_Impl {
-    fn FireSubscription(&mut self, subscription: ::core::option::Option<IEventSubscription>) -> ::windows::core::Result<()>;
+    fn FireSubscription(&mut self, subscription: &::core::option::Option<IEventSubscription>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IFiringControl_Vtbl {
@@ -1066,9 +1066,9 @@ impl IFiringControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMultiInterfaceEventControl_Impl: Sized {
-    fn SetMultiInterfacePublisherFilter(&mut self, classfilter: ::core::option::Option<IMultiInterfacePublisherFilter>) -> ::windows::core::Result<()>;
-    fn GetSubscriptions(&mut self, eventiid: *const ::windows::core::GUID, bstrmethodname: super::super::super::Foundation::BSTR, optionalcriteria: super::super::super::Foundation::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection>;
-    fn SetDefaultQuery(&mut self, eventiid: *const ::windows::core::GUID, bstrmethodname: super::super::super::Foundation::BSTR, bstrcriteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn SetMultiInterfacePublisherFilter(&mut self, classfilter: &::core::option::Option<IMultiInterfacePublisherFilter>) -> ::windows::core::Result<()>;
+    fn GetSubscriptions(&mut self, eventiid: *const ::windows::core::GUID, bstrmethodname: &super::super::super::Foundation::BSTR, optionalcriteria: &super::super::super::Foundation::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection>;
+    fn SetDefaultQuery(&mut self, eventiid: *const ::windows::core::GUID, bstrmethodname: &super::super::super::Foundation::BSTR, bstrcriteria: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
     fn AllowInprocActivation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetAllowInprocActivation(&mut self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn FireInParallel(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1146,8 +1146,8 @@ impl IMultiInterfaceEventControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMultiInterfacePublisherFilter_Impl: Sized {
-    fn Initialize(&mut self, peic: ::core::option::Option<IMultiInterfaceEventControl>) -> ::windows::core::Result<()>;
-    fn PrepareToFire(&mut self, iid: *const ::windows::core::GUID, methodname: super::super::super::Foundation::BSTR, firingcontrol: ::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, peic: &::core::option::Option<IMultiInterfaceEventControl>) -> ::windows::core::Result<()>;
+    fn PrepareToFire(&mut self, iid: *const ::windows::core::GUID, methodname: &super::super::super::Foundation::BSTR, firingcontrol: &::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMultiInterfacePublisherFilter_Vtbl {
@@ -1172,8 +1172,8 @@ impl IMultiInterfacePublisherFilter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPublisherFilter_Impl: Sized {
-    fn Initialize(&mut self, methodname: super::super::super::Foundation::BSTR, dispuserdefined: ::core::option::Option<super::IDispatch>) -> ::windows::core::Result<()>;
-    fn PrepareToFire(&mut self, methodname: super::super::super::Foundation::BSTR, firingcontrol: ::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, methodname: &super::super::super::Foundation::BSTR, dispuserdefined: &::core::option::Option<super::IDispatch>) -> ::windows::core::Result<()>;
+    fn PrepareToFire(&mut self, methodname: &super::super::super::Foundation::BSTR, firingcontrol: &::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPublisherFilter_Vtbl {

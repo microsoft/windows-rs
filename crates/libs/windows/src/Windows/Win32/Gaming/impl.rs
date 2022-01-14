@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer_Impl: Sized {
-    fn AddGame(&mut self, bstrgdfbinarypath: super::Foundation::BSTR, bstrgameinstalldirectory: super::Foundation::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RemoveGame(&mut self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UpdateGame(&mut self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn VerifyAccess(&mut self, bstrgdfbinarypath: super::Foundation::BSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
+    fn AddGame(&mut self, bstrgdfbinarypath: &super::Foundation::BSTR, bstrgameinstalldirectory: &super::Foundation::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RemoveGame(&mut self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UpdateGame(&mut self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn VerifyAccess(&mut self, bstrgdfbinarypath: &super::Foundation::BSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer_Vtbl {

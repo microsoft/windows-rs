@@ -131,10 +131,10 @@ impl IBufferByteAccess_Vtbl {
     }
 }
 pub trait ICastingController_Impl: Sized {
-    fn Initialize(&mut self, castingengine: ::core::option::Option<::windows::core::IUnknown>, castingsource: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, castingengine: &::core::option::Option<::windows::core::IUnknown>, castingsource: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Connect(&mut self) -> ::windows::core::Result<()>;
     fn Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, eventhandler: ::core::option::Option<ICastingEventHandler>) -> ::windows::core::Result<u32>;
+    fn Advise(&mut self, eventhandler: &::core::option::Option<ICastingEventHandler>) -> ::windows::core::Result<u32>;
     fn UnAdvise(&mut self, cookie: u32) -> ::windows::core::Result<()>;
 }
 impl ICastingController_Vtbl {
@@ -245,7 +245,7 @@ impl ICastingSourceInfo_Vtbl {
 pub trait ICorrelationVectorInformation_Impl: Sized {
     fn LastCorrelationVectorForThread(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NextCorrelationVectorForThread(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNextCorrelationVectorForThread(&mut self, cv: ::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetNextCorrelationVectorForThread(&mut self, cv: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICorrelationVectorInformation {
     const NAME: &'static str = "";
@@ -400,7 +400,7 @@ impl ILanguageExceptionErrorInfo_Vtbl {
 }
 pub trait ILanguageExceptionErrorInfo2_Impl: Sized + ILanguageExceptionErrorInfo_Impl {
     fn GetPreviousLanguageExceptionErrorInfo(&mut self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2>;
-    fn CapturePropagationContext(&mut self, languageexception: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CapturePropagationContext(&mut self, languageexception: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetPropagationContextHead(&mut self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
@@ -576,7 +576,7 @@ impl IRestrictedErrorInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRoMetaDataLocator_Impl: Sized {
-    fn Locate(&mut self, nameelement: super::super::Foundation::PWSTR, metadatadestination: ::core::option::Option<IRoSimpleMetaDataBuilder>) -> ::windows::core::Result<()>;
+    fn Locate(&mut self, nameelement: super::super::Foundation::PWSTR, metadatadestination: &::core::option::Option<IRoSimpleMetaDataBuilder>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRoMetaDataLocator_Vtbl {
@@ -593,16 +593,16 @@ impl IRoMetaDataLocator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRoSimpleMetaDataBuilder_Impl: Sized {
-    fn SetWinRtInterface(&mut self, iid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetDelegate(&mut self, iid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetWinRtInterface(&mut self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetDelegate(&mut self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetInterfaceGroupSimpleDefault(&mut self, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetInterfaceGroupParameterizedDefault(&mut self, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn SetRuntimeClassSimpleDefault(&mut self, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetRuntimeClassParameterizedDefault(&mut self, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn SetStruct(&mut self, name: super::super::Foundation::PWSTR, numfields: u32, fieldtypenames: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn SetEnum(&mut self, name: super::super::Foundation::PWSTR, basetype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetParameterizedInterface(&mut self, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
-    fn SetParameterizedDelegate(&mut self, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
+    fn SetParameterizedInterface(&mut self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
+    fn SetParameterizedDelegate(&mut self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRoSimpleMetaDataBuilder_Vtbl {
@@ -822,7 +822,7 @@ impl IUserActivityRequestManagerInterop_Vtbl {
     }
 }
 pub trait IUserActivitySourceHostInterop_Impl: Sized {
-    fn SetActivitySourceHost(&mut self, activitysourcehost: ::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetActivitySourceHost(&mut self, activitysourcehost: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IUserActivitySourceHostInterop {
     const NAME: &'static str = "";
@@ -844,7 +844,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserConsentVerifierInterop_Impl: Sized {
-    fn RequestVerificationForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, message: ::windows::core::HSTRING, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestVerificationForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, message: &::windows::core::HSTRING, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IUserConsentVerifierInterop {
@@ -904,8 +904,8 @@ impl IWeakReferenceSource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWebAuthenticationCoreManagerInterop_Impl: Sized {
-    fn RequestTokenForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, request: ::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn RequestTokenWithWebAccountForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, request: ::core::option::Option<::windows::core::IInspectable>, webaccount: ::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestTokenForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, request: &::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestTokenWithWebAccountForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, request: &::core::option::Option<::windows::core::IInspectable>, webaccount: &::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IWebAuthenticationCoreManagerInterop {

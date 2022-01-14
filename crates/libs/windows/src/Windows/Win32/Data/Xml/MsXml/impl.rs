@@ -1,16 +1,16 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMXAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn addAttribute(&mut self, struri: super::super::super::Foundation::BSTR, strlocalname: super::super::super::Foundation::BSTR, strqname: super::super::super::Foundation::BSTR, strtype: super::super::super::Foundation::BSTR, strvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn addAttributeFromIndex(&mut self, varatts: super::super::super::System::Com::VARIANT, nindex: i32) -> ::windows::core::Result<()>;
+    fn addAttribute(&mut self, struri: &super::super::super::Foundation::BSTR, strlocalname: &super::super::super::Foundation::BSTR, strqname: &super::super::super::Foundation::BSTR, strtype: &super::super::super::Foundation::BSTR, strvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn addAttributeFromIndex(&mut self, varatts: &super::super::super::System::Com::VARIANT, nindex: i32) -> ::windows::core::Result<()>;
     fn clear(&mut self) -> ::windows::core::Result<()>;
     fn removeAttribute(&mut self, nindex: i32) -> ::windows::core::Result<()>;
-    fn setAttribute(&mut self, nindex: i32, struri: super::super::super::Foundation::BSTR, strlocalname: super::super::super::Foundation::BSTR, strqname: super::super::super::Foundation::BSTR, strtype: super::super::super::Foundation::BSTR, strvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn setAttributes(&mut self, varatts: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn setLocalName(&mut self, nindex: i32, strlocalname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn setQName(&mut self, nindex: i32, strqname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn setType(&mut self, nindex: i32, strtype: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn setURI(&mut self, nindex: i32, struri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn setValue(&mut self, nindex: i32, strvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setAttribute(&mut self, nindex: i32, struri: &super::super::super::Foundation::BSTR, strlocalname: &super::super::super::Foundation::BSTR, strqname: &super::super::super::Foundation::BSTR, strtype: &super::super::super::Foundation::BSTR, strvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setAttributes(&mut self, varatts: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn setLocalName(&mut self, nindex: i32, strlocalname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setQName(&mut self, nindex: i32, strqname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setType(&mut self, nindex: i32, strtype: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setURI(&mut self, nindex: i32, struri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setValue(&mut self, nindex: i32, strvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMXAttributes_Vtbl {
@@ -84,12 +84,12 @@ pub trait IMXNamespaceManager_Impl: Sized {
     fn getAllowOverride(&mut self) -> ::windows::core::Result<i16>;
     fn reset(&mut self) -> ::windows::core::Result<()>;
     fn pushContext(&mut self) -> ::windows::core::Result<()>;
-    fn pushNodeContext(&mut self, contextnode: ::core::option::Option<IXMLDOMNode>, fdeep: i16) -> ::windows::core::Result<()>;
+    fn pushNodeContext(&mut self, contextnode: &::core::option::Option<IXMLDOMNode>, fdeep: i16) -> ::windows::core::Result<()>;
     fn popContext(&mut self) -> ::windows::core::Result<()>;
     fn declarePrefix(&mut self, prefix: super::super::super::Foundation::PWSTR, namespaceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn getDeclaredPrefix(&mut self, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::core::Result<()>;
     fn getPrefix(&mut self, pwsznamespaceuri: super::super::super::Foundation::PWSTR, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::core::Result<()>;
-    fn getURI(&mut self, pwchprefix: super::super::super::Foundation::PWSTR, pcontextnode: ::core::option::Option<IXMLDOMNode>, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::core::Result<()>;
+    fn getURI(&mut self, pwchprefix: super::super::super::Foundation::PWSTR, pcontextnode: &::core::option::Option<IXMLDOMNode>, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMXNamespaceManager_Vtbl {
@@ -242,7 +242,7 @@ impl IMXReaderControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMXSchemaDeclHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn schemaElementDecl(&mut self, oschemaelement: ::core::option::Option<ISchemaElement>) -> ::windows::core::Result<()>;
+    fn schemaElementDecl(&mut self, oschemaelement: &::core::option::Option<ISchemaElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMXSchemaDeclHandler_Vtbl {
@@ -262,9 +262,9 @@ impl IMXSchemaDeclHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMXWriter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn Setoutput(&mut self, vardestination: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Setoutput(&mut self, vardestination: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn output(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn Setencoding(&mut self, strencoding: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Setencoding(&mut self, strencoding: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn encoding(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetbyteOrderMark(&mut self, fwritebyteordermark: i16) -> ::windows::core::Result<()>;
     fn byteOrderMark(&mut self) -> ::windows::core::Result<i16>;
@@ -274,7 +274,7 @@ pub trait IMXWriter_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn standalone(&mut self) -> ::windows::core::Result<i16>;
     fn SetomitXMLDeclaration(&mut self, fvalue: i16) -> ::windows::core::Result<()>;
     fn omitXMLDeclaration(&mut self) -> ::windows::core::Result<i16>;
-    fn Setversion(&mut self, strversion: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Setversion(&mut self, strversion: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn version(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetdisableOutputEscaping(&mut self, fvalue: i16) -> ::windows::core::Result<()>;
     fn disableOutputEscaping(&mut self) -> ::windows::core::Result<i16>;
@@ -426,18 +426,18 @@ impl IMXWriter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn getFeature(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn putFeature(&mut self, strname: super::super::super::Foundation::BSTR, fvalue: i16) -> ::windows::core::Result<()>;
-    fn getProperty(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn putProperty(&mut self, strname: super::super::super::Foundation::BSTR, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn getFeature(&mut self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn putFeature(&mut self, strname: &super::super::super::Foundation::BSTR, fvalue: i16) -> ::windows::core::Result<()>;
+    fn getProperty(&mut self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn putProperty(&mut self, strname: &super::super::super::Foundation::BSTR, varvalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn entityResolver(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn putref_entityResolver(&mut self, oresolver: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn putref_entityResolver(&mut self, oresolver: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn contentHandler(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn putref_contentHandler(&mut self, ohandler: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn putref_contentHandler(&mut self, ohandler: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn dtdHandler(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn putref_dtdHandler(&mut self, ohandler: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn putref_dtdHandler(&mut self, ohandler: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn errorHandler(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn putref_errorHandler(&mut self, ohandler: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn putref_errorHandler(&mut self, ohandler: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMXXMLFilter_Vtbl {
@@ -658,12 +658,12 @@ impl ISAXAttributes_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISAXContentHandler_Impl: Sized {
-    fn putDocumentLocator(&mut self, plocator: ::core::option::Option<ISAXLocator>) -> ::windows::core::Result<()>;
+    fn putDocumentLocator(&mut self, plocator: &::core::option::Option<ISAXLocator>) -> ::windows::core::Result<()>;
     fn startDocument(&mut self) -> ::windows::core::Result<()>;
     fn endDocument(&mut self) -> ::windows::core::Result<()>;
     fn startPrefixMapping(&mut self, pwchprefix: super::super::super::Foundation::PWSTR, cchprefix: i32, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32) -> ::windows::core::Result<()>;
     fn endPrefixMapping(&mut self, pwchprefix: super::super::super::Foundation::PWSTR, cchprefix: i32) -> ::windows::core::Result<()>;
-    fn startElement(&mut self, pwchnamespaceuri: super::super::super::Foundation::PWSTR, cchnamespaceuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, pattributes: ::core::option::Option<ISAXAttributes>) -> ::windows::core::Result<()>;
+    fn startElement(&mut self, pwchnamespaceuri: super::super::super::Foundation::PWSTR, cchnamespaceuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, pattributes: &::core::option::Option<ISAXAttributes>) -> ::windows::core::Result<()>;
     fn endElement(&mut self, pwchnamespaceuri: super::super::super::Foundation::PWSTR, cchnamespaceuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32) -> ::windows::core::Result<()>;
     fn characters(&mut self, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::Result<()>;
     fn ignorableWhitespace(&mut self, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::Result<()>;
@@ -825,9 +825,9 @@ impl ISAXEntityResolver_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISAXErrorHandler_Impl: Sized {
-    fn error(&mut self, plocator: ::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn fatalError(&mut self, plocator: ::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn ignorableWarning(&mut self, plocator: ::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn error(&mut self, plocator: &::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn fatalError(&mut self, plocator: &::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn ignorableWarning(&mut self, plocator: &::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISAXErrorHandler_Vtbl {
@@ -974,7 +974,7 @@ impl ISAXLocator_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISAXXMLFilter_Impl: Sized + ISAXXMLReader_Impl {
     fn getParent(&mut self) -> ::windows::core::Result<ISAXXMLReader>;
-    fn putParent(&mut self, preader: ::core::option::Option<ISAXXMLReader>) -> ::windows::core::Result<()>;
+    fn putParent(&mut self, preader: &::core::option::Option<ISAXXMLReader>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISAXXMLFilter_Vtbl {
@@ -1008,20 +1008,20 @@ pub trait ISAXXMLReader_Impl: Sized {
     fn getFeature(&mut self, pwchname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<i16>;
     fn putFeature(&mut self, pwchname: super::super::super::Foundation::PWSTR, vfvalue: i16) -> ::windows::core::Result<()>;
     fn getProperty(&mut self, pwchname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn putProperty(&mut self, pwchname: super::super::super::Foundation::PWSTR, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn putProperty(&mut self, pwchname: super::super::super::Foundation::PWSTR, varvalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn getEntityResolver(&mut self) -> ::windows::core::Result<ISAXEntityResolver>;
-    fn putEntityResolver(&mut self, presolver: ::core::option::Option<ISAXEntityResolver>) -> ::windows::core::Result<()>;
+    fn putEntityResolver(&mut self, presolver: &::core::option::Option<ISAXEntityResolver>) -> ::windows::core::Result<()>;
     fn getContentHandler(&mut self) -> ::windows::core::Result<ISAXContentHandler>;
-    fn putContentHandler(&mut self, phandler: ::core::option::Option<ISAXContentHandler>) -> ::windows::core::Result<()>;
+    fn putContentHandler(&mut self, phandler: &::core::option::Option<ISAXContentHandler>) -> ::windows::core::Result<()>;
     fn getDTDHandler(&mut self) -> ::windows::core::Result<ISAXDTDHandler>;
-    fn putDTDHandler(&mut self, phandler: ::core::option::Option<ISAXDTDHandler>) -> ::windows::core::Result<()>;
+    fn putDTDHandler(&mut self, phandler: &::core::option::Option<ISAXDTDHandler>) -> ::windows::core::Result<()>;
     fn getErrorHandler(&mut self) -> ::windows::core::Result<ISAXErrorHandler>;
-    fn putErrorHandler(&mut self, phandler: ::core::option::Option<ISAXErrorHandler>) -> ::windows::core::Result<()>;
+    fn putErrorHandler(&mut self, phandler: &::core::option::Option<ISAXErrorHandler>) -> ::windows::core::Result<()>;
     fn getBaseURL(&mut self) -> ::windows::core::Result<*mut u16>;
     fn putBaseURL(&mut self, pwchbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn getSecureBaseURL(&mut self) -> ::windows::core::Result<*mut u16>;
     fn putSecureBaseURL(&mut self, pwchsecurebaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn parse(&mut self, varinput: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn parse(&mut self, varinput: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn parseURL(&mut self, pwchurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1747,7 +1747,7 @@ pub trait ISchemaItem_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn id(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn itemType(&mut self) -> ::windows::core::Result<SOMITEMTYPE>;
     fn unhandledAttributes(&mut self) -> ::windows::core::Result<IVBSAXAttributes>;
-    fn writeAnnotation(&mut self, annotationsink: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i16>;
+    fn writeAnnotation(&mut self, annotationsink: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISchemaItem_Vtbl {
@@ -1840,8 +1840,8 @@ impl ISchemaItem_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISchemaItemCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn item(&mut self, index: i32) -> ::windows::core::Result<ISchemaItem>;
-    fn itemByName(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
-    fn itemByQName(&mut self, name: super::super::super::Foundation::BSTR, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
+    fn itemByName(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
+    fn itemByQName(&mut self, name: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -2066,7 +2066,7 @@ pub trait ISchemaType_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn r#final(&mut self) -> ::windows::core::Result<SCHEMADERIVATIONMETHOD>;
     fn variety(&mut self) -> ::windows::core::Result<SCHEMATYPEVARIETY>;
     fn derivedBy(&mut self) -> ::windows::core::Result<SCHEMADERIVATIONMETHOD>;
-    fn isValid(&mut self, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn isValid(&mut self, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn minExclusive(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn minInclusive(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn maxExclusive(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -2281,9 +2281,9 @@ impl ISchemaType_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IServerXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLHTTPRequest_Impl {
     fn setTimeouts(&mut self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::Result<()>;
-    fn waitForResponse(&mut self, timeoutinseconds: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
+    fn waitForResponse(&mut self, timeoutinseconds: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
     fn getOption(&mut self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn setOption(&mut self, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn setOption(&mut self, option: SERVERXMLHTTP_OPTION, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IServerXMLHTTPRequest_Vtbl {
@@ -2330,8 +2330,8 @@ impl IServerXMLHTTPRequest_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IServerXMLHTTPRequest2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLHTTPRequest_Impl + IServerXMLHTTPRequest_Impl {
-    fn setProxy(&mut self, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::super::super::System::Com::VARIANT, varbypasslist: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn setProxyCredentials(&mut self, bstrusername: super::super::super::Foundation::BSTR, bstrpassword: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setProxy(&mut self, proxysetting: SXH_PROXY_SETTING, varproxyserver: &super::super::super::System::Com::VARIANT, varbypasslist: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn setProxyCredentials(&mut self, bstrusername: &super::super::super::Foundation::BSTR, bstrpassword: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IServerXMLHTTPRequest2_Vtbl {
@@ -2360,13 +2360,13 @@ pub trait IVBMXNamespaceManager_Impl: Sized + super::super::super::System::Com::
     fn allowOverride(&mut self) -> ::windows::core::Result<i16>;
     fn reset(&mut self) -> ::windows::core::Result<()>;
     fn pushContext(&mut self) -> ::windows::core::Result<()>;
-    fn pushNodeContext(&mut self, contextnode: ::core::option::Option<IXMLDOMNode>, fdeep: i16) -> ::windows::core::Result<()>;
+    fn pushNodeContext(&mut self, contextnode: &::core::option::Option<IXMLDOMNode>, fdeep: i16) -> ::windows::core::Result<()>;
     fn popContext(&mut self) -> ::windows::core::Result<()>;
-    fn declarePrefix(&mut self, prefix: super::super::super::Foundation::BSTR, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn declarePrefix(&mut self, prefix: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn getDeclaredPrefixes(&mut self) -> ::windows::core::Result<IMXNamespacePrefixes>;
-    fn getPrefixes(&mut self, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IMXNamespacePrefixes>;
-    fn getURI(&mut self, prefix: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn getURIFromNode(&mut self, strprefix: super::super::super::Foundation::BSTR, contextnode: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn getPrefixes(&mut self, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IMXNamespacePrefixes>;
+    fn getURI(&mut self, prefix: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn getURIFromNode(&mut self, strprefix: &super::super::super::Foundation::BSTR, contextnode: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVBMXNamespaceManager_Vtbl {
@@ -2470,14 +2470,14 @@ pub trait IVBSAXAttributes_Impl: Sized + super::super::super::System::Com::IDisp
     fn getURI(&mut self, nindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn getLocalName(&mut self, nindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn getQName(&mut self, nindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn getIndexFromName(&mut self, struri: super::super::super::Foundation::BSTR, strlocalname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
-    fn getIndexFromQName(&mut self, strqname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn getIndexFromName(&mut self, struri: &super::super::super::Foundation::BSTR, strlocalname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn getIndexFromQName(&mut self, strqname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
     fn getType(&mut self, nindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn getTypeFromName(&mut self, struri: super::super::super::Foundation::BSTR, strlocalname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn getTypeFromQName(&mut self, strqname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn getTypeFromName(&mut self, struri: &super::super::super::Foundation::BSTR, strlocalname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn getTypeFromQName(&mut self, strqname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn getValue(&mut self, nindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn getValueFromName(&mut self, struri: super::super::super::Foundation::BSTR, strlocalname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn getValueFromQName(&mut self, strqname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn getValueFromName(&mut self, struri: &super::super::super::Foundation::BSTR, strlocalname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn getValueFromQName(&mut self, strqname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVBSAXAttributes_Vtbl {
@@ -2624,12 +2624,12 @@ impl IVBSAXAttributes_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVBSAXContentHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn putref_documentLocator(&mut self, olocator: ::core::option::Option<IVBSAXLocator>) -> ::windows::core::Result<()>;
+    fn putref_documentLocator(&mut self, olocator: &::core::option::Option<IVBSAXLocator>) -> ::windows::core::Result<()>;
     fn startDocument(&mut self) -> ::windows::core::Result<()>;
     fn endDocument(&mut self) -> ::windows::core::Result<()>;
     fn startPrefixMapping(&mut self, strprefix: *mut super::super::super::Foundation::BSTR, struri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn endPrefixMapping(&mut self, strprefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn startElement(&mut self, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR, oattributes: ::core::option::Option<IVBSAXAttributes>) -> ::windows::core::Result<()>;
+    fn startElement(&mut self, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR, oattributes: &::core::option::Option<IVBSAXAttributes>) -> ::windows::core::Result<()>;
     fn endElement(&mut self, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn characters(&mut self, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ignorableWhitespace(&mut self, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -2788,9 +2788,9 @@ impl IVBSAXEntityResolver_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVBSAXErrorHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn error(&mut self, olocator: ::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
-    fn fatalError(&mut self, olocator: ::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
-    fn ignorableWarning(&mut self, olocator: ::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
+    fn error(&mut self, olocator: &::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
+    fn fatalError(&mut self, olocator: &::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
+    fn ignorableWarning(&mut self, olocator: &::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVBSAXErrorHandler_Vtbl {
@@ -2939,7 +2939,7 @@ impl IVBSAXLocator_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVBSAXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn parent(&mut self) -> ::windows::core::Result<IVBSAXXMLReader>;
-    fn putref_parent(&mut self, oreader: ::core::option::Option<IVBSAXXMLReader>) -> ::windows::core::Result<()>;
+    fn putref_parent(&mut self, oreader: &::core::option::Option<IVBSAXXMLReader>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVBSAXXMLFilter_Vtbl {
@@ -2970,24 +2970,24 @@ impl IVBSAXXMLFilter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVBSAXXMLReader_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn getFeature(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn putFeature(&mut self, strname: super::super::super::Foundation::BSTR, fvalue: i16) -> ::windows::core::Result<()>;
-    fn getProperty(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn putProperty(&mut self, strname: super::super::super::Foundation::BSTR, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn getFeature(&mut self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn putFeature(&mut self, strname: &super::super::super::Foundation::BSTR, fvalue: i16) -> ::windows::core::Result<()>;
+    fn getProperty(&mut self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn putProperty(&mut self, strname: &super::super::super::Foundation::BSTR, varvalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn entityResolver(&mut self) -> ::windows::core::Result<IVBSAXEntityResolver>;
-    fn putref_entityResolver(&mut self, oresolver: ::core::option::Option<IVBSAXEntityResolver>) -> ::windows::core::Result<()>;
+    fn putref_entityResolver(&mut self, oresolver: &::core::option::Option<IVBSAXEntityResolver>) -> ::windows::core::Result<()>;
     fn contentHandler(&mut self) -> ::windows::core::Result<IVBSAXContentHandler>;
-    fn putref_contentHandler(&mut self, ohandler: ::core::option::Option<IVBSAXContentHandler>) -> ::windows::core::Result<()>;
+    fn putref_contentHandler(&mut self, ohandler: &::core::option::Option<IVBSAXContentHandler>) -> ::windows::core::Result<()>;
     fn dtdHandler(&mut self) -> ::windows::core::Result<IVBSAXDTDHandler>;
-    fn putref_dtdHandler(&mut self, ohandler: ::core::option::Option<IVBSAXDTDHandler>) -> ::windows::core::Result<()>;
+    fn putref_dtdHandler(&mut self, ohandler: &::core::option::Option<IVBSAXDTDHandler>) -> ::windows::core::Result<()>;
     fn errorHandler(&mut self) -> ::windows::core::Result<IVBSAXErrorHandler>;
-    fn putref_errorHandler(&mut self, ohandler: ::core::option::Option<IVBSAXErrorHandler>) -> ::windows::core::Result<()>;
+    fn putref_errorHandler(&mut self, ohandler: &::core::option::Option<IVBSAXErrorHandler>) -> ::windows::core::Result<()>;
     fn baseURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetbaseURL(&mut self, strbaseurl: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetbaseURL(&mut self, strbaseurl: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn secureBaseURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetsecureBaseURL(&mut self, strsecurebaseurl: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn parse(&mut self, varinput: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn parseURL(&mut self, strurl: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetsecureBaseURL(&mut self, strsecurebaseurl: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn parse(&mut self, varinput: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn parseURL(&mut self, strurl: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVBSAXXMLReader_Vtbl {
@@ -3180,7 +3180,7 @@ impl IXMLAttribute_Vtbl {
 pub trait IXMLDOMAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn name(&mut self, attributename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn value(&mut self, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Setvalue(&mut self, attributevalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Setvalue(&mut self, attributevalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMAttribute_Vtbl {
@@ -3222,13 +3222,13 @@ impl IXMLDOMCDATASection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMCharacterData_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn data(&mut self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Setdata(&mut self, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Setdata(&mut self, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn length(&mut self, datalength: *mut i32) -> ::windows::core::Result<()>;
     fn substringData(&mut self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn appendData(&mut self, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn insertData(&mut self, offset: i32, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn appendData(&mut self, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn insertData(&mut self, offset: i32, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn deleteData(&mut self, offset: i32, count: i32) -> ::windows::core::Result<()>;
-    fn replaceData(&mut self, offset: i32, count: i32, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn replaceData(&mut self, offset: i32, count: i32, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMCharacterData_Vtbl {
@@ -3297,36 +3297,36 @@ pub trait IXMLDOMDocument_Impl: Sized + super::super::super::System::Com::IDispa
     fn doctype(&mut self) -> ::windows::core::Result<IXMLDOMDocumentType>;
     fn implementation(&mut self) -> ::windows::core::Result<IXMLDOMImplementation>;
     fn documentElement(&mut self) -> ::windows::core::Result<IXMLDOMElement>;
-    fn putref_documentElement(&mut self, domelement: ::core::option::Option<IXMLDOMElement>) -> ::windows::core::Result<()>;
-    fn createElement(&mut self, tagname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMElement>;
+    fn putref_documentElement(&mut self, domelement: &::core::option::Option<IXMLDOMElement>) -> ::windows::core::Result<()>;
+    fn createElement(&mut self, tagname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMElement>;
     fn createDocumentFragment(&mut self) -> ::windows::core::Result<IXMLDOMDocumentFragment>;
-    fn createTextNode(&mut self, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMText>;
-    fn createComment(&mut self, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMComment>;
-    fn createCDATASection(&mut self, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMCDATASection>;
-    fn createProcessingInstruction(&mut self, target: super::super::super::Foundation::BSTR, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMProcessingInstruction>;
-    fn createAttribute(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMAttribute>;
-    fn createEntityReference(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMEntityReference>;
-    fn getElementsByTagName(&mut self, tagname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNodeList>;
-    fn createNode(&mut self, r#type: super::super::super::System::Com::VARIANT, name: super::super::super::Foundation::BSTR, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
-    fn nodeFromID(&mut self, idstring: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
-    fn load(&mut self, xmlsource: super::super::super::System::Com::VARIANT, issuccessful: *mut i16) -> ::windows::core::Result<()>;
+    fn createTextNode(&mut self, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMText>;
+    fn createComment(&mut self, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMComment>;
+    fn createCDATASection(&mut self, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMCDATASection>;
+    fn createProcessingInstruction(&mut self, target: &super::super::super::Foundation::BSTR, data: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMProcessingInstruction>;
+    fn createAttribute(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMAttribute>;
+    fn createEntityReference(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMEntityReference>;
+    fn getElementsByTagName(&mut self, tagname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNodeList>;
+    fn createNode(&mut self, r#type: &super::super::super::System::Com::VARIANT, name: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn nodeFromID(&mut self, idstring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn load(&mut self, xmlsource: &super::super::super::System::Com::VARIANT, issuccessful: *mut i16) -> ::windows::core::Result<()>;
     fn readyState(&mut self, value: *mut i32) -> ::windows::core::Result<()>;
     fn parseError(&mut self) -> ::windows::core::Result<IXMLDOMParseError>;
     fn url(&mut self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn r#async(&mut self, isasync: *mut i16) -> ::windows::core::Result<()>;
     fn Setasync(&mut self, isasync: i16) -> ::windows::core::Result<()>;
     fn abort(&mut self) -> ::windows::core::Result<()>;
-    fn loadXML(&mut self, bstrxml: super::super::super::Foundation::BSTR, issuccessful: *mut i16) -> ::windows::core::Result<()>;
-    fn save(&mut self, destination: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn loadXML(&mut self, bstrxml: &super::super::super::Foundation::BSTR, issuccessful: *mut i16) -> ::windows::core::Result<()>;
+    fn save(&mut self, destination: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn validateOnParse(&mut self, isvalidating: *mut i16) -> ::windows::core::Result<()>;
     fn SetvalidateOnParse(&mut self, isvalidating: i16) -> ::windows::core::Result<()>;
     fn resolveExternals(&mut self, isresolving: *mut i16) -> ::windows::core::Result<()>;
     fn SetresolveExternals(&mut self, isresolving: i16) -> ::windows::core::Result<()>;
     fn preserveWhiteSpace(&mut self, ispreserving: *mut i16) -> ::windows::core::Result<()>;
     fn SetpreserveWhiteSpace(&mut self, ispreserving: i16) -> ::windows::core::Result<()>;
-    fn Setonreadystatechange(&mut self, readystatechangesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Setondataavailable(&mut self, ondataavailablesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Setontransformnode(&mut self, ontransformnodesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Setonreadystatechange(&mut self, readystatechangesink: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Setondataavailable(&mut self, ondataavailablesink: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Setontransformnode(&mut self, ontransformnodesink: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMDocument_Vtbl {
@@ -3598,10 +3598,10 @@ impl IXMLDOMDocument_Vtbl {
 pub trait IXMLDOMDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMDocument_Impl {
     fn namespaces(&mut self) -> ::windows::core::Result<IXMLDOMSchemaCollection>;
     fn schemas(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn putref_schemas(&mut self, othercollection: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn putref_schemas(&mut self, othercollection: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn validate(&mut self) -> ::windows::core::Result<IXMLDOMParseError>;
-    fn setProperty(&mut self, name: super::super::super::Foundation::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn getProperty(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn setProperty(&mut self, name: &super::super::super::Foundation::BSTR, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn getProperty(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMDocument2_Vtbl {
@@ -3670,8 +3670,8 @@ impl IXMLDOMDocument2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMDocument3_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMDocument_Impl + IXMLDOMDocument2_Impl {
-    fn validateNode(&mut self, node: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMParseError>;
-    fn importNode(&mut self, node: ::core::option::Option<IXMLDOMNode>, deep: i16) -> ::windows::core::Result<IXMLDOMNode>;
+    fn validateNode(&mut self, node: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMParseError>;
+    fn importNode(&mut self, node: &::core::option::Option<IXMLDOMNode>, deep: i16) -> ::windows::core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMDocument3_Vtbl {
@@ -3764,13 +3764,13 @@ impl IXMLDOMDocumentType_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn tagName(&mut self, tagname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn getAttribute(&mut self, name: super::super::super::Foundation::BSTR, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn setAttribute(&mut self, name: super::super::super::Foundation::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn removeAttribute(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn getAttributeNode(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMAttribute>;
-    fn setAttributeNode(&mut self, domattribute: ::core::option::Option<IXMLDOMAttribute>) -> ::windows::core::Result<IXMLDOMAttribute>;
-    fn removeAttributeNode(&mut self, domattribute: ::core::option::Option<IXMLDOMAttribute>) -> ::windows::core::Result<IXMLDOMAttribute>;
-    fn getElementsByTagName(&mut self, tagname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNodeList>;
+    fn getAttribute(&mut self, name: &super::super::super::Foundation::BSTR, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn setAttribute(&mut self, name: &super::super::super::Foundation::BSTR, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn removeAttribute(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn getAttributeNode(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMAttribute>;
+    fn setAttributeNode(&mut self, domattribute: &::core::option::Option<IXMLDOMAttribute>) -> ::windows::core::Result<IXMLDOMAttribute>;
+    fn removeAttributeNode(&mut self, domattribute: &::core::option::Option<IXMLDOMAttribute>) -> ::windows::core::Result<IXMLDOMAttribute>;
+    fn getElementsByTagName(&mut self, tagname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNodeList>;
     fn normalize(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3898,7 +3898,7 @@ impl IXMLDOMEntityReference_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMImplementation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn hasFeature(&mut self, feature: super::super::super::Foundation::BSTR, version: super::super::super::Foundation::BSTR, hasfeature: *mut i16) -> ::windows::core::Result<()>;
+    fn hasFeature(&mut self, feature: &super::super::super::Foundation::BSTR, version: &super::super::super::Foundation::BSTR, hasfeature: *mut i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMImplementation_Vtbl {
@@ -3918,13 +3918,13 @@ impl IXMLDOMImplementation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMNamedNodeMap_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn getNamedItem(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
-    fn setNamedItem(&mut self, newitem: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
-    fn removeNamedItem(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn getNamedItem(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn setNamedItem(&mut self, newitem: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
+    fn removeNamedItem(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn item(&mut self, index: i32) -> ::windows::core::Result<IXMLDOMNode>;
     fn length(&mut self, listlength: *mut i32) -> ::windows::core::Result<()>;
-    fn getQualifiedItem(&mut self, basename: super::super::super::Foundation::BSTR, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
-    fn removeQualifiedItem(&mut self, basename: super::super::super::Foundation::BSTR, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn getQualifiedItem(&mut self, basename: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn removeQualifiedItem(&mut self, basename: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn nextNode(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn reset(&mut self) -> ::windows::core::Result<()>;
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -4042,7 +4042,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
 pub trait IXMLDOMNode_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn nodeName(&mut self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn nodeValue(&mut self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetnodeValue(&mut self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetnodeValue(&mut self, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn nodeType(&mut self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()>;
     fn parentNode(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn childNodes(&mut self) -> ::windows::core::Result<IXMLDOMNodeList>;
@@ -4051,31 +4051,31 @@ pub trait IXMLDOMNode_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn previousSibling(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn nextSibling(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn attributes(&mut self) -> ::windows::core::Result<IXMLDOMNamedNodeMap>;
-    fn insertBefore(&mut self, newchild: ::core::option::Option<IXMLDOMNode>, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>;
-    fn replaceChild(&mut self, newchild: ::core::option::Option<IXMLDOMNode>, oldchild: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
-    fn removeChild(&mut self, childnode: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
-    fn appendChild(&mut self, newchild: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
+    fn insertBefore(&mut self, newchild: &::core::option::Option<IXMLDOMNode>, refchild: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>;
+    fn replaceChild(&mut self, newchild: &::core::option::Option<IXMLDOMNode>, oldchild: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
+    fn removeChild(&mut self, childnode: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
+    fn appendChild(&mut self, newchild: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
     fn hasChildNodes(&mut self, haschild: *mut i16) -> ::windows::core::Result<()>;
     fn ownerDocument(&mut self) -> ::windows::core::Result<IXMLDOMDocument>;
     fn cloneNode(&mut self, deep: i16) -> ::windows::core::Result<IXMLDOMNode>;
     fn nodeTypeString(&mut self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn text(&mut self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Settext(&mut self, text: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Settext(&mut self, text: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn specified(&mut self, isspecified: *mut i16) -> ::windows::core::Result<()>;
     fn definition(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn nodeTypedValue(&mut self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetnodeTypedValue(&mut self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetnodeTypedValue(&mut self, typedvalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn dataType(&mut self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetdataType(&mut self, datatypename: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetdataType(&mut self, datatypename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn xml(&mut self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn transformNode(&mut self, stylesheet: ::core::option::Option<IXMLDOMNode>, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn selectNodes(&mut self, querystring: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNodeList>;
-    fn selectSingleNode(&mut self, querystring: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn transformNode(&mut self, stylesheet: &::core::option::Option<IXMLDOMNode>, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn selectNodes(&mut self, querystring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNodeList>;
+    fn selectSingleNode(&mut self, querystring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn parsed(&mut self, isparsed: *mut i16) -> ::windows::core::Result<()>;
     fn namespaceURI(&mut self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn prefix(&mut self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn baseName(&mut self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn transformNodeToObject(&mut self, stylesheet: ::core::option::Option<IXMLDOMNode>, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn transformNodeToObject(&mut self, stylesheet: &::core::option::Option<IXMLDOMNode>, outputobject: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMNode_Vtbl {
@@ -4642,7 +4642,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
 pub trait IXMLDOMProcessingInstruction_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn target(&mut self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn data(&mut self, value: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Setdata(&mut self, value: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Setdata(&mut self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMProcessingInstruction_Vtbl {
@@ -4672,12 +4672,12 @@ impl IXMLDOMProcessingInstruction_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMSchemaCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn add(&mut self, namespaceuri: super::super::super::Foundation::BSTR, var: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn get(&mut self, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
-    fn remove(&mut self, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn add(&mut self, namespaceuri: &super::super::super::Foundation::BSTR, var: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn get(&mut self, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
+    fn remove(&mut self, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn namespaceURI(&mut self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn addCollection(&mut self, othercollection: ::core::option::Option<IXMLDOMSchemaCollection>) -> ::windows::core::Result<()>;
+    fn addCollection(&mut self, othercollection: &::core::option::Option<IXMLDOMSchemaCollection>) -> ::windows::core::Result<()>;
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4755,8 +4755,8 @@ pub trait IXMLDOMSchemaCollection2_Impl: Sized + super::super::super::System::Co
     fn validate(&mut self) -> ::windows::core::Result<()>;
     fn SetvalidateOnLoad(&mut self, validateonload: i16) -> ::windows::core::Result<()>;
     fn validateOnLoad(&mut self) -> ::windows::core::Result<i16>;
-    fn getSchema(&mut self, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchema>;
-    fn getDeclaration(&mut self, node: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<ISchemaItem>;
+    fn getSchema(&mut self, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchema>;
+    fn getDeclaration(&mut self, node: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<ISchemaItem>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMSchemaCollection2_Vtbl {
@@ -4815,16 +4815,16 @@ impl IXMLDOMSchemaCollection2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMSelection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNodeList_Impl {
     fn expr(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Setexpr(&mut self, expression: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Setexpr(&mut self, expression: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn context(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
-    fn putref_context(&mut self, pnode: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<()>;
+    fn putref_context(&mut self, pnode: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<()>;
     fn peekNode(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
-    fn matches(&mut self, pnode: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
+    fn matches(&mut self, pnode: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
     fn removeNext(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn removeAll(&mut self) -> ::windows::core::Result<()>;
     fn clone(&mut self) -> ::windows::core::Result<IXMLDOMSelection>;
-    fn getProperty(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn setProperty(&mut self, name: super::super::super::Foundation::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn getProperty(&mut self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn setProperty(&mut self, name: &super::super::super::Foundation::BSTR, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMSelection_Vtbl {
@@ -4960,7 +4960,7 @@ impl IXMLDOMText_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDSOControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&mut self) -> ::windows::core::Result<IXMLDOMDocument>;
-    fn SetXMLDocument(&mut self, ppdoc: ::core::option::Option<IXMLDOMDocument>) -> ::windows::core::Result<()>;
+    fn SetXMLDocument(&mut self, ppdoc: &::core::option::Option<IXMLDOMDocument>) -> ::windows::core::Result<()>;
     fn JavaDSOCompatible(&mut self, fjavadsocompatible: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetJavaDSOCompatible(&mut self, fjavadsocompatible: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn readyState(&mut self, state: *mut i32) -> ::windows::core::Result<()>;
@@ -5014,15 +5014,15 @@ pub trait IXMLDocument_Impl: Sized + super::super::super::System::Com::IDispatch
     fn fileModifiedDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn fileUpdatedDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn URL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetURL(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetURL(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn mimeType(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn readyState(&mut self) -> ::windows::core::Result<i32>;
     fn charset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Setcharset(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Setcharset(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn version(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn doctype(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn dtdURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn createElement(&mut self, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLElement>;
+    fn createElement(&mut self, vtype: &super::super::super::System::Com::VARIANT, var1: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLElement>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDocument_Vtbl {
@@ -5184,15 +5184,15 @@ pub trait IXMLDocument2_Impl: Sized + super::super::super::System::Com::IDispatc
     fn fileModifiedDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn fileUpdatedDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn URL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetURL(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetURL(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn mimeType(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn readyState(&mut self) -> ::windows::core::Result<i32>;
     fn charset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Setcharset(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Setcharset(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn version(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn doctype(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn dtdURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn createElement(&mut self, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLElement2>;
+    fn createElement(&mut self, vtype: &super::super::super::System::Com::VARIANT, var1: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLElement2>;
     fn r#async(&mut self) -> ::windows::core::Result<i16>;
     fn Setasync(&mut self, f: i16) -> ::windows::core::Result<()>;
 }
@@ -5368,17 +5368,17 @@ impl IXMLDocument2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SettagName(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SettagName(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn parent(&mut self) -> ::windows::core::Result<IXMLElement>;
-    fn setAttribute(&mut self, strpropertyname: super::super::super::Foundation::BSTR, propertyvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn getAttribute(&mut self, strpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn removeAttribute(&mut self, strpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setAttribute(&mut self, strpropertyname: &super::super::super::Foundation::BSTR, propertyvalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn getAttribute(&mut self, strpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn removeAttribute(&mut self, strpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn children(&mut self) -> ::windows::core::Result<IXMLElementCollection>;
     fn r#type(&mut self) -> ::windows::core::Result<i32>;
     fn text(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Settext(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn addChild(&mut self, pchildelem: ::core::option::Option<IXMLElement>, lindex: i32, lreserved: i32) -> ::windows::core::Result<()>;
-    fn removeChild(&mut self, pchildelem: ::core::option::Option<IXMLElement>) -> ::windows::core::Result<()>;
+    fn Settext(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn addChild(&mut self, pchildelem: &::core::option::Option<IXMLElement>, lindex: i32, lreserved: i32) -> ::windows::core::Result<()>;
+    fn removeChild(&mut self, pchildelem: &::core::option::Option<IXMLElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLElement_Vtbl {
@@ -5490,17 +5490,17 @@ impl IXMLElement_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLElement2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SettagName(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SettagName(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn parent(&mut self) -> ::windows::core::Result<IXMLElement2>;
-    fn setAttribute(&mut self, strpropertyname: super::super::super::Foundation::BSTR, propertyvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn getAttribute(&mut self, strpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn removeAttribute(&mut self, strpropertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setAttribute(&mut self, strpropertyname: &super::super::super::Foundation::BSTR, propertyvalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn getAttribute(&mut self, strpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn removeAttribute(&mut self, strpropertyname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn children(&mut self) -> ::windows::core::Result<IXMLElementCollection>;
     fn r#type(&mut self) -> ::windows::core::Result<i32>;
     fn text(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Settext(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn addChild(&mut self, pchildelem: ::core::option::Option<IXMLElement2>, lindex: i32, lreserved: i32) -> ::windows::core::Result<()>;
-    fn removeChild(&mut self, pchildelem: ::core::option::Option<IXMLElement2>) -> ::windows::core::Result<()>;
+    fn Settext(&mut self, p: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn addChild(&mut self, pchildelem: &::core::option::Option<IXMLElement2>, lindex: i32, lreserved: i32) -> ::windows::core::Result<()>;
+    fn removeChild(&mut self, pchildelem: &::core::option::Option<IXMLElement2>) -> ::windows::core::Result<()>;
     fn attributes(&mut self) -> ::windows::core::Result<IXMLElementCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5626,7 +5626,7 @@ pub trait IXMLElementCollection_Impl: Sized + super::super::super::System::Com::
     fn Setlength(&mut self, v: i32) -> ::windows::core::Result<()>;
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn item(&mut self, var1: super::super::super::System::Com::VARIANT, var2: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::IDispatch>;
+    fn item(&mut self, var1: &super::super::super::System::Com::VARIANT, var2: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLElementCollection_Vtbl {
@@ -5696,11 +5696,11 @@ impl IXMLError_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn open(&mut self, bstrmethod: super::super::super::Foundation::BSTR, bstrurl: super::super::super::Foundation::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn setRequestHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR, bstrvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn getResponseHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn open(&mut self, bstrmethod: &super::super::super::Foundation::BSTR, bstrurl: &super::super::super::Foundation::BSTR, varasync: &super::super::super::System::Com::VARIANT, bstruser: &super::super::super::System::Com::VARIANT, bstrpassword: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn setRequestHeader(&mut self, bstrheader: &super::super::super::Foundation::BSTR, bstrvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn getResponseHeader(&mut self, bstrheader: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn getAllResponseHeaders(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn send(&mut self, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn send(&mut self, varbody: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn abort(&mut self) -> ::windows::core::Result<()>;
     fn status(&mut self) -> ::windows::core::Result<i32>;
     fn statusText(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -5709,7 +5709,7 @@ pub trait IXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispa
     fn responseBody(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn responseStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn readyState(&mut self) -> ::windows::core::Result<i32>;
-    fn Setonreadystatechange(&mut self, preadystatesink: ::core::option::Option<super::super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Setonreadystatechange(&mut self, preadystatesink: &::core::option::Option<super::super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLHTTPRequest_Vtbl {
@@ -5848,11 +5848,11 @@ impl IXMLHTTPRequest_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXMLHTTPRequest2_Impl: Sized {
-    fn Open(&mut self, pwszmethod: super::super::super::Foundation::PWSTR, pwszurl: super::super::super::Foundation::PWSTR, pstatuscallback: ::core::option::Option<IXMLHTTPRequest2Callback>, pwszusername: super::super::super::Foundation::PWSTR, pwszpassword: super::super::super::Foundation::PWSTR, pwszproxyusername: super::super::super::Foundation::PWSTR, pwszproxypassword: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Send(&mut self, pbody: ::core::option::Option<super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> ::windows::core::Result<()>;
+    fn Open(&mut self, pwszmethod: super::super::super::Foundation::PWSTR, pwszurl: super::super::super::Foundation::PWSTR, pstatuscallback: &::core::option::Option<IXMLHTTPRequest2Callback>, pwszusername: super::super::super::Foundation::PWSTR, pwszpassword: super::super::super::Foundation::PWSTR, pwszproxyusername: super::super::super::Foundation::PWSTR, pwszproxypassword: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Send(&mut self, pbody: &::core::option::Option<super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> ::windows::core::Result<()>;
     fn Abort(&mut self) -> ::windows::core::Result<()>;
     fn SetCookie(&mut self, pcookie: *const XHR_COOKIE) -> ::windows::core::Result<u32>;
-    fn SetCustomResponseStream(&mut self, psequentialstream: ::core::option::Option<super::super::super::System::Com::ISequentialStream>) -> ::windows::core::Result<()>;
+    fn SetCustomResponseStream(&mut self, psequentialstream: &::core::option::Option<super::super::super::System::Com::ISequentialStream>) -> ::windows::core::Result<()>;
     fn SetProperty(&mut self, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::core::Result<()>;
     fn SetRequestHeader(&mut self, pwszheader: super::super::super::Foundation::PWSTR, pwszvalue: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn GetAllResponseHeaders(&mut self) -> ::windows::core::Result<*mut u16>;
@@ -5940,11 +5940,11 @@ impl IXMLHTTPRequest2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXMLHTTPRequest2Callback_Impl: Sized {
-    fn OnRedirect(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, pwszredirecturl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnHeadersAvailable(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, dwstatus: u32, pwszstatus: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnDataAvailable(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, presponsestream: ::core::option::Option<super::super::super::System::Com::ISequentialStream>) -> ::windows::core::Result<()>;
-    fn OnResponseReceived(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, presponsestream: ::core::option::Option<super::super::super::System::Com::ISequentialStream>) -> ::windows::core::Result<()>;
-    fn OnError(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnRedirect(&mut self, pxhr: &::core::option::Option<IXMLHTTPRequest2>, pwszredirecturl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnHeadersAvailable(&mut self, pxhr: &::core::option::Option<IXMLHTTPRequest2>, dwstatus: u32, pwszstatus: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnDataAvailable(&mut self, pxhr: &::core::option::Option<IXMLHTTPRequest2>, presponsestream: &::core::option::Option<super::super::super::System::Com::ISequentialStream>) -> ::windows::core::Result<()>;
+    fn OnResponseReceived(&mut self, pxhr: &::core::option::Option<IXMLHTTPRequest2>, presponsestream: &::core::option::Option<super::super::super::System::Com::ISequentialStream>) -> ::windows::core::Result<()>;
+    fn OnError(&mut self, pxhr: &::core::option::Option<IXMLHTTPRequest2>, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXMLHTTPRequest2Callback_Vtbl {
@@ -6001,8 +6001,8 @@ impl IXMLHTTPRequest3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXMLHTTPRequest3Callback_Impl: Sized + IXMLHTTPRequest2Callback_Impl {
-    fn OnServerCertificateReceived(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::core::Result<()>;
-    fn OnClientCertificateRequested(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::core::Result<()>;
+    fn OnServerCertificateReceived(&mut self, pxhr: &::core::option::Option<IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::core::Result<()>;
+    fn OnClientCertificateRequested(&mut self, pxhr: &::core::option::Option<IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXMLHTTPRequest3Callback_Vtbl {
@@ -6027,11 +6027,11 @@ impl IXMLHTTPRequest3Callback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLHttpRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn open(&mut self, bstrmethod: super::super::super::Foundation::BSTR, bstrurl: super::super::super::Foundation::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn setRequestHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR, bstrvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn getResponseHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn open(&mut self, bstrmethod: &super::super::super::Foundation::BSTR, bstrurl: &super::super::super::Foundation::BSTR, varasync: &super::super::super::System::Com::VARIANT, bstruser: &super::super::super::System::Com::VARIANT, bstrpassword: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn setRequestHeader(&mut self, bstrheader: &super::super::super::Foundation::BSTR, bstrvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn getResponseHeader(&mut self, bstrheader: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn getAllResponseHeaders(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn send(&mut self, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn send(&mut self, varbody: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn abort(&mut self) -> ::windows::core::Result<()>;
     fn status(&mut self) -> ::windows::core::Result<i32>;
     fn statusText(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -6040,7 +6040,7 @@ pub trait IXMLHttpRequest_Impl: Sized + super::super::super::System::Com::IDispa
     fn responseBody(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn responseStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn readyState(&mut self) -> ::windows::core::Result<i32>;
-    fn Setonreadystatechange(&mut self, preadystatesink: ::core::option::Option<super::super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Setonreadystatechange(&mut self, preadystatesink: &::core::option::Option<super::super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLHttpRequest_Vtbl {
@@ -6179,19 +6179,19 @@ impl IXMLHttpRequest_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXSLProcessor_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn Setinput(&mut self, var: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Setinput(&mut self, var: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn input(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn ownerTemplate(&mut self) -> ::windows::core::Result<IXSLTemplate>;
-    fn setStartMode(&mut self, mode: super::super::super::Foundation::BSTR, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn setStartMode(&mut self, mode: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn startMode(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn startModeURI(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Setoutput(&mut self, output: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Setoutput(&mut self, output: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn output(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn transform(&mut self) -> ::windows::core::Result<i16>;
     fn reset(&mut self) -> ::windows::core::Result<()>;
     fn readyState(&mut self) -> ::windows::core::Result<i32>;
-    fn addParameter(&mut self, basename: super::super::super::Foundation::BSTR, parameter: super::super::super::System::Com::VARIANT, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn addObject(&mut self, obj: ::core::option::Option<super::super::super::System::Com::IDispatch>, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn addParameter(&mut self, basename: &super::super::super::Foundation::BSTR, parameter: &super::super::super::System::Com::VARIANT, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn addObject(&mut self, obj: &::core::option::Option<super::super::super::System::Com::IDispatch>, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn stylesheet(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6325,7 +6325,7 @@ impl IXSLProcessor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXSLTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn putref_stylesheet(&mut self, stylesheet: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<()>;
+    fn putref_stylesheet(&mut self, stylesheet: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<()>;
     fn stylesheet(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn createProcessor(&mut self) -> ::windows::core::Result<IXSLProcessor>;
 }
@@ -6369,15 +6369,15 @@ impl IXSLTemplate_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXTLRuntime_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
-    fn uniqueID(&mut self, pnode: ::core::option::Option<IXMLDOMNode>, pid: *mut i32) -> ::windows::core::Result<()>;
-    fn depth(&mut self, pnode: ::core::option::Option<IXMLDOMNode>, pdepth: *mut i32) -> ::windows::core::Result<()>;
-    fn childNumber(&mut self, pnode: ::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;
-    fn ancestorChildNumber(&mut self, bstrnodename: super::super::super::Foundation::BSTR, pnode: ::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;
-    fn absoluteChildNumber(&mut self, pnode: ::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;
-    fn formatIndex(&mut self, lindex: i32, bstrformat: super::super::super::Foundation::BSTR, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn formatNumber(&mut self, dblnumber: f64, bstrformat: super::super::super::Foundation::BSTR, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn formatDate(&mut self, vardate: super::super::super::System::Com::VARIANT, bstrformat: super::super::super::Foundation::BSTR, vardestlocale: super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn formatTime(&mut self, vartime: super::super::super::System::Com::VARIANT, bstrformat: super::super::super::Foundation::BSTR, vardestlocale: super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn uniqueID(&mut self, pnode: &::core::option::Option<IXMLDOMNode>, pid: *mut i32) -> ::windows::core::Result<()>;
+    fn depth(&mut self, pnode: &::core::option::Option<IXMLDOMNode>, pdepth: *mut i32) -> ::windows::core::Result<()>;
+    fn childNumber(&mut self, pnode: &::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;
+    fn ancestorChildNumber(&mut self, bstrnodename: &super::super::super::Foundation::BSTR, pnode: &::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;
+    fn absoluteChildNumber(&mut self, pnode: &::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;
+    fn formatIndex(&mut self, lindex: i32, bstrformat: &super::super::super::Foundation::BSTR, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn formatNumber(&mut self, dblnumber: f64, bstrformat: &super::super::super::Foundation::BSTR, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn formatDate(&mut self, vardate: &super::super::super::System::Com::VARIANT, bstrformat: &super::super::super::Foundation::BSTR, vardestlocale: &super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn formatTime(&mut self, vartime: &super::super::super::System::Com::VARIANT, bstrformat: &super::super::super::Foundation::BSTR, vardestlocale: &super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXTLRuntime_Vtbl {

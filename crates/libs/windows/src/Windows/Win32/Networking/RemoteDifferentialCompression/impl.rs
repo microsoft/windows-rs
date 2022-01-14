@@ -260,8 +260,8 @@ pub trait IRdcLibrary_Impl: Sized {
     fn CreateGeneratorParameters(&mut self, parameterstype: GeneratorParametersType, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters>;
     fn OpenGeneratorParameters(&mut self, size: u32, parametersblob: *const u8) -> ::windows::core::Result<IRdcGeneratorParameters>;
     fn CreateGenerator(&mut self, depth: u32, igeneratorparametersarray: *const ::core::option::Option<IRdcGeneratorParameters>) -> ::windows::core::Result<IRdcGenerator>;
-    fn CreateComparator(&mut self, iseedsignaturesfile: ::core::option::Option<IRdcFileReader>, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator>;
-    fn CreateSignatureReader(&mut self, ifilereader: ::core::option::Option<IRdcFileReader>) -> ::windows::core::Result<IRdcSignatureReader>;
+    fn CreateComparator(&mut self, iseedsignaturesfile: &::core::option::Option<IRdcFileReader>, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator>;
+    fn CreateSignatureReader(&mut self, ifilereader: &::core::option::Option<IRdcFileReader>) -> ::windows::core::Result<IRdcSignatureReader>;
     fn GetRDCVersion(&mut self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IRdcLibrary_Vtbl {
@@ -410,11 +410,11 @@ impl IRdcSimilarityGenerator_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarity_Impl: Sized {
     fn CreateTable(&mut self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&mut self, mapping: ::core::option::Option<ISimilarityTraitsMapping>, fileidfile: ::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&mut self, mapping: &::core::option::Option<ISimilarityTraitsMapping>, fileidfile: &::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&mut self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&mut self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> ::windows::core::Result<()>;
     fn FindSimilarFileId(&mut self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32) -> ::windows::core::Result<IFindSimilarResults>;
-    fn CopyAndSwap(&mut self, newsimilaritytables: ::core::option::Option<ISimilarity>, reportprogress: ::core::option::Option<ISimilarityReportProgress>) -> ::windows::core::Result<()>;
+    fn CopyAndSwap(&mut self, newsimilaritytables: &::core::option::Option<ISimilarity>, reportprogress: &::core::option::Option<ISimilarityReportProgress>) -> ::windows::core::Result<()>;
     fn GetRecordCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -490,7 +490,7 @@ impl ISimilarity_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityFileIdTable_Impl: Sized {
     fn CreateTable(&mut self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&mut self, fileidfile: ::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&mut self, fileidfile: &::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&mut self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&mut self, similarityfileid: *const SimilarityFileId) -> ::windows::core::Result<u32>;
     fn Lookup(&mut self, similarityfileindex: u32) -> ::windows::core::Result<SimilarityFileId>;
@@ -730,7 +730,7 @@ impl ISimilarityTraitsMapping_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityTraitsTable_Impl: Sized {
     fn CreateTable(&mut self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&mut self, mapping: ::core::option::Option<ISimilarityTraitsMapping>, truncate: super::super::Foundation::BOOL) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&mut self, mapping: &::core::option::Option<ISimilarityTraitsMapping>, truncate: super::super::Foundation::BOOL) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&mut self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&mut self, data: *const SimilarityData, fileindex: u32) -> ::windows::core::Result<()>;
     fn FindSimilarFileIndex(&mut self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> ::windows::core::Result<()>;

@@ -273,7 +273,7 @@ impl IEnumWiaItem2_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaAppErrorHandler_Impl: Sized {
     fn GetWindow(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
-    fn ReportStatus(&mut self, lflags: i32, pwiaitem2: ::core::option::Option<IWiaItem2>, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>;
+    fn ReportStatus(&mut self, lflags: i32, pwiaitem2: &::core::option::Option<IWiaItem2>, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWiaAppErrorHandler_Vtbl {
@@ -319,8 +319,8 @@ impl IWiaDataCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWiaDataTransfer_Impl: Sized {
-    fn idtGetData(&mut self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: ::core::option::Option<IWiaDataCallback>) -> ::windows::core::Result<()>;
-    fn idtGetBandedData(&mut self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: ::core::option::Option<IWiaDataCallback>) -> ::windows::core::Result<()>;
+    fn idtGetData(&mut self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: &::core::option::Option<IWiaDataCallback>) -> ::windows::core::Result<()>;
+    fn idtGetBandedData(&mut self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: &::core::option::Option<IWiaDataCallback>) -> ::windows::core::Result<()>;
     fn idtQueryGetData(&mut self, pfe: *const WIA_FORMAT_INFO) -> ::windows::core::Result<()>;
     fn idtEnumWIA_FORMAT_INFO(&mut self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO>;
     fn idtGetExtendedTransferInfo(&mut self) -> ::windows::core::Result<WIA_EXTENDED_TRANSFER_INFO>;
@@ -376,13 +376,13 @@ impl IWiaDataTransfer_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaDevMgr_Impl: Sized {
     fn EnumDeviceInfo(&mut self, lflag: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO>;
-    fn CreateDevice(&mut self, bstrdeviceid: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem>;
+    fn CreateDevice(&mut self, bstrdeviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem>;
     fn SelectDeviceDlg(&mut self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()>;
     fn SelectDeviceDlgID(&mut self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetImageDlg(&mut self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: ::core::option::Option<IWiaItem>, bstrfilename: super::super::Foundation::BSTR, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RegisterEventCallbackProgram(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, bstrcommandline: super::super::Foundation::BSTR, bstrname: super::super::Foundation::BSTR, bstrdescription: super::super::Foundation::BSTR, bstricon: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RegisterEventCallbackInterface(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, piwiaeventcallback: ::core::option::Option<IWiaEventCallback>) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn RegisterEventCallbackCLSID(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: super::super::Foundation::BSTR, bstrdescription: super::super::Foundation::BSTR, bstricon: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetImageDlg(&mut self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: &::core::option::Option<IWiaItem>, bstrfilename: &super::super::Foundation::BSTR, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterEventCallbackProgram(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, bstrcommandline: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR, bstrdescription: &super::super::Foundation::BSTR, bstricon: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterEventCallbackInterface(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, piwiaeventcallback: &::core::option::Option<IWiaEventCallback>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn RegisterEventCallbackCLSID(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: &super::super::Foundation::BSTR, bstrdescription: &super::super::Foundation::BSTR, bstricon: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AddDeviceDlg(&mut self, hwndparent: super::super::Foundation::HWND, lflags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -462,13 +462,13 @@ impl IWiaDevMgr_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaDevMgr2_Impl: Sized {
     fn EnumDeviceInfo(&mut self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO>;
-    fn CreateDevice(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem2>;
+    fn CreateDevice(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem2>;
     fn SelectDeviceDlg(&mut self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
     fn SelectDeviceDlgID(&mut self, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RegisterEventCallbackInterface(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, piwiaeventcallback: ::core::option::Option<IWiaEventCallback>) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn RegisterEventCallbackProgram(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, bstrfullappname: super::super::Foundation::BSTR, bstrcommandlinearg: super::super::Foundation::BSTR, bstrname: super::super::Foundation::BSTR, bstrdescription: super::super::Foundation::BSTR, bstricon: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RegisterEventCallbackCLSID(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: super::super::Foundation::BSTR, bstrdescription: super::super::Foundation::BSTR, bstricon: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetImageDlg(&mut self, lflags: i32, bstrdeviceid: super::super::Foundation::BSTR, hwndparent: super::super::Foundation::HWND, bstrfoldername: super::super::Foundation::BSTR, bstrfilename: super::super::Foundation::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
+    fn RegisterEventCallbackInterface(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, piwiaeventcallback: &::core::option::Option<IWiaEventCallback>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn RegisterEventCallbackProgram(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, bstrfullappname: &super::super::Foundation::BSTR, bstrcommandlinearg: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR, bstrdescription: &super::super::Foundation::BSTR, bstricon: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterEventCallbackCLSID(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: &super::super::Foundation::BSTR, bstrdescription: &super::super::Foundation::BSTR, bstricon: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetImageDlg(&mut self, lflags: i32, bstrdeviceid: &super::super::Foundation::BSTR, hwndparent: super::super::Foundation::HWND, bstrfoldername: &super::super::Foundation::BSTR, bstrfilename: &super::super::Foundation::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWiaDevMgr2_Vtbl {
@@ -545,11 +545,11 @@ pub trait IWiaDrvItem_Impl: Sized {
     fn GetDeviceSpecContext(&mut self) -> ::windows::core::Result<*mut u8>;
     fn GetFullItemName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetItemName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AddItemToFolder(&mut self, __midl__iwiadrvitem0004: ::core::option::Option<IWiaDrvItem>) -> ::windows::core::Result<()>;
+    fn AddItemToFolder(&mut self, __midl__iwiadrvitem0004: &::core::option::Option<IWiaDrvItem>) -> ::windows::core::Result<()>;
     fn UnlinkItemTree(&mut self, __midl__iwiadrvitem0005: i32) -> ::windows::core::Result<()>;
     fn RemoveItemFromFolder(&mut self, __midl__iwiadrvitem0006: i32) -> ::windows::core::Result<()>;
-    fn FindItemByName(&mut self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaDrvItem>;
-    fn FindChildItemByName(&mut self, __midl__iwiadrvitem0010: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaDrvItem>;
+    fn FindItemByName(&mut self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaDrvItem>;
+    fn FindChildItemByName(&mut self, __midl__iwiadrvitem0010: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaDrvItem>;
     fn GetParentItem(&mut self) -> ::windows::core::Result<IWiaDrvItem>;
     fn GetFirstChildItem(&mut self) -> ::windows::core::Result<IWiaDrvItem>;
     fn GetNextSiblingItem(&mut self) -> ::windows::core::Result<IWiaDrvItem>;
@@ -693,8 +693,8 @@ impl IWiaDrvItem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaErrorHandler_Impl: Sized {
-    fn ReportStatus(&mut self, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: ::core::option::Option<IWiaItem2>, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>;
-    fn GetStatusDescription(&mut self, lflags: i32, pwiaitem2: ::core::option::Option<IWiaItem2>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ReportStatus(&mut self, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: &::core::option::Option<IWiaItem2>, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>;
+    fn GetStatusDescription(&mut self, lflags: i32, pwiaitem2: &::core::option::Option<IWiaItem2>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWiaErrorHandler_Vtbl {
@@ -725,7 +725,7 @@ impl IWiaErrorHandler_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaEventCallback_Impl: Sized {
-    fn ImageEventCallback(&mut self, peventguid: *const ::windows::core::GUID, bstreventdescription: super::super::Foundation::BSTR, bstrdeviceid: super::super::Foundation::BSTR, bstrdevicedescription: super::super::Foundation::BSTR, dwdevicetype: u32, bstrfullitemname: super::super::Foundation::BSTR, puleventtype: *mut u32, ulreserved: u32) -> ::windows::core::Result<()>;
+    fn ImageEventCallback(&mut self, peventguid: *const ::windows::core::GUID, bstreventdescription: &super::super::Foundation::BSTR, bstrdeviceid: &super::super::Foundation::BSTR, bstrdevicedescription: &super::super::Foundation::BSTR, dwdevicetype: u32, bstrfullitemname: &super::super::Foundation::BSTR, puleventtype: *mut u32, ulreserved: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWiaEventCallback_Vtbl {
@@ -742,10 +742,10 @@ impl IWiaEventCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWiaImageFilter_Impl: Sized {
-    fn InitializeFilter(&mut self, pwiaitem2: ::core::option::Option<IWiaItem2>, pwiatransfercallback: ::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
-    fn SetNewCallback(&mut self, pwiatransfercallback: ::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
-    fn FilterPreviewImage(&mut self, lflags: i32, pwiachilditem2: ::core::option::Option<IWiaItem2>, inputimageextents: super::super::Foundation::RECT, pinputstream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn ApplyProperties(&mut self, pwiapropertystorage: ::core::option::Option<IWiaPropertyStorage>) -> ::windows::core::Result<()>;
+    fn InitializeFilter(&mut self, pwiaitem2: &::core::option::Option<IWiaItem2>, pwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
+    fn SetNewCallback(&mut self, pwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
+    fn FilterPreviewImage(&mut self, lflags: i32, pwiachilditem2: &::core::option::Option<IWiaItem2>, inputimageextents: &super::super::Foundation::RECT, pinputstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn ApplyProperties(&mut self, pwiapropertystorage: &::core::option::Option<IWiaPropertyStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWiaImageFilter_Vtbl {
@@ -784,9 +784,9 @@ pub trait IWiaItem_Impl: Sized {
     fn AnalyzeItem(&mut self, lflags: i32) -> ::windows::core::Result<()>;
     fn EnumChildItems(&mut self) -> ::windows::core::Result<IEnumWiaItem>;
     fn DeleteItem(&mut self, lflags: i32) -> ::windows::core::Result<()>;
-    fn CreateChildItem(&mut self, lflags: i32, bstritemname: super::super::Foundation::BSTR, bstrfullitemname: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem>;
+    fn CreateChildItem(&mut self, lflags: i32, bstritemname: &super::super::Foundation::BSTR, bstrfullitemname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem>;
     fn EnumRegisterEventInfo(&mut self, lflags: i32, peventguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWIA_DEV_CAPS>;
-    fn FindItemByName(&mut self, lflags: i32, bstrfullitemname: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem>;
+    fn FindItemByName(&mut self, lflags: i32, bstrfullitemname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem>;
     fn DeviceDlg(&mut self, hwndparent: super::super::Foundation::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()>;
     fn DeviceCommand(&mut self, lflags: i32, pcmdguid: *const ::windows::core::GUID, piwiaitem: *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()>;
     fn GetRootItem(&mut self) -> ::windows::core::Result<IWiaItem>;
@@ -944,17 +944,17 @@ impl IWiaItem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWiaItem2_Impl: Sized {
-    fn CreateChildItem(&mut self, litemflags: i32, lcreationflags: i32, bstritemname: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem2>;
+    fn CreateChildItem(&mut self, litemflags: i32, lcreationflags: i32, bstritemname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem2>;
     fn DeleteItem(&mut self, lflags: i32) -> ::windows::core::Result<()>;
     fn EnumChildItems(&mut self, pcategoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWiaItem2>;
-    fn FindItemByName(&mut self, lflags: i32, bstrfullitemname: super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem2>;
+    fn FindItemByName(&mut self, lflags: i32, bstrfullitemname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWiaItem2>;
     fn GetItemCategory(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetItemType(&mut self) -> ::windows::core::Result<i32>;
-    fn DeviceDlg(&mut self, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: super::super::Foundation::BSTR, bstrfilename: super::super::Foundation::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
+    fn DeviceDlg(&mut self, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: &super::super::Foundation::BSTR, bstrfilename: &super::super::Foundation::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
     fn DeviceCommand(&mut self, lflags: i32, pcmdguid: *const ::windows::core::GUID, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
     fn EnumDeviceCapabilities(&mut self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_CAPS>;
-    fn CheckExtension(&mut self, lflags: i32, bstrname: super::super::Foundation::BSTR, riidextensioninterface: *const ::windows::core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetExtension(&mut self, lflags: i32, bstrname: super::super::Foundation::BSTR, riidextensioninterface: *const ::windows::core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CheckExtension(&mut self, lflags: i32, bstrname: &super::super::Foundation::BSTR, riidextensioninterface: *const ::windows::core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetExtension(&mut self, lflags: i32, bstrname: &super::super::Foundation::BSTR, riidextensioninterface: *const ::windows::core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetParentItem(&mut self) -> ::windows::core::Result<IWiaItem2>;
     fn GetRootItem(&mut self) -> ::windows::core::Result<IWiaItem2>;
     fn GetPreviewComponent(&mut self, lflags: i32) -> ::windows::core::Result<IWiaPreview>;
@@ -1154,7 +1154,7 @@ impl IWiaItemExtras_Vtbl {
 pub trait IWiaLog_Impl: Sized {
     fn InitializeLog(&mut self, hinstance: i32) -> ::windows::core::Result<()>;
     fn hResult(&mut self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn Log(&mut self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Log(&mut self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWiaLog_Vtbl {
@@ -1186,9 +1186,9 @@ impl IWiaLog_Vtbl {
 pub trait IWiaLogEx_Impl: Sized {
     fn InitializeLogEx(&mut self, hinstance: *const u8) -> ::windows::core::Result<()>;
     fn hResult(&mut self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn Log(&mut self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Log(&mut self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn hResultEx(&mut self, lmethodid: i32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn LogEx(&mut self, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LogEx(&mut self, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWiaLogEx_Vtbl {
@@ -1228,7 +1228,7 @@ impl IWiaLogEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWiaMiniDrv_Impl: Sized {
-    fn drvInitializeWia(&mut self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: super::super::Foundation::BSTR, __midl__iwiaminidrv0003: super::super::Foundation::BSTR, __midl__iwiaminidrv0004: ::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0005: ::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows::core::Result<()>;
+    fn drvInitializeWia(&mut self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: &super::super::Foundation::BSTR, __midl__iwiaminidrv0003: &super::super::Foundation::BSTR, __midl__iwiaminidrv0004: &::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0005: &::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows::core::Result<()>;
     fn drvAcquireItemData(&mut self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows::core::Result<()>;
     fn drvInitItemProperties(&mut self, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32) -> ::windows::core::Result<i32>;
     fn drvValidateItemProperties(&mut self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<i32>;
@@ -1243,7 +1243,7 @@ pub trait IWiaMiniDrv_Impl: Sized {
     fn drvDeleteItem(&mut self, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32) -> ::windows::core::Result<i32>;
     fn drvFreeDrvItemContext(&mut self, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8) -> ::windows::core::Result<i32>;
     fn drvGetWiaFormatInfo(&mut self, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> ::windows::core::Result<()>;
-    fn drvNotifyPnpEvent(&mut self, peventguid: *const ::windows::core::GUID, bstrdeviceid: super::super::Foundation::BSTR, ulreserved: u32) -> ::windows::core::Result<()>;
+    fn drvNotifyPnpEvent(&mut self, peventguid: *const ::windows::core::GUID, bstrdeviceid: &super::super::Foundation::BSTR, ulreserved: u32) -> ::windows::core::Result<()>;
     fn drvUnInitializeWia(&mut self, __midl__iwiaminidrv0064: *const u8) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1421,7 +1421,7 @@ impl IWiaMiniDrvCallBack_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWiaMiniDrvTransferCallback_Impl: Sized {
-    fn GetNextStream(&mut self, lflags: i32, bstritemname: super::super::Foundation::BSTR, bstrfullitemname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn GetNextStream(&mut self, lflags: i32, bstritemname: &super::super::Foundation::BSTR, bstrfullitemname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn SendMessage(&mut self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1467,8 +1467,8 @@ impl IWiaNotifyDevMgr_Vtbl {
     }
 }
 pub trait IWiaPreview_Impl: Sized {
-    fn GetNewPreview(&mut self, lflags: i32, pwiaitem2: ::core::option::Option<IWiaItem2>, pwiatransfercallback: ::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
-    fn UpdatePreview(&mut self, lflags: i32, pchildwiaitem2: ::core::option::Option<IWiaItem2>, pwiatransfercallback: ::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
+    fn GetNewPreview(&mut self, lflags: i32, pwiaitem2: &::core::option::Option<IWiaItem2>, pwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
+    fn UpdatePreview(&mut self, lflags: i32, pchildwiaitem2: &::core::option::Option<IWiaItem2>, pwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
     fn DetectRegions(&mut self, lflags: i32) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
 }
@@ -1519,7 +1519,7 @@ pub trait IWiaPropertyStorage_Impl: Sized {
     fn GetPropertyAttributes(&mut self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetPropertyStream(&mut self, pcompatibilityid: *mut ::windows::core::GUID, ppistream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn SetPropertyStream(&mut self, pcompatibilityid: *mut ::windows::core::GUID, pistream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetPropertyStream(&mut self, pcompatibilityid: *mut ::windows::core::GUID, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWiaPropertyStorage_Vtbl {
@@ -1632,7 +1632,7 @@ impl IWiaPropertyStorage_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaSegmentationFilter_Impl: Sized {
-    fn DetectRegions(&mut self, lflags: i32, pinputstream: ::core::option::Option<super::super::System::Com::IStream>, pwiaitem2: ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
+    fn DetectRegions(&mut self, lflags: i32, pinputstream: &::core::option::Option<super::super::System::Com::IStream>, pwiaitem2: &::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IWiaSegmentationFilter_Vtbl {
@@ -1649,8 +1649,8 @@ impl IWiaSegmentationFilter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaTransfer_Impl: Sized {
-    fn Download(&mut self, lflags: i32, piwiatransfercallback: ::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
-    fn Upload(&mut self, lflags: i32, psource: ::core::option::Option<super::super::System::Com::IStream>, piwiatransfercallback: ::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
+    fn Download(&mut self, lflags: i32, piwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
+    fn Upload(&mut self, lflags: i32, psource: &::core::option::Option<super::super::System::Com::IStream>, piwiatransfercallback: &::core::option::Option<IWiaTransferCallback>) -> ::windows::core::Result<()>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
     fn EnumWIA_FORMAT_INFO(&mut self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO>;
 }
@@ -1694,7 +1694,7 @@ impl IWiaTransfer_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWiaTransferCallback_Impl: Sized {
     fn TransferCallback(&mut self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()>;
-    fn GetNextStream(&mut self, lflags: i32, bstritemname: super::super::Foundation::BSTR, bstrfullitemname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn GetNextStream(&mut self, lflags: i32, bstritemname: &super::super::Foundation::BSTR, bstrfullitemname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWiaTransferCallback_Vtbl {
@@ -1726,8 +1726,8 @@ impl IWiaTransferCallback_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWiaUIExtension_Impl: Sized {
     fn DeviceDialog(&mut self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows::core::Result<()>;
-    fn GetDeviceIcon(&mut self, bstrdeviceid: super::super::Foundation::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceBitmapLogo(&mut self, bstrdeviceid: super::super::Foundation::BSTR, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceIcon(&mut self, bstrdeviceid: &super::super::Foundation::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceBitmapLogo(&mut self, bstrdeviceid: &super::super::Foundation::BSTR, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWiaUIExtension_Vtbl {
@@ -1758,7 +1758,7 @@ impl IWiaUIExtension_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWiaUIExtension2_Impl: Sized {
     fn DeviceDialog(&mut self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows::core::Result<()>;
-    fn GetDeviceIcon(&mut self, bstrdeviceid: super::super::Foundation::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceIcon(&mut self, bstrdeviceid: &super::super::Foundation::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWiaUIExtension2_Vtbl {
@@ -1786,10 +1786,10 @@ pub trait IWiaVideo_Impl: Sized {
     fn PreviewVisible(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetPreviewVisible(&mut self, bpreviewvisible: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn ImagesDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetImagesDirectory(&mut self, bstrimagedirectory: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn CreateVideoByWiaDevID(&mut self, bstrwiadeviceid: super::super::Foundation::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetImagesDirectory(&mut self, bstrimagedirectory: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateVideoByWiaDevID(&mut self, bstrwiadeviceid: &super::super::Foundation::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn CreateVideoByDevNum(&mut self, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn CreateVideoByName(&mut self, bstrfriendlyname: super::super::Foundation::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn CreateVideoByName(&mut self, bstrfriendlyname: &super::super::Foundation::BSTR, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn DestroyVideo(&mut self) -> ::windows::core::Result<()>;
     fn Play(&mut self) -> ::windows::core::Result<()>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;

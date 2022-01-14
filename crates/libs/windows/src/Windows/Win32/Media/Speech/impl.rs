@@ -140,7 +140,7 @@ impl ISpAudio_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpContainerLexicon_Impl: Sized + ISpLexicon_Impl {
-    fn AddLexicon(&mut self, paddlexicon: ::core::option::Option<ISpLexicon>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn AddLexicon(&mut self, paddlexicon: &::core::option::Option<ISpLexicon>, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISpContainerLexicon_Vtbl {
@@ -614,10 +614,10 @@ impl ISpNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpNotifySource_Impl: Sized {
-    fn SetNotifySink(&mut self, pnotifysink: ::core::option::Option<ISpNotifySink>) -> ::windows::core::Result<()>;
+    fn SetNotifySink(&mut self, pnotifysink: &::core::option::Option<ISpNotifySink>) -> ::windows::core::Result<()>;
     fn SetNotifyWindowMessage(&mut self, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn SetNotifyCallbackFunction(&mut self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn SetNotifyCallbackInterface(&mut self, pspcallback: ::core::option::Option<ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn SetNotifyCallbackInterface(&mut self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn SetNotifyWin32Event(&mut self) -> ::windows::core::Result<()>;
     fn WaitForNotifyEvent(&mut self, dwmilliseconds: u32) -> ::windows::core::Result<()>;
     fn GetNotifyEventHandle(&mut self) -> super::super::Foundation::HANDLE;
@@ -672,7 +672,7 @@ impl ISpNotifySource_Vtbl {
 pub trait ISpNotifyTranslator_Impl: Sized + ISpNotifySink_Impl {
     fn InitWindowMessage(&mut self, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn InitCallback(&mut self, pfncallback: *mut SPNOTIFYCALLBACK, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn InitSpNotifyCallback(&mut self, pspcallback: ::core::option::Option<ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn InitSpNotifyCallback(&mut self, pspcallback: &::core::option::Option<ISpNotifyCallback>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn InitWin32Event(&mut self, hevent: super::super::Foundation::HANDLE, fclosehandleonrelease: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Wait(&mut self, dwmilliseconds: u32) -> ::windows::core::Result<()>;
     fn GetEventHandle(&mut self) -> super::super::Foundation::HANDLE;
@@ -723,12 +723,12 @@ pub trait ISpObjectToken_Impl: Sized + ISpDataKey_Impl {
     fn SetId(&mut self, pszcategoryid: super::super::Foundation::PWSTR, psztokenid: super::super::Foundation::PWSTR, fcreateifnotexist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn GetCategory(&mut self) -> ::windows::core::Result<ISpObjectTokenCategory>;
-    fn CreateInstance(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateInstance(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetStorageFileName(&mut self, clsidcaller: *const ::windows::core::GUID, pszvaluename: super::super::Foundation::PWSTR, pszfilenamespecifier: super::super::Foundation::PWSTR, nfolder: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn RemoveStorageFileName(&mut self, clsidcaller: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, fdeletefile: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Remove(&mut self, pclsidcaller: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn IsUISupported(&mut self, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: ::core::option::Option<::windows::core::IUnknown>, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn DisplayUI(&mut self, hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn IsUISupported(&mut self, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn DisplayUI(&mut self, hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn MatchesAttributes(&mut self, pszattributes: super::super::Foundation::PWSTR, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -886,7 +886,7 @@ impl ISpObjectTokenCategory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpObjectTokenInit_Impl: Sized + ISpDataKey_Impl + ISpObjectToken_Impl {
-    fn InitFromDataKey(&mut self, pszcategoryid: super::super::Foundation::PWSTR, psztokenid: super::super::Foundation::PWSTR, pdatakey: ::core::option::Option<ISpDataKey>) -> ::windows::core::Result<()>;
+    fn InitFromDataKey(&mut self, pszcategoryid: super::super::Foundation::PWSTR, psztokenid: super::super::Foundation::PWSTR, pdatakey: &::core::option::Option<ISpDataKey>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISpObjectTokenInit_Vtbl {
@@ -902,7 +902,7 @@ impl ISpObjectTokenInit_Vtbl {
     }
 }
 pub trait ISpObjectWithToken_Impl: Sized {
-    fn SetObjectToken(&mut self, ptoken: ::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
+    fn SetObjectToken(&mut self, ptoken: &::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
     fn GetObjectToken(&mut self) -> ::windows::core::Result<ISpObjectToken>;
 }
 impl ISpObjectWithToken_Vtbl {
@@ -1223,7 +1223,7 @@ pub trait ISpRecoContext_Impl: Sized + ISpNotifySource_Impl + ISpEventSource_Imp
     fn SetAdaptationData(&mut self, padaptationdata: super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::Result<()>;
     fn Pause(&mut self, dwreserved: u32) -> ::windows::core::Result<()>;
     fn Resume(&mut self, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn SetVoice(&mut self, pvoice: ::core::option::Option<ISpVoice>, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetVoice(&mut self, pvoice: &::core::option::Option<ISpVoice>, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetVoice(&mut self) -> ::windows::core::Result<ISpVoice>;
     fn SetVoicePurgeEvent(&mut self, ulleventinterest: u64) -> ::windows::core::Result<()>;
     fn GetVoicePurgeEvent(&mut self, pulleventinterest: *mut u64) -> ::windows::core::Result<()>;
@@ -1405,7 +1405,7 @@ pub trait ISpRecoGrammar_Impl: Sized + ISpGrammarBuilder_Impl {
     fn SetTextSelection(&mut self, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows::core::Result<()>;
     fn IsPronounceable(&mut self, pszword: super::super::Foundation::PWSTR, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> ::windows::core::Result<()>;
     fn SetGrammarState(&mut self, egrammarstate: SPGRAMMARSTATE) -> ::windows::core::Result<()>;
-    fn SaveCmd(&mut self, pstream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SaveCmd(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn GetGrammarState(&mut self, pegrammarstate: *mut SPGRAMMARSTATE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1529,8 +1529,8 @@ pub trait ISpRecoGrammar2_Impl: Sized {
     fn SetRulePriority(&mut self, pszrulename: super::super::Foundation::PWSTR, ulruleid: u32, nrulepriority: i32) -> ::windows::core::Result<()>;
     fn SetRuleWeight(&mut self, pszrulename: super::super::Foundation::PWSTR, ulruleid: u32, flweight: f32) -> ::windows::core::Result<()>;
     fn SetDictationWeight(&mut self, flweight: f32) -> ::windows::core::Result<()>;
-    fn SetGrammarLoader(&mut self, ploader: ::core::option::Option<ISpeechResourceLoader>) -> ::windows::core::Result<()>;
-    fn SetSMLSecurityManager(&mut self, psmlsecuritymanager: ::core::option::Option<super::super::System::Com::Urlmon::IInternetSecurityManager>) -> ::windows::core::Result<()>;
+    fn SetGrammarLoader(&mut self, ploader: &::core::option::Option<ISpeechResourceLoader>) -> ::windows::core::Result<()>;
+    fn SetSMLSecurityManager(&mut self, psmlsecuritymanager: &::core::option::Option<super::super::System::Com::Urlmon::IInternetSecurityManager>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_Urlmon"))]
 impl ISpRecoGrammar2_Vtbl {
@@ -1653,7 +1653,7 @@ impl ISpRecoResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpRecoResult2_Impl: Sized + ISpPhrase_Impl + ISpRecoResult_Impl {
-    fn CommitAlternate(&mut self, pphrasealt: ::core::option::Option<ISpPhraseAlt>) -> ::windows::core::Result<ISpRecoResult>;
+    fn CommitAlternate(&mut self, pphrasealt: &::core::option::Option<ISpPhraseAlt>) -> ::windows::core::Result<ISpRecoResult>;
     fn CommitText(&mut self, ulstartelement: u32, celements: u32, pszcorrecteddata: super::super::Foundation::PWSTR, ecommitflags: u32) -> ::windows::core::Result<()>;
     fn SetTextFeedback(&mut self, pszfeedback: super::super::Foundation::PWSTR, fsuccessful: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
@@ -1691,14 +1691,14 @@ impl ISpRecoResult2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpRecognizer_Impl: Sized + ISpProperties_Impl {
-    fn SetRecognizer(&mut self, precognizer: ::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
+    fn SetRecognizer(&mut self, precognizer: &::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
     fn GetRecognizer(&mut self) -> ::windows::core::Result<ISpObjectToken>;
-    fn SetInput(&mut self, punkinput: ::core::option::Option<::windows::core::IUnknown>, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetInput(&mut self, punkinput: &::core::option::Option<::windows::core::IUnknown>, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetInputObjectToken(&mut self) -> ::windows::core::Result<ISpObjectToken>;
     fn GetInputStream(&mut self) -> ::windows::core::Result<ISpStreamFormat>;
     fn CreateRecoContext(&mut self) -> ::windows::core::Result<ISpRecoContext>;
     fn GetRecoProfile(&mut self) -> ::windows::core::Result<ISpObjectToken>;
-    fn SetRecoProfile(&mut self, ptoken: ::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
+    fn SetRecoProfile(&mut self, ptoken: &::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
     fn IsSharedInstance(&mut self) -> ::windows::core::Result<()>;
     fn GetRecoState(&mut self, pstate: *mut SPRECOSTATE) -> ::windows::core::Result<()>;
     fn SetRecoState(&mut self, newstate: SPRECOSTATE) -> ::windows::core::Result<()>;
@@ -1706,7 +1706,7 @@ pub trait ISpRecognizer_Impl: Sized + ISpProperties_Impl {
     fn GetFormat(&mut self, waveformattype: SPWAVEFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn IsUISupported(&mut self, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn DisplayUI(&mut self, hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::Result<()>;
-    fn EmulateRecognition(&mut self, pphrase: ::core::option::Option<ISpPhrase>) -> ::windows::core::Result<()>;
+    fn EmulateRecognition(&mut self, pphrase: &::core::option::Option<ISpPhrase>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 impl ISpRecognizer_Vtbl {
@@ -1831,7 +1831,7 @@ impl ISpRecognizer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpRecognizer2_Impl: Sized {
-    fn EmulateRecognitionEx(&mut self, pphrase: ::core::option::Option<ISpPhrase>, dwcompareflags: u32) -> ::windows::core::Result<()>;
+    fn EmulateRecognitionEx(&mut self, pphrase: &::core::option::Option<ISpPhrase>, dwcompareflags: u32) -> ::windows::core::Result<()>;
     fn SetTrainingState(&mut self, fdoingtraining: super::super::Foundation::BOOL, fadaptfromtrainingdata: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn ResetAcousticModelAdaptation(&mut self) -> ::windows::core::Result<()>;
 }
@@ -1880,7 +1880,7 @@ impl ISpRegDataKey_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISpResourceManager_Impl: Sized + super::super::System::Com::IServiceProvider_Impl {
-    fn SetObject(&mut self, guidserviceid: *const ::windows::core::GUID, punkobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetObject(&mut self, guidserviceid: *const ::windows::core::GUID, punkobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetObject(&mut self, guidserviceid: *const ::windows::core::GUID, objectclsid: *const ::windows::core::GUID, objectiid: *const ::windows::core::GUID, freleasewhenlastexternalrefreleased: super::super::Foundation::BOOL, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1998,7 +1998,7 @@ impl ISpShortcut_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISpStream_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl + ISpStreamFormat_Impl {
-    fn SetBaseStream(&mut self, pstream: ::core::option::Option<super::super::System::Com::IStream>, rguidformat: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn SetBaseStream(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>, rguidformat: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn GetBaseStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn BindToFile(&mut self, pszfilename: super::super::Foundation::PWSTR, emode: SPFILEMODE, pformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ulleventinterest: u64) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
@@ -2065,7 +2065,7 @@ impl ISpStreamFormat_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISpStreamFormatConverter_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl + ISpStreamFormat_Impl {
-    fn SetBaseStream(&mut self, pstream: ::core::option::Option<ISpStreamFormat>, fsetformattobasestreamformat: super::super::Foundation::BOOL, fwritetobasestream: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetBaseStream(&mut self, pstream: &::core::option::Option<ISpStreamFormat>, fsetformattobasestreamformat: super::super::Foundation::BOOL, fwritetobasestream: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetBaseStream(&mut self) -> ::windows::core::Result<ISpStreamFormat>;
     fn SetFormat(&mut self, rguidformatidofconvertedstream: *const ::windows::core::GUID, pwaveformatexofconvertedstream: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn ResetSeekPosition(&mut self) -> ::windows::core::Result<()>;
@@ -2165,15 +2165,15 @@ impl ISpTranscript_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISpVoice_Impl: Sized + ISpNotifySource_Impl + ISpEventSource_Impl {
-    fn SetOutput(&mut self, punkoutput: ::core::option::Option<::windows::core::IUnknown>, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetOutput(&mut self, punkoutput: &::core::option::Option<::windows::core::IUnknown>, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetOutputObjectToken(&mut self) -> ::windows::core::Result<ISpObjectToken>;
     fn GetOutputStream(&mut self) -> ::windows::core::Result<ISpStreamFormat>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn SetVoice(&mut self, ptoken: ::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
+    fn SetVoice(&mut self, ptoken: &::core::option::Option<ISpObjectToken>) -> ::windows::core::Result<()>;
     fn GetVoice(&mut self) -> ::windows::core::Result<ISpObjectToken>;
     fn Speak(&mut self, pwcs: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<u32>;
-    fn SpeakStream(&mut self, pstream: ::core::option::Option<super::super::System::Com::IStream>, dwflags: u32) -> ::windows::core::Result<u32>;
+    fn SpeakStream(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwflags: u32) -> ::windows::core::Result<u32>;
     fn GetStatus(&mut self, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Skip(&mut self, pitemtype: super::super::Foundation::PWSTR, lnumitems: i32, pulnumskipped: *mut u32) -> ::windows::core::Result<()>;
     fn SetPriority(&mut self, epriority: SPVPRIORITY) -> ::windows::core::Result<()>;
@@ -2560,9 +2560,9 @@ pub trait ISpeechAudioFormat_Impl: Sized + super::super::System::Com::IDispatch_
     fn Type(&mut self) -> ::windows::core::Result<SpeechAudioFormatType>;
     fn SetType(&mut self, audioformat: SpeechAudioFormatType) -> ::windows::core::Result<()>;
     fn Guid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetGuid(&mut self, guid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetGuid(&mut self, guid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetWaveFormatEx(&mut self) -> ::windows::core::Result<ISpeechWaveFormatEx>;
-    fn SetWaveFormatEx(&mut self, speechwaveformatex: ::core::option::Option<ISpeechWaveFormatEx>) -> ::windows::core::Result<()>;
+    fn SetWaveFormatEx(&mut self, speechwaveformatex: &::core::option::Option<ISpeechWaveFormatEx>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechAudioFormat_Vtbl {
@@ -2700,10 +2700,10 @@ impl ISpeechAudioStatus_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechBaseStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Format(&mut self) -> ::windows::core::Result<ISpeechAudioFormat>;
-    fn putref_Format(&mut self, audioformat: ::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
+    fn putref_Format(&mut self, audioformat: &::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
     fn Read(&mut self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()>;
-    fn Write(&mut self, buffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<i32>;
-    fn Seek(&mut self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Write(&mut self, buffer: &super::super::System::Com::VARIANT) -> ::windows::core::Result<i32>;
+    fn Seek(&mut self, position: &super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechBaseStream_Vtbl {
@@ -2762,7 +2762,7 @@ impl ISpeechBaseStream_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechCustomStream_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISpeechBaseStream_Impl {
     fn BaseStream(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn putref_BaseStream(&mut self, punkstream: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn putref_BaseStream(&mut self, punkstream: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechCustomStream_Vtbl {
@@ -2793,16 +2793,16 @@ impl ISpeechCustomStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechDataKey_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetBinaryValue(&mut self, valuename: super::super::Foundation::BSTR, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetBinaryValue(&mut self, valuename: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetStringValue(&mut self, valuename: super::super::Foundation::BSTR, value: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetStringValue(&mut self, valuename: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLongValue(&mut self, valuename: super::super::Foundation::BSTR, value: i32) -> ::windows::core::Result<()>;
-    fn GetLongValue(&mut self, valuename: super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
-    fn OpenKey(&mut self, subkeyname: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechDataKey>;
-    fn CreateKey(&mut self, subkeyname: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechDataKey>;
-    fn DeleteKey(&mut self, subkeyname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeleteValue(&mut self, valuename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBinaryValue(&mut self, valuename: &super::super::Foundation::BSTR, value: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetBinaryValue(&mut self, valuename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetStringValue(&mut self, valuename: &super::super::Foundation::BSTR, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetStringValue(&mut self, valuename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLongValue(&mut self, valuename: &super::super::Foundation::BSTR, value: i32) -> ::windows::core::Result<()>;
+    fn GetLongValue(&mut self, valuename: &super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn OpenKey(&mut self, subkeyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechDataKey>;
+    fn CreateKey(&mut self, subkeyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechDataKey>;
+    fn DeleteKey(&mut self, subkeyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteValue(&mut self, valuename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EnumKeys(&mut self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn EnumValues(&mut self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
@@ -2921,7 +2921,7 @@ impl ISpeechDataKey_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechFileStream_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISpeechBaseStream_Impl {
-    fn Open(&mut self, filename: super::super::Foundation::BSTR, filemode: SpeechStreamFileMode, doevents: i16) -> ::windows::core::Result<()>;
+    fn Open(&mut self, filename: &super::super::Foundation::BSTR, filemode: SpeechStreamFileMode, doevents: i16) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2952,7 +2952,7 @@ pub trait ISpeechGrammarRule_Impl: Sized + super::super::System::Com::IDispatch_
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Id(&mut self) -> ::windows::core::Result<i32>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn AddResource(&mut self, resourcename: super::super::Foundation::BSTR, resourcevalue: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddResource(&mut self, resourcename: &super::super::Foundation::BSTR, resourcevalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AddState(&mut self) -> ::windows::core::Result<ISpeechGrammarRuleState>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3035,9 +3035,9 @@ impl ISpeechGrammarRule_Vtbl {
 pub trait ISpeechGrammarRuleState_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Rule(&mut self) -> ::windows::core::Result<ISpeechGrammarRule>;
     fn Transitions(&mut self) -> ::windows::core::Result<ISpeechGrammarRuleStateTransitions>;
-    fn AddWordTransition(&mut self, deststate: ::core::option::Option<ISpeechGrammarRuleState>, words: super::super::Foundation::BSTR, separators: super::super::Foundation::BSTR, r#type: SpeechGrammarWordType, propertyname: super::super::Foundation::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>;
-    fn AddRuleTransition(&mut self, destinationstate: ::core::option::Option<ISpeechGrammarRuleState>, rule: ::core::option::Option<ISpeechGrammarRule>, propertyname: super::super::Foundation::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>;
-    fn AddSpecialTransition(&mut self, destinationstate: ::core::option::Option<ISpeechGrammarRuleState>, r#type: SpeechSpecialTransitionType, propertyname: super::super::Foundation::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>;
+    fn AddWordTransition(&mut self, deststate: &::core::option::Option<ISpeechGrammarRuleState>, words: &super::super::Foundation::BSTR, separators: &super::super::Foundation::BSTR, r#type: SpeechGrammarWordType, propertyname: &super::super::Foundation::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>;
+    fn AddRuleTransition(&mut self, destinationstate: &::core::option::Option<ISpeechGrammarRuleState>, rule: &::core::option::Option<ISpeechGrammarRule>, propertyname: &super::super::Foundation::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>;
+    fn AddSpecialTransition(&mut self, destinationstate: &::core::option::Option<ISpeechGrammarRuleState>, r#type: SpeechSpecialTransitionType, propertyname: &super::super::Foundation::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechGrammarRuleState_Vtbl {
@@ -3250,11 +3250,11 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechGrammarRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn FindRule(&mut self, rulenameorid: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechGrammarRule>;
+    fn FindRule(&mut self, rulenameorid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechGrammarRule>;
     fn Item(&mut self, index: i32) -> ::windows::core::Result<ISpeechGrammarRule>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Dynamic(&mut self) -> ::windows::core::Result<i16>;
-    fn Add(&mut self, rulename: super::super::Foundation::BSTR, attributes: SpeechRuleAttributes, ruleid: i32) -> ::windows::core::Result<ISpeechGrammarRule>;
+    fn Add(&mut self, rulename: &super::super::Foundation::BSTR, attributes: SpeechRuleAttributes, ruleid: i32) -> ::windows::core::Result<ISpeechGrammarRule>;
     fn Commit(&mut self) -> ::windows::core::Result<()>;
     fn CommitAndSave(&mut self, errortext: *mut super::super::Foundation::BSTR, savestream: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -3349,11 +3349,11 @@ impl ISpeechGrammarRules_Vtbl {
 pub trait ISpeechLexicon_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GenerationId(&mut self) -> ::windows::core::Result<i32>;
     fn GetWords(&mut self, flags: SpeechLexiconType, generationid: *mut i32, words: *mut ::core::option::Option<ISpeechLexiconWords>) -> ::windows::core::Result<()>;
-    fn AddPronunciation(&mut self, bstrword: super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddPronunciationByPhoneIds(&mut self, bstrword: super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn RemovePronunciation(&mut self, bstrword: super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemovePronunciationByPhoneIds(&mut self, bstrword: super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetPronunciations(&mut self, bstrword: super::super::Foundation::BSTR, langid: i32, typeflags: SpeechLexiconType) -> ::windows::core::Result<ISpeechLexiconPronunciations>;
+    fn AddPronunciation(&mut self, bstrword: &super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddPronunciationByPhoneIds(&mut self, bstrword: &super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RemovePronunciation(&mut self, bstrword: &super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemovePronunciationByPhoneIds(&mut self, bstrword: &super::super::Foundation::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetPronunciations(&mut self, bstrword: &super::super::Foundation::BSTR, langid: i32, typeflags: SpeechLexiconType) -> ::windows::core::Result<ISpeechLexiconPronunciations>;
     fn GetGenerationChange(&mut self, generationid: *mut i32, ppwords: *mut ::core::option::Option<ISpeechLexiconWords>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3719,7 +3719,7 @@ impl ISpeechMMSysAudio_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechMemoryStream_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISpeechBaseStream_Impl {
-    fn SetData(&mut self, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, data: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetData(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3755,15 +3755,15 @@ pub trait ISpeechObjectToken_Impl: Sized + super::super::System::Com::IDispatch_
     fn DataKey(&mut self) -> ::windows::core::Result<ISpeechDataKey>;
     fn Category(&mut self) -> ::windows::core::Result<ISpeechObjectTokenCategory>;
     fn GetDescription(&mut self, locale: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetId(&mut self, id: super::super::Foundation::BSTR, categoryid: super::super::Foundation::BSTR, createifnotexist: i16) -> ::windows::core::Result<()>;
-    fn GetAttribute(&mut self, attributename: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CreateInstance(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, clscontext: SpeechTokenContext) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Remove(&mut self, objectstorageclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetStorageFileName(&mut self, objectstorageclsid: super::super::Foundation::BSTR, keyname: super::super::Foundation::BSTR, filename: super::super::Foundation::BSTR, folder: SpeechTokenShellFolder) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RemoveStorageFileName(&mut self, objectstorageclsid: super::super::Foundation::BSTR, keyname: super::super::Foundation::BSTR, deletefilea: i16) -> ::windows::core::Result<()>;
-    fn IsUISupported(&mut self, typeofui: super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT, object: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i16>;
-    fn DisplayUI(&mut self, hwnd: i32, title: super::super::Foundation::BSTR, typeofui: super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT, object: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn MatchesAttributes(&mut self, attributes: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn SetId(&mut self, id: &super::super::Foundation::BSTR, categoryid: &super::super::Foundation::BSTR, createifnotexist: i16) -> ::windows::core::Result<()>;
+    fn GetAttribute(&mut self, attributename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CreateInstance(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, clscontext: SpeechTokenContext) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Remove(&mut self, objectstorageclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetStorageFileName(&mut self, objectstorageclsid: &super::super::Foundation::BSTR, keyname: &super::super::Foundation::BSTR, filename: &super::super::Foundation::BSTR, folder: SpeechTokenShellFolder) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RemoveStorageFileName(&mut self, objectstorageclsid: &super::super::Foundation::BSTR, keyname: &super::super::Foundation::BSTR, deletefilea: i16) -> ::windows::core::Result<()>;
+    fn IsUISupported(&mut self, typeofui: &super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT, object: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i16>;
+    fn DisplayUI(&mut self, hwnd: i32, title: &super::super::Foundation::BSTR, typeofui: &super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT, object: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn MatchesAttributes(&mut self, attributes: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechObjectToken_Vtbl {
@@ -3898,11 +3898,11 @@ impl ISpeechObjectToken_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechObjectTokenCategory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDefault(&mut self, tokenid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDefault(&mut self, tokenid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Default(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetId(&mut self, id: super::super::Foundation::BSTR, createifnotexist: i16) -> ::windows::core::Result<()>;
+    fn SetId(&mut self, id: &super::super::Foundation::BSTR, createifnotexist: i16) -> ::windows::core::Result<()>;
     fn GetDataKey(&mut self, location: SpeechDataKeyLocation) -> ::windows::core::Result<ISpeechDataKey>;
-    fn EnumerateTokens(&mut self, requiredattributes: super::super::Foundation::BSTR, optionalattributes: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
+    fn EnumerateTokens(&mut self, requiredattributes: &super::super::Foundation::BSTR, optionalattributes: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechObjectTokenCategory_Vtbl {
@@ -4023,8 +4023,8 @@ impl ISpeechObjectTokens_Vtbl {
 pub trait ISpeechPhoneConverter_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LanguageId(&mut self) -> ::windows::core::Result<i32>;
     fn SetLanguageId(&mut self, languageid: i32) -> ::windows::core::Result<()>;
-    fn PhoneToId(&mut self, phonemes: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn IdToPhone(&mut self, idarray: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PhoneToId(&mut self, phonemes: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn IdToPhone(&mut self, idarray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechPhoneConverter_Vtbl {
@@ -5094,7 +5094,7 @@ pub trait ISpeechRecoContext_Impl: Sized + super::super::System::Com::IDispatch_
     fn Recognizer(&mut self) -> ::windows::core::Result<ISpeechRecognizer>;
     fn AudioInputInterferenceStatus(&mut self) -> ::windows::core::Result<SpeechInterference>;
     fn RequestedUIType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn putref_Voice(&mut self, voice: ::core::option::Option<ISpeechVoice>) -> ::windows::core::Result<()>;
+    fn putref_Voice(&mut self, voice: &::core::option::Option<ISpeechVoice>) -> ::windows::core::Result<()>;
     fn Voice(&mut self) -> ::windows::core::Result<ISpeechVoice>;
     fn SetAllowVoiceFormatMatchingOnNextSet(&mut self, allow: i16) -> ::windows::core::Result<()>;
     fn AllowVoiceFormatMatchingOnNextSet(&mut self) -> ::windows::core::Result<i16>;
@@ -5108,14 +5108,14 @@ pub trait ISpeechRecoContext_Impl: Sized + super::super::System::Com::IDispatch_
     fn State(&mut self) -> ::windows::core::Result<SpeechRecoContextState>;
     fn SetRetainedAudio(&mut self, option: SpeechRetainedAudioOptions) -> ::windows::core::Result<()>;
     fn RetainedAudio(&mut self) -> ::windows::core::Result<SpeechRetainedAudioOptions>;
-    fn putref_RetainedAudioFormat(&mut self, format: ::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
+    fn putref_RetainedAudioFormat(&mut self, format: &::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
     fn RetainedAudioFormat(&mut self) -> ::windows::core::Result<ISpeechAudioFormat>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn CreateGrammar(&mut self, grammarid: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechRecoGrammar>;
+    fn CreateGrammar(&mut self, grammarid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechRecoGrammar>;
     fn CreateResultFromMemory(&mut self, resultblock: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechRecoResult>;
-    fn Bookmark(&mut self, options: SpeechBookmarkOptions, streampos: super::super::System::Com::VARIANT, bookmarkid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetAdaptationData(&mut self, adaptationstring: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Bookmark(&mut self, options: SpeechBookmarkOptions, streampos: &super::super::System::Com::VARIANT, bookmarkid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetAdaptationData(&mut self, adaptationstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechRecoContext_Vtbl {
@@ -5339,19 +5339,19 @@ pub trait ISpeechRecoGrammar_Impl: Sized + super::super::System::Com::IDispatch_
     fn State(&mut self) -> ::windows::core::Result<SpeechGrammarState>;
     fn Rules(&mut self) -> ::windows::core::Result<ISpeechGrammarRules>;
     fn Reset(&mut self, newlanguage: i32) -> ::windows::core::Result<()>;
-    fn CmdLoadFromFile(&mut self, filename: super::super::Foundation::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
-    fn CmdLoadFromObject(&mut self, classid: super::super::Foundation::BSTR, grammarname: super::super::Foundation::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
-    fn CmdLoadFromResource(&mut self, hmodule: i32, resourcename: super::super::System::Com::VARIANT, resourcetype: super::super::System::Com::VARIANT, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
-    fn CmdLoadFromMemory(&mut self, grammardata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
-    fn CmdLoadFromProprietaryGrammar(&mut self, proprietaryguid: super::super::Foundation::BSTR, proprietarystring: super::super::Foundation::BSTR, proprietarydata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
-    fn CmdSetRuleState(&mut self, name: super::super::Foundation::BSTR, state: SpeechRuleState) -> ::windows::core::Result<()>;
+    fn CmdLoadFromFile(&mut self, filename: &super::super::Foundation::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
+    fn CmdLoadFromObject(&mut self, classid: &super::super::Foundation::BSTR, grammarname: &super::super::Foundation::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
+    fn CmdLoadFromResource(&mut self, hmodule: i32, resourcename: &super::super::System::Com::VARIANT, resourcetype: &super::super::System::Com::VARIANT, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
+    fn CmdLoadFromMemory(&mut self, grammardata: &super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
+    fn CmdLoadFromProprietaryGrammar(&mut self, proprietaryguid: &super::super::Foundation::BSTR, proprietarystring: &super::super::Foundation::BSTR, proprietarydata: &super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
+    fn CmdSetRuleState(&mut self, name: &super::super::Foundation::BSTR, state: SpeechRuleState) -> ::windows::core::Result<()>;
     fn CmdSetRuleIdState(&mut self, ruleid: i32, state: SpeechRuleState) -> ::windows::core::Result<()>;
-    fn DictationLoad(&mut self, topicname: super::super::Foundation::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
+    fn DictationLoad(&mut self, topicname: &super::super::Foundation::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>;
     fn DictationUnload(&mut self) -> ::windows::core::Result<()>;
     fn DictationSetState(&mut self, state: SpeechRuleState) -> ::windows::core::Result<()>;
-    fn SetWordSequenceData(&mut self, text: super::super::Foundation::BSTR, textlength: i32, info: ::core::option::Option<ISpeechTextSelectionInformation>) -> ::windows::core::Result<()>;
-    fn SetTextSelection(&mut self, info: ::core::option::Option<ISpeechTextSelectionInformation>) -> ::windows::core::Result<()>;
-    fn IsPronounceable(&mut self, word: super::super::Foundation::BSTR) -> ::windows::core::Result<SpeechWordPronounceable>;
+    fn SetWordSequenceData(&mut self, text: &super::super::Foundation::BSTR, textlength: i32, info: &::core::option::Option<ISpeechTextSelectionInformation>) -> ::windows::core::Result<()>;
+    fn SetTextSelection(&mut self, info: &::core::option::Option<ISpeechTextSelectionInformation>) -> ::windows::core::Result<()>;
+    fn IsPronounceable(&mut self, word: &super::super::Foundation::BSTR) -> ::windows::core::Result<SpeechWordPronounceable>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechRecoGrammar_Vtbl {
@@ -5493,7 +5493,7 @@ impl ISpeechRecoGrammar_Vtbl {
 pub trait ISpeechRecoResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RecoContext(&mut self) -> ::windows::core::Result<ISpeechRecoContext>;
     fn Times(&mut self) -> ::windows::core::Result<ISpeechRecoResultTimes>;
-    fn putref_AudioFormat(&mut self, format: ::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
+    fn putref_AudioFormat(&mut self, format: &::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
     fn AudioFormat(&mut self) -> ::windows::core::Result<ISpeechAudioFormat>;
     fn PhraseInfo(&mut self) -> ::windows::core::Result<ISpeechPhraseInfo>;
     fn Alternates(&mut self, requestcount: i32, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechPhraseAlternates>;
@@ -5613,7 +5613,7 @@ impl ISpeechRecoResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechRecoResult2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISpeechRecoResult_Impl {
-    fn SetTextFeedback(&mut self, feedback: super::super::Foundation::BSTR, wassuccessful: i16) -> ::windows::core::Result<()>;
+    fn SetTextFeedback(&mut self, feedback: &super::super::Foundation::BSTR, wassuccessful: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechRecoResult2_Vtbl {
@@ -5632,7 +5632,7 @@ impl ISpeechRecoResult2_Vtbl {
 pub trait ISpeechRecoResultDispatch_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RecoContext(&mut self) -> ::windows::core::Result<ISpeechRecoContext>;
     fn Times(&mut self) -> ::windows::core::Result<ISpeechRecoResultTimes>;
-    fn putref_AudioFormat(&mut self, format: ::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
+    fn putref_AudioFormat(&mut self, format: &::core::option::Option<ISpeechAudioFormat>) -> ::windows::core::Result<()>;
     fn AudioFormat(&mut self) -> ::windows::core::Result<ISpeechAudioFormat>;
     fn PhraseInfo(&mut self) -> ::windows::core::Result<ISpeechPhraseInfo>;
     fn Alternates(&mut self, requestcount: i32, startelement: i32, elements: i32) -> ::windows::core::Result<ISpeechPhraseAlternates>;
@@ -5642,7 +5642,7 @@ pub trait ISpeechRecoResultDispatch_Impl: Sized + super::super::System::Com::IDi
     fn DiscardResultInfo(&mut self, valuetypes: SpeechDiscardType) -> ::windows::core::Result<()>;
     fn GetXMLResult(&mut self, options: SPXMLRESULTOPTIONS) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetXMLErrorInfo(&mut self, linenumber: *mut i32, scriptline: *mut super::super::Foundation::BSTR, source: *mut super::super::Foundation::BSTR, description: *mut super::super::Foundation::BSTR, resultcode: *mut ::windows::core::HRESULT, iserror: *mut i16) -> ::windows::core::Result<()>;
-    fn SetTextFeedback(&mut self, feedback: super::super::Foundation::BSTR, wassuccessful: i16) -> ::windows::core::Result<()>;
+    fn SetTextFeedback(&mut self, feedback: &super::super::Foundation::BSTR, wassuccessful: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechRecoResultDispatch_Vtbl {
@@ -5838,32 +5838,32 @@ impl ISpeechRecoResultTimes_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechRecognizer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn putref_Recognizer(&mut self, recognizer: ::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
+    fn putref_Recognizer(&mut self, recognizer: &::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
     fn Recognizer(&mut self) -> ::windows::core::Result<ISpeechObjectToken>;
     fn SetAllowAudioInputFormatChangesOnNextSet(&mut self, allow: i16) -> ::windows::core::Result<()>;
     fn AllowAudioInputFormatChangesOnNextSet(&mut self) -> ::windows::core::Result<i16>;
-    fn putref_AudioInput(&mut self, audioinput: ::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
+    fn putref_AudioInput(&mut self, audioinput: &::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
     fn AudioInput(&mut self) -> ::windows::core::Result<ISpeechObjectToken>;
-    fn putref_AudioInputStream(&mut self, audioinputstream: ::core::option::Option<ISpeechBaseStream>) -> ::windows::core::Result<()>;
+    fn putref_AudioInputStream(&mut self, audioinputstream: &::core::option::Option<ISpeechBaseStream>) -> ::windows::core::Result<()>;
     fn AudioInputStream(&mut self) -> ::windows::core::Result<ISpeechBaseStream>;
     fn IsShared(&mut self) -> ::windows::core::Result<i16>;
     fn SetState(&mut self, state: SpeechRecognizerState) -> ::windows::core::Result<()>;
     fn State(&mut self) -> ::windows::core::Result<SpeechRecognizerState>;
     fn Status(&mut self) -> ::windows::core::Result<ISpeechRecognizerStatus>;
-    fn putref_Profile(&mut self, profile: ::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
+    fn putref_Profile(&mut self, profile: &::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
     fn Profile(&mut self) -> ::windows::core::Result<ISpeechObjectToken>;
-    fn EmulateRecognition(&mut self, textelements: super::super::System::Com::VARIANT, elementdisplayattributes: *const super::super::System::Com::VARIANT, languageid: i32) -> ::windows::core::Result<()>;
+    fn EmulateRecognition(&mut self, textelements: &super::super::System::Com::VARIANT, elementdisplayattributes: *const super::super::System::Com::VARIANT, languageid: i32) -> ::windows::core::Result<()>;
     fn CreateRecoContext(&mut self) -> ::windows::core::Result<ISpeechRecoContext>;
     fn GetFormat(&mut self, r#type: SpeechFormatType) -> ::windows::core::Result<ISpeechAudioFormat>;
-    fn SetPropertyNumber(&mut self, name: super::super::Foundation::BSTR, value: i32) -> ::windows::core::Result<i16>;
-    fn GetPropertyNumber(&mut self, name: super::super::Foundation::BSTR, value: *mut i32, supported: *mut i16) -> ::windows::core::Result<()>;
-    fn SetPropertyString(&mut self, name: super::super::Foundation::BSTR, value: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn GetPropertyString(&mut self, name: super::super::Foundation::BSTR, value: *mut super::super::Foundation::BSTR, supported: *mut i16) -> ::windows::core::Result<()>;
-    fn IsUISupported(&mut self, typeofui: super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
-    fn DisplayUI(&mut self, hwndparent: i32, title: super::super::Foundation::BSTR, typeofui: super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetRecognizers(&mut self, requiredattributes: super::super::Foundation::BSTR, optionalattributes: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
-    fn GetAudioInputs(&mut self, requiredattributes: super::super::Foundation::BSTR, optionalattributes: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
-    fn GetProfiles(&mut self, requiredattributes: super::super::Foundation::BSTR, optionalattributes: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
+    fn SetPropertyNumber(&mut self, name: &super::super::Foundation::BSTR, value: i32) -> ::windows::core::Result<i16>;
+    fn GetPropertyNumber(&mut self, name: &super::super::Foundation::BSTR, value: *mut i32, supported: *mut i16) -> ::windows::core::Result<()>;
+    fn SetPropertyString(&mut self, name: &super::super::Foundation::BSTR, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn GetPropertyString(&mut self, name: &super::super::Foundation::BSTR, value: *mut super::super::Foundation::BSTR, supported: *mut i16) -> ::windows::core::Result<()>;
+    fn IsUISupported(&mut self, typeofui: &super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
+    fn DisplayUI(&mut self, hwndparent: i32, title: &super::super::Foundation::BSTR, typeofui: &super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetRecognizers(&mut self, requiredattributes: &super::super::Foundation::BSTR, optionalattributes: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
+    fn GetAudioInputs(&mut self, requiredattributes: &super::super::Foundation::BSTR, optionalattributes: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
+    fn GetProfiles(&mut self, requiredattributes: &super::super::Foundation::BSTR, optionalattributes: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechRecognizer_Vtbl {
@@ -6190,9 +6190,9 @@ impl ISpeechRecognizerStatus_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISpeechResourceLoader_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn LoadResource(&mut self, bstrresourceuri: super::super::Foundation::BSTR, falwaysreload: i16, pstream: *mut ::core::option::Option<::windows::core::IUnknown>, pbstrmimetype: *mut super::super::Foundation::BSTR, pfmodified: *mut i16, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetLocalCopy(&mut self, bstrresourceuri: super::super::Foundation::BSTR, pbstrlocalpath: *mut super::super::Foundation::BSTR, pbstrmimetype: *mut super::super::Foundation::BSTR, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ReleaseLocalCopy(&mut self, pbstrlocalpath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LoadResource(&mut self, bstrresourceuri: &super::super::Foundation::BSTR, falwaysreload: i16, pstream: *mut ::core::option::Option<::windows::core::IUnknown>, pbstrmimetype: *mut super::super::Foundation::BSTR, pfmodified: *mut i16, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetLocalCopy(&mut self, bstrresourceuri: &super::super::Foundation::BSTR, pbstrlocalpath: *mut super::super::Foundation::BSTR, pbstrmimetype: *mut super::super::Foundation::BSTR, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReleaseLocalCopy(&mut self, pbstrlocalpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechResourceLoader_Vtbl {
@@ -6310,11 +6310,11 @@ impl ISpeechTextSelectionInformation_Vtbl {
 pub trait ISpeechVoice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Status(&mut self) -> ::windows::core::Result<ISpeechVoiceStatus>;
     fn Voice(&mut self) -> ::windows::core::Result<ISpeechObjectToken>;
-    fn putref_Voice(&mut self, voice: ::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
+    fn putref_Voice(&mut self, voice: &::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
     fn AudioOutput(&mut self) -> ::windows::core::Result<ISpeechObjectToken>;
-    fn putref_AudioOutput(&mut self, audiooutput: ::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
+    fn putref_AudioOutput(&mut self, audiooutput: &::core::option::Option<ISpeechObjectToken>) -> ::windows::core::Result<()>;
     fn AudioOutputStream(&mut self) -> ::windows::core::Result<ISpeechBaseStream>;
-    fn putref_AudioOutputStream(&mut self, audiooutputstream: ::core::option::Option<ISpeechBaseStream>) -> ::windows::core::Result<()>;
+    fn putref_AudioOutputStream(&mut self, audiooutputstream: &::core::option::Option<ISpeechBaseStream>) -> ::windows::core::Result<()>;
     fn Rate(&mut self) -> ::windows::core::Result<i32>;
     fn SetRate(&mut self, rate: i32) -> ::windows::core::Result<()>;
     fn Volume(&mut self) -> ::windows::core::Result<i32>;
@@ -6329,17 +6329,17 @@ pub trait ISpeechVoice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AlertBoundary(&mut self) -> ::windows::core::Result<SpeechVoiceEvents>;
     fn SetSynchronousSpeakTimeout(&mut self, mstimeout: i32) -> ::windows::core::Result<()>;
     fn SynchronousSpeakTimeout(&mut self) -> ::windows::core::Result<i32>;
-    fn Speak(&mut self, text: super::super::Foundation::BSTR, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32>;
-    fn SpeakStream(&mut self, stream: ::core::option::Option<ISpeechBaseStream>, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32>;
+    fn Speak(&mut self, text: &super::super::Foundation::BSTR, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32>;
+    fn SpeakStream(&mut self, stream: &::core::option::Option<ISpeechBaseStream>, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, r#type: super::super::Foundation::BSTR, numitems: i32) -> ::windows::core::Result<i32>;
-    fn GetVoices(&mut self, requiredattributes: super::super::Foundation::BSTR, optionalattributes: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
-    fn GetAudioOutputs(&mut self, requiredattributes: super::super::Foundation::BSTR, optionalattributes: super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
+    fn Skip(&mut self, r#type: &super::super::Foundation::BSTR, numitems: i32) -> ::windows::core::Result<i32>;
+    fn GetVoices(&mut self, requiredattributes: &super::super::Foundation::BSTR, optionalattributes: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
+    fn GetAudioOutputs(&mut self, requiredattributes: &super::super::Foundation::BSTR, optionalattributes: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISpeechObjectTokens>;
     fn WaitUntilDone(&mut self, mstimeout: i32) -> ::windows::core::Result<i16>;
     fn SpeakCompleteEvent(&mut self) -> ::windows::core::Result<i32>;
-    fn IsUISupported(&mut self, typeofui: super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
-    fn DisplayUI(&mut self, hwndparent: i32, title: super::super::Foundation::BSTR, typeofui: super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn IsUISupported(&mut self, typeofui: &super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
+    fn DisplayUI(&mut self, hwndparent: i32, title: &super::super::Foundation::BSTR, typeofui: &super::super::Foundation::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechVoice_Vtbl {
@@ -6799,7 +6799,7 @@ pub trait ISpeechWaveFormatEx_Impl: Sized + super::super::System::Com::IDispatch
     fn BitsPerSample(&mut self) -> ::windows::core::Result<i16>;
     fn SetBitsPerSample(&mut self, bitspersample: i16) -> ::windows::core::Result<()>;
     fn ExtraData(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetExtraData(&mut self, extradata: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetExtraData(&mut self, extradata: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISpeechWaveFormatEx_Vtbl {

@@ -95,9 +95,9 @@ impl ITraceEvent_Vtbl {
     }
 }
 pub trait ITraceEventCallback_Impl: Sized {
-    fn OnBeginProcessTrace(&mut self, headerevent: ::core::option::Option<ITraceEvent>, relogger: ::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
-    fn OnFinalizeProcessTrace(&mut self, relogger: ::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
-    fn OnEvent(&mut self, event: ::core::option::Option<ITraceEvent>, relogger: ::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
+    fn OnBeginProcessTrace(&mut self, headerevent: &::core::option::Option<ITraceEvent>, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
+    fn OnFinalizeProcessTrace(&mut self, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
+    fn OnEvent(&mut self, event: &::core::option::Option<ITraceEvent>, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
 }
 impl ITraceEventCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceEventCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITraceEventCallback_Vtbl {
@@ -126,13 +126,13 @@ impl ITraceEventCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITraceRelogger_Impl: Sized {
-    fn AddLogfileTraceStream(&mut self, logfilename: super::super::super::Foundation::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
-    fn AddRealtimeTraceStream(&mut self, loggername: super::super::super::Foundation::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
-    fn RegisterCallback(&mut self, callback: ::core::option::Option<ITraceEventCallback>) -> ::windows::core::Result<()>;
-    fn Inject(&mut self, event: ::core::option::Option<ITraceEvent>) -> ::windows::core::Result<()>;
+    fn AddLogfileTraceStream(&mut self, logfilename: &super::super::super::Foundation::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
+    fn AddRealtimeTraceStream(&mut self, loggername: &super::super::super::Foundation::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
+    fn RegisterCallback(&mut self, callback: &::core::option::Option<ITraceEventCallback>) -> ::windows::core::Result<()>;
+    fn Inject(&mut self, event: &::core::option::Option<ITraceEvent>) -> ::windows::core::Result<()>;
     fn CreateEventInstance(&mut self, tracehandle: u64, flags: u32) -> ::windows::core::Result<ITraceEvent>;
     fn ProcessTrace(&mut self) -> ::windows::core::Result<()>;
-    fn SetOutputFilename(&mut self, logfilename: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOutputFilename(&mut self, logfilename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetCompressionMode(&mut self, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }

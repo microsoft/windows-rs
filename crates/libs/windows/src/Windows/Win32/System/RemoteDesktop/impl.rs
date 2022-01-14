@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsTSUserEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn TerminalServicesProfilePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesProfilePath(&mut self, pnewval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTerminalServicesProfilePath(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TerminalServicesHomeDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesHomeDirectory(&mut self, pnewval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTerminalServicesHomeDirectory(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TerminalServicesHomeDrive(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesHomeDrive(&mut self, pnewval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTerminalServicesHomeDrive(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AllowLogon(&mut self) -> ::windows::core::Result<i32>;
     fn SetAllowLogon(&mut self, newval: i32) -> ::windows::core::Result<()>;
     fn EnableRemoteControl(&mut self) -> ::windows::core::Result<i32>;
@@ -27,9 +27,9 @@ pub trait IADsTSUserEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn DefaultToMainPrinter(&mut self) -> ::windows::core::Result<i32>;
     fn SetDefaultToMainPrinter(&mut self, newval: i32) -> ::windows::core::Result<()>;
     fn TerminalServicesWorkDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesWorkDirectory(&mut self, pnewval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTerminalServicesWorkDirectory(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TerminalServicesInitialProgram(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesInitialProgram(&mut self, pnewval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTerminalServicesInitialProgram(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsTSUserEx_Vtbl {
@@ -532,10 +532,10 @@ pub trait IRemoteDesktopClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn Settings(&mut self) -> ::windows::core::Result<IRemoteDesktopClientSettings>;
     fn Actions(&mut self) -> ::windows::core::Result<IRemoteDesktopClientActions>;
     fn TouchPointer(&mut self) -> ::windows::core::Result<IRemoteDesktopClientTouchPointer>;
-    fn DeleteSavedCredentials(&mut self, servername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteSavedCredentials(&mut self, servername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn UpdateSessionDisplaySettings(&mut self, width: u32, height: u32) -> ::windows::core::Result<()>;
-    fn attachEvent(&mut self, eventname: super::super::Foundation::BSTR, callback: ::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn detachEvent(&mut self, eventname: super::super::Foundation::BSTR, callback: ::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn attachEvent(&mut self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn detachEvent(&mut self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClient_Vtbl {
@@ -662,10 +662,10 @@ impl IRemoteDesktopClientActions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRemoteDesktopClientSettings_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ApplySettings(&mut self, rdpfilecontents: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ApplySettings(&mut self, rdpfilecontents: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RetrieveSettings(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRdpProperty(&mut self, propertyname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetRdpProperty(&mut self, propertyname: super::super::Foundation::BSTR, value: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetRdpProperty(&mut self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetRdpProperty(&mut self, propertyname: &super::super::Foundation::BSTR, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClientSettings_Vtbl {
@@ -795,7 +795,7 @@ impl IRemoteSystemAdditionalInfoProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGAccountingEngine_Impl: Sized {
-    fn DoAccounting(&mut self, accountingdatatype: AAAccountingDataType, accountingdata: AAAccountingData) -> ::windows::core::Result<()>;
+    fn DoAccounting(&mut self, accountingdatatype: AAAccountingDataType, accountingdata: &AAAccountingData) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAccountingEngine_Vtbl {
@@ -812,7 +812,7 @@ impl ITSGAccountingEngine_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGAuthenticateUserSink_Impl: Sized {
-    fn OnUserAuthenticated(&mut self, username: super::super::Foundation::BSTR, userdomain: super::super::Foundation::BSTR, context: usize, usertoken: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn OnUserAuthenticated(&mut self, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, context: usize, usertoken: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
     fn OnUserAuthenticationFailed(&mut self, context: usize, genericerrorcode: ::windows::core::HRESULT, specificerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn ReauthenticateUser(&mut self, context: usize) -> ::windows::core::Result<()>;
     fn DisconnectUser(&mut self, context: usize) -> ::windows::core::Result<()>;
@@ -849,8 +849,8 @@ impl ITSGAuthenticateUserSink_Vtbl {
     }
 }
 pub trait ITSGAuthenticationEngine_Impl: Sized {
-    fn AuthenticateUser(&mut self, mainsessionid: ::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: ::core::option::Option<ITSGAuthenticateUserSink>) -> ::windows::core::Result<()>;
-    fn CancelAuthentication(&mut self, mainsessionid: ::windows::core::GUID, context: usize) -> ::windows::core::Result<()>;
+    fn AuthenticateUser(&mut self, mainsessionid: &::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: &::core::option::Option<ITSGAuthenticateUserSink>) -> ::windows::core::Result<()>;
+    fn CancelAuthentication(&mut self, mainsessionid: &::windows::core::GUID, context: usize) -> ::windows::core::Result<()>;
 }
 impl ITSGAuthenticationEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthenticationEngine_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITSGAuthenticationEngine_Vtbl {
@@ -873,7 +873,7 @@ impl ITSGAuthenticationEngine_Vtbl {
     }
 }
 pub trait ITSGAuthorizeConnectionSink_Impl: Sized {
-    fn OnConnectionAuthorized(&mut self, hrin: ::windows::core::HRESULT, mainsessionid: ::windows::core::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::core::Result<()>;
+    fn OnConnectionAuthorized(&mut self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::core::Result<()>;
 }
 impl ITSGAuthorizeConnectionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthorizeConnectionSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITSGAuthorizeConnectionSink_Vtbl {
@@ -889,7 +889,7 @@ impl ITSGAuthorizeConnectionSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGAuthorizeResourceSink_Impl: Sized {
-    fn OnChannelAuthorized(&mut self, hrin: ::windows::core::HRESULT, mainsessionid: ::windows::core::GUID, subsessionid: i32, allowedresourcenames: *const super::super::Foundation::BSTR, numallowedresourcenames: u32, failedresourcenames: *const super::super::Foundation::BSTR, numfailedresourcenames: u32) -> ::windows::core::Result<()>;
+    fn OnChannelAuthorized(&mut self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, subsessionid: i32, allowedresourcenames: *const super::super::Foundation::BSTR, numallowedresourcenames: u32, failedresourcenames: *const super::super::Foundation::BSTR, numfailedresourcenames: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAuthorizeResourceSink_Vtbl {
@@ -906,8 +906,8 @@ impl ITSGAuthorizeResourceSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGPolicyEngine_Impl: Sized {
-    fn AuthorizeConnection(&mut self, mainsessionid: ::windows::core::GUID, username: super::super::Foundation::BSTR, authtype: AAAuthSchemes, clientmachineip: super::super::Foundation::BSTR, clientmachinename: super::super::Foundation::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: ::core::option::Option<ITSGAuthorizeConnectionSink>) -> ::windows::core::Result<()>;
-    fn AuthorizeResource(&mut self, mainsessionid: ::windows::core::GUID, subsessionid: i32, username: super::super::Foundation::BSTR, resourcenames: *const super::super::Foundation::BSTR, numresources: u32, alternateresourcenames: *const super::super::Foundation::BSTR, numalternateresourcename: u32, portnumber: u32, operation: super::super::Foundation::BSTR, cookie: *const u8, numbytesincookie: u32, psink: ::core::option::Option<ITSGAuthorizeResourceSink>) -> ::windows::core::Result<()>;
+    fn AuthorizeConnection(&mut self, mainsessionid: &::windows::core::GUID, username: &super::super::Foundation::BSTR, authtype: AAAuthSchemes, clientmachineip: &super::super::Foundation::BSTR, clientmachinename: &super::super::Foundation::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: &::core::option::Option<ITSGAuthorizeConnectionSink>) -> ::windows::core::Result<()>;
+    fn AuthorizeResource(&mut self, mainsessionid: &::windows::core::GUID, subsessionid: i32, username: &super::super::Foundation::BSTR, resourcenames: *const super::super::Foundation::BSTR, numresources: u32, alternateresourcenames: *const super::super::Foundation::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &super::super::Foundation::BSTR, cookie: *const u8, numbytesincookie: u32, psink: &::core::option::Option<ITSGAuthorizeResourceSink>) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn IsQuarantineEnabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
@@ -996,8 +996,8 @@ pub trait ITsSbClientConnection_Impl: Sized {
     fn InitialProgram(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn LoadBalanceResult(&mut self) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
     fn FarmName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PutContext(&mut self, contextid: super::super::Foundation::BSTR, context: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn GetContext(&mut self, contextid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn PutContext(&mut self, contextid: &super::super::Foundation::BSTR, context: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn GetContext(&mut self, contextid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn Environment(&mut self) -> ::windows::core::Result<ITsSbEnvironment>;
     fn ConnectionError(&mut self) -> ::windows::core::Result<()>;
     fn SamUserAccount(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -1193,7 +1193,7 @@ pub trait ITsSbEnvironment_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ServerWeight(&mut self) -> ::windows::core::Result<u32>;
     fn EnvironmentPropertySet(&mut self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
-    fn SetEnvironmentPropertySet(&mut self, pval: ::core::option::Option<ITsSbEnvironmentPropertySet>) -> ::windows::core::Result<()>;
+    fn SetEnvironmentPropertySet(&mut self, pval: &::core::option::Option<ITsSbEnvironmentPropertySet>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbEnvironment_Vtbl {
@@ -1257,9 +1257,9 @@ impl ITsSbEnvironmentPropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbFilterPluginStore_Impl: Sized {
-    fn SaveProperties(&mut self, ppropertyset: ::core::option::Option<ITsSbPropertySet>) -> ::windows::core::Result<()>;
+    fn SaveProperties(&mut self, ppropertyset: &::core::option::Option<ITsSbPropertySet>) -> ::windows::core::Result<()>;
     fn EnumerateProperties(&mut self) -> ::windows::core::Result<ITsSbPropertySet>;
-    fn DeleteProperties(&mut self, propertyname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteProperties(&mut self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbFilterPluginStore_Vtbl {
@@ -1327,13 +1327,13 @@ impl ITsSbGenericNotifySink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITsSbGlobalStore_Impl: Sized {
-    fn QueryTarget(&mut self, providername: super::super::Foundation::BSTR, targetname: super::super::Foundation::BSTR, farmname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
-    fn QuerySessionBySessionId(&mut self, providername: super::super::Foundation::BSTR, dwsessionid: u32, targetname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
-    fn EnumerateFarms(&mut self, providername: super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn EnumerateTargets(&mut self, providername: super::super::Foundation::BSTR, farmname: super::super::Foundation::BSTR, envname: super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn EnumerateEnvironmentsByProvider(&mut self, providername: super::super::Foundation::BSTR, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
-    fn EnumerateSessions(&mut self, providername: super::super::Foundation::BSTR, targetname: super::super::Foundation::BSTR, username: super::super::Foundation::BSTR, userdomain: super::super::Foundation::BSTR, poolname: super::super::Foundation::BSTR, initialprogram: super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn GetFarmProperty(&mut self, farmname: super::super::Foundation::BSTR, propertyname: super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn QueryTarget(&mut self, providername: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
+    fn QuerySessionBySessionId(&mut self, providername: &super::super::Foundation::BSTR, dwsessionid: u32, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
+    fn EnumerateFarms(&mut self, providername: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn EnumerateTargets(&mut self, providername: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR, envname: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn EnumerateEnvironmentsByProvider(&mut self, providername: &super::super::Foundation::BSTR, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn EnumerateSessions(&mut self, providername: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn GetFarmProperty(&mut self, farmname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITsSbGlobalStore_Vtbl {
@@ -1418,7 +1418,7 @@ impl ITsSbLoadBalanceResult_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbLoadBalancing_Impl: Sized + ITsSbPlugin_Impl {
-    fn GetMostSuitableTarget(&mut self, pconnection: ::core::option::Option<ITsSbClientConnection>, plbsink: ::core::option::Option<ITsSbLoadBalancingNotifySink>) -> ::windows::core::Result<()>;
+    fn GetMostSuitableTarget(&mut self, pconnection: &::core::option::Option<ITsSbClientConnection>, plbsink: &::core::option::Option<ITsSbLoadBalancingNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbLoadBalancing_Vtbl {
@@ -1435,7 +1435,7 @@ impl ITsSbLoadBalancing_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbLoadBalancingNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnGetMostSuitableTarget(&mut self, plbresult: ::core::option::Option<ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnGetMostSuitableTarget(&mut self, plbresult: &::core::option::Option<ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbLoadBalancingNotifySink_Vtbl {
@@ -1455,7 +1455,7 @@ impl ITsSbLoadBalancingNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbOrchestration_Impl: Sized + ITsSbPlugin_Impl {
-    fn PrepareTargetForConnect(&mut self, pconnection: ::core::option::Option<ITsSbClientConnection>, porchestrationnotifysink: ::core::option::Option<ITsSbOrchestrationNotifySink>) -> ::windows::core::Result<()>;
+    fn PrepareTargetForConnect(&mut self, pconnection: &::core::option::Option<ITsSbClientConnection>, porchestrationnotifysink: &::core::option::Option<ITsSbOrchestrationNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbOrchestration_Vtbl {
@@ -1471,7 +1471,7 @@ impl ITsSbOrchestration_Vtbl {
     }
 }
 pub trait ITsSbOrchestrationNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnReadyToConnect(&mut self, ptarget: ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn OnReadyToConnect(&mut self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
 }
 impl ITsSbOrchestrationNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbOrchestrationNotifySink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITsSbOrchestrationNotifySink_Vtbl {
@@ -1487,7 +1487,7 @@ impl ITsSbOrchestrationNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlacement_Impl: Sized + ITsSbPlugin_Impl {
-    fn QueryEnvironmentForTarget(&mut self, pconnection: ::core::option::Option<ITsSbClientConnection>, pplacementsink: ::core::option::Option<ITsSbPlacementNotifySink>) -> ::windows::core::Result<()>;
+    fn QueryEnvironmentForTarget(&mut self, pconnection: &::core::option::Option<ITsSbClientConnection>, pplacementsink: &::core::option::Option<ITsSbPlacementNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPlacement_Vtbl {
@@ -1506,7 +1506,7 @@ impl ITsSbPlacement_Vtbl {
     }
 }
 pub trait ITsSbPlacementNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnQueryEnvironmentCompleted(&mut self, penvironment: ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn OnQueryEnvironmentCompleted(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
 }
 impl ITsSbPlacementNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPlacementNotifySink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITsSbPlacementNotifySink_Vtbl {
@@ -1525,7 +1525,7 @@ impl ITsSbPlacementNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlugin_Impl: Sized {
-    fn Initialize(&mut self, pprovider: ::core::option::Option<ITsSbProvider>, pnotifysink: ::core::option::Option<ITsSbPluginNotifySink>, ppropertyset: ::core::option::Option<ITsSbPluginPropertySet>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pprovider: &::core::option::Option<ITsSbProvider>, pnotifysink: &::core::option::Option<ITsSbPluginNotifySink>, ppropertyset: &::core::option::Option<ITsSbPluginPropertySet>) -> ::windows::core::Result<()>;
     fn Terminate(&mut self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1597,16 +1597,16 @@ impl ITsSbPropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbProvider_Impl: Sized {
-    fn CreateTargetObject(&mut self, targetname: super::super::Foundation::BSTR, environmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
-    fn CreateLoadBalanceResultObject(&mut self, targetname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
-    fn CreateSessionObject(&mut self, targetname: super::super::Foundation::BSTR, username: super::super::Foundation::BSTR, domain: super::super::Foundation::BSTR, sessionid: u32) -> ::windows::core::Result<ITsSbSession>;
+    fn CreateTargetObject(&mut self, targetname: &super::super::Foundation::BSTR, environmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
+    fn CreateLoadBalanceResultObject(&mut self, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
+    fn CreateSessionObject(&mut self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, sessionid: u32) -> ::windows::core::Result<ITsSbSession>;
     fn CreatePluginPropertySet(&mut self) -> ::windows::core::Result<ITsSbPluginPropertySet>;
     fn CreateTargetPropertySetObject(&mut self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
-    fn CreateEnvironmentObject(&mut self, name: super::super::Foundation::BSTR, serverweight: u32) -> ::windows::core::Result<ITsSbEnvironment>;
+    fn CreateEnvironmentObject(&mut self, name: &super::super::Foundation::BSTR, serverweight: u32) -> ::windows::core::Result<ITsSbEnvironment>;
     fn GetResourcePluginStore(&mut self) -> ::windows::core::Result<ITsSbResourcePluginStore>;
     fn GetFilterPluginStore(&mut self) -> ::windows::core::Result<ITsSbFilterPluginStore>;
-    fn RegisterForNotification(&mut self, notificationtype: u32, resourcetomonitor: super::super::Foundation::BSTR, ppluginnotification: ::core::option::Option<ITsSbResourceNotification>) -> ::windows::core::Result<()>;
-    fn UnRegisterForNotification(&mut self, notificationtype: u32, resourcetomonitor: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterForNotification(&mut self, notificationtype: u32, resourcetomonitor: &super::super::Foundation::BSTR, ppluginnotification: &::core::option::Option<ITsSbResourceNotification>) -> ::windows::core::Result<()>;
+    fn UnRegisterForNotification(&mut self, notificationtype: u32, resourcetomonitor: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetInstanceOfGlobalStore(&mut self) -> ::windows::core::Result<ITsSbGlobalStore>;
     fn CreateEnvironmentPropertySetObject(&mut self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
 }
@@ -1743,10 +1743,10 @@ impl ITsSbProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbProvisioning_Impl: Sized + ITsSbPlugin_Impl {
-    fn CreateVirtualMachines(&mut self, jobxmlstring: super::super::Foundation::BSTR, jobguid: super::super::Foundation::BSTR, psink: ::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
-    fn PatchVirtualMachines(&mut self, jobxmlstring: super::super::Foundation::BSTR, jobguid: super::super::Foundation::BSTR, psink: ::core::option::Option<ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::core::Result<()>;
-    fn DeleteVirtualMachines(&mut self, jobxmlstring: super::super::Foundation::BSTR, jobguid: super::super::Foundation::BSTR, psink: ::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
-    fn CancelJob(&mut self, jobguid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateVirtualMachines(&mut self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn PatchVirtualMachines(&mut self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::core::Result<()>;
+    fn DeleteVirtualMachines(&mut self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn CancelJob(&mut self, jobguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbProvisioning_Vtbl {
@@ -1782,11 +1782,11 @@ impl ITsSbProvisioning_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbProvisioningPluginNotifySink_Impl: Sized {
     fn OnJobCreated(&mut self, pvmnotifyinfo: *const VM_NOTIFY_INFO) -> ::windows::core::Result<()>;
-    fn OnVirtualMachineStatusChanged(&mut self, pvmnotifyentry: *const VM_NOTIFY_ENTRY, vmnotifystatus: VM_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnJobCompleted(&mut self, resultcode: ::windows::core::HRESULT, resultdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnVirtualMachineStatusChanged(&mut self, pvmnotifyentry: *const VM_NOTIFY_ENTRY, vmnotifystatus: VM_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnJobCompleted(&mut self, resultcode: ::windows::core::HRESULT, resultdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn OnJobCancelled(&mut self) -> ::windows::core::Result<()>;
     fn LockVirtualMachine(&mut self, pvmnotifyentry: *const VM_NOTIFY_ENTRY) -> ::windows::core::Result<()>;
-    fn OnVirtualMachineHostStatusChanged(&mut self, vmhost: super::super::Foundation::BSTR, vmhostnotifystatus: VM_HOST_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnVirtualMachineHostStatusChanged(&mut self, vmhost: &super::super::Foundation::BSTR, vmhostnotifystatus: VM_HOST_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbProvisioningPluginNotifySink_Vtbl {
@@ -1830,9 +1830,9 @@ impl ITsSbProvisioningPluginNotifySink_Vtbl {
     }
 }
 pub trait ITsSbResourceNotification_Impl: Sized {
-    fn NotifySessionChange(&mut self, changetype: TSSESSION_STATE, psession: ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn NotifyTargetChange(&mut self, targetchangetype: u32, ptarget: ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn NotifyClientConnectionStateChange(&mut self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: ::core::option::Option<ITsSbClientConnection>) -> ::windows::core::Result<()>;
+    fn NotifySessionChange(&mut self, changetype: TSSESSION_STATE, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn NotifyTargetChange(&mut self, targetchangetype: u32, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn NotifyClientConnectionStateChange(&mut self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: &::core::option::Option<ITsSbClientConnection>) -> ::windows::core::Result<()>;
 }
 impl ITsSbResourceNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourceNotification_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITsSbResourceNotification_Vtbl {
@@ -1861,9 +1861,9 @@ impl ITsSbResourceNotification_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbResourceNotificationEx_Impl: Sized {
-    fn NotifySessionChangeEx(&mut self, targetname: super::super::Foundation::BSTR, username: super::super::Foundation::BSTR, domain: super::super::Foundation::BSTR, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows::core::Result<()>;
-    fn NotifyTargetChangeEx(&mut self, targetname: super::super::Foundation::BSTR, targetchangetype: u32) -> ::windows::core::Result<()>;
-    fn NotifyClientConnectionStateChangeEx(&mut self, username: super::super::Foundation::BSTR, domain: super::super::Foundation::BSTR, initialprogram: super::super::Foundation::BSTR, poolname: super::super::Foundation::BSTR, targetname: super::super::Foundation::BSTR, connectionchangetype: CONNECTION_CHANGE_NOTIFICATION) -> ::windows::core::Result<()>;
+    fn NotifySessionChangeEx(&mut self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows::core::Result<()>;
+    fn NotifyTargetChangeEx(&mut self, targetname: &super::super::Foundation::BSTR, targetchangetype: u32) -> ::windows::core::Result<()>;
+    fn NotifyClientConnectionStateChangeEx(&mut self, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, connectionchangetype: CONNECTION_CHANGE_NOTIFICATION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbResourceNotificationEx_Vtbl {
@@ -1904,34 +1904,34 @@ impl ITsSbResourcePlugin_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITsSbResourcePluginStore_Impl: Sized {
-    fn QueryTarget(&mut self, targetname: super::super::Foundation::BSTR, farmname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
-    fn QuerySessionBySessionId(&mut self, dwsessionid: u32, targetname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
-    fn AddTargetToStore(&mut self, ptarget: ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn AddSessionToStore(&mut self, psession: ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn AddEnvironmentToStore(&mut self, penvironment: ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
-    fn RemoveEnvironmentFromStore(&mut self, environmentname: super::super::Foundation::BSTR, bignoreowner: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn QueryTarget(&mut self, targetname: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
+    fn QuerySessionBySessionId(&mut self, dwsessionid: u32, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
+    fn AddTargetToStore(&mut self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn AddSessionToStore(&mut self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn AddEnvironmentToStore(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn RemoveEnvironmentFromStore(&mut self, environmentname: &super::super::Foundation::BSTR, bignoreowner: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnumerateFarms(&mut self, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn QueryEnvironment(&mut self, environmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbEnvironment>;
+    fn QueryEnvironment(&mut self, environmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbEnvironment>;
     fn EnumerateEnvironments(&mut self, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
-    fn SaveTarget(&mut self, ptarget: ::core::option::Option<ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveEnvironment(&mut self, penvironment: ::core::option::Option<ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveSession(&mut self, psession: ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn SetTargetProperty(&mut self, targetname: super::super::Foundation::BSTR, propertyname: super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetEnvironmentProperty(&mut self, environmentname: super::super::Foundation::BSTR, propertyname: super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetTargetState(&mut self, targetname: super::super::Foundation::BSTR, newstate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetSessionState(&mut self, sbsession: ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn EnumerateTargets(&mut self, farmname: super::super::Foundation::BSTR, envname: super::super::Foundation::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn EnumerateSessions(&mut self, targetname: super::super::Foundation::BSTR, username: super::super::Foundation::BSTR, userdomain: super::super::Foundation::BSTR, poolname: super::super::Foundation::BSTR, initialprogram: super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn GetFarmProperty(&mut self, farmname: super::super::Foundation::BSTR, propertyname: super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteTarget(&mut self, targetname: super::super::Foundation::BSTR, hostname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetTargetPropertyWithVersionCheck(&mut self, ptarget: ::core::option::Option<ITsSbTarget>, propertyname: super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetEnvironmentPropertyWithVersionCheck(&mut self, penvironment: ::core::option::Option<ITsSbEnvironment>, propertyname: super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AcquireTargetLock(&mut self, targetname: super::super::Foundation::BSTR, dwtimeout: u32) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn ReleaseTargetLock(&mut self, pcontext: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn TestAndSetServerState(&mut self, poolname: super::super::Foundation::BSTR, serverfqdn: super::super::Foundation::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetServerWaitingToStart(&mut self, poolname: super::super::Foundation::BSTR, servername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetServerState(&mut self, poolname: super::super::Foundation::BSTR, serverfqdn: super::super::Foundation::BSTR) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetServerDrainMode(&mut self, serverfqdn: super::super::Foundation::BSTR, drainmode: u32) -> ::windows::core::Result<()>;
+    fn SaveTarget(&mut self, ptarget: &::core::option::Option<ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveEnvironment(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveSession(&mut self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn SetTargetProperty(&mut self, targetname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetEnvironmentProperty(&mut self, environmentname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetTargetState(&mut self, targetname: &super::super::Foundation::BSTR, newstate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
+    fn SetSessionState(&mut self, sbsession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn EnumerateTargets(&mut self, farmname: &super::super::Foundation::BSTR, envname: &super::super::Foundation::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn EnumerateSessions(&mut self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn GetFarmProperty(&mut self, farmname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteTarget(&mut self, targetname: &super::super::Foundation::BSTR, hostname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTargetPropertyWithVersionCheck(&mut self, ptarget: &::core::option::Option<ITsSbTarget>, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetEnvironmentPropertyWithVersionCheck(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AcquireTargetLock(&mut self, targetname: &super::super::Foundation::BSTR, dwtimeout: u32) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn ReleaseTargetLock(&mut self, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn TestAndSetServerState(&mut self, poolname: &super::super::Foundation::BSTR, serverfqdn: &super::super::Foundation::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
+    fn SetServerWaitingToStart(&mut self, poolname: &super::super::Foundation::BSTR, servername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetServerState(&mut self, poolname: &super::super::Foundation::BSTR, serverfqdn: &super::super::Foundation::BSTR) -> ::windows::core::Result<TARGET_STATE>;
+    fn SetServerDrainMode(&mut self, serverfqdn: &super::super::Foundation::BSTR, drainmode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITsSbResourcePluginStore_Vtbl {
@@ -2154,19 +2154,19 @@ impl ITsSbServiceNotification_Vtbl {
 pub trait ITsSbSession_Impl: Sized {
     fn SessionId(&mut self) -> ::windows::core::Result<u32>;
     fn TargetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetName(&mut self, targetname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTargetName(&mut self, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Username(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Domain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn State(&mut self) -> ::windows::core::Result<TSSESSION_STATE>;
     fn SetState(&mut self, state: TSSESSION_STATE) -> ::windows::core::Result<()>;
     fn CreateTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn SetCreateTime(&mut self, time: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn SetCreateTime(&mut self, time: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn DisconnectTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn SetDisconnectTime(&mut self, time: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn SetDisconnectTime(&mut self, time: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn InitialProgram(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetInitialProgram(&mut self, application: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetInitialProgram(&mut self, application: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ClientDisplay(&mut self) -> ::windows::core::Result<CLIENT_DISPLAY>;
-    fn SetClientDisplay(&mut self, pclientdisplay: CLIENT_DISPLAY) -> ::windows::core::Result<()>;
+    fn SetClientDisplay(&mut self, pclientdisplay: &CLIENT_DISPLAY) -> ::windows::core::Result<()>;
     fn ProtocolType(&mut self) -> ::windows::core::Result<u32>;
     fn SetProtocolType(&mut self, val: u32) -> ::windows::core::Result<()>;
 }
@@ -2329,21 +2329,21 @@ impl ITsSbSession_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbTarget_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetName(&mut self, val: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTargetName(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FarmName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFarmName(&mut self, val: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFarmName(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TargetFQDN(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetFQDN(&mut self, val: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTargetFQDN(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TargetNetbios(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetNetbios(&mut self, val: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTargetNetbios(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IpAddresses(&mut self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::Result<()>;
     fn SetIpAddresses(&mut self, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::Result<()>;
     fn TargetState(&mut self) -> ::windows::core::Result<TARGET_STATE>;
     fn SetTargetState(&mut self, state: TARGET_STATE) -> ::windows::core::Result<()>;
     fn TargetPropertySet(&mut self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
-    fn SetTargetPropertySet(&mut self, pval: ::core::option::Option<ITsSbTargetPropertySet>) -> ::windows::core::Result<()>;
+    fn SetTargetPropertySet(&mut self, pval: &::core::option::Option<ITsSbTargetPropertySet>) -> ::windows::core::Result<()>;
     fn EnvironmentName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEnvironmentName(&mut self, val: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEnvironmentName(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn NumSessions(&mut self) -> ::windows::core::Result<u32>;
     fn NumPendingConnections(&mut self) -> ::windows::core::Result<u32>;
     fn TargetLoad(&mut self) -> ::windows::core::Result<u32>;
@@ -2649,8 +2649,8 @@ impl ITsSbTaskInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbTaskPlugin_Impl: Sized + ITsSbPlugin_Impl {
-    fn InitializeTaskPlugin(&mut self, pitssbtaskpluginnotifysink: ::core::option::Option<ITsSbTaskPluginNotifySink>) -> ::windows::core::Result<()>;
-    fn SetTaskQueue(&mut self, pszhostname: super::super::Foundation::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const ::core::option::Option<ITsSbTaskInfo>) -> ::windows::core::Result<()>;
+    fn InitializeTaskPlugin(&mut self, pitssbtaskpluginnotifysink: &::core::option::Option<ITsSbTaskPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn SetTaskQueue(&mut self, pszhostname: &super::super::Foundation::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const ::core::option::Option<ITsSbTaskInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbTaskPlugin_Vtbl {
@@ -2675,10 +2675,10 @@ impl ITsSbTaskPlugin_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITsSbTaskPluginNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnSetTaskTime(&mut self, sztargetname: super::super::Foundation::BSTR, taskstarttime: super::super::Foundation::FILETIME, taskendtime: super::super::Foundation::FILETIME, taskdeadline: super::super::Foundation::FILETIME, sztasklabel: super::super::Foundation::BSTR, sztaskidentifier: super::super::Foundation::BSTR, sztaskplugin: super::super::Foundation::BSTR, dwtaskstatus: u32, sacontext: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn OnDeleteTaskTime(&mut self, sztargetname: super::super::Foundation::BSTR, sztaskidentifier: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnUpdateTaskStatus(&mut self, sztargetname: super::super::Foundation::BSTR, taskidentifier: super::super::Foundation::BSTR, taskstatus: RDV_TASK_STATUS) -> ::windows::core::Result<()>;
-    fn OnReportTasks(&mut self, szhostname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnSetTaskTime(&mut self, sztargetname: &super::super::Foundation::BSTR, taskstarttime: &super::super::Foundation::FILETIME, taskendtime: &super::super::Foundation::FILETIME, taskdeadline: &super::super::Foundation::FILETIME, sztasklabel: &super::super::Foundation::BSTR, sztaskidentifier: &super::super::Foundation::BSTR, sztaskplugin: &super::super::Foundation::BSTR, dwtaskstatus: u32, sacontext: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn OnDeleteTaskTime(&mut self, sztargetname: &super::super::Foundation::BSTR, sztaskidentifier: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnUpdateTaskStatus(&mut self, sztargetname: &super::super::Foundation::BSTR, taskidentifier: &super::super::Foundation::BSTR, taskstatus: RDV_TASK_STATUS) -> ::windows::core::Result<()>;
+    fn OnReportTasks(&mut self, szhostname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITsSbTaskPluginNotifySink_Vtbl {
@@ -2736,9 +2736,9 @@ impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
     }
 }
 pub trait IWRdsGraphicsChannel_Impl: Sized {
-    fn Write(&mut self, cbsize: u32, pbuffer: *const u8, pcontext: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Write(&mut self, cbsize: u32, pbuffer: *const u8, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Open(&mut self, pchannelevents: ::core::option::Option<IWRdsGraphicsChannelEvents>, popencontext: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Open(&mut self, pchannelevents: &::core::option::Option<IWRdsGraphicsChannelEvents>, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IWRdsGraphicsChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannel_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWRdsGraphicsChannel_Vtbl {
@@ -2769,8 +2769,8 @@ impl IWRdsGraphicsChannel_Vtbl {
 pub trait IWRdsGraphicsChannelEvents_Impl: Sized {
     fn OnDataReceived(&mut self, cbsize: u32, pbuffer: *const u8) -> ::windows::core::Result<()>;
     fn OnClose(&mut self) -> ::windows::core::Result<()>;
-    fn OnChannelOpened(&mut self, openresult: ::windows::core::HRESULT, popencontext: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn OnDataSent(&mut self, pwritecontext: ::core::option::Option<::windows::core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::Result<()>;
+    fn OnChannelOpened(&mut self, openresult: ::windows::core::HRESULT, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnDataSent(&mut self, pwritecontext: &::core::option::Option<::windows::core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::Result<()>;
     fn OnMetricsUpdate(&mut self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2853,7 +2853,7 @@ pub trait IWRdsProtocolConnection_Impl: Sized {
     fn GetLastInputTime(&mut self) -> ::windows::core::Result<u64>;
     fn SetErrorInfo(&mut self, ulerror: u32) -> ::windows::core::Result<()>;
     fn CreateVirtualChannel(&mut self, szendpointname: super::super::Foundation::PSTR, bstatic: super::super::Foundation::BOOL, requestedpriority: u32) -> ::windows::core::Result<usize>;
-    fn QueryProperty(&mut self, querytype: ::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn QueryProperty(&mut self, querytype: &::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
     fn GetShadowConnection(&mut self) -> ::windows::core::Result<IWRdsProtocolShadowConnection>;
     fn NotifyCommandProcessCreated(&mut self, sessionid: u32) -> ::windows::core::Result<()>;
 }
@@ -3098,8 +3098,8 @@ impl IWRdsProtocolConnectionCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolConnectionSettings_Impl: Sized {
-    fn SetConnectionSetting(&mut self, propertyid: ::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
-    fn GetConnectionSetting(&mut self, propertyid: ::windows::core::GUID) -> ::windows::core::Result<WTS_PROPERTY_VALUE>;
+    fn SetConnectionSetting(&mut self, propertyid: &::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn GetConnectionSetting(&mut self, propertyid: &::windows::core::GUID) -> ::windows::core::Result<WTS_PROPERTY_VALUE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolConnectionSettings_Vtbl {
@@ -3168,7 +3168,7 @@ impl IWRdsProtocolLicenseConnection_Vtbl {
 }
 pub trait IWRdsProtocolListener_Impl: Sized {
     fn GetSettings(&mut self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> ::windows::core::Result<WRDS_LISTENER_SETTINGS>;
-    fn StartListen(&mut self, pcallback: ::core::option::Option<IWRdsProtocolListenerCallback>) -> ::windows::core::Result<()>;
+    fn StartListen(&mut self, pcallback: &::core::option::Option<IWRdsProtocolListenerCallback>) -> ::windows::core::Result<()>;
     fn StopListen(&mut self) -> ::windows::core::Result<()>;
 }
 impl IWRdsProtocolListener_Vtbl {
@@ -3204,7 +3204,7 @@ impl IWRdsProtocolListener_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolListenerCallback_Impl: Sized {
-    fn OnConnected(&mut self, pconnection: ::core::option::Option<IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<IWRdsProtocolConnectionCallback>;
+    fn OnConnected(&mut self, pconnection: &::core::option::Option<IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<IWRdsProtocolConnectionCallback>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolListenerCallback_Vtbl {
@@ -3283,7 +3283,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolManager_Impl: Sized {
-    fn Initialize(&mut self, piwrdssettings: ::core::option::Option<IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, piwrdssettings: &::core::option::Option<IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
     fn CreateListener(&mut self, wszlistenername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWRdsProtocolListener>;
     fn NotifyServiceStateChange(&mut self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()>;
     fn NotifySessionOfServiceStart(&mut self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
@@ -3411,7 +3411,7 @@ impl IWRdsProtocolShadowCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolShadowConnection_Impl: Sized {
-    fn Start(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: ::core::option::Option<IWRdsProtocolShadowCallback>) -> ::windows::core::Result<()>;
+    fn Start(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWRdsProtocolShadowCallback>) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
     fn DoTarget(&mut self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
@@ -3480,7 +3480,7 @@ impl IWRdsWddmIddProps_Vtbl {
     }
 }
 pub trait IWTSBitmapRenderService_Impl: Sized {
-    fn GetMappedRenderer(&mut self, mappingid: u64, pmappedrenderercallback: ::core::option::Option<IWTSBitmapRendererCallback>) -> ::windows::core::Result<IWTSBitmapRenderer>;
+    fn GetMappedRenderer(&mut self, mappingid: u64, pmappedrenderercallback: &::core::option::Option<IWTSBitmapRendererCallback>) -> ::windows::core::Result<IWTSBitmapRenderer>;
 }
 impl IWTSBitmapRenderService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRenderService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWTSBitmapRenderService_Vtbl {
@@ -3501,7 +3501,7 @@ impl IWTSBitmapRenderService_Vtbl {
     }
 }
 pub trait IWTSBitmapRenderer_Impl: Sized {
-    fn Render(&mut self, imageformat: ::windows::core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::core::Result<()>;
+    fn Render(&mut self, imageformat: &::windows::core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::core::Result<()>;
     fn GetRendererStatistics(&mut self) -> ::windows::core::Result<BITMAP_RENDERER_STATISTICS>;
     fn RemoveMapping(&mut self) -> ::windows::core::Result<()>;
 }
@@ -3538,7 +3538,7 @@ impl IWTSBitmapRenderer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSBitmapRendererCallback_Impl: Sized {
-    fn OnTargetSizeChanged(&mut self, rcnewsize: super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn OnTargetSizeChanged(&mut self, rcnewsize: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSBitmapRendererCallback_Vtbl {
@@ -3578,7 +3578,7 @@ impl IWTSListener_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSListenerCallback_Impl: Sized {
-    fn OnNewChannelConnection(&mut self, pchannel: ::core::option::Option<IWTSVirtualChannel>, data: super::super::Foundation::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::core::option::Option<IWTSVirtualChannelCallback>) -> ::windows::core::Result<()>;
+    fn OnNewChannelConnection(&mut self, pchannel: &::core::option::Option<IWTSVirtualChannel>, data: &super::super::Foundation::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::core::option::Option<IWTSVirtualChannelCallback>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSListenerCallback_Vtbl {
@@ -3594,7 +3594,7 @@ impl IWTSListenerCallback_Vtbl {
     }
 }
 pub trait IWTSPlugin_Impl: Sized {
-    fn Initialize(&mut self, pchannelmgr: ::core::option::Option<IWTSVirtualChannelManager>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pchannelmgr: &::core::option::Option<IWTSVirtualChannelManager>) -> ::windows::core::Result<()>;
     fn Connected(&mut self) -> ::windows::core::Result<()>;
     fn Disconnected(&mut self, dwdisconnectcode: u32) -> ::windows::core::Result<()>;
     fn Terminated(&mut self) -> ::windows::core::Result<()>;
@@ -3630,7 +3630,7 @@ impl IWTSPlugin_Vtbl {
     }
 }
 pub trait IWTSPluginServiceProvider_Impl: Sized {
-    fn GetService(&mut self, serviceid: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetService(&mut self, serviceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IWTSPluginServiceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSPluginServiceProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWTSPluginServiceProvider_Vtbl {
@@ -3673,7 +3673,7 @@ pub trait IWTSProtocolConnection_Impl: Sized {
     fn SetErrorInfo(&mut self, ulerror: u32) -> ::windows::core::Result<()>;
     fn SendBeep(&mut self, frequency: u32, duration: u32) -> ::windows::core::Result<()>;
     fn CreateVirtualChannel(&mut self, szendpointname: super::super::Foundation::PSTR, bstatic: super::super::Foundation::BOOL, requestedpriority: u32) -> ::windows::core::Result<usize>;
-    fn QueryProperty(&mut self, querytype: ::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn QueryProperty(&mut self, querytype: &::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
     fn GetShadowConnection(&mut self) -> ::windows::core::Result<IWTSProtocolShadowConnection>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3937,7 +3937,7 @@ impl IWTSProtocolLicenseConnection_Vtbl {
     }
 }
 pub trait IWTSProtocolListener_Impl: Sized {
-    fn StartListen(&mut self, pcallback: ::core::option::Option<IWTSProtocolListenerCallback>) -> ::windows::core::Result<()>;
+    fn StartListen(&mut self, pcallback: &::core::option::Option<IWTSProtocolListenerCallback>) -> ::windows::core::Result<()>;
     fn StopListen(&mut self) -> ::windows::core::Result<()>;
 }
 impl IWTSProtocolListener_Vtbl {
@@ -3961,7 +3961,7 @@ impl IWTSProtocolListener_Vtbl {
     }
 }
 pub trait IWTSProtocolListenerCallback_Impl: Sized {
-    fn OnConnected(&mut self, pconnection: ::core::option::Option<IWTSProtocolConnection>) -> ::windows::core::Result<IWTSProtocolConnectionCallback>;
+    fn OnConnected(&mut self, pconnection: &::core::option::Option<IWTSProtocolConnection>) -> ::windows::core::Result<IWTSProtocolConnectionCallback>;
 }
 impl IWTSProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolListenerCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWTSProtocolListenerCallback_Vtbl {
@@ -4117,7 +4117,7 @@ impl IWTSProtocolShadowCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSProtocolShadowConnection_Impl: Sized {
-    fn Start(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: ::core::option::Option<IWTSProtocolShadowCallback>) -> ::windows::core::Result<()>;
+    fn Start(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWTSProtocolShadowCallback>) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
     fn DoTarget(&mut self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
@@ -4204,7 +4204,7 @@ impl IWTSSBPlugin_Vtbl {
     }
 }
 pub trait IWTSVirtualChannel_Impl: Sized {
-    fn Write(&mut self, cbsize: u32, pbuffer: *const u8, preserved: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Write(&mut self, cbsize: u32, pbuffer: *const u8, preserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 impl IWTSVirtualChannel_Vtbl {
@@ -4248,7 +4248,7 @@ impl IWTSVirtualChannelCallback_Vtbl {
     }
 }
 pub trait IWTSVirtualChannelManager_Impl: Sized {
-    fn CreateListener(&mut self, pszchannelname: *const u8, uflags: u32, plistenercallback: ::core::option::Option<IWTSListenerCallback>) -> ::windows::core::Result<IWTSListener>;
+    fn CreateListener(&mut self, pszchannelname: *const u8, uflags: u32, plistenercallback: &::core::option::Option<IWTSListenerCallback>) -> ::windows::core::Result<IWTSListener>;
 }
 impl IWTSVirtualChannelManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannelManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWTSVirtualChannelManager_Vtbl {
@@ -4271,7 +4271,7 @@ impl IWTSVirtualChannelManager_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWorkspace_Impl: Sized {
     fn GetWorkspaceNames(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn StartRemoteApplication(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn StartRemoteApplication(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn GetProcessId(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4314,7 +4314,7 @@ impl IWorkspace_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWorkspace2_Impl: Sized + IWorkspace_Impl {
-    fn StartRemoteApplicationEx(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, bstrrequestingappid: super::super::Foundation::BSTR, bstrrequestingappfamilyname: super::super::Foundation::BSTR, blaunchintoimmersiveclient: i16, bstrimmersiveclientactivationcontext: super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn StartRemoteApplicationEx(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrrequestingappid: &super::super::Foundation::BSTR, bstrrequestingappfamilyname: &super::super::Foundation::BSTR, blaunchintoimmersiveclient: i16, bstrimmersiveclientactivationcontext: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace2_Vtbl {
@@ -4334,8 +4334,8 @@ impl IWorkspace2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWorkspace3_Impl: Sized + IWorkspace_Impl + IWorkspace2_Impl {
-    fn GetClaimsToken2(&mut self, bstrclaimshint: super::super::Foundation::BSTR, bstruserhint: super::super::Foundation::BSTR, claimcookie: u32, hwndcreduiparent: u32, rectcreduiparent: super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetClaimsToken(&mut self, bstraccesstoken: super::super::Foundation::BSTR, ullaccesstokenexpiration: u64, bstrrefreshtoken: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetClaimsToken2(&mut self, bstrclaimshint: &super::super::Foundation::BSTR, bstruserhint: &super::super::Foundation::BSTR, claimcookie: u32, hwndcreduiparent: u32, rectcreduiparent: &super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetClaimsToken(&mut self, bstraccesstoken: &super::super::Foundation::BSTR, ullaccesstokenexpiration: u64, bstrrefreshtoken: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace3_Vtbl {
@@ -4409,7 +4409,7 @@ impl IWorkspaceClientExt_Vtbl {
     }
 }
 pub trait IWorkspaceRegistration_Impl: Sized {
-    fn AddResource(&mut self, punk: ::core::option::Option<IWorkspaceClientExt>) -> ::windows::core::Result<u32>;
+    fn AddResource(&mut self, punk: &::core::option::Option<IWorkspaceClientExt>) -> ::windows::core::Result<u32>;
     fn RemoveResource(&mut self, dwcookieconnection: u32) -> ::windows::core::Result<()>;
 }
 impl IWorkspaceRegistration_Vtbl {
@@ -4440,8 +4440,8 @@ impl IWorkspaceRegistration_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWorkspaceRegistration2_Impl: Sized + IWorkspaceRegistration_Impl {
-    fn AddResourceEx(&mut self, punk: ::core::option::Option<IWorkspaceClientExt>, bstreventloguploadaddress: super::super::Foundation::BSTR, pdwcookie: *mut u32, correlationid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RemoveResourceEx(&mut self, dwcookieconnection: u32, correlationid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AddResourceEx(&mut self, punk: &::core::option::Option<IWorkspaceClientExt>, bstreventloguploadaddress: &super::super::Foundation::BSTR, pdwcookie: *mut u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RemoveResourceEx(&mut self, dwcookieconnection: u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceRegistration2_Vtbl {
@@ -4466,9 +4466,9 @@ impl IWorkspaceRegistration2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWorkspaceReportMessage_Impl: Sized {
-    fn RegisterErrorLogMessage(&mut self, bstrmessage: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsErrorMessageRegistered(&mut self, bstrwkspid: super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<i16>;
-    fn RegisterErrorEvent(&mut self, bstrwkspid: super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
+    fn RegisterErrorLogMessage(&mut self, bstrmessage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsErrorMessageRegistered(&mut self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<i16>;
+    fn RegisterErrorEvent(&mut self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceReportMessage_Vtbl {
@@ -4504,11 +4504,11 @@ impl IWorkspaceReportMessage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceResTypeRegistry_Impl: Sized + super::Com::IDispatch_Impl {
-    fn AddResourceType(&mut self, fmachinewide: i16, bstrfileextension: super::super::Foundation::BSTR, bstrlauncher: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeleteResourceType(&mut self, fmachinewide: i16, bstrfileextension: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddResourceType(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR, bstrlauncher: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteResourceType(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetRegisteredFileExtensions(&mut self, fmachinewide: i16) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn GetResourceTypeInfo(&mut self, fmachinewide: i16, bstrfileextension: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ModifyResourceType(&mut self, fmachinewide: i16, bstrfileextension: super::super::Foundation::BSTR, bstrlauncher: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetResourceTypeInfo(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ModifyResourceType(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR, bstrlauncher: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceResTypeRegistry_Vtbl {
@@ -4560,13 +4560,13 @@ impl IWorkspaceResTypeRegistry_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceScriptable_Impl: Sized + super::Com::IDispatch_Impl {
-    fn DisconnectWorkspace(&mut self, bstrworkspaceid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartWorkspace(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, bstrusername: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bstrworkspaceparams: super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
-    fn IsWorkspaceCredentialSpecified(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, bcountunauthenticatedcredentials: i16) -> ::windows::core::Result<i16>;
+    fn DisconnectWorkspace(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartWorkspace(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
+    fn IsWorkspaceCredentialSpecified(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bcountunauthenticatedcredentials: i16) -> ::windows::core::Result<i16>;
     fn IsWorkspaceSSOEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn ClearWorkspaceCredential(&mut self, bstrworkspaceid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnAuthenticated(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisconnectWorkspaceByFriendlyName(&mut self, bstrworkspacefriendlyname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ClearWorkspaceCredential(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnAuthenticated(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisconnectWorkspaceByFriendlyName(&mut self, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable_Vtbl {
@@ -4628,8 +4628,8 @@ impl IWorkspaceScriptable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceScriptable2_Impl: Sized + super::Com::IDispatch_Impl + IWorkspaceScriptable_Impl {
-    fn StartWorkspaceEx(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, bstrworkspacefriendlyname: super::super::Foundation::BSTR, bstrredirectorname: super::super::Foundation::BSTR, bstrusername: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bstrappcontainer: super::super::Foundation::BSTR, bstrworkspaceparams: super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
-    fn ResourceDismissed(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, bstrworkspacefriendlyname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartWorkspaceEx(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR, bstrredirectorname: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrappcontainer: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
+    fn ResourceDismissed(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable2_Vtbl {
@@ -4654,7 +4654,7 @@ impl IWorkspaceScriptable2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceScriptable3_Impl: Sized + super::Com::IDispatch_Impl + IWorkspaceScriptable_Impl + IWorkspaceScriptable2_Impl {
-    fn StartWorkspaceEx2(&mut self, bstrworkspaceid: super::super::Foundation::BSTR, bstrworkspacefriendlyname: super::super::Foundation::BSTR, bstrredirectorname: super::super::Foundation::BSTR, bstrusername: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bstrappcontainer: super::super::Foundation::BSTR, bstrworkspaceparams: super::super::Foundation::BSTR, ltimeout: i32, lflags: i32, bstreventloguploadaddress: super::super::Foundation::BSTR, correlationid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn StartWorkspaceEx2(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR, bstrredirectorname: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrappcontainer: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32, bstreventloguploadaddress: &super::super::Foundation::BSTR, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable3_Vtbl {

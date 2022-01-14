@@ -1,5 +1,5 @@
 pub trait IDxcAssembler_Impl: Sized {
-    fn AssembleToContainer(&mut self, pshader: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcOperationResult>;
+    fn AssembleToContainer(&mut self, pshader: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcOperationResult>;
 }
 impl IDxcAssembler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcAssembler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDxcAssembler_Vtbl {
@@ -114,9 +114,9 @@ impl IDxcBlobUtf8_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcCompiler_Impl: Sized {
-    fn Compile(&mut self, psource: ::core::option::Option<IDxcBlob>, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::core::option::Option<IDxcIncludeHandler>) -> ::windows::core::Result<IDxcOperationResult>;
-    fn Preprocess(&mut self, psource: ::core::option::Option<IDxcBlob>, psourcename: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::core::option::Option<IDxcIncludeHandler>) -> ::windows::core::Result<IDxcOperationResult>;
-    fn Disassemble(&mut self, psource: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
+    fn Compile(&mut self, psource: &::core::option::Option<IDxcBlob>, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: &::core::option::Option<IDxcIncludeHandler>) -> ::windows::core::Result<IDxcOperationResult>;
+    fn Preprocess(&mut self, psource: &::core::option::Option<IDxcBlob>, psourcename: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: &::core::option::Option<IDxcIncludeHandler>) -> ::windows::core::Result<IDxcOperationResult>;
+    fn Disassemble(&mut self, psource: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDxcCompiler_Vtbl {
@@ -164,7 +164,7 @@ impl IDxcCompiler_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcCompiler2_Impl: Sized + IDxcCompiler_Impl {
-    fn CompileWithDebug(&mut self, psource: ::core::option::Option<IDxcBlob>, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::core::option::Option<IDxcIncludeHandler>, ppresult: *mut ::core::option::Option<IDxcOperationResult>, ppdebugblobname: *mut super::super::super::Foundation::PWSTR, ppdebugblob: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn CompileWithDebug(&mut self, psource: &::core::option::Option<IDxcBlob>, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: &::core::option::Option<IDxcIncludeHandler>, ppresult: *mut ::core::option::Option<IDxcOperationResult>, ppdebugblobname: *mut super::super::super::Foundation::PWSTR, ppdebugblob: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDxcCompiler2_Vtbl {
@@ -196,7 +196,7 @@ impl IDxcCompiler2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcCompiler3_Impl: Sized {
-    fn Compile(&mut self, psource: *const DxcBuffer, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pincludehandler: ::core::option::Option<IDxcIncludeHandler>, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Compile(&mut self, psource: *const DxcBuffer, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pincludehandler: &::core::option::Option<IDxcIncludeHandler>, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Disassemble(&mut self, pobject: *const DxcBuffer, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -265,8 +265,8 @@ impl IDxcCompilerArgs_Vtbl {
     }
 }
 pub trait IDxcContainerBuilder_Impl: Sized {
-    fn Load(&mut self, pdxilcontainerheader: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
-    fn AddPart(&mut self, fourcc: u32, psource: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn Load(&mut self, pdxilcontainerheader: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn AddPart(&mut self, fourcc: u32, psource: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
     fn RemovePart(&mut self, fourcc: u32) -> ::windows::core::Result<()>;
     fn SerializeContainer(&mut self) -> ::windows::core::Result<IDxcOperationResult>;
 }
@@ -307,7 +307,7 @@ impl IDxcContainerBuilder_Vtbl {
     }
 }
 pub trait IDxcContainerReflection_Impl: Sized {
-    fn Load(&mut self, pcontainer: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn Load(&mut self, pcontainer: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
     fn GetPartCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetPartKind(&mut self, idx: u32) -> ::windows::core::Result<u32>;
     fn GetPartContent(&mut self, idx: u32) -> ::windows::core::Result<IDxcBlob>;
@@ -427,16 +427,16 @@ impl IDxcIncludeHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDxcLibrary_Impl: Sized {
-    fn SetMalloc(&mut self, pmalloc: ::core::option::Option<super::super::super::System::Com::IMalloc>) -> ::windows::core::Result<()>;
-    fn CreateBlobFromBlob(&mut self, pblob: ::core::option::Option<IDxcBlob>, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>;
+    fn SetMalloc(&mut self, pmalloc: &::core::option::Option<super::super::super::System::Com::IMalloc>) -> ::windows::core::Result<()>;
+    fn CreateBlobFromBlob(&mut self, pblob: &::core::option::Option<IDxcBlob>, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>;
     fn CreateBlobFromFile(&mut self, pfilename: super::super::super::Foundation::PWSTR, codepage: *const DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
     fn CreateBlobWithEncodingFromPinned(&mut self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
     fn CreateBlobWithEncodingOnHeapCopy(&mut self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
-    fn CreateBlobWithEncodingOnMalloc(&mut self, ptext: *const ::core::ffi::c_void, pimalloc: ::core::option::Option<super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
+    fn CreateBlobWithEncodingOnMalloc(&mut self, ptext: *const ::core::ffi::c_void, pimalloc: &::core::option::Option<super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
     fn CreateIncludeHandler(&mut self) -> ::windows::core::Result<IDxcIncludeHandler>;
-    fn CreateStreamFromBlobReadOnly(&mut self, pblob: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
-    fn GetBlobAsUtf8(&mut self, pblob: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
-    fn GetBlobAsUtf16(&mut self, pblob: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
+    fn CreateStreamFromBlobReadOnly(&mut self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
+    fn GetBlobAsUtf8(&mut self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
+    fn GetBlobAsUtf16(&mut self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDxcLibrary_Vtbl {
@@ -555,7 +555,7 @@ impl IDxcLibrary_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcLinker_Impl: Sized {
-    fn RegisterLibrary(&mut self, plibname: super::super::super::Foundation::PWSTR, plib: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn RegisterLibrary(&mut self, plibname: super::super::super::Foundation::PWSTR, plib: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
     fn Link(&mut self, pentryname: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, plibnames: *const super::super::super::Foundation::PWSTR, libcount: u32, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32) -> ::windows::core::Result<IDxcOperationResult>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -637,7 +637,7 @@ impl IDxcOperationResult_Vtbl {
 pub trait IDxcOptimizer_Impl: Sized {
     fn GetAvailablePassCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetAvailablePass(&mut self, index: u32) -> ::windows::core::Result<IDxcOptimizerPass>;
-    fn RunOptimizer(&mut self, pblob: ::core::option::Option<IDxcBlob>, ppoptions: *const super::super::super::Foundation::PWSTR, optioncount: u32, poutputmodule: *mut ::core::option::Option<IDxcBlob>, ppoutputtext: *mut ::core::option::Option<IDxcBlobEncoding>) -> ::windows::core::Result<()>;
+    fn RunOptimizer(&mut self, pblob: &::core::option::Option<IDxcBlob>, ppoptions: *const super::super::super::Foundation::PWSTR, optioncount: u32, poutputmodule: *mut ::core::option::Option<IDxcBlob>, ppoutputtext: *mut ::core::option::Option<IDxcBlobEncoding>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDxcOptimizer_Vtbl {
@@ -753,7 +753,7 @@ impl IDxcOptimizerPass_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcPdbUtils_Impl: Sized {
-    fn Load(&mut self, ppdbordxil: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn Load(&mut self, ppdbordxil: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
     fn GetSourceCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetSource(&mut self, uindex: u32) -> ::windows::core::Result<IDxcBlobEncoding>;
     fn GetSourceName(&mut self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -773,7 +773,7 @@ pub trait IDxcPdbUtils_Impl: Sized {
     fn IsFullPDB(&mut self) -> super::super::super::Foundation::BOOL;
     fn GetFullPDB(&mut self) -> ::windows::core::Result<IDxcBlob>;
     fn GetVersionInfo(&mut self) -> ::windows::core::Result<IDxcVersionInfo>;
-    fn SetCompiler(&mut self, pcompiler: ::core::option::Option<IDxcCompiler3>) -> ::windows::core::Result<()>;
+    fn SetCompiler(&mut self, pcompiler: &::core::option::Option<IDxcCompiler3>) -> ::windows::core::Result<()>;
     fn CompileForFullPDB(&mut self) -> ::windows::core::Result<IDxcResult>;
     fn OverrideArgs(&mut self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> ::windows::core::Result<()>;
     fn OverrideRootSignature(&mut self, prootsignature: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -1063,19 +1063,19 @@ impl IDxcResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDxcUtils_Impl: Sized {
-    fn CreateBlobFromBlob(&mut self, pblob: ::core::option::Option<IDxcBlob>, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>;
+    fn CreateBlobFromBlob(&mut self, pblob: &::core::option::Option<IDxcBlob>, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob>;
     fn CreateBlobFromPinned(&mut self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
-    fn MoveToBlob(&mut self, pdata: *const ::core::ffi::c_void, pimalloc: ::core::option::Option<super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
+    fn MoveToBlob(&mut self, pdata: *const ::core::ffi::c_void, pimalloc: &::core::option::Option<super::super::super::System::Com::IMalloc>, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
     fn CreateBlob(&mut self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
     fn LoadFile(&mut self, pfilename: super::super::super::Foundation::PWSTR, pcodepage: *const DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>;
-    fn CreateReadOnlyStreamFromBlob(&mut self, pblob: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
+    fn CreateReadOnlyStreamFromBlob(&mut self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
     fn CreateDefaultIncludeHandler(&mut self) -> ::windows::core::Result<IDxcIncludeHandler>;
-    fn GetBlobAsUtf8(&mut self, pblob: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobUtf8>;
-    fn GetBlobAsUtf16(&mut self, pblob: ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobUtf16>;
+    fn GetBlobAsUtf8(&mut self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobUtf8>;
+    fn GetBlobAsUtf16(&mut self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobUtf16>;
     fn GetDxilContainerPart(&mut self, pshader: *const DxcBuffer, dxcpart: u32, pppartdata: *mut *mut ::core::ffi::c_void, ppartsizeinbytes: *mut u32) -> ::windows::core::Result<()>;
     fn CreateReflection(&mut self, pdata: *const DxcBuffer, iid: *const ::windows::core::GUID, ppvreflection: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn BuildArguments(&mut self, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32) -> ::windows::core::Result<IDxcCompilerArgs>;
-    fn GetPDBContents(&mut self, ppdbblob: ::core::option::Option<IDxcBlob>, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
+    fn GetPDBContents(&mut self, ppdbblob: &::core::option::Option<IDxcBlob>, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDxcUtils_Vtbl {
@@ -1214,7 +1214,7 @@ impl IDxcUtils_Vtbl {
     }
 }
 pub trait IDxcValidator_Impl: Sized {
-    fn Validate(&mut self, pshader: ::core::option::Option<IDxcBlob>, flags: u32) -> ::windows::core::Result<IDxcOperationResult>;
+    fn Validate(&mut self, pshader: &::core::option::Option<IDxcBlob>, flags: u32) -> ::windows::core::Result<IDxcOperationResult>;
 }
 impl IDxcValidator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcValidator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDxcValidator_Vtbl {
@@ -1235,7 +1235,7 @@ impl IDxcValidator_Vtbl {
     }
 }
 pub trait IDxcValidator2_Impl: Sized + IDxcValidator_Impl {
-    fn ValidateWithDebug(&mut self, pshader: ::core::option::Option<IDxcBlob>, flags: u32, poptdebugbitcode: *const DxcBuffer) -> ::windows::core::Result<IDxcOperationResult>;
+    fn ValidateWithDebug(&mut self, pshader: &::core::option::Option<IDxcBlob>, flags: u32, poptdebugbitcode: *const DxcBuffer) -> ::windows::core::Result<IDxcOperationResult>;
 }
 impl IDxcValidator2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcValidator2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDxcValidator2_Vtbl {

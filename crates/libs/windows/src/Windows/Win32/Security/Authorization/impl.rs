@@ -1,66 +1,66 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ApplicationData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetApplicationData(&mut self, bstrapplicationdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetApplicationData(&mut self, bstrapplicationdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AuthzInterfaceClsid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAuthzInterfaceClsid(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetAuthzInterfaceClsid(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Version(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetVersion(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetVersion(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GenerateAudits(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetGenerateAudits(&mut self, bprop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn ApplyStoreSacl(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetApplyStoreSacl(&mut self, bprop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Writable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PolicyAdministrators(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PolicyReaders(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddPolicyAdministrator(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyAdministrator(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPolicyReader(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyReader(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyAdministrator(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyAdministrator(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyReader(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyReader(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Scopes(&mut self) -> ::windows::core::Result<IAzScopes>;
-    fn OpenScope(&mut self, bstrscopename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzScope>;
-    fn CreateScope(&mut self, bstrscopename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzScope>;
-    fn DeleteScope(&mut self, bstrscopename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenScope(&mut self, bstrscopename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzScope>;
+    fn CreateScope(&mut self, bstrscopename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzScope>;
+    fn DeleteScope(&mut self, bstrscopename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Operations(&mut self) -> ::windows::core::Result<IAzOperations>;
-    fn OpenOperation(&mut self, bstroperationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzOperation>;
-    fn CreateOperation(&mut self, bstroperationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzOperation>;
-    fn DeleteOperation(&mut self, bstroperationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenOperation(&mut self, bstroperationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzOperation>;
+    fn CreateOperation(&mut self, bstroperationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzOperation>;
+    fn DeleteOperation(&mut self, bstroperationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Tasks(&mut self) -> ::windows::core::Result<IAzTasks>;
-    fn OpenTask(&mut self, bstrtaskname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
-    fn CreateTask(&mut self, bstrtaskname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
-    fn DeleteTask(&mut self, bstrtaskname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenTask(&mut self, bstrtaskname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
+    fn CreateTask(&mut self, bstrtaskname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
+    fn DeleteTask(&mut self, bstrtaskname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ApplicationGroups(&mut self) -> ::windows::core::Result<IAzApplicationGroups>;
-    fn OpenApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
-    fn CreateApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
-    fn DeleteApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
+    fn CreateApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
+    fn DeleteApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Roles(&mut self) -> ::windows::core::Result<IAzRoles>;
-    fn OpenRole(&mut self, bstrrolename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
-    fn CreateRole(&mut self, bstrrolename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
-    fn DeleteRole(&mut self, bstrrolename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn InitializeClientContextFromToken(&mut self, ulltokenhandle: u64, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext>;
-    fn AddPropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, lflags: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn InitializeClientContextFromName(&mut self, clientname: super::super::Foundation::BSTR, domainname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext>;
+    fn OpenRole(&mut self, bstrrolename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
+    fn CreateRole(&mut self, bstrrolename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
+    fn DeleteRole(&mut self, bstrrolename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn InitializeClientContextFromToken(&mut self, ulltokenhandle: u64, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext>;
+    fn AddPropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn InitializeClientContextFromName(&mut self, clientname: &super::super::Foundation::BSTR, domainname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext>;
     fn DelegatedPolicyUsers(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn InitializeClientContextFromStringSid(&mut self, sidstring: super::super::Foundation::BSTR, loptions: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext>;
+    fn AddDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn InitializeClientContextFromStringSid(&mut self, sidstring: &super::super::Foundation::BSTR, loptions: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext>;
     fn PolicyAdministratorsName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PolicyReadersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddPolicyAdministratorName(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyAdministratorName(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPolicyReaderName(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyReaderName(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyAdministratorName(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyAdministratorName(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyReaderName(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyReaderName(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn DelegatedPolicyUsersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplication_Vtbl {
@@ -578,8 +578,8 @@ impl IAzApplication_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzApplication2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzApplication_Impl {
-    fn InitializeClientContextFromToken2(&mut self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext2>;
-    fn InitializeClientContext2(&mut self, identifyingstring: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext2>;
+    fn InitializeClientContextFromToken2(&mut self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext2>;
+    fn InitializeClientContext2(&mut self, identifyingstring: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplication2_Vtbl {
@@ -616,18 +616,18 @@ impl IAzApplication2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzApplication3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzApplication_Impl + IAzApplication2_Impl {
-    fn ScopeExists(&mut self, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn OpenScope2(&mut self, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzScope2>;
-    fn CreateScope2(&mut self, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzScope2>;
-    fn DeleteScope2(&mut self, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ScopeExists(&mut self, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn OpenScope2(&mut self, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzScope2>;
+    fn CreateScope2(&mut self, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzScope2>;
+    fn DeleteScope2(&mut self, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RoleDefinitions(&mut self) -> ::windows::core::Result<IAzRoleDefinitions>;
-    fn CreateRoleDefinition(&mut self, bstrroledefinitionname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
-    fn OpenRoleDefinition(&mut self, bstrroledefinitionname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
-    fn DeleteRoleDefinition(&mut self, bstrroledefinitionname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateRoleDefinition(&mut self, bstrroledefinitionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
+    fn OpenRoleDefinition(&mut self, bstrroledefinitionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
+    fn DeleteRoleDefinition(&mut self, bstrroledefinitionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RoleAssignments(&mut self) -> ::windows::core::Result<IAzRoleAssignments>;
-    fn CreateRoleAssignment(&mut self, bstrroleassignmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
-    fn OpenRoleAssignment(&mut self, bstrroleassignmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
-    fn DeleteRoleAssignment(&mut self, bstrroleassignmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateRoleAssignment(&mut self, bstrroleassignmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
+    fn OpenRoleAssignment(&mut self, bstrroleassignmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
+    fn DeleteRoleAssignment(&mut self, bstrroleassignmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BizRulesEnabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetBizRulesEnabled(&mut self, benabled: i16) -> ::windows::core::Result<()>;
 }
@@ -775,35 +775,35 @@ impl IAzApplication3_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzApplicationGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Type(&mut self) -> ::windows::core::Result<i32>;
     fn SetType(&mut self, lprop: i32) -> ::windows::core::Result<()>;
     fn LdapQuery(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLdapQuery(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetLdapQuery(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AppMembers(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn AppNonMembers(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Members(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn NonMembers(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddAppMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteAppMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddAppNonMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteAppNonMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddNonMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteNonMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddAppMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteAppMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddAppNonMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteAppNonMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddNonMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteNonMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Writable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, lflags: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddMemberName(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteMemberName(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddNonMemberName(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteNonMemberName(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddMemberName(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteMemberName(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddNonMemberName(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteNonMemberName(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MembersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn NonMembersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
@@ -1053,12 +1053,12 @@ impl IAzApplicationGroup_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzApplicationGroup2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzApplicationGroup_Impl {
     fn BizRule(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBizRule(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBizRule(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BizRuleLanguage(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBizRuleLanguage(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBizRuleLanguage(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BizRuleImportedPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBizRuleImportedPath(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RoleAssignments(&mut self, bstrscopename: super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
+    fn SetBizRuleImportedPath(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RoleAssignments(&mut self, bstrscopename: &super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplicationGroup2_Vtbl {
@@ -1233,9 +1233,9 @@ impl IAzApplications_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzAuthorizationStore_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ApplicationData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetApplicationData(&mut self, bstrapplicationdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetApplicationData(&mut self, bstrapplicationdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DomainTimeout(&mut self) -> ::windows::core::Result<i32>;
     fn SetDomainTimeout(&mut self, lprop: i32) -> ::windows::core::Result<()>;
     fn ScriptEngineTimeout(&mut self) -> ::windows::core::Result<i32>;
@@ -1245,44 +1245,44 @@ pub trait IAzAuthorizationStore_Impl: Sized + super::super::System::Com::IDispat
     fn GenerateAudits(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetGenerateAudits(&mut self, bprop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Writable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPropertyItem(&mut self, lpropid: AZ_PROP_CONSTANTS, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPropertyItem(&mut self, lpropid: AZ_PROP_CONSTANTS, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PolicyAdministrators(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PolicyReaders(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddPolicyAdministrator(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyAdministrator(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPolicyReader(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyReader(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn UpdateCache(&mut self, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyAdministrator(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyAdministrator(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyReader(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyReader(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn UpdateCache(&mut self, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Delete(&mut self, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Applications(&mut self) -> ::windows::core::Result<IAzApplications>;
-    fn OpenApplication(&mut self, bstrapplicationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication>;
-    fn CreateApplication(&mut self, bstrapplicationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication>;
-    fn DeleteApplication(&mut self, bstrapplicationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenApplication(&mut self, bstrapplicationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication>;
+    fn CreateApplication(&mut self, bstrapplicationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication>;
+    fn DeleteApplication(&mut self, bstrapplicationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ApplicationGroups(&mut self) -> ::windows::core::Result<IAzApplicationGroups>;
-    fn CreateApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
-    fn OpenApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
-    fn DeleteApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, lflags: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CreateApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
+    fn OpenApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
+    fn DeleteApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn DelegatedPolicyUsers(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteDelegatedPolicyUser(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn TargetMachine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ApplyStoreSacl(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetApplyStoreSacl(&mut self, bapplystoresacl: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn PolicyAdministratorsName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PolicyReadersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddPolicyAdministratorName(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyAdministratorName(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPolicyReaderName(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyReaderName(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyAdministratorName(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyAdministratorName(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyReaderName(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyReaderName(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn DelegatedPolicyUsersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn CloseApplication(&mut self, bstrapplicationname: super::super::Foundation::BSTR, lflag: i32) -> ::windows::core::Result<()>;
+    fn AddDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteDelegatedPolicyUserName(&mut self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CloseApplication(&mut self, bstrapplicationname: &super::super::Foundation::BSTR, lflag: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzAuthorizationStore_Vtbl {
@@ -1684,8 +1684,8 @@ impl IAzAuthorizationStore_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzAuthorizationStore2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzAuthorizationStore_Impl {
-    fn OpenApplication2(&mut self, bstrapplicationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication2>;
-    fn CreateApplication2(&mut self, bstrapplicationname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication2>;
+    fn OpenApplication2(&mut self, bstrapplicationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication2>;
+    fn CreateApplication2(&mut self, bstrapplicationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzAuthorizationStore2_Vtbl {
@@ -1785,9 +1785,9 @@ impl IAzAuthorizationStore3_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzBizRuleContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetBusinessRuleResult(&mut self, bresult: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetBusinessRuleString(&mut self, bstrbusinessrulestring: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBusinessRuleString(&mut self, bstrbusinessrulestring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BusinessRuleString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetParameter(&mut self, bstrparametername: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetParameter(&mut self, bstrparametername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzBizRuleContext_Vtbl {
@@ -1834,10 +1834,10 @@ impl IAzBizRuleContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzBizRuleInterfaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AddInterface(&mut self, bstrinterfacename: super::super::Foundation::BSTR, linterfaceflag: i32, varinterface: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddInterfaces(&mut self, varinterfacenames: super::super::System::Com::VARIANT, varinterfaceflags: super::super::System::Com::VARIANT, varinterfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetInterfaceValue(&mut self, bstrinterfacename: super::super::Foundation::BSTR, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, bstrinterfacename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddInterface(&mut self, bstrinterfacename: &super::super::Foundation::BSTR, linterfaceflag: i32, varinterface: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddInterfaces(&mut self, varinterfacenames: &super::super::System::Com::VARIANT, varinterfaceflags: &super::super::System::Com::VARIANT, varinterfaces: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetInterfaceValue(&mut self, bstrinterfacename: &super::super::Foundation::BSTR, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, bstrinterfacename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
     fn Count(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1890,10 +1890,10 @@ impl IAzBizRuleInterfaces_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzBizRuleParameters_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AddParameter(&mut self, bstrparametername: super::super::Foundation::BSTR, varparametervalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddParameters(&mut self, varparameternames: super::super::System::Com::VARIANT, varparametervalues: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetParameterValue(&mut self, bstrparametername: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Remove(&mut self, varparametername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddParameter(&mut self, bstrparametername: &super::super::Foundation::BSTR, varparametervalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddParameters(&mut self, varparameternames: &super::super::System::Com::VARIANT, varparametervalues: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetParameterValue(&mut self, bstrparametername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Remove(&mut self, varparametername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
     fn Count(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1952,7 +1952,7 @@ impl IAzBizRuleParameters_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzClientContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AccessCheck(&mut self, bstrobjectname: super::super::Foundation::BSTR, varscopenames: super::super::System::Com::VARIANT, varoperations: super::super::System::Com::VARIANT, varparameternames: super::super::System::Com::VARIANT, varparametervalues: super::super::System::Com::VARIANT, varinterfacenames: super::super::System::Com::VARIANT, varinterfaceflags: super::super::System::Com::VARIANT, varinterfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn AccessCheck(&mut self, bstrobjectname: &super::super::Foundation::BSTR, varscopenames: &super::super::System::Com::VARIANT, varoperations: &super::super::System::Com::VARIANT, varparameternames: &super::super::System::Com::VARIANT, varparametervalues: &super::super::System::Com::VARIANT, varinterfacenames: &super::super::System::Com::VARIANT, varinterfaceflags: &super::super::System::Com::VARIANT, varinterfaces: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn GetBusinessRuleString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn UserDn(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn UserSamCompat(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -1961,10 +1961,10 @@ pub trait IAzClientContext_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn UserCanonical(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn UserUpn(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn UserDnsSamCompat(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetRoles(&mut self, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetRoles(&mut self, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn RoleForAccessCheck(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRoleForAccessCheck(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRoleForAccessCheck(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzClientContext_Vtbl {
@@ -2128,10 +2128,10 @@ impl IAzClientContext_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzClientContext2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzClientContext_Impl {
     fn GetAssignedScopesPage(&mut self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Com::VARIANT, pvarscopenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddRoles(&mut self, varroles: super::super::System::Com::VARIANT, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddApplicationGroups(&mut self, varapplicationgroups: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddStringSids(&mut self, varstringsids: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetLDAPQueryDN(&mut self, bstrldapquerydn: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddRoles(&mut self, varroles: &super::super::System::Com::VARIANT, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddApplicationGroups(&mut self, varapplicationgroups: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddStringSids(&mut self, varstringsids: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetLDAPQueryDN(&mut self, bstrldapquerydn: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LDAPQueryDN(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2183,13 +2183,13 @@ impl IAzClientContext2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzClientContext3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzClientContext_Impl + IAzClientContext2_Impl {
-    fn AccessCheck2(&mut self, bstrobjectname: super::super::Foundation::BSTR, bstrscopename: super::super::Foundation::BSTR, loperation: i32) -> ::windows::core::Result<u32>;
-    fn IsInRoleAssignment(&mut self, bstrscopename: super::super::Foundation::BSTR, bstrrolename: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn GetOperations(&mut self, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzOperations>;
-    fn GetTasks(&mut self, bstrscopename: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzTasks>;
+    fn AccessCheck2(&mut self, bstrobjectname: &super::super::Foundation::BSTR, bstrscopename: &super::super::Foundation::BSTR, loperation: i32) -> ::windows::core::Result<u32>;
+    fn IsInRoleAssignment(&mut self, bstrscopename: &super::super::Foundation::BSTR, bstrrolename: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn GetOperations(&mut self, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzOperations>;
+    fn GetTasks(&mut self, bstrscopename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzTasks>;
     fn BizRuleParameters(&mut self) -> ::windows::core::Result<IAzBizRuleParameters>;
     fn BizRuleInterfaces(&mut self) -> ::windows::core::Result<IAzBizRuleInterfaces>;
-    fn GetGroups(&mut self, bstrscopename: super::super::Foundation::BSTR, uloptions: AZ_PROP_CONSTANTS) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetGroups(&mut self, bstrscopename: &super::super::Foundation::BSTR, uloptions: AZ_PROP_CONSTANTS) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Sids(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2293,8 +2293,8 @@ impl IAzClientContext3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzNameResolver_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn NameFromSid(&mut self, bstrsid: super::super::Foundation::BSTR, psidtype: *mut i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NamesFromSids(&mut self, vsids: super::super::System::Com::VARIANT, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn NameFromSid(&mut self, bstrsid: &super::super::Foundation::BSTR, psidtype: *mut i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NamesFromSids(&mut self, vsids: &super::super::System::Com::VARIANT, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzNameResolver_Vtbl {
@@ -2319,7 +2319,7 @@ impl IAzNameResolver_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzObjectPicker_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetPrincipals(&mut self, hparentwnd: super::super::Foundation::HWND, bstrtitle: super::super::Foundation::BSTR, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT, pvsids: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetPrincipals(&mut self, hparentwnd: super::super::Foundation::HWND, bstrtitle: &super::super::Foundation::BSTR, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT, pvsids: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2352,17 +2352,17 @@ impl IAzObjectPicker_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzOperation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ApplicationData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetApplicationData(&mut self, bstrapplicationdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetApplicationData(&mut self, bstrapplicationdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn OperationID(&mut self) -> ::windows::core::Result<i32>;
     fn SetOperationID(&mut self, lprop: i32) -> ::windows::core::Result<()>;
     fn Writable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, lflags: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzOperation_Vtbl {
@@ -2473,7 +2473,7 @@ impl IAzOperation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzOperation2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzOperation_Impl {
-    fn RoleAssignments(&mut self, bstrscopename: super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
+    fn RoleAssignments(&mut self, bstrscopename: &super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzOperation2_Vtbl {
@@ -2585,31 +2585,31 @@ impl IAzPrincipalLocator_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzRole_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ApplicationData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetApplicationData(&mut self, bstrapplicationdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddAppMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteAppMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddTask(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteTask(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddOperation(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteOperation(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteMember(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetApplicationData(&mut self, bstrapplicationdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddAppMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteAppMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddTask(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteTask(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddOperation(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteOperation(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteMember(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Writable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AppMembers(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Members(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Operations(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Tasks(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddPropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, lflags: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddMemberName(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteMemberName(&mut self, bstrprop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddMemberName(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteMemberName(&mut self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MembersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2820,8 +2820,8 @@ impl IAzRole_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzRoleAssignment_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzRole_Impl {
-    fn AddRoleDefinition(&mut self, bstrroledefinition: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeleteRoleDefinition(&mut self, bstrroledefinition: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddRoleDefinition(&mut self, bstrroledefinition: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteRoleDefinition(&mut self, bstrroledefinition: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RoleDefinitions(&mut self) -> ::windows::core::Result<IAzRoleDefinitions>;
     fn Scope(&mut self) -> ::windows::core::Result<IAzScope>;
 }
@@ -2920,9 +2920,9 @@ impl IAzRoleAssignments_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzRoleDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzTask_Impl {
-    fn RoleAssignments(&mut self, bstrscopename: super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
-    fn AddRoleDefinition(&mut self, bstrroledefinition: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeleteRoleDefinition(&mut self, bstrroledefinition: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RoleAssignments(&mut self, bstrscopename: &super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
+    fn AddRoleDefinition(&mut self, bstrroledefinition: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteRoleDefinition(&mut self, bstrroledefinition: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RoleDefinitions(&mut self) -> ::windows::core::Result<IAzRoleDefinitions>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3071,43 +3071,43 @@ impl IAzRoles_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzScope_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ApplicationData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetApplicationData(&mut self, bstrapplicationdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetApplicationData(&mut self, bstrapplicationdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Writable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PolicyAdministrators(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PolicyReaders(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddPolicyAdministrator(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyAdministrator(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPolicyReader(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyReader(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyAdministrator(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyAdministrator(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyReader(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyReader(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ApplicationGroups(&mut self) -> ::windows::core::Result<IAzApplicationGroups>;
-    fn OpenApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
-    fn CreateApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
-    fn DeleteApplicationGroup(&mut self, bstrgroupname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
+    fn CreateApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplicationGroup>;
+    fn DeleteApplicationGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Roles(&mut self) -> ::windows::core::Result<IAzRoles>;
-    fn OpenRole(&mut self, bstrrolename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
-    fn CreateRole(&mut self, bstrrolename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
-    fn DeleteRole(&mut self, bstrrolename: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenRole(&mut self, bstrrolename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
+    fn CreateRole(&mut self, bstrrolename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzRole>;
+    fn DeleteRole(&mut self, bstrrolename: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Tasks(&mut self) -> ::windows::core::Result<IAzTasks>;
-    fn OpenTask(&mut self, bstrtaskname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
-    fn CreateTask(&mut self, bstrtaskname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
-    fn DeleteTask(&mut self, bstrtaskname: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, lflags: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OpenTask(&mut self, bstrtaskname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
+    fn CreateTask(&mut self, bstrtaskname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzTask>;
+    fn DeleteTask(&mut self, bstrtaskname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn CanBeDelegated(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn BizrulesWritable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn PolicyAdministratorsName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PolicyReadersName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddPolicyAdministratorName(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyAdministratorName(&mut self, bstradmin: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPolicyReaderName(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePolicyReaderName(&mut self, bstrreader: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyAdministratorName(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyAdministratorName(&mut self, bstradmin: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPolicyReaderName(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePolicyReaderName(&mut self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzScope_Vtbl {
@@ -3433,13 +3433,13 @@ impl IAzScope_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzScope2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzScope_Impl {
     fn RoleDefinitions(&mut self) -> ::windows::core::Result<IAzRoleDefinitions>;
-    fn CreateRoleDefinition(&mut self, bstrroledefinitionname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
-    fn OpenRoleDefinition(&mut self, bstrroledefinitionname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
-    fn DeleteRoleDefinition(&mut self, bstrroledefinitionname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateRoleDefinition(&mut self, bstrroledefinitionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
+    fn OpenRoleDefinition(&mut self, bstrroledefinitionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
+    fn DeleteRoleDefinition(&mut self, bstrroledefinitionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RoleAssignments(&mut self) -> ::windows::core::Result<IAzRoleAssignments>;
-    fn CreateRoleAssignment(&mut self, bstrroleassignmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
-    fn OpenRoleAssignment(&mut self, bstrroleassignmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
-    fn DeleteRoleAssignment(&mut self, bstrroleassignmentname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateRoleAssignment(&mut self, bstrroleassignmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
+    fn OpenRoleAssignment(&mut self, bstrroleassignmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IAzRoleAssignment>;
+    fn DeleteRoleAssignment(&mut self, bstrroleassignmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzScope2_Vtbl {
@@ -3581,31 +3581,31 @@ impl IAzScopes_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzTask_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ApplicationData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetApplicationData(&mut self, bstrapplicationdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetApplicationData(&mut self, bstrapplicationdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BizRule(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBizRule(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBizRule(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BizRuleLanguage(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBizRuleLanguage(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBizRuleLanguage(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BizRuleImportedPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBizRuleImportedPath(&mut self, bstrprop: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBizRuleImportedPath(&mut self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IsRoleDefinition(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetIsRoleDefinition(&mut self, fprop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Operations(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Tasks(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn AddOperation(&mut self, bstrop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteOperation(&mut self, bstrop: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddTask(&mut self, bstrtask: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteTask(&mut self, bstrtask: super::super::Foundation::BSTR, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddOperation(&mut self, bstrop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteOperation(&mut self, bstrop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddTask(&mut self, bstrtask: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteTask(&mut self, bstrtask: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Writable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetProperty(&mut self, lpropid: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddPropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: super::super::System::Com::VARIANT, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, lflags: i32, varreserved: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, lpropid: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddPropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeletePropertyItem(&mut self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzTask_Vtbl {
@@ -3816,7 +3816,7 @@ impl IAzTask_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAzTask2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzTask_Impl {
-    fn RoleAssignments(&mut self, bstrscopename: super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
+    fn RoleAssignments(&mut self, bstrscopename: &super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzTask2_Vtbl {

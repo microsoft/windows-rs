@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectSound_Impl: Sized {
-    fn CreateSoundBuffer(&mut self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::core::option::Option<IDirectSoundBuffer>, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateSoundBuffer(&mut self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::core::option::Option<IDirectSoundBuffer>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetCaps(&mut self) -> ::windows::core::Result<DSCAPS>;
-    fn DuplicateSoundBuffer(&mut self, pdsbufferoriginal: ::core::option::Option<IDirectSoundBuffer>) -> ::windows::core::Result<IDirectSoundBuffer>;
+    fn DuplicateSoundBuffer(&mut self, pdsbufferoriginal: &::core::option::Option<IDirectSoundBuffer>) -> ::windows::core::Result<IDirectSoundBuffer>;
     fn SetCooperativeLevel(&mut self, hwnd: super::super::super::Foundation::HWND, dwlevel: u32) -> ::windows::core::Result<()>;
     fn Compact(&mut self) -> ::windows::core::Result<()>;
     fn GetSpeakerConfig(&mut self) -> ::windows::core::Result<u32>;
@@ -419,7 +419,7 @@ pub trait IDirectSoundBuffer_Impl: Sized {
     fn GetPan(&mut self) -> ::windows::core::Result<i32>;
     fn GetFrequency(&mut self) -> ::windows::core::Result<u32>;
     fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn Initialize(&mut self, pdirectsound: ::core::option::Option<IDirectSound>, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pdirectsound: &::core::option::Option<IDirectSound>, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::core::Result<()>;
     fn Lock(&mut self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
     fn Play(&mut self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::core::Result<()>;
     fn SetCurrentPosition(&mut self, dwnewposition: u32) -> ::windows::core::Result<()>;
@@ -592,7 +592,7 @@ impl IDirectSoundBuffer8_Vtbl {
     }
 }
 pub trait IDirectSoundCapture_Impl: Sized {
-    fn CreateCaptureBuffer(&mut self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::core::option::Option<IDirectSoundCaptureBuffer>, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateCaptureBuffer(&mut self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::core::option::Option<IDirectSoundCaptureBuffer>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetCaps(&mut self) -> ::windows::core::Result<DSCCAPS>;
     fn Initialize(&mut self, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -632,7 +632,7 @@ pub trait IDirectSoundCaptureBuffer_Impl: Sized {
     fn GetCurrentPosition(&mut self, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::core::Result<()>;
     fn GetFormat(&mut self, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::core::Result<()>;
     fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn Initialize(&mut self, pdirectsoundcapture: ::core::option::Option<IDirectSoundCapture>, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pdirectsoundcapture: &::core::option::Option<IDirectSoundCapture>, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::core::Result<()>;
     fn Lock(&mut self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
     fn Start(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;

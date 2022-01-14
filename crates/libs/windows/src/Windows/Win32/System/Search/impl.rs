@@ -2,8 +2,8 @@ pub trait DataSource_Impl: Sized {
     fn getDataMember(&mut self, bstrdm: *const u16, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn getDataMemberName(&mut self, lindex: i32) -> ::windows::core::Result<*mut u16>;
     fn getDataMemberCount(&mut self) -> ::windows::core::Result<i32>;
-    fn addDataSourceListener(&mut self, pdsl: ::core::option::Option<DataSourceListener>) -> ::windows::core::Result<()>;
-    fn removeDataSourceListener(&mut self, pdsl: ::core::option::Option<DataSourceListener>) -> ::windows::core::Result<()>;
+    fn addDataSourceListener(&mut self, pdsl: &::core::option::Option<DataSourceListener>) -> ::windows::core::Result<()>;
+    fn removeDataSourceListener(&mut self, pdsl: &::core::option::Option<DataSourceListener>) -> ::windows::core::Result<()>;
 }
 impl DataSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DataSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DataSource_Vtbl {
@@ -194,7 +194,7 @@ impl IAlterTable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IBindResource_Impl: Sized {
-    fn Bind(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Bind(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IBindResource_Vtbl {
@@ -355,7 +355,7 @@ impl IColumnsInfo2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IColumnsRowset_Impl: Sized {
     fn GetAvailableColumns(&mut self, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
-    fn GetColumnsRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, coptcolumns: usize, rgoptcolumns: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetColumnsRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, coptcolumns: usize, rgoptcolumns: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IColumnsRowset_Vtbl {
@@ -380,7 +380,7 @@ impl IColumnsRowset_Vtbl {
 }
 pub trait ICommand_Impl: Sized {
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Execute(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Execute(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetDBSession(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ICommand_Vtbl {
@@ -554,7 +554,7 @@ impl ICommandProperties_Vtbl {
 }
 pub trait ICommandStream_Impl: Sized {
     fn GetCommandStream(&mut self, piid: *mut ::windows::core::GUID, pguiddialect: *mut ::windows::core::GUID, ppcommandstream: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetCommandStream(&mut self, riid: *const ::windows::core::GUID, rguiddialect: *const ::windows::core::GUID, pcommandstream: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetCommandStream(&mut self, riid: *const ::windows::core::GUID, rguiddialect: *const ::windows::core::GUID, pcommandstream: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ICommandStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandStream_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandStream_Vtbl {
@@ -772,10 +772,10 @@ impl ICondition2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IConditionFactory_Impl: Sized {
-    fn MakeNot(&mut self, pcsub: ::core::option::Option<ICondition>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
-    fn MakeAndOr(&mut self, ct: Common::CONDITION_TYPE, peusubs: ::core::option::Option<super::Com::IEnumUnknown>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
-    fn MakeLeaf(&mut self, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: ::core::option::Option<IRichChunk>, poperationterm: ::core::option::Option<IRichChunk>, pvalueterm: ::core::option::Option<IRichChunk>, fexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
-    fn Resolve(&mut self, pc: ::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<ICondition>;
+    fn MakeNot(&mut self, pcsub: &::core::option::Option<ICondition>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
+    fn MakeAndOr(&mut self, ct: Common::CONDITION_TYPE, peusubs: &::core::option::Option<super::Com::IEnumUnknown>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
+    fn MakeLeaf(&mut self, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, fexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
+    fn Resolve(&mut self, pc: &::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<ICondition>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IConditionFactory_Vtbl {
@@ -835,14 +835,14 @@ impl IConditionFactory_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IConditionFactory2_Impl: Sized + IConditionFactory_Impl {
     fn CreateTrueFalse(&mut self, fval: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateNegation(&mut self, pcsub: ::core::option::Option<ICondition>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateCompoundFromObjectArray(&mut self, ct: Common::CONDITION_TYPE, poasubs: ::core::option::Option<super::super::UI::Shell::Common::IObjectArray>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateNegation(&mut self, pcsub: &::core::option::Option<ICondition>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateCompoundFromObjectArray(&mut self, ct: Common::CONDITION_TYPE, poasubs: &::core::option::Option<super::super::UI::Shell::Common::IObjectArray>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateCompoundFromArray(&mut self, ct: Common::CONDITION_TYPE, ppcondsubs: *const ::core::option::Option<ICondition>, csubs: u32, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateStringLeaf(&mut self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, pszvalue: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateIntegerLeaf(&mut self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, lvalue: i32, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateBooleanLeaf(&mut self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, fvalue: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateLeaf(&mut self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, ppropertynameterm: ::core::option::Option<IRichChunk>, poperationterm: ::core::option::Option<IRichChunk>, pvalueterm: ::core::option::Option<IRichChunk>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ResolveCondition(&mut self, pc: ::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateLeaf(&mut self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ResolveCondition(&mut self, pc: &::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IConditionFactory2_Vtbl {
@@ -902,9 +902,9 @@ impl IConditionFactory2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IConditionGenerator_Impl: Sized {
-    fn Initialize(&mut self, pschemaprovider: ::core::option::Option<ISchemaProvider>) -> ::windows::core::Result<()>;
-    fn RecognizeNamedEntities(&mut self, pszinputstring: super::super::Foundation::PWSTR, lciduserlocale: u32, ptokencollection: ::core::option::Option<ITokenCollection>, pnamedentities: ::core::option::Option<INamedEntityCollector>) -> ::windows::core::Result<()>;
-    fn GenerateForLeaf(&mut self, pconditionfactory: ::core::option::Option<IConditionFactory>, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pszvalue2: super::super::Foundation::PWSTR, ppropertynameterm: ::core::option::Option<IRichChunk>, poperationterm: ::core::option::Option<IRichChunk>, pvalueterm: ::core::option::Option<IRichChunk>, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::core::option::Option<ICondition>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pschemaprovider: &::core::option::Option<ISchemaProvider>) -> ::windows::core::Result<()>;
+    fn RecognizeNamedEntities(&mut self, pszinputstring: super::super::Foundation::PWSTR, lciduserlocale: u32, ptokencollection: &::core::option::Option<ITokenCollection>, pnamedentities: &::core::option::Option<INamedEntityCollector>) -> ::windows::core::Result<()>;
+    fn GenerateForLeaf(&mut self, pconditionfactory: &::core::option::Option<IConditionFactory>, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pszvalue2: super::super::Foundation::PWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::core::option::Option<ICondition>) -> ::windows::core::Result<()>;
     fn DefaultPhrase(&mut self, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
@@ -976,7 +976,7 @@ impl IConvertType_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICreateRow_Impl: Sized {
-    fn CreateRow(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut super::super::Foundation::PWSTR, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateRow(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut super::super::Foundation::PWSTR, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ICreateRow_Vtbl {
@@ -1067,7 +1067,7 @@ impl IDBBinderProperties_Vtbl {
     }
 }
 pub trait IDBCreateCommand_Impl: Sized {
-    fn CreateCommand(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateCommand(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IDBCreateCommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBCreateCommand_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBCreateCommand_Vtbl {
@@ -1088,7 +1088,7 @@ impl IDBCreateCommand_Vtbl {
     }
 }
 pub trait IDBCreateSession_Impl: Sized {
-    fn CreateSession(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateSession(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IDBCreateSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBCreateSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBCreateSession_Vtbl {
@@ -1110,7 +1110,7 @@ impl IDBCreateSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDBDataSourceAdmin_Impl: Sized {
-    fn CreateDataSource(&mut self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppdbsession: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDataSource(&mut self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppdbsession: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DestroyDataSource(&mut self) -> ::windows::core::Result<()>;
     fn GetCreationProperties(&mut self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn ModifyDataSource(&mut self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
@@ -1204,7 +1204,7 @@ impl IDBInitialize_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDBPromptInitialize_Impl: Sized {
-    fn PromptDataSource(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn PromptDataSource(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn PromptFileName(&mut self, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: super::super::Foundation::PWSTR, pwszinitialfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1267,7 +1267,7 @@ impl IDBProperties_Vtbl {
     }
 }
 pub trait IDBSchemaCommand_Impl: Sized {
-    fn GetCommand(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, rguidschema: *const ::windows::core::GUID) -> ::windows::core::Result<ICommand>;
+    fn GetCommand(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, rguidschema: *const ::windows::core::GUID) -> ::windows::core::Result<ICommand>;
     fn GetSchemas(&mut self, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IDBSchemaCommand_Vtbl {
@@ -1298,7 +1298,7 @@ impl IDBSchemaCommand_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDBSchemaRowset_Impl: Sized {
-    fn GetRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const super::Com::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const super::Com::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetSchemas(&mut self, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID, prgrestrictionsupport: *mut *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1395,10 +1395,10 @@ impl IDataConvert_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDataInitialize_Impl: Sized {
-    fn GetDataSource(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszinitializationstring: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetInitializationString(&mut self, pdatasource: ::core::option::Option<::windows::core::IUnknown>, fincludepassword: u8) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn CreateDBInstance(&mut self, clsidprovider: *const ::windows::core::GUID, punkouter: ::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn CreateDBInstanceEx(&mut self, clsidprovider: *const ::windows::core::GUID, punkouter: ::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> ::windows::core::Result<()>;
+    fn GetDataSource(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszinitializationstring: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetInitializationString(&mut self, pdatasource: &::core::option::Option<::windows::core::IUnknown>, fincludepassword: u8) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn CreateDBInstance(&mut self, clsidprovider: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateDBInstanceEx(&mut self, clsidprovider: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> ::windows::core::Result<()>;
     fn LoadStringFromStorage(&mut self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn WriteStringToStorage(&mut self, pwszfilename: super::super::Foundation::PWSTR, pwszinitializationstring: super::super::Foundation::PWSTR, dwcreationdisposition: u32) -> ::windows::core::Result<()>;
 }
@@ -1831,7 +1831,7 @@ impl IErrorLookup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IErrorRecords_Impl: Sized {
-    fn AddErrorRecord(&mut self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: ::core::option::Option<::windows::core::IUnknown>, dwdynamicerrorid: u32) -> ::windows::core::Result<()>;
+    fn AddErrorRecord(&mut self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: &::core::option::Option<::windows::core::IUnknown>, dwdynamicerrorid: u32) -> ::windows::core::Result<()>;
     fn GetBasicErrorInfo(&mut self, ulrecordnum: u32) -> ::windows::core::Result<ERRORINFO>;
     fn GetCustomErrorObject(&mut self, ulrecordnum: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetErrorInfo(&mut self, ulrecordnum: u32, lcid: u32) -> ::windows::core::Result<super::Com::IErrorInfo>;
@@ -1932,7 +1932,7 @@ impl IGetDataSource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGetRow_Impl: Sized {
-    fn GetRowFromHROW(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, hrow: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetRowFromHROW(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, hrow: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetURLFromHROW(&mut self, hrow: usize) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2055,9 +2055,9 @@ impl IInterval_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ILoadFilter_Impl: Sized {
-    fn LoadIFilter(&mut self, pwcspath: super::super::Foundation::PWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: ::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
-    fn LoadIFilterFromStorage(&mut self, pstg: ::core::option::Option<super::Com::StructuredStorage::IStorage>, punkouter: ::core::option::Option<::windows::core::IUnknown>, pwcsoverride: super::super::Foundation::PWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
-    fn LoadIFilterFromStream(&mut self, pstm: ::core::option::Option<super::Com::IStream>, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: ::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
+    fn LoadIFilter(&mut self, pwcspath: super::super::Foundation::PWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: &::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
+    fn LoadIFilterFromStorage(&mut self, pstg: &::core::option::Option<super::Com::StructuredStorage::IStorage>, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwcsoverride: super::super::Foundation::PWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
+    fn LoadIFilterFromStream(&mut self, pstm: &::core::option::Option<super::Com::IStream>, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: &::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ILoadFilter_Vtbl {
@@ -2109,7 +2109,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
 pub trait IMDDataset_Impl: Sized {
     fn FreeAxisInfo(&mut self, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows::core::Result<()>;
     fn GetAxisInfo(&mut self, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows::core::Result<()>;
-    fn GetAxisRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, iaxis: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetAxisRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, iaxis: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetCellData(&mut self, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetSpecification(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -2183,7 +2183,7 @@ impl IMDFind_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMDRangeRowset_Impl: Sized {
-    fn GetRangeRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, ulstartcell: usize, ulendcell: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetRangeRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, ulstartcell: usize, ulendcell: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMDRangeRowset_Vtbl {
@@ -2216,7 +2216,7 @@ impl IMetaData_Vtbl {
     }
 }
 pub trait IMultipleResults_Impl: Sized {
-    fn GetResult(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, lresultflag: isize, riid: *const ::windows::core::GUID, pcrowsaffected: *mut isize, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetResult(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, lresultflag: isize, riid: *const ::windows::core::GUID, pcrowsaffected: *mut isize, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IMultipleResults_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleResults_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleResults_Vtbl {
@@ -2270,7 +2270,7 @@ impl INamedEntity_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INamedEntityCollector_Impl: Sized {
-    fn Add(&mut self, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: ::core::option::Option<IEntity>, pszvalue: super::super::Foundation::PWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::Result<()>;
+    fn Add(&mut self, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: &::core::option::Option<IEntity>, pszvalue: super::super::Foundation::PWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INamedEntityCollector_Vtbl {
@@ -2381,7 +2381,7 @@ impl IOpLockStatus_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOpenRowset_Impl: Sized {
-    fn OpenRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OpenRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOpenRowset_Vtbl {
@@ -2397,7 +2397,7 @@ impl IOpenRowset_Vtbl {
     }
 }
 pub trait IParentRowset_Impl: Sized {
-    fn GetChildRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, iordinal: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetChildRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, iordinal: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IParentRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IParentRowset_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IParentRowset_Vtbl {
@@ -2459,14 +2459,14 @@ impl IProvideMoniker_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IQueryParser_Impl: Sized {
-    fn Parse(&mut self, pszinputstring: super::super::Foundation::PWSTR, pcustomproperties: ::core::option::Option<super::Com::IEnumUnknown>) -> ::windows::core::Result<IQuerySolution>;
+    fn Parse(&mut self, pszinputstring: super::super::Foundation::PWSTR, pcustomproperties: &::core::option::Option<super::Com::IEnumUnknown>) -> ::windows::core::Result<IQuerySolution>;
     fn SetOption(&mut self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetOption(&mut self, option: STRUCTURED_QUERY_SINGLE_OPTION) -> ::windows::core::Result<super::Com::StructuredStorage::PROPVARIANT>;
     fn SetMultiOption(&mut self, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: super::super::Foundation::PWSTR, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetSchemaProvider(&mut self) -> ::windows::core::Result<ISchemaProvider>;
-    fn RestateToString(&mut self, pcondition: ::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn RestateToString(&mut self, pcondition: &::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn ParsePropertyValue(&mut self, pszpropertyname: super::super::Foundation::PWSTR, pszinputstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<IQuerySolution>;
-    fn RestatePropertyValueToString(&mut self, pcondition: ::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut super::super::Foundation::PWSTR, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RestatePropertyValueToString(&mut self, pcondition: &::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut super::super::Foundation::PWSTR, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IQueryParser_Vtbl {
@@ -2552,7 +2552,7 @@ impl IQueryParser_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IQueryParserManager_Impl: Sized {
     fn CreateLoadedParser(&mut self, pszcatalog: super::super::Foundation::PWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn InitializeOptions(&mut self, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: ::core::option::Option<IQueryParser>) -> ::windows::core::Result<()>;
+    fn InitializeOptions(&mut self, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: &::core::option::Option<IQueryParser>) -> ::windows::core::Result<()>;
     fn SetOption(&mut self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2764,7 +2764,7 @@ impl IRichChunk_Vtbl {
 pub trait IRow_Impl: Sized {
     fn GetColumns(&mut self, ccolumns: usize, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::Result<()>;
     fn GetSourceRowset(&mut self, riid: *const ::windows::core::GUID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>, phrow: *mut usize) -> ::windows::core::Result<()>;
-    fn Open(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const ::windows::core::GUID, dwbindflags: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Open(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const ::windows::core::GUID, dwbindflags: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl IRow_Vtbl {
@@ -2819,7 +2819,7 @@ pub trait IRowPosition_Impl: Sized {
     fn ClearRowPosition(&mut self) -> ::windows::core::Result<()>;
     fn GetRowPosition(&mut self, phchapter: *mut usize, phrow: *mut usize, pdwpositionflags: *mut u32) -> ::windows::core::Result<()>;
     fn GetRowset(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Initialize(&mut self, prowset: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, prowset: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetRowPosition(&mut self, hchapter: usize, hrow: usize, dwpositionflags: u32) -> ::windows::core::Result<()>;
 }
 impl IRowPosition_Vtbl {
@@ -3062,7 +3062,7 @@ pub trait IRowsetCopyRows_Impl: Sized {
     fn CloseSource(&mut self, hsourceid: u16) -> ::windows::core::Result<()>;
     fn CopyByHROWS(&mut self, hsourceid: u16, hreserved: usize, crows: isize, rghrows: *const usize, bflags: u32) -> ::windows::core::Result<()>;
     fn CopyRows(&mut self, hsourceid: u16, hreserved: usize, crows: isize, bflags: u32, pcrowscopied: *mut usize) -> ::windows::core::Result<()>;
-    fn DefineSource(&mut self, prowsetsource: ::core::option::Option<IRowset>, ccolids: usize, rgsourcecolumns: *const isize, rgtargetcolumns: *const isize, phsourceid: *mut u16) -> ::windows::core::Result<()>;
+    fn DefineSource(&mut self, prowsetsource: &::core::option::Option<IRowset>, ccolids: usize, rgsourcecolumns: *const isize, rgtargetcolumns: *const isize, phsourceid: *mut u16) -> ::windows::core::Result<()>;
 }
 impl IRowsetCopyRows_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetCopyRows_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetCopyRows_Vtbl {
@@ -3357,7 +3357,7 @@ impl IRowsetNewRowAfter_Vtbl {
     }
 }
 pub trait IRowsetNextRowset_Impl: Sized {
-    fn GetNextRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetNextRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IRowsetNextRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetNextRowset_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetNextRowset_Vtbl {
@@ -3379,9 +3379,9 @@ impl IRowsetNextRowset_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowsetNotify_Impl: Sized {
-    fn OnFieldChange(&mut self, prowset: ::core::option::Option<IRowset>, hrow: usize, ccolumns: usize, rgcolumns: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn OnRowChange(&mut self, prowset: ::core::option::Option<IRowset>, crows: usize, rghrows: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn OnRowsetChange(&mut self, prowset: ::core::option::Option<IRowset>, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnFieldChange(&mut self, prowset: &::core::option::Option<IRowset>, hrow: usize, ccolumns: usize, rgcolumns: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnRowChange(&mut self, prowset: &::core::option::Option<IRowset>, crows: usize, rghrows: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnRowsetChange(&mut self, prowset: &::core::option::Option<IRowset>, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRowsetNotify_Vtbl {
@@ -3580,7 +3580,7 @@ impl IRowsetUpdate_Vtbl {
     }
 }
 pub trait IRowsetView_Impl: Sized {
-    fn CreateView(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateView(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetView(&mut self, hchapter: usize, riid: *const ::windows::core::GUID, phchaptersource: *mut usize, ppview: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IRowsetView_Vtbl {
@@ -3640,7 +3640,7 @@ impl IRowsetWatchAll_Vtbl {
     }
 }
 pub trait IRowsetWatchNotify_Impl: Sized {
-    fn OnChange(&mut self, prowset: ::core::option::Option<IRowset>, echangereason: u32) -> ::windows::core::Result<()>;
+    fn OnChange(&mut self, prowset: &::core::option::Option<IRowset>, echangereason: u32) -> ::windows::core::Result<()>;
 }
 impl IRowsetWatchNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetWatchNotify_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetWatchNotify_Vtbl {
@@ -3849,9 +3849,9 @@ pub trait ISchemaProvider_Impl: Sized {
     fn RootEntity(&mut self) -> ::windows::core::Result<IEntity>;
     fn GetEntity(&mut self, pszentityname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEntity>;
     fn MetaData(&mut self, riid: *const ::windows::core::GUID, pmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Localize(&mut self, lcid: u32, pschemalocalizersupport: ::core::option::Option<ISchemaLocalizerSupport>) -> ::windows::core::Result<()>;
+    fn Localize(&mut self, lcid: u32, pschemalocalizersupport: &::core::option::Option<ISchemaLocalizerSupport>) -> ::windows::core::Result<()>;
     fn SaveBinary(&mut self, pszschemabinarypath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn LookupAuthoredNamedEntity(&mut self, pentity: ::core::option::Option<IEntity>, pszinputstring: super::super::Foundation::PWSTR, ptokencollection: ::core::option::Option<ITokenCollection>, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn LookupAuthoredNamedEntity(&mut self, pentity: &::core::option::Option<IEntity>, pszinputstring: super::super::Foundation::PWSTR, ptokencollection: &::core::option::Option<ITokenCollection>, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISchemaProvider_Vtbl {
@@ -3913,10 +3913,10 @@ impl ISchemaProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IScopedOperations_Impl: Sized + IBindResource_Impl {
-    fn Copy(&mut self, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwcopyflags: u32, pauthenticate: ::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn Move(&mut self, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwmoveflags: u32, pauthenticate: ::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn Copy(&mut self, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwcopyflags: u32, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn Move(&mut self, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwmoveflags: u32, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn Delete(&mut self, crows: usize, rgpwszurls: *const super::super::Foundation::PWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn OpenRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OpenRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IScopedOperations_Vtbl {
@@ -3968,8 +3968,8 @@ pub trait ISearchCatalogManager_Impl: Sized {
     fn URLBeingIndexed(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn GetURLIndexingState(&mut self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
     fn GetPersistentItemsChangedSink(&mut self) -> ::windows::core::Result<ISearchPersistentItemsChangedSink>;
-    fn RegisterViewForNotification(&mut self, pszview: super::super::Foundation::PWSTR, pviewchangedsink: ::core::option::Option<ISearchViewChangedSink>) -> ::windows::core::Result<u32>;
-    fn GetItemsChangedSink(&mut self, pisearchnotifyinlinesite: ::core::option::Option<ISearchNotifyInlineSite>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void, pguidcatalogresetsignature: *mut ::windows::core::GUID, pguidcheckpointsignature: *mut ::windows::core::GUID, pdwlastcheckpointnumber: *mut u32) -> ::windows::core::Result<()>;
+    fn RegisterViewForNotification(&mut self, pszview: super::super::Foundation::PWSTR, pviewchangedsink: &::core::option::Option<ISearchViewChangedSink>) -> ::windows::core::Result<u32>;
+    fn GetItemsChangedSink(&mut self, pisearchnotifyinlinesite: &::core::option::Option<ISearchNotifyInlineSite>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void, pguidcatalogresetsignature: *mut ::windows::core::GUID, pguidcheckpointsignature: *mut ::windows::core::GUID, pdwlastcheckpointnumber: *mut u32) -> ::windows::core::Result<()>;
     fn UnregisterViewForNotification(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
     fn SetExtensionClusion(&mut self, pszextension: super::super::Foundation::PWSTR, fexclude: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnumerateExcludedExtensions(&mut self) -> ::windows::core::Result<super::Com::IEnumString>;
@@ -4220,7 +4220,7 @@ impl ISearchCatalogManager2_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchCrawlScopeManager_Impl: Sized {
     fn AddDefaultScopeRule(&mut self, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::Result<()>;
-    fn AddRoot(&mut self, psearchroot: ::core::option::Option<ISearchRoot>) -> ::windows::core::Result<()>;
+    fn AddRoot(&mut self, psearchroot: &::core::option::Option<ISearchRoot>) -> ::windows::core::Result<()>;
     fn RemoveRoot(&mut self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn EnumerateRoots(&mut self) -> ::windows::core::Result<IEnumSearchRoots>;
     fn AddHierarchicalScope(&mut self, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -4704,9 +4704,9 @@ impl ISearchPersistentItemsChangedSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchProtocol_Impl: Sized {
-    fn Init(&mut self, ptimeoutinfo: *mut TIMEOUT_INFO, pprotocolhandlersite: ::core::option::Option<IProtocolHandlerSite>, pproxyinfo: *mut PROXY_INFO) -> ::windows::core::Result<()>;
+    fn Init(&mut self, ptimeoutinfo: *mut TIMEOUT_INFO, pprotocolhandlersite: &::core::option::Option<IProtocolHandlerSite>, pproxyinfo: *mut PROXY_INFO) -> ::windows::core::Result<()>;
     fn CreateAccessor(&mut self, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
-    fn CloseAccessor(&mut self, paccessor: ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
+    fn CloseAccessor(&mut self, paccessor: &::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
     fn ShutDown(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4995,7 +4995,7 @@ impl ISearchQueryHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait ISearchQueryHits_Impl: Sized {
-    fn Init(&mut self, pflt: ::core::option::Option<super::super::Storage::IndexServer::IFilter>, ulflags: u32) -> i32;
+    fn Init(&mut self, pflt: &::core::option::Option<super::super::Storage::IndexServer::IFilter>, ulflags: u32) -> i32;
     fn NextHitMoniker(&mut self, pcmnk: *mut u32, papmnk: *mut *mut ::core::option::Option<super::Com::IMoniker>) -> i32;
     fn NextHitOffset(&mut self, pcregion: *mut u32, paregion: *mut *mut super::super::Storage::IndexServer::FILTERREGION) -> i32;
 }
@@ -5320,7 +5320,7 @@ impl ISearchViewChangedSink_Vtbl {
 pub trait ISecurityInfo_Impl: Sized {
     fn GetCurrentTrustee(&mut self, pptrustee: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::Result<()>;
     fn GetObjectTypes(&mut self, cobjecttypes: *mut u32, rgobjecttypes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetPermissions(&mut self, objecttype: ::windows::core::GUID, ppermissions: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPermissions(&mut self, objecttype: &::windows::core::GUID, ppermissions: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
 impl ISecurityInfo_Vtbl {
@@ -5349,7 +5349,7 @@ impl ISecurityInfo_Vtbl {
     }
 }
 pub trait IService_Impl: Sized {
-    fn InvokeService(&mut self, punkinner: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn InvokeService(&mut self, punkinner: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IService_Vtbl {
@@ -5391,7 +5391,7 @@ impl ISessionProperties_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimpleCommandCreator_Impl: Sized {
-    fn CreateICommand(&mut self, ppiunknown: *mut ::core::option::Option<::windows::core::IUnknown>, pouterunk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateICommand(&mut self, ppiunknown: *mut ::core::option::Option<::windows::core::IUnknown>, pouterunk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn VerifyCatalog(&mut self, pwszmachine: super::super::Foundation::PWSTR, pwszcatalogname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn GetDefaultCatalog(&mut self, pwszcatalogname: super::super::Foundation::PWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -5423,7 +5423,7 @@ impl ISimpleCommandCreator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISourcesRowset_Impl: Sized {
-    fn GetSourcesRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetSourcesRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISourcesRowset_Vtbl {
@@ -5441,7 +5441,7 @@ impl ISourcesRowset_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStemmer_Impl: Sized {
     fn Init(&mut self, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GenerateWordForms(&mut self, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32, pstemsink: ::core::option::Option<IWordFormSink>) -> ::windows::core::Result<()>;
+    fn GenerateWordForms(&mut self, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32, pstemsink: &::core::option::Option<IWordFormSink>) -> ::windows::core::Result<()>;
     fn GetLicenseToUse(&mut self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5717,7 +5717,7 @@ impl ITableCreation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITableDefinition_Impl: Sized {
-    fn CreateTable(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateTable(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DropTable(&mut self, ptableid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn AddColumn(&mut self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC) -> ::windows::core::Result<*mut super::super::Storage::IndexServer::DBID>;
     fn DropColumn(&mut self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
@@ -5762,7 +5762,7 @@ impl ITableDefinition_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITableDefinitionWithConstraints_Impl: Sized + ITableDefinition_Impl + ITableCreation_Impl {
     fn AddConstraint(&mut self, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows::core::Result<()>;
-    fn CreateTableWithConstraints(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, ptableid: *mut super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *mut DBCONSTRAINTDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateTableWithConstraints(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, ptableid: *mut super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *mut DBCONSTRAINTDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DropConstraint(&mut self, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5848,7 +5848,7 @@ impl ITokenCollection_Vtbl {
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ITransactionJoin_Impl: Sized {
     fn GetOptionsObject(&mut self) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionOptions>;
-    fn JoinTransaction(&mut self, punktransactioncoord: ::core::option::Option<::windows::core::IUnknown>, isolevel: i32, isoflags: u32, potheroptions: ::core::option::Option<super::DistributedTransactionCoordinator::ITransactionOptions>) -> ::windows::core::Result<()>;
+    fn JoinTransaction(&mut self, punktransactioncoord: &::core::option::Option<::windows::core::IUnknown>, isolevel: i32, isoflags: u32, potheroptions: &::core::option::Option<super::DistributedTransactionCoordinator::ITransactionOptions>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl ITransactionJoin_Vtbl {
@@ -5880,7 +5880,7 @@ impl ITransactionJoin_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait ITransactionLocal_Impl: Sized + super::DistributedTransactionCoordinator::ITransaction_Impl {
     fn GetOptionsObject(&mut self) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionOptions>;
-    fn StartTransaction(&mut self, isolevel: i32, isoflags: u32, potheroptions: ::core::option::Option<super::DistributedTransactionCoordinator::ITransactionOptions>) -> ::windows::core::Result<u32>;
+    fn StartTransaction(&mut self, isolevel: i32, isoflags: u32, potheroptions: &::core::option::Option<super::DistributedTransactionCoordinator::ITransactionOptions>) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 impl ITransactionLocal_Vtbl {
@@ -6372,7 +6372,7 @@ impl IViewFilter_Vtbl {
 }
 pub trait IViewRowset_Impl: Sized {
     fn GetSpecification(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn OpenViewRowset(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn OpenViewRowset(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IViewRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IViewRowset_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IViewRowset_Vtbl {
@@ -6433,7 +6433,7 @@ impl IViewSort_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub trait IWordBreaker_Impl: Sized {
     fn Init(&mut self, fquery: super::super::Foundation::BOOL, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn BreakText(&mut self, ptextsource: *mut TEXT_SOURCE, pwordsink: ::core::option::Option<IWordSink>, pphrasesink: ::core::option::Option<super::super::Storage::IndexServer::IPhraseSink>) -> ::windows::core::Result<()>;
+    fn BreakText(&mut self, ptextsource: *mut TEXT_SOURCE, pwordsink: &::core::option::Option<IWordSink>, pphrasesink: &::core::option::Option<super::super::Storage::IndexServer::IPhraseSink>) -> ::windows::core::Result<()>;
     fn ComposePhrase(&mut self, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: super::super::Foundation::PWSTR, pcwcphrase: *mut u32) -> ::windows::core::Result<()>;
     fn GetLicenseToUse(&mut self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()>;
 }
@@ -6544,13 +6544,13 @@ pub trait OLEDBSimpleProvider_Impl: Sized {
     fn getColumnCount(&mut self) -> ::windows::core::Result<isize>;
     fn getRWStatus(&mut self, irow: isize, icolumn: isize) -> ::windows::core::Result<OSPRW>;
     fn getVariant(&mut self, irow: isize, icolumn: isize, format: OSPFORMAT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn setVariant(&mut self, irow: isize, icolumn: isize, format: OSPFORMAT, var: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn setVariant(&mut self, irow: isize, icolumn: isize, format: OSPFORMAT, var: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn getLocale(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn deleteRows(&mut self, irow: isize, crows: isize) -> ::windows::core::Result<isize>;
     fn insertRows(&mut self, irow: isize, crows: isize) -> ::windows::core::Result<isize>;
-    fn find(&mut self, irowstart: isize, icolumn: isize, val: super::Com::VARIANT, findflags: OSPFIND, comptype: OSPCOMP) -> ::windows::core::Result<isize>;
-    fn addOLEDBSimpleProviderListener(&mut self, pospilistener: ::core::option::Option<OLEDBSimpleProviderListener>) -> ::windows::core::Result<()>;
-    fn removeOLEDBSimpleProviderListener(&mut self, pospilistener: ::core::option::Option<OLEDBSimpleProviderListener>) -> ::windows::core::Result<()>;
+    fn find(&mut self, irowstart: isize, icolumn: isize, val: &super::Com::VARIANT, findflags: OSPFIND, comptype: OSPCOMP) -> ::windows::core::Result<isize>;
+    fn addOLEDBSimpleProviderListener(&mut self, pospilistener: &::core::option::Option<OLEDBSimpleProviderListener>) -> ::windows::core::Result<()>;
+    fn removeOLEDBSimpleProviderListener(&mut self, pospilistener: &::core::option::Option<OLEDBSimpleProviderListener>) -> ::windows::core::Result<()>;
     fn isAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn getEstimatedRows(&mut self) -> ::windows::core::Result<isize>;
     fn stopTransfer(&mut self) -> ::windows::core::Result<()>;

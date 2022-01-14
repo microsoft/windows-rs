@@ -408,7 +408,7 @@ impl IRDPSRAPIAudioStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIClipboardUseEvents_Impl: Sized {
-    fn OnPasteFromClipboard(&mut self, clipboardformat: u32, pattendee: ::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<i16>;
+    fn OnPasteFromClipboard(&mut self, clipboardformat: u32, pattendee: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<i16>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIClipboardUseEvents_Vtbl {
@@ -431,7 +431,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRDPSRAPIDebug_Impl: Sized {
-    fn SetCLXCmdLine(&mut self, clxcmdline: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCLXCmdLine(&mut self, clxcmdline: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CLXCmdLine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -612,9 +612,9 @@ impl IRDPSRAPIInvitation_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRDPSRAPIInvitationManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, item: super::Com::VARIANT) -> ::windows::core::Result<IRDPSRAPIInvitation>;
+    fn Item(&mut self, item: &super::Com::VARIANT) -> ::windows::core::Result<IRDPSRAPIInvitation>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn CreateInvitation(&mut self, bstrauthstring: super::super::Foundation::BSTR, bstrgroupname: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, attendeelimit: i32) -> ::windows::core::Result<IRDPSRAPIInvitation>;
+    fn CreateInvitation(&mut self, bstrauthstring: &super::super::Foundation::BSTR, bstrgroupname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, attendeelimit: i32) -> ::windows::core::Result<IRDPSRAPIInvitation>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRDPSRAPIInvitationManager_Vtbl {
@@ -688,7 +688,7 @@ impl IRDPSRAPIPerfCounterLogger_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRDPSRAPIPerfCounterLoggingManager_Impl: Sized {
-    fn CreateLogger(&mut self, bstrcountername: super::super::Foundation::BSTR) -> ::windows::core::Result<IRDPSRAPIPerfCounterLogger>;
+    fn CreateLogger(&mut self, bstrcountername: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRDPSRAPIPerfCounterLogger>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
@@ -711,8 +711,8 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRDPSRAPISessionProperties_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Property(&mut self, propertyname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetProperty(&mut self, propertyname: super::super::Foundation::BSTR, newval: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Property(&mut self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetProperty(&mut self, propertyname: &super::super::Foundation::BSTR, newval: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRDPSRAPISessionProperties_Vtbl {
@@ -754,7 +754,7 @@ pub trait IRDPSRAPISharingSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn VirtualChannelManager(&mut self) -> ::windows::core::Result<IRDPSRAPIVirtualChannelManager>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn ConnectToClient(&mut self, bstrconnectionstring: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConnectToClient(&mut self, bstrconnectionstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetDesktopSharedRect(&mut self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()>;
     fn GetDesktopSharedRect(&mut self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()>;
 }
@@ -877,9 +877,9 @@ impl IRDPSRAPISharingSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRDPSRAPISharingSession2_Impl: Sized + super::Com::IDispatch_Impl + IRDPSRAPISharingSession_Impl {
-    fn ConnectUsingTransportStream(&mut self, pstream: ::core::option::Option<IRDPSRAPITransportStream>, bstrgroup: super::super::Foundation::BSTR, bstrauthenticatedattendeename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConnectUsingTransportStream(&mut self, pstream: &::core::option::Option<IRDPSRAPITransportStream>, bstrgroup: &super::super::Foundation::BSTR, bstrauthenticatedattendeename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FrameBuffer(&mut self) -> ::windows::core::Result<IRDPSRAPIFrameBuffer>;
-    fn SendControlLevelChangeResponse(&mut self, pattendee: ::core::option::Option<IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()>;
+    fn SendControlLevelChangeResponse(&mut self, pattendee: &::core::option::Option<IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRDPSRAPISharingSession2_Vtbl {
@@ -989,10 +989,10 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
 }
 pub trait IRDPSRAPITransportStream_Impl: Sized {
     fn AllocBuffer(&mut self, maxpayload: i32) -> ::windows::core::Result<IRDPSRAPITransportStreamBuffer>;
-    fn FreeBuffer(&mut self, pbuffer: ::core::option::Option<IRDPSRAPITransportStreamBuffer>) -> ::windows::core::Result<()>;
-    fn WriteBuffer(&mut self, pbuffer: ::core::option::Option<IRDPSRAPITransportStreamBuffer>) -> ::windows::core::Result<()>;
-    fn ReadBuffer(&mut self, pbuffer: ::core::option::Option<IRDPSRAPITransportStreamBuffer>) -> ::windows::core::Result<()>;
-    fn Open(&mut self, pcallbacks: ::core::option::Option<IRDPSRAPITransportStreamEvents>) -> ::windows::core::Result<()>;
+    fn FreeBuffer(&mut self, pbuffer: &::core::option::Option<IRDPSRAPITransportStreamBuffer>) -> ::windows::core::Result<()>;
+    fn WriteBuffer(&mut self, pbuffer: &::core::option::Option<IRDPSRAPITransportStreamBuffer>) -> ::windows::core::Result<()>;
+    fn ReadBuffer(&mut self, pbuffer: &::core::option::Option<IRDPSRAPITransportStreamBuffer>) -> ::windows::core::Result<()>;
+    fn Open(&mut self, pcallbacks: &::core::option::Option<IRDPSRAPITransportStreamEvents>) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 impl IRDPSRAPITransportStream_Vtbl {
@@ -1051,7 +1051,7 @@ pub trait IRDPSRAPITransportStreamBuffer_Impl: Sized {
     fn Flags(&mut self) -> ::windows::core::Result<i32>;
     fn SetFlags(&mut self, lflags: i32) -> ::windows::core::Result<()>;
     fn Context(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetContext(&mut self, pcontext: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetContext(&mut self, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IRDPSRAPITransportStreamBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPITransportStreamBuffer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPITransportStreamBuffer_Vtbl {
@@ -1150,8 +1150,8 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
     }
 }
 pub trait IRDPSRAPITransportStreamEvents_Impl: Sized {
-    fn OnWriteCompleted(&mut self, pbuffer: ::core::option::Option<IRDPSRAPITransportStreamBuffer>);
-    fn OnReadCompleted(&mut self, pbuffer: ::core::option::Option<IRDPSRAPITransportStreamBuffer>);
+    fn OnWriteCompleted(&mut self, pbuffer: &::core::option::Option<IRDPSRAPITransportStreamBuffer>);
+    fn OnReadCompleted(&mut self, pbuffer: &::core::option::Option<IRDPSRAPITransportStreamBuffer>);
     fn OnStreamClosed(&mut self, hrreason: ::windows::core::HRESULT);
 }
 impl IRDPSRAPITransportStreamEvents_Vtbl {
@@ -1181,7 +1181,7 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRDPSRAPIViewer_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Connect(&mut self, bstrconnectionstring: super::super::Foundation::BSTR, bstrname: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, bstrconnectionstring: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Disconnect(&mut self) -> ::windows::core::Result<()>;
     fn Attendees(&mut self) -> ::windows::core::Result<IRDPSRAPIAttendeeManager>;
     fn Invitations(&mut self) -> ::windows::core::Result<IRDPSRAPIInvitationManager>;
@@ -1190,11 +1190,11 @@ pub trait IRDPSRAPIViewer_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetSmartSizing(&mut self, vbsmartsizing: i16) -> ::windows::core::Result<()>;
     fn SmartSizing(&mut self) -> ::windows::core::Result<i16>;
     fn RequestControl(&mut self, ctrllevel: CTRL_LEVEL) -> ::windows::core::Result<()>;
-    fn SetDisconnectedText(&mut self, bstrdisconnectedtext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDisconnectedText(&mut self, bstrdisconnectedtext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DisconnectedText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn RequestColorDepthChange(&mut self, bpp: i32) -> ::windows::core::Result<()>;
     fn Properties(&mut self) -> ::windows::core::Result<IRDPSRAPISessionProperties>;
-    fn StartReverseConnectListener(&mut self, bstrconnectionstring: super::super::Foundation::BSTR, bstrusername: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn StartReverseConnectListener(&mut self, bstrconnectionstring: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRDPSRAPIViewer_Vtbl {
@@ -1327,7 +1327,7 @@ impl IRDPSRAPIViewer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRDPSRAPIVirtualChannel_Impl: Sized + super::Com::IDispatch_Impl {
-    fn SendData(&mut self, bstrdata: super::super::Foundation::BSTR, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::Result<()>;
+    fn SendData(&mut self, bstrdata: &super::super::Foundation::BSTR, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::Result<()>;
     fn SetAccess(&mut self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::core::Result<()>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Flags(&mut self) -> ::windows::core::Result<i32>;
@@ -1390,8 +1390,8 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRDPSRAPIVirtualChannelManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, item: super::Com::VARIANT) -> ::windows::core::Result<IRDPSRAPIVirtualChannel>;
-    fn CreateVirtualChannel(&mut self, bstrchannelname: super::super::Foundation::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel>;
+    fn Item(&mut self, item: &super::Com::VARIANT) -> ::windows::core::Result<IRDPSRAPIVirtualChannel>;
+    fn CreateVirtualChannel(&mut self, bstrchannelname: &super::super::Foundation::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRDPSRAPIVirtualChannelManager_Vtbl {

@@ -51,7 +51,7 @@ impl IDesktopWindowXamlSourceNative2_Vtbl {
     }
 }
 pub trait IFindReferenceTargetsCallback_Impl: Sized {
-    fn FoundTrackerTarget(&mut self, target: ::core::option::Option<IReferenceTrackerTarget>) -> ::windows::core::Result<()>;
+    fn FoundTrackerTarget(&mut self, target: &::core::option::Option<IReferenceTrackerTarget>) -> ::windows::core::Result<()>;
 }
 impl IFindReferenceTargetsCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFindReferenceTargetsCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFindReferenceTargetsCallback_Vtbl {
@@ -68,7 +68,7 @@ impl IFindReferenceTargetsCallback_Vtbl {
 pub trait IReferenceTracker_Impl: Sized {
     fn ConnectFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
     fn DisconnectFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
-    fn FindTrackerTargets(&mut self, callback: ::core::option::Option<IFindReferenceTargetsCallback>) -> ::windows::core::Result<()>;
+    fn FindTrackerTargets(&mut self, callback: &::core::option::Option<IFindReferenceTargetsCallback>) -> ::windows::core::Result<()>;
     fn GetReferenceTrackerManager(&mut self) -> ::windows::core::Result<IReferenceTrackerManager>;
     fn AddRefFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
     fn ReleaseFromTrackerSource(&mut self) -> ::windows::core::Result<()>;
@@ -138,7 +138,7 @@ pub trait IReferenceTrackerHost_Impl: Sized {
     fn DisconnectUnusedReferenceSources(&mut self, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::core::Result<()>;
     fn ReleaseDisconnectedReferenceSources(&mut self) -> ::windows::core::Result<()>;
     fn NotifyEndOfReferenceTrackingOnThread(&mut self) -> ::windows::core::Result<()>;
-    fn GetTrackerTarget(&mut self, unknown: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IReferenceTrackerTarget>;
+    fn GetTrackerTarget(&mut self, unknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IReferenceTrackerTarget>;
     fn AddMemoryPressure(&mut self, bytesallocated: u64) -> ::windows::core::Result<()>;
     fn RemoveMemoryPressure(&mut self, bytesallocated: u64) -> ::windows::core::Result<()>;
 }
@@ -192,7 +192,7 @@ pub trait IReferenceTrackerManager_Impl: Sized {
     fn ReferenceTrackingStarted(&mut self) -> ::windows::core::Result<()>;
     fn FindTrackerTargetsCompleted(&mut self, findfailed: u8) -> ::windows::core::Result<()>;
     fn ReferenceTrackingCompleted(&mut self) -> ::windows::core::Result<()>;
-    fn SetReferenceTrackerHost(&mut self, value: ::core::option::Option<IReferenceTrackerHost>) -> ::windows::core::Result<()>;
+    fn SetReferenceTrackerHost(&mut self, value: &::core::option::Option<IReferenceTrackerHost>) -> ::windows::core::Result<()>;
 }
 impl IReferenceTrackerManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReferenceTrackerManager_Vtbl {
@@ -261,7 +261,7 @@ impl IReferenceTrackerTarget_Vtbl {
     }
 }
 pub trait ISurfaceImageSourceManagerNative_Impl: Sized {
-    fn FlushAllSurfacesWithDevice(&mut self, device: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn FlushAllSurfacesWithDevice(&mut self, device: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ISurfaceImageSourceManagerNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceManagerNative_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISurfaceImageSourceManagerNative_Vtbl {
@@ -277,8 +277,8 @@ impl ISurfaceImageSourceManagerNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub trait ISurfaceImageSourceNative_Impl: Sized {
-    fn SetDevice(&mut self, device: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>) -> ::windows::core::Result<()>;
-    fn BeginDraw(&mut self, updaterect: super::super::super::Foundation::RECT, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn SetDevice(&mut self, device: &::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>) -> ::windows::core::Result<()>;
+    fn BeginDraw(&mut self, updaterect: &super::super::super::Foundation::RECT, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn EndDraw(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
@@ -309,7 +309,7 @@ impl ISurfaceImageSourceNative_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISurfaceImageSourceNativeWithD2D_Impl: Sized {
-    fn SetDevice(&mut self, device: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetDevice(&mut self, device: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn BeginDraw(&mut self, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn EndDraw(&mut self) -> ::windows::core::Result<()>;
     fn SuspendDraw(&mut self) -> ::windows::core::Result<()>;
@@ -353,7 +353,7 @@ impl ISurfaceImageSourceNativeWithD2D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ISwapChainBackgroundPanelNative_Impl: Sized {
-    fn SetSwapChain(&mut self, swapchain: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
+    fn SetSwapChain(&mut self, swapchain: &::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ISwapChainBackgroundPanelNative_Vtbl {
@@ -370,7 +370,7 @@ impl ISwapChainBackgroundPanelNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ISwapChainPanelNative_Impl: Sized {
-    fn SetSwapChain(&mut self, swapchain: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
+    fn SetSwapChain(&mut self, swapchain: &::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ISwapChainPanelNative_Vtbl {
@@ -405,7 +405,7 @@ impl ISwapChainPanelNative2_Vtbl {
 pub trait ITrackerOwner_Impl: Sized {
     fn CreateTrackerHandle(&mut self) -> ::windows::core::Result<*mut TrackerHandle__>;
     fn DeleteTrackerHandle(&mut self, handle: *const TrackerHandle__) -> ::windows::core::Result<()>;
-    fn SetTrackerValue(&mut self, handle: *const TrackerHandle__, value: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetTrackerValue(&mut self, handle: *const TrackerHandle__, value: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn TryGetSafeTrackerValue(&mut self, handle: *const TrackerHandle__, returnvalue: *mut ::core::option::Option<::windows::core::IUnknown>) -> u8;
 }
 impl ITrackerOwner_Vtbl {
@@ -446,11 +446,11 @@ impl ITrackerOwner_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub trait IVirtualSurfaceImageSourceNative_Impl: Sized + ISurfaceImageSourceNative_Impl {
-    fn Invalidate(&mut self, updaterect: super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn Invalidate(&mut self, updaterect: &super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn GetUpdateRectCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetUpdateRects(&mut self, updates: *mut super::super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()>;
     fn GetVisibleBounds(&mut self) -> ::windows::core::Result<super::super::super::Foundation::RECT>;
-    fn RegisterForUpdatesNeeded(&mut self, callback: ::core::option::Option<IVirtualSurfaceUpdatesCallbackNative>) -> ::windows::core::Result<()>;
+    fn RegisterForUpdatesNeeded(&mut self, callback: &::core::option::Option<IVirtualSurfaceUpdatesCallbackNative>) -> ::windows::core::Result<()>;
     fn Resize(&mut self, newwidth: i32, newheight: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]

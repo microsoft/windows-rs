@@ -2,7 +2,7 @@
 pub trait IAccClientDocMgr_Impl: Sized {
     fn GetDocuments(&mut self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown>;
     fn LookupByHWND(&mut self, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn LookupByPoint(&mut self, pt: super::super::Foundation::POINT, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn LookupByPoint(&mut self, pt: &super::super::Foundation::POINT, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetFocused(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -65,8 +65,8 @@ pub trait IAccDictionary_Impl: Sized {
     fn GetLocalizedString(&mut self, term: *const ::windows::core::GUID, lcid: u32, presult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
     fn GetParentTerm(&mut self, term: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetMnemonicString(&mut self, term: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn LookupMnemonicTerm(&mut self, bstrmnemonic: super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ConvertValueToString(&mut self, term: *const ::windows::core::GUID, lcid: u32, varvalue: super::super::System::Com::VARIANT, pbstrresult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
+    fn LookupMnemonicTerm(&mut self, bstrmnemonic: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ConvertValueToString(&mut self, term: *const ::windows::core::GUID, lcid: u32, varvalue: &super::super::System::Com::VARIANT, pbstrresult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAccDictionary_Vtbl {
@@ -123,9 +123,9 @@ impl IAccDictionary_Vtbl {
     }
 }
 pub trait IAccServerDocMgr_Impl: Sized {
-    fn NewDocument(&mut self, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn RevokeDocument(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn OnDocumentFocus(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn NewDocument(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RevokeDocument(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnDocumentFocus(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IAccServerDocMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccServerDocMgr_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccServerDocMgr_Vtbl {
@@ -154,12 +154,12 @@ impl IAccServerDocMgr_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAccStore_Impl: Sized {
-    fn Register(&mut self, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Unregister(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Register(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Unregister(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetDocuments(&mut self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown>;
     fn LookupByHWND(&mut self, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn LookupByPoint(&mut self, pt: super::super::Foundation::POINT, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn OnDocumentFocus(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn LookupByPoint(&mut self, pt: &super::super::Foundation::POINT, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn OnDocumentFocus(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetFocused(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -236,10 +236,10 @@ impl IAccStore_Vtbl {
 pub trait IAnchor_Impl: Sized {
     fn SetGravity(&mut self, gravity: TsGravity) -> ::windows::core::Result<()>;
     fn GetGravity(&mut self) -> ::windows::core::Result<TsGravity>;
-    fn IsEqual(&mut self, pawith: ::core::option::Option<IAnchor>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Compare(&mut self, pawith: ::core::option::Option<IAnchor>) -> ::windows::core::Result<i32>;
-    fn Shift(&mut self, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
-    fn ShiftTo(&mut self, pasite: ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
+    fn IsEqual(&mut self, pawith: &::core::option::Option<IAnchor>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Compare(&mut self, pawith: &::core::option::Option<IAnchor>) -> ::windows::core::Result<i32>;
+    fn Shift(&mut self, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: &::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
+    fn ShiftTo(&mut self, pasite: &::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
     fn ShiftRegion(&mut self, dwflags: u32, dir: TsShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetChangeHistoryMask(&mut self, dwmask: u32) -> ::windows::core::Result<()>;
     fn GetChangeHistory(&mut self) -> ::windows::core::Result<ANCHOR_CHANGE_HISTORY_FLAGS>;
@@ -365,7 +365,7 @@ impl IClonableWrapper_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICoCreateLocally_Impl: Sized {
-    fn CoCreateLocally(&mut self, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, punk: *mut ::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: ::core::option::Option<::windows::core::IUnknown>, varparam: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CoCreateLocally(&mut self, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, punk: *mut ::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: &::core::option::Option<::windows::core::IUnknown>, varparam: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICoCreateLocally_Vtbl {
@@ -382,7 +382,7 @@ impl ICoCreateLocally_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICoCreatedLocally_Impl: Sized {
-    fn LocalInit(&mut self, punklocalobject: ::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: ::core::option::Option<::windows::core::IUnknown>, varparam: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn LocalInit(&mut self, punklocalobject: &::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: &::core::option::Option<::windows::core::IUnknown>, varparam: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICoCreatedLocally_Vtbl {
@@ -398,7 +398,7 @@ impl ICoCreatedLocally_Vtbl {
     }
 }
 pub trait IDocWrap_Impl: Sized {
-    fn SetDoc(&mut self, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetDoc(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetWrappedDoc(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IDocWrap_Vtbl {
@@ -1154,8 +1154,8 @@ impl ISpeechCommandProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextStoreACP_Impl: Sized {
-    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>, dwmask: u32) -> ::windows::core::Result<()>;
-    fn UnadviseSink(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>, dwmask: u32) -> ::windows::core::Result<()>;
+    fn UnadviseSink(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn RequestLock(&mut self, dwlockflags: u32) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetStatus(&mut self) -> ::windows::core::Result<TS_STATUS>;
     fn QueryInsert(&mut self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: *mut i32, pacpresultend: *mut i32) -> ::windows::core::Result<()>;
@@ -1166,9 +1166,9 @@ pub trait ITextStoreACP_Impl: Sized {
     fn GetFormattedText(&mut self, acpstart: i32, acpend: i32) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
     fn GetEmbedded(&mut self, acppos: i32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn QueryInsertEmbedded(&mut self, pguidservice: *const ::windows::core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn InsertEmbedded(&mut self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<TS_TEXTCHANGE>;
+    fn InsertEmbedded(&mut self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<TS_TEXTCHANGE>;
     fn InsertTextAtSelection(&mut self, dwflags: u32, pchtext: super::super::Foundation::PWSTR, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()>;
-    fn InsertEmbeddedAtSelection(&mut self, dwflags: u32, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()>;
+    fn InsertEmbeddedAtSelection(&mut self, dwflags: u32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()>;
     fn RequestSupportedAttrs(&mut self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RequestAttrsAtPosition(&mut self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
     fn RequestAttrsTransitioningAtPosition(&mut self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
@@ -1396,8 +1396,8 @@ impl ITextStoreACP_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextStoreACP2_Impl: Sized {
-    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>, dwmask: u32) -> ::windows::core::Result<()>;
-    fn UnadviseSink(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>, dwmask: u32) -> ::windows::core::Result<()>;
+    fn UnadviseSink(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn RequestLock(&mut self, dwlockflags: u32) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetStatus(&mut self) -> ::windows::core::Result<TS_STATUS>;
     fn QueryInsert(&mut self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: *mut i32, pacpresultend: *mut i32) -> ::windows::core::Result<()>;
@@ -1408,9 +1408,9 @@ pub trait ITextStoreACP2_Impl: Sized {
     fn GetFormattedText(&mut self, acpstart: i32, acpend: i32) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
     fn GetEmbedded(&mut self, acppos: i32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn QueryInsertEmbedded(&mut self, pguidservice: *const ::windows::core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn InsertEmbedded(&mut self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<TS_TEXTCHANGE>;
+    fn InsertEmbedded(&mut self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<TS_TEXTCHANGE>;
     fn InsertTextAtSelection(&mut self, dwflags: u32, pchtext: super::super::Foundation::PWSTR, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()>;
-    fn InsertEmbeddedAtSelection(&mut self, dwflags: u32, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()>;
+    fn InsertEmbeddedAtSelection(&mut self, dwflags: u32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()>;
     fn RequestSupportedAttrs(&mut self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RequestAttrsAtPosition(&mut self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
     fn RequestAttrsTransitioningAtPosition(&mut self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
@@ -1626,7 +1626,7 @@ impl ITextStoreACP2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITextStoreACPEx_Impl: Sized {
-    fn ScrollToRect(&mut self, acpstart: i32, acpend: i32, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()>;
+    fn ScrollToRect(&mut self, acpstart: i32, acpend: i32, rc: &super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITextStoreACPEx_Vtbl {
@@ -1643,9 +1643,9 @@ impl ITextStoreACPEx_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextStoreACPServices_Impl: Sized {
-    fn Serialize(&mut self, pprop: ::core::option::Option<ITfProperty>, prange: ::core::option::Option<ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Unserialize(&mut self, pprop: ::core::option::Option<ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: ::core::option::Option<super::super::System::Com::IStream>, ploader: ::core::option::Option<ITfPersistentPropertyLoaderACP>) -> ::windows::core::Result<()>;
-    fn ForceLoadProperty(&mut self, pprop: ::core::option::Option<ITfProperty>) -> ::windows::core::Result<()>;
+    fn Serialize(&mut self, pprop: &::core::option::Option<ITfProperty>, prange: &::core::option::Option<ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Unserialize(&mut self, pprop: &::core::option::Option<ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: &::core::option::Option<super::super::System::Com::IStream>, ploader: &::core::option::Option<ITfPersistentPropertyLoaderACP>) -> ::windows::core::Result<()>;
+    fn ForceLoadProperty(&mut self, pprop: &::core::option::Option<ITfProperty>) -> ::windows::core::Result<()>;
     fn CreateRange(&mut self, acpstart: i32, acpend: i32) -> ::windows::core::Result<ITfRangeACP>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1762,33 +1762,33 @@ impl ITextStoreACPSinkEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextStoreAnchor_Impl: Sized {
-    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>, dwmask: u32) -> ::windows::core::Result<()>;
-    fn UnadviseSink(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>, dwmask: u32) -> ::windows::core::Result<()>;
+    fn UnadviseSink(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn RequestLock(&mut self, dwlockflags: u32) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetStatus(&mut self) -> ::windows::core::Result<TS_STATUS>;
-    fn QueryInsert(&mut self, pateststart: ::core::option::Option<IAnchor>, patestend: ::core::option::Option<IAnchor>, cch: u32, pparesultstart: *mut ::core::option::Option<IAnchor>, pparesultend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
+    fn QueryInsert(&mut self, pateststart: &::core::option::Option<IAnchor>, patestend: &::core::option::Option<IAnchor>, cch: u32, pparesultstart: *mut ::core::option::Option<IAnchor>, pparesultend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
     fn GetSelection(&mut self, ulindex: u32, ulcount: u32, pselection: *mut TS_SELECTION_ANCHOR, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn SetSelection(&mut self, ulcount: u32, pselection: *const TS_SELECTION_ANCHOR) -> ::windows::core::Result<()>;
-    fn GetText(&mut self, dwflags: u32, pastart: ::core::option::Option<IAnchor>, paend: ::core::option::Option<IAnchor>, pchtext: super::super::Foundation::PWSTR, cchreq: u32, pcch: *mut u32, fupdateanchor: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetText(&mut self, dwflags: u32, pastart: ::core::option::Option<IAnchor>, paend: ::core::option::Option<IAnchor>, pchtext: super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::Result<()>;
-    fn GetFormattedText(&mut self, pastart: ::core::option::Option<IAnchor>, paend: ::core::option::Option<IAnchor>) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
-    fn GetEmbedded(&mut self, dwflags: u32, papos: ::core::option::Option<IAnchor>, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn InsertEmbedded(&mut self, dwflags: u32, pastart: ::core::option::Option<IAnchor>, paend: ::core::option::Option<IAnchor>, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn GetText(&mut self, dwflags: u32, pastart: &::core::option::Option<IAnchor>, paend: &::core::option::Option<IAnchor>, pchtext: super::super::Foundation::PWSTR, cchreq: u32, pcch: *mut u32, fupdateanchor: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetText(&mut self, dwflags: u32, pastart: &::core::option::Option<IAnchor>, paend: &::core::option::Option<IAnchor>, pchtext: super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::Result<()>;
+    fn GetFormattedText(&mut self, pastart: &::core::option::Option<IAnchor>, paend: &::core::option::Option<IAnchor>) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
+    fn GetEmbedded(&mut self, dwflags: u32, papos: &::core::option::Option<IAnchor>, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn InsertEmbedded(&mut self, dwflags: u32, pastart: &::core::option::Option<IAnchor>, paend: &::core::option::Option<IAnchor>, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn RequestSupportedAttrs(&mut self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RequestAttrsAtPosition(&mut self, papos: ::core::option::Option<IAnchor>, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
-    fn RequestAttrsTransitioningAtPosition(&mut self, papos: ::core::option::Option<IAnchor>, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
-    fn FindNextAttrTransition(&mut self, pastart: ::core::option::Option<IAnchor>, pahalt: ::core::option::Option<IAnchor>, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::Result<()>;
+    fn RequestAttrsAtPosition(&mut self, papos: &::core::option::Option<IAnchor>, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
+    fn RequestAttrsTransitioningAtPosition(&mut self, papos: &::core::option::Option<IAnchor>, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
+    fn FindNextAttrTransition(&mut self, pastart: &::core::option::Option<IAnchor>, pahalt: &::core::option::Option<IAnchor>, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::Result<()>;
     fn RetrieveRequestedAttrs(&mut self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn GetStart(&mut self) -> ::windows::core::Result<IAnchor>;
     fn GetEnd(&mut self) -> ::windows::core::Result<IAnchor>;
     fn GetActiveView(&mut self) -> ::windows::core::Result<u32>;
     fn GetAnchorFromPoint(&mut self, vcview: u32, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows::core::Result<IAnchor>;
-    fn GetTextExt(&mut self, vcview: u32, pastart: ::core::option::Option<IAnchor>, paend: ::core::option::Option<IAnchor>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetTextExt(&mut self, vcview: u32, pastart: &::core::option::Option<IAnchor>, paend: &::core::option::Option<IAnchor>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetScreenExt(&mut self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::RECT>;
     fn GetWnd(&mut self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn QueryInsertEmbedded(&mut self, pguidservice: *const ::windows::core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn InsertTextAtSelection(&mut self, dwflags: u32, pchtext: super::super::Foundation::PWSTR, cch: u32, ppastart: *mut ::core::option::Option<IAnchor>, ppaend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
-    fn InsertEmbeddedAtSelection(&mut self, dwflags: u32, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>, ppastart: *mut ::core::option::Option<IAnchor>, ppaend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
+    fn InsertEmbeddedAtSelection(&mut self, dwflags: u32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, ppastart: *mut ::core::option::Option<IAnchor>, ppaend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextStoreAnchor_Vtbl {
@@ -2004,7 +2004,7 @@ impl ITextStoreAnchor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITextStoreAnchorEx_Impl: Sized {
-    fn ScrollToRect(&mut self, pstart: ::core::option::Option<IAnchor>, pend: ::core::option::Option<IAnchor>, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()>;
+    fn ScrollToRect(&mut self, pstart: &::core::option::Option<IAnchor>, pend: &::core::option::Option<IAnchor>, rc: &super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITextStoreAnchorEx_Vtbl {
@@ -2020,11 +2020,11 @@ impl ITextStoreAnchorEx_Vtbl {
     }
 }
 pub trait ITextStoreAnchorSink_Impl: Sized {
-    fn OnTextChange(&mut self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: ::core::option::Option<IAnchor>, paend: ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
+    fn OnTextChange(&mut self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: &::core::option::Option<IAnchor>, paend: &::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
     fn OnSelectionChange(&mut self) -> ::windows::core::Result<()>;
     fn OnLayoutChange(&mut self, lcode: TsLayoutCode, vcview: u32) -> ::windows::core::Result<()>;
     fn OnStatusChange(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn OnAttrsChange(&mut self, pastart: ::core::option::Option<IAnchor>, paend: ::core::option::Option<IAnchor>, cattrs: u32, paattrs: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAttrsChange(&mut self, pastart: &::core::option::Option<IAnchor>, paend: &::core::option::Option<IAnchor>, cattrs: u32, paattrs: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnLockGranted(&mut self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()>;
     fn OnStartEditTransaction(&mut self) -> ::windows::core::Result<()>;
     fn OnEndEditTransaction(&mut self) -> ::windows::core::Result<()>;
@@ -2498,7 +2498,7 @@ impl ITfCleanupContextDurationSink_Vtbl {
     }
 }
 pub trait ITfCleanupContextSink_Impl: Sized {
-    fn OnCleanupContext(&mut self, ecwrite: u32, pic: ::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
+    fn OnCleanupContext(&mut self, ecwrite: u32, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
 }
 impl ITfCleanupContextSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCleanupContextSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfCleanupContextSink_Vtbl {
@@ -2626,8 +2626,8 @@ impl ITfCompartmentMgr_Vtbl {
 }
 pub trait ITfComposition_Impl: Sized {
     fn GetRange(&mut self) -> ::windows::core::Result<ITfRange>;
-    fn ShiftStart(&mut self, ecwrite: u32, pnewstart: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
-    fn ShiftEnd(&mut self, ecwrite: u32, pnewend: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn ShiftStart(&mut self, ecwrite: u32, pnewstart: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn ShiftEnd(&mut self, ecwrite: u32, pnewend: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
     fn EndComposition(&mut self, ecwrite: u32) -> ::windows::core::Result<()>;
 }
 impl ITfComposition_Vtbl {
@@ -2667,7 +2667,7 @@ impl ITfComposition_Vtbl {
     }
 }
 pub trait ITfCompositionSink_Impl: Sized {
-    fn OnCompositionTerminated(&mut self, ecwrite: u32, pcomposition: ::core::option::Option<ITfComposition>) -> ::windows::core::Result<()>;
+    fn OnCompositionTerminated(&mut self, ecwrite: u32, pcomposition: &::core::option::Option<ITfComposition>) -> ::windows::core::Result<()>;
 }
 impl ITfCompositionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompositionSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfCompositionSink_Vtbl {
@@ -2743,7 +2743,7 @@ impl ITfConfigureSystemKeystrokeFeed_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfContext_Impl: Sized {
-    fn RequestEditSession(&mut self, tid: u32, pes: ::core::option::Option<ITfEditSession>, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn RequestEditSession(&mut self, tid: u32, pes: &::core::option::Option<ITfEditSession>, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn InWriteSession(&mut self, tid: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetSelection(&mut self, ec: u32, ulindex: u32, ulcount: u32, pselection: *mut TF_SELECTION, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn SetSelection(&mut self, ec: u32, ulcount: u32, pselection: *const TF_SELECTION) -> ::windows::core::Result<()>;
@@ -2757,7 +2757,7 @@ pub trait ITfContext_Impl: Sized {
     fn TrackProperties(&mut self, prgprop: *const *const ::windows::core::GUID, cprop: u32, prgappprop: *const *const ::windows::core::GUID, cappprop: u32) -> ::windows::core::Result<ITfReadOnlyProperty>;
     fn EnumProperties(&mut self) -> ::windows::core::Result<IEnumTfProperties>;
     fn GetDocumentMgr(&mut self) -> ::windows::core::Result<ITfDocumentMgr>;
-    fn CreateRangeBackup(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfRangeBackup>;
+    fn CreateRangeBackup(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfRangeBackup>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfContext_Vtbl {
@@ -2924,10 +2924,10 @@ impl ITfContext_Vtbl {
     }
 }
 pub trait ITfContextComposition_Impl: Sized {
-    fn StartComposition(&mut self, ecwrite: u32, pcompositionrange: ::core::option::Option<ITfRange>, psink: ::core::option::Option<ITfCompositionSink>) -> ::windows::core::Result<ITfComposition>;
+    fn StartComposition(&mut self, ecwrite: u32, pcompositionrange: &::core::option::Option<ITfRange>, psink: &::core::option::Option<ITfCompositionSink>) -> ::windows::core::Result<ITfComposition>;
     fn EnumCompositions(&mut self) -> ::windows::core::Result<IEnumITfCompositionView>;
-    fn FindComposition(&mut self, ecread: u32, ptestrange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<IEnumITfCompositionView>;
-    fn TakeOwnership(&mut self, ecwrite: u32, pcomposition: ::core::option::Option<ITfCompositionView>, psink: ::core::option::Option<ITfCompositionSink>) -> ::windows::core::Result<ITfComposition>;
+    fn FindComposition(&mut self, ecread: u32, ptestrange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<IEnumITfCompositionView>;
+    fn TakeOwnership(&mut self, ecwrite: u32, pcomposition: &::core::option::Option<ITfCompositionView>, psink: &::core::option::Option<ITfCompositionSink>) -> ::windows::core::Result<ITfComposition>;
 }
 impl ITfContextComposition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextComposition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfContextComposition_Vtbl {
@@ -3126,7 +3126,7 @@ impl ITfContextOwner_Vtbl {
     }
 }
 pub trait ITfContextOwnerCompositionServices_Impl: Sized + ITfContextComposition_Impl {
-    fn TerminateComposition(&mut self, pcomposition: ::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<()>;
+    fn TerminateComposition(&mut self, pcomposition: &::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<()>;
 }
 impl ITfContextOwnerCompositionServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextOwnerCompositionServices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfContextOwnerCompositionServices_Vtbl {
@@ -3145,9 +3145,9 @@ impl ITfContextOwnerCompositionServices_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfContextOwnerCompositionSink_Impl: Sized {
-    fn OnStartComposition(&mut self, pcomposition: ::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn OnUpdateComposition(&mut self, pcomposition: ::core::option::Option<ITfCompositionView>, prangenew: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
-    fn OnEndComposition(&mut self, pcomposition: ::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<()>;
+    fn OnStartComposition(&mut self, pcomposition: &::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn OnUpdateComposition(&mut self, pcomposition: &::core::option::Option<ITfCompositionView>, prangenew: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn OnEndComposition(&mut self, pcomposition: &::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfContextOwnerCompositionSink_Vtbl {
@@ -3186,9 +3186,9 @@ pub trait ITfContextOwnerServices_Impl: Sized {
     fn OnLayoutChange(&mut self) -> ::windows::core::Result<()>;
     fn OnStatusChange(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
     fn OnAttributeChange(&mut self, rguidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Serialize(&mut self, pprop: ::core::option::Option<ITfProperty>, prange: ::core::option::Option<ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Unserialize(&mut self, pprop: ::core::option::Option<ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: ::core::option::Option<super::super::System::Com::IStream>, ploader: ::core::option::Option<ITfPersistentPropertyLoaderACP>) -> ::windows::core::Result<()>;
-    fn ForceLoadProperty(&mut self, pprop: ::core::option::Option<ITfProperty>) -> ::windows::core::Result<()>;
+    fn Serialize(&mut self, pprop: &::core::option::Option<ITfProperty>, prange: &::core::option::Option<ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Unserialize(&mut self, pprop: &::core::option::Option<ITfProperty>, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: &::core::option::Option<super::super::System::Com::IStream>, ploader: &::core::option::Option<ITfPersistentPropertyLoaderACP>) -> ::windows::core::Result<()>;
+    fn ForceLoadProperty(&mut self, pprop: &::core::option::Option<ITfProperty>) -> ::windows::core::Result<()>;
     fn CreateRange(&mut self, acpstart: i32, acpend: i32) -> ::windows::core::Result<ITfRangeACP>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3246,7 +3246,7 @@ impl ITfContextOwnerServices_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfContextView_Impl: Sized {
     fn GetRangeFromPoint(&mut self, ec: u32, ppt: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows::core::Result<ITfRange>;
-    fn GetTextExt(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetTextExt(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetScreenExt(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
     fn GetWnd(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
 }
@@ -3301,8 +3301,8 @@ impl ITfContextView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfCreatePropertyStore_Impl: Sized {
-    fn IsStoreSerializable(&mut self, guidprop: *const ::windows::core::GUID, prange: ::core::option::Option<ITfRange>, ppropstore: ::core::option::Option<ITfPropertyStore>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn CreatePropertyStore(&mut self, guidprop: *const ::windows::core::GUID, prange: ::core::option::Option<ITfRange>, cb: u32, pstream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<ITfPropertyStore>;
+    fn IsStoreSerializable(&mut self, guidprop: *const ::windows::core::GUID, prange: &::core::option::Option<ITfRange>, ppropstore: &::core::option::Option<ITfPropertyStore>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CreatePropertyStore(&mut self, guidprop: *const ::windows::core::GUID, prange: &::core::option::Option<ITfRange>, cb: u32, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<ITfPropertyStore>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfCreatePropertyStore_Vtbl {
@@ -3487,8 +3487,8 @@ impl ITfDisplayAttributeProvider_Vtbl {
     }
 }
 pub trait ITfDocumentMgr_Impl: Sized {
-    fn CreateContext(&mut self, tidowner: u32, dwflags: u32, punk: ::core::option::Option<::windows::core::IUnknown>, ppic: *mut ::core::option::Option<ITfContext>, pectextstore: *mut u32) -> ::windows::core::Result<()>;
-    fn Push(&mut self, pic: ::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
+    fn CreateContext(&mut self, tidowner: u32, dwflags: u32, punk: &::core::option::Option<::windows::core::IUnknown>, ppic: *mut ::core::option::Option<ITfContext>, pectextstore: *mut u32) -> ::windows::core::Result<()>;
+    fn Push(&mut self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
     fn Pop(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetTop(&mut self) -> ::windows::core::Result<ITfContext>;
     fn GetBase(&mut self) -> ::windows::core::Result<ITfContext>;
@@ -3606,8 +3606,8 @@ impl ITfEditSession_Vtbl {
     }
 }
 pub trait ITfEditTransactionSink_Impl: Sized {
-    fn OnStartEditTransaction(&mut self, pic: ::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
-    fn OnEndEditTransaction(&mut self, pic: ::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
+    fn OnStartEditTransaction(&mut self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
+    fn OnEndEditTransaction(&mut self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
 }
 impl ITfEditTransactionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfEditTransactionSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfEditTransactionSink_Vtbl {
@@ -3631,8 +3631,8 @@ impl ITfEditTransactionSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnAdviseText_Impl: Sized + ITfFunction_Impl {
-    fn OnTextUpdate(&mut self, prange: ::core::option::Option<ITfRange>, pchtext: super::super::Foundation::PWSTR, cch: i32) -> ::windows::core::Result<()>;
-    fn OnLatticeUpdate(&mut self, prange: ::core::option::Option<ITfRange>, plattice: ::core::option::Option<ITfLMLattice>) -> ::windows::core::Result<()>;
+    fn OnTextUpdate(&mut self, prange: &::core::option::Option<ITfRange>, pchtext: super::super::Foundation::PWSTR, cch: i32) -> ::windows::core::Result<()>;
+    fn OnLatticeUpdate(&mut self, prange: &::core::option::Option<ITfRange>, plattice: &::core::option::Option<ITfLMLattice>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnAdviseText_Vtbl {
@@ -3691,7 +3691,7 @@ impl ITfFnConfigure_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnConfigureRegisterEudc_Impl: Sized + ITfFunction_Impl {
-    fn Show(&mut self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Show(&mut self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnConfigureRegisterEudc_Vtbl {
@@ -3708,7 +3708,7 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnConfigureRegisterWord_Impl: Sized + ITfFunction_Impl {
-    fn Show(&mut self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Show(&mut self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnConfigureRegisterWord_Vtbl {
@@ -3725,7 +3725,7 @@ impl ITfFnConfigureRegisterWord_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnCustomSpeechCommand_Impl: Sized + ITfFunction_Impl {
-    fn SetSpeechCommandProvider(&mut self, pspcmdprovider: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetSpeechCommandProvider(&mut self, pspcmdprovider: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnCustomSpeechCommand_Vtbl {
@@ -3745,7 +3745,7 @@ impl ITfFnCustomSpeechCommand_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnGetLinguisticAlternates_Impl: Sized + ITfFunction_Impl {
-    fn GetAlternates(&mut self, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
+    fn GetAlternates(&mut self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnGetLinguisticAlternates_Vtbl {
@@ -3808,7 +3808,7 @@ impl ITfFnGetSAPIObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnLMInternal_Impl: Sized + ITfFunction_Impl + ITfFnLMProcessor_Impl {
-    fn ProcessLattice(&mut self, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn ProcessLattice(&mut self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnLMInternal_Vtbl {
@@ -3825,13 +3825,13 @@ impl ITfFnLMInternal_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnLMProcessor_Impl: Sized + ITfFunction_Impl {
-    fn QueryRange(&mut self, prange: ::core::option::Option<ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn QueryRange(&mut self, prange: &::core::option::Option<ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn QueryLangID(&mut self, langid: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetReconversion(&mut self, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
-    fn Reconvert(&mut self, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn GetReconversion(&mut self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
+    fn Reconvert(&mut self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
     fn QueryKey(&mut self, fup: super::super::Foundation::BOOL, vkey: super::super::Foundation::WPARAM, lparamkeydata: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn InvokeKey(&mut self, fup: super::super::Foundation::BOOL, vkey: super::super::Foundation::WPARAM, lparamkeydata: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn InvokeFunc(&mut self, pic: ::core::option::Option<ITfContext>, refguidfunc: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn InvokeFunc(&mut self, pic: &::core::option::Option<ITfContext>, refguidfunc: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnLMProcessor_Vtbl {
@@ -3931,8 +3931,8 @@ impl ITfFnLangProfileUtil_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnPlayBack_Impl: Sized + ITfFunction_Impl {
-    fn QueryRange(&mut self, prange: ::core::option::Option<ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Play(&mut self, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn QueryRange(&mut self, prange: &::core::option::Option<ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Play(&mut self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnPlayBack_Vtbl {
@@ -3989,9 +3989,9 @@ impl ITfFnPropertyUIStatus_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnReconversion_Impl: Sized + ITfFunction_Impl {
-    fn QueryRange(&mut self, prange: ::core::option::Option<ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetReconversion(&mut self, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
-    fn Reconvert(&mut self, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn QueryRange(&mut self, prange: &::core::option::Option<ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetReconversion(&mut self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
+    fn Reconvert(&mut self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnReconversion_Vtbl {
@@ -4027,8 +4027,8 @@ impl ITfFnReconversion_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnSearchCandidateProvider_Impl: Sized + ITfFunction_Impl {
-    fn GetSearchCandidates(&mut self, bstrquery: super::super::Foundation::BSTR, bstrapplicationid: super::super::Foundation::BSTR) -> ::windows::core::Result<ITfCandidateList>;
-    fn SetResult(&mut self, bstrquery: super::super::Foundation::BSTR, bstrapplicationid: super::super::Foundation::BSTR, bstrresult: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetSearchCandidates(&mut self, bstrquery: &super::super::Foundation::BSTR, bstrapplicationid: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITfCandidateList>;
+    fn SetResult(&mut self, bstrquery: &super::super::Foundation::BSTR, bstrapplicationid: &super::super::Foundation::BSTR, bstrresult: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnSearchCandidateProvider_Vtbl {
@@ -4541,7 +4541,7 @@ impl ITfInputScope2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfInsertAtSelection_Impl: Sized {
     fn InsertTextAtSelection(&mut self, ec: u32, dwflags: INSERT_TEXT_AT_SELECTION_FLAGS, pchtext: super::super::Foundation::PWSTR, cch: i32) -> ::windows::core::Result<ITfRange>;
-    fn InsertEmbeddedAtSelection(&mut self, ec: u32, dwflags: u32, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<ITfRange>;
+    fn InsertEmbeddedAtSelection(&mut self, ec: u32, dwflags: u32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<ITfRange>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfInsertAtSelection_Vtbl {
@@ -4578,7 +4578,7 @@ impl ITfInsertAtSelection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfIntegratableCandidateListUIElement_Impl: Sized {
-    fn SetIntegrationStyle(&mut self, guidintegrationstyle: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetIntegrationStyle(&mut self, guidintegrationstyle: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetSelectionStyle(&mut self) -> ::windows::core::Result<TfIntegratableCandidateListSelectionStyle>;
     fn OnKeyDown(&mut self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ShowCandidateNumbers(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -4641,11 +4641,11 @@ impl ITfIntegratableCandidateListUIElement_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfKeyEventSink_Impl: Sized {
     fn OnSetFocus(&mut self, fforeground: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn OnTestKeyDown(&mut self, pic: ::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn OnTestKeyUp(&mut self, pic: ::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn OnKeyDown(&mut self, pic: ::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn OnKeyUp(&mut self, pic: ::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn OnPreservedKey(&mut self, pic: ::core::option::Option<ITfContext>, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn OnTestKeyDown(&mut self, pic: &::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn OnTestKeyUp(&mut self, pic: &::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn OnKeyDown(&mut self, pic: &::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn OnKeyUp(&mut self, pic: &::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn OnPreservedKey(&mut self, pic: &::core::option::Option<ITfContext>, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfKeyEventSink_Vtbl {
@@ -4746,20 +4746,20 @@ impl ITfKeyTraceEventSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfKeystrokeMgr_Impl: Sized {
-    fn AdviseKeyEventSink(&mut self, tid: u32, psink: ::core::option::Option<ITfKeyEventSink>, fforeground: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AdviseKeyEventSink(&mut self, tid: u32, psink: &::core::option::Option<ITfKeyEventSink>, fforeground: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn UnadviseKeyEventSink(&mut self, tid: u32) -> ::windows::core::Result<()>;
     fn GetForeground(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn TestKeyDown(&mut self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn TestKeyUp(&mut self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn KeyDown(&mut self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn KeyUp(&mut self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetPreservedKey(&mut self, pic: ::core::option::Option<ITfContext>, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetPreservedKey(&mut self, pic: &::core::option::Option<ITfContext>, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::Result<::windows::core::GUID>;
     fn IsPreservedKey(&mut self, rguid: *const ::windows::core::GUID, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn PreserveKey(&mut self, tid: u32, rguid: *const ::windows::core::GUID, prekey: *const TF_PRESERVEDKEY, pchdesc: super::super::Foundation::PWSTR, cchdesc: u32) -> ::windows::core::Result<()>;
     fn UnpreserveKey(&mut self, rguid: *const ::windows::core::GUID, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::Result<()>;
     fn SetPreservedKeyDescription(&mut self, rguid: *const ::windows::core::GUID, pchdesc: super::super::Foundation::PWSTR, cchdesc: u32) -> ::windows::core::Result<()>;
     fn GetPreservedKeyDescription(&mut self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SimulatePreservedKey(&mut self, pic: ::core::option::Option<ITfContext>, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SimulatePreservedKey(&mut self, pic: &::core::option::Option<ITfContext>, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfKeystrokeMgr_Vtbl {
@@ -5048,7 +5048,7 @@ impl ITfLangBarItem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLangBarItemBalloon_Impl: Sized + ITfLangBarItem_Impl {
-    fn OnClick(&mut self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn OnClick(&mut self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn GetPreferredSize(&mut self, pszdefault: *const super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Foundation::SIZE>;
     fn GetBalloonInfo(&mut self) -> ::windows::core::Result<TF_LBBALLOONINFO>;
 }
@@ -5092,7 +5092,7 @@ impl ITfLangBarItemBalloon_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait ITfLangBarItemBitmap_Impl: Sized + ITfLangBarItem_Impl {
-    fn OnClick(&mut self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn OnClick(&mut self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn GetPreferredSize(&mut self, pszdefault: *const super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Foundation::SIZE>;
     fn DrawBitmap(&mut self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
 }
@@ -5130,8 +5130,8 @@ impl ITfLangBarItemBitmap_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait ITfLangBarItemBitmapButton_Impl: Sized + ITfLangBarItem_Impl {
-    fn OnClick(&mut self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn InitMenu(&mut self, pmenu: ::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
+    fn OnClick(&mut self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn InitMenu(&mut self, pmenu: &::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
     fn OnMenuSelect(&mut self, wid: u32) -> ::windows::core::Result<()>;
     fn GetPreferredSize(&mut self, pszdefault: *const super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Foundation::SIZE>;
     fn DrawBitmap(&mut self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
@@ -5192,8 +5192,8 @@ impl ITfLangBarItemBitmapButton_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITfLangBarItemButton_Impl: Sized + ITfLangBarItem_Impl {
-    fn OnClick(&mut self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn InitMenu(&mut self, pmenu: ::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
+    fn OnClick(&mut self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn InitMenu(&mut self, pmenu: &::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
     fn OnMenuSelect(&mut self, wid: u32) -> ::windows::core::Result<()>;
     fn GetIcon(&mut self) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>;
     fn GetText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -5250,9 +5250,9 @@ impl ITfLangBarItemButton_Vtbl {
 pub trait ITfLangBarItemMgr_Impl: Sized {
     fn EnumItems(&mut self) -> ::windows::core::Result<IEnumTfLangBarItems>;
     fn GetItem(&mut self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<ITfLangBarItem>;
-    fn AddItem(&mut self, punk: ::core::option::Option<ITfLangBarItem>) -> ::windows::core::Result<()>;
-    fn RemoveItem(&mut self, punk: ::core::option::Option<ITfLangBarItem>) -> ::windows::core::Result<()>;
-    fn AdviseItemSink(&mut self, punk: ::core::option::Option<ITfLangBarItemSink>, pdwcookie: *mut u32, rguiditem: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AddItem(&mut self, punk: &::core::option::Option<ITfLangBarItem>) -> ::windows::core::Result<()>;
+    fn RemoveItem(&mut self, punk: &::core::option::Option<ITfLangBarItem>) -> ::windows::core::Result<()>;
+    fn AdviseItemSink(&mut self, punk: &::core::option::Option<ITfLangBarItemSink>, pdwcookie: *mut u32, rguiditem: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn UnadviseItemSink(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
     fn GetItemFloatingRect(&mut self, dwthreadid: u32, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::RECT>;
     fn GetItemsStatus(&mut self, ulcount: u32, prgguid: *const ::windows::core::GUID, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
@@ -5373,13 +5373,13 @@ impl ITfLangBarItemSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLangBarMgr_Impl: Sized {
-    fn AdviseEventSink(&mut self, psink: ::core::option::Option<ITfLangBarEventSink>, hwnd: super::super::Foundation::HWND, dwflags: u32, pdwcookie: *const u32) -> ::windows::core::Result<()>;
+    fn AdviseEventSink(&mut self, psink: &::core::option::Option<ITfLangBarEventSink>, hwnd: super::super::Foundation::HWND, dwflags: u32, pdwcookie: *const u32) -> ::windows::core::Result<()>;
     fn UnadviseEventSink(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
     fn GetThreadMarshalInterface(&mut self, dwthreadid: u32, dwtype: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetThreadLangBarItemMgr(&mut self, dwthreadid: u32, pplbi: *mut ::core::option::Option<ITfLangBarItemMgr>, pdwthreadid: *mut u32) -> ::windows::core::Result<()>;
     fn GetInputProcessorProfiles(&mut self, dwthreadid: u32, ppaip: *mut ::core::option::Option<ITfInputProcessorProfiles>, pdwthreadid: *mut u32) -> ::windows::core::Result<()>;
     fn RestoreLastFocus(&mut self, pdwthreadid: *mut u32, fprev: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetModalInput(&mut self, psink: ::core::option::Option<ITfLangBarEventSink>, dwthreadid: u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetModalInput(&mut self, psink: &::core::option::Option<ITfLangBarEventSink>, dwthreadid: u32, dwflags: u32) -> ::windows::core::Result<()>;
     fn ShowFloating(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetShowFloatingStatus(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -5586,7 +5586,7 @@ impl ITfMouseSink_Vtbl {
     }
 }
 pub trait ITfMouseTracker_Impl: Sized {
-    fn AdviseMouseSink(&mut self, range: ::core::option::Option<ITfRange>, psink: ::core::option::Option<ITfMouseSink>) -> ::windows::core::Result<u32>;
+    fn AdviseMouseSink(&mut self, range: &::core::option::Option<ITfRange>, psink: &::core::option::Option<ITfMouseSink>) -> ::windows::core::Result<u32>;
     fn UnadviseMouseSink(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
 impl ITfMouseTracker_Vtbl {
@@ -5616,7 +5616,7 @@ impl ITfMouseTracker_Vtbl {
     }
 }
 pub trait ITfMouseTrackerACP_Impl: Sized {
-    fn AdviseMouseSink(&mut self, range: ::core::option::Option<ITfRangeACP>, psink: ::core::option::Option<ITfMouseSink>) -> ::windows::core::Result<u32>;
+    fn AdviseMouseSink(&mut self, range: &::core::option::Option<ITfRangeACP>, psink: &::core::option::Option<ITfMouseSink>) -> ::windows::core::Result<u32>;
     fn UnadviseMouseSink(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
 impl ITfMouseTrackerACP_Vtbl {
@@ -5685,10 +5685,10 @@ impl ITfPreservedKeyNotifySink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITfProperty_Impl: Sized + ITfReadOnlyProperty_Impl {
-    fn FindRange(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>, pprange: *mut ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>;
-    fn SetValueStore(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>, ppropstore: ::core::option::Option<ITfPropertyStore>) -> ::windows::core::Result<()>;
-    fn SetValue(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn FindRange(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>, pprange: *mut ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>;
+    fn SetValueStore(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>, ppropstore: &::core::option::Option<ITfPropertyStore>) -> ::windows::core::Result<()>;
+    fn SetValue(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITfProperty_Vtbl {
@@ -5726,12 +5726,12 @@ pub trait ITfPropertyStore_Impl: Sized {
     fn GetType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetDataType(&mut self) -> ::windows::core::Result<u32>;
     fn GetData(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn OnTextUpdated(&mut self, dwflags: u32, prangenew: ::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Shrink(&mut self, prangenew: ::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Divide(&mut self, prangethis: ::core::option::Option<ITfRange>, prangenew: ::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfPropertyStore>;
+    fn OnTextUpdated(&mut self, dwflags: u32, prangenew: &::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Shrink(&mut self, prangenew: &::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Divide(&mut self, prangethis: &::core::option::Option<ITfRange>, prangenew: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfPropertyStore>;
     fn Clone(&mut self) -> ::windows::core::Result<ITfPropertyStore>;
     fn GetPropertyRangeCreator(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Serialize(&mut self, pstream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<u32>;
+    fn Serialize(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITfPropertyStore_Vtbl {
@@ -5872,19 +5872,19 @@ pub trait ITfRange_Impl: Sized {
     fn SetText(&mut self, ec: u32, dwflags: u32, pchtext: super::super::Foundation::PWSTR, cch: i32) -> ::windows::core::Result<()>;
     fn GetFormattedText(&mut self, ec: u32) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
     fn GetEmbedded(&mut self, ec: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn InsertEmbedded(&mut self, ec: u32, dwflags: u32, pdataobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn InsertEmbedded(&mut self, ec: u32, dwflags: u32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn ShiftStart(&mut self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::core::Result<()>;
     fn ShiftEnd(&mut self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::core::Result<()>;
-    fn ShiftStartToRange(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>;
-    fn ShiftEndToRange(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>;
+    fn ShiftStartToRange(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>;
+    fn ShiftEndToRange(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>;
     fn ShiftStartRegion(&mut self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ShiftEndRegion(&mut self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsEmpty(&mut self, ec: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Collapse(&mut self, ec: u32, apos: TfAnchor) -> ::windows::core::Result<()>;
-    fn IsEqualStart(&mut self, ec: u32, pwith: ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsEqualEnd(&mut self, ec: u32, pwith: ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn CompareStart(&mut self, ec: u32, pwith: ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<i32>;
-    fn CompareEnd(&mut self, ec: u32, pwith: ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<i32>;
+    fn IsEqualStart(&mut self, ec: u32, pwith: &::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsEqualEnd(&mut self, ec: u32, pwith: &::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CompareStart(&mut self, ec: u32, pwith: &::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<i32>;
+    fn CompareEnd(&mut self, ec: u32, pwith: &::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<i32>;
     fn AdjustForInsert(&mut self, ec: u32, cchinsert: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetGravity(&mut self, pgstart: *mut TfGravity, pgend: *mut TfGravity) -> ::windows::core::Result<()>;
     fn SetGravity(&mut self, ec: u32, gstart: TfGravity, gend: TfGravity) -> ::windows::core::Result<()>;
@@ -6111,7 +6111,7 @@ impl ITfRangeACP_Vtbl {
     }
 }
 pub trait ITfRangeBackup_Impl: Sized {
-    fn Restore(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn Restore(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 impl ITfRangeBackup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfRangeBackup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfRangeBackup_Vtbl {
@@ -6128,8 +6128,8 @@ impl ITfRangeBackup_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITfReadOnlyProperty_Impl: Sized {
     fn GetType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn EnumRanges(&mut self, ec: u32, ppenum: *mut ::core::option::Option<IEnumTfRanges>, ptargetrange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
-    fn GetValue(&mut self, ec: u32, prange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn EnumRanges(&mut self, ec: u32, ppenum: *mut ::core::option::Option<IEnumTfRanges>, ptargetrange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
+    fn GetValue(&mut self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn GetContext(&mut self) -> ::windows::core::Result<ITfContext>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6350,7 +6350,7 @@ impl ITfReverseConversionMgr_Vtbl {
     }
 }
 pub trait ITfSource_Impl: Sized {
-    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
+    fn AdviseSink(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
     fn UnadviseSink(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
 impl ITfSource_Vtbl {
@@ -6380,7 +6380,7 @@ impl ITfSource_Vtbl {
     }
 }
 pub trait ITfSourceSingle_Impl: Sized {
-    fn AdviseSingleSink(&mut self, tid: u32, riid: *const ::windows::core::GUID, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AdviseSingleSink(&mut self, tid: u32, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn UnadviseSingleSink(&mut self, tid: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl ITfSourceSingle_Vtbl {
@@ -6436,7 +6436,7 @@ impl ITfSpeechUIServer_Vtbl {
     }
 }
 pub trait ITfStatusSink_Impl: Sized {
-    fn OnStatusChange(&mut self, pic: ::core::option::Option<ITfContext>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn OnStatusChange(&mut self, pic: &::core::option::Option<ITfContext>, dwflags: u32) -> ::windows::core::Result<()>;
 }
 impl ITfStatusSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfStatusSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfStatusSink_Vtbl {
@@ -6507,7 +6507,7 @@ impl ITfSystemLangBarItem_Vtbl {
     }
 }
 pub trait ITfSystemLangBarItemSink_Impl: Sized {
-    fn InitMenu(&mut self, pmenu: ::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
+    fn InitMenu(&mut self, pmenu: &::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
     fn OnMenuSelect(&mut self, wid: u32) -> ::windows::core::Result<()>;
 }
 impl ITfSystemLangBarItemSink_Vtbl {
@@ -6563,7 +6563,7 @@ impl ITfSystemLangBarItemText_Vtbl {
     }
 }
 pub trait ITfTextEditSink_Impl: Sized {
-    fn OnEndEdit(&mut self, pic: ::core::option::Option<ITfContext>, ecreadonly: u32, peditrecord: ::core::option::Option<ITfEditRecord>) -> ::windows::core::Result<()>;
+    fn OnEndEdit(&mut self, pic: &::core::option::Option<ITfContext>, ecreadonly: u32, peditrecord: &::core::option::Option<ITfEditRecord>) -> ::windows::core::Result<()>;
 }
 impl ITfTextEditSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextEditSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfTextEditSink_Vtbl {
@@ -6578,7 +6578,7 @@ impl ITfTextEditSink_Vtbl {
     }
 }
 pub trait ITfTextInputProcessor_Impl: Sized {
-    fn Activate(&mut self, ptim: ::core::option::Option<ITfThreadMgr>, tid: u32) -> ::windows::core::Result<()>;
+    fn Activate(&mut self, ptim: &::core::option::Option<ITfThreadMgr>, tid: u32) -> ::windows::core::Result<()>;
     fn Deactivate(&mut self) -> ::windows::core::Result<()>;
 }
 impl ITfTextInputProcessor_Vtbl {
@@ -6602,7 +6602,7 @@ impl ITfTextInputProcessor_Vtbl {
     }
 }
 pub trait ITfTextInputProcessorEx_Impl: Sized + ITfTextInputProcessor_Impl {
-    fn ActivateEx(&mut self, ptim: ::core::option::Option<ITfThreadMgr>, tid: u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn ActivateEx(&mut self, ptim: &::core::option::Option<ITfThreadMgr>, tid: u32, dwflags: u32) -> ::windows::core::Result<()>;
 }
 impl ITfTextInputProcessorEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextInputProcessorEx_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfTextInputProcessorEx_Vtbl {
@@ -6617,7 +6617,7 @@ impl ITfTextInputProcessorEx_Vtbl {
     }
 }
 pub trait ITfTextLayoutSink_Impl: Sized {
-    fn OnLayoutChange(&mut self, pic: ::core::option::Option<ITfContext>, lcode: TfLayoutCode, pview: ::core::option::Option<ITfContextView>) -> ::windows::core::Result<()>;
+    fn OnLayoutChange(&mut self, pic: &::core::option::Option<ITfContext>, lcode: TfLayoutCode, pview: &::core::option::Option<ITfContextView>) -> ::windows::core::Result<()>;
 }
 impl ITfTextLayoutSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextLayoutSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfTextLayoutSink_Vtbl {
@@ -6662,8 +6662,8 @@ pub trait ITfThreadMgr_Impl: Sized {
     fn CreateDocumentMgr(&mut self) -> ::windows::core::Result<ITfDocumentMgr>;
     fn EnumDocumentMgrs(&mut self) -> ::windows::core::Result<IEnumTfDocumentMgrs>;
     fn GetFocus(&mut self) -> ::windows::core::Result<ITfDocumentMgr>;
-    fn SetFocus(&mut self, pdimfocus: ::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
-    fn AssociateFocus(&mut self, hwnd: super::super::Foundation::HWND, pdimnew: ::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<ITfDocumentMgr>;
+    fn SetFocus(&mut self, pdimfocus: &::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
+    fn AssociateFocus(&mut self, hwnd: super::super::Foundation::HWND, pdimnew: &::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<ITfDocumentMgr>;
     fn IsThreadFocus(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetFunctionProvider(&mut self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<ITfFunctionProvider>;
     fn EnumFunctionProviders(&mut self) -> ::windows::core::Result<IEnumTfFunctionProviders>;
@@ -6796,7 +6796,7 @@ pub trait ITfThreadMgr2_Impl: Sized {
     fn CreateDocumentMgr(&mut self) -> ::windows::core::Result<ITfDocumentMgr>;
     fn EnumDocumentMgrs(&mut self) -> ::windows::core::Result<IEnumTfDocumentMgrs>;
     fn GetFocus(&mut self) -> ::windows::core::Result<ITfDocumentMgr>;
-    fn SetFocus(&mut self, pdimfocus: ::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
+    fn SetFocus(&mut self, pdimfocus: &::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
     fn IsThreadFocus(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetFunctionProvider(&mut self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<ITfFunctionProvider>;
     fn EnumFunctionProviders(&mut self) -> ::windows::core::Result<IEnumTfFunctionProviders>;
@@ -6942,11 +6942,11 @@ impl ITfThreadMgr2_Vtbl {
     }
 }
 pub trait ITfThreadMgrEventSink_Impl: Sized {
-    fn OnInitDocumentMgr(&mut self, pdim: ::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
-    fn OnUninitDocumentMgr(&mut self, pdim: ::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
-    fn OnSetFocus(&mut self, pdimfocus: ::core::option::Option<ITfDocumentMgr>, pdimprevfocus: ::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
-    fn OnPushContext(&mut self, pic: ::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
-    fn OnPopContext(&mut self, pic: ::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
+    fn OnInitDocumentMgr(&mut self, pdim: &::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
+    fn OnUninitDocumentMgr(&mut self, pdim: &::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
+    fn OnSetFocus(&mut self, pdimfocus: &::core::option::Option<ITfDocumentMgr>, pdimprevfocus: &::core::option::Option<ITfDocumentMgr>) -> ::windows::core::Result<()>;
+    fn OnPushContext(&mut self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
+    fn OnPopContext(&mut self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
 }
 impl ITfThreadMgrEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadMgrEventSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITfThreadMgrEventSink_Vtbl {
@@ -7040,7 +7040,7 @@ impl ITfToolTipUIElement_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfTransitoryExtensionSink_Impl: Sized {
-    fn OnTransitoryExtensionUpdated(&mut self, pic: ::core::option::Option<ITfContext>, ecreadonly: u32, presultrange: ::core::option::Option<ITfRange>, pcompositionrange: ::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn OnTransitoryExtensionUpdated(&mut self, pic: &::core::option::Option<ITfContext>, ecreadonly: u32, presultrange: &::core::option::Option<ITfRange>, pcompositionrange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITfTransitoryExtensionSink_Vtbl {
@@ -7145,7 +7145,7 @@ impl ITfUIElement_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfUIElementMgr_Impl: Sized {
-    fn BeginUIElement(&mut self, pelement: ::core::option::Option<ITfUIElement>, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> ::windows::core::Result<()>;
+    fn BeginUIElement(&mut self, pelement: &::core::option::Option<ITfUIElement>, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> ::windows::core::Result<()>;
     fn UpdateUIElement(&mut self, dwuielementid: u32) -> ::windows::core::Result<()>;
     fn EndUIElement(&mut self, dwuielementid: u32) -> ::windows::core::Result<()>;
     fn GetUIElement(&mut self, dwuielementid: u32) -> ::windows::core::Result<ITfUIElement>;

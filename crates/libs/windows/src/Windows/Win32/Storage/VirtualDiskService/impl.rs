@@ -42,8 +42,8 @@ impl IEnumVdsObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsAdmin_Impl: Sized {
-    fn RegisterProvider(&mut self, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnregisterProvider(&mut self, providerid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterProvider(&mut self, providerid: &::windows::core::GUID, providerclsid: &::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnregisterProvider(&mut self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsAdmin_Vtbl {
@@ -425,7 +425,7 @@ impl IVdsHwProviderPrivate_Vtbl {
     }
 }
 pub trait IVdsHwProviderPrivateMpio_Impl: Sized {
-    fn SetAllPathStatusesFromHbaPort(&mut self, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::Result<()>;
+    fn SetAllPathStatusesFromHbaPort(&mut self, hbaportprop: &VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::Result<()>;
 }
 impl IVdsHwProviderPrivateMpio_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivateMpio_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVdsHwProviderPrivateMpio_Vtbl {
@@ -445,8 +445,8 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderStoragePools_Impl: Sized {
     fn QueryStoragePools(&mut self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<IEnumVdsObject>;
-    fn CreateLunInStoragePool(&mut self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
-    fn QueryMaxLunCreateSizeInStoragePool(&mut self, r#type: VDS_LUN_TYPE, storagepoolid: ::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
+    fn CreateLunInStoragePool(&mut self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &::windows::core::GUID, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
+    fn QueryMaxLunCreateSizeInStoragePool(&mut self, r#type: VDS_LUN_TYPE, storagepoolid: &::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsHwProviderStoragePools_Vtbl {
@@ -616,8 +616,8 @@ pub trait IVdsIscsiPortalGroup_Impl: Sized {
     fn GetProperties(&mut self) -> ::windows::core::Result<VDS_ISCSI_PORTALGROUP_PROP>;
     fn GetTarget(&mut self) -> ::windows::core::Result<IVdsIscsiTarget>;
     fn QueryAssociatedPortals(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn AddPortal(&mut self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
-    fn RemovePortal(&mut self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn AddPortal(&mut self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn RemovePortal(&mut self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
     fn Delete(&mut self) -> ::windows::core::Result<IVdsAsync>;
 }
 impl IVdsIscsiPortalGroup_Vtbl {
@@ -815,8 +815,8 @@ pub trait IVdsLun_Impl: Sized {
     fn Extend(&mut self, ullnumberofbytestoadd: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<IVdsAsync>;
     fn Shrink(&mut self, ullnumberofbytestoremove: u64) -> ::windows::core::Result<IVdsAsync>;
     fn QueryPlexes(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn AddPlex(&mut self, lunid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
-    fn RemovePlex(&mut self, plexid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn AddPlex(&mut self, lunid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn RemovePlex(&mut self, plexid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
     fn Recover(&mut self) -> ::windows::core::Result<IVdsAsync>;
     fn SetMask(&mut self, pwszunmaskinglist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Delete(&mut self) -> ::windows::core::Result<()>;
@@ -1285,8 +1285,8 @@ impl IVdsProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsProviderPrivate_Impl: Sized {
-    fn GetObject(&mut self, objectid: ::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn OnLoad(&mut self, pwszmachinename: super::super::Foundation::PWSTR, pcallbackobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetObject(&mut self, objectid: &::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn OnLoad(&mut self, pwszmachinename: super::super::Foundation::PWSTR, pcallbackobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn OnUnload(&mut self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1433,7 +1433,7 @@ pub trait IVdsSubSystem_Impl: Sized {
     fn Reenumerate(&mut self) -> ::windows::core::Result<()>;
     fn SetControllerStatus(&mut self, ponlinecontrolleridarray: *const ::windows::core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: *const ::windows::core::GUID, lnumberofofflinecontrollers: i32) -> ::windows::core::Result<()>;
     fn CreateLun(&mut self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync>;
-    fn ReplaceDrive(&mut self, drivetobereplaced: ::windows::core::GUID, replacementdrive: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ReplaceDrive(&mut self, drivetobereplaced: &::windows::core::GUID, replacementdrive: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetStatus(&mut self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::Result<()>;
     fn QueryMaxLunCreateSize(&mut self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS) -> ::windows::core::Result<u64>;
 }

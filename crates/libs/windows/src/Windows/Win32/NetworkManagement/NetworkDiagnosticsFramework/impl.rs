@@ -30,7 +30,7 @@ pub trait INetDiagHelper_Impl: Sized {
     fn Validate(&mut self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()>;
     fn GetRepairInfo(&mut self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()>;
     fn GetLifeTime(&mut self) -> ::windows::core::Result<LIFE_TIME>;
-    fn SetLifeTime(&mut self, lifetime: LIFE_TIME) -> ::windows::core::Result<()>;
+    fn SetLifeTime(&mut self, lifetime: &LIFE_TIME) -> ::windows::core::Result<()>;
     fn GetCacheTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
     fn GetAttributes(&mut self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
@@ -158,7 +158,7 @@ impl INetDiagHelper_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperEx_Impl: Sized {
     fn ReconfirmLowHealth(&mut self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
-    fn SetUtilities(&mut self, putilities: ::core::option::Option<INetDiagHelperUtilFactory>) -> ::windows::core::Result<()>;
+    fn SetUtilities(&mut self, putilities: &::core::option::Option<INetDiagHelperUtilFactory>) -> ::windows::core::Result<()>;
     fn ReproduceFailure(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]

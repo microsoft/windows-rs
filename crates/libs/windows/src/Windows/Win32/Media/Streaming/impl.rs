@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IMFDeviceTransform_Impl: Sized {
-    fn InitializeTransform(&mut self, pattributes: ::core::option::Option<super::MediaFoundation::IMFAttributes>) -> ::windows::core::Result<()>;
+    fn InitializeTransform(&mut self, pattributes: &::core::option::Option<super::MediaFoundation::IMFAttributes>) -> ::windows::core::Result<()>;
     fn GetInputAvailableType(&mut self, dwinputstreamid: u32, dwtypeindex: u32) -> ::windows::core::Result<super::MediaFoundation::IMFMediaType>;
     fn GetInputCurrentType(&mut self, dwinputstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::IMFMediaType>;
     fn GetInputStreamAttributes(&mut self, dwinputstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::IMFAttributes>;
@@ -9,13 +9,13 @@ pub trait IMFDeviceTransform_Impl: Sized {
     fn GetOutputStreamAttributes(&mut self, dwoutputstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::IMFAttributes>;
     fn GetStreamCount(&mut self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()>;
     fn GetStreamIDs(&mut self, dwinputidarraysize: u32, pdwinputstreamids: *mut u32, dwoutputidarraysize: u32, pdwoutputstreamids: *mut u32) -> ::windows::core::Result<()>;
-    fn ProcessEvent(&mut self, dwinputstreamid: u32, pevent: ::core::option::Option<super::MediaFoundation::IMFMediaEvent>) -> ::windows::core::Result<()>;
-    fn ProcessInput(&mut self, dwinputstreamid: u32, psample: ::core::option::Option<super::MediaFoundation::IMFSample>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn ProcessEvent(&mut self, dwinputstreamid: u32, pevent: &::core::option::Option<super::MediaFoundation::IMFMediaEvent>) -> ::windows::core::Result<()>;
+    fn ProcessInput(&mut self, dwinputstreamid: u32, psample: &::core::option::Option<super::MediaFoundation::IMFSample>, dwflags: u32) -> ::windows::core::Result<()>;
     fn ProcessMessage(&mut self, emessage: super::MediaFoundation::MFT_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::Result<()>;
     fn ProcessOutput(&mut self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut super::MediaFoundation::MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn SetInputStreamState(&mut self, dwstreamid: u32, pmediatype: ::core::option::Option<super::MediaFoundation::IMFMediaType>, value: super::MediaFoundation::DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetInputStreamState(&mut self, dwstreamid: u32, pmediatype: &::core::option::Option<super::MediaFoundation::IMFMediaType>, value: super::MediaFoundation::DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetInputStreamState(&mut self, dwstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::DeviceStreamState>;
-    fn SetOutputStreamState(&mut self, dwstreamid: u32, pmediatype: ::core::option::Option<super::MediaFoundation::IMFMediaType>, value: super::MediaFoundation::DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetOutputStreamState(&mut self, dwstreamid: u32, pmediatype: &::core::option::Option<super::MediaFoundation::IMFMediaType>, value: super::MediaFoundation::DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetOutputStreamState(&mut self, dwstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::DeviceStreamState>;
     fn GetInputStreamPreferredState(&mut self, dwstreamid: u32, value: *mut super::MediaFoundation::DeviceStreamState, ppmediatype: *mut ::core::option::Option<super::MediaFoundation::IMFMediaType>) -> ::windows::core::Result<()>;
     fn FlushInputStream(&mut self, dwstreamindex: u32, dwflags: u32) -> ::windows::core::Result<()>;
@@ -182,7 +182,7 @@ impl IMFDeviceTransform_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IMFDeviceTransformCallback_Impl: Sized {
-    fn OnBufferSent(&mut self, pcallbackattributes: ::core::option::Option<super::MediaFoundation::IMFAttributes>, pinid: u32) -> ::windows::core::Result<()>;
+    fn OnBufferSent(&mut self, pcallbackattributes: &::core::option::Option<super::MediaFoundation::IMFAttributes>, pinid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IMFDeviceTransformCallback_Vtbl {

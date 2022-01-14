@@ -312,7 +312,7 @@ impl IMDSPDeviceControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPDirectTransfer_Impl: Sized {
-    fn TransferToDevice(&mut self, pwszsourcefilepath: super::super::Foundation::PWSTR, psourceoperation: ::core::option::Option<IWMDMOperation>, fuflags: u32, pwszdestinationname: super::super::Foundation::PWSTR, psourcemetadata: ::core::option::Option<IWMDMMetaData>, ptransferprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IMDSPStorage>;
+    fn TransferToDevice(&mut self, pwszsourcefilepath: super::super::Foundation::PWSTR, psourceoperation: &::core::option::Option<IWMDMOperation>, fuflags: u32, pwszdestinationname: super::super::Foundation::PWSTR, psourcemetadata: &::core::option::Option<IWMDMMetaData>, ptransferprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IMDSPStorage>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPDirectTransfer_Vtbl {
@@ -434,10 +434,10 @@ pub trait IMDSPObject_Impl: Sized {
     fn Open(&mut self, fumode: u32) -> ::windows::core::Result<()>;
     fn Read(&mut self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
     fn Write(&mut self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, fumode: u32, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Delete(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
     fn Seek(&mut self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()>;
-    fn Rename(&mut self, pwsznewname: super::super::Foundation::PWSTR, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn Move(&mut self, fumode: u32, pprogress: ::core::option::Option<IWMDMProgress>, ptarget: ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
+    fn Rename(&mut self, pwsznewname: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Move(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>, ptarget: &::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -768,8 +768,8 @@ impl IMDSPStorage2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPStorage3_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl {
-    fn GetMetadata(&mut self, pmetadata: ::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
-    fn SetMetadata(&mut self, pmetadata: ::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn GetMetadata(&mut self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn SetMetadata(&mut self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPStorage3_Vtbl {
@@ -796,8 +796,8 @@ impl IMDSPStorage3_Vtbl {
 pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl + IMDSPStorage3_Impl {
     fn SetReferences(&mut self, dwrefs: u32, ppispstorage: *const ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&mut self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
-    fn CreateStorageWithMetadata(&mut self, dwattributes: u32, pwszname: super::super::Foundation::PWSTR, pmetadata: ::core::option::Option<IWMDMMetaData>, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
-    fn GetSpecifiedMetadata(&mut self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR, pmetadata: ::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn CreateStorageWithMetadata(&mut self, dwattributes: u32, pwszname: super::super::Foundation::PWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
+    fn GetSpecifiedMetadata(&mut self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
     fn FindStorage(&mut self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
     fn GetParent(&mut self) -> ::windows::core::Result<IMDSPStorage>;
 }
@@ -867,7 +867,7 @@ pub trait IMDSPStorageGlobals_Impl: Sized {
     fn GetTotalFree(&mut self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()>;
     fn GetTotalBad(&mut self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()>;
     fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn Initialize(&mut self, fumode: u32, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
     fn GetDevice(&mut self) -> ::windows::core::Result<IMDSPDevice>;
     fn GetRootStorage(&mut self) -> ::windows::core::Result<IMDSPStorage>;
 }
@@ -1096,7 +1096,7 @@ impl ISCPSecureExchange_Vtbl {
     }
 }
 pub trait ISCPSecureExchange2_Impl: Sized + ISCPSecureExchange_Impl {
-    fn TransferContainerData2(&mut self, pdata: *const u8, dwsize: u32, pprogresscallback: ::core::option::Option<IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn TransferContainerData2(&mut self, pdata: *const u8, dwsize: u32, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
 }
 impl ISCPSecureExchange2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSecureExchange2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISCPSecureExchange2_Vtbl {
@@ -1114,9 +1114,9 @@ impl ISCPSecureExchange2_Vtbl {
     }
 }
 pub trait ISCPSecureExchange3_Impl: Sized + ISCPSecureExchange_Impl + ISCPSecureExchange2_Impl {
-    fn TransferContainerDataOnClearChannel(&mut self, pdevice: ::core::option::Option<IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: ::core::option::Option<IWMDMProgress3>) -> ::windows::core::Result<u32>;
-    fn GetObjectDataOnClearChannel(&mut self, pdevice: ::core::option::Option<IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
-    fn TransferCompleteForDevice(&mut self, pdevice: ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>;
+    fn TransferContainerDataOnClearChannel(&mut self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: &::core::option::Option<IWMDMProgress3>) -> ::windows::core::Result<u32>;
+    fn GetObjectDataOnClearChannel(&mut self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn TransferCompleteForDevice(&mut self, pdevice: &::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>;
 }
 impl ISCPSecureExchange3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSecureExchange3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISCPSecureExchange3_Vtbl {
@@ -1153,8 +1153,8 @@ impl ISCPSecureExchange3_Vtbl {
 pub trait ISCPSecureQuery_Impl: Sized {
     fn GetDataDemands(&mut self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
     fn ExamineData(&mut self, fuflags: u32, pwszextension: super::super::Foundation::PWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn MakeDecision(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::core::option::Option<IMDSPStorageGlobals>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn GetRights(&mut self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::core::option::Option<IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn MakeDecision(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn GetRights(&mut self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: &::core::option::Option<IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISCPSecureQuery_Vtbl {
@@ -1189,7 +1189,7 @@ impl ISCPSecureQuery_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISCPSecureQuery2_Impl: Sized + ISCPSecureQuery_Impl {
-    fn MakeDecision2(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::core::option::Option<IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: ::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn MakeDecision2(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: &::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISCPSecureQuery2_Vtbl {
@@ -1227,8 +1227,8 @@ impl ISCPSecureQuery2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISCPSecureQuery3_Impl: Sized + ISCPSecureQuery_Impl + ISCPSecureQuery2_Impl {
-    fn GetRightsOnClearChannel(&mut self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: ::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
-    fn MakeDecisionOnClearChannel(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: ::core::option::Option<IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: ::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()>;
+    fn GetRightsOnClearChannel(&mut self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
+    fn MakeDecisionOnClearChannel(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: &::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISCPSecureQuery3_Vtbl {
@@ -1273,7 +1273,7 @@ impl ISCPSecureQuery3_Vtbl {
     }
 }
 pub trait ISCPSession_Impl: Sized {
-    fn BeginSession(&mut self, pidevice: ::core::option::Option<IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
+    fn BeginSession(&mut self, pidevice: &::core::option::Option<IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
     fn EndSession(&mut self, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
     fn GetSecureQuery(&mut self) -> ::windows::core::Result<ISCPSecureQuery>;
 }
@@ -1946,7 +1946,7 @@ pub trait IWMDMOperation_Impl: Sized {
     fn GetObjectTotalSize(&mut self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
     fn SetObjectTotalSize(&mut self, dwsize: u32, dwsizehigh: u32) -> ::windows::core::Result<()>;
     fn TransferObjectData(&mut self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn End(&mut self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn End(&mut self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMOperation_Vtbl {
@@ -2101,9 +2101,9 @@ impl IWMDMProgress2_Vtbl {
     }
 }
 pub trait IWMDMProgress3_Impl: Sized + IWMDMProgress_Impl + IWMDMProgress2_Impl {
-    fn Begin3(&mut self, eventid: ::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
-    fn Progress3(&mut self, eventid: ::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
-    fn End3(&mut self, eventid: ::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn Begin3(&mut self, eventid: &::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn Progress3(&mut self, eventid: &::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn End3(&mut self, eventid: &::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
 impl IWMDMProgress3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMProgress3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWMDMProgress3_Vtbl {
@@ -2274,7 +2274,7 @@ impl IWMDMStorage2_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorage3_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl {
     fn GetMetadata(&mut self) -> ::windows::core::Result<IWMDMMetaData>;
-    fn SetMetadata(&mut self, pmetadata: ::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn SetMetadata(&mut self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
     fn CreateEmptyMetadataObject(&mut self) -> ::windows::core::Result<IWMDMMetaData>;
     fn SetEnumPreference(&mut self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::core::Result<()>;
 }
@@ -2325,7 +2325,7 @@ impl IWMDMStorage3_Vtbl {
 pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl + IWMDMStorage3_Impl {
     fn SetReferences(&mut self, dwrefs: u32, ppiwmdmstorage: *const ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&mut self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
-    fn GetRightsWithProgress(&mut self, piprogresscallback: ::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRightsWithProgress(&mut self, piprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
     fn GetSpecifiedMetadata(&mut self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMMetaData>;
     fn FindStorage(&mut self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
     fn GetParent(&mut self) -> ::windows::core::Result<IWMDMStorage>;
@@ -2391,11 +2391,11 @@ impl IWMDMStorage4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorageControl_Impl: Sized {
-    fn Insert(&mut self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: ::core::option::Option<IWMDMOperation>, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IWMDMStorage>;
-    fn Delete(&mut self, fumode: u32, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn Rename(&mut self, fumode: u32, pwsznewname: super::super::Foundation::PWSTR, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn Read(&mut self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, pprogress: ::core::option::Option<IWMDMProgress>, poperation: ::core::option::Option<IWMDMOperation>) -> ::windows::core::Result<()>;
-    fn Move(&mut self, fumode: u32, ptargetobject: ::core::option::Option<IWMDMStorage>, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Insert(&mut self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IWMDMStorage>;
+    fn Delete(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Rename(&mut self, fumode: u32, pwsznewname: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Read(&mut self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>, poperation: &::core::option::Option<IWMDMOperation>) -> ::windows::core::Result<()>;
+    fn Move(&mut self, fumode: u32, ptargetobject: &::core::option::Option<IWMDMStorage>, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorageControl_Vtbl {
@@ -2441,7 +2441,7 @@ impl IWMDMStorageControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorageControl2_Impl: Sized + IWMDMStorageControl_Impl {
-    fn Insert2(&mut self, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::core::option::Option<IWMDMOperation>, pprogress: ::core::option::Option<IWMDMProgress>, punknown: ::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
+    fn Insert2(&mut self, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>, punknown: &::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorageControl2_Vtbl {
@@ -2458,7 +2458,7 @@ impl IWMDMStorageControl2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorageControl3_Impl: Sized + IWMDMStorageControl_Impl + IWMDMStorageControl2_Impl {
-    fn Insert3(&mut self, fumode: u32, futype: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::core::option::Option<IWMDMOperation>, pprogress: ::core::option::Option<IWMDMProgress>, pmetadata: ::core::option::Option<IWMDMMetaData>, punknown: ::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
+    fn Insert3(&mut self, fumode: u32, futype: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>, pmetadata: &::core::option::Option<IWMDMMetaData>, punknown: &::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorageControl3_Vtbl {
@@ -2480,7 +2480,7 @@ pub trait IWMDMStorageGlobals_Impl: Sized {
     fn GetTotalFree(&mut self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()>;
     fn GetTotalBad(&mut self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()>;
     fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn Initialize(&mut self, fumode: u32, pprogress: ::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
 }
 impl IWMDMStorageGlobals_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMStorageGlobals_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWMDMStorageGlobals_Vtbl {

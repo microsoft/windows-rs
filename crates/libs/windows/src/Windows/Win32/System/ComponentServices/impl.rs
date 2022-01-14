@@ -124,8 +124,8 @@ impl ContextInfo2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAppDomainHelper_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Initialize(&mut self, punkad: ::core::option::Option<::windows::core::IUnknown>, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn DoCallback(&mut self, punkad: ::core::option::Option<::windows::core::IUnknown>, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, punkad: &::core::option::Option<::windows::core::IUnknown>, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn DoCallback(&mut self, punkad: &::core::option::Option<::windows::core::IUnknown>, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAppDomainHelper_Vtbl {
@@ -150,7 +150,7 @@ impl IAppDomainHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAssemblyLocator_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetModules(&mut self, applicationdir: super::super::Foundation::BSTR, applicationname: super::super::Foundation::BSTR, assemblyname: super::super::Foundation::BSTR) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn GetModules(&mut self, applicationdir: &super::super::Foundation::BSTR, applicationname: &super::super::Foundation::BSTR, assemblyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAssemblyLocator_Vtbl {
@@ -188,32 +188,32 @@ impl IAsyncErrorNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICOMAdminCatalog_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetCollection(&mut self, bstrcollname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Connect(&mut self, bstrcatalogservername: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetCollection(&mut self, bstrcollname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Connect(&mut self, bstrcatalogservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
     fn MajorVersion(&mut self) -> ::windows::core::Result<i32>;
     fn MinorVersion(&mut self) -> ::windows::core::Result<i32>;
-    fn GetCollectionByQuery(&mut self, bstrcollname: super::super::Foundation::BSTR, ppsavarquery: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn ImportComponent(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrclsidorprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InstallComponent(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrdll: super::super::Foundation::BSTR, bstrtlb: super::super::Foundation::BSTR, bstrpsdll: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ShutdownApplication(&mut self, bstrapplidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExportApplication(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrapplicationfile: super::super::Foundation::BSTR, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>;
-    fn InstallApplication(&mut self, bstrapplicationfile: super::super::Foundation::BSTR, bstrdestinationdirectory: super::super::Foundation::BSTR, loptions: COMAdminApplicationInstallOptions, bstruserid: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bstrrsn: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetCollectionByQuery(&mut self, bstrcollname: &super::super::Foundation::BSTR, ppsavarquery: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn ImportComponent(&mut self, bstrapplidorname: &super::super::Foundation::BSTR, bstrclsidorprogid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallComponent(&mut self, bstrapplidorname: &super::super::Foundation::BSTR, bstrdll: &super::super::Foundation::BSTR, bstrtlb: &super::super::Foundation::BSTR, bstrpsdll: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ShutdownApplication(&mut self, bstrapplidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExportApplication(&mut self, bstrapplidorname: &super::super::Foundation::BSTR, bstrapplicationfile: &super::super::Foundation::BSTR, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>;
+    fn InstallApplication(&mut self, bstrapplicationfile: &super::super::Foundation::BSTR, bstrdestinationdirectory: &super::super::Foundation::BSTR, loptions: COMAdminApplicationInstallOptions, bstruserid: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrrsn: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StopRouter(&mut self) -> ::windows::core::Result<()>;
     fn RefreshRouter(&mut self) -> ::windows::core::Result<()>;
     fn StartRouter(&mut self) -> ::windows::core::Result<()>;
     fn Reserved1(&mut self) -> ::windows::core::Result<()>;
     fn Reserved2(&mut self) -> ::windows::core::Result<()>;
-    fn InstallMultipleComponents(&mut self, bstrapplidorname: super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn GetMultipleComponentsInfo(&mut self, bstrapplidorname: super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn InstallMultipleComponents(&mut self, bstrapplidorname: &super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn GetMultipleComponentsInfo(&mut self, bstrapplidorname: &super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn RefreshComponents(&mut self) -> ::windows::core::Result<()>;
-    fn BackupREGDB(&mut self, bstrbackupfilepath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RestoreREGDB(&mut self, bstrbackupfilepath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn QueryApplicationFile(&mut self, bstrapplicationfile: super::super::Foundation::BSTR, pbstrapplicationname: *mut super::super::Foundation::BSTR, pbstrapplicationdescription: *mut super::super::Foundation::BSTR, pbhasusers: *mut i16, pbisproxy: *mut i16, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn StartApplication(&mut self, bstrapplidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BackupREGDB(&mut self, bstrbackupfilepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RestoreREGDB(&mut self, bstrbackupfilepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueryApplicationFile(&mut self, bstrapplicationfile: &super::super::Foundation::BSTR, pbstrapplicationname: *mut super::super::Foundation::BSTR, pbstrapplicationdescription: *mut super::super::Foundation::BSTR, pbhasusers: *mut i16, pbisproxy: *mut i16, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn StartApplication(&mut self, bstrapplidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ServiceCheck(&mut self, lservice: i32) -> ::windows::core::Result<i32>;
-    fn InstallMultipleEventClasses(&mut self, bstrapplidorname: super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn InstallEventClass(&mut self, bstrapplidorname: super::super::Foundation::BSTR, bstrdll: super::super::Foundation::BSTR, bstrtlb: super::super::Foundation::BSTR, bstrpsdll: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetEventClassesForIID(&mut self, bstriid: super::super::Foundation::BSTR, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn InstallMultipleEventClasses(&mut self, bstrapplidorname: &super::super::Foundation::BSTR, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn InstallEventClass(&mut self, bstrapplidorname: &super::super::Foundation::BSTR, bstrdll: &super::super::Foundation::BSTR, bstrtlb: &super::super::Foundation::BSTR, bstrpsdll: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetEventClassesForIID(&mut self, bstriid: &super::super::Foundation::BSTR, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICOMAdminCatalog_Vtbl {
@@ -394,37 +394,37 @@ impl ICOMAdminCatalog_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICOMAdminCatalog2_Impl: Sized + super::Com::IDispatch_Impl + ICOMAdminCatalog_Impl {
-    fn GetCollectionByQuery2(&mut self, bstrcollectionname: super::super::Foundation::BSTR, pvarquerystrings: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetCollectionByQuery2(&mut self, bstrcollectionname: &super::super::Foundation::BSTR, pvarquerystrings: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
     fn GetApplicationInstanceIDFromProcessID(&mut self, lprocessid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ShutdownApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PauseApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ResumeApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn RecycleApplicationInstances(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT, lreasoncode: i32) -> ::windows::core::Result<()>;
     fn AreApplicationInstancesPaused(&mut self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<i16>;
-    fn DumpApplicationInstance(&mut self, bstrapplicationinstanceid: super::super::Foundation::BSTR, bstrdirectory: super::super::Foundation::BSTR, lmaximages: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DumpApplicationInstance(&mut self, bstrapplicationinstanceid: &super::super::Foundation::BSTR, bstrdirectory: &super::super::Foundation::BSTR, lmaximages: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn IsApplicationInstanceDumpSupported(&mut self) -> ::windows::core::Result<i16>;
-    fn CreateServiceForApplication(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, bstrservicename: super::super::Foundation::BSTR, bstrstarttype: super::super::Foundation::BSTR, bstrerrorcontrol: super::super::Foundation::BSTR, bstrdependencies: super::super::Foundation::BSTR, bstrrunas: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bdesktopok: i16) -> ::windows::core::Result<()>;
-    fn DeleteServiceForApplication(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetPartitionID(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPartitionName(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCurrentPartition(&mut self, bstrpartitionidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateServiceForApplication(&mut self, bstrapplicationidorname: &super::super::Foundation::BSTR, bstrservicename: &super::super::Foundation::BSTR, bstrstarttype: &super::super::Foundation::BSTR, bstrerrorcontrol: &super::super::Foundation::BSTR, bstrdependencies: &super::super::Foundation::BSTR, bstrrunas: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bdesktopok: i16) -> ::windows::core::Result<()>;
+    fn DeleteServiceForApplication(&mut self, bstrapplicationidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetPartitionID(&mut self, bstrapplicationidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPartitionName(&mut self, bstrapplicationidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCurrentPartition(&mut self, bstrpartitionidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CurrentPartitionID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CurrentPartitionName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GlobalPartitionID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn FlushPartitionCache(&mut self) -> ::windows::core::Result<()>;
-    fn CopyApplications(&mut self, bstrsourcepartitionidorname: super::super::Foundation::BSTR, pvarapplicationid: *const super::Com::VARIANT, bstrdestinationpartitionidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn CopyComponents(&mut self, bstrsourceapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MoveComponents(&mut self, bstrsourceapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AliasComponent(&mut self, bstrsrcapplicationidorname: super::super::Foundation::BSTR, bstrclsidorprogid: super::super::Foundation::BSTR, bstrdestapplicationidorname: super::super::Foundation::BSTR, bstrnewprogid: super::super::Foundation::BSTR, bstrnewclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsSafeToDelete(&mut self, bstrdllname: super::super::Foundation::BSTR) -> ::windows::core::Result<COMAdminInUse>;
-    fn ImportUnconfiguredComponents(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PromoteUnconfiguredComponents(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ImportComponents(&mut self, bstrapplicationidorname: super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CopyApplications(&mut self, bstrsourcepartitionidorname: &super::super::Foundation::BSTR, pvarapplicationid: *const super::Com::VARIANT, bstrdestinationpartitionidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyComponents(&mut self, bstrsourceapplicationidorname: &super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MoveComponents(&mut self, bstrsourceapplicationidorname: &super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, bstrdestinationapplicationidorname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AliasComponent(&mut self, bstrsrcapplicationidorname: &super::super::Foundation::BSTR, bstrclsidorprogid: &super::super::Foundation::BSTR, bstrdestapplicationidorname: &super::super::Foundation::BSTR, bstrnewprogid: &super::super::Foundation::BSTR, bstrnewclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsSafeToDelete(&mut self, bstrdllname: &super::super::Foundation::BSTR) -> ::windows::core::Result<COMAdminInUse>;
+    fn ImportUnconfiguredComponents(&mut self, bstrapplicationidorname: &super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PromoteUnconfiguredComponents(&mut self, bstrapplicationidorname: &super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ImportComponents(&mut self, bstrapplicationidorname: &super::super::Foundation::BSTR, pvarclsidorprogid: *const super::Com::VARIANT, pvarcomponenttype: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Is64BitCatalogServer(&mut self) -> ::windows::core::Result<i16>;
-    fn ExportPartition(&mut self, bstrpartitionidorname: super::super::Foundation::BSTR, bstrpartitionfilename: super::super::Foundation::BSTR, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>;
-    fn InstallPartition(&mut self, bstrfilename: super::super::Foundation::BSTR, bstrdestdirectory: super::super::Foundation::BSTR, loptions: COMAdminApplicationInstallOptions, bstruserid: super::super::Foundation::BSTR, bstrpassword: super::super::Foundation::BSTR, bstrrsn: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn QueryApplicationFile2(&mut self, bstrapplicationfile: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn GetComponentVersionCount(&mut self, bstrclsidorprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn ExportPartition(&mut self, bstrpartitionidorname: &super::super::Foundation::BSTR, bstrpartitionfilename: &super::super::Foundation::BSTR, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>;
+    fn InstallPartition(&mut self, bstrfilename: &super::super::Foundation::BSTR, bstrdestdirectory: &super::super::Foundation::BSTR, loptions: COMAdminApplicationInstallOptions, bstruserid: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrrsn: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueryApplicationFile2(&mut self, bstrapplicationfile: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetComponentVersionCount(&mut self, bstrclsidorprogid: &super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICOMAdminCatalog2_Vtbl {
@@ -723,7 +723,7 @@ pub trait ICatalogCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Populate(&mut self) -> ::windows::core::Result<()>;
     fn SaveChanges(&mut self) -> ::windows::core::Result<i32>;
-    fn GetCollection(&mut self, bstrcollname: super::super::Foundation::BSTR, varobjectkey: super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetCollection(&mut self, bstrcollname: &super::super::Foundation::BSTR, varobjectkey: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Name(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn AddEnabled(&mut self) -> ::windows::core::Result<i16>;
     fn RemoveEnabled(&mut self) -> ::windows::core::Result<i16>;
@@ -731,7 +731,7 @@ pub trait ICatalogCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn DataStoreMajorVersion(&mut self) -> ::windows::core::Result<i32>;
     fn DataStoreMinorVersion(&mut self) -> ::windows::core::Result<i32>;
     fn PopulateByKey(&mut self, psakeys: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn PopulateByQuery(&mut self, bstrquerystring: super::super::Foundation::BSTR, lquerytype: i32) -> ::windows::core::Result<()>;
+    fn PopulateByQuery(&mut self, bstrquerystring: &super::super::Foundation::BSTR, lquerytype: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICatalogCollection_Vtbl {
@@ -898,13 +898,13 @@ impl ICatalogCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogObject_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Value(&mut self, bstrpropname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetValue(&mut self, bstrpropname: super::super::Foundation::BSTR, val: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Value(&mut self, bstrpropname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetValue(&mut self, bstrpropname: &super::super::Foundation::BSTR, val: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Key(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn Name(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsPropertyReadOnly(&mut self, bstrpropname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsPropertyReadOnly(&mut self, bstrpropname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn Valid(&mut self) -> ::windows::core::Result<i16>;
-    fn IsPropertyWriteOnly(&mut self, bstrpropname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsPropertyWriteOnly(&mut self, bstrpropname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICatalogObject_Vtbl {
@@ -1063,11 +1063,11 @@ impl IComActivityEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComApp2Events_Impl: Sized {
-    fn OnAppActivation2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnAppShutdown2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnAppForceShutdown2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnAppPaused2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, bpaused: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn OnAppRecycle2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID, lreason: i32) -> ::windows::core::Result<()>;
+    fn OnAppActivation2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID, guidprocess: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppShutdown2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppForceShutdown2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppPaused2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID, bpaused: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnAppRecycle2(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID, guidprocess: &::windows::core::GUID, lreason: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComApp2Events_Vtbl {
@@ -1107,9 +1107,9 @@ impl IComApp2Events_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComAppEvents_Impl: Sized {
-    fn OnAppActivation(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnAppShutdown(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnAppForceShutdown(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppActivation(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppShutdown(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnAppForceShutdown(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComAppEvents_Vtbl {
@@ -1139,21 +1139,21 @@ impl IComAppEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComCRMEvents_Impl: Sized {
-    fn OnCRMRecoveryStart(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMRecoveryDone(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMCheckpoint(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMBegin(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, guidactivity: ::windows::core::GUID, guidtx: ::windows::core::GUID, szprogidcompensator: super::super::Foundation::PWSTR, szdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnCRMPrepare(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMIndoubt(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMDone(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMRelease(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMAnalyze(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> ::windows::core::Result<()>;
-    fn OnCRMWrite(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::Result<()>;
-    fn OnCRMForget(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMForce(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnCRMDeliver(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::Result<()>;
+    fn OnCRMRecoveryStart(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMRecoveryDone(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMCheckpoint(&mut self, pinfo: *const COMSVCSEVENTINFO, guidapp: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMBegin(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID, guidactivity: &::windows::core::GUID, guidtx: &::windows::core::GUID, szprogidcompensator: super::super::Foundation::PWSTR, szdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnCRMPrepare(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMIndoubt(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMDone(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMRelease(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMAnalyze(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> ::windows::core::Result<()>;
+    fn OnCRMWrite(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::Result<()>;
+    fn OnCRMForget(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMForce(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnCRMDeliver(&mut self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: &::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComCRMEvents_Vtbl {
@@ -1329,11 +1329,11 @@ impl IComInstanceEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IComLTxEvents_Impl: Sized {
-    fn OnLtxTransactionStart(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, tsid: ::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::Result<()>;
-    fn OnLtxTransactionPrepare(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, fvote: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn OnLtxTransactionAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnLtxTransactionCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnLtxTransactionPromote(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, txnid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionStart(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: &::windows::core::GUID, tsid: &::windows::core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionPrepare(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: &::windows::core::GUID, fvote: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionAbort(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionCommit(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnLtxTransactionPromote(&mut self, pinfo: *const COMSVCSEVENTINFO, guidltx: &::windows::core::GUID, txnid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IComLTxEvents_Vtbl {
@@ -2154,7 +2154,7 @@ impl IComTrackingInfoCollection_Vtbl {
     }
 }
 pub trait IComTrackingInfoEvents_Impl: Sized {
-    fn OnNewTrackingInfo(&mut self, ptoplevelcollection: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnNewTrackingInfo(&mut self, ptoplevelcollection: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IComTrackingInfoEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComTrackingInfoEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComTrackingInfoEvents_Vtbl {
@@ -2325,10 +2325,10 @@ impl IComUserEvent_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IContextProperties_Impl: Sized {
     fn Count(&mut self, plcount: *mut i32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, name: super::super::Foundation::BSTR, pproperty: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, name: &super::super::Foundation::BSTR, pproperty: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn EnumNames(&mut self) -> ::windows::core::Result<IEnumNames>;
-    fn SetProperty(&mut self, name: super::super::Foundation::BSTR, property: super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn RemoveProperty(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetProperty(&mut self, name: &super::super::Foundation::BSTR, property: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveProperty(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IContextProperties_Vtbl {
@@ -2435,7 +2435,7 @@ impl IContextState_Vtbl {
     }
 }
 pub trait ICreateWithLocalTransaction_Impl: Sized {
-    fn CreateInstanceWithSysTx(&mut self, ptransaction: ::core::option::Option<::windows::core::IUnknown>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateInstanceWithSysTx(&mut self, ptransaction: &::core::option::Option<::windows::core::IUnknown>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ICreateWithLocalTransaction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateWithLocalTransaction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICreateWithLocalTransaction_Vtbl {
@@ -2451,7 +2451,7 @@ impl ICreateWithLocalTransaction_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICreateWithTipTransactionEx_Impl: Sized {
-    fn CreateInstance(&mut self, bstrtipurl: super::super::Foundation::BSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateInstance(&mut self, bstrtipurl: &super::super::Foundation::BSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICreateWithTipTransactionEx_Vtbl {
@@ -2468,7 +2468,7 @@ impl ICreateWithTipTransactionEx_Vtbl {
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ICreateWithTransactionEx_Impl: Sized {
-    fn CreateInstance(&mut self, ptransaction: ::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateInstance(&mut self, ptransaction: &::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl ICreateWithTransactionEx_Vtbl {
@@ -2485,15 +2485,15 @@ impl ICreateWithTransactionEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICrmCompensator_Impl: Sized {
-    fn SetLogControl(&mut self, plogcontrol: ::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
+    fn SetLogControl(&mut self, plogcontrol: &::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
     fn BeginPrepare(&mut self) -> ::windows::core::Result<()>;
-    fn PrepareRecord(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn PrepareRecord(&mut self, crmlogrec: &CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn EndPrepare(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn BeginCommit(&mut self, frecovery: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn CommitRecord(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CommitRecord(&mut self, crmlogrec: &CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn EndCommit(&mut self) -> ::windows::core::Result<()>;
     fn BeginAbort(&mut self, frecovery: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn AbortRecord(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AbortRecord(&mut self, crmlogrec: &CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn EndAbort(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2583,7 +2583,7 @@ impl ICrmCompensator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmCompensatorVariants_Impl: Sized {
-    fn SetLogControlVariants(&mut self, plogcontrol: ::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
+    fn SetLogControlVariants(&mut self, plogcontrol: &::core::option::Option<ICrmLogControl>) -> ::windows::core::Result<()>;
     fn BeginPrepareVariants(&mut self) -> ::windows::core::Result<()>;
     fn PrepareRecordVariants(&mut self, plogrecord: *const super::Com::VARIANT) -> ::windows::core::Result<i16>;
     fn EndPrepareVariants(&mut self) -> ::windows::core::Result<i16>;
@@ -2683,8 +2683,8 @@ impl ICrmCompensatorVariants_Vtbl {
 pub trait ICrmFormatLogRecords_Impl: Sized {
     fn GetColumnCount(&mut self) -> ::windows::core::Result<i32>;
     fn GetColumnHeaders(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn GetColumn(&mut self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn GetColumnVariants(&mut self, logrecord: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn GetColumn(&mut self, crmlogrec: &CrmLogRecordRead) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn GetColumnVariants(&mut self, logrecord: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmFormatLogRecords_Vtbl {
@@ -2806,7 +2806,7 @@ impl ICrmLogControl_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitor_Impl: Sized {
     fn GetClerks(&mut self) -> ::windows::core::Result<ICrmMonitorClerks>;
-    fn HoldClerk(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn HoldClerk(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmMonitor_Vtbl {
@@ -2843,13 +2843,13 @@ impl ICrmMonitor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICrmMonitorClerks_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn ProgIdCompensator(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn Description(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn TransactionUOW(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ActivityId(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ProgIdCompensator(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Description(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn TransactionUOW(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ActivityId(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmMonitorClerks_Vtbl {
@@ -2945,7 +2945,7 @@ pub trait ICrmMonitorLogRecords_Impl: Sized {
     fn TransactionState(&mut self) -> ::windows::core::Result<CrmTransactionState>;
     fn StructuredRecords(&mut self) -> ::windows::core::Result<i16>;
     fn GetLogRecord(&mut self, dwindex: u32, pcrmlogrec: *mut CrmLogRecordRead) -> ::windows::core::Result<()>;
-    fn GetLogRecordVariants(&mut self, indexnumber: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn GetLogRecordVariants(&mut self, indexnumber: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICrmMonitorLogRecords_Vtbl {
@@ -3059,7 +3059,7 @@ impl IDispenserDriver_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDispenserManager_Impl: Sized {
-    fn RegisterDispenser(&mut self, __midl__idispensermanager0000: ::core::option::Option<IDispenserDriver>, szdispensername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IHolder>;
+    fn RegisterDispenser(&mut self, __midl__idispensermanager0000: &::core::option::Option<IDispenserDriver>, szdispensername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IHolder>;
     fn GetContext(&mut self, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3135,8 +3135,8 @@ impl IEnumNames_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEventServerTrace_Impl: Sized + super::Com::IDispatch_Impl {
-    fn StartTraceGuid(&mut self, bstrguidevent: super::super::Foundation::BSTR, bstrguidfilter: super::super::Foundation::BSTR, lpidfilter: i32) -> ::windows::core::Result<()>;
-    fn StopTraceGuid(&mut self, bstrguidevent: super::super::Foundation::BSTR, bstrguidfilter: super::super::Foundation::BSTR, lpidfilter: i32) -> ::windows::core::Result<()>;
+    fn StartTraceGuid(&mut self, bstrguidevent: &super::super::Foundation::BSTR, bstrguidfilter: &super::super::Foundation::BSTR, lpidfilter: i32) -> ::windows::core::Result<()>;
+    fn StopTraceGuid(&mut self, bstrguidevent: &super::super::Foundation::BSTR, bstrguidfilter: &super::super::Foundation::BSTR, lpidfilter: i32) -> ::windows::core::Result<()>;
     fn EnumTraceGuid(&mut self, plcntguids: *mut i32, pbstrguidlist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3236,7 +3236,7 @@ impl IGetAppTrackerData_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGetContextProperties_Impl: Sized {
     fn Count(&mut self, plcount: *mut i32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, name: super::super::Foundation::BSTR, pproperty: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&mut self, name: &super::super::Foundation::BSTR, pproperty: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn EnumNames(&mut self) -> ::windows::core::Result<IEnumNames>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3361,9 +3361,9 @@ impl IHolder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILBEvents_Impl: Sized {
-    fn TargetUp(&mut self, bstrservername: super::super::Foundation::BSTR, bstrclsideng: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TargetDown(&mut self, bstrservername: super::super::Foundation::BSTR, bstrclsideng: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn EngineDefined(&mut self, bstrpropname: super::super::Foundation::BSTR, varpropvalue: *const super::Com::VARIANT, bstrclsideng: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TargetUp(&mut self, bstrservername: &super::super::Foundation::BSTR, bstrclsideng: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TargetDown(&mut self, bstrservername: &super::super::Foundation::BSTR, bstrclsideng: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EngineDefined(&mut self, bstrpropname: &super::super::Foundation::BSTR, varpropvalue: *const super::Com::VARIANT, bstrclsideng: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILBEvents_Vtbl {
@@ -3392,8 +3392,8 @@ impl ILBEvents_Vtbl {
     }
 }
 pub trait IMTSActivity_Impl: Sized {
-    fn SynchronousCall(&mut self, pcall: ::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
-    fn AsyncCall(&mut self, pcall: ::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
+    fn SynchronousCall(&mut self, pcall: &::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
+    fn AsyncCall(&mut self, pcall: &::core::option::Option<IMTSCall>) -> ::windows::core::Result<()>;
     fn Reserved1(&mut self);
     fn BindToCurrentThread(&mut self) -> ::windows::core::Result<()>;
     fn UnbindFromThread(&mut self) -> ::windows::core::Result<()>;
@@ -3473,8 +3473,8 @@ impl IMTSLocator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IManagedActivationEvents_Impl: Sized {
-    fn CreateManagedStub(&mut self, pinfo: ::core::option::Option<IManagedObjectInfo>, fdist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn DestroyManagedStub(&mut self, pinfo: ::core::option::Option<IManagedObjectInfo>) -> ::windows::core::Result<()>;
+    fn CreateManagedStub(&mut self, pinfo: &::core::option::Option<IManagedObjectInfo>, fdist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn DestroyManagedStub(&mut self, pinfo: &::core::option::Option<IManagedObjectInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IManagedActivationEvents_Vtbl {
@@ -3501,7 +3501,7 @@ impl IManagedActivationEvents_Vtbl {
 pub trait IManagedObjectInfo_Impl: Sized {
     fn GetIUnknown(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetIObjectControl(&mut self) -> ::windows::core::Result<IObjectControl>;
-    fn SetInPool(&mut self, binpool: super::super::Foundation::BOOL, ppooledobj: ::core::option::Option<IManagedPooledObj>) -> ::windows::core::Result<()>;
+    fn SetInPool(&mut self, binpool: super::super::Foundation::BOOL, ppooledobj: &::core::option::Option<IManagedPooledObj>) -> ::windows::core::Result<()>;
     fn SetWrapperStrength(&mut self, bstrong: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3582,9 +3582,9 @@ impl IManagedPooledObj_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMessageMover_Impl: Sized + super::Com::IDispatch_Impl {
     fn SourcePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSourcePath(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSourcePath(&mut self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DestPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDestPath(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDestPath(&mut self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CommitBatchSize(&mut self) -> ::windows::core::Result<i32>;
     fn SetCommitBatchSize(&mut self, newval: i32) -> ::windows::core::Result<()>;
     fn MoveMessages(&mut self) -> ::windows::core::Result<i32>;
@@ -3665,7 +3665,7 @@ pub trait IMtsEventInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn EventID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Value(&mut self, skey: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Value(&mut self, skey: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMtsEventInfo_Vtbl {
@@ -3850,7 +3850,7 @@ pub trait IObjPool_Impl: Sized {
     fn Reserved2(&mut self);
     fn Reserved3(&mut self);
     fn Reserved4(&mut self);
-    fn PutEndTx(&mut self, pobj: ::core::option::Option<::windows::core::IUnknown>);
+    fn PutEndTx(&mut self, pobj: &::core::option::Option<::windows::core::IUnknown>);
     fn Reserved5(&mut self);
     fn Reserved6(&mut self);
 }
@@ -3901,7 +3901,7 @@ impl IObjPool_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IObjectConstruct_Impl: Sized {
-    fn Construct(&mut self, pctorobj: ::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Construct(&mut self, pctorobj: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IObjectConstruct_Vtbl {
@@ -3942,7 +3942,7 @@ pub trait IObjectContext_Impl: Sized {
     fn DisableCommit(&mut self) -> ::windows::core::Result<()>;
     fn IsInTransaction(&mut self) -> super::super::Foundation::BOOL;
     fn IsSecurityEnabled(&mut self) -> super::super::Foundation::BOOL;
-    fn IsCallerInRole(&mut self, bstrrole: super::super::Foundation::BSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsCallerInRole(&mut self, bstrrole: &super::super::Foundation::BSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IObjectContext_Vtbl {
@@ -4167,7 +4167,7 @@ impl IPlaybackControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPoolManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ShutdownPool(&mut self, clsidorprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ShutdownPool(&mut self, clsidorprogid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPoolManager_Vtbl {
@@ -4183,7 +4183,7 @@ impl IPoolManager_Vtbl {
     }
 }
 pub trait IProcessInitializer_Impl: Sized {
-    fn Startup(&mut self, punkprocesscontrol: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Startup(&mut self, punkprocesscontrol: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Shutdown(&mut self) -> ::windows::core::Result<()>;
 }
 impl IProcessInitializer_Vtbl {
@@ -4209,11 +4209,11 @@ impl IProcessInitializer_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityCallContext_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Item(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn IsCallerInRole(&mut self, bstrrole: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsCallerInRole(&mut self, bstrrole: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn IsSecurityEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn IsUserInRole(&mut self, puser: *const super::Com::VARIANT, bstrrole: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsUserInRole(&mut self, puser: *const super::Com::VARIANT, bstrrole: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISecurityCallContext_Vtbl {
@@ -4345,7 +4345,7 @@ impl ISecurityCallersColl_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityIdentityColl_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Item(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4438,7 +4438,7 @@ impl ISecurityProperty_Vtbl {
 }
 pub trait ISelectCOMLBServer_Impl: Sized {
     fn Init(&mut self) -> ::windows::core::Result<()>;
-    fn GetLBServer(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetLBServer(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ISelectCOMLBServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectCOMLBServer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectCOMLBServer_Vtbl {
@@ -4485,8 +4485,8 @@ impl ISendMethodEvents_Vtbl {
     }
 }
 pub trait IServiceActivity_Impl: Sized {
-    fn SynchronousCall(&mut self, piservicecall: ::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
-    fn AsynchronousCall(&mut self, piservicecall: ::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
+    fn SynchronousCall(&mut self, piservicecall: &::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
+    fn AsynchronousCall(&mut self, piservicecall: &::core::option::Option<IServiceCall>) -> ::windows::core::Result<()>;
     fn BindToCurrentThread(&mut self) -> ::windows::core::Result<()>;
     fn UnbindFromThread(&mut self) -> ::windows::core::Result<()>;
 }
@@ -4605,7 +4605,7 @@ impl IServicePartitionConfig_Vtbl {
     }
 }
 pub trait IServicePool_Impl: Sized {
-    fn Initialize(&mut self, ppoolconfig: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, ppoolconfig: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetObject(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Shutdown(&mut self) -> ::windows::core::Result<()>;
 }
@@ -4644,7 +4644,7 @@ pub trait IServicePoolConfig_Impl: Sized {
     fn CreationTimeout(&mut self, pdwcreationtimeout: *mut u32) -> ::windows::core::Result<()>;
     fn SetTransactionAffinity(&mut self, ftxaffinity: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn TransactionAffinity(&mut self, pftxaffinity: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetClassFactory(&mut self, pfactory: ::core::option::Option<super::Com::IClassFactory>) -> ::windows::core::Result<()>;
+    fn SetClassFactory(&mut self, pfactory: &::core::option::Option<super::Com::IClassFactory>) -> ::windows::core::Result<()>;
     fn ClassFactory(&mut self) -> ::windows::core::Result<super::Com::IClassFactory>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4763,7 +4763,7 @@ impl IServiceSynchronizationConfig_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait IServiceSysTxnConfig_Impl: Sized + IServiceTransactionConfigBase_Impl + IServiceTransactionConfig_Impl {
-    fn ConfigureBYOTSysTxn(&mut self, ptxproxy: ::core::option::Option<ITransactionProxy>) -> ::windows::core::Result<()>;
+    fn ConfigureBYOTSysTxn(&mut self, ptxproxy: &::core::option::Option<ITransactionProxy>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 impl IServiceSysTxnConfig_Vtbl {
@@ -4824,7 +4824,7 @@ impl IServiceTrackerConfig_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait IServiceTransactionConfig_Impl: Sized + IServiceTransactionConfigBase_Impl {
-    fn ConfigureBYOT(&mut self, pitxbyot: ::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>) -> ::windows::core::Result<()>;
+    fn ConfigureBYOT(&mut self, pitxbyot: &::core::option::Option<super::DistributedTransactionCoordinator::ITransaction>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 impl IServiceTransactionConfig_Vtbl {
@@ -4886,7 +4886,7 @@ impl IServiceTransactionConfigBase_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedProperty_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetValue(&mut self, val: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetValue(&mut self, val: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISharedProperty_Vtbl {
@@ -4919,8 +4919,8 @@ impl ISharedProperty_Vtbl {
 pub trait ISharedPropertyGroup_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreatePropertyByPosition(&mut self, index: i32, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
     fn PropertyByPosition(&mut self, index: i32) -> ::windows::core::Result<ISharedProperty>;
-    fn CreateProperty(&mut self, name: super::super::Foundation::BSTR, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
-    fn Property(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedProperty>;
+    fn CreateProperty(&mut self, name: &super::super::Foundation::BSTR, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
+    fn Property(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedProperty>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISharedPropertyGroup_Vtbl {
@@ -4967,8 +4967,8 @@ impl ISharedPropertyGroup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyGroupManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreatePropertyGroup(&mut self, name: super::super::Foundation::BSTR, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut i16, ppgroup: *mut ::core::option::Option<ISharedPropertyGroup>) -> ::windows::core::Result<()>;
-    fn Group(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedPropertyGroup>;
+    fn CreatePropertyGroup(&mut self, name: &super::super::Foundation::BSTR, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut i16, ppgroup: *mut ::core::option::Option<ISharedPropertyGroup>) -> ::windows::core::Result<()>;
+    fn Group(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedPropertyGroup>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5012,7 +5012,7 @@ impl ISharedPropertyGroupManager_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISystemAppEventData_Impl: Sized {
     fn Startup(&mut self) -> ::windows::core::Result<()>;
-    fn OnDataChanged(&mut self, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: super::super::Foundation::BSTR, dwreason: u32, u64tracehandle: u64) -> ::windows::core::Result<()>;
+    fn OnDataChanged(&mut self, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: &super::super::Foundation::BSTR, dwreason: u32, u64tracehandle: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISystemAppEventData_Vtbl {
@@ -5109,7 +5109,7 @@ impl IThreadPoolKnobs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITransactionContext_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreateInstance(&mut self, pszprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn CreateInstance(&mut self, pszprogid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn Commit(&mut self) -> ::windows::core::Result<()>;
     fn Abort(&mut self) -> ::windows::core::Result<()>;
 }
@@ -5303,10 +5303,10 @@ impl ITransactionProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait ITransactionProxy_Impl: Sized {
-    fn Commit(&mut self, guid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Commit(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Abort(&mut self) -> ::windows::core::Result<()>;
     fn Promote(&mut self) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransaction>;
-    fn CreateVoter(&mut self, ptxasync: ::core::option::Option<super::DistributedTransactionCoordinator::ITransactionVoterNotifyAsync2>) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>;
+    fn CreateVoter(&mut self, ptxasync: &::core::option::Option<super::DistributedTransactionCoordinator::ITransactionVoterNotifyAsync2>) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>;
     fn GetIsolationLevel(&mut self, __midl__itransactionproxy0000: *mut i32) -> ::windows::core::Result<()>;
     fn GetIdentifier(&mut self, pbstridentifier: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn IsReusable(&mut self, pfisreusable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -5370,8 +5370,8 @@ impl ITransactionProxy_Vtbl {
     }
 }
 pub trait ITransactionResourcePool_Impl: Sized {
-    fn PutResource(&mut self, ppool: ::core::option::Option<IObjPool>, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetResource(&mut self, ppool: ::core::option::Option<IObjPool>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn PutResource(&mut self, ppool: &::core::option::Option<IObjPool>, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetResource(&mut self, ppool: &::core::option::Option<IObjPool>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ITransactionResourcePool_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionResourcePool_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionResourcePool_Vtbl {
@@ -5440,16 +5440,16 @@ impl ITxProxyHolder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ObjectContext_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreateInstance(&mut self, bstrprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn CreateInstance(&mut self, bstrprogid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetComplete(&mut self) -> ::windows::core::Result<()>;
     fn SetAbort(&mut self) -> ::windows::core::Result<()>;
     fn EnableCommit(&mut self) -> ::windows::core::Result<()>;
     fn DisableCommit(&mut self) -> ::windows::core::Result<()>;
     fn IsInTransaction(&mut self) -> ::windows::core::Result<i16>;
     fn IsSecurityEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn IsCallerInRole(&mut self, bstrrole: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsCallerInRole(&mut self, bstrrole: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Item(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Security(&mut self) -> ::windows::core::Result<SecurityProperty>;
     fn ContextInfo(&mut self) -> ::windows::core::Result<ContextInfo>;

@@ -727,7 +727,7 @@ pub trait IAMDevMemoryAllocator_Impl: Sized {
     fn CheckMemory(&mut self, pbuffer: *const u8) -> ::windows::core::Result<()>;
     fn Alloc(&mut self, ppbuffer: *mut *mut u8, pdwcbbuffer: *mut u32) -> ::windows::core::Result<()>;
     fn Free(&mut self, pbuffer: *mut u8) -> ::windows::core::Result<()>;
-    fn GetDevMemoryObject(&mut self, ppunkinnner: *mut ::core::option::Option<::windows::core::IUnknown>, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDevMemoryObject(&mut self, ppunkinnner: *mut ::core::option::Option<::windows::core::IUnknown>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IAMDevMemoryAllocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMDevMemoryAllocator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAMDevMemoryAllocator_Vtbl {
@@ -837,9 +837,9 @@ pub trait IAMDirectSound_Impl: Sized {
     fn GetDirectSoundInterface(&mut self) -> ::windows::core::Result<super::Audio::DirectSound::IDirectSound>;
     fn GetPrimaryBufferInterface(&mut self) -> ::windows::core::Result<super::Audio::DirectSound::IDirectSoundBuffer>;
     fn GetSecondaryBufferInterface(&mut self) -> ::windows::core::Result<super::Audio::DirectSound::IDirectSoundBuffer>;
-    fn ReleaseDirectSoundInterface(&mut self, lpds: ::core::option::Option<super::Audio::DirectSound::IDirectSound>) -> ::windows::core::Result<()>;
-    fn ReleasePrimaryBufferInterface(&mut self, lpdsb: ::core::option::Option<super::Audio::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
-    fn ReleaseSecondaryBufferInterface(&mut self, lpdsb: ::core::option::Option<super::Audio::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
+    fn ReleaseDirectSoundInterface(&mut self, lpds: &::core::option::Option<super::Audio::DirectSound::IDirectSound>) -> ::windows::core::Result<()>;
+    fn ReleasePrimaryBufferInterface(&mut self, lpdsb: &::core::option::Option<super::Audio::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
+    fn ReleaseSecondaryBufferInterface(&mut self, lpdsb: &::core::option::Option<super::Audio::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
     fn SetFocusWindow(&mut self, param0: super::super::Foundation::HWND, param1: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetFocusWindow(&mut self, param0: *mut super::super::Foundation::HWND, param1: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
@@ -1395,7 +1395,7 @@ impl IAMExtendedSeeking_Vtbl {
     }
 }
 pub trait IAMFilterGraphCallback_Impl: Sized {
-    fn UnableToRender(&mut self, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
+    fn UnableToRender(&mut self, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<()>;
 }
 impl IAMFilterGraphCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMFilterGraphCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAMFilterGraphCallback_Vtbl {
@@ -1426,8 +1426,8 @@ impl IAMFilterMiscFlags_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAMGraphBuilderCallback_Impl: Sized {
-    fn SelectedFilter(&mut self, pmon: ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows::core::Result<()>;
-    fn CreatedFilter(&mut self, pfil: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn SelectedFilter(&mut self, pmon: &::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows::core::Result<()>;
+    fn CreatedFilter(&mut self, pfil: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAMGraphBuilderCallback_Vtbl {
@@ -1452,7 +1452,7 @@ impl IAMGraphBuilderCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMGraphStreams_Impl: Sized {
-    fn FindUpstreamInterface(&mut self, ppin: ::core::option::Option<IPin>, riid: *const ::windows::core::GUID, ppvinterface: *mut *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()>;
+    fn FindUpstreamInterface(&mut self, ppin: &::core::option::Option<IPin>, riid: *const ::windows::core::GUID, ppvinterface: *mut *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()>;
     fn SyncUsingStreamOffset(&mut self, busestreamoffset: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetMaxGraphLatency(&mut self, rtmaxgraphlatency: i64) -> ::windows::core::Result<()>;
 }
@@ -1689,7 +1689,7 @@ impl IAMMediaContent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAMMediaContent2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn MediaParameter(&mut self, entrynum: i32, bstrname: super::super::Foundation::BSTR, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MediaParameter(&mut self, entrynum: i32, bstrname: &super::super::Foundation::BSTR, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn MediaParameterName(&mut self, entrynum: i32, index: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PlaylistCount(&mut self, pnumberentries: *mut i32) -> ::windows::core::Result<()>;
 }
@@ -1721,11 +1721,11 @@ impl IAMMediaContent2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAMMediaStream_Impl: Sized + IMediaStream_Impl {
-    fn Initialize(&mut self, psourceobject: ::core::option::Option<::windows::core::IUnknown>, dwflags: u32, purposeid: *const ::windows::core::GUID, streamtype: STREAM_TYPE) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psourceobject: &::core::option::Option<::windows::core::IUnknown>, dwflags: u32, purposeid: *const ::windows::core::GUID, streamtype: STREAM_TYPE) -> ::windows::core::Result<()>;
     fn SetState(&mut self, state: FILTER_STATE) -> ::windows::core::Result<()>;
-    fn JoinAMMultiMediaStream(&mut self, pammultimediastream: ::core::option::Option<IAMMultiMediaStream>) -> ::windows::core::Result<()>;
-    fn JoinFilter(&mut self, pmediastreamfilter: ::core::option::Option<IMediaStreamFilter>) -> ::windows::core::Result<()>;
-    fn JoinFilterGraph(&mut self, pfiltergraph: ::core::option::Option<IFilterGraph>) -> ::windows::core::Result<()>;
+    fn JoinAMMultiMediaStream(&mut self, pammultimediastream: &::core::option::Option<IAMMultiMediaStream>) -> ::windows::core::Result<()>;
+    fn JoinFilter(&mut self, pmediastreamfilter: &::core::option::Option<IMediaStreamFilter>) -> ::windows::core::Result<()>;
+    fn JoinFilterGraph(&mut self, pfiltergraph: &::core::option::Option<IFilterGraph>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAMMediaStream_Vtbl {
@@ -1895,7 +1895,7 @@ impl IAMMediaTypeSample_Vtbl {
 pub trait IAMMediaTypeStream_Impl: Sized + IMediaStream_Impl {
     fn GetFormat(&mut self, pmediatype: *mut AM_MEDIA_TYPE, dwflags: u32) -> ::windows::core::Result<()>;
     fn SetFormat(&mut self, pmediatype: *const AM_MEDIA_TYPE, dwflags: u32) -> ::windows::core::Result<()>;
-    fn CreateSample(&mut self, lsamplesize: i32, pbbuffer: *const u8, dwflags: u32, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IAMMediaTypeSample>;
+    fn CreateSample(&mut self, lsamplesize: i32, pbbuffer: *const u8, dwflags: u32, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IAMMediaTypeSample>;
     fn GetStreamAllocatorRequirements(&mut self) -> ::windows::core::Result<ALLOCATOR_PROPERTIES>;
     fn SetStreamAllocatorRequirements(&mut self, pprops: *const ALLOCATOR_PROPERTIES) -> ::windows::core::Result<()>;
 }
@@ -1949,12 +1949,12 @@ impl IAMMediaTypeStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAMMultiMediaStream_Impl: Sized + IMultiMediaStream_Impl {
-    fn Initialize(&mut self, streamtype: STREAM_TYPE, dwflags: AMMSF_MMS_INIT_FLAGS, pfiltergraph: ::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, streamtype: STREAM_TYPE, dwflags: AMMSF_MMS_INIT_FLAGS, pfiltergraph: &::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
     fn GetFilterGraph(&mut self) -> ::windows::core::Result<IGraphBuilder>;
     fn GetFilter(&mut self) -> ::windows::core::Result<IMediaStreamFilter>;
-    fn AddMediaStream(&mut self, pstreamobject: ::core::option::Option<::windows::core::IUnknown>, purposeid: *const ::windows::core::GUID, dwflags: AMMSF_MS_FLAGS) -> ::windows::core::Result<IMediaStream>;
+    fn AddMediaStream(&mut self, pstreamobject: &::core::option::Option<::windows::core::IUnknown>, purposeid: *const ::windows::core::GUID, dwflags: AMMSF_MS_FLAGS) -> ::windows::core::Result<IMediaStream>;
     fn OpenFile(&mut self, pszfilename: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn OpenMoniker(&mut self, pctx: ::core::option::Option<super::super::System::Com::IBindCtx>, pmoniker: ::core::option::Option<super::super::System::Com::IMoniker>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn OpenMoniker(&mut self, pctx: &::core::option::Option<super::super::System::Com::IBindCtx>, pmoniker: &::core::option::Option<super::super::System::Com::IMoniker>, dwflags: u32) -> ::windows::core::Result<()>;
     fn Render(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2034,7 +2034,7 @@ pub trait IAMNetShowConfig_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn EnableAutoProxy(&mut self, penableautoproxy: *mut i16) -> ::windows::core::Result<()>;
     fn SetEnableAutoProxy(&mut self, enableautoproxy: i16) -> ::windows::core::Result<()>;
     fn HTTPProxyHost(&mut self, pbstrhttpproxyhost: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetHTTPProxyHost(&mut self, bstrhttpproxyhost: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetHTTPProxyHost(&mut self, bstrhttpproxyhost: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn HTTPProxyPort(&mut self, phttpproxyport: *mut i32) -> ::windows::core::Result<()>;
     fn SetHTTPProxyPort(&mut self, httpproxyport: i32) -> ::windows::core::Result<()>;
     fn EnableMulticast(&mut self, penablemulticast: *mut i16) -> ::windows::core::Result<()>;
@@ -2813,8 +2813,8 @@ pub trait IAMStats_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn GetValueByIndex(&mut self, lindex: i32, szname: *mut super::super::Foundation::BSTR, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> ::windows::core::Result<()>;
-    fn GetValueByName(&mut self, szname: super::super::Foundation::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> ::windows::core::Result<()>;
-    fn GetIndex(&mut self, szname: super::super::Foundation::BSTR, lcreate: i32) -> ::windows::core::Result<i32>;
+    fn GetValueByName(&mut self, szname: &super::super::Foundation::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> ::windows::core::Result<()>;
+    fn GetIndex(&mut self, szname: &super::super::Foundation::BSTR, lcreate: i32) -> ::windows::core::Result<i32>;
     fn AddValue(&mut self, lindex: i32, dvalue: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2995,8 +2995,8 @@ pub trait IAMTVAudio_Impl: Sized {
     fn GetAvailableTVAudioModes(&mut self) -> ::windows::core::Result<i32>;
     fn TVAudioMode(&mut self) -> ::windows::core::Result<i32>;
     fn SetTVAudioMode(&mut self, lmode: i32) -> ::windows::core::Result<()>;
-    fn RegisterNotificationCallBack(&mut self, pnotify: ::core::option::Option<IAMTunerNotification>, levents: i32) -> ::windows::core::Result<()>;
-    fn UnRegisterNotificationCallBack(&mut self, pnotify: ::core::option::Option<IAMTunerNotification>) -> ::windows::core::Result<()>;
+    fn RegisterNotificationCallBack(&mut self, pnotify: &::core::option::Option<IAMTunerNotification>, levents: i32) -> ::windows::core::Result<()>;
+    fn UnRegisterNotificationCallBack(&mut self, pnotify: &::core::option::Option<IAMTunerNotification>) -> ::windows::core::Result<()>;
 }
 impl IAMTVAudio_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMTVAudio_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAMTVAudio_Vtbl {
@@ -3388,8 +3388,8 @@ pub trait IAMTuner_Impl: Sized {
     fn SetMode(&mut self, lmode: AMTunerModeType) -> ::windows::core::Result<()>;
     fn Mode(&mut self) -> ::windows::core::Result<AMTunerModeType>;
     fn GetAvailableModes(&mut self) -> ::windows::core::Result<i32>;
-    fn RegisterNotificationCallBack(&mut self, pnotify: ::core::option::Option<IAMTunerNotification>, levents: i32) -> ::windows::core::Result<()>;
-    fn UnRegisterNotificationCallBack(&mut self, pnotify: ::core::option::Option<IAMTunerNotification>) -> ::windows::core::Result<()>;
+    fn RegisterNotificationCallBack(&mut self, pnotify: &::core::option::Option<IAMTunerNotification>, levents: i32) -> ::windows::core::Result<()>;
+    fn UnRegisterNotificationCallBack(&mut self, pnotify: &::core::option::Option<IAMTunerNotification>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAMTuner_Vtbl {
@@ -3605,7 +3605,7 @@ pub trait IAMVideoAccelerator_Impl: Sized {
     fn ReleaseBuffer(&mut self, dwtypeindex: u32, dwbufferindex: u32) -> ::windows::core::Result<()>;
     fn Execute(&mut self, dwfunction: u32, lpprivateinputdata: *const ::core::ffi::c_void, cbprivateinputdata: u32, lpprivateoutputdat: *const ::core::ffi::c_void, cbprivateoutputdata: u32, dwnumbuffers: u32, pamvabufferinfo: *const AMVABUFFERINFO) -> ::windows::core::Result<()>;
     fn QueryRenderStatus(&mut self, dwtypeindex: u32, dwbufferindex: u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn DisplayFrame(&mut self, dwfliptoindex: u32, pmediasample: ::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
+    fn DisplayFrame(&mut self, dwfliptoindex: u32, pmediasample: &::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl IAMVideoAccelerator_Vtbl {
@@ -3816,12 +3816,12 @@ impl IAMVideoCompression_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMVideoControl_Impl: Sized {
-    fn GetCaps(&mut self, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<i32>;
-    fn SetMode(&mut self, ppin: ::core::option::Option<IPin>, mode: i32) -> ::windows::core::Result<()>;
-    fn GetMode(&mut self, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<i32>;
-    fn GetCurrentActualFrameRate(&mut self, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<i64>;
-    fn GetMaxAvailableFrameRate(&mut self, ppin: ::core::option::Option<IPin>, iindex: i32, dimensions: super::super::Foundation::SIZE) -> ::windows::core::Result<i64>;
-    fn GetFrameRateList(&mut self, ppin: ::core::option::Option<IPin>, iindex: i32, dimensions: super::super::Foundation::SIZE, listsize: *mut i32, framerates: *mut *mut i64) -> ::windows::core::Result<()>;
+    fn GetCaps(&mut self, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<i32>;
+    fn SetMode(&mut self, ppin: &::core::option::Option<IPin>, mode: i32) -> ::windows::core::Result<()>;
+    fn GetMode(&mut self, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<i32>;
+    fn GetCurrentActualFrameRate(&mut self, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<i64>;
+    fn GetMaxAvailableFrameRate(&mut self, ppin: &::core::option::Option<IPin>, iindex: i32, dimensions: &super::super::Foundation::SIZE) -> ::windows::core::Result<i64>;
+    fn GetFrameRateList(&mut self, ppin: &::core::option::Option<IPin>, iindex: i32, dimensions: &super::super::Foundation::SIZE, listsize: *mut i32, framerates: *mut *mut i64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAMVideoControl_Vtbl {
@@ -3967,7 +3967,7 @@ pub trait IAMWstDecoder_Impl: Sized {
     fn SetHoldPage(&mut self, bholdpage: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetHoldPage(&mut self, pbholdpage: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetCurrentPage(&mut self, pwstpage: *mut AM_WST_PAGE) -> ::windows::core::Result<()>;
-    fn SetCurrentPage(&mut self, wstpage: AM_WST_PAGE) -> ::windows::core::Result<()>;
+    fn SetCurrentPage(&mut self, wstpage: &AM_WST_PAGE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IAMWstDecoder_Vtbl {
@@ -4327,7 +4327,7 @@ impl IATSCTuningSpace_Vtbl {
     }
 }
 pub trait IATSC_EIT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetSourceId(&mut self) -> ::windows::core::Result<u16>;
     fn GetProtocolVersion(&mut self) -> ::windows::core::Result<u8>;
@@ -4477,7 +4477,7 @@ impl IATSC_EIT_Vtbl {
     }
 }
 pub trait IATSC_ETT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetProtocolVersion(&mut self) -> ::windows::core::Result<u8>;
     fn GetEtmId(&mut self) -> ::windows::core::Result<u32>;
@@ -4537,7 +4537,7 @@ impl IATSC_ETT_Vtbl {
     }
 }
 pub trait IATSC_MGT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetProtocolVersion(&mut self) -> ::windows::core::Result<u8>;
     fn GetCountOfRecords(&mut self) -> ::windows::core::Result<u32>;
@@ -4681,7 +4681,7 @@ impl IATSC_MGT_Vtbl {
     }
 }
 pub trait IATSC_STT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetProtocolVersion(&mut self) -> ::windows::core::Result<u8>;
     fn GetSystemTime(&mut self) -> ::windows::core::Result<MPEG_DATE_AND_TIME>;
     fn GetGpsUtcOffset(&mut self) -> ::windows::core::Result<u8>;
@@ -4778,7 +4778,7 @@ impl IATSC_STT_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IATSC_VCT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetTransportStreamId(&mut self) -> ::windows::core::Result<u16>;
     fn GetProtocolVersion(&mut self) -> ::windows::core::Result<u8>;
@@ -5329,10 +5329,10 @@ impl IAnalogTVTuningSpace_Vtbl {
     }
 }
 pub trait IAsyncReader_Impl: Sized {
-    fn RequestAllocator(&mut self, ppreferred: ::core::option::Option<IMemAllocator>, pprops: *const ALLOCATOR_PROPERTIES) -> ::windows::core::Result<IMemAllocator>;
-    fn Request(&mut self, psample: ::core::option::Option<IMediaSample>, dwuser: usize) -> ::windows::core::Result<()>;
+    fn RequestAllocator(&mut self, ppreferred: &::core::option::Option<IMemAllocator>, pprops: *const ALLOCATOR_PROPERTIES) -> ::windows::core::Result<IMemAllocator>;
+    fn Request(&mut self, psample: &::core::option::Option<IMediaSample>, dwuser: usize) -> ::windows::core::Result<()>;
     fn WaitForNext(&mut self, dwtimeout: u32, ppsample: *mut ::core::option::Option<IMediaSample>, pdwuser: *mut usize) -> ::windows::core::Result<()>;
-    fn SyncReadAligned(&mut self, psample: ::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
+    fn SyncReadAligned(&mut self, psample: &::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
     fn SyncRead(&mut self, llposition: i64, llength: i32) -> ::windows::core::Result<u8>;
     fn Length(&mut self, ptotal: *mut i64, pavailable: *mut i64) -> ::windows::core::Result<()>;
     fn BeginFlush(&mut self) -> ::windows::core::Result<()>;
@@ -5504,7 +5504,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAtscPsipParser_Impl: Sized {
-    fn Initialize(&mut self, punkmpeg2data: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, punkmpeg2data: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetPAT(&mut self) -> ::windows::core::Result<IPAT>;
     fn GetCAT(&mut self, dwtimeout: u32) -> ::windows::core::Result<ICAT>;
     fn GetPMT(&mut self, pid: u16, pwprogramnumber: *const u16) -> ::windows::core::Result<IPMT>;
@@ -5645,7 +5645,7 @@ impl IAtscPsipParser_Vtbl {
 pub trait IAttributeGet_Impl: Sized {
     fn GetCount(&mut self) -> ::windows::core::Result<i32>;
     fn GetAttribIndexed(&mut self, lindex: i32, pguidattribute: *mut ::windows::core::GUID, pbattribute: *mut u8, pdwattributelength: *mut u32) -> ::windows::core::Result<()>;
-    fn GetAttrib(&mut self, guidattribute: ::windows::core::GUID, pbattribute: *mut u8, pdwattributelength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetAttrib(&mut self, guidattribute: &::windows::core::GUID, pbattribute: *mut u8, pdwattributelength: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IAttributeGet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttributeGet_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttributeGet_Vtbl {
@@ -5679,7 +5679,7 @@ impl IAttributeGet_Vtbl {
     }
 }
 pub trait IAttributeSet_Impl: Sized {
-    fn SetAttrib(&mut self, guidattribute: ::windows::core::GUID, pbattribute: *const u8, dwattributelength: u32) -> ::windows::core::Result<()>;
+    fn SetAttrib(&mut self, guidattribute: &::windows::core::GUID, pbattribute: *const u8, dwattributelength: u32) -> ::windows::core::Result<()>;
 }
 impl IAttributeSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttributeSet_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttributeSet_Vtbl {
@@ -5729,7 +5729,7 @@ impl IAudioData_Vtbl {
 pub trait IAudioMediaStream_Impl: Sized + IMediaStream_Impl {
     fn GetFormat(&mut self) -> ::windows::core::Result<super::Audio::WAVEFORMATEX>;
     fn SetFormat(&mut self, lpwaveformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn CreateSample(&mut self, paudiodata: ::core::option::Option<IAudioData>, dwflags: u32) -> ::windows::core::Result<IAudioStreamSample>;
+    fn CreateSample(&mut self, paudiodata: &::core::option::Option<IAudioData>, dwflags: u32) -> ::windows::core::Result<IAudioStreamSample>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IAudioMediaStream_Vtbl {
@@ -5837,8 +5837,8 @@ impl IAuxInTuningSpace2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBDAComparable_Impl: Sized {
-    fn CompareExact(&mut self, compareto: ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<i32>;
-    fn CompareEquivalent(&mut self, compareto: ::core::option::Option<super::super::System::Com::IDispatch>, dwflags: u32) -> ::windows::core::Result<i32>;
+    fn CompareExact(&mut self, compareto: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<i32>;
+    fn CompareEquivalent(&mut self, compareto: &::core::option::Option<super::super::System::Com::IDispatch>, dwflags: u32) -> ::windows::core::Result<i32>;
     fn HashExact(&mut self) -> ::windows::core::Result<i64>;
     fn HashExactIncremental(&mut self, partialresult: i64) -> ::windows::core::Result<i64>;
     fn HashEquivalent(&mut self, dwflags: u32) -> ::windows::core::Result<i64>;
@@ -6107,10 +6107,10 @@ impl IBDA_ConditionalAccess_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_ConditionalAccessEx_Impl: Sized {
-    fn CheckEntitlementToken(&mut self, uldialogrequest: u32, bstrlanguage: super::super::Foundation::BSTR, requesttype: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8) -> ::windows::core::Result<u32>;
+    fn CheckEntitlementToken(&mut self, uldialogrequest: u32, bstrlanguage: &super::super::Foundation::BSTR, requesttype: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8) -> ::windows::core::Result<u32>;
     fn SetCaptureToken(&mut self, ulcbcapturetokenlen: u32, pbcapturetoken: *const u8) -> ::windows::core::Result<()>;
-    fn OpenBroadcastMmi(&mut self, uldialogrequest: u32, bstrlanguage: super::super::Foundation::BSTR, eventid: u32) -> ::windows::core::Result<()>;
-    fn CloseMmiDialog(&mut self, uldialogrequest: u32, bstrlanguage: super::super::Foundation::BSTR, uldialognumber: u32, reasoncode: BDA_CONDITIONALACCESS_MMICLOSEREASON) -> ::windows::core::Result<u32>;
+    fn OpenBroadcastMmi(&mut self, uldialogrequest: u32, bstrlanguage: &super::super::Foundation::BSTR, eventid: u32) -> ::windows::core::Result<()>;
+    fn CloseMmiDialog(&mut self, uldialogrequest: u32, bstrlanguage: &super::super::Foundation::BSTR, uldialognumber: u32, reasoncode: BDA_CONDITIONALACCESS_MMICLOSEREASON) -> ::windows::core::Result<u32>;
     fn CreateDialogRequestNumber(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6169,7 +6169,7 @@ impl IBDA_ConditionalAccessEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_DRIDRMService_Impl: Sized {
-    fn SetDRM(&mut self, bstrnewdrm: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDRM(&mut self, bstrnewdrm: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetDRMStatus(&mut self, pbstrdrmuuidlist: *mut super::super::Foundation::BSTR, drmuuid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetPairingStatus(&mut self, penumpairingstatus: *mut BDA_DrmPairingError) -> ::windows::core::Result<()>;
 }
@@ -6741,11 +6741,11 @@ impl IBDA_EventingService_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_FDC_Impl: Sized {
     fn GetStatus(&mut self, currentbitrate: *mut u32, carrierlock: *mut super::super::Foundation::BOOL, currentfrequency: *mut u32, currentspectruminversion: *mut super::super::Foundation::BOOL, currentpidlist: *mut super::super::Foundation::BSTR, currenttidlist: *mut super::super::Foundation::BSTR, overflow: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn RequestTables(&mut self, tableids: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddPid(&mut self, pidstoadd: super::super::Foundation::BSTR) -> ::windows::core::Result<u32>;
-    fn RemovePid(&mut self, pidstoremove: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddTid(&mut self, tidstoadd: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RemoveTid(&mut self, tidstoremove: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RequestTables(&mut self, tableids: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddPid(&mut self, pidstoadd: &super::super::Foundation::BSTR) -> ::windows::core::Result<u32>;
+    fn RemovePid(&mut self, pidstoremove: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddTid(&mut self, tidstoadd: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RemoveTid(&mut self, tidstoremove: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetTableSection(&mut self, pid: *mut u32, maxbuffersize: u32, actualsize: *mut u32, secbuffer: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6897,7 +6897,7 @@ pub trait IBDA_GuideDataDeliveryService_Impl: Sized {
     fn RequestGuideDataUpdate(&mut self) -> ::windows::core::Result<()>;
     fn GetTuneXmlFromServiceIdx(&mut self, ul64serviceidx: u64) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetServices(&mut self, pulcbbufferlen: *mut u32, pbbuffer: *mut u8) -> ::windows::core::Result<()>;
-    fn GetServiceInfoFromTuneXml(&mut self, bstrtunexml: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetServiceInfoFromTuneXml(&mut self, bstrtunexml: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBDA_GuideDataDeliveryService_Vtbl {
@@ -7212,8 +7212,8 @@ impl IBDA_MUX_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_NameValueService_Impl: Sized {
     fn GetValueNameByIndex(&mut self, ulindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetValue(&mut self, bstrname: super::super::Foundation::BSTR, bstrlanguage: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetValue(&mut self, uldialogrequest: u32, bstrlanguage: super::super::Foundation::BSTR, bstrname: super::super::Foundation::BSTR, bstrvalue: super::super::Foundation::BSTR, ulreserved: u32) -> ::windows::core::Result<()>;
+    fn GetValue(&mut self, bstrname: &super::super::Foundation::BSTR, bstrlanguage: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetValue(&mut self, uldialogrequest: u32, bstrlanguage: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR, ulreserved: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBDA_NameValueService_Vtbl {
@@ -7259,7 +7259,7 @@ pub trait IBDA_NetworkProvider_Impl: Sized {
     fn GetNetworkType(&mut self, pguidnetworktype: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn PutTuningSpace(&mut self, guidtuningspace: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetTuningSpace(&mut self, pguidtuingspace: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RegisterDeviceFilter(&mut self, punkfiltercontrol: ::core::option::Option<::windows::core::IUnknown>, ppvregisitrationcontext: *mut u32) -> ::windows::core::Result<()>;
+    fn RegisterDeviceFilter(&mut self, punkfiltercontrol: &::core::option::Option<::windows::core::IUnknown>, ppvregisitrationcontext: *mut u32) -> ::windows::core::Result<()>;
     fn UnRegisterDeviceFilter(&mut self, pvregistrationcontext: u32) -> ::windows::core::Result<()>;
 }
 impl IBDA_NetworkProvider_Vtbl {
@@ -7480,7 +7480,7 @@ impl IBDA_SignalStatistics_Vtbl {
     }
 }
 pub trait IBDA_TIF_REGISTRATION_Impl: Sized {
-    fn RegisterTIFEx(&mut self, ptifinputpin: ::core::option::Option<IPin>, ppvregistrationcontext: *mut u32, ppmpeg2datacontrol: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RegisterTIFEx(&mut self, ptifinputpin: &::core::option::Option<IPin>, ppvregistrationcontext: *mut u32, ppmpeg2datacontrol: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn UnregisterTIF(&mut self, pvregistrationcontext: u32) -> ::windows::core::Result<()>;
 }
 impl IBDA_TIF_REGISTRATION_Vtbl {
@@ -7746,7 +7746,7 @@ impl IBDA_WMDRMSession_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_WMDRMTuner_Impl: Sized {
-    fn PurchaseEntitlement(&mut self, uldialogrequest: u32, bstrlanguage: super::super::Foundation::BSTR, ulpurchasetokenlen: u32, pbpurchasetoken: *const u8, puldescramblestatus: *mut u32, pulcapturetokenlen: *mut u32, pbcapturetoken: *mut u8) -> ::windows::core::Result<()>;
+    fn PurchaseEntitlement(&mut self, uldialogrequest: u32, bstrlanguage: &super::super::Foundation::BSTR, ulpurchasetokenlen: u32, pbpurchasetoken: *const u8, puldescramblestatus: *mut u32, pulcapturetokenlen: *mut u32, pbcapturetoken: *mut u8) -> ::windows::core::Result<()>;
     fn CancelCaptureToken(&mut self, ulcapturetokenlen: u32, pbcapturetoken: *const u8) -> ::windows::core::Result<()>;
     fn SetPidProtection(&mut self, ulpid: u32, uuidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetPidProtection(&mut self, pulpid: u32) -> ::windows::core::Result<::windows::core::GUID>;
@@ -7837,7 +7837,7 @@ pub trait IBaseFilter_Impl: Sized + super::super::System::Com::IPersist_Impl + I
     fn EnumPins(&mut self) -> ::windows::core::Result<IEnumPins>;
     fn FindPin(&mut self, id: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPin>;
     fn QueryFilterInfo(&mut self) -> ::windows::core::Result<FILTER_INFO>;
-    fn JoinFilterGraph(&mut self, pgraph: ::core::option::Option<IFilterGraph>, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn JoinFilterGraph(&mut self, pgraph: &::core::option::Option<IFilterGraph>, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn QueryVendorInfo(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -8330,7 +8330,7 @@ impl IBasicVideo2_Vtbl {
     }
 }
 pub trait IBroadcastEvent_Impl: Sized {
-    fn Fire(&mut self, eventid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Fire(&mut self, eventid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IBroadcastEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBroadcastEvent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBroadcastEvent_Vtbl {
@@ -8345,7 +8345,7 @@ impl IBroadcastEvent_Vtbl {
     }
 }
 pub trait IBroadcastEventEx_Impl: Sized + IBroadcastEvent_Impl {
-    fn FireEx(&mut self, eventid: ::windows::core::GUID, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
+    fn FireEx(&mut self, eventid: &::windows::core::GUID, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
 }
 impl IBroadcastEventEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBroadcastEventEx_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBroadcastEventEx_Vtbl {
@@ -8385,7 +8385,7 @@ impl IBufferingTime_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICAT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetCountOfTableDescriptors(&mut self) -> ::windows::core::Result<u32>;
     fn GetTableDescriptorByIndex(&mut self, dwindex: u32) -> ::windows::core::Result<IGenericDescriptor>;
@@ -8903,14 +8903,14 @@ impl ICaptionServiceDescriptor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICaptureGraphBuilder_Impl: Sized {
-    fn SetFiltergraph(&mut self, pfg: ::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
+    fn SetFiltergraph(&mut self, pfg: &::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
     fn GetFiltergraph(&mut self) -> ::windows::core::Result<IGraphBuilder>;
     fn SetOutputFileName(&mut self, ptype: *const ::windows::core::GUID, lpstrfile: super::super::Foundation::PWSTR, ppf: *mut ::core::option::Option<IBaseFilter>, ppsink: *mut ::core::option::Option<IFileSinkFilter>) -> ::windows::core::Result<()>;
-    fn FindInterface(&mut self, pcategory: *const ::windows::core::GUID, pf: ::core::option::Option<IBaseFilter>, riid: *const ::windows::core::GUID, ppint: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn RenderStream(&mut self, pcategory: *const ::windows::core::GUID, psource: ::core::option::Option<::windows::core::IUnknown>, pfcompressor: ::core::option::Option<IBaseFilter>, pfrenderer: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
-    fn ControlStream(&mut self, pcategory: *const ::windows::core::GUID, pfilter: ::core::option::Option<IBaseFilter>, pstart: *mut i64, pstop: *mut i64, wstartcookie: u16, wstopcookie: u16) -> ::windows::core::Result<()>;
+    fn FindInterface(&mut self, pcategory: *const ::windows::core::GUID, pf: &::core::option::Option<IBaseFilter>, riid: *const ::windows::core::GUID, ppint: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RenderStream(&mut self, pcategory: *const ::windows::core::GUID, psource: &::core::option::Option<::windows::core::IUnknown>, pfcompressor: &::core::option::Option<IBaseFilter>, pfrenderer: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn ControlStream(&mut self, pcategory: *const ::windows::core::GUID, pfilter: &::core::option::Option<IBaseFilter>, pstart: *mut i64, pstop: *mut i64, wstartcookie: u16, wstopcookie: u16) -> ::windows::core::Result<()>;
     fn AllocCapFile(&mut self, lpstr: super::super::Foundation::PWSTR, dwlsize: u64) -> ::windows::core::Result<()>;
-    fn CopyCaptureFile(&mut self, lpwstrold: super::super::Foundation::PWSTR, lpwstrnew: super::super::Foundation::PWSTR, fallowescabort: i32, pcallback: ::core::option::Option<IAMCopyCaptureFileProgress>) -> ::windows::core::Result<()>;
+    fn CopyCaptureFile(&mut self, lpwstrold: super::super::Foundation::PWSTR, lpwstrnew: super::super::Foundation::PWSTR, fallowescabort: i32, pcallback: &::core::option::Option<IAMCopyCaptureFileProgress>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ICaptureGraphBuilder_Vtbl {
@@ -8971,15 +8971,15 @@ impl ICaptureGraphBuilder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICaptureGraphBuilder2_Impl: Sized {
-    fn SetFiltergraph(&mut self, pfg: ::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
+    fn SetFiltergraph(&mut self, pfg: &::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
     fn GetFiltergraph(&mut self) -> ::windows::core::Result<IGraphBuilder>;
     fn SetOutputFileName(&mut self, ptype: *const ::windows::core::GUID, lpstrfile: super::super::Foundation::PWSTR, ppf: *mut ::core::option::Option<IBaseFilter>, ppsink: *mut ::core::option::Option<IFileSinkFilter>) -> ::windows::core::Result<()>;
-    fn FindInterface(&mut self, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, pf: ::core::option::Option<IBaseFilter>, riid: *const ::windows::core::GUID, ppint: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn RenderStream(&mut self, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, psource: ::core::option::Option<::windows::core::IUnknown>, pfcompressor: ::core::option::Option<IBaseFilter>, pfrenderer: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
-    fn ControlStream(&mut self, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, pfilter: ::core::option::Option<IBaseFilter>, pstart: *const i64, pstop: *const i64, wstartcookie: u16, wstopcookie: u16) -> ::windows::core::Result<()>;
+    fn FindInterface(&mut self, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, pf: &::core::option::Option<IBaseFilter>, riid: *const ::windows::core::GUID, ppint: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RenderStream(&mut self, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, psource: &::core::option::Option<::windows::core::IUnknown>, pfcompressor: &::core::option::Option<IBaseFilter>, pfrenderer: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn ControlStream(&mut self, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, pfilter: &::core::option::Option<IBaseFilter>, pstart: *const i64, pstop: *const i64, wstartcookie: u16, wstopcookie: u16) -> ::windows::core::Result<()>;
     fn AllocCapFile(&mut self, lpstr: super::super::Foundation::PWSTR, dwlsize: u64) -> ::windows::core::Result<()>;
-    fn CopyCaptureFile(&mut self, lpwstrold: super::super::Foundation::PWSTR, lpwstrnew: super::super::Foundation::PWSTR, fallowescabort: i32, pcallback: ::core::option::Option<IAMCopyCaptureFileProgress>) -> ::windows::core::Result<()>;
-    fn FindPin(&mut self, psource: ::core::option::Option<::windows::core::IUnknown>, pindir: PIN_DIRECTION, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, funconnected: super::super::Foundation::BOOL, num: i32) -> ::windows::core::Result<IPin>;
+    fn CopyCaptureFile(&mut self, lpwstrold: super::super::Foundation::PWSTR, lpwstrnew: super::super::Foundation::PWSTR, fallowescabort: i32, pcallback: &::core::option::Option<IAMCopyCaptureFileProgress>) -> ::windows::core::Result<()>;
+    fn FindPin(&mut self, psource: &::core::option::Option<::windows::core::IUnknown>, pindir: PIN_DIRECTION, pcategory: *const ::windows::core::GUID, ptype: *const ::windows::core::GUID, funconnected: super::super::Foundation::BOOL, num: i32) -> ::windows::core::Result<IPin>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ICaptureGraphBuilder2_Vtbl {
@@ -9052,7 +9052,7 @@ impl ICaptureGraphBuilder2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IChannelIDTuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuneRequest_Impl {
     fn ChannelID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetChannelID(&mut self, channelid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetChannelID(&mut self, channelid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IChannelIDTuneRequest_Vtbl {
@@ -9116,13 +9116,13 @@ impl IChannelTuneRequest_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComponent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&mut self) -> ::windows::core::Result<IComponentType>;
-    fn SetType(&mut self, ct: ::core::option::Option<IComponentType>) -> ::windows::core::Result<()>;
+    fn SetType(&mut self, ct: &::core::option::Option<IComponentType>) -> ::windows::core::Result<()>;
     fn DescLangID(&mut self) -> ::windows::core::Result<i32>;
     fn SetDescLangID(&mut self, langid: i32) -> ::windows::core::Result<()>;
     fn Status(&mut self) -> ::windows::core::Result<ComponentStatus>;
     fn SetStatus(&mut self, status: ComponentStatus) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, description: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IComponent>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9216,15 +9216,15 @@ pub trait IComponentType_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Category(&mut self) -> ::windows::core::Result<ComponentCategory>;
     fn SetCategory(&mut self, category: ComponentCategory) -> ::windows::core::Result<()>;
     fn MediaMajorType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMediaMajorType(&mut self, mediamajortype: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMediaMajorType(&mut self, mediamajortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn _MediaMajorType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Set_MediaMajorType(&mut self, mediamajortypeguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn MediaSubType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMediaSubType(&mut self, mediasubtype: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMediaSubType(&mut self, mediasubtype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn _MediaSubType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Set_MediaSubType(&mut self, mediasubtypeguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn MediaFormatType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMediaFormatType(&mut self, mediaformattype: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMediaFormatType(&mut self, mediaformattype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn _MediaFormatType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Set_MediaFormatType(&mut self, mediaformattypeguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn MediaType(&mut self) -> ::windows::core::Result<AM_MEDIA_TYPE>;
@@ -9386,10 +9386,10 @@ pub trait IComponentTypes_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponentTypes(&mut self) -> ::windows::core::Result<IEnumComponentTypes>;
-    fn Item(&mut self, index: super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponentType>;
-    fn SetItem(&mut self, index: super::super::System::Com::VARIANT, componenttype: ::core::option::Option<IComponentType>) -> ::windows::core::Result<()>;
-    fn Add(&mut self, componenttype: ::core::option::Option<IComponentType>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Remove(&mut self, index: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponentType>;
+    fn SetItem(&mut self, index: &super::super::System::Com::VARIANT, componenttype: &::core::option::Option<IComponentType>) -> ::windows::core::Result<()>;
+    fn Add(&mut self, componenttype: &::core::option::Option<IComponentType>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Remove(&mut self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IComponentTypes>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9484,11 +9484,11 @@ pub trait IComponents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponents(&mut self) -> ::windows::core::Result<IEnumComponents>;
-    fn Item(&mut self, index: super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
-    fn Add(&mut self, component: ::core::option::Option<IComponent>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Remove(&mut self, index: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
+    fn Add(&mut self, component: &::core::option::Option<IComponent>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Remove(&mut self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IComponents>;
-    fn SetItem(&mut self, index: super::super::System::Com::VARIANT, ppcomponent: ::core::option::Option<IComponent>) -> ::windows::core::Result<()>;
+    fn SetItem(&mut self, index: &super::super::System::Com::VARIANT, ppcomponent: &::core::option::Option<IComponent>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComponents_Vtbl {
@@ -9582,9 +9582,9 @@ pub trait IComponentsOld_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponents(&mut self) -> ::windows::core::Result<IEnumComponents>;
-    fn Item(&mut self, index: super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
-    fn Add(&mut self, component: ::core::option::Option<IComponent>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Remove(&mut self, index: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
+    fn Add(&mut self, component: &::core::option::Option<IComponent>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Remove(&mut self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IComponents>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9675,7 +9675,7 @@ pub trait IConfigAsfWriter_Impl: Sized {
     fn GetCurrentProfileId(&mut self) -> ::windows::core::Result<u32>;
     fn ConfigureFilterUsingProfileGuid(&mut self, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetCurrentProfileGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn ConfigureFilterUsingProfile(&mut self, pprofile: ::core::option::Option<super::WindowsMediaFormat::IWMProfile>) -> ::windows::core::Result<()>;
+    fn ConfigureFilterUsingProfile(&mut self, pprofile: &::core::option::Option<super::WindowsMediaFormat::IWMProfile>) -> ::windows::core::Result<()>;
     fn GetCurrentProfile(&mut self) -> ::windows::core::Result<super::WindowsMediaFormat::IWMProfile>;
     fn SetIndexMode(&mut self, bindexfile: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetIndexMode(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -9757,7 +9757,7 @@ impl IConfigAsfWriter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_WindowsMediaFormat"))]
 pub trait IConfigAsfWriter2_Impl: Sized + IConfigAsfWriter_Impl {
-    fn StreamNumFromPin(&mut self, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<u16>;
+    fn StreamNumFromPin(&mut self, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<u16>;
     fn SetParam(&mut self, dwparam: u32, dwparam1: u32, dwparam2: u32) -> ::windows::core::Result<()>;
     fn GetParam(&mut self, dwparam: u32, pdwparam1: *mut u32, pdwparam2: *mut u32) -> ::windows::core::Result<()>;
     fn ResetMultiPassState(&mut self) -> ::windows::core::Result<()>;
@@ -9927,13 +9927,13 @@ impl ICreatePropBagOnRegKey_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IDDrawExclModeVideo_Impl: Sized {
-    fn SetDDrawObject(&mut self, pddrawobject: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>) -> ::windows::core::Result<()>;
+    fn SetDDrawObject(&mut self, pddrawobject: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>) -> ::windows::core::Result<()>;
     fn GetDDrawObject(&mut self, ppddrawobject: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>, pbusingexternal: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetDDrawSurface(&mut self, pddrawsurface: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>) -> ::windows::core::Result<()>;
+    fn SetDDrawSurface(&mut self, pddrawsurface: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>) -> ::windows::core::Result<()>;
     fn GetDDrawSurface(&mut self, ppddrawsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, pbusingexternal: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetDrawParameters(&mut self, prcsource: *const super::super::Foundation::RECT, prctarget: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn GetNativeVideoProps(&mut self, pdwvideowidth: *mut u32, pdwvideoheight: *mut u32, pdwpictaspectratiox: *mut u32, pdwpictaspectratioy: *mut u32) -> ::windows::core::Result<()>;
-    fn SetCallbackInterface(&mut self, pcallback: ::core::option::Option<IDDrawExclModeVideoCallback>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetCallbackInterface(&mut self, pcallback: &::core::option::Option<IDDrawExclModeVideoCallback>, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl IDDrawExclModeVideo_Vtbl {
@@ -10184,7 +10184,7 @@ impl IDTFilter2_Vtbl {
 pub trait IDTFilter3_Impl: Sized + IDTFilter_Impl + IDTFilter2_Impl {
     fn GetProtectionType(&mut self) -> ::windows::core::Result<ProtType>;
     fn LicenseHasExpirationDate(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetRights(&mut self, bstrrights: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRights(&mut self, bstrrights: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDTFilter3_Vtbl {
@@ -10537,7 +10537,7 @@ pub trait IDVBSTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn LNBSwitch(&mut self) -> ::windows::core::Result<i32>;
     fn SetLNBSwitch(&mut self, lnbswitch: i32) -> ::windows::core::Result<()>;
     fn InputRange(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetInputRange(&mut self, inputrange: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetInputRange(&mut self, inputrange: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SpectralInversion(&mut self) -> ::windows::core::Result<SpectralInversion>;
     fn SetSpectralInversion(&mut self, spectralinversionval: SpectralInversion) -> ::windows::core::Result<()>;
 }
@@ -10938,7 +10938,7 @@ impl IDVBTuningSpace2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_BAT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetBouquetId(&mut self) -> ::windows::core::Result<u16>;
     fn GetCountOfTableDescriptors(&mut self) -> ::windows::core::Result<u32>;
@@ -11102,7 +11102,7 @@ impl IDVB_BAT_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_DIT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
     fn GetTransitionFlag(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11134,7 +11134,7 @@ impl IDVB_DIT_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_EIT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetServiceId(&mut self) -> ::windows::core::Result<u16>;
     fn GetTransportStreamId(&mut self) -> ::windows::core::Result<u16>;
@@ -11402,7 +11402,7 @@ impl IDVB_EIT2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_NIT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetNetworkId(&mut self) -> ::windows::core::Result<u16>;
     fn GetCountOfTableDescriptors(&mut self) -> ::windows::core::Result<u32>;
@@ -11583,7 +11583,7 @@ impl IDVB_NIT_Vtbl {
     }
 }
 pub trait IDVB_RST_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
     fn GetCountOfRecords(&mut self) -> ::windows::core::Result<u32>;
     fn GetRecordTransportStreamId(&mut self, dwrecordindex: u32) -> ::windows::core::Result<u16>;
     fn GetRecordOriginalNetworkId(&mut self, dwrecordindex: u32) -> ::windows::core::Result<u16>;
@@ -11674,7 +11674,7 @@ impl IDVB_RST_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_SDT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetTransportStreamId(&mut self) -> ::windows::core::Result<u16>;
     fn GetOriginalNetworkId(&mut self) -> ::windows::core::Result<u16>;
@@ -11874,7 +11874,7 @@ impl IDVB_SDT_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDVB_SIT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetCountOfTableDescriptors(&mut self) -> ::windows::core::Result<u32>;
     fn GetTableDescriptorByIndex(&mut self, dwindex: u32) -> ::windows::core::Result<IGenericDescriptor>;
@@ -12031,7 +12031,7 @@ impl IDVB_SIT_Vtbl {
     }
 }
 pub trait IDVB_ST_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
     fn GetDataLength(&mut self) -> ::windows::core::Result<u16>;
     fn GetData(&mut self) -> ::windows::core::Result<*mut u8>;
 }
@@ -12073,7 +12073,7 @@ impl IDVB_ST_Vtbl {
     }
 }
 pub trait IDVB_TDT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
     fn GetUTCTime(&mut self) -> ::windows::core::Result<MPEG_DATE_AND_TIME>;
 }
 impl IDVB_TDT_Vtbl {
@@ -12103,7 +12103,7 @@ impl IDVB_TDT_Vtbl {
     }
 }
 pub trait IDVB_TOT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>) -> ::windows::core::Result<()>;
     fn GetUTCTime(&mut self) -> ::windows::core::Result<MPEG_DATE_AND_TIME>;
     fn GetCountOfTableDescriptors(&mut self) -> ::windows::core::Result<u32>;
     fn GetTableDescriptorByIndex(&mut self, dwindex: u32) -> ::windows::core::Result<IGenericDescriptor>;
@@ -12503,10 +12503,10 @@ impl IDirectDrawMediaSampleAllocator_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IDirectDrawMediaStream_Impl: Sized + IMediaStream_Impl {
     fn GetFormat(&mut self, pddsdcurrent: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, ppdirectdrawpalette: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawPalette>, pddsddesired: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, pdwflags: *mut u32) -> ::windows::core::Result<()>;
-    fn SetFormat(&mut self, pddsurfacedesc: *const super::super::Graphics::DirectDraw::DDSURFACEDESC, pdirectdrawpalette: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawPalette>) -> ::windows::core::Result<()>;
+    fn SetFormat(&mut self, pddsurfacedesc: *const super::super::Graphics::DirectDraw::DDSURFACEDESC, pdirectdrawpalette: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawPalette>) -> ::windows::core::Result<()>;
     fn GetDirectDraw(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectDraw::IDirectDraw>;
-    fn SetDirectDraw(&mut self, pdirectdraw: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>) -> ::windows::core::Result<()>;
-    fn CreateSample(&mut self, psurface: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, prect: *const super::super::Foundation::RECT, dwflags: u32) -> ::windows::core::Result<IDirectDrawStreamSample>;
+    fn SetDirectDraw(&mut self, pdirectdraw: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>) -> ::windows::core::Result<()>;
+    fn CreateSample(&mut self, psurface: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, prect: *const super::super::Foundation::RECT, dwflags: u32) -> ::windows::core::Result<IDirectDrawStreamSample>;
     fn GetTimePerFrame(&mut self) -> ::windows::core::Result<i64>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
@@ -12602,7 +12602,7 @@ pub trait IDirectDrawVideo_Impl: Sized {
     fn GetEmulatedCaps(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectDraw::DDCAPS_DX7>;
     fn GetSurfaceDesc(&mut self, psurfacedesc: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC) -> ::windows::core::Result<()>;
     fn GetFourCCCodes(&mut self, pcount: *mut u32, pcodes: *mut u32) -> ::windows::core::Result<()>;
-    fn SetDirectDraw(&mut self, pdirectdraw: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>) -> ::windows::core::Result<()>;
+    fn SetDirectDraw(&mut self, pdirectdraw: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>) -> ::windows::core::Result<()>;
     fn GetDirectDraw(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectDraw::IDirectDraw>;
     fn GetSurfaceType(&mut self) -> ::windows::core::Result<u32>;
     fn SetDefault(&mut self) -> ::windows::core::Result<()>;
@@ -12756,7 +12756,7 @@ pub trait IDistributorNotify_Impl: Sized {
     fn Stop(&mut self) -> ::windows::core::Result<()>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Run(&mut self, tstart: i64) -> ::windows::core::Result<()>;
-    fn SetSyncSource(&mut self, pclock: ::core::option::Option<super::IReferenceClock>) -> ::windows::core::Result<()>;
+    fn SetSyncSource(&mut self, pclock: &::core::option::Option<super::IReferenceClock>) -> ::windows::core::Result<()>;
     fn NotifyGraphChange(&mut self) -> ::windows::core::Result<()>;
 }
 impl IDistributorNotify_Vtbl {
@@ -13341,9 +13341,9 @@ pub trait IDvbExtendedEventDescriptor_Impl: Sized {
     fn GetLanguageCode(&mut self, pszcode: *mut u8) -> ::windows::core::Result<()>;
     fn GetCountOfRecords(&mut self) -> ::windows::core::Result<u8>;
     fn GetRecordItemW(&mut self, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut super::super::Foundation::BSTR, pbstritem: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetConcatenatedItemW(&mut self, pfollowingdescriptor: ::core::option::Option<IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut super::super::Foundation::BSTR, pbstritem: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetConcatenatedItemW(&mut self, pfollowingdescriptor: &::core::option::Option<IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut super::super::Foundation::BSTR, pbstritem: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetTextW(&mut self, convmode: DVB_STRCONV_MODE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetConcatenatedTextW(&mut self, followingdescriptor: ::core::option::Option<IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetConcatenatedTextW(&mut self, followingdescriptor: &::core::option::Option<IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetRecordItemRawBytes(&mut self, brecordindex: u8, ppbrawitem: *mut *mut u8, pbitemlength: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14582,7 +14582,7 @@ impl IDvbShortEventDescriptor_Vtbl {
     }
 }
 pub trait IDvbSiParser_Impl: Sized {
-    fn Initialize(&mut self, punkmpeg2data: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, punkmpeg2data: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetPAT(&mut self) -> ::windows::core::Result<IPAT>;
     fn GetCAT(&mut self, dwtimeout: u32) -> ::windows::core::Result<ICAT>;
     fn GetPMT(&mut self, pid: u16, pwprogramnumber: *const u16) -> ::windows::core::Result<IPMT>;
@@ -15350,8 +15350,8 @@ pub trait IDvdControl_Impl: Sized {
     fn KaraokeAudioPresentationModeChange(&mut self, ulmode: u32) -> ::windows::core::Result<()>;
     fn VideoModePreferrence(&mut self, ulpreferreddisplaymode: u32) -> ::windows::core::Result<()>;
     fn SetRoot(&mut self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn MouseActivate(&mut self, point: super::super::Foundation::POINT) -> ::windows::core::Result<()>;
-    fn MouseSelect(&mut self, point: super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn MouseActivate(&mut self, point: &super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn MouseSelect(&mut self, point: &super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn ChapterPlayAutoStop(&mut self, ultitle: u32, ulchapter: u32, ulchapterstoplay: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15571,12 +15571,12 @@ pub trait IDvdControl2_Impl: Sized {
     fn SelectKaraokeAudioPresentationMode(&mut self, ulmode: u32) -> ::windows::core::Result<()>;
     fn SelectVideoModePreference(&mut self, ulpreferreddisplaymode: u32) -> ::windows::core::Result<()>;
     fn SetDVDDirectory(&mut self, pszwpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ActivateAtPosition(&mut self, point: super::super::Foundation::POINT) -> ::windows::core::Result<()>;
-    fn SelectAtPosition(&mut self, point: super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn ActivateAtPosition(&mut self, point: &super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn SelectAtPosition(&mut self, point: &super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn PlayChaptersAutoStop(&mut self, ultitle: u32, ulchapter: u32, ulchapterstoplay: u32, dwflags: u32) -> ::windows::core::Result<IDvdCmd>;
     fn AcceptParentalLevelChange(&mut self, baccept: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetOption(&mut self, flag: DVD_OPTION_FLAG, fstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetState(&mut self, pstate: ::core::option::Option<IDvdState>, dwflags: u32) -> ::windows::core::Result<IDvdCmd>;
+    fn SetState(&mut self, pstate: &::core::option::Option<IDvdState>, dwflags: u32) -> ::windows::core::Result<IDvdCmd>;
     fn PlayPeriodInTitleAutoStop(&mut self, ultitle: u32, pstarttime: *mut DVD_HMSF_TIMECODE, pendtime: *mut DVD_HMSF_TIMECODE, dwflags: u32, ppcmd: *mut ::core::option::Option<IDvdCmd>) -> ::windows::core::Result<()>;
     fn SetGPRM(&mut self, ulindex: u32, wvalue: u16, dwflags: u32) -> ::windows::core::Result<IDvdCmd>;
     fn SelectDefaultMenuLanguage(&mut self, language: u32) -> ::windows::core::Result<()>;
@@ -16215,7 +16215,7 @@ pub trait IDvdInfo2_Impl: Sized {
     fn GetDiscID(&mut self, pszwpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<u64>;
     fn GetState(&mut self) -> ::windows::core::Result<IDvdState>;
     fn GetMenuLanguages(&mut self, planguages: *mut u32, ulmaxlanguages: u32, pulactuallanguages: *mut u32) -> ::windows::core::Result<()>;
-    fn GetButtonAtPosition(&mut self, point: super::super::Foundation::POINT) -> ::windows::core::Result<u32>;
+    fn GetButtonAtPosition(&mut self, point: &super::super::Foundation::POINT) -> ::windows::core::Result<u32>;
     fn GetCmdFromEvent(&mut self, lparam1: isize) -> ::windows::core::Result<IDvdCmd>;
     fn GetDefaultMenuLanguage(&mut self) -> ::windows::core::Result<u32>;
     fn GetDefaultAudioLanguage(&mut self, planguage: *mut u32, paudioextension: *mut DVD_AUDIO_LANG_EXT) -> ::windows::core::Result<()>;
@@ -16703,7 +16703,7 @@ impl IESEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IESEventFactory_Impl: Sized {
-    fn CreateESEvent(&mut self, pserviceprovider: ::core::option::Option<::windows::core::IUnknown>, dweventid: u32, guideventtype: ::windows::core::GUID, dweventdatalength: u32, peventdata: *const u8, bstrbaseurl: super::super::Foundation::BSTR, pinitcontext: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IESEvent>;
+    fn CreateESEvent(&mut self, pserviceprovider: &::core::option::Option<::windows::core::IUnknown>, dweventid: u32, guideventtype: &::windows::core::GUID, dweventdatalength: u32, peventdata: *const u8, bstrbaseurl: &super::super::Foundation::BSTR, pinitcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IESEvent>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IESEventFactory_Vtbl {
@@ -16725,7 +16725,7 @@ impl IESEventFactory_Vtbl {
     }
 }
 pub trait IESEventService_Impl: Sized {
-    fn FireESEvent(&mut self, pesevent: ::core::option::Option<IESEvent>) -> ::windows::core::Result<()>;
+    fn FireESEvent(&mut self, pesevent: &::core::option::Option<IESEvent>) -> ::windows::core::Result<()>;
 }
 impl IESEventService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESEventService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IESEventService_Vtbl {
@@ -16740,12 +16740,12 @@ impl IESEventService_Vtbl {
     }
 }
 pub trait IESEventServiceConfiguration_Impl: Sized {
-    fn SetParent(&mut self, peventservice: ::core::option::Option<IESEventService>) -> ::windows::core::Result<()>;
+    fn SetParent(&mut self, peventservice: &::core::option::Option<IESEventService>) -> ::windows::core::Result<()>;
     fn RemoveParent(&mut self) -> ::windows::core::Result<()>;
-    fn SetOwner(&mut self, pesevents: ::core::option::Option<IESEvents>) -> ::windows::core::Result<()>;
+    fn SetOwner(&mut self, pesevents: &::core::option::Option<IESEvents>) -> ::windows::core::Result<()>;
     fn RemoveOwner(&mut self) -> ::windows::core::Result<()>;
-    fn SetGraph(&mut self, pgraph: ::core::option::Option<IFilterGraph>) -> ::windows::core::Result<()>;
-    fn RemoveGraph(&mut self, pgraph: ::core::option::Option<IFilterGraph>) -> ::windows::core::Result<()>;
+    fn SetGraph(&mut self, pgraph: &::core::option::Option<IFilterGraph>) -> ::windows::core::Result<()>;
+    fn RemoveGraph(&mut self, pgraph: &::core::option::Option<IFilterGraph>) -> ::windows::core::Result<()>;
 }
 impl IESEventServiceConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESEventServiceConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IESEventServiceConfiguration_Vtbl {
@@ -16788,7 +16788,7 @@ impl IESEventServiceConfiguration_Vtbl {
     }
 }
 pub trait IESEvents_Impl: Sized {
-    fn OnESEventReceived(&mut self, guideventtype: ::windows::core::GUID, pesevent: ::core::option::Option<IESEvent>) -> ::windows::core::Result<()>;
+    fn OnESEventReceived(&mut self, guideventtype: &::windows::core::GUID, pesevent: &::core::option::Option<IESEvent>) -> ::windows::core::Result<()>;
 }
 impl IESEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IESEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IESEvents_Vtbl {
@@ -18108,10 +18108,10 @@ impl IFileSourceFilter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFilterChain_Impl: Sized {
-    fn StartChain(&mut self, pstartfilter: ::core::option::Option<IBaseFilter>, pendfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
-    fn PauseChain(&mut self, pstartfilter: ::core::option::Option<IBaseFilter>, pendfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
-    fn StopChain(&mut self, pstartfilter: ::core::option::Option<IBaseFilter>, pendfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
-    fn RemoveChain(&mut self, pstartfilter: ::core::option::Option<IBaseFilter>, pendfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn StartChain(&mut self, pstartfilter: &::core::option::Option<IBaseFilter>, pendfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn PauseChain(&mut self, pstartfilter: &::core::option::Option<IBaseFilter>, pendfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn StopChain(&mut self, pstartfilter: &::core::option::Option<IBaseFilter>, pendfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn RemoveChain(&mut self, pstartfilter: &::core::option::Option<IBaseFilter>, pendfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFilterChain_Vtbl {
@@ -18146,13 +18146,13 @@ impl IFilterChain_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFilterGraph_Impl: Sized {
-    fn AddFilter(&mut self, pfilter: ::core::option::Option<IBaseFilter>, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RemoveFilter(&mut self, pfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn AddFilter(&mut self, pfilter: &::core::option::Option<IBaseFilter>, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoveFilter(&mut self, pfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
     fn EnumFilters(&mut self) -> ::windows::core::Result<IEnumFilters>;
     fn FindFilterByName(&mut self, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IBaseFilter>;
-    fn ConnectDirect(&mut self, ppinout: ::core::option::Option<IPin>, ppinin: ::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn Reconnect(&mut self, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
+    fn ConnectDirect(&mut self, ppinout: &::core::option::Option<IPin>, ppinin: &::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn Reconnect(&mut self, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<()>;
+    fn Disconnect(&mut self, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<()>;
     fn SetDefaultSyncSource(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -18220,9 +18220,9 @@ impl IFilterGraph_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFilterGraph2_Impl: Sized + IFilterGraph_Impl + IGraphBuilder_Impl {
-    fn AddSourceFilterForMoniker(&mut self, pmoniker: ::core::option::Option<super::super::System::Com::IMoniker>, pctx: ::core::option::Option<super::super::System::Com::IBindCtx>, lpcwstrfiltername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IBaseFilter>;
-    fn ReconnectEx(&mut self, ppin: ::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn RenderEx(&mut self, ppinout: ::core::option::Option<IPin>, dwflags: u32, pvcontext: *mut u32) -> ::windows::core::Result<()>;
+    fn AddSourceFilterForMoniker(&mut self, pmoniker: &::core::option::Option<super::super::System::Com::IMoniker>, pctx: &::core::option::Option<super::super::System::Com::IBindCtx>, lpcwstrfiltername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IBaseFilter>;
+    fn ReconnectEx(&mut self, ppin: &::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn RenderEx(&mut self, ppinout: &::core::option::Option<IPin>, dwflags: u32, pvcontext: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFilterGraph2_Vtbl {
@@ -18258,7 +18258,7 @@ impl IFilterGraph2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFilterGraph3_Impl: Sized + IFilterGraph_Impl + IGraphBuilder_Impl + IFilterGraph2_Impl {
-    fn SetSyncSourceEx(&mut self, pclockformostoffiltergraph: ::core::option::Option<super::IReferenceClock>, pclockforfilter: ::core::option::Option<super::IReferenceClock>, pfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn SetSyncSourceEx(&mut self, pclockformostoffiltergraph: &::core::option::Option<super::IReferenceClock>, pclockforfilter: &::core::option::Option<super::IReferenceClock>, pfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFilterGraph3_Vtbl {
@@ -18275,14 +18275,14 @@ impl IFilterGraph3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFilterInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn FindPin(&mut self, strpinid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn FindPin(&mut self, strpinid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn VendorInfo(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Filter(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Pins(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn IsFileSource(&mut self) -> ::windows::core::Result<i32>;
     fn Filename(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFilename(&mut self, strfilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFilename(&mut self, strfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFilterInfo_Vtbl {
@@ -18379,14 +18379,14 @@ impl IFilterInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFilterMapper_Impl: Sized {
-    fn RegisterFilter(&mut self, clsid: ::windows::core::GUID, name: super::super::Foundation::PWSTR, dwmerit: u32) -> ::windows::core::Result<()>;
-    fn RegisterFilterInstance(&mut self, clsid: ::windows::core::GUID, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RegisterPin(&mut self, filter: ::windows::core::GUID, name: super::super::Foundation::PWSTR, brendered: super::super::Foundation::BOOL, boutput: super::super::Foundation::BOOL, bzero: super::super::Foundation::BOOL, bmany: super::super::Foundation::BOOL, connectstofilter: ::windows::core::GUID, connectstopin: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RegisterPinType(&mut self, clsfilter: ::windows::core::GUID, strname: super::super::Foundation::PWSTR, clsmajortype: ::windows::core::GUID, clssubtype: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnregisterFilter(&mut self, filter: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnregisterFilterInstance(&mut self, mrid: ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnregisterPin(&mut self, filter: ::windows::core::GUID, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn EnumMatchingFilters(&mut self, ppenum: *mut ::core::option::Option<IEnumRegFilters>, dwmerit: u32, binputneeded: super::super::Foundation::BOOL, clsinmaj: ::windows::core::GUID, clsinsub: ::windows::core::GUID, brender: super::super::Foundation::BOOL, boututneeded: super::super::Foundation::BOOL, clsoutmaj: ::windows::core::GUID, clsoutsub: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterFilter(&mut self, clsid: &::windows::core::GUID, name: super::super::Foundation::PWSTR, dwmerit: u32) -> ::windows::core::Result<()>;
+    fn RegisterFilterInstance(&mut self, clsid: &::windows::core::GUID, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RegisterPin(&mut self, filter: &::windows::core::GUID, name: super::super::Foundation::PWSTR, brendered: super::super::Foundation::BOOL, boutput: super::super::Foundation::BOOL, bzero: super::super::Foundation::BOOL, bmany: super::super::Foundation::BOOL, connectstofilter: &::windows::core::GUID, connectstopin: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterPinType(&mut self, clsfilter: &::windows::core::GUID, strname: super::super::Foundation::PWSTR, clsmajortype: &::windows::core::GUID, clssubtype: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnregisterFilter(&mut self, filter: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnregisterFilterInstance(&mut self, mrid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnregisterPin(&mut self, filter: &::windows::core::GUID, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumMatchingFilters(&mut self, ppenum: *mut ::core::option::Option<IEnumRegFilters>, dwmerit: u32, binputneeded: super::super::Foundation::BOOL, clsinmaj: &::windows::core::GUID, clsinsub: &::windows::core::GUID, brender: super::super::Foundation::BOOL, boututneeded: super::super::Foundation::BOOL, clsoutmaj: &::windows::core::GUID, clsoutsub: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFilterMapper_Vtbl {
@@ -18594,7 +18594,7 @@ pub trait IFullScreenVideo_Impl: Sized {
     fn GetMonitor(&mut self) -> ::windows::core::Result<i32>;
     fn HideOnDeactivate(&mut self, hide: i32) -> ::windows::core::Result<()>;
     fn IsHideOnDeactivate(&mut self) -> ::windows::core::Result<()>;
-    fn SetCaption(&mut self, strcaption: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCaption(&mut self, strcaption: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetCaption(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetDefault(&mut self) -> ::windows::core::Result<()>;
 }
@@ -18906,8 +18906,8 @@ impl IGpnvsCommonBase_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IGraphBuilder_Impl: Sized + IFilterGraph_Impl {
-    fn Connect(&mut self, ppinout: ::core::option::Option<IPin>, ppinin: ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
-    fn Render(&mut self, ppinout: ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, ppinout: &::core::option::Option<IPin>, ppinin: &::core::option::Option<IPin>) -> ::windows::core::Result<()>;
+    fn Render(&mut self, ppinout: &::core::option::Option<IPin>) -> ::windows::core::Result<()>;
     fn RenderFile(&mut self, lpcwstrfile: super::super::Foundation::PWSTR, lpcwstrplaylist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn AddSourceFilter(&mut self, lpcwstrfilename: super::super::Foundation::PWSTR, lpcwstrfiltername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IBaseFilter>;
     fn SetLogFile(&mut self, hfile: usize) -> ::windows::core::Result<()>;
@@ -18968,16 +18968,16 @@ impl IGraphBuilder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IGraphConfig_Impl: Sized {
-    fn Reconnect(&mut self, poutputpin: ::core::option::Option<IPin>, pinputpin: ::core::option::Option<IPin>, pmtfirstconnection: *const AM_MEDIA_TYPE, pusingfilter: ::core::option::Option<IBaseFilter>, habortevent: super::super::Foundation::HANDLE, dwflags: u32) -> ::windows::core::Result<()>;
-    fn Reconfigure(&mut self, pcallback: ::core::option::Option<IGraphConfigCallback>, pvcontext: *mut ::core::ffi::c_void, dwflags: u32, habortevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn AddFilterToCache(&mut self, pfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn Reconnect(&mut self, poutputpin: &::core::option::Option<IPin>, pinputpin: &::core::option::Option<IPin>, pmtfirstconnection: *const AM_MEDIA_TYPE, pusingfilter: &::core::option::Option<IBaseFilter>, habortevent: super::super::Foundation::HANDLE, dwflags: u32) -> ::windows::core::Result<()>;
+    fn Reconfigure(&mut self, pcallback: &::core::option::Option<IGraphConfigCallback>, pvcontext: *mut ::core::ffi::c_void, dwflags: u32, habortevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn AddFilterToCache(&mut self, pfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
     fn EnumCacheFilter(&mut self) -> ::windows::core::Result<IEnumFilters>;
-    fn RemoveFilterFromCache(&mut self, pfilter: ::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
+    fn RemoveFilterFromCache(&mut self, pfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
     fn GetStartTime(&mut self, prtstart: *mut i64) -> ::windows::core::Result<()>;
-    fn PushThroughData(&mut self, poutputpin: ::core::option::Option<IPin>, pconnection: ::core::option::Option<IPinConnection>, heventabort: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetFilterFlags(&mut self, pfilter: ::core::option::Option<IBaseFilter>, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetFilterFlags(&mut self, pfilter: ::core::option::Option<IBaseFilter>, pdwflags: *mut u32) -> ::windows::core::Result<()>;
-    fn RemoveFilterEx(&mut self, pfilter: ::core::option::Option<IBaseFilter>, flags: u32) -> ::windows::core::Result<()>;
+    fn PushThroughData(&mut self, poutputpin: &::core::option::Option<IPin>, pconnection: &::core::option::Option<IPinConnection>, heventabort: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn SetFilterFlags(&mut self, pfilter: &::core::option::Option<IBaseFilter>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetFilterFlags(&mut self, pfilter: &::core::option::Option<IBaseFilter>, pdwflags: *mut u32) -> ::windows::core::Result<()>;
+    fn RemoveFilterEx(&mut self, pfilter: &::core::option::Option<IBaseFilter>, flags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IGraphConfig_Vtbl {
@@ -19085,11 +19085,11 @@ impl IGraphVersion_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGuideData_Impl: Sized {
     fn GetServices(&mut self) -> ::windows::core::Result<IEnumTuneRequests>;
-    fn GetServiceProperties(&mut self, ptunerequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<IEnumGuideDataProperties>;
+    fn GetServiceProperties(&mut self, ptunerequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<IEnumGuideDataProperties>;
     fn GetGuideProgramIDs(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn GetProgramProperties(&mut self, varprogramdescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<IEnumGuideDataProperties>;
+    fn GetProgramProperties(&mut self, varprogramdescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IEnumGuideDataProperties>;
     fn GetScheduleEntryIDs(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn GetScheduleEntryProperties(&mut self, varscheduleentrydescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<IEnumGuideDataProperties>;
+    fn GetScheduleEntryProperties(&mut self, varscheduleentrydescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IEnumGuideDataProperties>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGuideData_Vtbl {
@@ -19171,12 +19171,12 @@ impl IGuideData_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGuideDataEvent_Impl: Sized {
     fn GuideDataAcquired(&mut self) -> ::windows::core::Result<()>;
-    fn ProgramChanged(&mut self, varprogramdescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ServiceChanged(&mut self, varservicedescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ScheduleEntryChanged(&mut self, varscheduleentrydescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ProgramDeleted(&mut self, varprogramdescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ServiceDeleted(&mut self, varservicedescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ScheduleDeleted(&mut self, varscheduleentrydescriptionid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ProgramChanged(&mut self, varprogramdescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ServiceChanged(&mut self, varservicedescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ScheduleEntryChanged(&mut self, varscheduleentrydescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ProgramDeleted(&mut self, varprogramdescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ServiceDeleted(&mut self, varservicedescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ScheduleDeleted(&mut self, varscheduleentrydescriptionid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGuideDataEvent_Vtbl {
@@ -19225,7 +19225,7 @@ impl IGuideDataEvent_Vtbl {
     }
 }
 pub trait IGuideDataLoader_Impl: Sized {
-    fn Init(&mut self, pguidestore: ::core::option::Option<IGuideData>) -> ::windows::core::Result<()>;
+    fn Init(&mut self, pguidestore: &::core::option::Option<IGuideData>) -> ::windows::core::Result<()>;
     fn Terminate(&mut self) -> ::windows::core::Result<()>;
 }
 impl IGuideDataLoader_Vtbl {
@@ -19336,7 +19336,7 @@ impl IISDBSLocator_Vtbl {
     }
 }
 pub trait IISDB_BIT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetOriginalNetworkId(&mut self) -> ::windows::core::Result<u16>;
     fn GetBroadcastViewPropriety(&mut self) -> ::windows::core::Result<u8>;
@@ -19486,7 +19486,7 @@ impl IISDB_BIT_Vtbl {
     }
 }
 pub trait IISDB_CDT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>, bsectionnumber: u8) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>, bsectionnumber: u8) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetDownloadDataId(&mut self) -> ::windows::core::Result<u16>;
     fn GetSectionNumber(&mut self) -> ::windows::core::Result<u8>;
@@ -19630,12 +19630,12 @@ impl IISDB_CDT_Vtbl {
     }
 }
 pub trait IISDB_EMM_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetTableIdExtension(&mut self) -> ::windows::core::Result<u16>;
     fn GetDataBytes(&mut self, pwbufferlength: *mut u16, pbbuffer: *mut u8) -> ::windows::core::Result<()>;
     fn GetSharedEmmMessage(&mut self, pwlength: *mut u16, ppbmessage: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn GetIndividualEmmMessage(&mut self, punknown: ::core::option::Option<::windows::core::IUnknown>, pwlength: *mut u16, ppbmessage: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn GetIndividualEmmMessage(&mut self, punknown: &::core::option::Option<::windows::core::IUnknown>, pwlength: *mut u16, ppbmessage: *mut *mut u8) -> ::windows::core::Result<()>;
     fn GetVersionHash(&mut self) -> ::windows::core::Result<u32>;
 }
 impl IISDB_EMM_Vtbl {
@@ -19702,7 +19702,7 @@ impl IISDB_EMM_Vtbl {
     }
 }
 pub trait IISDB_LDT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetOriginalServiceId(&mut self) -> ::windows::core::Result<u16>;
     fn GetTransportStreamId(&mut self) -> ::windows::core::Result<u16>;
@@ -19834,7 +19834,7 @@ impl IISDB_LDT_Vtbl {
     }
 }
 pub trait IISDB_NBIT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetOriginalNetworkId(&mut self) -> ::windows::core::Result<u16>;
     fn GetCountOfRecords(&mut self) -> ::windows::core::Result<u32>;
@@ -20040,7 +20040,7 @@ impl IISDB_SDT_Vtbl {
     }
 }
 pub trait IISDB_SDTT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetTableIdExt(&mut self) -> ::windows::core::Result<u16>;
     fn GetTransportStreamId(&mut self) -> ::windows::core::Result<u16>;
@@ -22673,7 +22673,7 @@ impl IMPEG2TuneRequest_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMPEG2TuneRequestFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn CreateTuneRequest(&mut self, tuningspace: ::core::option::Option<ITuningSpace>) -> ::windows::core::Result<IMPEG2TuneRequest>;
+    fn CreateTuneRequest(&mut self, tuningspace: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<IMPEG2TuneRequest>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMPEG2TuneRequestFactory_Vtbl {
@@ -22707,7 +22707,7 @@ impl IMPEG2TuneRequestSupport_Vtbl {
     }
 }
 pub trait IMPEG2_TIF_CONTROL_Impl: Sized {
-    fn RegisterTIF(&mut self, punktif: ::core::option::Option<::windows::core::IUnknown>, ppvregistrationcontext: *mut u32) -> ::windows::core::Result<()>;
+    fn RegisterTIF(&mut self, punktif: &::core::option::Option<::windows::core::IUnknown>, ppvregistrationcontext: *mut u32) -> ::windows::core::Result<()>;
     fn UnregisterTIF(&mut self, pvregistrationcontext: u32) -> ::windows::core::Result<()>;
     fn AddPIDs(&mut self, ulcpids: u32, pulpids: *const u32) -> ::windows::core::Result<()>;
     fn DeletePIDs(&mut self, ulcpids: u32, pulpids: *const u32) -> ::windows::core::Result<()>;
@@ -22762,7 +22762,7 @@ impl IMPEG2_TIF_CONTROL_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSEventBinder_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Bind(&mut self, peventobject: ::core::option::Option<super::super::System::Com::IDispatch>, eventname: super::super::Foundation::BSTR, eventhandler: super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn Bind(&mut self, peventobject: &::core::option::Option<super::super::System::Com::IDispatch>, eventname: &super::super::Foundation::BSTR, eventhandler: &super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
     fn Unbind(&mut self, cancelcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -23005,9 +23005,9 @@ impl IMSVidAudioRenderer_Vtbl {
 pub trait IMSVidAudioRendererDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidAudioRenderer>;
-    fn Add(&mut self, pdb: ::core::option::Option<IMSVidAudioRenderer>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidAudioRenderer>;
+    fn Add(&mut self, pdb: &::core::option::Option<IMSVidAudioRenderer>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidAudioRendererDevices_Vtbl {
@@ -23225,7 +23225,7 @@ impl IMSVidClosedCaptioning3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidCompositionSegment_Impl: Sized + super::super::System::Com::IPersist_Impl + IMSVidGraphSegment_Impl {
-    fn Compose(&mut self, upstream: ::core::option::Option<IMSVidGraphSegment>, downstream: ::core::option::Option<IMSVidGraphSegment>) -> ::windows::core::Result<()>;
+    fn Compose(&mut self, upstream: &::core::option::Option<IMSVidGraphSegment>, downstream: &::core::option::Option<IMSVidGraphSegment>) -> ::windows::core::Result<()>;
     fn Up(&mut self) -> ::windows::core::Result<IMSVidGraphSegment>;
     fn Down(&mut self) -> ::windows::core::Result<IMSVidGraphSegment>;
 }
@@ -23285,23 +23285,23 @@ pub trait IMSVidCtl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetMaintainAspectRatio(&mut self, newvalue: i16) -> ::windows::core::Result<()>;
     fn ColorKey(&mut self) -> ::windows::core::Result<u32>;
     fn SetColorKey(&mut self, newvalue: u32) -> ::windows::core::Result<()>;
-    fn InputsAvailable(&mut self, categoryguid: super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidInputDevices>;
-    fn OutputsAvailable(&mut self, categoryguid: super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidOutputDevices>;
+    fn InputsAvailable(&mut self, categoryguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidInputDevices>;
+    fn OutputsAvailable(&mut self, categoryguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidOutputDevices>;
     fn _InputsAvailable(&mut self, categoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IMSVidInputDevices>;
     fn _OutputsAvailable(&mut self, categoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IMSVidOutputDevices>;
     fn VideoRenderersAvailable(&mut self) -> ::windows::core::Result<IMSVidVideoRendererDevices>;
     fn AudioRenderersAvailable(&mut self) -> ::windows::core::Result<IMSVidAudioRendererDevices>;
     fn FeaturesAvailable(&mut self) -> ::windows::core::Result<IMSVidFeatures>;
     fn InputActive(&mut self) -> ::windows::core::Result<IMSVidInputDevice>;
-    fn SetInputActive(&mut self, pval: ::core::option::Option<IMSVidInputDevice>) -> ::windows::core::Result<()>;
+    fn SetInputActive(&mut self, pval: &::core::option::Option<IMSVidInputDevice>) -> ::windows::core::Result<()>;
     fn OutputsActive(&mut self) -> ::windows::core::Result<IMSVidOutputDevices>;
-    fn SetOutputsActive(&mut self, pval: ::core::option::Option<IMSVidOutputDevices>) -> ::windows::core::Result<()>;
+    fn SetOutputsActive(&mut self, pval: &::core::option::Option<IMSVidOutputDevices>) -> ::windows::core::Result<()>;
     fn VideoRendererActive(&mut self) -> ::windows::core::Result<IMSVidVideoRenderer>;
-    fn SetVideoRendererActive(&mut self, pval: ::core::option::Option<IMSVidVideoRenderer>) -> ::windows::core::Result<()>;
+    fn SetVideoRendererActive(&mut self, pval: &::core::option::Option<IMSVidVideoRenderer>) -> ::windows::core::Result<()>;
     fn AudioRendererActive(&mut self) -> ::windows::core::Result<IMSVidAudioRenderer>;
-    fn SetAudioRendererActive(&mut self, pval: ::core::option::Option<IMSVidAudioRenderer>) -> ::windows::core::Result<()>;
+    fn SetAudioRendererActive(&mut self, pval: &::core::option::Option<IMSVidAudioRenderer>) -> ::windows::core::Result<()>;
     fn FeaturesActive(&mut self) -> ::windows::core::Result<IMSVidFeatures>;
-    fn SetFeaturesActive(&mut self, pval: ::core::option::Option<IMSVidFeatures>) -> ::windows::core::Result<()>;
+    fn SetFeaturesActive(&mut self, pval: &::core::option::Option<IMSVidFeatures>) -> ::windows::core::Result<()>;
     fn State(&mut self) -> ::windows::core::Result<MSVidCtlStateList>;
     fn View(&mut self, v: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Build(&mut self) -> ::windows::core::Result<()>;
@@ -23697,7 +23697,7 @@ pub trait IMSVidDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ClassID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn _Category(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn _ClassID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsEqualDevice(&mut self, device: ::core::option::Option<IMSVidDevice>) -> ::windows::core::Result<i16>;
+    fn IsEqualDevice(&mut self, device: &::core::option::Option<IMSVidDevice>) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidDevice_Vtbl {
@@ -23828,7 +23828,7 @@ impl IMSVidDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidDeviceEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn StateChange(&mut self, lpd: ::core::option::Option<IMSVidDevice>, oldstate: i32, newstate: i32) -> ::windows::core::Result<()>;
+    fn StateChange(&mut self, lpd: &::core::option::Option<IMSVidDevice>, oldstate: i32, newstate: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidDeviceEvent_Vtbl {
@@ -23849,7 +23849,7 @@ impl IMSVidDeviceEvent_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidEVR_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidVideoRenderer_Impl {
     fn Presenter(&mut self) -> ::windows::core::Result<super::MediaFoundation::IMFVideoPresenter>;
-    fn SetPresenter(&mut self, pallocpresent: ::core::option::Option<super::MediaFoundation::IMFVideoPresenter>) -> ::windows::core::Result<()>;
+    fn SetPresenter(&mut self, pallocpresent: &::core::option::Option<super::MediaFoundation::IMFVideoPresenter>) -> ::windows::core::Result<()>;
     fn SetSuppressEffects(&mut self, bsuppress: i16) -> ::windows::core::Result<()>;
     fn SuppressEffects(&mut self) -> ::windows::core::Result<i16>;
 }
@@ -23977,9 +23977,9 @@ impl IMSVidFeatureEvent_Vtbl {
 pub trait IMSVidFeatures_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidFeature>;
-    fn Add(&mut self, pdb: ::core::option::Option<IMSVidFeature>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidFeature>;
+    fn Add(&mut self, pdb: &::core::option::Option<IMSVidFeature>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidFeatures_Vtbl {
@@ -24038,7 +24038,7 @@ impl IMSVidFeatures_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidFilePlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl {
     fn FileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFileName(&mut self, filename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFileName(&mut self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidFilePlayback_Vtbl {
@@ -24069,8 +24069,8 @@ impl IMSVidFilePlayback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidFilePlayback2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl + IMSVidFilePlayback_Impl {
-    fn Set_SourceFilter(&mut self, filename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Set__SourceFilter(&mut self, filename: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Set_SourceFilter(&mut self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Set__SourceFilter(&mut self, filename: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidFilePlayback2_Vtbl {
@@ -24106,7 +24106,7 @@ impl IMSVidFilePlaybackEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidGenericSink_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
-    fn SetSinkFilter(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSinkFilter(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SinkStreams(&mut self) -> ::windows::core::Result<MSVidSinkStreams>;
     fn SetSinkStreams(&mut self, streams: MSVidSinkStreams) -> ::windows::core::Result<()>;
 }
@@ -24144,7 +24144,7 @@ impl IMSVidGenericSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidGenericSink2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidGenericSink_Impl {
-    fn AddFilter(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddFilter(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ResetFilterList(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24171,10 +24171,10 @@ impl IMSVidGenericSink2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidGraphSegment_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn Init(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetInit(&mut self, pinit: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetInit(&mut self, pinit: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumFilters(&mut self) -> ::windows::core::Result<IEnumFilters>;
     fn Container(&mut self) -> ::windows::core::Result<IMSVidGraphSegmentContainer>;
-    fn SetContainer(&mut self, pctl: ::core::option::Option<IMSVidGraphSegmentContainer>) -> ::windows::core::Result<()>;
+    fn SetContainer(&mut self, pctl: &::core::option::Option<IMSVidGraphSegmentContainer>) -> ::windows::core::Result<()>;
     fn Type(&mut self) -> ::windows::core::Result<MSVidSegmentType>;
     fn Category(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Build(&mut self) -> ::windows::core::Result<()>;
@@ -24312,7 +24312,7 @@ pub trait IMSVidGraphSegmentContainer_Impl: Sized {
     fn Features(&mut self) -> ::windows::core::Result<IEnumMSVidGraphSegment>;
     fn Composites(&mut self) -> ::windows::core::Result<IEnumMSVidGraphSegment>;
     fn ParentContainer(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Decompose(&mut self, psegment: ::core::option::Option<IMSVidGraphSegment>) -> ::windows::core::Result<()>;
+    fn Decompose(&mut self, psegment: &::core::option::Option<IMSVidGraphSegment>) -> ::windows::core::Result<()>;
     fn IsWindowless(&mut self) -> ::windows::core::Result<()>;
     fn GetFocus(&mut self) -> ::windows::core::Result<()>;
 }
@@ -24537,9 +24537,9 @@ impl IMSVidInputDeviceEvent_Vtbl {
 pub trait IMSVidInputDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidInputDevice>;
-    fn Add(&mut self, pdb: ::core::option::Option<IMSVidInputDevice>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidInputDevice>;
+    fn Add(&mut self, pdb: &::core::option::Option<IMSVidInputDevice>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidInputDevices_Vtbl {
@@ -24621,9 +24621,9 @@ impl IMSVidOutputDeviceEvent_Vtbl {
 pub trait IMSVidOutputDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidOutputDevice>;
-    fn Add(&mut self, pdb: ::core::option::Option<IMSVidOutputDevice>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidOutputDevice>;
+    fn Add(&mut self, pdb: &::core::option::Option<IMSVidOutputDevice>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidOutputDevices_Vtbl {
@@ -24815,7 +24815,7 @@ impl IMSVidPlayback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidPlaybackEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl {
-    fn EndOfMedia(&mut self, lpd: ::core::option::Option<IMSVidPlayback>) -> ::windows::core::Result<()>;
+    fn EndOfMedia(&mut self, lpd: &::core::option::Option<IMSVidPlayback>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidPlaybackEvent_Vtbl {
@@ -24842,7 +24842,7 @@ pub trait IMSVidRect_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetHeight(&mut self, heightval: i32) -> ::windows::core::Result<()>;
     fn HWnd(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn SetHWnd(&mut self, hwndval: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn SetRect(&mut self, rectval: ::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
+    fn SetRect(&mut self, rectval: &::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidRect_Vtbl {
@@ -25040,10 +25040,10 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidStreamBufferSink_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
-    fn ContentRecorder(&mut self, pszfilename: super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
-    fn ReferenceRecorder(&mut self, pszfilename: super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
+    fn ContentRecorder(&mut self, pszfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
+    fn ReferenceRecorder(&mut self, pszfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
     fn SinkName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSinkName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSinkName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn NameSetLock(&mut self) -> ::windows::core::Result<()>;
     fn SBESink(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -25136,17 +25136,17 @@ pub trait IMSVidStreamBufferSink3_Impl: Sized + super::super::System::Com::IDisp
     fn VideoCounter(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn CCCounter(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn WSTCounter(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetAudioAnalysisFilter(&mut self, szclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetAudioAnalysisFilter(&mut self, szclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AudioAnalysisFilter(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Set_AudioAnalysisFilter(&mut self, guid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Set_AudioAnalysisFilter(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn _AudioAnalysisFilter(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetVideoAnalysisFilter(&mut self, szclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetVideoAnalysisFilter(&mut self, szclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn VideoAnalysisFilter(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Set_VideoAnalysisFilter(&mut self, guid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Set_VideoAnalysisFilter(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn _VideoAnalysisFilter(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetDataAnalysisFilter(&mut self, szclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDataAnalysisFilter(&mut self, szclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DataAnalysisFilter(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Set_DataAnalysisFilter(&mut self, guid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Set_DataAnalysisFilter(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn _DataAnalysisFilter(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn LicenseErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
@@ -25647,8 +25647,8 @@ impl IMSVidStreamBufferSourceEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidStreamBufferSourceEvent3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl + IMSVidFilePlaybackEvent_Impl + IMSVidStreamBufferSourceEvent_Impl + IMSVidStreamBufferSourceEvent2_Impl {
-    fn BroadcastEvent(&mut self, guid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BroadcastEventEx(&mut self, guid: super::super::Foundation::BSTR, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
+    fn BroadcastEvent(&mut self, guid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BroadcastEventEx(&mut self, guid: &super::super::Foundation::BSTR, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
     fn COPPBlocked(&mut self) -> ::windows::core::Result<()>;
     fn COPPUnblocked(&mut self) -> ::windows::core::Result<()>;
     fn ContentPrimarilyAudio(&mut self) -> ::windows::core::Result<()>;
@@ -25697,8 +25697,8 @@ pub trait IMSVidStreamBufferV2SourceEvent_Impl: Sized + super::super::System::Co
     fn ContentBecomingStale(&mut self) -> ::windows::core::Result<()>;
     fn StaleFileDeleted(&mut self) -> ::windows::core::Result<()>;
     fn RateChange(&mut self, qwnewrate: f64, qwoldrate: f64) -> ::windows::core::Result<()>;
-    fn BroadcastEvent(&mut self, guid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BroadcastEventEx(&mut self, guid: super::super::Foundation::BSTR, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
+    fn BroadcastEvent(&mut self, guid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BroadcastEventEx(&mut self, guid: &super::super::Foundation::BSTR, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
     fn ContentPrimarilyAudio(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25760,9 +25760,9 @@ impl IMSVidStreamBufferV2SourceEvent_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidTuner_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidVideoInputDevice_Impl {
     fn Tune(&mut self) -> ::windows::core::Result<ITuneRequest>;
-    fn SetTune(&mut self, ptr: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
+    fn SetTune(&mut self, ptr: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
     fn TuningSpace(&mut self) -> ::windows::core::Result<ITuningSpace>;
-    fn SetTuningSpace(&mut self, plts: ::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
+    fn SetTuningSpace(&mut self, plts: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidTuner_Vtbl {
@@ -25809,7 +25809,7 @@ impl IMSVidTuner_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidTunerEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl {
-    fn TuneChanged(&mut self, lpd: ::core::option::Option<IMSVidTuner>) -> ::windows::core::Result<()>;
+    fn TuneChanged(&mut self, lpd: &::core::option::Option<IMSVidTuner>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidTunerEvent_Vtbl {
@@ -25827,7 +25827,7 @@ impl IMSVidTunerEvent_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidVMR9_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidVideoRenderer_Impl {
     fn Allocator_ID(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAllocator(&mut self, allocpresent: ::core::option::Option<::windows::core::IUnknown>, id: i32) -> ::windows::core::Result<()>;
+    fn SetAllocator(&mut self, allocpresent: &::core::option::Option<::windows::core::IUnknown>, id: i32) -> ::windows::core::Result<()>;
     fn SetSuppressEffects(&mut self, bsuppress: i16) -> ::windows::core::Result<()>;
     fn SuppressEffects(&mut self) -> ::windows::core::Result<i16>;
     fn Allocator(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -25898,9 +25898,9 @@ pub trait IMSVidVRGraphSegment_Impl: Sized + super::super::System::Com::IPersist
     fn ColorKey(&mut self) -> ::windows::core::Result<u32>;
     fn SetColorKey(&mut self, colorkey: u32) -> ::windows::core::Result<()>;
     fn Source(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
-    fn SetSource(&mut self, r: super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn SetSource(&mut self, r: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn Destination(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
-    fn SetDestination(&mut self, r: super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn SetDestination(&mut self, r: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn NativeSize(&mut self, sizeval: *mut super::super::Foundation::SIZE, aspectratio: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
     fn BorderColor(&mut self) -> ::windows::core::Result<u32>;
     fn SetBorderColor(&mut self, color: u32) -> ::windows::core::Result<()>;
@@ -26088,20 +26088,20 @@ impl IMSVidVideoInputDevice_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidVideoRenderer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
     fn CustomCompositorClass(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCustomCompositorClass(&mut self, compositorclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCustomCompositorClass(&mut self, compositorclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn _CustomCompositorClass(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Set_CustomCompositorClass(&mut self, compositorclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn _CustomCompositor(&mut self) -> ::windows::core::Result<IVMRImageCompositor>;
-    fn Set_CustomCompositor(&mut self, compositor: ::core::option::Option<IVMRImageCompositor>) -> ::windows::core::Result<()>;
+    fn Set_CustomCompositor(&mut self, compositor: &::core::option::Option<IVMRImageCompositor>) -> ::windows::core::Result<()>;
     fn MixerBitmap(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
     fn _MixerBitmap(&mut self) -> ::windows::core::Result<IVMRMixerBitmap>;
-    fn SetMixerBitmap(&mut self, mixerpicturedisp: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn SetMixerBitmap(&mut self, mixerpicturedisp: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
     fn Set_MixerBitmap(&mut self, mixerpicture: *const VMRALPHABITMAP) -> ::windows::core::Result<()>;
     fn MixerBitmapPositionRect(&mut self) -> ::windows::core::Result<IMSVidRect>;
-    fn SetMixerBitmapPositionRect(&mut self, rdest: ::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
+    fn SetMixerBitmapPositionRect(&mut self, rdest: &::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
     fn MixerBitmapOpacity(&mut self) -> ::windows::core::Result<i32>;
     fn SetMixerBitmapOpacity(&mut self, opacity: i32) -> ::windows::core::Result<()>;
-    fn SetupMixerBitmap(&mut self, mixerpicturedisp: ::core::option::Option<super::super::System::Ole::IPictureDisp>, opacity: i32, rdest: ::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
+    fn SetupMixerBitmap(&mut self, mixerpicturedisp: &::core::option::Option<super::super::System::Ole::IPictureDisp>, opacity: i32, rdest: &::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
     fn SourceSize(&mut self) -> ::windows::core::Result<SourceSizeList>;
     fn SetSourceSize(&mut self, newsize: SourceSizeList) -> ::windows::core::Result<()>;
     fn OverScan(&mut self) -> ::windows::core::Result<i32>;
@@ -26110,7 +26110,7 @@ pub trait IMSVidVideoRenderer_Impl: Sized + super::super::System::Com::IDispatch
     fn MaxVidRect(&mut self) -> ::windows::core::Result<IMSVidRect>;
     fn MinVidRect(&mut self) -> ::windows::core::Result<IMSVidRect>;
     fn ClippedSourceRect(&mut self) -> ::windows::core::Result<IMSVidRect>;
-    fn SetClippedSourceRect(&mut self, prect: ::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
+    fn SetClippedSourceRect(&mut self, prect: &::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
     fn UsingOverlay(&mut self) -> ::windows::core::Result<i16>;
     fn SetUsingOverlay(&mut self, useoverlayval: i16) -> ::windows::core::Result<()>;
     fn Capture(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
@@ -26386,8 +26386,8 @@ pub trait IMSVidVideoRenderer2_Impl: Sized + super::super::System::Com::IDispatc
     fn Allocator(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn _Allocator(&mut self) -> ::windows::core::Result<IVMRSurfaceAllocator>;
     fn Allocator_ID(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAllocator(&mut self, allocpresent: ::core::option::Option<::windows::core::IUnknown>, id: i32) -> ::windows::core::Result<()>;
-    fn _SetAllocator2(&mut self, allocpresent: ::core::option::Option<IVMRSurfaceAllocator>, id: i32) -> ::windows::core::Result<()>;
+    fn SetAllocator(&mut self, allocpresent: &::core::option::Option<::windows::core::IUnknown>, id: i32) -> ::windows::core::Result<()>;
+    fn _SetAllocator2(&mut self, allocpresent: &::core::option::Option<IVMRSurfaceAllocator>, id: i32) -> ::windows::core::Result<()>;
     fn SetSuppressEffects(&mut self, bsuppress: i16) -> ::windows::core::Result<()>;
     fn SuppressEffects(&mut self) -> ::windows::core::Result<i16>;
 }
@@ -26465,9 +26465,9 @@ impl IMSVidVideoRenderer2_Vtbl {
 pub trait IMSVidVideoRendererDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidVideoRenderer>;
-    fn Add(&mut self, pdb: ::core::option::Option<IMSVidVideoRenderer>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, v: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidVideoRenderer>;
+    fn Add(&mut self, pdb: &::core::option::Option<IMSVidVideoRenderer>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidVideoRendererDevices_Vtbl {
@@ -26570,9 +26570,9 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn PlayChapterInTitle(&mut self, ltitle: i32, lchapter: i32) -> ::windows::core::Result<()>;
     fn PlayChapter(&mut self, lchapter: i32) -> ::windows::core::Result<()>;
     fn PlayChaptersAutoStop(&mut self, ltitle: i32, lstrchapter: i32, lchaptercount: i32) -> ::windows::core::Result<()>;
-    fn PlayAtTime(&mut self, strtime: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PlayAtTimeInTitle(&mut self, ltitle: i32, strtime: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PlayPeriodInTitleAutoStop(&mut self, ltitle: i32, strstarttime: super::super::Foundation::BSTR, strendtime: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PlayAtTime(&mut self, strtime: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PlayAtTimeInTitle(&mut self, ltitle: i32, strtime: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PlayPeriodInTitleAutoStop(&mut self, ltitle: i32, strstarttime: &super::super::Foundation::BSTR, strendtime: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ReplayChapter(&mut self) -> ::windows::core::Result<()>;
     fn PlayPrevChapter(&mut self) -> ::windows::core::Result<()>;
     fn PlayNextChapter(&mut self) -> ::windows::core::Result<()>;
@@ -26604,7 +26604,7 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn CurrentTime(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DVDTimeCode2bstr(&mut self, timecode: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DVDDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDVDDirectory(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDVDDirectory(&mut self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IsSubpictureStreamEnabled(&mut self, lstream: i32) -> ::windows::core::Result<i16>;
     fn IsAudioStreamEnabled(&mut self, lstream: i32) -> ::windows::core::Result<i16>;
     fn CurrentSubpictureStream(&mut self) -> ::windows::core::Result<i32>;
@@ -26620,10 +26620,10 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn SubpictureOn(&mut self) -> ::windows::core::Result<i16>;
     fn SetSubpictureOn(&mut self, newval: i16) -> ::windows::core::Result<()>;
     fn DVDUniqueID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AcceptParentalLevelChange(&mut self, faccept: i16, strusername: super::super::Foundation::BSTR, strpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AcceptParentalLevelChange(&mut self, faccept: i16, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn NotifyParentalLevelChange(&mut self, newval: i16) -> ::windows::core::Result<()>;
-    fn SelectParentalCountry(&mut self, lcountry: i32, strusername: super::super::Foundation::BSTR, strpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SelectParentalLevel(&mut self, lparentallevel: i32, strusername: super::super::Foundation::BSTR, strpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SelectParentalCountry(&mut self, lcountry: i32, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SelectParentalLevel(&mut self, lparentallevel: i32, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TitleParentalLevels(&mut self, ltitle: i32) -> ::windows::core::Result<i32>;
     fn PlayerParentalCountry(&mut self) -> ::windows::core::Result<i32>;
     fn PlayerParentalLevel(&mut self) -> ::windows::core::Result<i32>;
@@ -26659,7 +26659,7 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn RestorePreferredSettings(&mut self) -> ::windows::core::Result<()>;
     fn ButtonRect(&mut self, lbutton: i32) -> ::windows::core::Result<IMSVidRect>;
     fn DVDScreenInMouseCoordinates(&mut self) -> ::windows::core::Result<IMSVidRect>;
-    fn SetDVDScreenInMouseCoordinates(&mut self, prect: ::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
+    fn SetDVDScreenInMouseCoordinates(&mut self, prect: &::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidWebDVD_Vtbl {
@@ -27481,10 +27481,10 @@ impl IMSVidWebDVD2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidWebDVDAdm_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ChangePassword(&mut self, strusername: super::super::Foundation::BSTR, strold: super::super::Foundation::BSTR, strnew: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SaveParentalLevel(&mut self, level: i32, strusername: super::super::Foundation::BSTR, strpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SaveParentalCountry(&mut self, country: i32, strusername: super::super::Foundation::BSTR, strpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ConfirmPassword(&mut self, strusername: super::super::Foundation::BSTR, strpassword: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn ChangePassword(&mut self, strusername: &super::super::Foundation::BSTR, strold: &super::super::Foundation::BSTR, strnew: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SaveParentalLevel(&mut self, level: i32, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SaveParentalCountry(&mut self, country: i32, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConfirmPassword(&mut self, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn GetParentalLevel(&mut self) -> ::windows::core::Result<i32>;
     fn GetParentalCountry(&mut self) -> ::windows::core::Result<i32>;
     fn DefaultAudioLCID(&mut self) -> ::windows::core::Result<i32>;
@@ -27621,7 +27621,7 @@ impl IMSVidWebDVDAdm_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidWebDVDEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl {
-    fn DVDNotify(&mut self, leventcode: i32, lparam1: super::super::System::Com::VARIANT, lparam2: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DVDNotify(&mut self, leventcode: i32, lparam1: &super::super::System::Com::VARIANT, lparam2: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PlayForwards(&mut self, benabled: i16) -> ::windows::core::Result<()>;
     fn PlayBackwards(&mut self, benabled: i16) -> ::windows::core::Result<()>;
     fn ShowMenu(&mut self, menuid: DVDMenuIDConstants, benabled: i16) -> ::windows::core::Result<()>;
@@ -27832,8 +27832,8 @@ pub trait IMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
     fn GetState(&mut self, mstimeout: i32) -> ::windows::core::Result<i32>;
-    fn RenderFile(&mut self, strfilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddSourceFilter(&mut self, strfilename: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn RenderFile(&mut self, strfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddSourceFilter(&mut self, strfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn FilterCollection(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn RegFilterCollection(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn StopWhenReady(&mut self) -> ::windows::core::Result<()>;
@@ -28039,7 +28039,7 @@ pub trait IMediaFilter_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Run(&mut self, tstart: i64) -> ::windows::core::Result<()>;
     fn GetState(&mut self, dwmillisecstimeout: u32) -> ::windows::core::Result<FILTER_STATE>;
-    fn SetSyncSource(&mut self, pclock: ::core::option::Option<super::IReferenceClock>) -> ::windows::core::Result<()>;
+    fn SetSyncSource(&mut self, pclock: &::core::option::Option<super::IReferenceClock>) -> ::windows::core::Result<()>;
     fn GetSyncSource(&mut self) -> ::windows::core::Result<super::IReferenceClock>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -28178,7 +28178,7 @@ pub trait IMediaParams_Impl: Sized {
     fn SetParam(&mut self, dwparamindex: u32, value: f32) -> ::windows::core::Result<()>;
     fn AddEnvelope(&mut self, dwparamindex: u32, csegments: u32, penvelopesegments: *const MP_ENVELOPE_SEGMENT) -> ::windows::core::Result<()>;
     fn FlushEnvelope(&mut self, dwparamindex: u32, reftimestart: i64, reftimeend: i64) -> ::windows::core::Result<()>;
-    fn SetTimeFormat(&mut self, guidtimeformat: ::windows::core::GUID, mptimedata: u32) -> ::windows::core::Result<()>;
+    fn SetTimeFormat(&mut self, guidtimeformat: &::windows::core::GUID, mptimedata: u32) -> ::windows::core::Result<()>;
 }
 impl IMediaParams_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaParams_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaParams_Vtbl {
@@ -28703,9 +28703,9 @@ impl IMediaSeeking_Vtbl {
 pub trait IMediaStream_Impl: Sized {
     fn GetMultiMediaStream(&mut self) -> ::windows::core::Result<IMultiMediaStream>;
     fn GetInformation(&mut self, ppurposeid: *mut ::windows::core::GUID, ptype: *mut STREAM_TYPE) -> ::windows::core::Result<()>;
-    fn SetSameFormat(&mut self, pstreamthathasdesiredformat: ::core::option::Option<IMediaStream>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetSameFormat(&mut self, pstreamthathasdesiredformat: &::core::option::Option<IMediaStream>, dwflags: u32) -> ::windows::core::Result<()>;
     fn AllocateSample(&mut self, dwflags: u32) -> ::windows::core::Result<IStreamSample>;
-    fn CreateSharedSample(&mut self, pexistingsample: ::core::option::Option<IStreamSample>, dwflags: u32) -> ::windows::core::Result<IStreamSample>;
+    fn CreateSharedSample(&mut self, pexistingsample: &::core::option::Option<IStreamSample>, dwflags: u32) -> ::windows::core::Result<IStreamSample>;
     fn SendEndOfStream(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 impl IMediaStream_Vtbl {
@@ -28768,7 +28768,7 @@ impl IMediaStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMediaStreamFilter_Impl: Sized + super::super::System::Com::IPersist_Impl + IMediaFilter_Impl + IBaseFilter_Impl {
-    fn AddMediaStream(&mut self, pammediastream: ::core::option::Option<IAMMediaStream>) -> ::windows::core::Result<()>;
+    fn AddMediaStream(&mut self, pammediastream: &::core::option::Option<IAMMediaStream>) -> ::windows::core::Result<()>;
     fn GetMediaStream(&mut self, idpurpose: *const ::windows::core::GUID) -> ::windows::core::Result<IMediaStream>;
     fn EnumMediaStreams(&mut self, index: i32) -> ::windows::core::Result<IMediaStream>;
     fn SupportSeeking(&mut self, brenderer: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -28902,7 +28902,7 @@ pub trait IMemAllocator_Impl: Sized {
     fn Commit(&mut self) -> ::windows::core::Result<()>;
     fn Decommit(&mut self) -> ::windows::core::Result<()>;
     fn GetBuffer(&mut self, ppbuffer: *mut ::core::option::Option<IMediaSample>, pstarttime: *const i64, pendtime: *const i64, dwflags: u32) -> ::windows::core::Result<()>;
-    fn ReleaseBuffer(&mut self, pbuffer: ::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
+    fn ReleaseBuffer(&mut self, pbuffer: &::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
 }
 impl IMemAllocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMemAllocator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMemAllocator_Vtbl {
@@ -28957,7 +28957,7 @@ impl IMemAllocator_Vtbl {
     }
 }
 pub trait IMemAllocatorCallbackTemp_Impl: Sized + IMemAllocator_Impl {
-    fn SetNotify(&mut self, pnotify: ::core::option::Option<IMemAllocatorNotifyCallbackTemp>) -> ::windows::core::Result<()>;
+    fn SetNotify(&mut self, pnotify: &::core::option::Option<IMemAllocatorNotifyCallbackTemp>) -> ::windows::core::Result<()>;
     fn GetFreeCount(&mut self) -> ::windows::core::Result<i32>;
 }
 impl IMemAllocatorCallbackTemp_Vtbl {
@@ -29004,9 +29004,9 @@ impl IMemAllocatorNotifyCallbackTemp_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMemInputPin_Impl: Sized {
     fn GetAllocator(&mut self) -> ::windows::core::Result<IMemAllocator>;
-    fn NotifyAllocator(&mut self, pallocator: ::core::option::Option<IMemAllocator>, breadonly: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn NotifyAllocator(&mut self, pallocator: &::core::option::Option<IMemAllocator>, breadonly: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetAllocatorRequirements(&mut self) -> ::windows::core::Result<ALLOCATOR_PROPERTIES>;
-    fn Receive(&mut self, psample: ::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
+    fn Receive(&mut self, psample: &::core::option::Option<IMediaSample>) -> ::windows::core::Result<()>;
     fn ReceiveMultiple(&mut self, psamples: *const ::core::option::Option<IMediaSample>, nsamples: i32) -> ::windows::core::Result<i32>;
     fn ReceiveCanBlock(&mut self) -> ::windows::core::Result<()>;
 }
@@ -29107,7 +29107,7 @@ pub trait IMixerOCX_Impl: Sized {
     fn GetStatus(&mut self) -> ::windows::core::Result<*mut u32>;
     fn OnDraw(&mut self, hdcdraw: super::super::Graphics::Gdi::HDC, prcdraw: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn SetDrawRegion(&mut self, lppttopleftsc: *const super::super::Foundation::POINT, prcdrawcc: *const super::super::Foundation::RECT, lprcclip: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, pmdns: ::core::option::Option<IMixerOCXNotify>) -> ::windows::core::Result<()>;
+    fn Advise(&mut self, pmdns: &::core::option::Option<IMixerOCXNotify>) -> ::windows::core::Result<()>;
     fn UnAdvise(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -29395,7 +29395,7 @@ impl IMpeg2Demultiplexer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMpeg2Stream_Impl: Sized {
-    fn Initialize(&mut self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: ::core::option::Option<IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: &::core::option::Option<IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn SupplyDataBuffer(&mut self, pstreambuffer: *const MPEG_STREAM_BUFFER) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -29709,7 +29709,7 @@ pub trait IOverlay_Impl: Sized {
     fn GetWindowHandle(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn GetClipList(&mut self, psourcerect: *mut super::super::Foundation::RECT, pdestinationrect: *mut super::super::Foundation::RECT, pprgndata: *mut *mut super::super::Graphics::Gdi::RGNDATA) -> ::windows::core::Result<()>;
     fn GetVideoPosition(&mut self, psourcerect: *mut super::super::Foundation::RECT, pdestinationrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, poverlaynotify: ::core::option::Option<IOverlayNotify>, dwinterests: u32) -> ::windows::core::Result<()>;
+    fn Advise(&mut self, poverlaynotify: &::core::option::Option<IOverlayNotify>, dwinterests: u32) -> ::windows::core::Result<()>;
     fn Unadvise(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -29848,7 +29848,7 @@ impl IOverlayNotify2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPAT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetTransportStreamId(&mut self) -> ::windows::core::Result<u16>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetCountOfRecords(&mut self) -> ::windows::core::Result<u32>;
@@ -30053,7 +30053,7 @@ impl IPBDAEntitlementDescriptor_Vtbl {
     }
 }
 pub trait IPBDASiParser_Impl: Sized {
-    fn Initialize(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetEIT(&mut self, dwsize: u32, pbuffer: *const u8) -> ::windows::core::Result<IPBDA_EIT>;
     fn GetServices(&mut self, dwsize: u32, pbuffer: *const u8) -> ::windows::core::Result<IPBDA_Services>;
 }
@@ -30270,7 +30270,7 @@ impl IPBDA_Services_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetProgramNumber(&mut self) -> ::windows::core::Result<u16>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetPcrPid(&mut self) -> ::windows::core::Result<u16>;
@@ -30512,8 +30512,8 @@ impl IPTFilterLicenseRenewal_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPersistMediaPropertyBag_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn InitNew(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, ppropbag: ::core::option::Option<IMediaPropertyBag>, perrorlog: ::core::option::Option<super::super::System::Com::IErrorLog>) -> ::windows::core::Result<()>;
-    fn Save(&mut self, ppropbag: ::core::option::Option<IMediaPropertyBag>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Load(&mut self, ppropbag: &::core::option::Option<IMediaPropertyBag>, perrorlog: &::core::option::Option<super::super::System::Com::IErrorLog>) -> ::windows::core::Result<()>;
+    fn Save(&mut self, ppropbag: &::core::option::Option<IMediaPropertyBag>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPersistMediaPropertyBag_Vtbl {
@@ -30544,7 +30544,7 @@ impl IPersistMediaPropertyBag_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPersistTuneXml_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn InitNew(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Load(&mut self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -30581,7 +30581,7 @@ impl IPersistTuneXml_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPersistTuneXmlUtility_Impl: Sized {
-    fn Deserialize(&mut self, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Deserialize(&mut self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPersistTuneXmlUtility_Vtbl {
@@ -30604,7 +30604,7 @@ impl IPersistTuneXmlUtility_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPersistTuneXmlUtility2_Impl: Sized + IPersistTuneXmlUtility_Impl {
-    fn Serialize(&mut self, pitunerequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Serialize(&mut self, pitunerequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPersistTuneXmlUtility2_Vtbl {
@@ -30627,8 +30627,8 @@ impl IPersistTuneXmlUtility2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPin_Impl: Sized {
-    fn Connect(&mut self, preceivepin: ::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn ReceiveConnection(&mut self, pconnector: ::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, preceivepin: &::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn ReceiveConnection(&mut self, pconnector: &::core::option::Option<IPin>, pmt: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
     fn Disconnect(&mut self) -> ::windows::core::Result<()>;
     fn ConnectedTo(&mut self) -> ::windows::core::Result<IPin>;
     fn ConnectionMediaType(&mut self) -> ::windows::core::Result<AM_MEDIA_TYPE>;
@@ -30830,9 +30830,9 @@ pub trait IPinInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Direction(&mut self) -> ::windows::core::Result<i32>;
     fn PinID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn MediaTypes(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn Connect(&mut self, ppin: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ConnectDirect(&mut self, ppin: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ConnectWithType(&mut self, ppin: ::core::option::Option<::windows::core::IUnknown>, pmediatype: ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, ppin: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ConnectDirect(&mut self, ppin: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ConnectWithType(&mut self, ppin: &::core::option::Option<::windows::core::IUnknown>, pmediatype: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Disconnect(&mut self) -> ::windows::core::Result<()>;
     fn Render(&mut self) -> ::windows::core::Result<()>;
 }
@@ -31046,8 +31046,8 @@ impl IQualProp_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IQualityControl_Impl: Sized {
-    fn Notify(&mut self, pself: ::core::option::Option<IBaseFilter>, q: Quality) -> ::windows::core::Result<()>;
-    fn SetSink(&mut self, piqc: ::core::option::Option<IQualityControl>) -> ::windows::core::Result<()>;
+    fn Notify(&mut self, pself: &::core::option::Option<IBaseFilter>, q: &Quality) -> ::windows::core::Result<()>;
+    fn SetSink(&mut self, piqc: &::core::option::Option<IQualityControl>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IQualityControl_Vtbl {
@@ -31131,7 +31131,7 @@ impl IRegFilterInfo_Vtbl {
     }
 }
 pub trait IRegisterServiceProvider_Impl: Sized {
-    fn RegisterService(&mut self, guidservice: *const ::windows::core::GUID, punkobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RegisterService(&mut self, guidservice: *const ::windows::core::GUID, punkobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IRegisterServiceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterServiceProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRegisterServiceProvider_Vtbl {
@@ -31146,7 +31146,7 @@ impl IRegisterServiceProvider_Vtbl {
     }
 }
 pub trait IRegisterTuner_Impl: Sized {
-    fn Register(&mut self, ptuner: ::core::option::Option<ITuner>, pgraph: ::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
+    fn Register(&mut self, ptuner: &::core::option::Option<ITuner>, pgraph: &::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
     fn Unregister(&mut self) -> ::windows::core::Result<()>;
 }
 impl IRegisterTuner_Vtbl {
@@ -31197,12 +31197,12 @@ impl IResourceConsumer_Vtbl {
 pub trait IResourceManager_Impl: Sized {
     fn Register(&mut self, pname: super::super::Foundation::PWSTR, cresource: i32) -> ::windows::core::Result<i32>;
     fn RegisterGroup(&mut self, pname: super::super::Foundation::PWSTR, cresource: i32, paltokens: *const i32) -> ::windows::core::Result<i32>;
-    fn RequestResource(&mut self, idresource: i32, pfocusobject: ::core::option::Option<::windows::core::IUnknown>, pconsumer: ::core::option::Option<IResourceConsumer>) -> ::windows::core::Result<()>;
-    fn NotifyAcquire(&mut self, idresource: i32, pconsumer: ::core::option::Option<IResourceConsumer>, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn NotifyRelease(&mut self, idresource: i32, pconsumer: ::core::option::Option<IResourceConsumer>, bstillwant: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn CancelRequest(&mut self, idresource: i32, pconsumer: ::core::option::Option<IResourceConsumer>) -> ::windows::core::Result<()>;
-    fn SetFocus(&mut self, pfocusobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ReleaseFocus(&mut self, pfocusobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RequestResource(&mut self, idresource: i32, pfocusobject: &::core::option::Option<::windows::core::IUnknown>, pconsumer: &::core::option::Option<IResourceConsumer>) -> ::windows::core::Result<()>;
+    fn NotifyAcquire(&mut self, idresource: i32, pconsumer: &::core::option::Option<IResourceConsumer>, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn NotifyRelease(&mut self, idresource: i32, pconsumer: &::core::option::Option<IResourceConsumer>, bstillwant: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn CancelRequest(&mut self, idresource: i32, pconsumer: &::core::option::Option<IResourceConsumer>) -> ::windows::core::Result<()>;
+    fn SetFocus(&mut self, pfocusobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReleaseFocus(&mut self, pfocusobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IResourceManager_Vtbl {
@@ -31270,7 +31270,7 @@ impl IResourceManager_Vtbl {
 pub trait ISBE2Crossbar_Impl: Sized {
     fn EnableDefaultMode(&mut self, defaultflags: u32) -> ::windows::core::Result<()>;
     fn GetInitialProfile(&mut self) -> ::windows::core::Result<ISBE2MediaTypeProfile>;
-    fn SetOutputProfile(&mut self, pprofile: ::core::option::Option<ISBE2MediaTypeProfile>, pcoutputpins: *mut u32, ppoutputpins: *mut ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
+    fn SetOutputProfile(&mut self, pprofile: &::core::option::Option<ISBE2MediaTypeProfile>, pcoutputpins: *mut u32, ppoutputpins: *mut ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
     fn EnumStreams(&mut self) -> ::windows::core::Result<ISBE2EnumStream>;
 }
 impl ISBE2Crossbar_Vtbl {
@@ -31511,7 +31511,7 @@ impl ISBE2StreamMap_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISCTE_EAS_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetSequencyNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetProtocolVersion(&mut self) -> ::windows::core::Result<u8>;
@@ -31521,7 +31521,7 @@ pub trait ISCTE_EAS_Impl: Sized {
     fn GetEASEventCode(&mut self) -> ::windows::core::Result<u8>;
     fn GetRawNatureOfActivationTextLen(&mut self) -> ::windows::core::Result<u8>;
     fn GetRawNatureOfActivationText(&mut self) -> ::windows::core::Result<u8>;
-    fn GetNatureOfActivationText(&mut self, bstris0639code: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetNatureOfActivationText(&mut self, bstris0639code: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetTimeRemaining(&mut self) -> ::windows::core::Result<u8>;
     fn GetStartTime(&mut self) -> ::windows::core::Result<u32>;
     fn GetDuration(&mut self) -> ::windows::core::Result<u16>;
@@ -31530,7 +31530,7 @@ pub trait ISCTE_EAS_Impl: Sized {
     fn GetDetailsMajor(&mut self) -> ::windows::core::Result<u16>;
     fn GetDetailsMinor(&mut self) -> ::windows::core::Result<u16>;
     fn GetDetailsAudioOOBSourceID(&mut self) -> ::windows::core::Result<u16>;
-    fn GetAlertText(&mut self, bstris0639code: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetAlertText(&mut self, bstris0639code: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetRawAlertTextLen(&mut self) -> ::windows::core::Result<u16>;
     fn GetRawAlertText(&mut self) -> ::windows::core::Result<u8>;
     fn GetLocationCount(&mut self) -> ::windows::core::Result<u8>;
@@ -31886,7 +31886,7 @@ impl ISIInbandEPG_Vtbl {
     }
 }
 pub trait ISIInbandEPGEvent_Impl: Sized {
-    fn SIObjectEvent(&mut self, pidvb_eit: ::core::option::Option<IDVB_EIT2>, dwtable_id: u32, dwservice_id: u32) -> ::windows::core::Result<()>;
+    fn SIObjectEvent(&mut self, pidvb_eit: &::core::option::Option<IDVB_EIT2>, dwtable_id: u32, dwservice_id: u32) -> ::windows::core::Result<()>;
 }
 impl ISIInbandEPGEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISIInbandEPGEvent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISIInbandEPGEvent_Vtbl {
@@ -31952,7 +31952,7 @@ pub trait IScanningTunerEx_Impl: Sized + ITuner_Impl + IScanningTuner_Impl {
     fn ResumeCurrentScan(&mut self, hevent: usize) -> ::windows::core::Result<()>;
     fn GetTunerScanningCapability(&mut self, hardwareassistedscanning: *mut i32, numstandardssupported: *mut i32, broadcaststandards: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetTunerStatus(&mut self, secondsleft: *mut i32, currentlocktype: *mut i32, autodetect: *mut i32, currentfreq: *mut i32) -> ::windows::core::Result<()>;
-    fn GetCurrentTunerStandardCapability(&mut self, currentbroadcaststandard: ::windows::core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> ::windows::core::Result<()>;
+    fn GetCurrentTunerStandardCapability(&mut self, currentbroadcaststandard: &::windows::core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> ::windows::core::Result<()>;
     fn SetScanSignalTypeFilter(&mut self, scanmodulationtypes: i32, analogvideostandard: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -32014,7 +32014,7 @@ impl IScanningTunerEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISectionList_Impl: Sized {
-    fn Initialize(&mut self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: ::core::option::Option<IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: &::core::option::Option<IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn InitializeWithRawSections(&mut self, pmplsections: *const MPEG_PACKET_LIST) -> ::windows::core::Result<()>;
     fn CancelPendingRequest(&mut self) -> ::windows::core::Result<()>;
     fn GetNumberOfSections(&mut self) -> ::windows::core::Result<u16>;
@@ -32076,7 +32076,7 @@ impl ISectionList_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISeekingPassThru_Impl: Sized {
-    fn Init(&mut self, bsupportrendering: super::super::Foundation::BOOL, ppin: ::core::option::Option<IPin>) -> ::windows::core::Result<()>;
+    fn Init(&mut self, bsupportrendering: super::super::Foundation::BOOL, ppin: &::core::option::Option<IPin>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISeekingPassThru_Vtbl {
@@ -32675,7 +32675,7 @@ impl IStreamBufferSink3_Vtbl {
     }
 }
 pub trait IStreamBufferSource_Impl: Sized {
-    fn SetStreamSink(&mut self, pistreambuffersink: ::core::option::Option<IStreamBufferSink>) -> ::windows::core::Result<()>;
+    fn SetStreamSink(&mut self, pistreambuffersink: &::core::option::Option<IStreamBufferSink>) -> ::windows::core::Result<()>;
 }
 impl IStreamBufferSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamBufferSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamBufferSource_Vtbl {
@@ -32690,8 +32690,8 @@ impl IStreamBufferSource_Vtbl {
     }
 }
 pub trait IStreamBuilder_Impl: Sized {
-    fn Render(&mut self, ppinout: ::core::option::Option<IPin>, pgraph: ::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
-    fn Backout(&mut self, ppinout: ::core::option::Option<IPin>, pgraph: ::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
+    fn Render(&mut self, ppinout: &::core::option::Option<IPin>, pgraph: &::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
+    fn Backout(&mut self, ppinout: &::core::option::Option<IPin>, pgraph: &::core::option::Option<IGraphBuilder>) -> ::windows::core::Result<()>;
 }
 impl IStreamBuilder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamBuilder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamBuilder_Vtbl {
@@ -32714,7 +32714,7 @@ pub trait IStreamSample_Impl: Sized {
     fn GetMediaStream(&mut self, ppmediastream: *const ::core::option::Option<IMediaStream>) -> ::windows::core::Result<()>;
     fn GetSampleTimes(&mut self, pstarttime: *mut i64, pendtime: *mut i64, pcurrenttime: *mut i64) -> ::windows::core::Result<()>;
     fn SetSampleTimes(&mut self, pstarttime: *const i64, pendtime: *const i64) -> ::windows::core::Result<()>;
-    fn Update(&mut self, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows::core::Result<()>;
+    fn Update(&mut self, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: &super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows::core::Result<()>;
     fn CompletionStatus(&mut self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -32755,7 +32755,7 @@ impl IStreamSample_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSDT_Impl: Sized {
-    fn Initialize(&mut self, psectionlist: ::core::option::Option<ISectionList>, pmpegdata: ::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, psectionlist: &::core::option::Option<ISectionList>, pmpegdata: &::core::option::Option<IMpeg2Data>) -> ::windows::core::Result<()>;
     fn GetVersionNumber(&mut self) -> ::windows::core::Result<u8>;
     fn GetCountOfTableDescriptors(&mut self) -> ::windows::core::Result<u32>;
     fn GetTableDescriptorByIndex(&mut self, dwindex: u32) -> ::windows::core::Result<IGenericDescriptor>;
@@ -32851,7 +32851,7 @@ pub trait ITuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Components(&mut self) -> ::windows::core::Result<IComponents>;
     fn Clone(&mut self) -> ::windows::core::Result<ITuneRequest>;
     fn Locator(&mut self) -> ::windows::core::Result<ILocator>;
-    fn SetLocator(&mut self, locator: ::core::option::Option<ILocator>) -> ::windows::core::Result<()>;
+    fn SetLocator(&mut self, locator: &::core::option::Option<ILocator>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITuneRequest_Vtbl {
@@ -32915,13 +32915,13 @@ impl ITuneRequest_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuneRequestInfo_Impl: Sized {
-    fn GetLocatorData(&mut self, request: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
-    fn GetComponentData(&mut self, currentrequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
-    fn CreateComponentList(&mut self, currentrequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
-    fn GetNextProgram(&mut self, currentrequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
-    fn GetPreviousProgram(&mut self, currentrequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
-    fn GetNextLocator(&mut self, currentrequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
-    fn GetPreviousLocator(&mut self, currentrequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
+    fn GetLocatorData(&mut self, request: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
+    fn GetComponentData(&mut self, currentrequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
+    fn CreateComponentList(&mut self, currentrequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
+    fn GetNextProgram(&mut self, currentrequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
+    fn GetPreviousProgram(&mut self, currentrequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
+    fn GetNextLocator(&mut self, currentrequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
+    fn GetPreviousLocator(&mut self, currentrequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<ITuneRequest>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITuneRequestInfo_Vtbl {
@@ -32995,7 +32995,7 @@ impl ITuneRequestInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuneRequestInfoEx_Impl: Sized + ITuneRequestInfo_Impl {
-    fn CreateComponentListEx(&mut self, currentrequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateComponentListEx(&mut self, currentrequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITuneRequestInfoEx_Vtbl {
@@ -33022,13 +33022,13 @@ impl ITuneRequestInfoEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuner_Impl: Sized {
     fn TuningSpace(&mut self) -> ::windows::core::Result<ITuningSpace>;
-    fn SetTuningSpace(&mut self, tuningspace: ::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
+    fn SetTuningSpace(&mut self, tuningspace: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
     fn EnumTuningSpaces(&mut self) -> ::windows::core::Result<IEnumTuningSpaces>;
     fn TuneRequest(&mut self) -> ::windows::core::Result<ITuneRequest>;
-    fn SetTuneRequest(&mut self, tunerequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
-    fn Validate(&mut self, tunerequest: ::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
+    fn SetTuneRequest(&mut self, tunerequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
+    fn Validate(&mut self, tunerequest: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
     fn PreferredComponentTypes(&mut self) -> ::windows::core::Result<IComponentTypes>;
-    fn SetPreferredComponentTypes(&mut self, componenttypes: ::core::option::Option<IComponentTypes>) -> ::windows::core::Result<()>;
+    fn SetPreferredComponentTypes(&mut self, componenttypes: &::core::option::Option<IComponentTypes>) -> ::windows::core::Result<()>;
     fn SignalStrength(&mut self) -> ::windows::core::Result<i32>;
     fn TriggerSignalEvents(&mut self, interval: i32) -> ::windows::core::Result<()>;
 }
@@ -33177,23 +33177,23 @@ impl ITunerCapEx_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UniqueName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetUniqueName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetUniqueName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FriendlyName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFriendlyName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFriendlyName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CLSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn NetworkType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNetworkType(&mut self, networktypeguid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetNetworkType(&mut self, networktypeguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn _NetworkType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Set_NetworkType(&mut self, networktypeguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn CreateTuneRequest(&mut self) -> ::windows::core::Result<ITuneRequest>;
     fn EnumCategoryGUIDs(&mut self) -> ::windows::core::Result<super::super::System::Com::IEnumGUID>;
     fn EnumDeviceMonikers(&mut self) -> ::windows::core::Result<super::super::System::Com::IEnumMoniker>;
     fn DefaultPreferredComponentTypes(&mut self) -> ::windows::core::Result<IComponentTypes>;
-    fn SetDefaultPreferredComponentTypes(&mut self, newcomponenttypes: ::core::option::Option<IComponentTypes>) -> ::windows::core::Result<()>;
+    fn SetDefaultPreferredComponentTypes(&mut self, newcomponenttypes: &::core::option::Option<IComponentTypes>) -> ::windows::core::Result<()>;
     fn FrequencyMapping(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFrequencyMapping(&mut self, mapping: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFrequencyMapping(&mut self, mapping: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DefaultLocator(&mut self) -> ::windows::core::Result<ILocator>;
-    fn SetDefaultLocator(&mut self, locatorval: ::core::option::Option<ILocator>) -> ::windows::core::Result<()>;
+    fn SetDefaultLocator(&mut self, locatorval: &::core::option::Option<ILocator>) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<ITuningSpace>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33378,15 +33378,15 @@ impl ITuningSpace_Vtbl {
 pub trait ITuningSpaceContainer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
-    fn SetItem(&mut self, varindex: super::super::System::Com::VARIANT, tuningspace: ::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
-    fn TuningSpacesForCLSID(&mut self, spaceclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<ITuningSpaces>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
+    fn SetItem(&mut self, varindex: &super::super::System::Com::VARIANT, tuningspace: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
+    fn TuningSpacesForCLSID(&mut self, spaceclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITuningSpaces>;
     fn _TuningSpacesForCLSID2(&mut self, spaceclsid: *const ::windows::core::GUID) -> ::windows::core::Result<ITuningSpaces>;
-    fn TuningSpacesForName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<ITuningSpaces>;
-    fn FindID(&mut self, tuningspace: ::core::option::Option<ITuningSpace>) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, tuningspace: ::core::option::Option<ITuningSpace>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn TuningSpacesForName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITuningSpaces>;
+    fn FindID(&mut self, tuningspace: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<i32>;
+    fn Add(&mut self, tuningspace: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumTuningSpaces(&mut self) -> ::windows::core::Result<IEnumTuningSpaces>;
-    fn Remove(&mut self, index: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MaxCount(&mut self) -> ::windows::core::Result<i32>;
     fn SetMaxCount(&mut self, maxcount: i32) -> ::windows::core::Result<()>;
 }
@@ -33530,7 +33530,7 @@ impl ITuningSpaceContainer_Vtbl {
 pub trait ITuningSpaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
     fn EnumTuningSpaces(&mut self) -> ::windows::core::Result<IEnumTuningSpaces>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33777,7 +33777,7 @@ impl IVMRDeinterlaceControl9_Vtbl {
     }
 }
 pub trait IVMRFilterConfig_Impl: Sized {
-    fn SetImageCompositor(&mut self, lpvmrimgcompositor: ::core::option::Option<IVMRImageCompositor>) -> ::windows::core::Result<()>;
+    fn SetImageCompositor(&mut self, lpvmrimgcompositor: &::core::option::Option<IVMRImageCompositor>) -> ::windows::core::Result<()>;
     fn SetNumberOfStreams(&mut self, dwmaxstreams: u32) -> ::windows::core::Result<()>;
     fn GetNumberOfStreams(&mut self, pdwmaxstreams: *mut u32) -> ::windows::core::Result<()>;
     fn SetRenderingPrefs(&mut self, dwrenderflags: u32) -> ::windows::core::Result<()>;
@@ -33831,7 +33831,7 @@ impl IVMRFilterConfig_Vtbl {
     }
 }
 pub trait IVMRFilterConfig9_Impl: Sized {
-    fn SetImageCompositor(&mut self, lpvmrimgcompositor: ::core::option::Option<IVMRImageCompositor9>) -> ::windows::core::Result<()>;
+    fn SetImageCompositor(&mut self, lpvmrimgcompositor: &::core::option::Option<IVMRImageCompositor9>) -> ::windows::core::Result<()>;
     fn SetNumberOfStreams(&mut self, dwmaxstreams: u32) -> ::windows::core::Result<()>;
     fn GetNumberOfStreams(&mut self) -> ::windows::core::Result<u32>;
     fn SetRenderingPrefs(&mut self, dwrenderflags: u32) -> ::windows::core::Result<()>;
@@ -33904,10 +33904,10 @@ impl IVMRFilterConfig9_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IVMRImageCompositor_Impl: Sized {
-    fn InitCompositionTarget(&mut self, pd3ddevice: ::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
-    fn TermCompositionTarget(&mut self, pd3ddevice: ::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
+    fn InitCompositionTarget(&mut self, pd3ddevice: &::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
+    fn TermCompositionTarget(&mut self, pd3ddevice: &::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
     fn SetStreamMediaType(&mut self, dwstrmid: u32, pmt: *mut AM_MEDIA_TYPE, ftexture: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn CompositeImage(&mut self, pd3ddevice: ::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>, pmtrendertarget: *mut AM_MEDIA_TYPE, rtstart: i64, rtend: i64, dwclrbkgnd: u32, pvideostreaminfo: *mut VMRVIDEOSTREAMINFO, cstreams: u32) -> ::windows::core::Result<()>;
+    fn CompositeImage(&mut self, pd3ddevice: &::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>, pmtrendertarget: *mut AM_MEDIA_TYPE, rtstart: i64, rtend: i64, dwclrbkgnd: u32, pvideostreaminfo: *mut VMRVIDEOSTREAMINFO, cstreams: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl IVMRImageCompositor_Vtbl {
@@ -33942,10 +33942,10 @@ impl IVMRImageCompositor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IVMRImageCompositor9_Impl: Sized {
-    fn InitCompositionDevice(&mut self, pd3ddevice: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn TermCompositionDevice(&mut self, pd3ddevice: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn InitCompositionDevice(&mut self, pd3ddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn TermCompositionDevice(&mut self, pd3ddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetStreamMediaType(&mut self, dwstrmid: u32, pmt: *const AM_MEDIA_TYPE, ftexture: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn CompositeImage(&mut self, pd3ddevice: ::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pmtrendertarget: *const AM_MEDIA_TYPE, rtstart: i64, rtend: i64, dwclrbkgnd: u32, pvideostreaminfo: *const VMR9VideoStreamInfo, cstreams: u32) -> ::windows::core::Result<()>;
+    fn CompositeImage(&mut self, pd3ddevice: &::core::option::Option<::windows::core::IUnknown>, pddsrendertarget: &::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pmtrendertarget: *const AM_MEDIA_TYPE, rtstart: i64, rtend: i64, dwclrbkgnd: u32, pvideostreaminfo: *const VMR9VideoStreamInfo, cstreams: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IVMRImageCompositor9_Vtbl {
@@ -34098,7 +34098,7 @@ impl IVMRImagePresenterConfig9_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub trait IVMRImagePresenterExclModeConfig_Impl: Sized + IVMRImagePresenterConfig_Impl {
-    fn SetXlcModeDDObjAndPrimarySurface(&mut self, lpddobj: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, lpprimarysurf: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
+    fn SetXlcModeDDObjAndPrimarySurface(&mut self, lpddobj: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, lpprimarysurf: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
     fn GetXlcModeDDObjAndPrimarySurface(&mut self, lpddobj: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, lpprimarysurf: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -34576,8 +34576,8 @@ impl IVMRSurface9_Vtbl {
 pub trait IVMRSurfaceAllocator_Impl: Sized {
     fn AllocateSurface(&mut self, dwuserid: usize, lpallocinfo: *mut VMRALLOCATIONINFO, lpdwactualbuffers: *mut u32, lplpsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows::core::Result<()>;
     fn FreeSurface(&mut self, dwid: usize) -> ::windows::core::Result<()>;
-    fn PrepareSurface(&mut self, dwuserid: usize, lpsurface: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>, dwsurfaceflags: u32) -> ::windows::core::Result<()>;
-    fn AdviseNotify(&mut self, lpivmrsurfallocnotify: ::core::option::Option<IVMRSurfaceAllocatorNotify>) -> ::windows::core::Result<()>;
+    fn PrepareSurface(&mut self, dwuserid: usize, lpsurface: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>, dwsurfaceflags: u32) -> ::windows::core::Result<()>;
+    fn AdviseNotify(&mut self, lpivmrsurfallocnotify: &::core::option::Option<IVMRSurfaceAllocatorNotify>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl IVMRSurfaceAllocator_Vtbl {
@@ -34615,7 +34615,7 @@ pub trait IVMRSurfaceAllocator9_Impl: Sized {
     fn InitializeDevice(&mut self, dwuserid: usize, lpallocinfo: *const VMR9AllocationInfo, lpnumbuffers: *mut u32) -> ::windows::core::Result<()>;
     fn TerminateDevice(&mut self, dwid: usize) -> ::windows::core::Result<()>;
     fn GetSurface(&mut self, dwuserid: usize, surfaceindex: u32, surfaceflags: u32) -> ::windows::core::Result<super::super::Graphics::Direct3D9::IDirect3DSurface9>;
-    fn AdviseNotify(&mut self, lpivmrsurfallocnotify: ::core::option::Option<IVMRSurfaceAllocatorNotify9>) -> ::windows::core::Result<()>;
+    fn AdviseNotify(&mut self, lpivmrsurfallocnotify: &::core::option::Option<IVMRSurfaceAllocatorNotify9>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IVMRSurfaceAllocator9_Vtbl {
@@ -34673,9 +34673,9 @@ impl IVMRSurfaceAllocatorEx9_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRSurfaceAllocatorNotify_Impl: Sized {
-    fn AdviseSurfaceAllocator(&mut self, dwuserid: usize, lpivrmsurfaceallocator: ::core::option::Option<IVMRSurfaceAllocator>) -> ::windows::core::Result<()>;
-    fn SetDDrawDevice(&mut self, lpddrawdevice: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
-    fn ChangeDDrawDevice(&mut self, lpddrawdevice: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
+    fn AdviseSurfaceAllocator(&mut self, dwuserid: usize, lpivrmsurfaceallocator: &::core::option::Option<IVMRSurfaceAllocator>) -> ::windows::core::Result<()>;
+    fn SetDDrawDevice(&mut self, lpddrawdevice: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
+    fn ChangeDDrawDevice(&mut self, lpddrawdevice: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
     fn RestoreDDrawSurfaces(&mut self) -> ::windows::core::Result<()>;
     fn NotifyEvent(&mut self, eventcode: i32, param1: isize, param2: isize) -> ::windows::core::Result<()>;
     fn SetBorderColor(&mut self, clrborder: u32) -> ::windows::core::Result<()>;
@@ -34723,9 +34723,9 @@ impl IVMRSurfaceAllocatorNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRSurfaceAllocatorNotify9_Impl: Sized {
-    fn AdviseSurfaceAllocator(&mut self, dwuserid: usize, lpivrmsurfaceallocator: ::core::option::Option<IVMRSurfaceAllocator9>) -> ::windows::core::Result<()>;
-    fn SetD3DDevice(&mut self, lpd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
-    fn ChangeD3DDevice(&mut self, lpd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
+    fn AdviseSurfaceAllocator(&mut self, dwuserid: usize, lpivrmsurfaceallocator: &::core::option::Option<IVMRSurfaceAllocator9>) -> ::windows::core::Result<()>;
+    fn SetD3DDevice(&mut self, lpd3ddevice: &::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
+    fn ChangeD3DDevice(&mut self, lpd3ddevice: &::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
     fn AllocateSurfaceHelper(&mut self, lpallocinfo: *const VMR9AllocationInfo, lpnumbuffers: *mut u32, lplpsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> ::windows::core::Result<()>;
     fn NotifyEvent(&mut self, eventcode: i32, param1: isize, param2: isize) -> ::windows::core::Result<()>;
 }
@@ -35294,8 +35294,8 @@ impl IVideoEncoder_Vtbl {
     }
 }
 pub trait IVideoFrameStep_Impl: Sized {
-    fn Step(&mut self, dwframes: u32, pstepobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CanStep(&mut self, bmultiple: i32, pstepobject: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Step(&mut self, dwframes: u32, pstepobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CanStep(&mut self, bmultiple: i32, pstepobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn CancelStep(&mut self) -> ::windows::core::Result<()>;
 }
 impl IVideoFrameStep_Vtbl {
@@ -35571,7 +35571,7 @@ impl IVideoProcAmp_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVideoWindow_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetCaption(&mut self, strcaption: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCaption(&mut self, strcaption: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Caption(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetWindowStyle(&mut self, windowstyle: i32) -> ::windows::core::Result<()>;
     fn WindowStyle(&mut self) -> ::windows::core::Result<i32>;

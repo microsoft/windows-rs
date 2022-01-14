@@ -56,10 +56,10 @@ impl IBitmapData_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVisualTreeService_Impl: Sized {
-    fn AdviseVisualTreeChange(&mut self, pcallback: ::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
-    fn UnadviseVisualTreeChange(&mut self, pcallback: ::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
+    fn AdviseVisualTreeChange(&mut self, pcallback: &::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
+    fn UnadviseVisualTreeChange(&mut self, pcallback: &::core::option::Option<IVisualTreeServiceCallback>) -> ::windows::core::Result<()>;
     fn GetEnums(&mut self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()>;
-    fn CreateInstance(&mut self, typename: super::super::super::Foundation::BSTR, value: super::super::super::Foundation::BSTR) -> ::windows::core::Result<u64>;
+    fn CreateInstance(&mut self, typename: &super::super::super::Foundation::BSTR, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<u64>;
     fn GetPropertyValuesChain(&mut self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()>;
     fn SetProperty(&mut self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()>;
     fn ClearProperty(&mut self, instancehandle: u64, propertyindex: u32) -> ::windows::core::Result<()>;
@@ -254,7 +254,7 @@ impl IVisualTreeService3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVisualTreeServiceCallback_Impl: Sized {
-    fn OnVisualTreeChange(&mut self, relation: ParentChildRelation, element: VisualElement, mutationtype: VisualMutationType) -> ::windows::core::Result<()>;
+    fn OnVisualTreeChange(&mut self, relation: &ParentChildRelation, element: &VisualElement, mutationtype: VisualMutationType) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback_Vtbl {
@@ -295,9 +295,9 @@ pub trait IXamlDiagnostics_Impl: Sized {
     fn GetUiLayer(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn GetApplication(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn GetIInspectableFromHandle(&mut self, instancehandle: u64) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetHandleFromIInspectable(&mut self, pinstance: ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
-    fn HitTest(&mut self, rect: super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()>;
-    fn RegisterInstance(&mut self, pinstance: ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
+    fn GetHandleFromIInspectable(&mut self, pinstance: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
+    fn HitTest(&mut self, rect: &super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()>;
+    fn RegisterInstance(&mut self, pinstance: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
     fn GetInitializationData(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]

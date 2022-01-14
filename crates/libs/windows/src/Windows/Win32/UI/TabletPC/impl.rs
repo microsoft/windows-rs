@@ -9,7 +9,7 @@ pub trait IDynamicRenderer_Impl: Sized {
     fn ClipRegion(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE_PTR>;
     fn SetClipRegion(&mut self, hcliprgn: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
     fn DrawingAttributes(&mut self) -> ::windows::core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&mut self, pida: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn putref_DrawingAttributes(&mut self, pida: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn DataCacheEnabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetDataCacheEnabled(&mut self, fcachedata: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn ReleaseCachedData(&mut self, strokeid: u32) -> ::windows::core::Result<()>;
@@ -203,7 +203,7 @@ impl IGestureRecognizer_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IHandwrittenTextInsertion_Impl: Sized {
     fn InsertRecognitionResultsArray(&mut self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn InsertInkRecognitionResult(&mut self, piinkrecoresult: ::core::option::Option<IInkRecognitionResult>, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn InsertInkRecognitionResult(&mut self, piinkrecoresult: &::core::option::Option<IInkRecognitionResult>, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IHandwrittenTextInsertion_Vtbl {
@@ -244,11 +244,11 @@ pub trait IInkCollector_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, collecting: i16) -> ::windows::core::Result<()>;
     fn DefaultDrawingAttributes(&mut self) -> ::windows::core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&mut self, newattributes: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn putref_DefaultDrawingAttributes(&mut self, newattributes: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn Renderer(&mut self) -> ::windows::core::Result<IInkRenderer>;
-    fn putref_Renderer(&mut self, newinkrenderer: ::core::option::Option<IInkRenderer>) -> ::windows::core::Result<()>;
+    fn putref_Renderer(&mut self, newinkrenderer: &::core::option::Option<IInkRenderer>) -> ::windows::core::Result<()>;
     fn Ink(&mut self) -> ::windows::core::Result<IInkDisp>;
-    fn putref_Ink(&mut self, newink: ::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
+    fn putref_Ink(&mut self, newink: &::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
     fn AutoRedraw(&mut self) -> ::windows::core::Result<i16>;
     fn SetAutoRedraw(&mut self, autoredraw: i16) -> ::windows::core::Result<()>;
     fn CollectingInk(&mut self) -> ::windows::core::Result<i16>;
@@ -257,10 +257,10 @@ pub trait IInkCollector_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn DynamicRendering(&mut self) -> ::windows::core::Result<i16>;
     fn SetDynamicRendering(&mut self, enabled: i16) -> ::windows::core::Result<()>;
     fn DesiredPacketDescription(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDesiredPacketDescription(&mut self, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetDesiredPacketDescription(&mut self, packetguids: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MouseIcon(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
-    fn putref_MouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn SetMouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn putref_MouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
     fn MousePointer(&mut self) -> ::windows::core::Result<InkMousePointer>;
     fn SetMousePointer(&mut self, mousepointer: InkMousePointer) -> ::windows::core::Result<()>;
     fn Cursors(&mut self) -> ::windows::core::Result<IInkCursors>;
@@ -274,9 +274,9 @@ pub trait IInkCollector_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SetGestureStatus(&mut self, gesture: InkApplicationGesture, listen: i16) -> ::windows::core::Result<()>;
     fn GetGestureStatus(&mut self, gesture: InkApplicationGesture) -> ::windows::core::Result<i16>;
     fn GetWindowInputRectangle(&mut self, windowinputrectangle: *mut ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
-    fn SetWindowInputRectangle(&mut self, windowinputrectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn SetWindowInputRectangle(&mut self, windowinputrectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn SetAllTabletsMode(&mut self, usemouseforinput: i16) -> ::windows::core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&mut self, tablet: ::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
+    fn SetSingleTabletIntegratedMode(&mut self, tablet: &::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
     fn GetEventInterest(&mut self, eventid: InkCollectorEventInterest) -> ::windows::core::Result<i16>;
     fn SetEventInterest(&mut self, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::Result<()>;
 }
@@ -611,7 +611,7 @@ pub trait IInkCursor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&mut self) -> ::windows::core::Result<i32>;
     fn Inverted(&mut self) -> ::windows::core::Result<i16>;
     fn DrawingAttributes(&mut self) -> ::windows::core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&mut self, attributes: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn putref_DrawingAttributes(&mut self, attributes: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn Tablet(&mut self) -> ::windows::core::Result<IInkTablet>;
     fn Buttons(&mut self) -> ::windows::core::Result<IInkCursorButtons>;
 }
@@ -751,7 +751,7 @@ impl IInkCursorButton_Vtbl {
 pub trait IInkCursorButtons_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkCursorButton>;
+    fn Item(&mut self, identifier: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkCursorButton>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkCursorButtons_Vtbl {
@@ -851,9 +851,9 @@ impl IInkCursors_Vtbl {
 pub trait IInkCustomStrokes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokes>;
-    fn Add(&mut self, name: super::super::Foundation::BSTR, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, identifier: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokes>;
+    fn Add(&mut self, name: &super::super::Foundation::BSTR, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, identifier: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -923,25 +923,25 @@ pub trait IInkDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetDirty(&mut self, dirty: i16) -> ::windows::core::Result<()>;
     fn CustomStrokes(&mut self) -> ::windows::core::Result<IInkCustomStrokes>;
     fn GetBoundingBox(&mut self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle>;
-    fn DeleteStrokes(&mut self, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
-    fn DeleteStroke(&mut self, stroke: ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
-    fn ExtractStrokes(&mut self, strokes: ::core::option::Option<IInkStrokes>, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp>;
-    fn ExtractWithRectangle(&mut self, rectangle: ::core::option::Option<IInkRectangle>, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp>;
-    fn Clip(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn DeleteStrokes(&mut self, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn DeleteStroke(&mut self, stroke: &::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
+    fn ExtractStrokes(&mut self, strokes: &::core::option::Option<IInkStrokes>, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp>;
+    fn ExtractWithRectangle(&mut self, rectangle: &::core::option::Option<IInkRectangle>, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp>;
+    fn Clip(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IInkDisp>;
     fn HitTestCircle(&mut self, x: i32, y: i32, radius: f32) -> ::windows::core::Result<IInkStrokes>;
-    fn HitTestWithRectangle(&mut self, selectionrectangle: ::core::option::Option<IInkRectangle>, intersectpercent: f32) -> ::windows::core::Result<IInkStrokes>;
-    fn HitTestWithLasso(&mut self, points: super::super::System::Com::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Com::VARIANT, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn HitTestWithRectangle(&mut self, selectionrectangle: &::core::option::Option<IInkRectangle>, intersectpercent: f32) -> ::windows::core::Result<IInkStrokes>;
+    fn HitTestWithLasso(&mut self, points: &super::super::System::Com::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Com::VARIANT, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
     fn NearestPoint(&mut self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
-    fn CreateStrokes(&mut self, strokeids: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokes>;
-    fn AddStrokesAtRectangle(&mut self, sourcestrokes: ::core::option::Option<IInkStrokes>, targetrectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn CreateStrokes(&mut self, strokeids: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokes>;
+    fn AddStrokesAtRectangle(&mut self, sourcestrokes: &::core::option::Option<IInkStrokes>, targetrectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn Save(&mut self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Load(&mut self, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn CreateStroke(&mut self, packetdata: super::super::System::Com::VARIANT, packetdescription: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokeDisp>;
-    fn ClipboardCopyWithRectangle(&mut self, rectangle: ::core::option::Option<IInkRectangle>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
-    fn ClipboardCopy(&mut self, strokes: ::core::option::Option<IInkStrokes>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
-    fn CanPaste(&mut self, dataobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<i16>;
-    fn ClipboardPaste(&mut self, x: i32, y: i32, dataobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<IInkStrokes>;
+    fn Load(&mut self, data: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CreateStroke(&mut self, packetdata: &super::super::System::Com::VARIANT, packetdescription: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokeDisp>;
+    fn ClipboardCopyWithRectangle(&mut self, rectangle: &::core::option::Option<IInkRectangle>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
+    fn ClipboardCopy(&mut self, strokes: &::core::option::Option<IInkStrokes>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
+    fn CanPaste(&mut self, dataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<i16>;
+    fn ClipboardPaste(&mut self, x: i32, y: i32, dataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<IInkStrokes>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkDisp_Vtbl {
@@ -1184,9 +1184,9 @@ impl IInkDisp_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkDivider_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&mut self) -> ::windows::core::Result<IInkStrokes>;
-    fn putref_Strokes(&mut self, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn putref_Strokes(&mut self, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
     fn RecognizerContext(&mut self) -> ::windows::core::Result<IInkRecognizerContext>;
-    fn putref_RecognizerContext(&mut self, recognizercontext: ::core::option::Option<IInkRecognizerContext>) -> ::windows::core::Result<()>;
+    fn putref_RecognizerContext(&mut self, recognizercontext: &::core::option::Option<IInkRecognizerContext>) -> ::windows::core::Result<()>;
     fn LineHeight(&mut self) -> ::windows::core::Result<i32>;
     fn SetLineHeight(&mut self, lineheight: i32) -> ::windows::core::Result<()>;
     fn Divide(&mut self) -> ::windows::core::Result<IInkDivisionResult>;
@@ -1621,15 +1621,15 @@ pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn InkInsertMode(&mut self) -> ::windows::core::Result<InkInsertMode>;
     fn SetInkInsertMode(&mut self, newval: InkInsertMode) -> ::windows::core::Result<()>;
     fn DrawingAttributes(&mut self) -> ::windows::core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&mut self, newval: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn putref_DrawingAttributes(&mut self, newval: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn RecognitionTimeout(&mut self) -> ::windows::core::Result<i32>;
     fn SetRecognitionTimeout(&mut self, newval: i32) -> ::windows::core::Result<()>;
     fn Recognizer(&mut self) -> ::windows::core::Result<IInkRecognizer>;
-    fn putref_Recognizer(&mut self, newval: ::core::option::Option<IInkRecognizer>) -> ::windows::core::Result<()>;
+    fn putref_Recognizer(&mut self, newval: &::core::option::Option<IInkRecognizer>) -> ::windows::core::Result<()>;
     fn Factoid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFactoid(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFactoid(&mut self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SelInks(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelInks(&mut self, selink: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelInks(&mut self, selink: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelInksDisplayMode(&mut self) -> ::windows::core::Result<InkDisplayMode>;
     fn SetSelInksDisplayMode(&mut self, inkdisplaymode: InkDisplayMode) -> ::windows::core::Result<()>;
     fn Recognize(&mut self) -> ::windows::core::Result<()>;
@@ -1643,12 +1643,12 @@ pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetBorderStyle(&mut self, pborderstyle: BorderStyleConstants) -> ::windows::core::Result<()>;
     fn Hwnd(&mut self) -> ::windows::core::Result<u32>;
     fn Font(&mut self) -> ::windows::core::Result<super::super::System::Ole::IFontDisp>;
-    fn putref_Font(&mut self, ppfont: ::core::option::Option<super::super::System::Ole::IFontDisp>) -> ::windows::core::Result<()>;
+    fn putref_Font(&mut self, ppfont: &::core::option::Option<super::super::System::Ole::IFontDisp>) -> ::windows::core::Result<()>;
     fn Text(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetText(&mut self, pbstrtext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetText(&mut self, pbstrtext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn MouseIcon(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
-    fn putref_MouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn SetMouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn putref_MouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
     fn MousePointer(&mut self) -> ::windows::core::Result<InkMousePointer>;
     fn SetMousePointer(&mut self, mousepointer: InkMousePointer) -> ::windows::core::Result<()>;
     fn Locked(&mut self) -> ::windows::core::Result<i16>;
@@ -1664,31 +1664,31 @@ pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DisableNoScroll(&mut self) -> ::windows::core::Result<i16>;
     fn SetDisableNoScroll(&mut self, newval: i16) -> ::windows::core::Result<()>;
     fn SelAlignment(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelAlignment(&mut self, pvarselalignment: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelAlignment(&mut self, pvarselalignment: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelBold(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelBold(&mut self, pvarselbold: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelBold(&mut self, pvarselbold: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelItalic(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelItalic(&mut self, pvarselitalic: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelItalic(&mut self, pvarselitalic: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelUnderline(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelUnderline(&mut self, pvarselunderline: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelUnderline(&mut self, pvarselunderline: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelColor(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelColor(&mut self, pvarselcolor: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelColor(&mut self, pvarselcolor: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelFontName(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelFontName(&mut self, pvarselfontname: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelFontName(&mut self, pvarselfontname: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelFontSize(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelFontSize(&mut self, pvarselfontsize: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelFontSize(&mut self, pvarselfontsize: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SelCharOffset(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelCharOffset(&mut self, pvarselcharoffset: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSelCharOffset(&mut self, pvarselcharoffset: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn TextRTF(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTextRTF(&mut self, pbstrtextrtf: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTextRTF(&mut self, pbstrtextrtf: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SelStart(&mut self) -> ::windows::core::Result<i32>;
     fn SetSelStart(&mut self, plselstart: i32) -> ::windows::core::Result<()>;
     fn SelLength(&mut self) -> ::windows::core::Result<i32>;
     fn SetSelLength(&mut self, plsellength: i32) -> ::windows::core::Result<()>;
     fn SelText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSelText(&mut self, pbstrseltext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSelText(&mut self, pbstrseltext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SelRTF(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSelRTF(&mut self, pbstrselrtf: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSelRTF(&mut self, pbstrselrtf: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2319,11 +2319,11 @@ impl IInkEdit_Vtbl {
 pub trait IInkExtendedProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty>;
-    fn Add(&mut self, guid: super::super::Foundation::BSTR, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty>;
-    fn Remove(&mut self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, identifier: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty>;
+    fn Add(&mut self, guid: &super::super::Foundation::BSTR, data: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty>;
+    fn Remove(&mut self, identifier: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn DoesPropertyExist(&mut self, guid: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn DoesPropertyExist(&mut self, guid: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkExtendedProperties_Vtbl {
@@ -2405,7 +2405,7 @@ impl IInkExtendedProperties_Vtbl {
 pub trait IInkExtendedProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Guid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Data(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetData(&mut self, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, data: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkExtendedProperty_Vtbl {
@@ -2546,11 +2546,11 @@ pub trait IInkOverlay_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, collecting: i16) -> ::windows::core::Result<()>;
     fn DefaultDrawingAttributes(&mut self) -> ::windows::core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&mut self, newattributes: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn putref_DefaultDrawingAttributes(&mut self, newattributes: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn Renderer(&mut self) -> ::windows::core::Result<IInkRenderer>;
-    fn putref_Renderer(&mut self, newinkrenderer: ::core::option::Option<IInkRenderer>) -> ::windows::core::Result<()>;
+    fn putref_Renderer(&mut self, newinkrenderer: &::core::option::Option<IInkRenderer>) -> ::windows::core::Result<()>;
     fn Ink(&mut self) -> ::windows::core::Result<IInkDisp>;
-    fn putref_Ink(&mut self, newink: ::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
+    fn putref_Ink(&mut self, newink: &::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
     fn AutoRedraw(&mut self) -> ::windows::core::Result<i16>;
     fn SetAutoRedraw(&mut self, autoredraw: i16) -> ::windows::core::Result<()>;
     fn CollectingInk(&mut self) -> ::windows::core::Result<i16>;
@@ -2559,16 +2559,16 @@ pub trait IInkOverlay_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DynamicRendering(&mut self) -> ::windows::core::Result<i16>;
     fn SetDynamicRendering(&mut self, enabled: i16) -> ::windows::core::Result<()>;
     fn DesiredPacketDescription(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDesiredPacketDescription(&mut self, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetDesiredPacketDescription(&mut self, packetguids: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MouseIcon(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
-    fn putref_MouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn SetMouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn putref_MouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
     fn MousePointer(&mut self) -> ::windows::core::Result<InkMousePointer>;
     fn SetMousePointer(&mut self, mousepointer: InkMousePointer) -> ::windows::core::Result<()>;
     fn EditingMode(&mut self) -> ::windows::core::Result<InkOverlayEditingMode>;
     fn SetEditingMode(&mut self, editingmode: InkOverlayEditingMode) -> ::windows::core::Result<()>;
     fn Selection(&mut self) -> ::windows::core::Result<IInkStrokes>;
-    fn SetSelection(&mut self, selection: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn SetSelection(&mut self, selection: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
     fn EraserMode(&mut self) -> ::windows::core::Result<InkOverlayEraserMode>;
     fn SetEraserMode(&mut self, erasermode: InkOverlayEraserMode) -> ::windows::core::Result<()>;
     fn EraserWidth(&mut self) -> ::windows::core::Result<i32>;
@@ -2586,13 +2586,13 @@ pub trait IInkOverlay_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SupportHighContrastSelectionUI(&mut self) -> ::windows::core::Result<i16>;
     fn SetSupportHighContrastSelectionUI(&mut self, support: i16) -> ::windows::core::Result<()>;
     fn HitTestSelection(&mut self, x: i32, y: i32) -> ::windows::core::Result<SelectionHitResult>;
-    fn Draw(&mut self, rect: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn Draw(&mut self, rect: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn SetGestureStatus(&mut self, gesture: InkApplicationGesture, listen: i16) -> ::windows::core::Result<()>;
     fn GetGestureStatus(&mut self, gesture: InkApplicationGesture) -> ::windows::core::Result<i16>;
     fn GetWindowInputRectangle(&mut self, windowinputrectangle: *mut ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
-    fn SetWindowInputRectangle(&mut self, windowinputrectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn SetWindowInputRectangle(&mut self, windowinputrectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn SetAllTabletsMode(&mut self, usemouseforinput: i16) -> ::windows::core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&mut self, tablet: ::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
+    fn SetSingleTabletIntegratedMode(&mut self, tablet: &::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
     fn GetEventInterest(&mut self, eventid: InkCollectorEventInterest) -> ::windows::core::Result<i16>;
     fn SetEventInterest(&mut self, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::Result<()>;
 }
@@ -3037,11 +3037,11 @@ impl IInkOverlay_Vtbl {
 pub trait IInkPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn hWnd(&mut self) -> ::windows::core::Result<isize>;
     fn DefaultDrawingAttributes(&mut self) -> ::windows::core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&mut self, newattributes: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn putref_DefaultDrawingAttributes(&mut self, newattributes: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn Renderer(&mut self) -> ::windows::core::Result<IInkRenderer>;
-    fn putref_Renderer(&mut self, newinkrenderer: ::core::option::Option<IInkRenderer>) -> ::windows::core::Result<()>;
+    fn putref_Renderer(&mut self, newinkrenderer: &::core::option::Option<IInkRenderer>) -> ::windows::core::Result<()>;
     fn Ink(&mut self) -> ::windows::core::Result<IInkDisp>;
-    fn putref_Ink(&mut self, newink: ::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
+    fn putref_Ink(&mut self, newink: &::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
     fn AutoRedraw(&mut self) -> ::windows::core::Result<i16>;
     fn SetAutoRedraw(&mut self, autoredraw: i16) -> ::windows::core::Result<()>;
     fn CollectingInk(&mut self) -> ::windows::core::Result<i16>;
@@ -3050,22 +3050,22 @@ pub trait IInkPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DynamicRendering(&mut self) -> ::windows::core::Result<i16>;
     fn SetDynamicRendering(&mut self, enabled: i16) -> ::windows::core::Result<()>;
     fn DesiredPacketDescription(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDesiredPacketDescription(&mut self, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetDesiredPacketDescription(&mut self, packetguids: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MouseIcon(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
-    fn putref_MouseIcon(&mut self, mouseicon: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn SetMouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn putref_MouseIcon(&mut self, mouseicon: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
     fn MousePointer(&mut self) -> ::windows::core::Result<InkMousePointer>;
     fn SetMousePointer(&mut self, mousepointer: InkMousePointer) -> ::windows::core::Result<()>;
     fn EditingMode(&mut self) -> ::windows::core::Result<InkOverlayEditingMode>;
     fn SetEditingMode(&mut self, editingmode: InkOverlayEditingMode) -> ::windows::core::Result<()>;
     fn Selection(&mut self) -> ::windows::core::Result<IInkStrokes>;
-    fn SetSelection(&mut self, selection: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn SetSelection(&mut self, selection: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
     fn EraserMode(&mut self) -> ::windows::core::Result<InkOverlayEraserMode>;
     fn SetEraserMode(&mut self, erasermode: InkOverlayEraserMode) -> ::windows::core::Result<()>;
     fn EraserWidth(&mut self) -> ::windows::core::Result<i32>;
     fn SetEraserWidth(&mut self, neweraserwidth: i32) -> ::windows::core::Result<()>;
-    fn putref_Picture(&mut self, ppicture: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
-    fn SetPicture(&mut self, ppicture: ::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn putref_Picture(&mut self, ppicture: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
+    fn SetPicture(&mut self, ppicture: &::core::option::Option<super::super::System::Ole::IPictureDisp>) -> ::windows::core::Result<()>;
     fn Picture(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
     fn SetSizeMode(&mut self, smnewsizemode: InkPictureSizeMode) -> ::windows::core::Result<()>;
     fn SizeMode(&mut self) -> ::windows::core::Result<InkPictureSizeMode>;
@@ -3085,9 +3085,9 @@ pub trait IInkPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetGestureStatus(&mut self, gesture: InkApplicationGesture, listen: i16) -> ::windows::core::Result<()>;
     fn GetGestureStatus(&mut self, gesture: InkApplicationGesture) -> ::windows::core::Result<i16>;
     fn GetWindowInputRectangle(&mut self, windowinputrectangle: *mut ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
-    fn SetWindowInputRectangle(&mut self, windowinputrectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn SetWindowInputRectangle(&mut self, windowinputrectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn SetAllTabletsMode(&mut self, usemouseforinput: i16) -> ::windows::core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&mut self, tablet: ::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
+    fn SetSingleTabletIntegratedMode(&mut self, tablet: &::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
     fn GetEventInterest(&mut self, eventid: InkCollectorEventInterest) -> ::windows::core::Result<i16>;
     fn SetEventInterest(&mut self, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::Result<()>;
     fn InkEnabled(&mut self) -> ::windows::core::Result<i16>;
@@ -3587,11 +3587,11 @@ pub trait IInkRecognitionAlternate_Impl: Sized + super::super::System::Com::IDis
     fn Strokes(&mut self) -> ::windows::core::Result<IInkStrokes>;
     fn LineAlternates(&mut self) -> ::windows::core::Result<IInkRecognitionAlternates>;
     fn ConfidenceAlternates(&mut self) -> ::windows::core::Result<IInkRecognitionAlternates>;
-    fn GetStrokesFromStrokeRanges(&mut self, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<IInkStrokes>;
+    fn GetStrokesFromStrokeRanges(&mut self, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<IInkStrokes>;
     fn GetStrokesFromTextRange(&mut self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: *mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
-    fn GetTextRangeFromStrokes(&mut self, strokes: ::core::option::Option<IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> ::windows::core::Result<()>;
-    fn AlternatesWithConstantPropertyValues(&mut self, propertytype: super::super::Foundation::BSTR) -> ::windows::core::Result<IInkRecognitionAlternates>;
-    fn GetPropertyValue(&mut self, propertytype: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetTextRangeFromStrokes(&mut self, strokes: &::core::option::Option<IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> ::windows::core::Result<()>;
+    fn AlternatesWithConstantPropertyValues(&mut self, propertytype: &super::super::Foundation::BSTR) -> ::windows::core::Result<IInkRecognitionAlternates>;
+    fn GetPropertyValue(&mut self, propertytype: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkRecognitionAlternate_Vtbl {
@@ -3826,7 +3826,7 @@ pub trait IInkRecognitionResult_Impl: Sized + super::super::System::Com::IDispat
     fn TopConfidence(&mut self) -> ::windows::core::Result<InkRecognitionConfidence>;
     fn Strokes(&mut self) -> ::windows::core::Result<IInkStrokes>;
     fn AlternatesFromSelection(&mut self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> ::windows::core::Result<IInkRecognitionAlternates>;
-    fn ModifyTopAlternate(&mut self, alternate: ::core::option::Option<IInkRecognitionAlternate>) -> ::windows::core::Result<()>;
+    fn ModifyTopAlternate(&mut self, alternate: &::core::option::Option<IInkRecognitionAlternate>) -> ::windows::core::Result<()>;
     fn SetResultOnStrokes(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4044,29 +4044,29 @@ impl IInkRecognizer2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizerContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&mut self) -> ::windows::core::Result<IInkStrokes>;
-    fn putref_Strokes(&mut self, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn putref_Strokes(&mut self, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
     fn CharacterAutoCompletionMode(&mut self) -> ::windows::core::Result<InkRecognizerCharacterAutoCompletionMode>;
     fn SetCharacterAutoCompletionMode(&mut self, mode: InkRecognizerCharacterAutoCompletionMode) -> ::windows::core::Result<()>;
     fn Factoid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFactoid(&mut self, factoid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFactoid(&mut self, factoid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Guide(&mut self) -> ::windows::core::Result<IInkRecognizerGuide>;
-    fn putref_Guide(&mut self, recognizerguide: ::core::option::Option<IInkRecognizerGuide>) -> ::windows::core::Result<()>;
+    fn putref_Guide(&mut self, recognizerguide: &::core::option::Option<IInkRecognizerGuide>) -> ::windows::core::Result<()>;
     fn PrefixText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPrefixText(&mut self, prefix: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPrefixText(&mut self, prefix: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SuffixText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSuffixText(&mut self, suffix: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSuffixText(&mut self, suffix: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RecognitionFlags(&mut self) -> ::windows::core::Result<InkRecognitionModes>;
     fn SetRecognitionFlags(&mut self, modes: InkRecognitionModes) -> ::windows::core::Result<()>;
     fn WordList(&mut self) -> ::windows::core::Result<IInkWordList>;
-    fn putref_WordList(&mut self, wordlist: ::core::option::Option<IInkWordList>) -> ::windows::core::Result<()>;
+    fn putref_WordList(&mut self, wordlist: &::core::option::Option<IInkWordList>) -> ::windows::core::Result<()>;
     fn Recognizer(&mut self) -> ::windows::core::Result<IInkRecognizer>;
     fn Recognize(&mut self, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: *mut ::core::option::Option<IInkRecognitionResult>) -> ::windows::core::Result<()>;
     fn StopBackgroundRecognition(&mut self) -> ::windows::core::Result<()>;
     fn EndInkInput(&mut self) -> ::windows::core::Result<()>;
-    fn BackgroundRecognize(&mut self, customdata: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn BackgroundRecognizeWithAlternates(&mut self, customdata: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BackgroundRecognize(&mut self, customdata: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BackgroundRecognizeWithAlternates(&mut self, customdata: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IInkRecognizerContext>;
-    fn IsStringSupported(&mut self, string: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsStringSupported(&mut self, string: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkRecognizerContext_Vtbl {
@@ -4268,7 +4268,7 @@ impl IInkRecognizerContext_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizerContext2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnabledUnicodeRanges(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetEnabledUnicodeRanges(&mut self, unicoderanges: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetEnabledUnicodeRanges(&mut self, unicoderanges: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkRecognizerContext2_Vtbl {
@@ -4300,9 +4300,9 @@ impl IInkRecognizerContext2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRecognizerGuide_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WritingBox(&mut self) -> ::windows::core::Result<IInkRectangle>;
-    fn SetWritingBox(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn SetWritingBox(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn DrawnBox(&mut self) -> ::windows::core::Result<IInkRectangle>;
-    fn SetDrawnBox(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn SetDrawnBox(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn Rows(&mut self) -> ::windows::core::Result<i32>;
     fn SetRows(&mut self, units: i32) -> ::windows::core::Result<()>;
     fn Columns(&mut self) -> ::windows::core::Result<i32>;
@@ -4310,7 +4310,7 @@ pub trait IInkRecognizerGuide_Impl: Sized + super::super::System::Com::IDispatch
     fn Midline(&mut self) -> ::windows::core::Result<i32>;
     fn SetMidline(&mut self, units: i32) -> ::windows::core::Result<()>;
     fn GuideData(&mut self) -> ::windows::core::Result<InkRecoGuide>;
-    fn SetGuideData(&mut self, recoguide: InkRecoGuide) -> ::windows::core::Result<()>;
+    fn SetGuideData(&mut self, recoguide: &InkRecoGuide) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkRecognizerGuide_Vtbl {
@@ -4492,7 +4492,7 @@ pub trait IInkRectangle_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Right(&mut self) -> ::windows::core::Result<i32>;
     fn SetRight(&mut self, units: i32) -> ::windows::core::Result<()>;
     fn Data(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
-    fn SetData(&mut self, rect: super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, rect: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn GetRectangle(&mut self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> ::windows::core::Result<()>;
     fn SetRectangle(&mut self, top: i32, left: i32, bottom: i32, right: i32) -> ::windows::core::Result<()>;
 }
@@ -4599,18 +4599,18 @@ impl IInkRectangle_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkRenderer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetViewTransform(&mut self, viewtransform: ::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
-    fn SetViewTransform(&mut self, viewtransform: ::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
-    fn GetObjectTransform(&mut self, objecttransform: ::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
-    fn SetObjectTransform(&mut self, objecttransform: ::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
-    fn Draw(&mut self, hdc: isize, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
-    fn DrawStroke(&mut self, hdc: isize, stroke: ::core::option::Option<IInkStrokeDisp>, drawingattributes: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn GetViewTransform(&mut self, viewtransform: &::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
+    fn SetViewTransform(&mut self, viewtransform: &::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
+    fn GetObjectTransform(&mut self, objecttransform: &::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
+    fn SetObjectTransform(&mut self, objecttransform: &::core::option::Option<IInkTransform>) -> ::windows::core::Result<()>;
+    fn Draw(&mut self, hdc: isize, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn DrawStroke(&mut self, hdc: isize, stroke: &::core::option::Option<IInkStrokeDisp>, drawingattributes: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn PixelToInkSpace(&mut self, hdc: isize, x: *mut i32, y: *mut i32) -> ::windows::core::Result<()>;
     fn InkSpaceToPixel(&mut self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> ::windows::core::Result<()>;
     fn PixelToInkSpaceFromPoints(&mut self, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn InkSpaceToPixelFromPoints(&mut self, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Measure(&mut self, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<IInkRectangle>;
-    fn MeasureStroke(&mut self, stroke: ::core::option::Option<IInkStrokeDisp>, drawingattributes: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<IInkRectangle>;
+    fn Measure(&mut self, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<IInkRectangle>;
+    fn MeasureStroke(&mut self, stroke: &::core::option::Option<IInkStrokeDisp>, drawingattributes: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<IInkRectangle>;
     fn Move(&mut self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::Result<()>;
     fn Rotate(&mut self, degrees: f32, x: f32, y: f32) -> ::windows::core::Result<()>;
     fn ScaleTransform(&mut self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: i16) -> ::windows::core::Result<()>;
@@ -4718,7 +4718,7 @@ pub trait IInkStrokeDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn ID(&mut self) -> ::windows::core::Result<i32>;
     fn BezierPoints(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn DrawingAttributes(&mut self) -> ::windows::core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&mut self, drawattrs: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn putref_DrawingAttributes(&mut self, drawattrs: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn Ink(&mut self) -> ::windows::core::Result<IInkDisp>;
     fn ExtendedProperties(&mut self) -> ::windows::core::Result<IInkExtendedProperties>;
     fn PolylineCusps(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -4729,21 +4729,21 @@ pub trait IInkStrokeDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn PacketDescription(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Deleted(&mut self) -> ::windows::core::Result<i16>;
     fn GetBoundingBox(&mut self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle>;
-    fn FindIntersections(&mut self, strokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetRectangleIntersections(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Clip(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn FindIntersections(&mut self, strokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetRectangleIntersections(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Clip(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn HitTestCircle(&mut self, x: i32, y: i32, radius: f32) -> ::windows::core::Result<i16>;
     fn NearestPoint(&mut self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> ::windows::core::Result<()>;
     fn Split(&mut self, splitat: f32) -> ::windows::core::Result<IInkStrokeDisp>;
-    fn GetPacketDescriptionPropertyMetrics(&mut self, propertyname: super::super::Foundation::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()>;
+    fn GetPacketDescriptionPropertyMetrics(&mut self, propertyname: &super::super::Foundation::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()>;
     fn GetPoints(&mut self, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPoints(&mut self, points: super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32>;
+    fn SetPoints(&mut self, points: &super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32>;
     fn GetPacketData(&mut self, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetPacketValuesByProperty(&mut self, propertyname: super::super::Foundation::BSTR, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPacketValuesByProperty(&mut self, bstrpropertyname: super::super::Foundation::BSTR, packetvalues: super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32>;
+    fn GetPacketValuesByProperty(&mut self, propertyname: &super::super::Foundation::BSTR, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetPacketValuesByProperty(&mut self, bstrpropertyname: &super::super::Foundation::BSTR, packetvalues: &super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32>;
     fn GetFlattenedBezierPoints(&mut self, fittingerror: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Transform(&mut self, transform: ::core::option::Option<IInkTransform>, applyonpenwidth: i16) -> ::windows::core::Result<()>;
-    fn ScaleToRectangle(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn Transform(&mut self, transform: &::core::option::Option<IInkTransform>, applyonpenwidth: i16) -> ::windows::core::Result<()>;
+    fn ScaleToRectangle(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn Move(&mut self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::Result<()>;
     fn Rotate(&mut self, degrees: f32, x: f32, y: f32) -> ::windows::core::Result<()>;
     fn Shear(&mut self, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows::core::Result<()>;
@@ -5071,19 +5071,19 @@ pub trait IInkStrokes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RecognitionResult(&mut self) -> ::windows::core::Result<IInkRecognitionResult>;
     fn ToString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Item(&mut self, index: i32) -> ::windows::core::Result<IInkStrokeDisp>;
-    fn Add(&mut self, inkstroke: ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
-    fn AddStrokes(&mut self, inkstrokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, inkstroke: ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
-    fn RemoveStrokes(&mut self, inkstrokes: ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
-    fn ModifyDrawingAttributes(&mut self, drawattrs: ::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
+    fn Add(&mut self, inkstroke: &::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
+    fn AddStrokes(&mut self, inkstrokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, inkstroke: &::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()>;
+    fn RemoveStrokes(&mut self, inkstrokes: &::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>;
+    fn ModifyDrawingAttributes(&mut self, drawattrs: &::core::option::Option<IInkDrawingAttributes>) -> ::windows::core::Result<()>;
     fn GetBoundingBox(&mut self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle>;
-    fn Transform(&mut self, transform: ::core::option::Option<IInkTransform>, applyonpenwidth: i16) -> ::windows::core::Result<()>;
-    fn ScaleToRectangle(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn Transform(&mut self, transform: &::core::option::Option<IInkTransform>, applyonpenwidth: i16) -> ::windows::core::Result<()>;
+    fn ScaleToRectangle(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn Move(&mut self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::Result<()>;
     fn Rotate(&mut self, degrees: f32, x: f32, y: f32) -> ::windows::core::Result<()>;
     fn Shear(&mut self, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows::core::Result<()>;
     fn ScaleTransform(&mut self, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows::core::Result<()>;
-    fn Clip(&mut self, rectangle: ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
+    fn Clip(&mut self, rectangle: &::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()>;
     fn RemoveRecognitionResult(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5245,8 +5245,8 @@ pub trait IInkTablet_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PlugAndPlayId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn MaximumInputRectangle(&mut self) -> ::windows::core::Result<IInkRectangle>;
     fn HardwareCapabilities(&mut self) -> ::windows::core::Result<TabletHardwareCapabilities>;
-    fn IsPacketPropertySupported(&mut self, packetpropertyname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn GetPropertyMetrics(&mut self, propertyname: super::super::Foundation::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()>;
+    fn IsPacketPropertySupported(&mut self, packetpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn GetPropertyMetrics(&mut self, propertyname: &super::super::Foundation::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkTablet_Vtbl {
@@ -5386,7 +5386,7 @@ pub trait IInkTablets_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn DefaultTablet(&mut self) -> ::windows::core::Result<IInkTablet>;
     fn Item(&mut self, index: i32) -> ::windows::core::Result<IInkTablet>;
-    fn IsPacketPropertySupported(&mut self, packetpropertyname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsPacketPropertySupported(&mut self, packetpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkTablets_Vtbl {
@@ -5477,7 +5477,7 @@ pub trait IInkTransform_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn eDy(&mut self) -> ::windows::core::Result<f32>;
     fn SeteDy(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Data(&mut self) -> ::windows::core::Result<super::super::Graphics::Gdi::XFORM>;
-    fn SetData(&mut self, xform: super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, xform: &super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkTransform_Vtbl {
@@ -5644,9 +5644,9 @@ impl IInkTransform_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkWordList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AddWord(&mut self, newword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveWord(&mut self, removeword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Merge(&mut self, mergewordlist: ::core::option::Option<IInkWordList>) -> ::windows::core::Result<()>;
+    fn AddWord(&mut self, newword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoveWord(&mut self, removeword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Merge(&mut self, mergewordlist: &::core::option::Option<IInkWordList>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkWordList_Vtbl {
@@ -5676,7 +5676,7 @@ impl IInkWordList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IInkWordList2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AddWords(&mut self, newwords: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddWords(&mut self, newwords: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IInkWordList2_Vtbl {
@@ -5748,15 +5748,15 @@ pub trait IMathInputControl_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SetPosition(&mut self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
     fn SetCustomPaint(&mut self, element: i32, paint: i16) -> ::windows::core::Result<()>;
-    fn SetCaptionText(&mut self, captiontext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LoadInk(&mut self, ink: ::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
+    fn SetCaptionText(&mut self, captiontext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LoadInk(&mut self, ink: &::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
     fn SetOwnerWindow(&mut self, ownerwindow: isize) -> ::windows::core::Result<()>;
     fn EnableExtendedButtons(&mut self, extended: i16) -> ::windows::core::Result<()>;
     fn GetPreviewHeight(&mut self) -> ::windows::core::Result<i32>;
     fn SetPreviewHeight(&mut self, height: i32) -> ::windows::core::Result<()>;
     fn EnableAutoGrow(&mut self, autogrow: i16) -> ::windows::core::Result<()>;
-    fn AddFunctionName(&mut self, functionname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveFunctionName(&mut self, functionname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddFunctionName(&mut self, functionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoveFunctionName(&mut self, functionname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetHoverIcon(&mut self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5877,7 +5877,7 @@ impl IMathInputControl_Vtbl {
 pub trait IPenInputPanel_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Busy(&mut self) -> ::windows::core::Result<i16>;
     fn Factoid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFactoid(&mut self, factoid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFactoid(&mut self, factoid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AttachedEditWindow(&mut self) -> ::windows::core::Result<i32>;
     fn SetAttachedEditWindow(&mut self, attachededitwindow: i32) -> ::windows::core::Result<()>;
     fn CurrentPanel(&mut self) -> ::windows::core::Result<PanelType>;
@@ -6123,24 +6123,24 @@ pub trait IRealTimeStylus_Impl: Sized {
     fn SetHWND(&mut self, hwnd: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
     fn WindowInputRectangle(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
     fn SetWindowInputRectangle(&mut self, prcwndinputrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn AddStylusSyncPlugin(&mut self, iindex: u32, piplugin: ::core::option::Option<IStylusSyncPlugin>) -> ::windows::core::Result<()>;
+    fn AddStylusSyncPlugin(&mut self, iindex: u32, piplugin: &::core::option::Option<IStylusSyncPlugin>) -> ::windows::core::Result<()>;
     fn RemoveStylusSyncPlugin(&mut self, iindex: u32, ppiplugin: *mut ::core::option::Option<IStylusSyncPlugin>) -> ::windows::core::Result<()>;
     fn RemoveAllStylusSyncPlugins(&mut self) -> ::windows::core::Result<()>;
     fn GetStylusSyncPlugin(&mut self, iindex: u32) -> ::windows::core::Result<IStylusSyncPlugin>;
     fn GetStylusSyncPluginCount(&mut self) -> ::windows::core::Result<u32>;
-    fn AddStylusAsyncPlugin(&mut self, iindex: u32, piplugin: ::core::option::Option<IStylusAsyncPlugin>) -> ::windows::core::Result<()>;
+    fn AddStylusAsyncPlugin(&mut self, iindex: u32, piplugin: &::core::option::Option<IStylusAsyncPlugin>) -> ::windows::core::Result<()>;
     fn RemoveStylusAsyncPlugin(&mut self, iindex: u32, ppiplugin: *mut ::core::option::Option<IStylusAsyncPlugin>) -> ::windows::core::Result<()>;
     fn RemoveAllStylusAsyncPlugins(&mut self) -> ::windows::core::Result<()>;
     fn GetStylusAsyncPlugin(&mut self, iindex: u32) -> ::windows::core::Result<IStylusAsyncPlugin>;
     fn GetStylusAsyncPluginCount(&mut self) -> ::windows::core::Result<u32>;
     fn ChildRealTimeStylusPlugin(&mut self) -> ::windows::core::Result<IRealTimeStylus>;
-    fn putref_ChildRealTimeStylusPlugin(&mut self, pirts: ::core::option::Option<IRealTimeStylus>) -> ::windows::core::Result<()>;
+    fn putref_ChildRealTimeStylusPlugin(&mut self, pirts: &::core::option::Option<IRealTimeStylus>) -> ::windows::core::Result<()>;
     fn AddCustomStylusDataToQueue(&mut self, sq: StylusQueue, pguidid: *const ::windows::core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows::core::Result<()>;
     fn ClearStylusQueues(&mut self) -> ::windows::core::Result<()>;
     fn SetAllTabletsMode(&mut self, fusemouseforinput: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetSingleTabletMode(&mut self, pitablet: ::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
+    fn SetSingleTabletMode(&mut self, pitablet: &::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
     fn GetTablet(&mut self) -> ::windows::core::Result<IInkTablet>;
-    fn GetTabletContextIdFromTablet(&mut self, pitablet: ::core::option::Option<IInkTablet>) -> ::windows::core::Result<u32>;
+    fn GetTabletContextIdFromTablet(&mut self, pitablet: &::core::option::Option<IInkTablet>) -> ::windows::core::Result<u32>;
     fn GetTabletFromTabletContextId(&mut self, tcid: u32) -> ::windows::core::Result<IInkTablet>;
     fn GetAllTabletContextIds(&mut self, pctcidcount: *mut u32, pptcids: *mut *mut u32) -> ::windows::core::Result<()>;
     fn GetStyluses(&mut self) -> ::windows::core::Result<IInkCursors>;
@@ -6499,7 +6499,7 @@ pub trait IStrokeBuilder_Impl: Sized {
     fn AppendPackets(&mut self, tcid: u32, sid: u32, cpktbufflength: u32, ppackets: *const i32) -> ::windows::core::Result<()>;
     fn EndStroke(&mut self, tcid: u32, sid: u32, ppiinkstroke: *mut ::core::option::Option<IInkStrokeDisp>, pdirtyrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn Ink(&mut self) -> ::windows::core::Result<IInkDisp>;
-    fn putref_Ink(&mut self, piinkobj: ::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
+    fn putref_Ink(&mut self, piinkobj: &::core::option::Option<IInkDisp>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IStrokeBuilder_Vtbl {
@@ -6561,22 +6561,22 @@ impl IStylusAsyncPlugin_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IStylusPlugin_Impl: Sized {
-    fn RealTimeStylusEnabled(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::Result<()>;
-    fn RealTimeStylusDisabled(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::Result<()>;
-    fn StylusInRange(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, tcid: u32, sid: u32) -> ::windows::core::Result<()>;
-    fn StylusOutOfRange(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, tcid: u32, sid: u32) -> ::windows::core::Result<()>;
-    fn StylusDown(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()>;
-    fn StylusUp(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()>;
-    fn StylusButtonDown(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()>;
-    fn StylusButtonUp(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()>;
-    fn InAirPackets(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()>;
-    fn Packets(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()>;
-    fn CustomStylusDataAdded(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, pguidid: *const ::windows::core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows::core::Result<()>;
-    fn SystemEvent(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows::core::Result<()>;
-    fn TabletAdded(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, pitablet: ::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
-    fn TabletRemoved(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, itabletindex: i32) -> ::windows::core::Result<()>;
-    fn Error(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>, piplugin: ::core::option::Option<IStylusPlugin>, datainterest: RealTimeStylusDataInterest, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()>;
-    fn UpdateMapping(&mut self, pirtssrc: ::core::option::Option<IRealTimeStylus>) -> ::windows::core::Result<()>;
+    fn RealTimeStylusEnabled(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::Result<()>;
+    fn RealTimeStylusDisabled(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::Result<()>;
+    fn StylusInRange(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, tcid: u32, sid: u32) -> ::windows::core::Result<()>;
+    fn StylusOutOfRange(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, tcid: u32, sid: u32) -> ::windows::core::Result<()>;
+    fn StylusDown(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()>;
+    fn StylusUp(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()>;
+    fn StylusButtonDown(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn StylusButtonUp(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn InAirPackets(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()>;
+    fn Packets(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()>;
+    fn CustomStylusDataAdded(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, pguidid: *const ::windows::core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows::core::Result<()>;
+    fn SystemEvent(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, tcid: u32, sid: u32, event: u16, eventdata: &SYSTEM_EVENT_DATA) -> ::windows::core::Result<()>;
+    fn TabletAdded(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, pitablet: &::core::option::Option<IInkTablet>) -> ::windows::core::Result<()>;
+    fn TabletRemoved(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, itabletindex: i32) -> ::windows::core::Result<()>;
+    fn Error(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>, piplugin: &::core::option::Option<IStylusPlugin>, datainterest: RealTimeStylusDataInterest, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()>;
+    fn UpdateMapping(&mut self, pirtssrc: &::core::option::Option<IRealTimeStylus>) -> ::windows::core::Result<()>;
     fn DataInterest(&mut self) -> ::windows::core::Result<RealTimeStylusDataInterest>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6717,8 +6717,8 @@ pub trait ITextInputPanel_Impl: Sized {
     fn SetInPlaceVisibility(&mut self, visible: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetInPlacePosition(&mut self, xposition: i32, yposition: i32, position: CorrectionPosition) -> ::windows::core::Result<()>;
     fn SetInPlaceHoverTargetPosition(&mut self, xposition: i32, yposition: i32) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, eventsink: ::core::option::Option<ITextInputPanelEventSink>, eventmask: u32) -> ::windows::core::Result<()>;
-    fn Unadvise(&mut self, eventsink: ::core::option::Option<ITextInputPanelEventSink>) -> ::windows::core::Result<()>;
+    fn Advise(&mut self, eventsink: &::core::option::Option<ITextInputPanelEventSink>, eventmask: u32) -> ::windows::core::Result<()>;
+    fn Unadvise(&mut self, eventsink: &::core::option::Option<ITextInputPanelEventSink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITextInputPanel_Vtbl {
@@ -6938,8 +6938,8 @@ impl ITextInputPanel_Vtbl {
 pub trait ITextInputPanelEventSink_Impl: Sized {
     fn InPlaceStateChanging(&mut self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::Result<()>;
     fn InPlaceStateChanged(&mut self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::Result<()>;
-    fn InPlaceSizeChanging(&mut self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn InPlaceSizeChanged(&mut self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn InPlaceSizeChanging(&mut self, oldboundingrectangle: &super::super::Foundation::RECT, newboundingrectangle: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn InPlaceSizeChanged(&mut self, oldboundingrectangle: &super::super::Foundation::RECT, newboundingrectangle: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn InputAreaChanging(&mut self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> ::windows::core::Result<()>;
     fn InputAreaChanged(&mut self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> ::windows::core::Result<()>;
     fn CorrectionModeChanging(&mut self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> ::windows::core::Result<()>;
@@ -7045,8 +7045,8 @@ impl ITextInputPanelRunInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITipAutoCompleteClient_Impl: Sized {
-    fn AdviseProvider(&mut self, hwndfield: super::super::Foundation::HWND, piprovider: ::core::option::Option<ITipAutoCompleteProvider>) -> ::windows::core::Result<()>;
-    fn UnadviseProvider(&mut self, hwndfield: super::super::Foundation::HWND, piprovider: ::core::option::Option<ITipAutoCompleteProvider>) -> ::windows::core::Result<()>;
+    fn AdviseProvider(&mut self, hwndfield: super::super::Foundation::HWND, piprovider: &::core::option::Option<ITipAutoCompleteProvider>) -> ::windows::core::Result<()>;
+    fn UnadviseProvider(&mut self, hwndfield: super::super::Foundation::HWND, piprovider: &::core::option::Option<ITipAutoCompleteProvider>) -> ::windows::core::Result<()>;
     fn UserSelection(&mut self) -> ::windows::core::Result<()>;
     fn PreferredRects(&mut self, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn RequestShowUI(&mut self, hwndlist: super::super::Foundation::HWND) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7095,7 +7095,7 @@ impl ITipAutoCompleteClient_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITipAutoCompleteProvider_Impl: Sized {
-    fn UpdatePendingText(&mut self, bstrpendingtext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UpdatePendingText(&mut self, bstrpendingtext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Show(&mut self, fshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]

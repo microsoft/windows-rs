@@ -10,7 +10,7 @@ impl DRendezvousSessionEvents_Vtbl {
     }
 }
 pub trait IRendezvousApplication_Impl: Sized {
-    fn SetRendezvousSession(&mut self, prendezvoussession: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetRendezvousSession(&mut self, prendezvoussession: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IRendezvousApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRendezvousApplication_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRendezvousApplication_Vtbl {
@@ -29,8 +29,8 @@ pub trait IRendezvousSession_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<RENDEZVOUS_SESSION_STATE>;
     fn RemoteUser(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Flags(&mut self) -> ::windows::core::Result<i32>;
-    fn SendContextData(&mut self, bstrdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Terminate(&mut self, hr: ::windows::core::HRESULT, bstrappdata: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SendContextData(&mut self, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Terminate(&mut self, hr: ::windows::core::HRESULT, bstrappdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRendezvousSession_Vtbl {

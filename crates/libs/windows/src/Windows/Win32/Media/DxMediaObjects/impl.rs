@@ -188,7 +188,7 @@ pub trait IMediaObject_Impl: Sized {
     fn AllocateStreamingResources(&mut self) -> ::windows::core::Result<()>;
     fn FreeStreamingResources(&mut self) -> ::windows::core::Result<()>;
     fn GetInputStatus(&mut self, dwinputstreamindex: u32) -> ::windows::core::Result<u32>;
-    fn ProcessInput(&mut self, dwinputstreamindex: u32, pbuffer: ::core::option::Option<IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>;
+    fn ProcessInput(&mut self, dwinputstreamindex: u32, pbuffer: &::core::option::Option<IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>;
     fn ProcessOutput(&mut self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
     fn Lock(&mut self, block: i32) -> ::windows::core::Result<()>;
 }

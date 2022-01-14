@@ -247,7 +247,7 @@ pub trait IDirect3DDevice9_Impl: Sized {
     fn GetDeviceCaps(&mut self, pcaps: *mut D3DCAPS9) -> ::windows::core::Result<()>;
     fn GetDisplayMode(&mut self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::Result<()>;
     fn GetCreationParameters(&mut self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> ::windows::core::Result<()>;
-    fn SetCursorProperties(&mut self, xhotspot: u32, yhotspot: u32, pcursorbitmap: ::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
+    fn SetCursorProperties(&mut self, xhotspot: u32, yhotspot: u32, pcursorbitmap: &::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
     fn SetCursorPosition(&mut self, x: i32, y: i32, flags: u32);
     fn ShowCursor(&mut self, bshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     fn CreateAdditionalSwapChain(&mut self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut ::core::option::Option<IDirect3DSwapChain9>) -> ::windows::core::Result<()>;
@@ -267,16 +267,16 @@ pub trait IDirect3DDevice9_Impl: Sized {
     fn CreateIndexBuffer(&mut self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn CreateRenderTarget(&mut self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: super::super::Foundation::BOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn CreateDepthStencilSurface(&mut self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: super::super::Foundation::BOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn UpdateSurface(&mut self, psourcesurface: ::core::option::Option<IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: ::core::option::Option<IDirect3DSurface9>, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()>;
-    fn UpdateTexture(&mut self, psourcetexture: ::core::option::Option<IDirect3DBaseTexture9>, pdestinationtexture: ::core::option::Option<IDirect3DBaseTexture9>) -> ::windows::core::Result<()>;
-    fn GetRenderTargetData(&mut self, prendertarget: ::core::option::Option<IDirect3DSurface9>, pdestsurface: ::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
-    fn GetFrontBufferData(&mut self, iswapchain: u32, pdestsurface: ::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
-    fn StretchRect(&mut self, psourcesurface: ::core::option::Option<IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestsurface: ::core::option::Option<IDirect3DSurface9>, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()>;
-    fn ColorFill(&mut self, psurface: ::core::option::Option<IDirect3DSurface9>, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::core::Result<()>;
+    fn UpdateSurface(&mut self, psourcesurface: &::core::option::Option<IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: &::core::option::Option<IDirect3DSurface9>, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn UpdateTexture(&mut self, psourcetexture: &::core::option::Option<IDirect3DBaseTexture9>, pdestinationtexture: &::core::option::Option<IDirect3DBaseTexture9>) -> ::windows::core::Result<()>;
+    fn GetRenderTargetData(&mut self, prendertarget: &::core::option::Option<IDirect3DSurface9>, pdestsurface: &::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
+    fn GetFrontBufferData(&mut self, iswapchain: u32, pdestsurface: &::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
+    fn StretchRect(&mut self, psourcesurface: &::core::option::Option<IDirect3DSurface9>, psourcerect: *const super::super::Foundation::RECT, pdestsurface: &::core::option::Option<IDirect3DSurface9>, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()>;
+    fn ColorFill(&mut self, psurface: &::core::option::Option<IDirect3DSurface9>, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::core::Result<()>;
     fn CreateOffscreenPlainSurface(&mut self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetRenderTarget(&mut self, rendertargetindex: u32, prendertarget: ::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
+    fn SetRenderTarget(&mut self, rendertargetindex: u32, prendertarget: &::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
     fn GetRenderTarget(&mut self, rendertargetindex: u32) -> ::windows::core::Result<IDirect3DSurface9>;
-    fn SetDepthStencilSurface(&mut self, pnewzstencil: ::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
+    fn SetDepthStencilSurface(&mut self, pnewzstencil: &::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
     fn GetDepthStencilSurface(&mut self) -> ::windows::core::Result<IDirect3DSurface9>;
     fn BeginScene(&mut self) -> ::windows::core::Result<()>;
     fn EndScene(&mut self) -> ::windows::core::Result<()>;
@@ -302,7 +302,7 @@ pub trait IDirect3DDevice9_Impl: Sized {
     fn SetClipStatus(&mut self, pclipstatus: *const D3DCLIPSTATUS9) -> ::windows::core::Result<()>;
     fn GetClipStatus(&mut self, pclipstatus: *mut D3DCLIPSTATUS9) -> ::windows::core::Result<()>;
     fn GetTexture(&mut self, stage: u32) -> ::windows::core::Result<IDirect3DBaseTexture9>;
-    fn SetTexture(&mut self, stage: u32, ptexture: ::core::option::Option<IDirect3DBaseTexture9>) -> ::windows::core::Result<()>;
+    fn SetTexture(&mut self, stage: u32, ptexture: &::core::option::Option<IDirect3DBaseTexture9>) -> ::windows::core::Result<()>;
     fn GetTextureStageState(&mut self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> ::windows::core::Result<()>;
     fn SetTextureStageState(&mut self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> ::windows::core::Result<()>;
     fn GetSamplerState(&mut self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> ::windows::core::Result<()>;
@@ -322,14 +322,14 @@ pub trait IDirect3DDevice9_Impl: Sized {
     fn DrawIndexedPrimitive(&mut self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> ::windows::core::Result<()>;
     fn DrawPrimitiveUP(&mut self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()>;
     fn DrawIndexedPrimitiveUP(&mut self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()>;
-    fn ProcessVertices(&mut self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: ::core::option::Option<IDirect3DVertexBuffer9>, pvertexdecl: ::core::option::Option<IDirect3DVertexDeclaration9>, flags: u32) -> ::windows::core::Result<()>;
+    fn ProcessVertices(&mut self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: &::core::option::Option<IDirect3DVertexBuffer9>, pvertexdecl: &::core::option::Option<IDirect3DVertexDeclaration9>, flags: u32) -> ::windows::core::Result<()>;
     fn CreateVertexDeclaration(&mut self, pvertexelements: *const D3DVERTEXELEMENT9) -> ::windows::core::Result<IDirect3DVertexDeclaration9>;
-    fn SetVertexDeclaration(&mut self, pdecl: ::core::option::Option<IDirect3DVertexDeclaration9>) -> ::windows::core::Result<()>;
+    fn SetVertexDeclaration(&mut self, pdecl: &::core::option::Option<IDirect3DVertexDeclaration9>) -> ::windows::core::Result<()>;
     fn GetVertexDeclaration(&mut self) -> ::windows::core::Result<IDirect3DVertexDeclaration9>;
     fn SetFVF(&mut self, fvf: u32) -> ::windows::core::Result<()>;
     fn GetFVF(&mut self, pfvf: *mut u32) -> ::windows::core::Result<()>;
     fn CreateVertexShader(&mut self, pfunction: *const u32) -> ::windows::core::Result<IDirect3DVertexShader9>;
-    fn SetVertexShader(&mut self, pshader: ::core::option::Option<IDirect3DVertexShader9>) -> ::windows::core::Result<()>;
+    fn SetVertexShader(&mut self, pshader: &::core::option::Option<IDirect3DVertexShader9>) -> ::windows::core::Result<()>;
     fn GetVertexShader(&mut self) -> ::windows::core::Result<IDirect3DVertexShader9>;
     fn SetVertexShaderConstantF(&mut self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::core::Result<()>;
     fn GetVertexShaderConstantF(&mut self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> ::windows::core::Result<()>;
@@ -337,14 +337,14 @@ pub trait IDirect3DDevice9_Impl: Sized {
     fn GetVertexShaderConstantI(&mut self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows::core::Result<()>;
     fn SetVertexShaderConstantB(&mut self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows::core::Result<()>;
     fn GetVertexShaderConstantB(&mut self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows::core::Result<()>;
-    fn SetStreamSource(&mut self, streamnumber: u32, pstreamdata: ::core::option::Option<IDirect3DVertexBuffer9>, offsetinbytes: u32, stride: u32) -> ::windows::core::Result<()>;
+    fn SetStreamSource(&mut self, streamnumber: u32, pstreamdata: &::core::option::Option<IDirect3DVertexBuffer9>, offsetinbytes: u32, stride: u32) -> ::windows::core::Result<()>;
     fn GetStreamSource(&mut self, streamnumber: u32, ppstreamdata: *mut ::core::option::Option<IDirect3DVertexBuffer9>, poffsetinbytes: *mut u32, pstride: *mut u32) -> ::windows::core::Result<()>;
     fn SetStreamSourceFreq(&mut self, streamnumber: u32, setting: u32) -> ::windows::core::Result<()>;
     fn GetStreamSourceFreq(&mut self, streamnumber: u32, psetting: *mut u32) -> ::windows::core::Result<()>;
-    fn SetIndices(&mut self, pindexdata: ::core::option::Option<IDirect3DIndexBuffer9>) -> ::windows::core::Result<()>;
+    fn SetIndices(&mut self, pindexdata: &::core::option::Option<IDirect3DIndexBuffer9>) -> ::windows::core::Result<()>;
     fn GetIndices(&mut self) -> ::windows::core::Result<IDirect3DIndexBuffer9>;
     fn CreatePixelShader(&mut self, pfunction: *const u32) -> ::windows::core::Result<IDirect3DPixelShader9>;
-    fn SetPixelShader(&mut self, pshader: ::core::option::Option<IDirect3DPixelShader9>) -> ::windows::core::Result<()>;
+    fn SetPixelShader(&mut self, pshader: &::core::option::Option<IDirect3DPixelShader9>) -> ::windows::core::Result<()>;
     fn GetPixelShader(&mut self) -> ::windows::core::Result<IDirect3DPixelShader9>;
     fn SetPixelShaderConstantF(&mut self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::core::Result<()>;
     fn GetPixelShaderConstantF(&mut self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> ::windows::core::Result<()>;
@@ -1047,7 +1047,7 @@ impl IDirect3DDevice9_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DDevice9Ex_Impl: Sized + IDirect3DDevice9_Impl {
     fn SetConvolutionMonoKernel(&mut self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows::core::Result<()>;
-    fn ComposeRects(&mut self, psrc: ::core::option::Option<IDirect3DSurface9>, pdst: ::core::option::Option<IDirect3DSurface9>, psrcrectdescs: ::core::option::Option<IDirect3DVertexBuffer9>, numrects: u32, pdstrectdescs: ::core::option::Option<IDirect3DVertexBuffer9>, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> ::windows::core::Result<()>;
+    fn ComposeRects(&mut self, psrc: &::core::option::Option<IDirect3DSurface9>, pdst: &::core::option::Option<IDirect3DSurface9>, psrcrectdescs: &::core::option::Option<IDirect3DVertexBuffer9>, numrects: u32, pdstrectdescs: &::core::option::Option<IDirect3DVertexBuffer9>, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> ::windows::core::Result<()>;
     fn PresentEx(&mut self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetGPUThreadPriority(&mut self, ppriority: *mut i32) -> ::windows::core::Result<()>;
     fn SetGPUThreadPriority(&mut self, priority: i32) -> ::windows::core::Result<()>;
@@ -1411,7 +1411,7 @@ impl IDirect3DSurface9_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DSwapChain9_Impl: Sized {
     fn Present(&mut self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetFrontBufferData(&mut self, pdestsurface: ::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
+    fn GetFrontBufferData(&mut self, pdestsurface: &::core::option::Option<IDirect3DSurface9>) -> ::windows::core::Result<()>;
     fn GetBackBuffer(&mut self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::core::Result<IDirect3DSurface9>;
     fn GetRasterStatus(&mut self, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows::core::Result<()>;
     fn GetDisplayMode(&mut self, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::Result<()>;

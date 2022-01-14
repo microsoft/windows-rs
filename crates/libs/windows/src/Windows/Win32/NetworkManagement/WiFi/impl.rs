@@ -107,8 +107,8 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocManager_Impl: Sized {
-    fn CreateNetwork(&mut self, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::core::option::Option<IDot11AdHocInterface>, psecurity: ::core::option::Option<IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
-    fn CommitCreatedNetwork(&mut self, piadhoc: ::core::option::Option<IDot11AdHocNetwork>, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
+    fn CreateNetwork(&mut self, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: &::core::option::Option<IDot11AdHocInterface>, psecurity: &::core::option::Option<IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
+    fn CommitCreatedNetwork(&mut self, piadhoc: &::core::option::Option<IDot11AdHocNetwork>, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
     fn GetIEnumDot11AdHocNetworks(&mut self, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
     fn GetIEnumDot11AdHocInterfaces(&mut self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
     fn GetNetwork(&mut self, networksignature: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
@@ -174,9 +174,9 @@ impl IDot11AdHocManager_Vtbl {
     }
 }
 pub trait IDot11AdHocManagerNotificationSink_Impl: Sized {
-    fn OnNetworkAdd(&mut self, piadhocnetwork: ::core::option::Option<IDot11AdHocNetwork>) -> ::windows::core::Result<()>;
+    fn OnNetworkAdd(&mut self, piadhocnetwork: &::core::option::Option<IDot11AdHocNetwork>) -> ::windows::core::Result<()>;
     fn OnNetworkRemove(&mut self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnInterfaceAdd(&mut self, piadhocinterface: ::core::option::Option<IDot11AdHocInterface>) -> ::windows::core::Result<()>;
+    fn OnInterfaceAdd(&mut self, piadhocinterface: &::core::option::Option<IDot11AdHocInterface>) -> ::windows::core::Result<()>;
     fn OnInterfaceRemove(&mut self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IDot11AdHocManagerNotificationSink_Vtbl {

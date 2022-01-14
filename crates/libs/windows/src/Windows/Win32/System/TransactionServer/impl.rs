@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalog_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetCollection(&mut self, bstrcollname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Connect(&mut self, bstrconnectstring: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetCollection(&mut self, bstrcollname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Connect(&mut self, bstrconnectstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
     fn MajorVersion(&mut self, retval: *mut i32) -> ::windows::core::Result<()>;
     fn MinorVersion(&mut self, retval: *mut i32) -> ::windows::core::Result<()>;
 }
@@ -50,10 +50,10 @@ impl ICatalog_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComponentUtil_Impl: Sized + super::Com::IDispatch_Impl {
-    fn InstallComponent(&mut self, bstrdllfile: super::super::Foundation::BSTR, bstrtypelibfile: super::super::Foundation::BSTR, bstrproxystubdllfile: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImportComponent(&mut self, bstrclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImportComponentByName(&mut self, bstrprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetCLSIDs(&mut self, bstrdllfile: super::super::Foundation::BSTR, bstrtypelibfile: super::super::Foundation::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn InstallComponent(&mut self, bstrdllfile: &super::super::Foundation::BSTR, bstrtypelibfile: &super::super::Foundation::BSTR, bstrproxystubdllfile: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ImportComponent(&mut self, bstrclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ImportComponentByName(&mut self, bstrprogid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetCLSIDs(&mut self, bstrdllfile: &super::super::Foundation::BSTR, bstrtypelibfile: &super::super::Foundation::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComponentUtil_Vtbl {
@@ -88,9 +88,9 @@ impl IComponentUtil_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPackageUtil_Impl: Sized + super::Com::IDispatch_Impl {
-    fn InstallPackage(&mut self, bstrpackagefile: super::super::Foundation::BSTR, bstrinstallpath: super::super::Foundation::BSTR, loptions: i32) -> ::windows::core::Result<()>;
-    fn ExportPackage(&mut self, bstrpackageid: super::super::Foundation::BSTR, bstrpackagefile: super::super::Foundation::BSTR, loptions: i32) -> ::windows::core::Result<()>;
-    fn ShutdownPackage(&mut self, bstrpackageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallPackage(&mut self, bstrpackagefile: &super::super::Foundation::BSTR, bstrinstallpath: &super::super::Foundation::BSTR, loptions: i32) -> ::windows::core::Result<()>;
+    fn ExportPackage(&mut self, bstrpackageid: &super::super::Foundation::BSTR, bstrpackagefile: &super::super::Foundation::BSTR, loptions: i32) -> ::windows::core::Result<()>;
+    fn ShutdownPackage(&mut self, bstrpackageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPackageUtil_Vtbl {
@@ -120,8 +120,8 @@ impl IPackageUtil_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRemoteComponentUtil_Impl: Sized + super::Com::IDispatch_Impl {
-    fn InstallRemoteComponent(&mut self, bstrserver: super::super::Foundation::BSTR, bstrpackageid: super::super::Foundation::BSTR, bstrclsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InstallRemoteComponentByName(&mut self, bstrserver: super::super::Foundation::BSTR, bstrpackagename: super::super::Foundation::BSTR, bstrprogid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallRemoteComponent(&mut self, bstrserver: &super::super::Foundation::BSTR, bstrpackageid: &super::super::Foundation::BSTR, bstrclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallRemoteComponentByName(&mut self, bstrserver: &super::super::Foundation::BSTR, bstrpackagename: &super::super::Foundation::BSTR, bstrprogid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteComponentUtil_Vtbl {
@@ -146,8 +146,8 @@ impl IRemoteComponentUtil_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRoleAssociationUtil_Impl: Sized + super::Com::IDispatch_Impl {
-    fn AssociateRole(&mut self, bstrroleid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AssociateRoleByName(&mut self, bstrrolename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AssociateRole(&mut self, bstrroleid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AssociateRoleByName(&mut self, bstrrolename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRoleAssociationUtil_Vtbl {

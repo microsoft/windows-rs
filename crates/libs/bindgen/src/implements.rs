@@ -47,6 +47,9 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         let name = method_names.add(&method);
         let signature = gen_impl_signature(def, &method, gen);
         // TODO: if this is an override then provide a default impl?
+        // TODO: just not obvious if its an override without looking for the class - 
+        // would have to see if its exclusive and then find its its exclusive class
+        // and then see if its an overridable interface.
         quote! { fn #name #signature; }
     });
 

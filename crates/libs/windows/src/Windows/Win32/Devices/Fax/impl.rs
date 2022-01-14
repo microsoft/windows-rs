@@ -122,7 +122,7 @@ pub trait IFaxAccountIncomingArchive_Impl: Sized + super::super::System::Com::ID
     fn SizeHigh(&mut self) -> ::windows::core::Result<i32>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn GetMessages(&mut self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator>;
-    fn GetMessage(&mut self, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
+    fn GetMessage(&mut self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountIncomingArchive_Vtbl {
@@ -187,7 +187,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountIncomingQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetJobs(&mut self) -> ::windows::core::Result<IFaxIncomingJobs>;
-    fn GetJob(&mut self, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
+    fn GetJob(&mut self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountIncomingQueue_Vtbl {
@@ -239,7 +239,7 @@ pub trait IFaxAccountOutgoingArchive_Impl: Sized + super::super::System::Com::ID
     fn SizeHigh(&mut self) -> ::windows::core::Result<i32>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn GetMessages(&mut self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator>;
-    fn GetMessage(&mut self, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
+    fn GetMessage(&mut self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountOutgoingArchive_Vtbl {
@@ -304,7 +304,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountOutgoingQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetJobs(&mut self) -> ::windows::core::Result<IFaxOutgoingJobs>;
-    fn GetJob(&mut self, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
+    fn GetJob(&mut self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountOutgoingQueue_Vtbl {
@@ -342,9 +342,9 @@ impl IFaxAccountOutgoingQueue_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountSet_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetAccounts(&mut self) -> ::windows::core::Result<IFaxAccounts>;
-    fn GetAccount(&mut self, bstraccountname: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxAccount>;
-    fn AddAccount(&mut self, bstraccountname: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxAccount>;
-    fn RemoveAccount(&mut self, bstraccountname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetAccount(&mut self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxAccount>;
+    fn AddAccount(&mut self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxAccount>;
+    fn RemoveAccount(&mut self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountSet_Vtbl {
@@ -398,7 +398,7 @@ impl IFaxAccountSet_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccounts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxAccount>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxAccount>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -520,7 +520,7 @@ pub trait IFaxActivityLogging_Impl: Sized + super::super::System::Com::IDispatch
     fn LogOutgoing(&mut self) -> ::windows::core::Result<i16>;
     fn SetLogOutgoing(&mut self, blogoutgoing: i16) -> ::windows::core::Result<()>;
     fn DatabasePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDatabasePath(&mut self, bstrdatabasepath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDatabasePath(&mut self, bstrdatabasepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
 }
@@ -598,7 +598,7 @@ pub trait IFaxConfiguration_Impl: Sized + super::super::System::Com::IDispatch_I
     fn UseArchive(&mut self) -> ::windows::core::Result<i16>;
     fn SetUseArchive(&mut self, busearchive: i16) -> ::windows::core::Result<()>;
     fn ArchiveLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetArchiveLocation(&mut self, bstrarchivelocation: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetArchiveLocation(&mut self, bstrarchivelocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SizeQuotaWarning(&mut self) -> ::windows::core::Result<i16>;
     fn SetSizeQuotaWarning(&mut self, bsizequotawarning: i16) -> ::windows::core::Result<()>;
     fn HighQuotaWaterMark(&mut self) -> ::windows::core::Result<i32>;
@@ -995,7 +995,7 @@ pub trait IFaxDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SendingNow(&mut self) -> ::windows::core::Result<i16>;
     fn UsedRoutingMethods(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SendEnabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetSendEnabled(&mut self, bsendenabled: i16) -> ::windows::core::Result<()>;
     fn ReceiveMode(&mut self) -> ::windows::core::Result<FAX_DEVICE_RECEIVE_MODE_ENUM>;
@@ -1003,14 +1003,14 @@ pub trait IFaxDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RingsBeforeAnswer(&mut self) -> ::windows::core::Result<i32>;
     fn SetRingsBeforeAnswer(&mut self, lringsbeforeanswer: i32) -> ::windows::core::Result<()>;
     fn CSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCSID(&mut self, bstrcsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCSID(&mut self, bstrcsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTSID(&mut self, bstrtsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTSID(&mut self, bstrtsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
-    fn GetExtensionProperty(&mut self, bstrguid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetExtensionProperty(&mut self, bstrguid: super::super::Foundation::BSTR, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn UseRoutingMethod(&mut self, bstrmethodguid: super::super::Foundation::BSTR, buse: i16) -> ::windows::core::Result<()>;
+    fn GetExtensionProperty(&mut self, bstrguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetExtensionProperty(&mut self, bstrguid: &super::super::Foundation::BSTR, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn UseRoutingMethod(&mut self, bstrmethodguid: &super::super::Foundation::BSTR, buse: i16) -> ::windows::core::Result<()>;
     fn RingingNow(&mut self) -> ::windows::core::Result<i16>;
     fn AnswerCall(&mut self) -> ::windows::core::Result<()>;
 }
@@ -1474,7 +1474,7 @@ impl IFaxDeviceProvider_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDeviceProviders_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDeviceProvider>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDeviceProvider>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1524,7 +1524,7 @@ impl IFaxDeviceProviders_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDevice>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDevice>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn ItemById(&mut self, lid: i32) -> ::windows::core::Result<IFaxDevice>;
 }
@@ -1586,21 +1586,21 @@ impl IFaxDevices_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDocument_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Body(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBody(&mut self, bstrbody: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBody(&mut self, bstrbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Sender(&mut self) -> ::windows::core::Result<IFaxSender>;
     fn Recipients(&mut self) -> ::windows::core::Result<IFaxRecipients>;
     fn CoverPage(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCoverPage(&mut self, bstrcoverpage: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCoverPage(&mut self, bstrcoverpage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Subject(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSubject(&mut self, bstrsubject: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSubject(&mut self, bstrsubject: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Note(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNote(&mut self, bstrnote: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetNote(&mut self, bstrnote: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ScheduleTime(&mut self) -> ::windows::core::Result<f64>;
     fn SetScheduleTime(&mut self, datescheduletime: f64) -> ::windows::core::Result<()>;
     fn ReceiptAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetReceiptAddress(&mut self, bstrreceiptaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetReceiptAddress(&mut self, bstrreceiptaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DocumentName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDocumentName(&mut self, bstrdocumentname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDocumentName(&mut self, bstrdocumentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CallHandle(&mut self) -> ::windows::core::Result<i32>;
     fn SetCallHandle(&mut self, lcallhandle: i32) -> ::windows::core::Result<()>;
     fn CoverPageType(&mut self) -> ::windows::core::Result<FAX_COVERPAGE_TYPE_ENUM>;
@@ -1614,9 +1614,9 @@ pub trait IFaxDocument_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Priority(&mut self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM>;
     fn SetPriority(&mut self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::Result<()>;
     fn TapiConnection(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn putref_TapiConnection(&mut self, ptapiconnection: ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn Submit(&mut self, bstrfaxservername: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn ConnectedSubmit(&mut self, pfaxserver: ::core::option::Option<IFaxServer>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn putref_TapiConnection(&mut self, ptapiconnection: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Submit(&mut self, bstrfaxservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn ConnectedSubmit(&mut self, pfaxserver: &::core::option::Option<IFaxServer>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn AttachFaxToReceipt(&mut self) -> ::windows::core::Result<i16>;
     fn SetAttachFaxToReceipt(&mut self, battachfax: i16) -> ::windows::core::Result<()>;
 }
@@ -1919,9 +1919,9 @@ impl IFaxDocument_Vtbl {
 pub trait IFaxDocument2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxDocument_Impl {
     fn SubmissionId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Bodies(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetBodies(&mut self, vbodies: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Submit2(&mut self, bstrfaxservername: super::super::Foundation::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
-    fn ConnectedSubmit2(&mut self, pfaxserver: ::core::option::Option<IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
+    fn SetBodies(&mut self, vbodies: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Submit2(&mut self, bstrfaxservername: &super::super::Foundation::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
+    fn ConnectedSubmit2(&mut self, pfaxserver: &::core::option::Option<IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDocument2_Vtbl {
@@ -2318,7 +2318,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxInboundRoutingExtensions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingExtension>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingExtension>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2472,7 +2472,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxInboundRoutingMethods_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingMethod>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingMethod>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2524,7 +2524,7 @@ pub trait IFaxIncomingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn UseArchive(&mut self) -> ::windows::core::Result<i16>;
     fn SetUseArchive(&mut self, busearchive: i16) -> ::windows::core::Result<()>;
     fn ArchiveFolder(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetArchiveFolder(&mut self, bstrarchivefolder: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetArchiveFolder(&mut self, bstrarchivefolder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SizeQuotaWarning(&mut self) -> ::windows::core::Result<i16>;
     fn SetSizeQuotaWarning(&mut self, bsizequotawarning: i16) -> ::windows::core::Result<()>;
     fn HighQuotaWaterMark(&mut self) -> ::windows::core::Result<i32>;
@@ -2538,7 +2538,7 @@ pub trait IFaxIncomingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn GetMessages(&mut self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator>;
-    fn GetMessage(&mut self, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
+    fn GetMessage(&mut self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingArchive_Vtbl {
@@ -2721,7 +2721,7 @@ pub trait IFaxIncomingJob_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn JobType(&mut self) -> ::windows::core::Result<FAX_JOB_TYPE_ENUM>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn CopyTiff(&mut self, bstrtiffpath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyTiff(&mut self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingJob_Vtbl {
@@ -2928,7 +2928,7 @@ impl IFaxIncomingJob_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxIncomingJobs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxIncomingJob>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxIncomingJob>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2988,7 +2988,7 @@ pub trait IFaxIncomingMessage_Impl: Sized + super::super::System::Com::IDispatch
     fn TSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CallerId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn RoutingInformation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CopyTiff(&mut self, bstrtiffpath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyTiff(&mut self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Delete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3136,15 +3136,15 @@ impl IFaxIncomingMessage_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxIncomingMessage2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxIncomingMessage_Impl {
     fn Subject(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSubject(&mut self, bstrsubject: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSubject(&mut self, bstrsubject: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SenderName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSenderName(&mut self, bstrsendername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSenderName(&mut self, bstrsendername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SenderFaxNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSenderFaxNumber(&mut self, bstrsenderfaxnumber: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSenderFaxNumber(&mut self, bstrsenderfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn HasCoverPage(&mut self) -> ::windows::core::Result<i16>;
     fn SetHasCoverPage(&mut self, bhascoverpage: i16) -> ::windows::core::Result<()>;
     fn Recipients(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRecipients(&mut self, bstrrecipients: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRecipients(&mut self, bstrrecipients: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn WasReAssigned(&mut self) -> ::windows::core::Result<i16>;
     fn Read(&mut self) -> ::windows::core::Result<i16>;
     fn SetRead(&mut self, bread: i16) -> ::windows::core::Result<()>;
@@ -3360,7 +3360,7 @@ pub trait IFaxIncomingQueue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn GetJobs(&mut self) -> ::windows::core::Result<IFaxIncomingJobs>;
-    fn GetJob(&mut self, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
+    fn GetJob(&mut self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingQueue_Vtbl {
@@ -3768,10 +3768,10 @@ impl IFaxOutboundRoutingGroup_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutboundRoutingGroups_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
-    fn Remove(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Add(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
+    fn Remove(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRoutingGroups_Vtbl {
@@ -3843,7 +3843,7 @@ pub trait IFaxOutboundRoutingRule_Impl: Sized + super::super::System::Com::IDisp
     fn DeviceId(&mut self) -> ::windows::core::Result<i32>;
     fn SetDeviceId(&mut self, deviceid: i32) -> ::windows::core::Result<()>;
     fn GroupName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetGroupName(&mut self, bstrgroupname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetGroupName(&mut self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
 }
@@ -3957,7 +3957,7 @@ pub trait IFaxOutboundRoutingRules_Impl: Sized + super::super::System::Com::IDis
     fn ItemByCountryAndArea(&mut self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
     fn RemoveByCountryAndArea(&mut self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<()>;
     fn Remove(&mut self, lindex: i32) -> ::windows::core::Result<()>;
-    fn Add(&mut self, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: super::super::Foundation::BSTR, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
+    fn Add(&mut self, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: &super::super::Foundation::BSTR, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRoutingRules_Vtbl {
@@ -4040,7 +4040,7 @@ pub trait IFaxOutgoingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn UseArchive(&mut self) -> ::windows::core::Result<i16>;
     fn SetUseArchive(&mut self, busearchive: i16) -> ::windows::core::Result<()>;
     fn ArchiveFolder(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetArchiveFolder(&mut self, bstrarchivefolder: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetArchiveFolder(&mut self, bstrarchivefolder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SizeQuotaWarning(&mut self) -> ::windows::core::Result<i16>;
     fn SetSizeQuotaWarning(&mut self, bsizequotawarning: i16) -> ::windows::core::Result<()>;
     fn HighQuotaWaterMark(&mut self) -> ::windows::core::Result<i32>;
@@ -4054,7 +4054,7 @@ pub trait IFaxOutgoingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn GetMessages(&mut self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator>;
-    fn GetMessage(&mut self, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
+    fn GetMessage(&mut self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingArchive_Vtbl {
@@ -4247,7 +4247,7 @@ pub trait IFaxOutgoingJob_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
     fn Restart(&mut self) -> ::windows::core::Result<()>;
-    fn CopyTiff(&mut self, bstrtiffpath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyTiff(&mut self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
@@ -4620,7 +4620,7 @@ impl IFaxOutgoingJob2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutgoingJobs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutgoingJob>;
+    fn Item(&mut self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutgoingJob>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4686,7 +4686,7 @@ pub trait IFaxOutgoingMessage_Impl: Sized + super::super::System::Com::IDispatch
     fn TransmissionEnd(&mut self) -> ::windows::core::Result<f64>;
     fn CSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn TSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CopyTiff(&mut self, bstrtiffpath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyTiff(&mut self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Delete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5070,7 +5070,7 @@ pub trait IFaxOutgoingQueue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn GetJobs(&mut self) -> ::windows::core::Result<IFaxOutgoingJobs>;
-    fn GetJob(&mut self, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
+    fn GetJob(&mut self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingQueue_Vtbl {
@@ -5280,17 +5280,17 @@ pub trait IFaxReceiptOptions_Impl: Sized + super::super::System::Com::IDispatch_
     fn AuthenticationType(&mut self) -> ::windows::core::Result<FAX_SMTP_AUTHENTICATION_TYPE_ENUM>;
     fn SetAuthenticationType(&mut self, r#type: FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::Result<()>;
     fn SMTPServer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPServer(&mut self, bstrsmtpserver: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSMTPServer(&mut self, bstrsmtpserver: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SMTPPort(&mut self) -> ::windows::core::Result<i32>;
     fn SetSMTPPort(&mut self, lsmtpport: i32) -> ::windows::core::Result<()>;
     fn SMTPSender(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPSender(&mut self, bstrsmtpsender: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSMTPSender(&mut self, bstrsmtpsender: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SMTPUser(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPUser(&mut self, bstrsmtpuser: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSMTPUser(&mut self, bstrsmtpuser: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AllowedReceipts(&mut self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM>;
     fn SetAllowedReceipts(&mut self, allowedreceipts: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()>;
     fn SMTPPassword(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSMTPPassword(&mut self, bstrsmtppassword: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSMTPPassword(&mut self, bstrsmtppassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn UseForInboundRouting(&mut self) -> ::windows::core::Result<i16>;
@@ -5448,9 +5448,9 @@ impl IFaxReceiptOptions_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxRecipient_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FaxNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFaxNumber(&mut self, bstrfaxnumber: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFaxNumber(&mut self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxRecipient_Vtbl {
@@ -5500,7 +5500,7 @@ pub trait IFaxRecipients_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<IFaxRecipient>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, bstrfaxnumber: super::super::Foundation::BSTR, bstrrecipientname: super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxRecipient>;
+    fn Add(&mut self, bstrfaxnumber: &super::super::Foundation::BSTR, bstrrecipientname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxRecipient>;
     fn Remove(&mut self, lindex: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5566,7 +5566,7 @@ impl IFaxRecipients_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxSecurity_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Descriptor(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDescriptor(&mut self, vdescriptor: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetDescriptor(&mut self, vdescriptor: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GrantedRights(&mut self) -> ::windows::core::Result<FAX_ACCESS_RIGHTS_ENUM>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
@@ -5640,7 +5640,7 @@ impl IFaxSecurity_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxSecurity2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Descriptor(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDescriptor(&mut self, vdescriptor: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetDescriptor(&mut self, vdescriptor: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GrantedRights(&mut self) -> ::windows::core::Result<FAX_ACCESS_RIGHTS_ENUM_2>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
@@ -5714,37 +5714,37 @@ impl IFaxSecurity2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxSender_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn BillingCode(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBillingCode(&mut self, bstrbillingcode: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBillingCode(&mut self, bstrbillingcode: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn City(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCity(&mut self, bstrcity: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCity(&mut self, bstrcity: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Company(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCompany(&mut self, bstrcompany: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCompany(&mut self, bstrcompany: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Country(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCountry(&mut self, bstrcountry: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCountry(&mut self, bstrcountry: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Department(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDepartment(&mut self, bstrdepartment: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDepartment(&mut self, bstrdepartment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Email(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEmail(&mut self, bstremail: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEmail(&mut self, bstremail: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FaxNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFaxNumber(&mut self, bstrfaxnumber: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFaxNumber(&mut self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn HomePhone(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHomePhone(&mut self, bstrhomephone: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetHomePhone(&mut self, bstrhomephone: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTSID(&mut self, bstrtsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTSID(&mut self, bstrtsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn OfficePhone(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOfficePhone(&mut self, bstrofficephone: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOfficePhone(&mut self, bstrofficephone: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn OfficeLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOfficeLocation(&mut self, bstrofficelocation: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOfficeLocation(&mut self, bstrofficelocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn State(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetState(&mut self, bstrstate: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetState(&mut self, bstrstate: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StreetAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStreetAddress(&mut self, bstrstreetaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetStreetAddress(&mut self, bstrstreetaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Title(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTitle(&mut self, bstrtitle: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTitle(&mut self, bstrtitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ZipCode(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetZipCode(&mut self, bstrzipcode: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetZipCode(&mut self, bstrzipcode: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LoadDefaultSender(&mut self) -> ::windows::core::Result<()>;
     fn SaveDefaultSender(&mut self) -> ::windows::core::Result<()>;
 }
@@ -6027,7 +6027,7 @@ impl IFaxSender_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxServer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Connect(&mut self, bstrservername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, bstrservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ServerName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetDeviceProviders(&mut self) -> ::windows::core::Result<IFaxDeviceProviders>;
     fn GetDevices(&mut self) -> ::windows::core::Result<IFaxDevices>;
@@ -6044,13 +6044,13 @@ pub trait IFaxServer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ReceiptOptions(&mut self) -> ::windows::core::Result<IFaxReceiptOptions>;
     fn Security(&mut self) -> ::windows::core::Result<IFaxSecurity>;
     fn Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn GetExtensionProperty(&mut self, bstrguid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetExtensionProperty(&mut self, bstrguid: super::super::Foundation::BSTR, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetExtensionProperty(&mut self, bstrguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetExtensionProperty(&mut self, bstrguid: &super::super::Foundation::BSTR, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ListenToServerEvents(&mut self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()>;
-    fn RegisterDeviceProvider(&mut self, bstrguid: super::super::Foundation::BSTR, bstrfriendlyname: super::super::Foundation::BSTR, bstrimagename: super::super::Foundation::BSTR, tspname: super::super::Foundation::BSTR, lfspiversion: i32) -> ::windows::core::Result<()>;
-    fn UnregisterDeviceProvider(&mut self, bstruniquename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RegisterInboundRoutingExtension(&mut self, bstrextensionname: super::super::Foundation::BSTR, bstrfriendlyname: super::super::Foundation::BSTR, bstrimagename: super::super::Foundation::BSTR, vmethods: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn UnregisterInboundRoutingExtension(&mut self, bstrextensionuniquename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterDeviceProvider(&mut self, bstrguid: &super::super::Foundation::BSTR, bstrfriendlyname: &super::super::Foundation::BSTR, bstrimagename: &super::super::Foundation::BSTR, tspname: &super::super::Foundation::BSTR, lfspiversion: i32) -> ::windows::core::Result<()>;
+    fn UnregisterDeviceProvider(&mut self, bstruniquename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterInboundRoutingExtension(&mut self, bstrextensionname: &super::super::Foundation::BSTR, bstrfriendlyname: &super::super::Foundation::BSTR, bstrimagename: &super::super::Foundation::BSTR, vmethods: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn UnregisterInboundRoutingExtension(&mut self, bstrextensionuniquename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RegisteredEvents(&mut self) -> ::windows::core::Result<FAX_SERVER_EVENTS_TYPE_ENUM>;
     fn APIVersion(&mut self) -> ::windows::core::Result<FAX_SERVER_APIVERSION_ENUM>;
 }
@@ -6603,7 +6603,7 @@ impl IStiDeviceControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
 pub trait IStiUSD_Impl: Sized {
-    fn Initialize(&mut self, pheldcb: ::core::option::Option<IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, pheldcb: &::core::option::Option<IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
     fn GetCapabilities(&mut self) -> ::windows::core::Result<STI_USD_CAPS>;
     fn GetStatus(&mut self, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::Result<()>;
     fn DeviceReset(&mut self) -> ::windows::core::Result<()>;
@@ -6740,7 +6740,7 @@ pub trait IStillImageW_Impl: Sized {
     fn Initialize(&mut self, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::Result<()>;
     fn GetDeviceList(&mut self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetDeviceInfo(&mut self, pwszdevicename: super::super::Foundation::PWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateDevice(&mut self, pwszdevicename: super::super::Foundation::PWSTR, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDevice(&mut self, pwszdevicename: super::super::Foundation::PWSTR, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetDeviceValue(&mut self, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::Result<()>;
     fn SetDeviceValue(&mut self, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
     fn GetSTILaunchInformation(&mut self, pwszdevicename: super::super::Foundation::PWSTR, pdweventcode: *mut u32, pwszeventname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -6847,17 +6847,17 @@ impl IStillImageW_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IFaxAccountNotify_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobRemoved(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobChanged(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrjobid: super::super::Foundation::BSTR, pjobstatus: ::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobAdded(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobRemoved(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobChanged(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrjobid: super::super::Foundation::BSTR, pjobstatus: ::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageAdded(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrmessageid: super::super::Foundation::BSTR, faddedtoreceivefolder: i16) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageRemoved(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrmessageid: super::super::Foundation::BSTR, fremovedfromreceivefolder: i16) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageAdded(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageRemoved(&mut self, pfaxaccount: ::core::option::Option<IFaxAccount>, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnServerShutDown(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnIncomingJobAdded(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobRemoved(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobChanged(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobAdded(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobRemoved(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobChanged(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageAdded(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR, faddedtoreceivefolder: i16) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageRemoved(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR, fremovedfromreceivefolder: i16) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageAdded(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageRemoved(&mut self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnServerShutDown(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IFaxAccountNotify_Vtbl {
@@ -6927,32 +6927,32 @@ impl _IFaxAccountNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _IFaxServerNotify2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobRemoved(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobChanged(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrjobid: super::super::Foundation::BSTR, pjobstatus: ::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobAdded(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobRemoved(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrjobid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobChanged(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrjobid: super::super::Foundation::BSTR, pjobstatus: ::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageAdded(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageRemoved(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageAdded(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageRemoved(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, bstrmessageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnReceiptOptionsChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnActivityLoggingConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnSecurityConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnEventLoggingConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutgoingQueueConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutgoingArchiveConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnIncomingArchiveConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnDevicesConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutboundRoutingGroupsConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutboundRoutingRulesConfigChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnServerActivityChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::Result<()>;
-    fn OnQueuesStatusChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, boutgoingqueueblocked: i16, boutgoingqueuepaused: i16, bincomingqueueblocked: i16) -> ::windows::core::Result<()>;
-    fn OnNewCall(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnServerShutDown(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnDeviceStatusChange(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>, ldeviceid: i32, bpoweredoff: i16, bsending: i16, breceiving: i16, bringing: i16) -> ::windows::core::Result<()>;
-    fn OnGeneralServerConfigChanged(&mut self, pfaxserver: ::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnIncomingJobAdded(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobRemoved(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobChanged(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobAdded(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobRemoved(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobChanged(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &super::super::Foundation::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageAdded(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageRemoved(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageAdded(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageRemoved(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnReceiptOptionsChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnActivityLoggingConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnSecurityConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnEventLoggingConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutgoingQueueConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutgoingArchiveConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnIncomingArchiveConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnDevicesConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutboundRoutingGroupsConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutboundRoutingRulesConfigChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnServerActivityChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::Result<()>;
+    fn OnQueuesStatusChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, boutgoingqueueblocked: i16, boutgoingqueuepaused: i16, bincomingqueueblocked: i16) -> ::windows::core::Result<()>;
+    fn OnNewCall(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnServerShutDown(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnDeviceStatusChange(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>, ldeviceid: i32, bpoweredoff: i16, bsending: i16, breceiving: i16, bringing: i16) -> ::windows::core::Result<()>;
+    fn OnGeneralServerConfigChanged(&mut self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IFaxServerNotify2_Vtbl {

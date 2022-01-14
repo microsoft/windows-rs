@@ -484,7 +484,12 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_param_sig(param, gen);
-    quote! { #name: #kind, }
+
+    if param.param.is_input() && !param.signature.is_primitive() {
+        quote! { #name: &#kind, }
+    } else {
+        quote! { #name: #kind, }
+    }
 }
 
 fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {

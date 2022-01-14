@@ -36,7 +36,7 @@ impl ICreateDeviceAccessAsync_Vtbl {
 }
 pub trait IDeviceIoControl_Impl: Sized {
     fn DeviceIoControlSync(&mut self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn DeviceIoControlAsync(&mut self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: ::core::option::Option<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> ::windows::core::Result<()>;
+    fn DeviceIoControlAsync(&mut self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: &::core::option::Option<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> ::windows::core::Result<()>;
     fn CancelOperation(&mut self, cancelcontext: usize) -> ::windows::core::Result<()>;
 }
 impl IDeviceIoControl_Vtbl {

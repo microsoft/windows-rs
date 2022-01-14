@@ -430,7 +430,7 @@ impl IMLangFontLink2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangLineBreakConsole_Impl: Sized {
-    fn BreakLineML(&mut self, psrcmlstr: ::core::option::Option<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::Result<()>;
+    fn BreakLineML(&mut self, psrcmlstr: &::core::option::Option<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::Result<()>;
     fn BreakLineW(&mut self, locale: u32, pszsrc: super::Foundation::PWSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()>;
     fn BreakLineA(&mut self, locale: u32, ucodepage: u32, pszsrc: super::Foundation::PSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()>;
 }
@@ -464,8 +464,8 @@ impl IMLangLineBreakConsole_Vtbl {
 pub trait IMLangString_Impl: Sized {
     fn Sync(&mut self, fnoaccess: super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetLength(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMLStr(&mut self, ldestpos: i32, ldestlen: i32, psrcmlstr: ::core::option::Option<::windows::core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>;
-    fn GetMLStr(&mut self, lsrcpos: i32, lsrclen: i32, punkouter: ::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
+    fn SetMLStr(&mut self, ldestpos: i32, ldestlen: i32, psrcmlstr: &::core::option::Option<::windows::core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>;
+    fn GetMLStr(&mut self, lsrcpos: i32, lsrclen: i32, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMLangString_Vtbl {
@@ -507,7 +507,7 @@ impl IMLangString_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringAStr_Impl: Sized + IMLangString_Impl {
     fn SetAStr(&mut self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: super::Foundation::PSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
-    fn SetStrBufA(&mut self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: ::core::option::Option<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
+    fn SetStrBufA(&mut self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: &::core::option::Option<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetAStr(&mut self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: super::Foundation::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetStrBufA(&mut self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufA>, pldestlen: *mut i32) -> ::windows::core::Result<()>;
     fn LockAStr(&mut self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: *mut u32, ppszdest: *mut super::Foundation::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
@@ -669,7 +669,7 @@ impl IMLangStringBufW_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringWStr_Impl: Sized + IMLangString_Impl {
     fn SetWStr(&mut self, ldestpos: i32, ldestlen: i32, pszsrc: super::Foundation::PWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
-    fn SetStrBufW(&mut self, ldestpos: i32, ldestlen: i32, psrcbuf: ::core::option::Option<IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
+    fn SetStrBufW(&mut self, ldestpos: i32, ldestlen: i32, psrcbuf: &::core::option::Option<IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetWStr(&mut self, lsrcpos: i32, lsrclen: i32, pszdest: super::Foundation::PWSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetStrBufW(&mut self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufW>, pldestlen: *mut i32) -> ::windows::core::Result<()>;
     fn LockWStr(&mut self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut super::Foundation::PWSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
@@ -734,14 +734,14 @@ pub trait IMultiLanguage_Impl: Sized {
     fn GetCodePageInfo(&mut self, uicodepage: u32) -> ::windows::core::Result<MIMECPINFO>;
     fn GetFamilyCodePage(&mut self, uicodepage: u32) -> ::windows::core::Result<u32>;
     fn EnumCodePages(&mut self, grfflags: u32) -> ::windows::core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&mut self, charset: super::Foundation::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
+    fn GetCharsetInfo(&mut self, charset: &super::Foundation::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
     fn IsConvertible(&mut self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()>;
     fn ConvertString(&mut self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringToUnicode(&mut self, pdwmode: *mut u32, dwencoding: u32, psrcstr: super::Foundation::PSTR, pcsrcsize: *mut u32, pdststr: super::Foundation::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringFromUnicode(&mut self, pdwmode: *mut u32, dwencoding: u32, psrcstr: super::Foundation::PWSTR, pcsrcsize: *mut u32, pdststr: super::Foundation::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringReset(&mut self) -> ::windows::core::Result<()>;
     fn GetRfc1766FromLcid(&mut self, locale: u32) -> ::windows::core::Result<super::Foundation::BSTR>;
-    fn GetLcidFromRfc1766(&mut self, plocale: *mut u32, bstrrfc1766: super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetLcidFromRfc1766(&mut self, plocale: *mut u32, bstrrfc1766: &super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EnumRfc1766(&mut self) -> ::windows::core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&mut self, locale: u32) -> ::windows::core::Result<RFC1766INFO>;
     fn CreateConvertCharset(&mut self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset>;
@@ -892,21 +892,21 @@ pub trait IMultiLanguage2_Impl: Sized {
     fn GetCodePageInfo(&mut self, uicodepage: u32, langid: u16) -> ::windows::core::Result<MIMECPINFO>;
     fn GetFamilyCodePage(&mut self, uicodepage: u32) -> ::windows::core::Result<u32>;
     fn EnumCodePages(&mut self, grfflags: u32, langid: u16) -> ::windows::core::Result<IEnumCodePage>;
-    fn GetCharsetInfo(&mut self, charset: super::Foundation::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
+    fn GetCharsetInfo(&mut self, charset: &super::Foundation::BSTR) -> ::windows::core::Result<MIMECSETINFO>;
     fn IsConvertible(&mut self, dwsrcencoding: u32, dwdstencoding: u32) -> ::windows::core::Result<()>;
     fn ConvertString(&mut self, pdwmode: *mut u32, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: *const u8, pcsrcsize: *mut u32, pdststr: *mut u8, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringToUnicode(&mut self, pdwmode: *mut u32, dwencoding: u32, psrcstr: super::Foundation::PSTR, pcsrcsize: *mut u32, pdststr: super::Foundation::PWSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringFromUnicode(&mut self, pdwmode: *mut u32, dwencoding: u32, psrcstr: super::Foundation::PWSTR, pcsrcsize: *mut u32, pdststr: super::Foundation::PSTR, pcdstsize: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertStringReset(&mut self) -> ::windows::core::Result<()>;
     fn GetRfc1766FromLcid(&mut self, locale: u32) -> ::windows::core::Result<super::Foundation::BSTR>;
-    fn GetLcidFromRfc1766(&mut self, plocale: *mut u32, bstrrfc1766: super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetLcidFromRfc1766(&mut self, plocale: *mut u32, bstrrfc1766: &super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EnumRfc1766(&mut self, langid: u16) -> ::windows::core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&mut self, locale: u32, langid: u16) -> ::windows::core::Result<RFC1766INFO>;
     fn CreateConvertCharset(&mut self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset>;
-    fn ConvertStringInIStream(&mut self, pdwmode: *mut u32, dwflag: u32, lpfallback: super::Foundation::PWSTR, dwsrcencoding: u32, dwdstencoding: u32, pstmin: ::core::option::Option<super::System::Com::IStream>, pstmout: ::core::option::Option<super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn ConvertStringInIStream(&mut self, pdwmode: *mut u32, dwflag: u32, lpfallback: super::Foundation::PWSTR, dwsrcencoding: u32, dwdstencoding: u32, pstmin: &::core::option::Option<super::System::Com::IStream>, pstmout: &::core::option::Option<super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn ConvertStringToUnicodeEx(&mut self, pdwmode: *mut u32, dwencoding: u32, psrcstr: super::Foundation::PSTR, pcsrcsize: *mut u32, pdststr: super::Foundation::PWSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn ConvertStringFromUnicodeEx(&mut self, pdwmode: *mut u32, dwencoding: u32, psrcstr: super::Foundation::PWSTR, pcsrcsize: *mut u32, pdststr: super::Foundation::PSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DetectCodepageInIStream(&mut self, dwflag: u32, dwprefwincodepage: u32, pstmin: ::core::option::Option<super::System::Com::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>;
+    fn DetectCodepageInIStream(&mut self, dwflag: u32, dwprefwincodepage: u32, pstmin: &::core::option::Option<super::System::Com::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>;
     fn DetectInputCodepage(&mut self, dwflag: u32, dwprefwincodepage: u32, psrcstr: super::Foundation::PSTR, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>;
     fn ValidateCodePage(&mut self, uicodepage: u32, hwnd: super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn GetCodePageDescription(&mut self, uicodepage: u32, lcid: u32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32) -> ::windows::core::Result<()>;
@@ -1131,7 +1131,7 @@ impl IMultiLanguage2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMultiLanguage3_Impl: Sized + IMultiLanguage2_Impl {
     fn DetectOutboundCodePage(&mut self, dwflags: u32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DetectOutboundCodePageInIStream(&mut self, dwflags: u32, pstrin: ::core::option::Option<super::System::Com::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DetectOutboundCodePageInIStream(&mut self, dwflags: u32, pstrin: &::core::option::Option<super::System::Com::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMultiLanguage3_Vtbl {
@@ -1227,7 +1227,7 @@ pub trait ISpellCheckProvider_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
     fn LocalizedName(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
     fn GetOptionDescription(&mut self, optionid: super::Foundation::PWSTR) -> ::windows::core::Result<IOptionDescription>;
-    fn InitializeWordlist(&mut self, wordlisttype: WORDLIST_TYPE, words: ::core::option::Option<super::System::Com::IEnumString>) -> ::windows::core::Result<()>;
+    fn InitializeWordlist(&mut self, wordlisttype: WORDLIST_TYPE, words: &::core::option::Option<super::System::Com::IEnumString>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISpellCheckProvider_Vtbl {
@@ -1400,7 +1400,7 @@ pub trait ISpellChecker_Impl: Sized {
     fn OptionIds(&mut self) -> ::windows::core::Result<super::System::Com::IEnumString>;
     fn Id(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
     fn LocalizedName(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn SpellCheckerChanged(&mut self, handler: ::core::option::Option<ISpellCheckerChangedEventHandler>) -> ::windows::core::Result<u32>;
+    fn SpellCheckerChanged(&mut self, handler: &::core::option::Option<ISpellCheckerChangedEventHandler>) -> ::windows::core::Result<u32>;
     fn RemoveSpellCheckerChanged(&mut self, eventcookie: u32) -> ::windows::core::Result<()>;
     fn GetOptionDescription(&mut self, optionid: super::Foundation::PWSTR) -> ::windows::core::Result<IOptionDescription>;
     fn ComprehensiveCheck(&mut self, text: super::Foundation::PWSTR) -> ::windows::core::Result<IEnumSpellingError>;
@@ -1564,7 +1564,7 @@ impl ISpellChecker2_Vtbl {
     }
 }
 pub trait ISpellCheckerChangedEventHandler_Impl: Sized {
-    fn Invoke(&mut self, sender: ::core::option::Option<ISpellChecker>) -> ::windows::core::Result<()>;
+    fn Invoke(&mut self, sender: &::core::option::Option<ISpellChecker>) -> ::windows::core::Result<()>;
 }
 impl ISpellCheckerChangedEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpellCheckerChangedEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpellCheckerChangedEventHandler_Vtbl {

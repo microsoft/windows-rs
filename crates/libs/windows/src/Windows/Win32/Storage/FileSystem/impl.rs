@@ -13,13 +13,13 @@ pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnection
     fn GetDefaultQuotaLimitText(&mut self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
     fn AddUserSid(&mut self, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
     fn AddUserName(&mut self, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
-    fn DeleteUser(&mut self, puser: ::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn DeleteUser(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
     fn FindUserSid(&mut self, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
     fn FindUserName(&mut self, pszlogonname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IDiskQuotaUser>;
     fn CreateEnumUsers(&mut self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()>;
     fn CreateUserBatch(&mut self) -> ::windows::core::Result<IDiskQuotaUserBatch>;
     fn InvalidateSidNameCache(&mut self) -> ::windows::core::Result<()>;
-    fn GiveUserNameResolutionPriority(&mut self, puser: ::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn GiveUserNameResolutionPriority(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
     fn ShutdownNameResolution(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -169,7 +169,7 @@ impl IDiskQuotaControl_Vtbl {
     }
 }
 pub trait IDiskQuotaEvents_Impl: Sized {
-    fn OnUserNameChanged(&mut self, puser: ::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn OnUserNameChanged(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
 }
 impl IDiskQuotaEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiskQuotaEvents_Vtbl {
@@ -288,8 +288,8 @@ impl IDiskQuotaUser_Vtbl {
     }
 }
 pub trait IDiskQuotaUserBatch_Impl: Sized {
-    fn Add(&mut self, puser: ::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, puser: ::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn Add(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
     fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
     fn FlushToDisk(&mut self) -> ::windows::core::Result<()>;
 }

@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSMan_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreateSession(&mut self, connection: super::super::Foundation::BSTR, flags: i32, connectionoptions: ::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn CreateSession(&mut self, connection: &super::super::Foundation::BSTR, flags: i32, connectionoptions: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
     fn CreateConnectionOptions(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn CommandLine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -63,8 +63,8 @@ impl IWSMan_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptions_Impl: Sized + super::Com::IDispatch_Impl {
     fn UserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetUserName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetPassword(&mut self, password: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetUserName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPassword(&mut self, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptions_Vtbl {
@@ -101,7 +101,7 @@ impl IWSManConnectionOptions_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsEx_Impl: Sized + super::Com::IDispatch_Impl + IWSManConnectionOptions_Impl {
     fn CertificateThumbprint(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCertificateThumbprint(&mut self, thumbprint: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCertificateThumbprint(&mut self, thumbprint: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsEx_Vtbl {
@@ -132,7 +132,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsEx2_Impl: Sized + super::Com::IDispatch_Impl + IWSManConnectionOptions_Impl + IWSManConnectionOptionsEx_Impl {
-    fn SetProxy(&mut self, accesstype: i32, authenticationmechanism: i32, username: super::super::Foundation::BSTR, password: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetProxy(&mut self, accesstype: i32, authenticationmechanism: i32, username: &super::super::Foundation::BSTR, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ProxyIEConfig(&mut self) -> ::windows::core::Result<i32>;
     fn ProxyWinHttpConfig(&mut self) -> ::windows::core::Result<i32>;
     fn ProxyAutoDetect(&mut self) -> ::windows::core::Result<i32>;
@@ -286,7 +286,7 @@ impl IWSManEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx_Impl: Sized + super::Com::IDispatch_Impl + IWSMan_Impl {
-    fn CreateResourceLocator(&mut self, strresourcelocator: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn CreateResourceLocator(&mut self, strresourcelocator: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
     fn SessionFlagUTF8(&mut self) -> ::windows::core::Result<i32>;
     fn SessionFlagCredUsernamePassword(&mut self) -> ::windows::core::Result<i32>;
     fn SessionFlagSkipCACheck(&mut self) -> ::windows::core::Result<i32>;
@@ -664,7 +664,7 @@ impl IWSManEx3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManInternal_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ConfigSDDL(&mut self, session: ::core::option::Option<super::Com::IDispatch>, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ConfigSDDL(&mut self, session: &::core::option::Option<super::Com::IDispatch>, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManInternal_Vtbl {
@@ -687,15 +687,15 @@ impl IWSManInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManResourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
-    fn SetResourceURI(&mut self, uri: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetResourceURI(&mut self, uri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ResourceURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AddSelector(&mut self, resourceselname: super::super::Foundation::BSTR, selvalue: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddSelector(&mut self, resourceselname: &super::super::Foundation::BSTR, selvalue: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ClearSelectors(&mut self) -> ::windows::core::Result<()>;
     fn FragmentPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFragmentPath(&mut self, text: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFragmentPath(&mut self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FragmentDialect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFragmentDialect(&mut self, text: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddOption(&mut self, optionname: super::super::Foundation::BSTR, optionvalue: super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetFragmentDialect(&mut self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddOption(&mut self, optionname: &super::super::Foundation::BSTR, optionvalue: &super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetMustUnderstandOptions(&mut self, mustunderstand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn MustUnderstandOptions(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ClearOptions(&mut self) -> ::windows::core::Result<()>;
@@ -818,12 +818,12 @@ impl IWSManResourceLocatorInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Get(&mut self, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Put(&mut self, resourceuri: super::Com::VARIANT, resource: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Create(&mut self, resourceuri: super::Com::VARIANT, resource: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Delete(&mut self, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::Result<()>;
-    fn Invoke2(&mut self, actionuri: super::super::Foundation::BSTR, resourceuri: super::Com::VARIANT, parameters: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Enumerate(&mut self, resourceuri: super::Com::VARIANT, filter: super::super::Foundation::BSTR, dialect: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Get(&mut self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Put(&mut self, resourceuri: &super::Com::VARIANT, resource: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Create(&mut self, resourceuri: &super::Com::VARIANT, resource: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Delete(&mut self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<()>;
+    fn Invoke2(&mut self, actionuri: &super::super::Foundation::BSTR, resourceuri: &super::Com::VARIANT, parameters: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Enumerate(&mut self, resourceuri: &super::Com::VARIANT, filter: &super::super::Foundation::BSTR, dialect: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Identify(&mut self, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn BatchItems(&mut self) -> ::windows::core::Result<i32>;

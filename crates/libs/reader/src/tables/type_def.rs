@@ -296,7 +296,11 @@ impl TypeDef {
     }
 
     pub fn is_primitive(&self) -> bool {
-        self.kind() == TypeKind::Enum
+        match self.kind() {
+            TypeKind::Enum => true,
+            TypeKind::Struct => self.is_handle() && self.type_name() != TypeName::BSTR, 
+            _ => false,
+        }
     }
 
     pub fn is_union(&self) -> bool {

@@ -49,7 +49,7 @@ impl IMLOperatorAttributes_Vtbl {
     }
 }
 pub trait IMLOperatorKernel_Impl: Sized {
-    fn Compute(&mut self, context: ::core::option::Option<IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
+    fn Compute(&mut self, context: &::core::option::Option<IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
 }
 impl IMLOperatorKernel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernel_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorKernel_Vtbl {
@@ -216,7 +216,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
     }
 }
 pub trait IMLOperatorKernelFactory_Impl: Sized {
-    fn CreateKernel(&mut self, context: ::core::option::Option<IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
+    fn CreateKernel(&mut self, context: &::core::option::Option<IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
 }
 impl IMLOperatorKernelFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorKernelFactory_Vtbl {
@@ -238,8 +238,8 @@ impl IMLOperatorKernelFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorRegistry_Impl: Sized {
-    fn RegisterOperatorSetSchema(&mut self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: ::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: ::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
-    fn RegisterOperatorKernel(&mut self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: ::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: ::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
+    fn RegisterOperatorSetSchema(&mut self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: &::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
+    fn RegisterOperatorKernel(&mut self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: &::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorRegistry_Vtbl {
@@ -337,7 +337,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
     }
 }
 pub trait IMLOperatorShapeInferrer_Impl: Sized {
-    fn InferOutputShapes(&mut self, context: ::core::option::Option<IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
+    fn InferOutputShapes(&mut self, context: &::core::option::Option<IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
 }
 impl IMLOperatorShapeInferrer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferrer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorShapeInferrer_Vtbl {
@@ -516,7 +516,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
     }
 }
 pub trait IMLOperatorTypeInferrer_Impl: Sized {
-    fn InferOutputTypes(&mut self, context: ::core::option::Option<IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
+    fn InferOutputTypes(&mut self, context: &::core::option::Option<IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
 }
 impl IMLOperatorTypeInferrer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferrer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorTypeInferrer_Vtbl {
@@ -627,8 +627,8 @@ impl IWinMLModel_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait IWinMLRuntime_Impl: Sized {
     fn LoadModel(&mut self, path: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IWinMLModel>;
-    fn CreateEvaluationContext(&mut self, device: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> ::windows::core::Result<IWinMLEvaluationContext>;
-    fn EvaluateModel(&mut self, pcontext: ::core::option::Option<IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
+    fn CreateEvaluationContext(&mut self, device: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> ::windows::core::Result<IWinMLEvaluationContext>;
+    fn EvaluateModel(&mut self, pcontext: &::core::option::Option<IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IWinMLRuntime_Vtbl {

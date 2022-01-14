@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCGamesSettings_Impl: Sized + IWPCSettings_Impl {
-    fn IsBlocked(&mut self, guidappid: ::windows::core::GUID) -> ::windows::core::Result<u32>;
+    fn IsBlocked(&mut self, guidappid: &::windows::core::GUID) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWPCGamesSettings_Vtbl {
@@ -23,9 +23,9 @@ impl IWPCGamesSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCProviderConfig_Impl: Sized {
-    fn GetUserSummary(&mut self, bstrsid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Configure(&mut self, hwnd: super::super::Foundation::HWND, bstrsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RequestOverride(&mut self, hwnd: super::super::Foundation::HWND, bstrpath: super::super::Foundation::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>;
+    fn GetUserSummary(&mut self, bstrsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Configure(&mut self, hwnd: super::super::Foundation::HWND, bstrsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RequestOverride(&mut self, hwnd: super::super::Foundation::HWND, bstrpath: &super::super::Foundation::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWPCProviderConfig_Vtbl {

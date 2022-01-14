@@ -213,11 +213,11 @@ impl IPresentationFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationManager_Impl: Sized {
-    fn AddBufferFromResource(&mut self, resource: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IPresentationBuffer>;
+    fn AddBufferFromResource(&mut self, resource: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IPresentationBuffer>;
     fn CreatePresentationSurface(&mut self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> ::windows::core::Result<IPresentationSurface>;
     fn GetNextPresentId(&mut self) -> u64;
-    fn SetTargetTime(&mut self, targettime: SystemInterruptTime) -> ::windows::core::Result<()>;
-    fn SetPreferredPresentDuration(&mut self, preferredduration: SystemInterruptTime, deviationtolerance: SystemInterruptTime) -> ::windows::core::Result<()>;
+    fn SetTargetTime(&mut self, targettime: &SystemInterruptTime) -> ::windows::core::Result<()>;
+    fn SetPreferredPresentDuration(&mut self, preferredduration: &SystemInterruptTime, deviationtolerance: &SystemInterruptTime) -> ::windows::core::Result<()>;
     fn ForceVSyncInterrupt(&mut self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()>;
     fn Present(&mut self) -> ::windows::core::Result<()>;
     fn GetPresentRetiringFence(&mut self, riid: *const ::windows::core::GUID, fence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -335,12 +335,12 @@ impl IPresentationManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IPresentationSurface_Impl: Sized + IPresentationContent_Impl {
-    fn SetBuffer(&mut self, presentationbuffer: ::core::option::Option<IPresentationBuffer>) -> ::windows::core::Result<()>;
+    fn SetBuffer(&mut self, presentationbuffer: &::core::option::Option<IPresentationBuffer>) -> ::windows::core::Result<()>;
     fn SetColorSpace(&mut self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()>;
     fn SetAlphaMode(&mut self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()>;
     fn SetSourceRect(&mut self, sourcerect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn SetTransform(&mut self, transform: *const PresentationTransform) -> ::windows::core::Result<()>;
-    fn RestrictToOutput(&mut self, output: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RestrictToOutput(&mut self, output: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetDisableReadback(&mut self, value: u8) -> ::windows::core::Result<()>;
     fn SetLetterboxingMargins(&mut self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::Result<()>;
 }

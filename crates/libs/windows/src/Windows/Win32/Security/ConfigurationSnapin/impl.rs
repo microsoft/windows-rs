@@ -1,6 +1,6 @@
 pub trait ISceSvcAttachmentData_Impl: Sized {
     fn GetData(&mut self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: ::core::option::Option<ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: &::core::option::Option<ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn FreeBuffer(&mut self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CloseHandle(&mut self, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }

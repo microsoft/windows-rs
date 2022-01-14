@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device_Impl: Sized {
-    fn CreateWrappedResource(&mut self, presource12: ::core::option::Option<::windows::core::IUnknown>, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateWrappedResource(&mut self, presource12: &::core::option::Option<::windows::core::IUnknown>, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ReleaseWrappedResources(&mut self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32);
     fn AcquireWrappedResources(&mut self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32);
 }
@@ -49,8 +49,8 @@ impl ID3D11On12Device1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device2_Impl: Sized + ID3D11On12Device_Impl + ID3D11On12Device1_Impl {
-    fn UnwrapUnderlyingResource(&mut self, presource11: ::core::option::Option<super::Direct3D11::ID3D11Resource>, pcommandqueue: ::core::option::Option<super::Direct3D12::ID3D12CommandQueue>, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ReturnUnderlyingResource(&mut self, presource11: ::core::option::Option<super::Direct3D11::ID3D11Resource>, numsync: u32, psignalvalues: *const u64, ppfences: *const ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()>;
+    fn UnwrapUnderlyingResource(&mut self, presource11: &::core::option::Option<super::Direct3D11::ID3D11Resource>, pcommandqueue: &::core::option::Option<super::Direct3D12::ID3D12CommandQueue>, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ReturnUnderlyingResource(&mut self, presource11: &::core::option::Option<super::Direct3D11::ID3D11Resource>, numsync: u32, psignalvalues: *const u64, ppfences: *const ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D11On12Device2_Vtbl {

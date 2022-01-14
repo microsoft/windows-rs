@@ -10,9 +10,9 @@ pub trait IDynamicPortMapping_Impl: Sized + super::super::System::Com::IDispatch
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn LeaseDuration(&mut self) -> ::windows::core::Result<i32>;
     fn RenewLease(&mut self, lleasedurationdesired: i32) -> ::windows::core::Result<i32>;
-    fn EditInternalClient(&mut self, bstrinternalclient: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EditInternalClient(&mut self, bstrinternalclient: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enable(&mut self, vb: i16) -> ::windows::core::Result<()>;
-    fn EditDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EditDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EditInternalPort(&mut self, linternalport: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -159,10 +159,10 @@ impl IDynamicPortMapping_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDynamicPortMappingCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, bstrremotehost: super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<IDynamicPortMapping>;
+    fn Item(&mut self, bstrremotehost: &super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: &super::super::Foundation::BSTR) -> ::windows::core::Result<IDynamicPortMapping>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Remove(&mut self, bstrremotehost: super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Add(&mut self, bstrremotehost: super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR, linternalport: i32, bstrinternalclient: super::super::Foundation::BSTR, benabled: i16, bstrdescription: super::super::Foundation::BSTR, lleaseduration: i32) -> ::windows::core::Result<IDynamicPortMapping>;
+    fn Remove(&mut self, bstrremotehost: &super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Add(&mut self, bstrremotehost: &super::super::Foundation::BSTR, lexternalport: i32, bstrprotocol: &super::super::Foundation::BSTR, linternalport: i32, bstrinternalclient: &super::super::Foundation::BSTR, benabled: i16, bstrdescription: &super::super::Foundation::BSTR, lleaseduration: i32) -> ::windows::core::Result<IDynamicPortMapping>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDynamicPortMappingCollection_Vtbl {
@@ -444,8 +444,8 @@ impl IEnumNetSharingPublicConnection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INATEventManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetExternalIPAddressCallback(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetNumberOfEntriesCallback(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetExternalIPAddressCallback(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetNumberOfEntriesCallback(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INATEventManager_Vtbl {
@@ -470,7 +470,7 @@ impl INATEventManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INATExternalIPAddressCallback_Impl: Sized {
-    fn NewExternalIPAddress(&mut self, bstrnewexternalipaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NewExternalIPAddress(&mut self, bstrnewexternalipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INATExternalIPAddressCallback_Vtbl {
@@ -576,7 +576,7 @@ impl INetConnection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetConnectionConnectUi_Impl: Sized {
-    fn SetConnection(&mut self, pcon: ::core::option::Option<INetConnection>) -> ::windows::core::Result<()>;
+    fn SetConnection(&mut self, pcon: &::core::option::Option<INetConnection>) -> ::windows::core::Result<()>;
     fn Connect(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
     fn Disconnect(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
 }
@@ -716,15 +716,15 @@ impl INetConnectionProps_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwAuthorizedApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ProcessImageFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetProcessImageFileName(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetProcessImageFileName(&mut self, imagefilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IpVersion(&mut self) -> ::windows::core::Result<NET_FW_IP_VERSION>;
     fn SetIpVersion(&mut self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()>;
     fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
     fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
     fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
 }
@@ -838,9 +838,9 @@ impl INetFwAuthorizedApplication_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwAuthorizedApplications_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, app: ::core::option::Option<INetFwAuthorizedApplication>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Item(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<INetFwAuthorizedApplication>;
+    fn Add(&mut self, app: &::core::option::Option<INetFwAuthorizedApplication>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, imagefilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Item(&mut self, imagefilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<INetFwAuthorizedApplication>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1096,8 +1096,8 @@ pub trait INetFwMgr_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LocalPolicy(&mut self) -> ::windows::core::Result<INetFwPolicy>;
     fn CurrentProfileType(&mut self) -> ::windows::core::Result<NET_FW_PROFILE_TYPE>;
     fn RestoreDefaults(&mut self) -> ::windows::core::Result<()>;
-    fn IsPortAllowed(&mut self, imagefilename: super::super::Foundation::BSTR, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: super::super::Foundation::BSTR, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn IsIcmpTypeAllowed(&mut self, ipversion: NET_FW_IP_VERSION, localaddress: super::super::Foundation::BSTR, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn IsPortAllowed(&mut self, imagefilename: &super::super::Foundation::BSTR, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: &super::super::Foundation::BSTR, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn IsIcmpTypeAllowed(&mut self, ipversion: NET_FW_IP_VERSION, localaddress: &super::super::Foundation::BSTR, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetFwMgr_Vtbl {
@@ -1150,7 +1150,7 @@ impl INetFwMgr_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwOpenPort_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IpVersion(&mut self) -> ::windows::core::Result<NET_FW_IP_VERSION>;
     fn SetIpVersion(&mut self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()>;
     fn Protocol(&mut self) -> ::windows::core::Result<NET_FW_IP_PROTOCOL>;
@@ -1160,7 +1160,7 @@ pub trait INetFwOpenPort_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
     fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
     fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
     fn BuiltIn(&mut self) -> ::windows::core::Result<i16>;
@@ -1302,7 +1302,7 @@ impl INetFwOpenPort_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwOpenPorts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, port: ::core::option::Option<INetFwOpenPort>) -> ::windows::core::Result<()>;
+    fn Add(&mut self, port: &::core::option::Option<INetFwOpenPort>) -> ::windows::core::Result<()>;
     fn Remove(&mut self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<()>;
     fn Item(&mut self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<INetFwOpenPort>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1405,7 +1405,7 @@ pub trait INetFwPolicy2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn FirewallEnabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16>;
     fn SetFirewallEnabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2, enabled: i16) -> ::windows::core::Result<()>;
     fn ExcludedInterfaces(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetExcludedInterfaces(&mut self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetExcludedInterfaces(&mut self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn BlockAllInboundTraffic(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16>;
     fn SetBlockAllInboundTraffic(&mut self, profiletype: NET_FW_PROFILE_TYPE2, block: i16) -> ::windows::core::Result<()>;
     fn NotificationsDisabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16>;
@@ -1414,14 +1414,14 @@ pub trait INetFwPolicy2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SetUnicastResponsesToMulticastBroadcastDisabled(&mut self, profiletype: NET_FW_PROFILE_TYPE2, disabled: i16) -> ::windows::core::Result<()>;
     fn Rules(&mut self) -> ::windows::core::Result<INetFwRules>;
     fn ServiceRestriction(&mut self) -> ::windows::core::Result<INetFwServiceRestriction>;
-    fn EnableRuleGroup(&mut self, profiletypesbitmask: i32, group: super::super::Foundation::BSTR, enable: i16) -> ::windows::core::Result<()>;
-    fn IsRuleGroupEnabled(&mut self, profiletypesbitmask: i32, group: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn EnableRuleGroup(&mut self, profiletypesbitmask: i32, group: &super::super::Foundation::BSTR, enable: i16) -> ::windows::core::Result<()>;
+    fn IsRuleGroupEnabled(&mut self, profiletypesbitmask: i32, group: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn RestoreLocalFirewallDefaults(&mut self) -> ::windows::core::Result<()>;
     fn DefaultInboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<NET_FW_ACTION>;
     fn SetDefaultInboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::Result<()>;
     fn DefaultOutboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<NET_FW_ACTION>;
     fn SetDefaultOutboundAction(&mut self, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::Result<()>;
-    fn IsRuleGroupCurrentlyEnabled(&mut self, group: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn IsRuleGroupCurrentlyEnabled(&mut self, group: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn LocalPolicyModifyState(&mut self) -> ::windows::core::Result<NET_FW_MODIFY_STATE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1626,9 +1626,9 @@ impl INetFwPolicy2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwProduct_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RuleCategories(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetRuleCategories(&mut self, rulecategories: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetRuleCategories(&mut self, rulecategories: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDisplayName(&mut self, displayname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDisplayName(&mut self, displayname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PathToSignedProductExe(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1688,7 +1688,7 @@ impl INetFwProduct_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwProducts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Register(&mut self, product: ::core::option::Option<INetFwProduct>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Register(&mut self, product: &::core::option::Option<INetFwProduct>) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&mut self, index: i32) -> ::windows::core::Result<INetFwProduct>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -1912,7 +1912,7 @@ pub trait INetFwRemoteAdminSettings_Impl: Sized + super::super::System::Com::IDi
     fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
     fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
     fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
 }
@@ -1994,35 +1994,35 @@ impl INetFwRemoteAdminSettings_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRule_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, desc: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, desc: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ApplicationName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetApplicationName(&mut self, imagefilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetApplicationName(&mut self, imagefilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ServiceName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceName(&mut self, servicename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetServiceName(&mut self, servicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Protocol(&mut self) -> ::windows::core::Result<i32>;
     fn SetProtocol(&mut self, protocol: i32) -> ::windows::core::Result<()>;
     fn LocalPorts(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalPorts(&mut self, portnumbers: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetLocalPorts(&mut self, portnumbers: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemotePorts(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemotePorts(&mut self, portnumbers: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemotePorts(&mut self, portnumbers: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LocalAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalAddresses(&mut self, localaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetLocalAddresses(&mut self, localaddrs: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IcmpTypesAndCodes(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetIcmpTypesAndCodes(&mut self, icmptypesandcodes: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetIcmpTypesAndCodes(&mut self, icmptypesandcodes: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Direction(&mut self) -> ::windows::core::Result<NET_FW_RULE_DIRECTION>;
     fn SetDirection(&mut self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()>;
     fn Interfaces(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetInterfaces(&mut self, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetInterfaces(&mut self, interfaces: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn InterfaceTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetInterfaceTypes(&mut self, interfacetypes: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetInterfaceTypes(&mut self, interfacetypes: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
     fn Grouping(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetGrouping(&mut self, context: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetGrouping(&mut self, context: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Profiles(&mut self) -> ::windows::core::Result<i32>;
     fn SetProfiles(&mut self, profiletypesbitmask: i32) -> ::windows::core::Result<()>;
     fn EdgeTraversal(&mut self) -> ::windows::core::Result<i16>;
@@ -2364,15 +2364,15 @@ impl INetFwRule2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRule3_Impl: Sized + super::super::System::Com::IDispatch_Impl + INetFwRule_Impl + INetFwRule2_Impl {
     fn LocalAppPackageId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalAppPackageId(&mut self, wszpackageid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetLocalAppPackageId(&mut self, wszpackageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LocalUserOwner(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalUserOwner(&mut self, wszuserowner: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetLocalUserOwner(&mut self, wszuserowner: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LocalUserAuthorizedList(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalUserAuthorizedList(&mut self, wszuserauthlist: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetLocalUserAuthorizedList(&mut self, wszuserauthlist: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemoteUserAuthorizedList(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemoteUserAuthorizedList(&mut self, wszuserauthlist: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteUserAuthorizedList(&mut self, wszuserauthlist: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemoteMachineAuthorizedList(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemoteMachineAuthorizedList(&mut self, wszuserauthlist: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteMachineAuthorizedList(&mut self, wszuserauthlist: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SecureFlags(&mut self) -> ::windows::core::Result<i32>;
     fn SetSecureFlags(&mut self, loptions: i32) -> ::windows::core::Result<()>;
 }
@@ -2486,9 +2486,9 @@ impl INetFwRule3_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, rule: ::core::option::Option<INetFwRule>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Item(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<INetFwRule>;
+    fn Add(&mut self, rule: &::core::option::Option<INetFwRule>) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Item(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<INetFwRule>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2555,7 +2555,7 @@ pub trait INetFwService_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Scope(&mut self) -> ::windows::core::Result<NET_FW_SCOPE>;
     fn SetScope(&mut self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()>;
     fn RemoteAddresses(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRemoteAddresses(&mut self, remoteaddrs: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteAddresses(&mut self, remoteaddrs: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
     fn GloballyOpenPorts(&mut self) -> ::windows::core::Result<INetFwOpenPorts>;
@@ -2681,8 +2681,8 @@ impl INetFwService_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwServiceRestriction_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn RestrictService(&mut self, servicename: super::super::Foundation::BSTR, appname: super::super::Foundation::BSTR, restrictservice: i16, servicesidrestricted: i16) -> ::windows::core::Result<()>;
-    fn ServiceRestricted(&mut self, servicename: super::super::Foundation::BSTR, appname: super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn RestrictService(&mut self, servicename: &super::super::Foundation::BSTR, appname: &super::super::Foundation::BSTR, restrictservice: i16, servicesidrestricted: i16) -> ::windows::core::Result<()>;
+    fn ServiceRestricted(&mut self, servicename: &super::super::Foundation::BSTR, appname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn Rules(&mut self) -> ::windows::core::Result<INetFwRules>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2783,8 +2783,8 @@ pub trait INetSharingConfiguration_Impl: Sized + super::super::System::Com::IDis
     fn DisableInternetFirewall(&mut self) -> ::windows::core::Result<()>;
     fn EnableInternetFirewall(&mut self) -> ::windows::core::Result<()>;
     fn EnumPortMappings(&mut self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPortMappingCollection>;
-    fn AddPortMapping(&mut self, bstrname: super::super::Foundation::BSTR, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: super::super::Foundation::BSTR, etargettype: ICS_TARGETTYPE) -> ::windows::core::Result<INetSharingPortMapping>;
-    fn RemovePortMapping(&mut self, pmapping: ::core::option::Option<INetSharingPortMapping>) -> ::windows::core::Result<()>;
+    fn AddPortMapping(&mut self, bstrname: &super::super::Foundation::BSTR, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: &super::super::Foundation::BSTR, etargettype: ICS_TARGETTYPE) -> ::windows::core::Result<INetSharingPortMapping>;
+    fn RemovePortMapping(&mut self, pmapping: &::core::option::Option<INetSharingPortMapping>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingConfiguration_Vtbl {
@@ -2920,9 +2920,9 @@ pub trait INetSharingManager_Impl: Sized + super::super::System::Com::IDispatch_
     fn SharingInstalled(&mut self) -> ::windows::core::Result<i16>;
     fn EnumPublicConnections(&mut self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPublicConnectionCollection>;
     fn EnumPrivateConnections(&mut self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPrivateConnectionCollection>;
-    fn INetSharingConfigurationForINetConnection(&mut self, pnetconnection: ::core::option::Option<INetConnection>) -> ::windows::core::Result<INetSharingConfiguration>;
+    fn INetSharingConfigurationForINetConnection(&mut self, pnetconnection: &::core::option::Option<INetConnection>) -> ::windows::core::Result<INetSharingConfiguration>;
     fn EnumEveryConnection(&mut self) -> ::windows::core::Result<INetSharingEveryConnectionCollection>;
-    fn NetConnectionProps(&mut self, pnetconnection: ::core::option::Option<INetConnection>) -> ::windows::core::Result<INetConnectionProps>;
+    fn NetConnectionProps(&mut self, pnetconnection: &::core::option::Option<INetConnection>) -> ::windows::core::Result<INetConnectionProps>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetSharingManager_Vtbl {
@@ -3278,9 +3278,9 @@ pub trait IStaticPortMapping_Impl: Sized + super::super::System::Com::IDispatch_
     fn InternalClient(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn EditInternalClient(&mut self, bstrinternalclient: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EditInternalClient(&mut self, bstrinternalclient: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enable(&mut self, vb: i16) -> ::windows::core::Result<()>;
-    fn EditDescription(&mut self, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EditDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EditInternalPort(&mut self, linternalport: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3394,10 +3394,10 @@ impl IStaticPortMapping_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IStaticPortMappingCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<IStaticPortMapping>;
+    fn Item(&mut self, lexternalport: i32, bstrprotocol: &super::super::Foundation::BSTR) -> ::windows::core::Result<IStaticPortMapping>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Remove(&mut self, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Add(&mut self, lexternalport: i32, bstrprotocol: super::super::Foundation::BSTR, linternalport: i32, bstrinternalclient: super::super::Foundation::BSTR, benabled: i16, bstrdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<IStaticPortMapping>;
+    fn Remove(&mut self, lexternalport: i32, bstrprotocol: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Add(&mut self, lexternalport: i32, bstrprotocol: &super::super::Foundation::BSTR, linternalport: i32, bstrinternalclient: &super::super::Foundation::BSTR, benabled: i16, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<IStaticPortMapping>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IStaticPortMappingCollection_Vtbl {

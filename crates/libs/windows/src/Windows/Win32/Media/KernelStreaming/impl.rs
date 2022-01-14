@@ -239,7 +239,7 @@ impl IKsPropertySet_Vtbl {
     }
 }
 pub trait IKsTopology_Impl: Sized {
-    fn CreateNodeInstance(&mut self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: ::core::option::Option<::windows::core::IUnknown>, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateNodeInstance(&mut self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: &::core::option::Option<::windows::core::IUnknown>, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IKsTopology_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopology_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKsTopology_Vtbl {

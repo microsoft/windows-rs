@@ -58,7 +58,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
 pub trait IWindowsMediaLibrarySharingDeviceProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Item(&mut self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn GetProperty(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
+    fn GetProperty(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
@@ -146,7 +146,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
 pub trait IWindowsMediaLibrarySharingDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Item(&mut self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn GetDevice(&mut self, deviceid: super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>;
+    fn GetDevice(&mut self, deviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDevices_Vtbl {
@@ -194,11 +194,11 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWindowsMediaLibrarySharingServices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn showShareMediaCPL(&mut self, device: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn showShareMediaCPL(&mut self, device: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn userHomeMediaSharingState(&mut self) -> ::windows::core::Result<i16>;
     fn SetuserHomeMediaSharingState(&mut self, sharingenabled: i16) -> ::windows::core::Result<()>;
     fn userHomeMediaSharingLibraryName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetuserHomeMediaSharingLibraryName(&mut self, libraryname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetuserHomeMediaSharingLibraryName(&mut self, libraryname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn computerHomeMediaSharingAllowedState(&mut self) -> ::windows::core::Result<i16>;
     fn SetcomputerHomeMediaSharingAllowedState(&mut self, sharingallowed: i16) -> ::windows::core::Result<()>;
     fn userInternetMediaSharingState(&mut self) -> ::windows::core::Result<i16>;
@@ -206,11 +206,11 @@ pub trait IWindowsMediaLibrarySharingServices_Impl: Sized + super::super::System
     fn computerInternetMediaSharingAllowedState(&mut self) -> ::windows::core::Result<i16>;
     fn SetcomputerInternetMediaSharingAllowedState(&mut self, sharingallowed: i16) -> ::windows::core::Result<()>;
     fn internetMediaSharingSecurityGroup(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetinternetMediaSharingSecurityGroup(&mut self, securitygroup: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetinternetMediaSharingSecurityGroup(&mut self, securitygroup: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn allowSharingToAllDevices(&mut self) -> ::windows::core::Result<i16>;
     fn SetallowSharingToAllDevices(&mut self, sharingenabled: i16) -> ::windows::core::Result<()>;
-    fn setDefaultAuthorization(&mut self, macaddresses: super::super::Foundation::BSTR, friendlyname: super::super::Foundation::BSTR, authorization: i16) -> ::windows::core::Result<()>;
-    fn setAuthorizationState(&mut self, macaddress: super::super::Foundation::BSTR, authorizationstate: i16) -> ::windows::core::Result<()>;
+    fn setDefaultAuthorization(&mut self, macaddresses: &super::super::Foundation::BSTR, friendlyname: &super::super::Foundation::BSTR, authorization: i16) -> ::windows::core::Result<()>;
+    fn setAuthorizationState(&mut self, macaddress: &super::super::Foundation::BSTR, authorizationstate: i16) -> ::windows::core::Result<()>;
     fn getAllDevices(&mut self) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevices>;
     fn customSettingsApplied(&mut self) -> ::windows::core::Result<i16>;
 }

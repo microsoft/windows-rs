@@ -1684,7 +1684,7 @@ pub trait IFEDictionary_Impl: Sized {
     fn RegisterDependency(&mut self, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
     fn GetDependencies(&mut self, pwchkakarireading: super::super::super::Foundation::PWSTR, pwchkakaridisplay: super::super::super::Foundation::PWSTR, ulkakaripos: u32, pwchukereading: super::super::super::Foundation::PWSTR, pwchukedisplay: super::super::super::Foundation::PWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
     fn NextDependencies(&mut self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
-    fn ConvertFromOldMSIME(&mut self, pchdic: super::super::super::Foundation::PSTR, pfnlog: PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
+    fn ConvertFromOldMSIME(&mut self, pchdic: super::super::super::Foundation::PSTR, pfnlog: &PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
     fn ConvertFromUserToSys(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1791,8 +1791,8 @@ pub trait IFELanguage_Impl: Sized {
     fn Close(&mut self) -> ::windows::core::Result<()>;
     fn GetJMorphResult(&mut self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: super::super::super::Foundation::PWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()>;
     fn GetConversionModeCaps(&mut self, pdwcaps: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPhonetic(&mut self, string: super::super::super::Foundation::BSTR, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetConversion(&mut self, string: super::super::super::Foundation::BSTR, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetPhonetic(&mut self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetConversion(&mut self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFELanguage_Vtbl {
@@ -1837,7 +1837,7 @@ impl IFELanguage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IImePad_Impl: Sized {
-    fn Request(&mut self, piimepadapplet: ::core::option::Option<IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Request(&mut self, piimepadapplet: &::core::option::Option<IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IImePad_Vtbl {
@@ -1854,11 +1854,11 @@ impl IImePad_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IImePadApplet_Impl: Sized {
-    fn Initialize(&mut self, lpiimepad: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, lpiimepad: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Terminate(&mut self) -> ::windows::core::Result<()>;
     fn GetAppletConfig(&mut self, lpappletcfg: *mut IMEAPPLETCFG) -> ::windows::core::Result<()>;
     fn CreateUI(&mut self, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::Result<()>;
-    fn Notify(&mut self, lpimepad: ::core::option::Option<::windows::core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Notify(&mut self, lpimepad: &::core::option::Option<::windows::core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImePadApplet_Vtbl {
@@ -1899,7 +1899,7 @@ impl IImePadApplet_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IImePlugInDictDictionaryList_Impl: Sized {
     fn GetDictionariesInUse(&mut self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn DeleteDictionary(&mut self, bstrdictionaryguid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteDictionary(&mut self, bstrdictionaryguid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IImePlugInDictDictionaryList_Vtbl {

@@ -23,7 +23,7 @@ impl ID3DBlob_Vtbl {
     }
 }
 pub trait ID3DDestructionNotifier_Impl: Sized {
-    fn RegisterDestructionCallback(&mut self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
+    fn RegisterDestructionCallback(&mut self, callbackfn: &PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
     fn UnregisterDestructionCallback(&mut self, callbackid: u32) -> ::windows::core::Result<()>;
 }
 impl ID3DDestructionNotifier_Vtbl {

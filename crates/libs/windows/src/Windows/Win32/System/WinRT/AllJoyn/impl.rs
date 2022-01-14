@@ -68,8 +68,8 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     }
 }
 pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
-    fn AddPropertyGetHandler(&mut self, context: *const ::core::ffi::c_void, interfacename: ::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
-    fn AddPropertySetHandler(&mut self, context: *const ::core::ffi::c_void, interfacename: ::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
+    fn AddPropertyGetHandler(&mut self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
+    fn AddPropertySetHandler(&mut self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
     fn Win32Handle(&mut self) -> ::windows::core::Result<u64>;
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectInterop {

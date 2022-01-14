@@ -1,9 +1,9 @@
 pub trait IMarshal_Impl: Sized {
     fn GetUnmarshalClass(&mut self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetMarshalSizeMax(&mut self, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()>;
-    fn MarshalInterface(&mut self, pstm: ::core::option::Option<super::IStream>, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>;
-    fn UnmarshalInterface(&mut self, pstm: ::core::option::Option<super::IStream>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ReleaseMarshalData(&mut self, pstm: ::core::option::Option<super::IStream>) -> ::windows::core::Result<()>;
+    fn MarshalInterface(&mut self, pstm: &::core::option::Option<super::IStream>, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>;
+    fn UnmarshalInterface(&mut self, pstm: &::core::option::Option<super::IStream>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ReleaseMarshalData(&mut self, pstm: &::core::option::Option<super::IStream>) -> ::windows::core::Result<()>;
     fn DisconnectObject(&mut self, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 impl IMarshal_Vtbl {

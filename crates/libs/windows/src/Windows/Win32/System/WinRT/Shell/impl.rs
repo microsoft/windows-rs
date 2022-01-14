@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub trait IDDEInitializer_Impl: Sized {
-    fn Initialize(&mut self, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::core::option::Option<super::super::super::UI::Shell::IShellItem>, site: ::core::option::Option<::windows::core::IUnknown>, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Initialize(&mut self, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: &::core::option::Option<super::super::super::UI::Shell::IShellItem>, site: &::core::option::Option<::windows::core::IUnknown>, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl IDDEInitializer_Vtbl {

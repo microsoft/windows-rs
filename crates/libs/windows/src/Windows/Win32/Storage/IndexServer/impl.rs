@@ -4,7 +4,7 @@ pub trait IFilter_Impl: Sized {
     fn GetChunk(&mut self, pstat: *mut STAT_CHUNK) -> i32;
     fn GetText(&mut self, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32;
     fn GetValue(&mut self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32;
-    fn BindRegion(&mut self, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32;
+    fn BindRegion(&mut self, origpos: &FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IFilter_Vtbl {

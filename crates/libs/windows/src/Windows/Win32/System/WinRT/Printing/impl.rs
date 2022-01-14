@@ -80,7 +80,7 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IPrintWorkflowObjectModelSourceFileContentNative_Impl: Sized {
-    fn StartXpsOMGeneration(&mut self, receiver: ::core::option::Option<IPrintWorkflowXpsReceiver>) -> ::windows::core::Result<()>;
+    fn StartXpsOMGeneration(&mut self, receiver: &::core::option::Option<IPrintWorkflowXpsReceiver>) -> ::windows::core::Result<()>;
     fn ObjectFactory(&mut self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
@@ -135,10 +135,10 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowXpsReceiver_Impl: Sized {
-    fn SetDocumentSequencePrintTicket(&mut self, documentsequenceprintticket: ::core::option::Option<super::super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetDocumentSequencePrintTicket(&mut self, documentsequenceprintticket: &::core::option::Option<super::super::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetDocumentSequenceUri(&mut self, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddDocumentData(&mut self, documentid: u32, documentprintticket: ::core::option::Option<super::super::Com::IStream>, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddPage(&mut self, documentid: u32, pageid: u32, pagereference: ::core::option::Option<super::super::super::Storage::Xps::IXpsOMPageReference>, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddDocumentData(&mut self, documentid: u32, documentprintticket: &::core::option::Option<super::super::Com::IStream>, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddPage(&mut self, documentid: u32, pageid: u32, pagereference: &::core::option::Option<super::super::super::Storage::Xps::IXpsOMPageReference>, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]

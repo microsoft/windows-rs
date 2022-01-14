@@ -1,7 +1,7 @@
 pub trait ID2D1SimplifiedGeometrySink_Impl: Sized {
     fn SetFillMode(&mut self, fillmode: D2D1_FILL_MODE);
     fn SetSegmentFlags(&mut self, vertexflags: D2D1_PATH_SEGMENT);
-    fn BeginFigure(&mut self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN);
+    fn BeginFigure(&mut self, startpoint: &D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN);
     fn AddLines(&mut self, points: *const D2D_POINT_2F, pointscount: u32);
     fn AddBeziers(&mut self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32);
     fn EndFigure(&mut self, figureend: D2D1_FIGURE_END);

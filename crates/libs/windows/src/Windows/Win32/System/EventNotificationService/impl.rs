@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISensLogon_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Logon(&mut self, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Logoff(&mut self, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartShell(&mut self, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisplayLock(&mut self, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisplayUnlock(&mut self, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartScreenSaver(&mut self, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StopScreenSaver(&mut self, bstrusername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Logon(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Logoff(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartShell(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisplayLock(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisplayUnlock(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartScreenSaver(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StopScreenSaver(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISensLogon_Vtbl {
@@ -56,11 +56,11 @@ impl ISensLogon_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISensLogon2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Logon(&mut self, bstrusername: super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
-    fn Logoff(&mut self, bstrusername: super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
-    fn SessionDisconnect(&mut self, bstrusername: super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
-    fn SessionReconnect(&mut self, bstrusername: super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
-    fn PostShell(&mut self, bstrusername: super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
+    fn Logon(&mut self, bstrusername: &super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
+    fn Logoff(&mut self, bstrusername: &super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
+    fn SessionDisconnect(&mut self, bstrusername: &super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
+    fn SessionReconnect(&mut self, bstrusername: &super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
+    fn PostShell(&mut self, bstrusername: &super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISensLogon2_Vtbl {
@@ -100,11 +100,11 @@ impl ISensLogon2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISensNetwork_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ConnectionMade(&mut self, bstrconnection: super::super::Foundation::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()>;
-    fn ConnectionMadeNoQOCInfo(&mut self, bstrconnection: super::super::Foundation::BSTR, ultype: u32) -> ::windows::core::Result<()>;
-    fn ConnectionLost(&mut self, bstrconnection: super::super::Foundation::BSTR, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::Result<()>;
-    fn DestinationReachable(&mut self, bstrdestination: super::super::Foundation::BSTR, bstrconnection: super::super::Foundation::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()>;
-    fn DestinationReachableNoQOCInfo(&mut self, bstrdestination: super::super::Foundation::BSTR, bstrconnection: super::super::Foundation::BSTR, ultype: u32) -> ::windows::core::Result<()>;
+    fn ConnectionMade(&mut self, bstrconnection: &super::super::Foundation::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()>;
+    fn ConnectionMadeNoQOCInfo(&mut self, bstrconnection: &super::super::Foundation::BSTR, ultype: u32) -> ::windows::core::Result<()>;
+    fn ConnectionLost(&mut self, bstrconnection: &super::super::Foundation::BSTR, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::Result<()>;
+    fn DestinationReachable(&mut self, bstrdestination: &super::super::Foundation::BSTR, bstrconnection: &super::super::Foundation::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()>;
+    fn DestinationReachableNoQOCInfo(&mut self, bstrdestination: &super::super::Foundation::BSTR, bstrconnection: &super::super::Foundation::BSTR, ultype: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISensNetwork_Vtbl {

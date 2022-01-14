@@ -1346,7 +1346,7 @@ pub trait IContactManager_Impl: Sized {
     fn Load(&mut self, pszcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContact>;
     fn MergeContactIDs(&mut self, psznewcontactid: super::super::Foundation::PWSTR, pszoldcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn GetMeContact(&mut self) -> ::windows::core::Result<IContact>;
-    fn SetMeContact(&mut self, pmecontact: ::core::option::Option<IContact>) -> ::windows::core::Result<()>;
+    fn SetMeContact(&mut self, pmecontact: &::core::option::Option<IContact>) -> ::windows::core::Result<()>;
     fn GetContactCollection(&mut self) -> ::windows::core::Result<IContactCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1415,8 +1415,8 @@ pub trait IContactProperties_Impl: Sized {
     fn GetBinary(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
     fn GetLabels(&mut self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, pszlabels: super::super::Foundation::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()>;
     fn SetString(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetDate(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn SetBinary(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, pstream: ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetDate(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, ftdatetime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn SetBinary(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, pstream: &::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetLabels(&mut self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn CreateArrayNode(&mut self, pszarrayname: super::super::Foundation::PWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: super::super::Foundation::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()>;
     fn DeleteProperty(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;

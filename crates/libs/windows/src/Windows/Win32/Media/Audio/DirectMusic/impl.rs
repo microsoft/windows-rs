@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 pub trait IDirectMusic_Impl: Sized {
     fn EnumPort(&mut self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()>;
-    fn CreateMusicBuffer(&mut self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreatePort(&mut self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateMusicBuffer(&mut self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreatePort(&mut self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumMasterClock(&mut self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::Result<()>;
     fn GetMasterClock(&mut self, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()>;
     fn SetMasterClock(&mut self, rguidclock: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Activate(&mut self, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetDefaultPort(&mut self, pguidport: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetDirectSound(&mut self, pdirectsound: ::core::option::Option<super::DirectSound::IDirectSound>, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn SetDirectSound(&mut self, pdirectsound: &::core::option::Option<super::DirectSound::IDirectSound>, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 impl IDirectMusic_Vtbl {
@@ -68,7 +68,7 @@ impl IDirectMusic_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 pub trait IDirectMusic8_Impl: Sized + IDirectMusic_Impl {
-    fn SetExternalMasterClock(&mut self, pclock: ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()>;
+    fn SetExternalMasterClock(&mut self, pclock: &::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 impl IDirectMusic8_Vtbl {
@@ -255,11 +255,11 @@ impl IDirectMusicInstrument_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
 pub trait IDirectMusicPort_Impl: Sized {
-    fn PlayBuffer(&mut self, pbuffer: ::core::option::Option<IDirectMusicBuffer>) -> ::windows::core::Result<()>;
+    fn PlayBuffer(&mut self, pbuffer: &::core::option::Option<IDirectMusicBuffer>) -> ::windows::core::Result<()>;
     fn SetReadNotificationHandle(&mut self, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn Read(&mut self, pbuffer: ::core::option::Option<IDirectMusicBuffer>) -> ::windows::core::Result<()>;
-    fn DownloadInstrument(&mut self, pinstrument: ::core::option::Option<IDirectMusicInstrument>, ppdownloadedinstrument: *mut ::core::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::Result<()>;
-    fn UnloadInstrument(&mut self, pdownloadedinstrument: ::core::option::Option<IDirectMusicDownloadedInstrument>) -> ::windows::core::Result<()>;
+    fn Read(&mut self, pbuffer: &::core::option::Option<IDirectMusicBuffer>) -> ::windows::core::Result<()>;
+    fn DownloadInstrument(&mut self, pinstrument: &::core::option::Option<IDirectMusicInstrument>, ppdownloadedinstrument: *mut ::core::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::Result<()>;
+    fn UnloadInstrument(&mut self, pdownloadedinstrument: &::core::option::Option<IDirectMusicDownloadedInstrument>) -> ::windows::core::Result<()>;
     fn GetLatencyClock(&mut self) -> ::windows::core::Result<super::super::IReferenceClock>;
     fn GetRunningStats(&mut self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()>;
     fn Compact(&mut self) -> ::windows::core::Result<()>;
@@ -270,7 +270,7 @@ pub trait IDirectMusicPort_Impl: Sized {
     fn Activate(&mut self, factive: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetChannelPriority(&mut self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()>;
     fn GetChannelPriority(&mut self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()>;
-    fn SetDirectSound(&mut self, pdirectsound: ::core::option::Option<super::DirectSound::IDirectSound>, pdirectsoundbuffer: ::core::option::Option<super::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
+    fn SetDirectSound(&mut self, pdirectsound: &::core::option::Option<super::DirectSound::IDirectSound>, pdirectsoundbuffer: &::core::option::Option<super::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
     fn GetFormat(&mut self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
@@ -380,8 +380,8 @@ pub trait IDirectMusicPortDownload_Impl: Sized {
     fn AllocateBuffer(&mut self, dwsize: u32) -> ::windows::core::Result<IDirectMusicDownload>;
     fn GetDLId(&mut self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::core::Result<()>;
     fn GetAppend(&mut self, pdwappend: *mut u32) -> ::windows::core::Result<()>;
-    fn Download(&mut self, pidmdownload: ::core::option::Option<IDirectMusicDownload>) -> ::windows::core::Result<()>;
-    fn Unload(&mut self, pidmdownload: ::core::option::Option<IDirectMusicDownload>) -> ::windows::core::Result<()>;
+    fn Download(&mut self, pidmdownload: &::core::option::Option<IDirectMusicDownload>) -> ::windows::core::Result<()>;
+    fn Unload(&mut self, pidmdownload: &::core::option::Option<IDirectMusicDownload>) -> ::windows::core::Result<()>;
 }
 impl IDirectMusicPortDownload_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicPortDownload_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicPortDownload_Vtbl {
@@ -445,10 +445,10 @@ pub trait IDirectMusicSynth_Impl: Sized {
     fn PlayBuffer(&mut self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::Result<()>;
     fn GetRunningStats(&mut self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()>;
     fn GetPortCaps(&mut self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()>;
-    fn SetMasterClock(&mut self, pclock: ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()>;
+    fn SetMasterClock(&mut self, pclock: &::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()>;
     fn GetLatencyClock(&mut self) -> ::windows::core::Result<super::super::IReferenceClock>;
     fn Activate(&mut self, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetSynthSink(&mut self, psynthsink: ::core::option::Option<IDirectMusicSynthSink>) -> ::windows::core::Result<()>;
+    fn SetSynthSink(&mut self, psynthsink: &::core::option::Option<IDirectMusicSynthSink>) -> ::windows::core::Result<()>;
     fn Render(&mut self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::Result<()>;
     fn SetChannelPriority(&mut self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()>;
     fn GetChannelPriority(&mut self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()>;
@@ -603,13 +603,13 @@ impl IDirectMusicSynth8_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 pub trait IDirectMusicSynthSink_Impl: Sized {
-    fn Init(&mut self, psynth: ::core::option::Option<IDirectMusicSynth>) -> ::windows::core::Result<()>;
-    fn SetMasterClock(&mut self, pclock: ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()>;
+    fn Init(&mut self, psynth: &::core::option::Option<IDirectMusicSynth>) -> ::windows::core::Result<()>;
+    fn SetMasterClock(&mut self, pclock: &::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()>;
     fn GetLatencyClock(&mut self) -> ::windows::core::Result<super::super::IReferenceClock>;
     fn Activate(&mut self, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SampleToRefTime(&mut self, llsampletime: i64, prftime: *mut i64) -> ::windows::core::Result<()>;
     fn RefTimeToSample(&mut self, rftime: i64, pllsampletime: *mut i64) -> ::windows::core::Result<()>;
-    fn SetDirectSound(&mut self, pdirectsound: ::core::option::Option<super::DirectSound::IDirectSound>, pdirectsoundbuffer: ::core::option::Option<super::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
+    fn SetDirectSound(&mut self, pdirectsound: &::core::option::Option<super::DirectSound::IDirectSound>, pdirectsoundbuffer: &::core::option::Option<super::DirectSound::IDirectSoundBuffer>) -> ::windows::core::Result<()>;
     fn GetDesiredBufferSize(&mut self, pdwbuffersizeinsamples: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
@@ -670,7 +670,7 @@ impl IDirectMusicSynthSink_Vtbl {
     }
 }
 pub trait IDirectMusicThru_Impl: Sized {
-    fn ThruChannel(&mut self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: ::core::option::Option<IDirectMusicPort>) -> ::windows::core::Result<()>;
+    fn ThruChannel(&mut self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: &::core::option::Option<IDirectMusicPort>) -> ::windows::core::Result<()>;
 }
 impl IDirectMusicThru_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicThru_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicThru_Vtbl {

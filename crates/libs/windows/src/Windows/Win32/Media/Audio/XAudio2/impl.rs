@@ -152,9 +152,9 @@ impl IXAPOParameters_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2_Impl: Sized {
-    fn RegisterForCallbacks(&mut self, pcallback: ::core::option::Option<IXAudio2EngineCallback>) -> ::windows::core::Result<()>;
-    fn UnregisterForCallbacks(&mut self, pcallback: ::core::option::Option<IXAudio2EngineCallback>);
-    fn CreateSourceVoice(&mut self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: ::core::option::Option<IXAudio2VoiceCallback>, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
+    fn RegisterForCallbacks(&mut self, pcallback: &::core::option::Option<IXAudio2EngineCallback>) -> ::windows::core::Result<()>;
+    fn UnregisterForCallbacks(&mut self, pcallback: &::core::option::Option<IXAudio2EngineCallback>);
+    fn CreateSourceVoice(&mut self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: &::core::option::Option<IXAudio2VoiceCallback>, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
     fn CreateSubmixVoice(&mut self, ppsubmixvoice: *mut ::core::option::Option<IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
     fn CreateMasteringVoice(&mut self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: super::super::super::Foundation::PWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<()>;
     fn StartEngine(&mut self) -> ::windows::core::Result<()>;
@@ -397,14 +397,14 @@ pub trait IXAudio2Voice_Impl: Sized {
     fn GetEffectParameters(&mut self, effectindex: u32, pparameters: *mut ::core::ffi::c_void, parametersbytesize: u32) -> ::windows::core::Result<()>;
     fn SetFilterParameters(&mut self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>;
     fn GetFilterParameters(&mut self, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
-    fn SetOutputFilterParameters(&mut self, pdestinationvoice: ::core::option::Option<IXAudio2Voice>, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetOutputFilterParameters(&mut self, pdestinationvoice: ::core::option::Option<IXAudio2Voice>, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
+    fn SetOutputFilterParameters(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetOutputFilterParameters(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
     fn SetVolume(&mut self, volume: f32, operationset: u32) -> ::windows::core::Result<()>;
     fn GetVolume(&mut self, pvolume: *mut f32);
     fn SetChannelVolumes(&mut self, channels: u32, pvolumes: *const f32, operationset: u32) -> ::windows::core::Result<()>;
     fn GetChannelVolumes(&mut self, channels: u32, pvolumes: *mut f32);
-    fn SetOutputMatrix(&mut self, pdestinationvoice: ::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetOutputMatrix(&mut self, pdestinationvoice: ::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32);
+    fn SetOutputMatrix(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetOutputMatrix(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32);
     fn DestroyVoice(&mut self);
 }
 #[cfg(feature = "Win32_Foundation")]

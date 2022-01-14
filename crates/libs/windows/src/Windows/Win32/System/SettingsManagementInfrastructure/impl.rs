@@ -44,13 +44,13 @@ impl IItemEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISettingsContext_Impl: Sized {
-    fn Serialize(&mut self, pstream: ::core::option::Option<super::Com::IStream>, ptarget: ::core::option::Option<ITargetInfo>) -> ::windows::core::Result<()>;
-    fn Deserialize(&mut self, pstream: ::core::option::Option<super::Com::IStream>, ptarget: ::core::option::Option<ITargetInfo>, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows::core::Result<()>;
+    fn Serialize(&mut self, pstream: &::core::option::Option<super::Com::IStream>, ptarget: &::core::option::Option<ITargetInfo>) -> ::windows::core::Result<()>;
+    fn Deserialize(&mut self, pstream: &::core::option::Option<super::Com::IStream>, ptarget: &::core::option::Option<ITargetInfo>, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows::core::Result<()>;
     fn SetUserData(&mut self, puserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetUserData(&mut self, puserdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetNamespaces(&mut self) -> ::windows::core::Result<IItemEnumerator>;
-    fn GetStoredSettings(&mut self, pidentity: ::core::option::Option<ISettingsIdentity>, ppaddedsettings: *mut ::core::option::Option<IItemEnumerator>, ppmodifiedsettings: *mut ::core::option::Option<IItemEnumerator>, ppdeletedsettings: *mut ::core::option::Option<IItemEnumerator>) -> ::windows::core::Result<()>;
-    fn RevertSetting(&mut self, pidentity: ::core::option::Option<ISettingsIdentity>, pwzsetting: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStoredSettings(&mut self, pidentity: &::core::option::Option<ISettingsIdentity>, ppaddedsettings: *mut ::core::option::Option<IItemEnumerator>, ppmodifiedsettings: *mut ::core::option::Option<IItemEnumerator>, ppdeletedsettings: *mut ::core::option::Option<IItemEnumerator>) -> ::windows::core::Result<()>;
+    fn RevertSetting(&mut self, pidentity: &::core::option::Option<ISettingsIdentity>, pwzsetting: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISettingsContext_Vtbl {
@@ -107,20 +107,20 @@ impl ISettingsContext_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISettingsEngine_Impl: Sized {
     fn GetNamespaces(&mut self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator>;
-    fn GetNamespace(&mut self, settingsid: ::core::option::Option<ISettingsIdentity>, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace>;
+    fn GetNamespace(&mut self, settingsid: &::core::option::Option<ISettingsIdentity>, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace>;
     fn GetErrorDescription(&mut self, hresult: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CreateSettingsIdentity(&mut self) -> ::windows::core::Result<ISettingsIdentity>;
     fn GetStoreStatus(&mut self, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<WcmUserStatus>;
     fn LoadStore(&mut self, flags: u32) -> ::windows::core::Result<()>;
     fn UnloadStore(&mut self, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn RegisterNamespace(&mut self, settingsid: ::core::option::Option<ISettingsIdentity>, stream: ::core::option::Option<super::Com::IStream>, pushsettings: super::super::Foundation::BOOL) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn UnregisterNamespace(&mut self, settingsid: ::core::option::Option<ISettingsIdentity>, removesettings: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn RegisterNamespace(&mut self, settingsid: &::core::option::Option<ISettingsIdentity>, stream: &::core::option::Option<super::Com::IStream>, pushsettings: super::super::Foundation::BOOL) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn UnregisterNamespace(&mut self, settingsid: &::core::option::Option<ISettingsIdentity>, removesettings: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn CreateTargetInfo(&mut self) -> ::windows::core::Result<ITargetInfo>;
     fn GetTargetInfo(&mut self) -> ::windows::core::Result<ITargetInfo>;
-    fn SetTargetInfo(&mut self, target: ::core::option::Option<ITargetInfo>) -> ::windows::core::Result<()>;
+    fn SetTargetInfo(&mut self, target: &::core::option::Option<ITargetInfo>) -> ::windows::core::Result<()>;
     fn CreateSettingsContext(&mut self, flags: u32, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsContext>;
-    fn SetSettingsContext(&mut self, settingscontext: ::core::option::Option<ISettingsContext>) -> ::windows::core::Result<()>;
-    fn ApplySettingsContext(&mut self, settingscontext: ::core::option::Option<ISettingsContext>, pppwzidentities: *mut *mut super::super::Foundation::PWSTR, pcidentities: *mut usize) -> ::windows::core::Result<()>;
+    fn SetSettingsContext(&mut self, settingscontext: &::core::option::Option<ISettingsContext>) -> ::windows::core::Result<()>;
+    fn ApplySettingsContext(&mut self, settingscontext: &::core::option::Option<ISettingsContext>, pppwzidentities: *mut *mut super::super::Foundation::PWSTR, pcidentities: *mut usize) -> ::windows::core::Result<()>;
     fn GetSettingsContext(&mut self) -> ::windows::core::Result<ISettingsContext>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -751,7 +751,7 @@ pub trait ITargetInfo_Impl: Sized {
     fn GetTemporaryStoreLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetTemporaryStoreLocation(&mut self, temporarystorelocation: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn GetTargetID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetID(&mut self, targetid: ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetTargetID(&mut self, targetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetTargetProcessorArchitecture(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetTargetProcessorArchitecture(&mut self, processorarchitecture: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn GetProperty(&mut self, offline: super::super::Foundation::BOOL, property: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;

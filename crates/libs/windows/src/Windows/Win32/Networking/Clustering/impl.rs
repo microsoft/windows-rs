@@ -189,8 +189,8 @@ impl IGetClusterUIInfo_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISClusApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DomainNames(&mut self) -> ::windows::core::Result<ISDomainNames>;
-    fn ClusterNames(&mut self, bstrdomainname: super::super::Foundation::BSTR) -> ::windows::core::Result<ISClusterNames>;
-    fn OpenCluster(&mut self, bstrclustername: super::super::Foundation::BSTR) -> ::windows::core::Result<ISCluster>;
+    fn ClusterNames(&mut self, bstrdomainname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISClusterNames>;
+    fn OpenCluster(&mut self, bstrclustername: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISCluster>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusApplication_Vtbl {
@@ -241,9 +241,9 @@ pub trait ISClusCryptoKeys_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AddItem(&mut self, bstrcryptokey: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AddItem(&mut self, bstrcryptokey: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusCryptoKeys_Vtbl {
@@ -370,7 +370,7 @@ impl ISClusDisk_Vtbl {
 pub trait ISClusDisks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusDisk>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusDisk>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusDisks_Vtbl {
@@ -531,7 +531,7 @@ pub trait ISClusNetInterfaces_Impl: Sized + super::super::System::Com::IDispatch
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusNetInterfaces_Vtbl {
@@ -590,7 +590,7 @@ pub trait ISClusNetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn PrivateROProperties(&mut self) -> ::windows::core::Result<ISClusProperties>;
     fn Handle(&mut self) -> ::windows::core::Result<usize>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrnetworkname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrnetworkname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn NetworkID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn State(&mut self) -> ::windows::core::Result<CLUSTER_NETWORK_STATE>;
     fn NetInterfaces(&mut self) -> ::windows::core::Result<ISClusNetworkNetInterfaces>;
@@ -727,7 +727,7 @@ pub trait ISClusNetworkNetInterfaces_Impl: Sized + super::super::System::Com::ID
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusNetworkNetInterfaces_Vtbl {
@@ -783,7 +783,7 @@ pub trait ISClusNetworks_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetwork>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetwork>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusNetworks_Vtbl {
@@ -1003,7 +1003,7 @@ pub trait ISClusNodeNetInterfaces_Impl: Sized + super::super::System::Com::IDisp
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusNodeNetInterfaces_Vtbl {
@@ -1059,7 +1059,7 @@ pub trait ISClusNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusNodes_Vtbl {
@@ -1286,7 +1286,7 @@ impl ISClusPartitionEx_Vtbl {
 pub trait ISClusPartitions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPartition>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPartition>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusPartitions_Vtbl {
@@ -1337,9 +1337,9 @@ pub trait ISClusProperties_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty>;
-    fn CreateItem(&mut self, bstrname: super::super::Foundation::BSTR, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty>;
-    fn UseDefaultValue(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty>;
+    fn CreateItem(&mut self, bstrname: &super::super::Foundation::BSTR, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty>;
+    fn UseDefaultValue(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SaveChanges(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn ReadOnly(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Private(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -1473,7 +1473,7 @@ pub trait ISClusProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn ValueCount(&mut self) -> ::windows::core::Result<i32>;
     fn Values(&mut self) -> ::windows::core::Result<ISClusPropertyValues>;
     fn Value(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&mut self, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetValue(&mut self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Type(&mut self) -> ::windows::core::Result<CLUSTER_PROPERTY_TYPE>;
     fn SetType(&mut self, r#type: CLUSTER_PROPERTY_TYPE) -> ::windows::core::Result<()>;
     fn Format(&mut self) -> ::windows::core::Result<CLUSTER_PROPERTY_FORMAT>;
@@ -1639,7 +1639,7 @@ impl ISClusProperty_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISClusPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Value(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&mut self, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetValue(&mut self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Type(&mut self) -> ::windows::core::Result<CLUSTER_PROPERTY_TYPE>;
     fn SetType(&mut self, r#type: CLUSTER_PROPERTY_TYPE) -> ::windows::core::Result<()>;
     fn Format(&mut self) -> ::windows::core::Result<CLUSTER_PROPERTY_FORMAT>;
@@ -1744,9 +1744,9 @@ impl ISClusPropertyValue_Vtbl {
 pub trait ISClusPropertyValueData_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn CreateItem(&mut self, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn CreateItem(&mut self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusPropertyValueData_Vtbl {
@@ -1812,9 +1812,9 @@ impl ISClusPropertyValueData_Vtbl {
 pub trait ISClusPropertyValues_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
-    fn CreateItem(&mut self, bstrname: super::super::Foundation::BSTR, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
+    fn CreateItem(&mut self, bstrname: &super::super::Foundation::BSTR, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusPropertyValues_Vtbl {
@@ -1904,9 +1904,9 @@ pub trait ISClusRegistryKeys_Impl: Sized + super::super::System::Com::IDispatch_
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AddItem(&mut self, bstrregistrykey: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AddItem(&mut self, bstrregistrykey: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusRegistryKeys_Vtbl {
@@ -1972,11 +1972,11 @@ pub trait ISClusResDependencies_Impl: Sized + super::super::System::Com::IDispat
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
-    fn CreateItem(&mut self, bstrresourcename: super::super::Foundation::BSTR, bstrresourcetype: super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddItem(&mut self, presource: ::core::option::Option<ISClusResource>) -> ::windows::core::Result<()>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn CreateItem(&mut self, bstrresourcename: &super::super::Foundation::BSTR, bstrresourcetype: &super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
+    fn DeleteItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddItem(&mut self, presource: &::core::option::Option<ISClusResource>) -> ::windows::core::Result<()>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResDependencies_Vtbl {
@@ -2058,11 +2058,11 @@ pub trait ISClusResDependents_Impl: Sized + super::super::System::Com::IDispatch
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
-    fn CreateItem(&mut self, bstrresourcename: super::super::Foundation::BSTR, bstrresourcetype: super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AddItem(&mut self, presource: ::core::option::Option<ISClusResource>) -> ::windows::core::Result<()>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn CreateItem(&mut self, bstrresourcename: &super::super::Foundation::BSTR, bstrresourcetype: &super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
+    fn DeleteItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddItem(&mut self, presource: &::core::option::Option<ISClusResource>) -> ::windows::core::Result<()>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResDependents_Vtbl {
@@ -2147,15 +2147,15 @@ pub trait ISClusResGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn PrivateROProperties(&mut self) -> ::windows::core::Result<ISClusProperties>;
     fn Handle(&mut self) -> ::windows::core::Result<usize>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrgroupname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn State(&mut self) -> ::windows::core::Result<CLUSTER_GROUP_STATE>;
     fn OwnerNode(&mut self) -> ::windows::core::Result<ISClusNode>;
     fn Resources(&mut self) -> ::windows::core::Result<ISClusResGroupResources>;
     fn PreferredOwnerNodes(&mut self) -> ::windows::core::Result<ISClusResGroupPreferredOwnerNodes>;
     fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Online(&mut self, vartimeout: super::super::System::Com::VARIANT, varnode: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Move(&mut self, vartimeout: super::super::System::Com::VARIANT, varnode: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Offline(&mut self, vartimeout: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Online(&mut self, vartimeout: &super::super::System::Com::VARIANT, varnode: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Move(&mut self, vartimeout: &super::super::System::Com::VARIANT, varnode: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Offline(&mut self, vartimeout: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Cluster(&mut self) -> ::windows::core::Result<ISCluster>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2338,12 +2338,12 @@ pub trait ISClusResGroupPreferredOwnerNodes_Impl: Sized + super::super::System::
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
-    fn InsertItem(&mut self, pnode: ::core::option::Option<ISClusNode>, nposition: i32) -> ::windows::core::Result<()>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn InsertItem(&mut self, pnode: &::core::option::Option<ISClusNode>, nposition: i32) -> ::windows::core::Result<()>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Modified(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SaveChanges(&mut self) -> ::windows::core::Result<()>;
-    fn AddItem(&mut self, pnode: ::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
+    fn AddItem(&mut self, pnode: &::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResGroupPreferredOwnerNodes_Vtbl {
@@ -2430,9 +2430,9 @@ pub trait ISClusResGroupResources_Impl: Sized + super::super::System::Com::IDisp
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
-    fn CreateItem(&mut self, bstrresourcename: super::super::Foundation::BSTR, bstrresourcetype: super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn CreateItem(&mut self, bstrresourcename: &super::super::Foundation::BSTR, bstrresourcetype: &super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
+    fn DeleteItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResGroupResources_Vtbl {
@@ -2504,9 +2504,9 @@ pub trait ISClusResGroups_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResGroup>;
-    fn CreateItem(&mut self, bstrresourcegroupname: super::super::Foundation::BSTR) -> ::windows::core::Result<ISClusResGroup>;
-    fn DeleteItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResGroup>;
+    fn CreateItem(&mut self, bstrresourcegroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISClusResGroup>;
+    fn DeleteItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResGroups_Vtbl {
@@ -2578,9 +2578,9 @@ pub trait ISClusResPossibleOwnerNodes_Impl: Sized + super::super::System::Com::I
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
-    fn AddItem(&mut self, pnode: ::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
-    fn RemoveItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn AddItem(&mut self, pnode: &::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
+    fn RemoveItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Modified(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2786,7 +2786,7 @@ pub trait ISClusResTypePossibleOwnerNodes_Impl: Sized + super::super::System::Co
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResTypePossibleOwnerNodes_Vtbl {
@@ -2842,9 +2842,9 @@ pub trait ISClusResTypeResources_Impl: Sized + super::super::System::Com::IDispa
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
-    fn CreateItem(&mut self, bstrresourcename: super::super::Foundation::BSTR, bstrgroupname: super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn CreateItem(&mut self, bstrresourcename: &super::super::Foundation::BSTR, bstrgroupname: &super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
+    fn DeleteItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResTypeResources_Vtbl {
@@ -2916,9 +2916,9 @@ pub trait ISClusResTypes_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResType>;
-    fn CreateItem(&mut self, bstrresourcetypename: super::super::Foundation::BSTR, bstrdisplayname: super::super::Foundation::BSTR, bstrresourcetypedll: super::super::Foundation::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> ::windows::core::Result<ISClusResType>;
-    fn DeleteItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResType>;
+    fn CreateItem(&mut self, bstrresourcetypename: &super::super::Foundation::BSTR, bstrdisplayname: &super::super::Foundation::BSTR, bstrresourcetypedll: &super::super::Foundation::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> ::windows::core::Result<ISClusResType>;
+    fn DeleteItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResTypes_Vtbl {
@@ -2993,18 +2993,18 @@ pub trait ISClusResource_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn PrivateROProperties(&mut self) -> ::windows::core::Result<ISClusProperties>;
     fn Handle(&mut self) -> ::windows::core::Result<usize>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrresourcename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrresourcename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn State(&mut self) -> ::windows::core::Result<CLUSTER_RESOURCE_STATE>;
     fn CoreFlag(&mut self) -> ::windows::core::Result<CLUS_FLAGS>;
-    fn BecomeQuorumResource(&mut self, bstrdevicepath: super::super::Foundation::BSTR, lmaxlogsize: i32) -> ::windows::core::Result<()>;
+    fn BecomeQuorumResource(&mut self, bstrdevicepath: &super::super::Foundation::BSTR, lmaxlogsize: i32) -> ::windows::core::Result<()>;
     fn Delete(&mut self) -> ::windows::core::Result<()>;
     fn Fail(&mut self) -> ::windows::core::Result<()>;
     fn Online(&mut self, ntimeout: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Offline(&mut self, ntimeout: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn ChangeResourceGroup(&mut self, presourcegroup: ::core::option::Option<ISClusResGroup>) -> ::windows::core::Result<()>;
-    fn AddResourceNode(&mut self, pnode: ::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
-    fn RemoveResourceNode(&mut self, pnode: ::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
-    fn CanResourceBeDependent(&mut self, presource: ::core::option::Option<ISClusResource>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn ChangeResourceGroup(&mut self, presourcegroup: &::core::option::Option<ISClusResGroup>) -> ::windows::core::Result<()>;
+    fn AddResourceNode(&mut self, pnode: &::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
+    fn RemoveResourceNode(&mut self, pnode: &::core::option::Option<ISClusNode>) -> ::windows::core::Result<()>;
+    fn CanResourceBeDependent(&mut self, presource: &::core::option::Option<ISClusResource>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PossibleOwnerNodes(&mut self) -> ::windows::core::Result<ISClusResPossibleOwnerNodes>;
     fn Dependencies(&mut self) -> ::windows::core::Result<ISClusResDependencies>;
     fn Dependents(&mut self) -> ::windows::core::Result<ISClusResDependents>;
@@ -3340,9 +3340,9 @@ pub trait ISClusResources_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
-    fn CreateItem(&mut self, bstrresourcename: super::super::Foundation::BSTR, bstrresourcetype: super::super::Foundation::BSTR, bstrgroupname: super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn CreateItem(&mut self, bstrresourcename: &super::super::Foundation::BSTR, bstrresourcetype: &super::super::Foundation::BSTR, bstrgroupname: &super::super::Foundation::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
+    fn DeleteItem(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISClusResources_Vtbl {
@@ -3612,16 +3612,16 @@ pub trait ISCluster_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonROProperties(&mut self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateROProperties(&mut self) -> ::windows::core::Result<ISClusProperties>;
     fn Handle(&mut self) -> ::windows::core::Result<usize>;
-    fn Open(&mut self, bstrclustername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Open(&mut self, bstrclustername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrclustername: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, bstrclustername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Version(&mut self) -> ::windows::core::Result<ISClusVersion>;
-    fn SetQuorumResource(&mut self, pclusterresource: ::core::option::Option<ISClusResource>) -> ::windows::core::Result<()>;
+    fn SetQuorumResource(&mut self, pclusterresource: &::core::option::Option<ISClusResource>) -> ::windows::core::Result<()>;
     fn QuorumResource(&mut self) -> ::windows::core::Result<ISClusResource>;
     fn QuorumLogSize(&mut self) -> ::windows::core::Result<i32>;
     fn SetQuorumLogSize(&mut self, nlogsize: i32) -> ::windows::core::Result<()>;
     fn QuorumPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetQuorumPath(&mut self, ppath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetQuorumPath(&mut self, ppath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Nodes(&mut self) -> ::windows::core::Result<ISClusNodes>;
     fn ResourceGroups(&mut self) -> ::windows::core::Result<ISClusResGroups>;
     fn Resources(&mut self) -> ::windows::core::Result<ISClusResources>;
@@ -3846,7 +3846,7 @@ pub trait ISClusterNames_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DomainName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3914,7 +3914,7 @@ pub trait ISDomainNames_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISDomainNames_Vtbl {
@@ -3967,7 +3967,7 @@ impl ISDomainNames_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWCContextMenuCallback_Impl: Sized {
-    fn AddExtensionMenuItem(&mut self, lpszname: super::super::Foundation::BSTR, lpszstatusbartext: super::super::Foundation::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows::core::Result<()>;
+    fn AddExtensionMenuItem(&mut self, lpszname: &super::super::Foundation::BSTR, lpszstatusbartext: &super::super::Foundation::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWCContextMenuCallback_Vtbl {
@@ -4050,7 +4050,7 @@ impl IWCWizardCallback_Vtbl {
     }
 }
 pub trait IWEExtendContextMenu_Impl: Sized {
-    fn AddContextMenuItems(&mut self, pidata: ::core::option::Option<::windows::core::IUnknown>, picallback: ::core::option::Option<IWCContextMenuCallback>) -> ::windows::core::Result<()>;
+    fn AddContextMenuItems(&mut self, pidata: &::core::option::Option<::windows::core::IUnknown>, picallback: &::core::option::Option<IWCContextMenuCallback>) -> ::windows::core::Result<()>;
 }
 impl IWEExtendContextMenu_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWEExtendContextMenu_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWEExtendContextMenu_Vtbl {
@@ -4065,7 +4065,7 @@ impl IWEExtendContextMenu_Vtbl {
     }
 }
 pub trait IWEExtendPropertySheet_Impl: Sized {
-    fn CreatePropertySheetPages(&mut self, pidata: ::core::option::Option<::windows::core::IUnknown>, picallback: ::core::option::Option<IWCPropertySheetCallback>) -> ::windows::core::Result<()>;
+    fn CreatePropertySheetPages(&mut self, pidata: &::core::option::Option<::windows::core::IUnknown>, picallback: &::core::option::Option<IWCPropertySheetCallback>) -> ::windows::core::Result<()>;
 }
 impl IWEExtendPropertySheet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWEExtendPropertySheet_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWEExtendPropertySheet_Vtbl {
@@ -4080,7 +4080,7 @@ impl IWEExtendPropertySheet_Vtbl {
     }
 }
 pub trait IWEExtendWizard_Impl: Sized {
-    fn CreateWizardPages(&mut self, pidata: ::core::option::Option<::windows::core::IUnknown>, picallback: ::core::option::Option<IWCWizardCallback>) -> ::windows::core::Result<()>;
+    fn CreateWizardPages(&mut self, pidata: &::core::option::Option<::windows::core::IUnknown>, picallback: &::core::option::Option<IWCWizardCallback>) -> ::windows::core::Result<()>;
 }
 impl IWEExtendWizard_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWEExtendWizard_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWEExtendWizard_Vtbl {
@@ -4095,7 +4095,7 @@ impl IWEExtendWizard_Vtbl {
     }
 }
 pub trait IWEExtendWizard97_Impl: Sized {
-    fn CreateWizard97Pages(&mut self, pidata: ::core::option::Option<::windows::core::IUnknown>, picallback: ::core::option::Option<IWCWizard97Callback>) -> ::windows::core::Result<()>;
+    fn CreateWizard97Pages(&mut self, pidata: &::core::option::Option<::windows::core::IUnknown>, picallback: &::core::option::Option<IWCWizard97Callback>) -> ::windows::core::Result<()>;
 }
 impl IWEExtendWizard97_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWEExtendWizard97_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWEExtendWizard97_Vtbl {
@@ -4110,7 +4110,7 @@ impl IWEExtendWizard97_Vtbl {
     }
 }
 pub trait IWEInvokeCommand_Impl: Sized {
-    fn InvokeCommand(&mut self, ncommandid: u32, pidata: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn InvokeCommand(&mut self, ncommandid: u32, pidata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IWEInvokeCommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWEInvokeCommand_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWEInvokeCommand_Vtbl {

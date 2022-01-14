@@ -25,8 +25,8 @@ impl IObjectArray_Vtbl {
     }
 }
 pub trait IObjectCollection_Impl: Sized + IObjectArray_Impl {
-    fn AddObject(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn AddFromArray(&mut self, poasource: ::core::option::Option<IObjectArray>) -> ::windows::core::Result<()>;
+    fn AddObject(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AddFromArray(&mut self, poasource: &::core::option::Option<IObjectArray>) -> ::windows::core::Result<()>;
     fn RemoveObjectAt(&mut self, uiindex: u32) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
 }

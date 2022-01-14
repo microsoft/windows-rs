@@ -17,8 +17,8 @@ impl IDummyHICONIncluder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IThumbnailExtractor_Impl: Sized {
-    fn ExtractThumbnail(&mut self, pstg: ::core::option::Option<super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
-    fn OnFileUpdated(&mut self, pstg: ::core::option::Option<super::StructuredStorage::IStorage>) -> ::windows::core::Result<()>;
+    fn ExtractThumbnail(&mut self, pstg: &::core::option::Option<super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
+    fn OnFileUpdated(&mut self, pstg: &::core::option::Option<super::StructuredStorage::IStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IThumbnailExtractor_Vtbl {

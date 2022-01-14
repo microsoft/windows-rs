@@ -2,7 +2,7 @@
 pub trait IAVIEditStream_Impl: Sized {
     fn Cut(&mut self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
     fn Copy(&mut self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
-    fn Paste(&mut self, plpos: *mut i32, pllength: *mut i32, pstream: ::core::option::Option<IAVIStream>, lstart: i32, lend: i32) -> ::windows::core::Result<()>;
+    fn Paste(&mut self, plpos: *mut i32, pllength: *mut i32, pstream: &::core::option::Option<IAVIStream>, lstart: i32, lend: i32) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IAVIStream>;
     fn SetInfo(&mut self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
 }

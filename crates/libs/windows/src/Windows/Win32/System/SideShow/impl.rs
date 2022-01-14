@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISideShowBulkCapabilities_Impl: Sized + ISideShowCapabilities_Impl {
-    fn GetCapabilities(&mut self, in_keycollection: ::core::option::Option<ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&mut self, in_keycollection: &::core::option::Option<ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISideShowBulkCapabilities_Vtbl {
@@ -66,7 +66,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISideShowContent_Impl: Sized {
-    fn GetContent(&mut self, in_picapabilities: ::core::option::Option<ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn GetContent(&mut self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>;
     fn ContentId(&mut self) -> ::windows::core::Result<u32>;
     fn DifferentiateContent(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
@@ -109,10 +109,10 @@ impl ISideShowContent_Vtbl {
     }
 }
 pub trait ISideShowContentManager_Impl: Sized {
-    fn Add(&mut self, in_picontent: ::core::option::Option<ISideShowContent>) -> ::windows::core::Result<()>;
+    fn Add(&mut self, in_picontent: &::core::option::Option<ISideShowContent>) -> ::windows::core::Result<()>;
     fn Remove(&mut self, in_contentid: u32) -> ::windows::core::Result<()>;
     fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
-    fn SetEventSink(&mut self, in_pievents: ::core::option::Option<ISideShowEvents>) -> ::windows::core::Result<()>;
+    fn SetEventSink(&mut self, in_pievents: &::core::option::Option<ISideShowEvents>) -> ::windows::core::Result<()>;
     fn GetDeviceCapabilities(&mut self) -> ::windows::core::Result<ISideShowCapabilitiesCollection>;
 }
 impl ISideShowContentManager_Vtbl {
@@ -158,9 +158,9 @@ impl ISideShowContentManager_Vtbl {
 }
 pub trait ISideShowEvents_Impl: Sized {
     fn ContentMissing(&mut self, in_contentid: u32) -> ::windows::core::Result<ISideShowContent>;
-    fn ApplicationEvent(&mut self, in_picapabilities: ::core::option::Option<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()>;
-    fn DeviceAdded(&mut self, in_pidevice: ::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
-    fn DeviceRemoved(&mut self, in_pidevice: ::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
+    fn ApplicationEvent(&mut self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()>;
+    fn DeviceAdded(&mut self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
+    fn DeviceRemoved(&mut self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
 }
 impl ISideShowEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISideShowEvents_Vtbl {
@@ -347,7 +347,7 @@ impl ISideShowNotification_Vtbl {
     }
 }
 pub trait ISideShowNotificationManager_Impl: Sized {
-    fn Show(&mut self, in_pinotification: ::core::option::Option<ISideShowNotification>) -> ::windows::core::Result<()>;
+    fn Show(&mut self, in_pinotification: &::core::option::Option<ISideShowNotification>) -> ::windows::core::Result<()>;
     fn Revoke(&mut self, in_notificationid: u32) -> ::windows::core::Result<()>;
     fn RevokeAll(&mut self) -> ::windows::core::Result<()>;
 }

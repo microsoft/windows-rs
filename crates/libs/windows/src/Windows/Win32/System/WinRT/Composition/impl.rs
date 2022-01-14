@@ -32,7 +32,7 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
 pub trait ICompositionDrawingSurfaceInterop_Impl: Sized {
     fn BeginDraw(&mut self, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn EndDraw(&mut self) -> ::windows::core::Result<()>;
-    fn Resize(&mut self, sizepixels: super::super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
+    fn Resize(&mut self, sizepixels: &super::super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
     fn Scroll(&mut self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::Result<()>;
     fn ResumeDraw(&mut self) -> ::windows::core::Result<()>;
     fn SuspendDraw(&mut self) -> ::windows::core::Result<()>;
@@ -80,7 +80,7 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICompositionDrawingSurfaceInterop2_Impl: Sized + ICompositionDrawingSurfaceInterop_Impl {
-    fn CopySurface(&mut self, destinationresource: ::core::option::Option<::windows::core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn CopySurface(&mut self, destinationresource: &::core::option::Option<::windows::core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
@@ -97,7 +97,7 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
 }
 pub trait ICompositionGraphicsDeviceInterop_Impl: Sized {
     fn GetRenderingDevice(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetRenderingDevice(&mut self, value: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetRenderingDevice(&mut self, value: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ICompositionGraphicsDeviceInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDeviceInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDeviceInterop_Vtbl {
@@ -160,8 +160,8 @@ impl ICompositorDesktopInterop_Vtbl {
 #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
 pub trait ICompositorInterop_Impl: Sized {
     fn CreateCompositionSurfaceForHandle(&mut self, swapchain: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateCompositionSurfaceForSwapChain(&mut self, swapchain: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateGraphicsDevice(&mut self, renderingdevice: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
+    fn CreateCompositionSurfaceForSwapChain(&mut self, swapchain: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
+    fn CreateGraphicsDevice(&mut self, renderingdevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
 }
 #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
 impl ICompositorInterop_Vtbl {
@@ -231,7 +231,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
     }
 }
 pub trait ISwapChainInterop_Impl: Sized {
-    fn SetSwapChain(&mut self, swapchain: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetSwapChain(&mut self, swapchain: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ISwapChainInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwapChainInterop_Vtbl {

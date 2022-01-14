@@ -123,7 +123,7 @@ impl ICivicAddressReportFactory_Vtbl {
     }
 }
 pub trait IDefaultLocation_Impl: Sized {
-    fn SetReport(&mut self, reporttype: *const ::windows::core::GUID, plocationreport: ::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
+    fn SetReport(&mut self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
     fn GetReport(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
 }
 impl IDefaultLocation_Vtbl {
@@ -447,7 +447,7 @@ impl ILatLongReportFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Devices_Sensors", feature = "Win32_Foundation"))]
 pub trait ILocation_Impl: Sized {
-    fn RegisterForReport(&mut self, pevents: ::core::option::Option<ILocationEvents>, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>;
+    fn RegisterForReport(&mut self, pevents: &::core::option::Option<ILocationEvents>, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>;
     fn UnregisterForReport(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetReport(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
     fn GetReportStatus(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<LOCATION_REPORT_STATUS>;
@@ -538,7 +538,7 @@ impl ILocation_Vtbl {
     }
 }
 pub trait ILocationEvents_Impl: Sized {
-    fn OnLocationChanged(&mut self, reporttype: *const ::windows::core::GUID, plocationreport: ::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
+    fn OnLocationChanged(&mut self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
     fn OnStatusChanged(&mut self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()>;
 }
 impl ILocationEvents_Vtbl {

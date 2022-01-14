@@ -968,11 +968,11 @@ impl IEnumTerminalClass_Vtbl {
 pub trait IMcastAddressAllocation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Scopes(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateScopes(&mut self) -> ::windows::core::Result<IEnumMcastScope>;
-    fn RequestAddress(&mut self, pscope: ::core::option::Option<IMcastScope>, leasestarttime: f64, leasestoptime: f64, numaddresses: i32) -> ::windows::core::Result<IMcastLeaseInfo>;
-    fn RenewAddress(&mut self, lreserved: i32, prenewrequest: ::core::option::Option<IMcastLeaseInfo>) -> ::windows::core::Result<IMcastLeaseInfo>;
-    fn ReleaseAddress(&mut self, preleaserequest: ::core::option::Option<IMcastLeaseInfo>) -> ::windows::core::Result<()>;
+    fn RequestAddress(&mut self, pscope: &::core::option::Option<IMcastScope>, leasestarttime: f64, leasestoptime: f64, numaddresses: i32) -> ::windows::core::Result<IMcastLeaseInfo>;
+    fn RenewAddress(&mut self, lreserved: i32, prenewrequest: &::core::option::Option<IMcastLeaseInfo>) -> ::windows::core::Result<IMcastLeaseInfo>;
+    fn ReleaseAddress(&mut self, preleaserequest: &::core::option::Option<IMcastLeaseInfo>) -> ::windows::core::Result<()>;
     fn CreateLeaseInfo(&mut self, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const super::super::Foundation::PWSTR, prequestid: super::super::Foundation::PWSTR, pserveraddress: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMcastLeaseInfo>;
-    fn CreateLeaseInfoFromVariant(&mut self, leasestarttime: f64, leasestoptime: f64, vaddresses: super::super::System::Com::VARIANT, prequestid: super::super::Foundation::BSTR, pserveraddress: super::super::Foundation::BSTR) -> ::windows::core::Result<IMcastLeaseInfo>;
+    fn CreateLeaseInfoFromVariant(&mut self, leasestarttime: f64, leasestoptime: f64, vaddresses: &super::super::System::Com::VARIANT, prequestid: &super::super::Foundation::BSTR, pserveraddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMcastLeaseInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMcastAddressAllocation_Vtbl {
@@ -1428,12 +1428,12 @@ pub trait ITAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddressName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ServiceProviderName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn TAPIObject(&mut self) -> ::windows::core::Result<ITTAPI>;
-    fn CreateCall(&mut self, pdestaddress: super::super::Foundation::BSTR, laddresstype: i32, lmediatypes: i32) -> ::windows::core::Result<ITBasicCallControl>;
+    fn CreateCall(&mut self, pdestaddress: &super::super::Foundation::BSTR, laddresstype: i32, lmediatypes: i32) -> ::windows::core::Result<ITBasicCallControl>;
     fn Calls(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateCalls(&mut self) -> ::windows::core::Result<IEnumCall>;
     fn DialableAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CreateForwardInfoObject(&mut self) -> ::windows::core::Result<ITForwardInformation>;
-    fn Forward(&mut self, pforwardinfo: ::core::option::Option<ITForwardInformation>, pcall: ::core::option::Option<ITBasicCallControl>) -> ::windows::core::Result<()>;
+    fn Forward(&mut self, pforwardinfo: &::core::option::Option<ITForwardInformation>, pcall: &::core::option::Option<ITBasicCallControl>) -> ::windows::core::Result<()>;
     fn CurrentForwardInfo(&mut self) -> ::windows::core::Result<ITForwardInformation>;
     fn SetMessageWaiting(&mut self, fmessagewaiting: i16) -> ::windows::core::Result<()>;
     fn MessageWaiting(&mut self) -> ::windows::core::Result<i16>;
@@ -1602,13 +1602,13 @@ impl ITAddress_Vtbl {
 pub trait ITAddress2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITAddress_Impl {
     fn Phones(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePhones(&mut self) -> ::windows::core::Result<IEnumPhone>;
-    fn GetPhoneFromTerminal(&mut self, pterminal: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<ITPhone>;
+    fn GetPhoneFromTerminal(&mut self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<ITPhone>;
     fn PreferredPhones(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePreferredPhones(&mut self) -> ::windows::core::Result<IEnumPhone>;
     fn EventFilter(&mut self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
     fn SetEventFilter(&mut self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
-    fn DeviceSpecific(&mut self, pcall: ::core::option::Option<ITCallInfo>, pparams: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
-    fn DeviceSpecificVariant(&mut self, pcall: ::core::option::Option<ITCallInfo>, vardevspecificbytearray: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeviceSpecific(&mut self, pcall: &::core::option::Option<ITCallInfo>, pparams: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
+    fn DeviceSpecificVariant(&mut self, pcall: &::core::option::Option<ITCallInfo>, vardevspecificbytearray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn NegotiateExtVersion(&mut self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1950,8 +1950,8 @@ impl ITAddressEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddressTranslation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn TranslateAddress(&mut self, paddresstotranslate: super::super::Foundation::BSTR, lcard: i32, ltranslateoptions: i32) -> ::windows::core::Result<ITAddressTranslationInfo>;
-    fn TranslateDialog(&mut self, hwndowner: isize, paddressin: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TranslateAddress(&mut self, paddresstotranslate: &super::super::Foundation::BSTR, lcard: i32, ltranslateoptions: i32) -> ::windows::core::Result<ITAddressTranslationInfo>;
+    fn TranslateDialog(&mut self, hwndowner: isize, paddressin: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EnumerateLocations(&mut self) -> ::windows::core::Result<IEnumLocation>;
     fn Locations(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateCallingCards(&mut self) -> ::windows::core::Result<IEnumCallingCard>;
@@ -2105,8 +2105,8 @@ impl ITAddressTranslationInfo_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAgent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentSessions(&mut self) -> ::windows::core::Result<IEnumAgentSession>;
-    fn CreateSession(&mut self, pacdgroup: ::core::option::Option<ITACDGroup>, paddress: ::core::option::Option<ITAddress>) -> ::windows::core::Result<ITAgentSession>;
-    fn CreateSessionWithPIN(&mut self, pacdgroup: ::core::option::Option<ITACDGroup>, paddress: ::core::option::Option<ITAddress>, ppin: super::super::Foundation::BSTR) -> ::windows::core::Result<ITAgentSession>;
+    fn CreateSession(&mut self, pacdgroup: &::core::option::Option<ITACDGroup>, paddress: &::core::option::Option<ITAddress>) -> ::windows::core::Result<ITAgentSession>;
+    fn CreateSessionWithPIN(&mut self, pacdgroup: &::core::option::Option<ITACDGroup>, paddress: &::core::option::Option<ITAddress>, ppin: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITAgentSession>;
     fn ID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn User(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetState(&mut self, agentstate: AGENT_STATE) -> ::windows::core::Result<()>;
@@ -2350,7 +2350,7 @@ impl ITAgentEvent_Vtbl {
 pub trait ITAgentHandler_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CreateAgent(&mut self) -> ::windows::core::Result<ITAgent>;
-    fn CreateAgentWithID(&mut self, pid: super::super::Foundation::BSTR, ppin: super::super::Foundation::BSTR) -> ::windows::core::Result<ITAgent>;
+    fn CreateAgentWithID(&mut self, pid: &super::super::Foundation::BSTR, ppin: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITAgent>;
     fn EnumerateACDGroups(&mut self) -> ::windows::core::Result<IEnumACDGroup>;
     fn EnumerateUsableAddresses(&mut self) -> ::windows::core::Result<IEnumAddress>;
     fn ACDGroups(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -2830,8 +2830,8 @@ pub trait ITAutomatedPhoneControl_Impl: Sized + super::super::System::Com::IDisp
     fn AutoVolumeControlRepeatDelay(&mut self) -> ::windows::core::Result<i32>;
     fn SetAutoVolumeControlRepeatPeriod(&mut self, lperiod: i32) -> ::windows::core::Result<()>;
     fn AutoVolumeControlRepeatPeriod(&mut self) -> ::windows::core::Result<i32>;
-    fn SelectCall(&mut self, pcall: ::core::option::Option<ITCallInfo>, fselectdefaultterminals: i16) -> ::windows::core::Result<()>;
-    fn UnselectCall(&mut self, pcall: ::core::option::Option<ITCallInfo>) -> ::windows::core::Result<()>;
+    fn SelectCall(&mut self, pcall: &::core::option::Option<ITCallInfo>, fselectdefaultterminals: i16) -> ::windows::core::Result<()>;
+    fn UnselectCall(&mut self, pcall: &::core::option::Option<ITCallInfo>) -> ::windows::core::Result<()>;
     fn EnumerateSelectedCalls(&mut self) -> ::windows::core::Result<IEnumCall>;
     fn SelectedCalls(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
@@ -3152,18 +3152,18 @@ pub trait ITBasicCallControl_Impl: Sized + super::super::System::Com::IDispatch_
     fn Answer(&mut self) -> ::windows::core::Result<()>;
     fn Disconnect(&mut self, code: DISCONNECT_CODE) -> ::windows::core::Result<()>;
     fn Hold(&mut self, fhold: i16) -> ::windows::core::Result<()>;
-    fn HandoffDirect(&mut self, papplicationname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn HandoffDirect(&mut self, papplicationname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn HandoffIndirect(&mut self, lmediatype: i32) -> ::windows::core::Result<()>;
-    fn Conference(&mut self, pcall: ::core::option::Option<ITBasicCallControl>, fsync: i16) -> ::windows::core::Result<()>;
-    fn Transfer(&mut self, pcall: ::core::option::Option<ITBasicCallControl>, fsync: i16) -> ::windows::core::Result<()>;
-    fn BlindTransfer(&mut self, pdestaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SwapHold(&mut self, pcall: ::core::option::Option<ITBasicCallControl>) -> ::windows::core::Result<()>;
-    fn ParkDirect(&mut self, pparkaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Conference(&mut self, pcall: &::core::option::Option<ITBasicCallControl>, fsync: i16) -> ::windows::core::Result<()>;
+    fn Transfer(&mut self, pcall: &::core::option::Option<ITBasicCallControl>, fsync: i16) -> ::windows::core::Result<()>;
+    fn BlindTransfer(&mut self, pdestaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SwapHold(&mut self, pcall: &::core::option::Option<ITBasicCallControl>) -> ::windows::core::Result<()>;
+    fn ParkDirect(&mut self, pparkaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ParkIndirect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Unpark(&mut self) -> ::windows::core::Result<()>;
     fn SetQOS(&mut self, lmediatype: i32, servicelevel: QOS_SERVICE_LEVEL) -> ::windows::core::Result<()>;
-    fn Pickup(&mut self, pgroupid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Dial(&mut self, pdestaddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Pickup(&mut self, pgroupid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Dial(&mut self, pdestaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Finish(&mut self, finishmode: FINISH_MODE) -> ::windows::core::Result<()>;
     fn RemoveFromConference(&mut self) -> ::windows::core::Result<()>;
 }
@@ -3276,9 +3276,9 @@ impl ITBasicCallControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITBasicCallControl2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITBasicCallControl_Impl {
-    fn RequestTerminal(&mut self, bstrterminalclassguid: super::super::Foundation::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
-    fn SelectTerminalOnCall(&mut self, pterminal: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
-    fn UnselectTerminalOnCall(&mut self, pterminal: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
+    fn RequestTerminal(&mut self, bstrterminalclassguid: &super::super::Foundation::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
+    fn SelectTerminalOnCall(&mut self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
+    fn UnselectTerminalOnCall(&mut self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITBasicCallControl2_Vtbl {
@@ -3439,9 +3439,9 @@ pub trait ITCallInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CallInfoLong(&mut self, callinfolong: CALLINFO_LONG) -> ::windows::core::Result<i32>;
     fn SetCallInfoLong(&mut self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::Result<()>;
     fn CallInfoString(&mut self, callinfostring: CALLINFO_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCallInfoString(&mut self, callinfostring: CALLINFO_STRING, pcallinfostring: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCallInfoString(&mut self, callinfostring: CALLINFO_STRING, pcallinfostring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CallInfoBuffer(&mut self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetCallInfoBuffer(&mut self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetCallInfoBuffer(&mut self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetCallInfoBuffer(&mut self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()>;
     fn SetCallInfoBuffer2(&mut self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::Result<()>;
     fn ReleaseUserUserInfo(&mut self) -> ::windows::core::Result<()>;
@@ -4387,13 +4387,13 @@ pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetDefaultObjectTTL(&mut self, ttl: i32) -> ::windows::core::Result<()>;
     fn EnableAutoRefresh(&mut self, fenable: i16) -> ::windows::core::Result<()>;
     fn Connect(&mut self, fsecure: i16) -> ::windows::core::Result<()>;
-    fn Bind(&mut self, pdomainname: super::super::Foundation::BSTR, pusername: super::super::Foundation::BSTR, ppassword: super::super::Foundation::BSTR, lflags: i32) -> ::windows::core::Result<()>;
-    fn AddDirectoryObject(&mut self, pdirectoryobject: ::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
-    fn ModifyDirectoryObject(&mut self, pdirectoryobject: ::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
-    fn RefreshDirectoryObject(&mut self, pdirectoryobject: ::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
-    fn DeleteDirectoryObject(&mut self, pdirectoryobject: ::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
-    fn DirectoryObjects(&mut self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn EnumerateDirectoryObjects(&mut self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: super::super::Foundation::BSTR) -> ::windows::core::Result<IEnumDirectoryObject>;
+    fn Bind(&mut self, pdomainname: &super::super::Foundation::BSTR, pusername: &super::super::Foundation::BSTR, ppassword: &super::super::Foundation::BSTR, lflags: i32) -> ::windows::core::Result<()>;
+    fn AddDirectoryObject(&mut self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
+    fn ModifyDirectoryObject(&mut self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
+    fn RefreshDirectoryObject(&mut self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
+    fn DeleteDirectoryObject(&mut self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
+    fn DirectoryObjects(&mut self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn EnumerateDirectoryObjects(&mut self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IEnumDirectoryObject>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDirectory_Vtbl {
@@ -4516,11 +4516,11 @@ impl ITDirectory_Vtbl {
 pub trait ITDirectoryObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectType(&mut self) -> ::windows::core::Result<DIRECTORY_OBJECT_TYPE>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, pname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DialableAddrs(&mut self, dwaddresstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateDialableAddrs(&mut self, dwaddresstype: u32) -> ::windows::core::Result<IEnumDialableAddrs>;
     fn SecurityDescriptor(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn SetSecurityDescriptor(&mut self, psecdes: ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn SetSecurityDescriptor(&mut self, psecdes: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDirectoryObject_Vtbl {
@@ -4602,13 +4602,13 @@ impl ITDirectoryObject_Vtbl {
 pub trait ITDirectoryObjectConference_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Protocol(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Originator(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOriginator(&mut self, poriginator: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOriginator(&mut self, poriginator: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AdvertisingScope(&mut self) -> ::windows::core::Result<RND_ADVERTISING_SCOPE>;
     fn SetAdvertisingScope(&mut self, advertisingscope: RND_ADVERTISING_SCOPE) -> ::windows::core::Result<()>;
     fn Url(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetUrl(&mut self, purl: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetUrl(&mut self, purl: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, pdescription: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, pdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IsEncrypted(&mut self) -> ::windows::core::Result<i16>;
     fn SetIsEncrypted(&mut self, fencrypted: i16) -> ::windows::core::Result<()>;
     fn StartTime(&mut self) -> ::windows::core::Result<f64>;
@@ -4753,7 +4753,7 @@ impl ITDirectoryObjectConference_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDirectoryObjectUser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IPPhonePrimary(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetIPPhonePrimary(&mut self, pname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetIPPhonePrimary(&mut self, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDirectoryObjectUser_Vtbl {
@@ -4784,7 +4784,7 @@ impl ITDirectoryObjectUser_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITDispatchMapper_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn QueryDispatchInterface(&mut self, piid: super::super::Foundation::BSTR, pinterfacetomap: ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn QueryDispatchInterface(&mut self, piid: &super::super::Foundation::BSTR, pinterfacetomap: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDispatchMapper_Vtbl {
@@ -4900,7 +4900,7 @@ pub trait ITFileTrack_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetFormat(&mut self, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
     fn ControllingTerminal(&mut self) -> ::windows::core::Result<ITTerminal>;
     fn AudioFormatForScripting(&mut self) -> ::windows::core::Result<ITScriptableAudioFormat>;
-    fn SetAudioFormatForScripting(&mut self, paudioformat: ::core::option::Option<ITScriptableAudioFormat>) -> ::windows::core::Result<()>;
+    fn SetAudioFormatForScripting(&mut self, paudioformat: &::core::option::Option<ITScriptableAudioFormat>) -> ::windows::core::Result<()>;
     fn EmptyAudioFormatForScripting(&mut self) -> ::windows::core::Result<ITScriptableAudioFormat>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4972,7 +4972,7 @@ impl ITFileTrack_Vtbl {
 pub trait ITForwardInformation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetNumRingsNoAnswer(&mut self, lnumrings: i32) -> ::windows::core::Result<()>;
     fn NumRingsNoAnswer(&mut self) -> ::windows::core::Result<i32>;
-    fn SetForwardType(&mut self, forwardtype: i32, pdestaddress: super::super::Foundation::BSTR, pcalleraddress: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetForwardType(&mut self, forwardtype: i32, pdestaddress: &super::super::Foundation::BSTR, pcalleraddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ForwardTypeDestination(&mut self, forwardtype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ForwardTypeCaller(&mut self, forwardtype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetForwardType(&mut self, forwardtype: i32, ppdestinationaddress: *mut super::super::Foundation::BSTR, ppcalleraddress: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -5044,7 +5044,7 @@ impl ITForwardInformation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITForwardInformation2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITForwardInformation_Impl {
-    fn SetForwardType2(&mut self, forwardtype: i32, pdestaddress: super::super::Foundation::BSTR, destaddresstype: i32, pcalleraddress: super::super::Foundation::BSTR, calleraddresstype: i32) -> ::windows::core::Result<()>;
+    fn SetForwardType2(&mut self, forwardtype: i32, pdestaddress: &super::super::Foundation::BSTR, destaddresstype: i32, pcalleraddress: &super::super::Foundation::BSTR, calleraddresstype: i32) -> ::windows::core::Result<()>;
     fn GetForwardType2(&mut self, forwardtype: i32, ppdestinationaddress: *mut super::super::Foundation::BSTR, pdestaddresstype: *mut i32, ppcalleraddress: *mut super::super::Foundation::BSTR, pcalleraddresstype: *mut i32) -> ::windows::core::Result<()>;
     fn ForwardTypeDestinationAddressType(&mut self, forwardtype: i32) -> ::windows::core::Result<i32>;
     fn ForwardTypeCallerAddressType(&mut self, forwardtype: i32) -> ::windows::core::Result<i32>;
@@ -5126,9 +5126,9 @@ impl ITILSConfig_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITLegacyAddressMediaControl_Impl: Sized {
-    fn GetID(&mut self, pdeviceclass: super::super::Foundation::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn GetDevConfig(&mut self, pdeviceclass: super::super::Foundation::BSTR, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn SetDevConfig(&mut self, pdeviceclass: super::super::Foundation::BSTR, dwsize: u32, pdeviceconfig: *const u8) -> ::windows::core::Result<()>;
+    fn GetID(&mut self, pdeviceclass: &super::super::Foundation::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn GetDevConfig(&mut self, pdeviceclass: &super::super::Foundation::BSTR, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn SetDevConfig(&mut self, pdeviceclass: &super::super::Foundation::BSTR, dwsize: u32, pdeviceconfig: *const u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITLegacyAddressMediaControl_Vtbl {
@@ -5158,8 +5158,8 @@ impl ITLegacyAddressMediaControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITLegacyAddressMediaControl2_Impl: Sized + ITLegacyAddressMediaControl_Impl {
-    fn ConfigDialog(&mut self, hwndowner: super::super::Foundation::HWND, pdeviceclass: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ConfigDialogEdit(&mut self, hwndowner: super::super::Foundation::HWND, pdeviceclass: super::super::Foundation::BSTR, dwsizein: u32, pdeviceconfigin: *const u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn ConfigDialog(&mut self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConfigDialogEdit(&mut self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &super::super::Foundation::BSTR, dwsizein: u32, pdeviceconfigin: *const u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITLegacyAddressMediaControl2_Vtbl {
@@ -5185,8 +5185,8 @@ impl ITLegacyAddressMediaControl2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITLegacyCallMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DetectDigits(&mut self, digitmode: i32) -> ::windows::core::Result<()>;
-    fn GenerateDigits(&mut self, pdigits: super::super::Foundation::BSTR, digitmode: i32) -> ::windows::core::Result<()>;
-    fn GetID(&mut self, pdeviceclass: super::super::Foundation::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn GenerateDigits(&mut self, pdigits: &super::super::Foundation::BSTR, digitmode: i32) -> ::windows::core::Result<()>;
+    fn GetID(&mut self, pdeviceclass: &super::super::Foundation::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>;
     fn SetMediaType(&mut self, lmediatype: i32) -> ::windows::core::Result<()>;
     fn MonitorMedia(&mut self, lmediatype: i32) -> ::windows::core::Result<()>;
 }
@@ -5228,16 +5228,16 @@ impl ITLegacyCallMediaControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITLegacyCallMediaControl2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITLegacyCallMediaControl_Impl {
-    fn GenerateDigits2(&mut self, pdigits: super::super::Foundation::BSTR, digitmode: i32, lduration: i32) -> ::windows::core::Result<()>;
-    fn GatherDigits(&mut self, digitmode: i32, lnumdigits: i32, pterminationdigits: super::super::Foundation::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> ::windows::core::Result<()>;
+    fn GenerateDigits2(&mut self, pdigits: &super::super::Foundation::BSTR, digitmode: i32, lduration: i32) -> ::windows::core::Result<()>;
+    fn GatherDigits(&mut self, digitmode: i32, lnumdigits: i32, pterminationdigits: &super::super::Foundation::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> ::windows::core::Result<()>;
     fn DetectTones(&mut self, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> ::windows::core::Result<()>;
-    fn DetectTonesByCollection(&mut self, pdetecttonecollection: ::core::option::Option<ITCollection2>) -> ::windows::core::Result<()>;
+    fn DetectTonesByCollection(&mut self, pdetecttonecollection: &::core::option::Option<ITCollection2>) -> ::windows::core::Result<()>;
     fn GenerateTone(&mut self, tonemode: TAPI_TONEMODE, lduration: i32) -> ::windows::core::Result<()>;
     fn GenerateCustomTones(&mut self, ptonelist: *const TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> ::windows::core::Result<()>;
-    fn GenerateCustomTonesByCollection(&mut self, pcustomtonecollection: ::core::option::Option<ITCollection2>, lduration: i32) -> ::windows::core::Result<()>;
+    fn GenerateCustomTonesByCollection(&mut self, pcustomtonecollection: &::core::option::Option<ITCollection2>, lduration: i32) -> ::windows::core::Result<()>;
     fn CreateDetectToneObject(&mut self) -> ::windows::core::Result<ITDetectTone>;
     fn CreateCustomToneObject(&mut self) -> ::windows::core::Result<ITCustomTone>;
-    fn GetIDAsVariant(&mut self, bstrdeviceclass: super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetIDAsVariant(&mut self, bstrdeviceclass: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITLegacyCallMediaControl2_Vtbl {
@@ -5493,9 +5493,9 @@ impl ITLocationInfo_Vtbl {
 pub trait ITMSPAddress_Impl: Sized {
     fn Initialize(&mut self, hevent: *const i32) -> ::windows::core::Result<()>;
     fn Shutdown(&mut self) -> ::windows::core::Result<()>;
-    fn CreateMSPCall(&mut self, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn ShutdownMSPCall(&mut self, pstreamcontrol: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ReceiveTSPData(&mut self, pmspcall: ::core::option::Option<::windows::core::IUnknown>, pbuffer: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
+    fn CreateMSPCall(&mut self, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn ShutdownMSPCall(&mut self, pstreamcontrol: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReceiveTSPData(&mut self, pmspcall: &::core::option::Option<::windows::core::IUnknown>, pbuffer: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
     fn GetEvent(&mut self, pdwsize: *mut u32, peventbuffer: *mut u8) -> ::windows::core::Result<()>;
 }
 impl ITMSPAddress_Vtbl {
@@ -5590,7 +5590,7 @@ impl ITMediaControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMediaPlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetPlayList(&mut self, playlistvariant: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetPlayList(&mut self, playlistvariant: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PlayList(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5622,7 +5622,7 @@ impl ITMediaPlayback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMediaRecord_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetFileName(&mut self, bstrfilename: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFileName(&mut self, bstrfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn FileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5697,7 +5697,7 @@ pub trait ITMultiTrackTerminal_Impl: Sized + super::super::System::Com::IDispatc
     fn CreateTrackTerminal(&mut self, mediatype: i32, terminaldirection: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
     fn MediaTypesInUse(&mut self) -> ::windows::core::Result<i32>;
     fn DirectionsInUse(&mut self) -> ::windows::core::Result<TERMINAL_DIRECTION>;
-    fn RemoveTrackTerminal(&mut self, ptrackterminaltoremove: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
+    fn RemoveTrackTerminal(&mut self, ptrackterminaltoremove: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITMultiTrackTerminal_Vtbl {
@@ -5778,14 +5778,14 @@ pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAddresses(&mut self) -> ::windows::core::Result<IEnumAddress>;
     fn PhoneCapsLong(&mut self, pclcap: PHONECAPS_LONG) -> ::windows::core::Result<i32>;
     fn PhoneCapsString(&mut self, pcscap: PHONECAPS_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Terminals(&mut self, paddress: ::core::option::Option<ITAddress>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn EnumerateTerminals(&mut self, paddress: ::core::option::Option<ITAddress>) -> ::windows::core::Result<IEnumTerminal>;
+    fn Terminals(&mut self, paddress: &::core::option::Option<ITAddress>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn EnumerateTerminals(&mut self, paddress: &::core::option::Option<ITAddress>) -> ::windows::core::Result<IEnumTerminal>;
     fn ButtonMode(&mut self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_MODE>;
     fn SetButtonMode(&mut self, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::core::Result<()>;
     fn ButtonFunction(&mut self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_FUNCTION>;
     fn SetButtonFunction(&mut self, lbuttonid: i32, buttonfunction: PHONE_BUTTON_FUNCTION) -> ::windows::core::Result<()>;
     fn ButtonText(&mut self, lbuttonid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetButtonText(&mut self, lbuttonid: i32, bstrbuttontext: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetButtonText(&mut self, lbuttonid: i32, bstrbuttontext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ButtonState(&mut self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_STATE>;
     fn HookSwitchState(&mut self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE) -> ::windows::core::Result<PHONE_HOOK_SWITCH_STATE>;
     fn SetHookSwitchState(&mut self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, hookswitchstate: PHONE_HOOK_SWITCH_STATE) -> ::windows::core::Result<()>;
@@ -5799,11 +5799,11 @@ pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LampMode(&mut self, llampid: i32) -> ::windows::core::Result<PHONE_LAMP_MODE>;
     fn SetLampMode(&mut self, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::core::Result<()>;
     fn Display(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDisplay(&mut self, lrow: i32, lcolumn: i32, bstrdisplay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDisplay(&mut self, lrow: i32, lcolumn: i32, bstrdisplay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PreferredAddresses(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePreferredAddresses(&mut self) -> ::windows::core::Result<IEnumAddress>;
     fn DeviceSpecific(&mut self, pparams: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
-    fn DeviceSpecificVariant(&mut self, vardevspecificbytearray: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeviceSpecificVariant(&mut self, vardevspecificbytearray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn NegotiateExtVersion(&mut self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6402,7 +6402,7 @@ impl ITPluggableTerminalEventSink_Vtbl {
     }
 }
 pub trait ITPluggableTerminalEventSinkRegistration_Impl: Sized {
-    fn RegisterSink(&mut self, peventsink: ::core::option::Option<ITPluggableTerminalEventSink>) -> ::windows::core::Result<()>;
+    fn RegisterSink(&mut self, peventsink: &::core::option::Option<ITPluggableTerminalEventSink>) -> ::windows::core::Result<()>;
     fn UnregisterSink(&mut self) -> ::windows::core::Result<()>;
 }
 impl ITPluggableTerminalEventSinkRegistration_Vtbl {
@@ -6781,8 +6781,8 @@ impl ITQueueEvent_Vtbl {
 pub trait ITRendezvous_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DefaultDirectories(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateDefaultDirectories(&mut self) -> ::windows::core::Result<IEnumDirectory>;
-    fn CreateDirectory(&mut self, directorytype: DIRECTORY_TYPE, pname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITDirectory>;
-    fn CreateDirectoryObject(&mut self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: super::super::Foundation::BSTR) -> ::windows::core::Result<ITDirectoryObject>;
+    fn CreateDirectory(&mut self, directorytype: DIRECTORY_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITDirectory>;
+    fn CreateDirectoryObject(&mut self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITDirectoryObject>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITRendezvous_Vtbl {
@@ -6841,7 +6841,7 @@ impl ITRendezvous_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn MakeCall(&mut self, pdestaddress: super::super::Foundation::BSTR, pappname: super::super::Foundation::BSTR, pcalledparty: super::super::Foundation::BSTR, pcomment: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MakeCall(&mut self, pdestaddress: &super::super::Foundation::BSTR, pappname: &super::super::Foundation::BSTR, pcalledparty: &super::super::Foundation::BSTR, pcomment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITRequest_Vtbl {
@@ -7095,8 +7095,8 @@ pub trait ITStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartStream(&mut self) -> ::windows::core::Result<()>;
     fn PauseStream(&mut self) -> ::windows::core::Result<()>;
     fn StopStream(&mut self) -> ::windows::core::Result<()>;
-    fn SelectTerminal(&mut self, pterminal: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
-    fn UnselectTerminal(&mut self, pterminal: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
+    fn SelectTerminal(&mut self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
+    fn UnselectTerminal(&mut self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
     fn EnumerateTerminals(&mut self) -> ::windows::core::Result<IEnumTerminal>;
     fn Terminals(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
@@ -7194,7 +7194,7 @@ impl ITStream_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateStream(&mut self, lmediatype: i32, td: TERMINAL_DIRECTION) -> ::windows::core::Result<ITStream>;
-    fn RemoveStream(&mut self, pstream: ::core::option::Option<ITStream>) -> ::windows::core::Result<()>;
+    fn RemoveStream(&mut self, pstream: &::core::option::Option<ITStream>) -> ::windows::core::Result<()>;
     fn EnumerateStreams(&mut self) -> ::windows::core::Result<IEnumStream>;
     fn Streams(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
@@ -7252,8 +7252,8 @@ pub trait ITSubStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartSubStream(&mut self) -> ::windows::core::Result<()>;
     fn PauseSubStream(&mut self) -> ::windows::core::Result<()>;
     fn StopSubStream(&mut self) -> ::windows::core::Result<()>;
-    fn SelectTerminal(&mut self, pterminal: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
-    fn UnselectTerminal(&mut self, pterminal: ::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
+    fn SelectTerminal(&mut self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
+    fn UnselectTerminal(&mut self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
     fn EnumerateTerminals(&mut self) -> ::windows::core::Result<IEnumTerminal>;
     fn Terminals(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Stream(&mut self) -> ::windows::core::Result<ITStream>;
@@ -7330,7 +7330,7 @@ impl ITSubStream_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITSubStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateSubStream(&mut self) -> ::windows::core::Result<ITSubStream>;
-    fn RemoveSubStream(&mut self, psubstream: ::core::option::Option<ITSubStream>) -> ::windows::core::Result<()>;
+    fn RemoveSubStream(&mut self, psubstream: &::core::option::Option<ITSubStream>) -> ::windows::core::Result<()>;
     fn EnumerateSubStreams(&mut self) -> ::windows::core::Result<IEnumSubStream>;
     fn SubStreams(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
@@ -7389,16 +7389,16 @@ pub trait ITTAPI_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Shutdown(&mut self) -> ::windows::core::Result<()>;
     fn Addresses(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateAddresses(&mut self) -> ::windows::core::Result<IEnumAddress>;
-    fn RegisterCallNotifications(&mut self, paddress: ::core::option::Option<ITAddress>, fmonitor: i16, fowner: i16, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>;
+    fn RegisterCallNotifications(&mut self, paddress: &::core::option::Option<ITAddress>, fmonitor: i16, fowner: i16, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>;
     fn UnregisterNotifications(&mut self, lregister: i32) -> ::windows::core::Result<()>;
     fn CallHubs(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateCallHubs(&mut self) -> ::windows::core::Result<IEnumCallHub>;
-    fn SetCallHubTracking(&mut self, paddresses: super::super::System::Com::VARIANT, btracking: i16) -> ::windows::core::Result<()>;
+    fn SetCallHubTracking(&mut self, paddresses: &super::super::System::Com::VARIANT, btracking: i16) -> ::windows::core::Result<()>;
     fn EnumeratePrivateTAPIObjects(&mut self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown>;
     fn PrivateTAPIObjects(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn RegisterRequestRecipient(&mut self, lregistrationinstance: i32, lrequestmode: i32, fenable: i16) -> ::windows::core::Result<()>;
-    fn SetAssistedTelephonyPriority(&mut self, pappfilename: super::super::Foundation::BSTR, fpriority: i16) -> ::windows::core::Result<()>;
-    fn SetApplicationPriority(&mut self, pappfilename: super::super::Foundation::BSTR, lmediatype: i32, fpriority: i16) -> ::windows::core::Result<()>;
+    fn SetAssistedTelephonyPriority(&mut self, pappfilename: &super::super::Foundation::BSTR, fpriority: i16) -> ::windows::core::Result<()>;
+    fn SetApplicationPriority(&mut self, pappfilename: &super::super::Foundation::BSTR, lmediatype: i32, fpriority: i16) -> ::windows::core::Result<()>;
     fn SetEventFilter(&mut self, lfiltermask: i32) -> ::windows::core::Result<()>;
     fn EventFilter(&mut self) -> ::windows::core::Result<i32>;
 }
@@ -7642,7 +7642,7 @@ impl ITTAPIDispatchEventNotification_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPIEventNotification_Impl: Sized {
-    fn Event(&mut self, tapievent: TAPI_EVENT, pevent: ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Event(&mut self, tapievent: TAPI_EVENT, pevent: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITTAPIEventNotification_Vtbl {
@@ -7884,7 +7884,7 @@ pub trait ITTerminalSupport_Impl: Sized + super::super::System::Com::IDispatch_I
     fn EnumerateStaticTerminals(&mut self) -> ::windows::core::Result<IEnumTerminal>;
     fn DynamicTerminalClasses(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateDynamicTerminalClasses(&mut self) -> ::windows::core::Result<IEnumTerminalClass>;
-    fn CreateTerminal(&mut self, pterminalclass: super::super::Foundation::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
+    fn CreateTerminal(&mut self, pterminalclass: &super::super::Foundation::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
     fn GetDefaultStaticTerminal(&mut self, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7968,8 +7968,8 @@ impl ITTerminalSupport_Vtbl {
 pub trait ITTerminalSupport2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITTerminalSupport_Impl {
     fn PluggableSuperclasses(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePluggableSuperclasses(&mut self) -> ::windows::core::Result<IEnumPluggableSuperclassInfo>;
-    fn PluggableTerminalClasses(&mut self, bstrterminalsuperclass: super::super::Foundation::BSTR, lmediatype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn EnumeratePluggableTerminalClasses(&mut self, iidterminalsuperclass: ::windows::core::GUID, lmediatype: i32) -> ::windows::core::Result<IEnumPluggableTerminalClassInfo>;
+    fn PluggableTerminalClasses(&mut self, bstrterminalsuperclass: &super::super::Foundation::BSTR, lmediatype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn EnumeratePluggableTerminalClasses(&mut self, iidterminalsuperclass: &::windows::core::GUID, lmediatype: i32) -> ::windows::core::Result<IEnumPluggableTerminalClassInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTerminalSupport2_Vtbl {
@@ -8143,9 +8143,9 @@ pub trait ITnef_Impl: Sized {
     fn AddProps(&mut self, ulflags: u32, ulelemid: u32, lpvdata: *mut ::core::ffi::c_void, lpproplist: *mut super::super::System::AddressBook::SPropTagArray) -> ::windows::core::Result<()>;
     fn ExtractProps(&mut self, ulflags: u32, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> ::windows::core::Result<()>;
     fn Finish(&mut self, ulflags: u32, lpkey: *mut u16, lpproblems: *mut *mut STnefProblemArray) -> ::windows::core::Result<()>;
-    fn OpenTaggedBody(&mut self, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, ulflags: u32) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn OpenTaggedBody(&mut self, lpmessage: &::core::option::Option<super::super::System::AddressBook::IMessage>, ulflags: u32) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn SetProps(&mut self, ulflags: u32, ulelemid: u32, cvalues: u32, lpprops: *mut super::super::System::AddressBook::SPropValue) -> ::windows::core::Result<()>;
-    fn EncodeRecips(&mut self, ulflags: u32, lprecipienttable: ::core::option::Option<super::super::System::AddressBook::IMAPITable>) -> ::windows::core::Result<()>;
+    fn EncodeRecips(&mut self, ulflags: u32, lprecipienttable: &::core::option::Option<super::super::System::AddressBook::IMAPITable>) -> ::windows::core::Result<()>;
     fn FinishComponent(&mut self, ulflags: u32, ulcomponentid: u32, lpcustomproplist: *mut super::super::System::AddressBook::SPropTagArray, lpcustomprops: *mut super::super::System::AddressBook::SPropValue, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]

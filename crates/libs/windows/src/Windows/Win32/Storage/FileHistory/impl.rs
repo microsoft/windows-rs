@@ -3,15 +3,15 @@ pub trait IFhConfigMgr_Impl: Sized {
     fn LoadConfiguration(&mut self) -> ::windows::core::Result<()>;
     fn CreateDefaultConfiguration(&mut self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SaveConfiguration(&mut self) -> ::windows::core::Result<()>;
-    fn AddRemoveExcludeRule(&mut self, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddRemoveExcludeRule(&mut self, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetIncludeExcludeRules(&mut self, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::core::Result<IFhScopeIterator>;
     fn GetLocalPolicy(&mut self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> ::windows::core::Result<u64>;
     fn SetLocalPolicy(&mut self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::core::Result<()>;
     fn GetBackupStatus(&mut self) -> ::windows::core::Result<FH_BACKUP_STATUS>;
     fn SetBackupStatus(&mut self, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::Result<()>;
     fn GetDefaultTarget(&mut self) -> ::windows::core::Result<IFhTarget>;
-    fn ValidateTarget(&mut self, targeturl: super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
-    fn ProvisionAndSetNewTarget(&mut self, targeturl: super::super::Foundation::BSTR, targetname: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ValidateTarget(&mut self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
+    fn ProvisionAndSetNewTarget(&mut self, targeturl: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ChangeDefaultTargetRecommendation(&mut self, recommend: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn QueryProtectionStatus(&mut self, protectionstate: *mut u32, protecteduntiltime: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
@@ -128,8 +128,8 @@ impl IFhConfigMgr_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhReassociation_Impl: Sized {
-    fn ValidateTarget(&mut self, targeturl: super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
-    fn ScanTargetForConfigurations(&mut self, targeturl: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ValidateTarget(&mut self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
+    fn ScanTargetForConfigurations(&mut self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetConfigurationDetails(&mut self, index: u32, username: *mut super::super::Foundation::BSTR, pcname: *mut super::super::Foundation::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn SelectConfiguration(&mut self, index: u32) -> ::windows::core::Result<()>;
     fn PerformReassociation(&mut self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;

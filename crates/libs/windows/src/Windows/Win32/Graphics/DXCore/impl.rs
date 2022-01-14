@@ -81,7 +81,7 @@ pub trait IDXCoreAdapterFactory_Impl: Sized {
     fn CreateAdapterList(&mut self, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetAdapterByLuid(&mut self, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn IsNotificationTypeSupported(&mut self, notificationtype: DXCoreNotificationType) -> bool;
-    fn RegisterEventNotification(&mut self, dxcoreobject: ::core::option::Option<::windows::core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
+    fn RegisterEventNotification(&mut self, dxcoreobject: &::core::option::Option<::windows::core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: &PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
     fn UnregisterEventNotification(&mut self, eventcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -10,7 +10,7 @@ impl IApoAcousticEchoCancellation_Vtbl {
 pub trait IApoAuxiliaryInputConfiguration_Impl: Sized {
     fn AddAuxiliaryInput(&mut self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()>;
     fn RemoveAuxiliaryInput(&mut self, dwinputid: u32) -> ::windows::core::Result<()>;
-    fn IsInputFormatSupported(&mut self, prequestedinputformat: ::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
+    fn IsInputFormatSupported(&mut self, prequestedinputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
 }
 impl IApoAuxiliaryInputConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApoAuxiliaryInputConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApoAuxiliaryInputConfiguration_Vtbl {
@@ -59,7 +59,7 @@ impl IApoAuxiliaryInputRT_Vtbl {
     }
 }
 pub trait IAudioDeviceModulesClient_Impl: Sized {
-    fn SetAudioDeviceModulesManager(&mut self, paudiodevicemodulesmanager: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetAudioDeviceModulesManager(&mut self, paudiodevicemodulesmanager: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IAudioDeviceModulesClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioDeviceModulesClient_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioDeviceModulesClient_Vtbl {
@@ -79,7 +79,7 @@ impl IAudioDeviceModulesClient_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioMediaType_Impl: Sized {
     fn IsCompressedFormat(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn IsEqual(&mut self, piaudiotype: ::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<u32>;
+    fn IsEqual(&mut self, piaudiotype: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<u32>;
     fn GetAudioFormat(&mut self) -> *mut super::WAVEFORMATEX;
     fn GetUncompressedAudioFormat(&mut self) -> ::windows::core::Result<UNCOMPRESSEDAUDIOFORMAT>;
 }
@@ -137,8 +137,8 @@ pub trait IAudioProcessingObject_Impl: Sized {
     fn GetLatency(&mut self) -> ::windows::core::Result<i64>;
     fn GetRegistrationProperties(&mut self) -> ::windows::core::Result<*mut APO_REG_PROPERTIES>;
     fn Initialize(&mut self, cbdatasize: u32, pbydata: *const u8) -> ::windows::core::Result<()>;
-    fn IsInputFormatSupported(&mut self, poppositeformat: ::core::option::Option<IAudioMediaType>, prequestedinputformat: ::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
-    fn IsOutputFormatSupported(&mut self, poppositeformat: ::core::option::Option<IAudioMediaType>, prequestedoutputformat: ::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
+    fn IsInputFormatSupported(&mut self, poppositeformat: &::core::option::Option<IAudioMediaType>, prequestedinputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
+    fn IsOutputFormatSupported(&mut self, poppositeformat: &::core::option::Option<IAudioMediaType>, prequestedoutputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
     fn GetInputChannelCount(&mut self) -> ::windows::core::Result<u32>;
 }
 impl IAudioProcessingObject_Vtbl {
@@ -399,7 +399,7 @@ impl IAudioSystemEffects2_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffects3_Impl: Sized + IAudioSystemEffects_Impl + IAudioSystemEffects2_Impl {
     fn GetControllableSystemEffectsList(&mut self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetAudioSystemEffectState(&mut self, effectid: ::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()>;
+    fn SetAudioSystemEffectState(&mut self, effectid: &::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioSystemEffects3_Vtbl {

@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&mut self, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetId(&mut self, id: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetId(&mut self, id: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Type(&mut self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -36,12 +36,12 @@ pub trait IActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&mut self, index: i32) -> ::windows::core::Result<IAction>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn XmlText(&mut self, ptext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetXmlText(&mut self, text: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetXmlText(&mut self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Create(&mut self, r#type: TASK_ACTION_TYPE) -> ::windows::core::Result<IAction>;
-    fn Remove(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
     fn Context(&mut self, pcontext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetContext(&mut self, context: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetContext(&mut self, context: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IActionCollection_Vtbl {
@@ -125,7 +125,7 @@ impl IActionCollection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBootTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
     fn Delay(&mut self, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDelay(&mut self, delay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDelay(&mut self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBootTrigger_Vtbl {
@@ -151,9 +151,9 @@ impl IBootTrigger_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComHandlerAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
     fn ClassId(&mut self, pclsid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetClassId(&mut self, clsid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetClassId(&mut self, clsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Data(&mut self, pdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetData(&mut self, data: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, data: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComHandlerAction_Vtbl {
@@ -191,7 +191,7 @@ pub trait IDailyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl
     fn DaysInterval(&mut self, pdays: *mut i16) -> ::windows::core::Result<()>;
     fn SetDaysInterval(&mut self, days: i16) -> ::windows::core::Result<()>;
     fn RandomDelay(&mut self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRandomDelay(&mut self, randomdelay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRandomDelay(&mut self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDailyTrigger_Vtbl {
@@ -227,23 +227,23 @@ impl IDailyTrigger_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEmailAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
     fn Server(&mut self, pserver: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetServer(&mut self, server: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetServer(&mut self, server: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Subject(&mut self, psubject: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSubject(&mut self, subject: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSubject(&mut self, subject: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn To(&mut self, pto: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetTo(&mut self, to: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTo(&mut self, to: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Cc(&mut self, pcc: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetCc(&mut self, cc: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetCc(&mut self, cc: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Bcc(&mut self, pbcc: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetBcc(&mut self, bcc: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBcc(&mut self, bcc: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ReplyTo(&mut self, preplyto: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetReplyTo(&mut self, replyto: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetReplyTo(&mut self, replyto: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn From(&mut self, pfrom: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetFrom(&mut self, from: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetFrom(&mut self, from: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn HeaderFields(&mut self) -> ::windows::core::Result<ITaskNamedValueCollection>;
-    fn SetHeaderFields(&mut self, pheaderfields: ::core::option::Option<ITaskNamedValueCollection>) -> ::windows::core::Result<()>;
+    fn SetHeaderFields(&mut self, pheaderfields: &::core::option::Option<ITaskNamedValueCollection>) -> ::windows::core::Result<()>;
     fn Body(&mut self, pbody: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetBody(&mut self, body: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBody(&mut self, body: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Attachments(&mut self, pattachements: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn SetAttachments(&mut self, pattachements: *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
@@ -411,11 +411,11 @@ impl IEnumWorkItems_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEventTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
     fn Subscription(&mut self, pquery: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSubscription(&mut self, query: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSubscription(&mut self, query: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Delay(&mut self, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDelay(&mut self, delay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDelay(&mut self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ValueQueries(&mut self) -> ::windows::core::Result<ITaskNamedValueCollection>;
-    fn SetValueQueries(&mut self, pnamedxpaths: ::core::option::Option<ITaskNamedValueCollection>) -> ::windows::core::Result<()>;
+    fn SetValueQueries(&mut self, pnamedxpaths: &::core::option::Option<ITaskNamedValueCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEventTrigger_Vtbl {
@@ -467,11 +467,11 @@ impl IEventTrigger_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IExecAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
     fn Path(&mut self, ppath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetPath(&mut self, path: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPath(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Arguments(&mut self, pargument: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetArguments(&mut self, argument: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetArguments(&mut self, argument: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn WorkingDirectory(&mut self, pworkingdirectory: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetWorkingDirectory(&mut self, workingdirectory: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetWorkingDirectory(&mut self, workingdirectory: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IExecAction_Vtbl {
@@ -543,9 +543,9 @@ impl IExecAction2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IIdleSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn IdleDuration(&mut self, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetIdleDuration(&mut self, delay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetIdleDuration(&mut self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn WaitTimeout(&mut self, ptimeout: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetWaitTimeout(&mut self, timeout: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetWaitTimeout(&mut self, timeout: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StopOnIdleEnd(&mut self, pstop: *mut i16) -> ::windows::core::Result<()>;
     fn SetStopOnIdleEnd(&mut self, stop: i16) -> ::windows::core::Result<()>;
     fn RestartOnIdle(&mut self, prestart: *mut i16) -> ::windows::core::Result<()>;
@@ -616,9 +616,9 @@ impl IIdleTrigger_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILogonTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
     fn Delay(&mut self, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDelay(&mut self, delay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDelay(&mut self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn UserId(&mut self, puser: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetUserId(&mut self, user: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetUserId(&mut self, user: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILogonTrigger_Vtbl {
@@ -653,9 +653,9 @@ impl ILogonTrigger_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMaintenanceSettings_Impl: Sized + super::Com::IDispatch_Impl {
-    fn SetPeriod(&mut self, value: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPeriod(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Period(&mut self, target: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDeadline(&mut self, value: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDeadline(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Deadline(&mut self, target: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetExclusive(&mut self, value: i16) -> ::windows::core::Result<()>;
     fn Exclusive(&mut self, target: *mut i16) -> ::windows::core::Result<()>;
@@ -712,7 +712,7 @@ pub trait IMonthlyDOWTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger
     fn RunOnLastWeekOfMonth(&mut self, plastweek: *mut i16) -> ::windows::core::Result<()>;
     fn SetRunOnLastWeekOfMonth(&mut self, lastweek: i16) -> ::windows::core::Result<()>;
     fn RandomDelay(&mut self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRandomDelay(&mut self, randomdelay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRandomDelay(&mut self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMonthlyDOWTrigger_Vtbl {
@@ -784,7 +784,7 @@ pub trait IMonthlyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Im
     fn RunOnLastDayOfMonth(&mut self, plastday: *mut i16) -> ::windows::core::Result<()>;
     fn SetRunOnLastDayOfMonth(&mut self, lastday: i16) -> ::windows::core::Result<()>;
     fn RandomDelay(&mut self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRandomDelay(&mut self, randomdelay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRandomDelay(&mut self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMonthlyTrigger_Vtbl {
@@ -840,9 +840,9 @@ impl IMonthlyTrigger_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetworkSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&mut self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Id(&mut self, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetId(&mut self, id: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetId(&mut self, id: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetworkSettings_Vtbl {
@@ -878,15 +878,15 @@ impl INetworkSettings_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrincipal_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&mut self, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetId(&mut self, id: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetId(&mut self, id: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DisplayName(&mut self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDisplayName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDisplayName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn UserId(&mut self, puser: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetUserId(&mut self, user: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetUserId(&mut self, user: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LogonType(&mut self, plogon: *mut TASK_LOGON_TYPE) -> ::windows::core::Result<()>;
     fn SetLogonType(&mut self, logon: TASK_LOGON_TYPE) -> ::windows::core::Result<()>;
     fn GroupId(&mut self, pgroup: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetGroupId(&mut self, group: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetGroupId(&mut self, group: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RunLevel(&mut self, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()>;
     fn SetRunLevel(&mut self, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()>;
 }
@@ -967,7 +967,7 @@ pub trait IPrincipal2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetProcessTokenSidType(&mut self, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::Result<()>;
     fn RequiredPrivilegeCount(&mut self, pcount: *mut i32) -> ::windows::core::Result<()>;
     fn RequiredPrivilege(&mut self, index: i32, pprivilege: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddRequiredPrivilege(&mut self, privilege: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddRequiredPrivilege(&mut self, privilege: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrincipal2_Vtbl {
@@ -1035,8 +1035,8 @@ pub trait IRegisteredTask_Impl: Sized + super::Com::IDispatch_Impl {
     fn State(&mut self) -> ::windows::core::Result<TASK_STATE>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
-    fn Run(&mut self, params: super::Com::VARIANT) -> ::windows::core::Result<IRunningTask>;
-    fn RunEx(&mut self, params: super::Com::VARIANT, flags: i32, sessionid: i32, user: super::super::Foundation::BSTR) -> ::windows::core::Result<IRunningTask>;
+    fn Run(&mut self, params: &super::Com::VARIANT) -> ::windows::core::Result<IRunningTask>;
+    fn RunEx(&mut self, params: &super::Com::VARIANT, flags: i32, sessionid: i32, user: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRunningTask>;
     fn GetInstances(&mut self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection>;
     fn LastRunTime(&mut self) -> ::windows::core::Result<f64>;
     fn LastTaskResult(&mut self) -> ::windows::core::Result<i32>;
@@ -1045,7 +1045,7 @@ pub trait IRegisteredTask_Impl: Sized + super::Com::IDispatch_Impl {
     fn Definition(&mut self) -> ::windows::core::Result<ITaskDefinition>;
     fn Xml(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetSecurityDescriptor(&mut self, securityinformation: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSecurityDescriptor(&mut self, sddl: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
+    fn SetSecurityDescriptor(&mut self, sddl: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
     fn Stop(&mut self, flags: i32) -> ::windows::core::Result<()>;
     fn GetRunTimes(&mut self, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
 }
@@ -1237,7 +1237,7 @@ impl IRegisteredTask_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRegisteredTaskCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>;
+    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1287,23 +1287,23 @@ impl IRegisteredTaskCollection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRegistrationInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Description(&mut self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDescription(&mut self, description: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDescription(&mut self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Author(&mut self, pauthor: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetAuthor(&mut self, author: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetAuthor(&mut self, author: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Version(&mut self, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetVersion(&mut self, version: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetVersion(&mut self, version: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Date(&mut self, pdate: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDate(&mut self, date: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDate(&mut self, date: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Documentation(&mut self, pdocumentation: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDocumentation(&mut self, documentation: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDocumentation(&mut self, documentation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn XmlText(&mut self, ptext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetXmlText(&mut self, text: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetXmlText(&mut self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn URI(&mut self, puri: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetURI(&mut self, uri: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetURI(&mut self, uri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SecurityDescriptor(&mut self, psddl: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetSecurityDescriptor(&mut self, sddl: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSecurityDescriptor(&mut self, sddl: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Source(&mut self, psource: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSource(&mut self, source: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSource(&mut self, source: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRegistrationInfo_Vtbl {
@@ -1409,7 +1409,7 @@ impl IRegistrationInfo_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRegistrationTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
     fn Delay(&mut self, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDelay(&mut self, delay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDelay(&mut self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRegistrationTrigger_Vtbl {
@@ -1435,9 +1435,9 @@ impl IRegistrationTrigger_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRepetitionPattern_Impl: Sized + super::Com::IDispatch_Impl {
     fn Interval(&mut self, pinterval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetInterval(&mut self, interval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetInterval(&mut self, interval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Duration(&mut self, pduration: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDuration(&mut self, duration: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDuration(&mut self, duration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StopAtDurationEnd(&mut self, pstop: *mut i16) -> ::windows::core::Result<()>;
     fn SetStopAtDurationEnd(&mut self, stop: i16) -> ::windows::core::Result<()>;
 }
@@ -1583,7 +1583,7 @@ impl IRunningTask_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRunningTaskCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<IRunningTask>;
+    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<IRunningTask>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1893,9 +1893,9 @@ impl IScheduledWorkItem_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISessionStateChangeTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
     fn Delay(&mut self, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDelay(&mut self, delay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDelay(&mut self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn UserId(&mut self, puser: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetUserId(&mut self, user: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetUserId(&mut self, user: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StateChange(&mut self, ptype: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()>;
     fn SetStateChange(&mut self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()>;
 }
@@ -1943,9 +1943,9 @@ impl ISessionStateChangeTrigger_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IShowMessageAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
     fn Title(&mut self, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetTitle(&mut self, title: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTitle(&mut self, title: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn MessageBody(&mut self, pmessagebody: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetMessageBody(&mut self, messagebody: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMessageBody(&mut self, messagebody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IShowMessageAction_Vtbl {
@@ -2103,19 +2103,19 @@ impl ITask_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskDefinition_Impl: Sized + super::Com::IDispatch_Impl {
     fn RegistrationInfo(&mut self) -> ::windows::core::Result<IRegistrationInfo>;
-    fn SetRegistrationInfo(&mut self, pregistrationinfo: ::core::option::Option<IRegistrationInfo>) -> ::windows::core::Result<()>;
+    fn SetRegistrationInfo(&mut self, pregistrationinfo: &::core::option::Option<IRegistrationInfo>) -> ::windows::core::Result<()>;
     fn Triggers(&mut self) -> ::windows::core::Result<ITriggerCollection>;
-    fn SetTriggers(&mut self, ptriggers: ::core::option::Option<ITriggerCollection>) -> ::windows::core::Result<()>;
+    fn SetTriggers(&mut self, ptriggers: &::core::option::Option<ITriggerCollection>) -> ::windows::core::Result<()>;
     fn Settings(&mut self) -> ::windows::core::Result<ITaskSettings>;
-    fn SetSettings(&mut self, psettings: ::core::option::Option<ITaskSettings>) -> ::windows::core::Result<()>;
+    fn SetSettings(&mut self, psettings: &::core::option::Option<ITaskSettings>) -> ::windows::core::Result<()>;
     fn Data(&mut self, pdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetData(&mut self, data: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetData(&mut self, data: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Principal(&mut self) -> ::windows::core::Result<IPrincipal>;
-    fn SetPrincipal(&mut self, pprincipal: ::core::option::Option<IPrincipal>) -> ::windows::core::Result<()>;
+    fn SetPrincipal(&mut self, pprincipal: &::core::option::Option<IPrincipal>) -> ::windows::core::Result<()>;
     fn Actions(&mut self) -> ::windows::core::Result<IActionCollection>;
-    fn SetActions(&mut self, pactions: ::core::option::Option<IActionCollection>) -> ::windows::core::Result<()>;
+    fn SetActions(&mut self, pactions: &::core::option::Option<IActionCollection>) -> ::windows::core::Result<()>;
     fn XmlText(&mut self, pxml: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetXmlText(&mut self, xml: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetXmlText(&mut self, xml: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskDefinition_Vtbl {
@@ -2232,17 +2232,17 @@ impl ITaskDefinition_Vtbl {
 pub trait ITaskFolder_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetFolder(&mut self, path: super::super::Foundation::BSTR) -> ::windows::core::Result<ITaskFolder>;
+    fn GetFolder(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITaskFolder>;
     fn GetFolders(&mut self, flags: i32) -> ::windows::core::Result<ITaskFolderCollection>;
-    fn CreateFolder(&mut self, subfoldername: super::super::Foundation::BSTR, sddl: super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder>;
-    fn DeleteFolder(&mut self, subfoldername: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
-    fn GetTask(&mut self, path: super::super::Foundation::BSTR) -> ::windows::core::Result<IRegisteredTask>;
+    fn CreateFolder(&mut self, subfoldername: &super::super::Foundation::BSTR, sddl: &super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder>;
+    fn DeleteFolder(&mut self, subfoldername: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
+    fn GetTask(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRegisteredTask>;
     fn GetTasks(&mut self, flags: i32) -> ::windows::core::Result<IRegisteredTaskCollection>;
-    fn DeleteTask(&mut self, name: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
-    fn RegisterTask(&mut self, path: super::super::Foundation::BSTR, xmltext: super::super::Foundation::BSTR, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>;
-    fn RegisterTaskDefinition(&mut self, path: super::super::Foundation::BSTR, pdefinition: ::core::option::Option<ITaskDefinition>, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>;
+    fn DeleteTask(&mut self, name: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
+    fn RegisterTask(&mut self, path: &super::super::Foundation::BSTR, xmltext: &super::super::Foundation::BSTR, flags: i32, userid: &super::Com::VARIANT, password: &super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: &super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>;
+    fn RegisterTaskDefinition(&mut self, path: &super::super::Foundation::BSTR, pdefinition: &::core::option::Option<ITaskDefinition>, flags: i32, userid: &super::Com::VARIANT, password: &super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: &super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>;
     fn GetSecurityDescriptor(&mut self, securityinformation: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSecurityDescriptor(&mut self, sddl: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
+    fn SetSecurityDescriptor(&mut self, sddl: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskFolder_Vtbl {
@@ -2383,7 +2383,7 @@ impl ITaskFolder_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskFolderCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder>;
+    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2432,7 +2432,7 @@ impl ITaskFolderCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITaskHandler_Impl: Sized {
-    fn Start(&mut self, phandlerservices: ::core::option::Option<::windows::core::IUnknown>, data: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Start(&mut self, phandlerservices: &::core::option::Option<::windows::core::IUnknown>, data: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn Resume(&mut self) -> ::windows::core::Result<()>;
@@ -2476,7 +2476,7 @@ impl ITaskHandler_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITaskHandlerStatus_Impl: Sized {
-    fn UpdateStatus(&mut self, percentcomplete: i16, statusmessage: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UpdateStatus(&mut self, percentcomplete: i16, statusmessage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TaskCompleted(&mut self, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2505,7 +2505,7 @@ pub trait ITaskNamedValueCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self, pcount: *mut i32) -> ::windows::core::Result<()>;
     fn Item(&mut self, index: i32) -> ::windows::core::Result<ITaskNamedValuePair>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Create(&mut self, name: super::super::Foundation::BSTR, value: super::super::Foundation::BSTR) -> ::windows::core::Result<ITaskNamedValuePair>;
+    fn Create(&mut self, name: &super::super::Foundation::BSTR, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITaskNamedValuePair>;
     fn Remove(&mut self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
 }
@@ -2571,9 +2571,9 @@ impl ITaskNamedValueCollection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskNamedValuePair_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&mut self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Value(&mut self, pvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetValue(&mut self, value: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetValue(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskNamedValuePair_Vtbl {
@@ -2614,7 +2614,7 @@ pub trait ITaskScheduler_Impl: Sized {
     fn Activate(&mut self, pwszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Delete(&mut self, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn NewWorkItem(&mut self, pwsztaskname: super::super::Foundation::PWSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn AddWorkItem(&mut self, pwsztaskname: super::super::Foundation::PWSTR, pworkitem: ::core::option::Option<IScheduledWorkItem>) -> ::windows::core::Result<()>;
+    fn AddWorkItem(&mut self, pwsztaskname: super::super::Foundation::PWSTR, pworkitem: &::core::option::Option<IScheduledWorkItem>) -> ::windows::core::Result<()>;
     fn IsOfType(&mut self, pwszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2694,10 +2694,10 @@ impl ITaskScheduler_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskService_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetFolder(&mut self, path: super::super::Foundation::BSTR) -> ::windows::core::Result<ITaskFolder>;
+    fn GetFolder(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITaskFolder>;
     fn GetRunningTasks(&mut self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection>;
     fn NewTask(&mut self, flags: u32) -> ::windows::core::Result<ITaskDefinition>;
-    fn Connect(&mut self, servername: super::Com::VARIANT, user: super::Com::VARIANT, domain: super::Com::VARIANT, password: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Connect(&mut self, servername: &super::Com::VARIANT, user: &super::Com::VARIANT, domain: &super::Com::VARIANT, password: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Connected(&mut self) -> ::windows::core::Result<i16>;
     fn TargetServer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ConnectedUser(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -2813,7 +2813,7 @@ pub trait ITaskSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn AllowDemandStart(&mut self, pallowdemandstart: *mut i16) -> ::windows::core::Result<()>;
     fn SetAllowDemandStart(&mut self, allowdemandstart: i16) -> ::windows::core::Result<()>;
     fn RestartInterval(&mut self, prestartinterval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRestartInterval(&mut self, restartinterval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRestartInterval(&mut self, restartinterval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RestartCount(&mut self, prestartcount: *mut i32) -> ::windows::core::Result<()>;
     fn SetRestartCount(&mut self, restartcount: i32) -> ::windows::core::Result<()>;
     fn MultipleInstances(&mut self, ppolicy: *mut TASK_INSTANCES_POLICY) -> ::windows::core::Result<()>;
@@ -2827,15 +2827,15 @@ pub trait ITaskSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn StartWhenAvailable(&mut self, pstartwhenavailable: *mut i16) -> ::windows::core::Result<()>;
     fn SetStartWhenAvailable(&mut self, startwhenavailable: i16) -> ::windows::core::Result<()>;
     fn XmlText(&mut self, ptext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetXmlText(&mut self, text: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetXmlText(&mut self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RunOnlyIfNetworkAvailable(&mut self, prunonlyifnetworkavailable: *mut i16) -> ::windows::core::Result<()>;
     fn SetRunOnlyIfNetworkAvailable(&mut self, runonlyifnetworkavailable: i16) -> ::windows::core::Result<()>;
     fn ExecutionTimeLimit(&mut self, pexecutiontimelimit: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetExecutionTimeLimit(&mut self, executiontimelimit: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetExecutionTimeLimit(&mut self, executiontimelimit: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self, penabled: *mut i16) -> ::windows::core::Result<()>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
     fn DeleteExpiredTaskAfter(&mut self, pexpirationdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetDeleteExpiredTaskAfter(&mut self, expirationdelay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDeleteExpiredTaskAfter(&mut self, expirationdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Priority(&mut self, ppriority: *mut i32) -> ::windows::core::Result<()>;
     fn SetPriority(&mut self, priority: i32) -> ::windows::core::Result<()>;
     fn Compatibility(&mut self, pcompatlevel: *mut TASK_COMPATIBILITY) -> ::windows::core::Result<()>;
@@ -2843,13 +2843,13 @@ pub trait ITaskSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn Hidden(&mut self, phidden: *mut i16) -> ::windows::core::Result<()>;
     fn SetHidden(&mut self, hidden: i16) -> ::windows::core::Result<()>;
     fn IdleSettings(&mut self) -> ::windows::core::Result<IIdleSettings>;
-    fn SetIdleSettings(&mut self, pidlesettings: ::core::option::Option<IIdleSettings>) -> ::windows::core::Result<()>;
+    fn SetIdleSettings(&mut self, pidlesettings: &::core::option::Option<IIdleSettings>) -> ::windows::core::Result<()>;
     fn RunOnlyIfIdle(&mut self, prunonlyifidle: *mut i16) -> ::windows::core::Result<()>;
     fn SetRunOnlyIfIdle(&mut self, runonlyifidle: i16) -> ::windows::core::Result<()>;
     fn WakeToRun(&mut self, pwake: *mut i16) -> ::windows::core::Result<()>;
     fn SetWakeToRun(&mut self, wake: i16) -> ::windows::core::Result<()>;
     fn NetworkSettings(&mut self) -> ::windows::core::Result<INetworkSettings>;
-    fn SetNetworkSettings(&mut self, pnetworksettings: ::core::option::Option<INetworkSettings>) -> ::windows::core::Result<()>;
+    fn SetNetworkSettings(&mut self, pnetworksettings: &::core::option::Option<INetworkSettings>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskSettings_Vtbl {
@@ -3119,7 +3119,7 @@ pub trait ITaskSettings3_Impl: Sized + super::Com::IDispatch_Impl + ITaskSetting
     fn UseUnifiedSchedulingEngine(&mut self, puseunifiedengine: *mut i16) -> ::windows::core::Result<()>;
     fn SetUseUnifiedSchedulingEngine(&mut self, useunifiedengine: i16) -> ::windows::core::Result<()>;
     fn MaintenanceSettings(&mut self) -> ::windows::core::Result<IMaintenanceSettings>;
-    fn SetMaintenanceSettings(&mut self, pmaintenancesettings: ::core::option::Option<IMaintenanceSettings>) -> ::windows::core::Result<()>;
+    fn SetMaintenanceSettings(&mut self, pmaintenancesettings: &::core::option::Option<IMaintenanceSettings>) -> ::windows::core::Result<()>;
     fn CreateMaintenanceSettings(&mut self) -> ::windows::core::Result<IMaintenanceSettings>;
     fn Volatile(&mut self, pvolatile: *mut i16) -> ::windows::core::Result<()>;
     fn SetVolatile(&mut self, volatile: i16) -> ::windows::core::Result<()>;
@@ -3239,7 +3239,7 @@ impl ITaskTrigger_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITaskVariables_Impl: Sized {
     fn GetInput(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOutput(&mut self, input: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetOutput(&mut self, input: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetContext(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3283,7 +3283,7 @@ impl ITaskVariables_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITimeTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
     fn RandomDelay(&mut self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRandomDelay(&mut self, randomdelay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRandomDelay(&mut self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITimeTrigger_Vtbl {
@@ -3310,15 +3310,15 @@ impl ITimeTrigger_Vtbl {
 pub trait ITrigger_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&mut self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()>;
     fn Id(&mut self, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetId(&mut self, id: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetId(&mut self, id: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Repetition(&mut self) -> ::windows::core::Result<IRepetitionPattern>;
-    fn SetRepetition(&mut self, prepeat: ::core::option::Option<IRepetitionPattern>) -> ::windows::core::Result<()>;
+    fn SetRepetition(&mut self, prepeat: &::core::option::Option<IRepetitionPattern>) -> ::windows::core::Result<()>;
     fn ExecutionTimeLimit(&mut self, ptimelimit: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetExecutionTimeLimit(&mut self, timelimit: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetExecutionTimeLimit(&mut self, timelimit: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StartBoundary(&mut self, pstart: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetStartBoundary(&mut self, start: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetStartBoundary(&mut self, start: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EndBoundary(&mut self, pend: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetEndBoundary(&mut self, end: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEndBoundary(&mut self, end: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Enabled(&mut self, penabled: *mut i16) -> ::windows::core::Result<()>;
     fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
 }
@@ -3410,7 +3410,7 @@ pub trait ITriggerCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&mut self, index: i32) -> ::windows::core::Result<ITrigger>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Create(&mut self, r#type: TASK_TRIGGER_TYPE2) -> ::windows::core::Result<ITrigger>;
-    fn Remove(&mut self, index: super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Remove(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3479,7 +3479,7 @@ pub trait IWeeklyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Imp
     fn WeeksInterval(&mut self, pweeks: *mut i16) -> ::windows::core::Result<()>;
     fn SetWeeksInterval(&mut self, weeks: i16) -> ::windows::core::Result<()>;
     fn RandomDelay(&mut self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRandomDelay(&mut self, randomdelay: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRandomDelay(&mut self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWeeklyTrigger_Vtbl {

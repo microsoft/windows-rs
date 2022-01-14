@@ -39,7 +39,7 @@ impl ICanHandleException_Vtbl {
 pub trait IClassFactory2_Impl: Sized + super::Com::IClassFactory_Impl {
     fn GetLicInfo(&mut self, plicinfo: *mut LICINFO) -> ::windows::core::Result<()>;
     fn RequestLicKey(&mut self, dwreserved: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CreateInstanceLic(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, punkreserved: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, bstrkey: super::super::Foundation::BSTR, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateInstanceLic(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, punkreserved: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, bstrkey: &super::super::Foundation::BSTR, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IClassFactory2_Vtbl {
@@ -165,7 +165,7 @@ pub trait ICreateTypeInfo_Impl: Sized {
     fn SetDocString(&mut self, pstrdoc: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn SetHelpContext(&mut self, dwhelpcontext: u32) -> ::windows::core::Result<()>;
     fn SetVersion(&mut self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::core::Result<()>;
-    fn AddRefTypeInfo(&mut self, ptinfo: ::core::option::Option<super::Com::ITypeInfo>, phreftype: *const u32) -> ::windows::core::Result<()>;
+    fn AddRefTypeInfo(&mut self, ptinfo: &::core::option::Option<super::Com::ITypeInfo>, phreftype: *const u32) -> ::windows::core::Result<()>;
     fn AddFuncDesc(&mut self, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows::core::Result<()>;
     fn AddImplType(&mut self, index: u32, hreftype: u32) -> ::windows::core::Result<()>;
     fn SetImplTypeFlags(&mut self, index: u32, impltypeflags: i32) -> ::windows::core::Result<()>;
@@ -180,7 +180,7 @@ pub trait ICreateTypeInfo_Impl: Sized {
     fn SetVarDocString(&mut self, index: u32, szdocstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn SetFuncHelpContext(&mut self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()>;
     fn SetVarHelpContext(&mut self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()>;
-    fn SetMops(&mut self, index: u32, bstrmops: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetMops(&mut self, index: u32, bstrmops: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetTypeIdldesc(&mut self, pidldesc: *const super::Com::IDLDESC) -> ::windows::core::Result<()>;
     fn LayOut(&mut self) -> ::windows::core::Result<()>;
 }
@@ -534,7 +534,7 @@ impl ICreateTypeLib2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDispError_Impl: Sized {
-    fn QueryErrorInfo(&mut self, guiderrortype: ::windows::core::GUID) -> ::windows::core::Result<IDispError>;
+    fn QueryErrorInfo(&mut self, guiderrortype: &::windows::core::GUID) -> ::windows::core::Result<IDispError>;
     fn GetNext(&mut self) -> ::windows::core::Result<IDispError>;
     fn GetHresult(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetSource(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -614,9 +614,9 @@ impl IDispError_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDispatchEx_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetDispID(&mut self, bstrname: super::super::Foundation::BSTR, grfdex: u32) -> ::windows::core::Result<i32>;
-    fn InvokeEx(&mut self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: ::core::option::Option<super::Com::IServiceProvider>) -> ::windows::core::Result<()>;
-    fn DeleteMemberByName(&mut self, bstrname: super::super::Foundation::BSTR, grfdex: u32) -> ::windows::core::Result<()>;
+    fn GetDispID(&mut self, bstrname: &super::super::Foundation::BSTR, grfdex: u32) -> ::windows::core::Result<i32>;
+    fn InvokeEx(&mut self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: &::core::option::Option<super::Com::IServiceProvider>) -> ::windows::core::Result<()>;
+    fn DeleteMemberByName(&mut self, bstrname: &super::super::Foundation::BSTR, grfdex: u32) -> ::windows::core::Result<()>;
     fn DeleteMemberByDispID(&mut self, id: i32) -> ::windows::core::Result<()>;
     fn GetMemberProperties(&mut self, id: i32, grfdexfetch: u32) -> ::windows::core::Result<u32>;
     fn GetMemberName(&mut self, id: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -758,10 +758,10 @@ impl IDropSourceNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDropTarget_Impl: Sized {
-    fn DragEnter(&mut self, pdataobj: ::core::option::Option<super::Com::IDataObject>, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::Result<()>;
-    fn DragOver(&mut self, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::Result<()>;
+    fn DragEnter(&mut self, pdataobj: &::core::option::Option<super::Com::IDataObject>, grfkeystate: u32, pt: &super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::Result<()>;
+    fn DragOver(&mut self, grfkeystate: u32, pt: &super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::Result<()>;
     fn DragLeave(&mut self) -> ::windows::core::Result<()>;
-    fn Drop(&mut self, pdataobj: ::core::option::Option<super::Com::IDataObject>, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::Result<()>;
+    fn Drop(&mut self, pdataobj: &::core::option::Option<super::Com::IDataObject>, grfkeystate: u32, pt: &super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDropTarget_Vtbl {
@@ -1001,9 +1001,9 @@ impl IEnumVARIANT_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IFont_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Size(&mut self) -> ::windows::core::Result<super::Com::CY>;
-    fn SetSize(&mut self, size: super::Com::CY) -> ::windows::core::Result<()>;
+    fn SetSize(&mut self, size: &super::Com::CY) -> ::windows::core::Result<()>;
     fn Bold(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetBold(&mut self, bold: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Italic(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1018,7 +1018,7 @@ pub trait IFont_Impl: Sized {
     fn SetCharset(&mut self, charset: i16) -> ::windows::core::Result<()>;
     fn hFont(&mut self) -> ::windows::core::Result<super::super::Graphics::Gdi::HFONT>;
     fn Clone(&mut self) -> ::windows::core::Result<IFont>;
-    fn IsEqual(&mut self, pfontother: ::core::option::Option<IFont>) -> ::windows::core::Result<()>;
+    fn IsEqual(&mut self, pfontother: &::core::option::Option<IFont>) -> ::windows::core::Result<()>;
     fn SetRatio(&mut self, cylogical: i32, cyhimetric: i32) -> ::windows::core::Result<()>;
     fn QueryTextMetrics(&mut self) -> ::windows::core::Result<super::super::Graphics::Gdi::TEXTMETRICW>;
     fn AddRefHfont(&mut self, hfont: super::super::Graphics::Gdi::HFONT) -> ::windows::core::Result<()>;
@@ -1275,7 +1275,7 @@ impl IGetVBAObject_Vtbl {
     }
 }
 pub trait IObjectIdentity_Impl: Sized {
-    fn IsEqualObject(&mut self, punk: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn IsEqualObject(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IObjectIdentity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectIdentity_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectIdentity_Vtbl {
@@ -1290,7 +1290,7 @@ impl IObjectIdentity_Vtbl {
     }
 }
 pub trait IObjectWithSite_Impl: Sized {
-    fn SetSite(&mut self, punksite: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetSite(&mut self, punksite: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetSite(&mut self, riid: *const ::windows::core::GUID, ppvsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IObjectWithSite_Vtbl {
@@ -1315,10 +1315,10 @@ impl IObjectWithSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleAdviseHolder_Impl: Sized {
-    fn Advise(&mut self, padvise: ::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<u32>;
+    fn Advise(&mut self, padvise: &::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<u32>;
     fn Unadvise(&mut self, dwconnection: u32) -> ::windows::core::Result<()>;
     fn EnumAdvise(&mut self) -> ::windows::core::Result<super::Com::IEnumSTATDATA>;
-    fn SendOnRename(&mut self, pmk: ::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()>;
+    fn SendOnRename(&mut self, pmk: &::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()>;
     fn SendOnSave(&mut self) -> ::windows::core::Result<()>;
     fn SendOnClose(&mut self) -> ::windows::core::Result<()>;
 }
@@ -1380,7 +1380,7 @@ pub trait IOleCache_Impl: Sized {
     fn Cache(&mut self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> ::windows::core::Result<u32>;
     fn Uncache(&mut self, dwconnection: u32) -> ::windows::core::Result<()>;
     fn EnumCache(&mut self) -> ::windows::core::Result<super::Com::IEnumSTATDATA>;
-    fn InitCache(&mut self, pdataobject: ::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn InitCache(&mut self, pdataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn SetData(&mut self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1433,7 +1433,7 @@ impl IOleCache_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IOleCache2_Impl: Sized + IOleCache_Impl {
-    fn UpdateCache(&mut self, pdataobject: ::core::option::Option<super::Com::IDataObject>, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn UpdateCache(&mut self, pdataobject: &::core::option::Option<super::Com::IDataObject>, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn DiscardCache(&mut self, dwdiscardoptions: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1459,7 +1459,7 @@ impl IOleCache2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleCacheControl_Impl: Sized {
-    fn OnRun(&mut self, pdataobject: ::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn OnRun(&mut self, pdataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn OnStop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1701,7 +1701,7 @@ impl IOleControlSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOleDocument_Impl: Sized {
-    fn CreateView(&mut self, pipsite: ::core::option::Option<IOleInPlaceSite>, pstm: ::core::option::Option<super::Com::IStream>, dwreserved: u32) -> ::windows::core::Result<IOleDocumentView>;
+    fn CreateView(&mut self, pipsite: &::core::option::Option<IOleInPlaceSite>, pstm: &::core::option::Option<super::Com::IStream>, dwreserved: u32) -> ::windows::core::Result<IOleDocumentView>;
     fn GetDocMiscStatus(&mut self) -> ::windows::core::Result<u32>;
     fn EnumViews(&mut self, ppenum: *mut ::core::option::Option<IEnumOleDocumentViews>, ppview: *mut ::core::option::Option<IOleDocumentView>) -> ::windows::core::Result<()>;
 }
@@ -1744,7 +1744,7 @@ impl IOleDocument_Vtbl {
     }
 }
 pub trait IOleDocumentSite_Impl: Sized {
-    fn ActivateMe(&mut self, pviewtoactivate: ::core::option::Option<IOleDocumentView>) -> ::windows::core::Result<()>;
+    fn ActivateMe(&mut self, pviewtoactivate: &::core::option::Option<IOleDocumentView>) -> ::windows::core::Result<()>;
 }
 impl IOleDocumentSite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOleDocumentSite_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOleDocumentSite_Vtbl {
@@ -1760,7 +1760,7 @@ impl IOleDocumentSite_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOleDocumentView_Impl: Sized {
-    fn SetInPlaceSite(&mut self, pipsite: ::core::option::Option<IOleInPlaceSite>) -> ::windows::core::Result<()>;
+    fn SetInPlaceSite(&mut self, pipsite: &::core::option::Option<IOleInPlaceSite>) -> ::windows::core::Result<()>;
     fn GetInPlaceSite(&mut self) -> ::windows::core::Result<IOleInPlaceSite>;
     fn GetDocument(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn SetRect(&mut self, prcview: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
@@ -1770,9 +1770,9 @@ pub trait IOleDocumentView_Impl: Sized {
     fn UIActivate(&mut self, fuiactivate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Open(&mut self) -> ::windows::core::Result<()>;
     fn CloseView(&mut self, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn SaveViewState(&mut self, pstm: ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
-    fn ApplyViewState(&mut self, pstm: ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Clone(&mut self, pipsitenew: ::core::option::Option<IOleInPlaceSite>) -> ::windows::core::Result<IOleDocumentView>;
+    fn SaveViewState(&mut self, pstm: &::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn ApplyViewState(&mut self, pstm: &::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Clone(&mut self, pipsitenew: &::core::option::Option<IOleInPlaceSite>) -> ::windows::core::Result<IOleDocumentView>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOleDocumentView_Vtbl {
@@ -1879,7 +1879,7 @@ pub trait IOleInPlaceActiveObject_Impl: Sized + IOleWindow_Impl {
     fn TranslateAccelerator(&mut self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()>;
     fn OnFrameWindowActivate(&mut self, factivate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn OnDocWindowActivate(&mut self, factivate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ResizeBorder(&mut self, prcborder: *const super::super::Foundation::RECT, puiwindow: ::core::option::Option<IOleInPlaceUIWindow>, fframewindow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ResizeBorder(&mut self, prcborder: *const super::super::Foundation::RECT, puiwindow: &::core::option::Option<IOleInPlaceUIWindow>, fframewindow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnableModeless(&mut self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2050,7 +2050,7 @@ pub trait IOleInPlaceSite_Impl: Sized + IOleWindow_Impl {
     fn OnInPlaceActivate(&mut self) -> ::windows::core::Result<()>;
     fn OnUIActivate(&mut self) -> ::windows::core::Result<()>;
     fn GetWindowContext(&mut self, ppframe: *mut ::core::option::Option<IOleInPlaceFrame>, ppdoc: *mut ::core::option::Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::core::Result<()>;
-    fn Scroll(&mut self, scrollextant: super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
+    fn Scroll(&mut self, scrollextant: &super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
     fn OnUIDeactivate(&mut self, fundoable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn OnInPlaceDeactivate(&mut self) -> ::windows::core::Result<()>;
     fn DiscardUndoState(&mut self) -> ::windows::core::Result<()>;
@@ -2253,7 +2253,7 @@ pub trait IOleInPlaceUIWindow_Impl: Sized + IOleWindow_Impl {
     fn GetBorder(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
     fn RequestBorderSpace(&mut self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn SetBorderSpace(&mut self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn SetActiveObject(&mut self, pactiveobject: ::core::option::Option<IOleInPlaceActiveObject>, pszobjname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetActiveObject(&mut self, pactiveobject: &::core::option::Option<IOleInPlaceActiveObject>, pszobjname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOleInPlaceUIWindow_Vtbl {
@@ -2294,8 +2294,8 @@ impl IOleInPlaceUIWindow_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOleItemContainer_Impl: Sized + IParseDisplayName_Impl + IOleContainer_Impl {
-    fn GetObject(&mut self, pszitem: super::super::Foundation::PWSTR, dwspeedneeded: u32, pbc: ::core::option::Option<super::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetObjectStorage(&mut self, pszitem: super::super::Foundation::PWSTR, pbc: ::core::option::Option<super::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppvstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetObject(&mut self, pszitem: super::super::Foundation::PWSTR, dwspeedneeded: u32, pbc: &::core::option::Option<super::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetObjectStorage(&mut self, pszitem: super::super::Foundation::PWSTR, pbc: &::core::option::Option<super::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppvstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn IsRunning(&mut self, pszitem: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2328,15 +2328,15 @@ impl IOleItemContainer_Vtbl {
 pub trait IOleLink_Impl: Sized {
     fn SetUpdateOptions(&mut self, dwupdateopt: u32) -> ::windows::core::Result<()>;
     fn GetUpdateOptions(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSourceMoniker(&mut self, pmk: ::core::option::Option<super::Com::IMoniker>, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetSourceMoniker(&mut self, pmk: &::core::option::Option<super::Com::IMoniker>, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetSourceMoniker(&mut self) -> ::windows::core::Result<super::Com::IMoniker>;
     fn SetSourceDisplayName(&mut self, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn GetSourceDisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn BindToSource(&mut self, bindflags: u32, pbc: ::core::option::Option<super::Com::IBindCtx>) -> ::windows::core::Result<()>;
+    fn BindToSource(&mut self, bindflags: u32, pbc: &::core::option::Option<super::Com::IBindCtx>) -> ::windows::core::Result<()>;
     fn BindIfRunning(&mut self) -> ::windows::core::Result<()>;
     fn GetBoundSource(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn UnbindSource(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self, pbc: ::core::option::Option<super::Com::IBindCtx>) -> ::windows::core::Result<()>;
+    fn Update(&mut self, pbc: &::core::option::Option<super::Com::IBindCtx>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOleLink_Vtbl {
@@ -2430,15 +2430,15 @@ impl IOleLink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IOleObject_Impl: Sized {
-    fn SetClientSite(&mut self, pclientsite: ::core::option::Option<IOleClientSite>) -> ::windows::core::Result<()>;
+    fn SetClientSite(&mut self, pclientsite: &::core::option::Option<IOleClientSite>) -> ::windows::core::Result<()>;
     fn GetClientSite(&mut self) -> ::windows::core::Result<IOleClientSite>;
     fn SetHostNames(&mut self, szcontainerapp: super::super::Foundation::PWSTR, szcontainerobj: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Close(&mut self, dwsaveoption: u32) -> ::windows::core::Result<()>;
-    fn SetMoniker(&mut self, dwwhichmoniker: u32, pmk: ::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()>;
+    fn SetMoniker(&mut self, dwwhichmoniker: u32, pmk: &::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()>;
     fn GetMoniker(&mut self, dwassign: u32, dwwhichmoniker: u32) -> ::windows::core::Result<super::Com::IMoniker>;
-    fn InitFromData(&mut self, pdataobject: ::core::option::Option<super::Com::IDataObject>, fcreation: super::super::Foundation::BOOL, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn InitFromData(&mut self, pdataobject: &::core::option::Option<super::Com::IDataObject>, fcreation: super::super::Foundation::BOOL, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetClipboardData(&mut self, dwreserved: u32) -> ::windows::core::Result<super::Com::IDataObject>;
-    fn DoVerb(&mut self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: ::core::option::Option<IOleClientSite>, lindex: i32, hwndparent: super::super::Foundation::HWND, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn DoVerb(&mut self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: &::core::option::Option<IOleClientSite>, lindex: i32, hwndparent: super::super::Foundation::HWND, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn EnumVerbs(&mut self) -> ::windows::core::Result<IEnumOLEVERB>;
     fn Update(&mut self) -> ::windows::core::Result<()>;
     fn IsUpToDate(&mut self) -> ::windows::core::Result<()>;
@@ -2446,7 +2446,7 @@ pub trait IOleObject_Impl: Sized {
     fn GetUserType(&mut self, dwformoftype: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn SetExtent(&mut self, dwdrawaspect: u32, psizel: *const super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
     fn GetExtent(&mut self, dwdrawaspect: u32) -> ::windows::core::Result<super::super::Foundation::SIZE>;
-    fn Advise(&mut self, padvsink: ::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<u32>;
+    fn Advise(&mut self, padvsink: &::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<u32>;
     fn Unadvise(&mut self, dwconnection: u32) -> ::windows::core::Result<()>;
     fn EnumAdvise(&mut self) -> ::windows::core::Result<super::Com::IEnumSTATDATA>;
     fn GetMiscStatus(&mut self, dwaspect: u32) -> ::windows::core::Result<u32>;
@@ -2630,10 +2630,10 @@ impl IOleObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOleParentUndoUnit_Impl: Sized + IOleUndoUnit_Impl {
-    fn Open(&mut self, ppuu: ::core::option::Option<IOleParentUndoUnit>) -> ::windows::core::Result<()>;
-    fn Close(&mut self, ppuu: ::core::option::Option<IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Add(&mut self, puu: ::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
-    fn FindUnit(&mut self, puu: ::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
+    fn Open(&mut self, ppuu: &::core::option::Option<IOleParentUndoUnit>) -> ::windows::core::Result<()>;
+    fn Close(&mut self, ppuu: &::core::option::Option<IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Add(&mut self, puu: &::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
+    fn FindUnit(&mut self, puu: &::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
     fn GetParentState(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2950,13 +2950,13 @@ impl IOleUIObjInfoW_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOleUndoManager_Impl: Sized {
-    fn Open(&mut self, ppuu: ::core::option::Option<IOleParentUndoUnit>) -> ::windows::core::Result<()>;
-    fn Close(&mut self, ppuu: ::core::option::Option<IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Add(&mut self, puu: ::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
+    fn Open(&mut self, ppuu: &::core::option::Option<IOleParentUndoUnit>) -> ::windows::core::Result<()>;
+    fn Close(&mut self, ppuu: &::core::option::Option<IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Add(&mut self, puu: &::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
     fn GetOpenParentState(&mut self) -> ::windows::core::Result<u32>;
-    fn DiscardFrom(&mut self, puu: ::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
-    fn UndoTo(&mut self, puu: ::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
-    fn RedoTo(&mut self, puu: ::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
+    fn DiscardFrom(&mut self, puu: &::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
+    fn UndoTo(&mut self, puu: &::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
+    fn RedoTo(&mut self, puu: &::core::option::Option<IOleUndoUnit>) -> ::windows::core::Result<()>;
     fn EnumUndoable(&mut self) -> ::windows::core::Result<IEnumOleUndoUnits>;
     fn EnumRedoable(&mut self) -> ::windows::core::Result<IEnumOleUndoUnits>;
     fn GetLastUndoDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -3066,7 +3066,7 @@ impl IOleUndoManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOleUndoUnit_Impl: Sized {
-    fn Do(&mut self, pundomanager: ::core::option::Option<IOleUndoManager>) -> ::windows::core::Result<()>;
+    fn Do(&mut self, pundomanager: &::core::option::Option<IOleUndoManager>) -> ::windows::core::Result<()>;
     fn GetDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetUnitType(&mut self, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::Result<()>;
     fn OnNextAdd(&mut self) -> ::windows::core::Result<()>;
@@ -3142,7 +3142,7 @@ impl IOleWindow_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IParseDisplayName_Impl: Sized {
-    fn ParseDisplayName(&mut self, pbc: ::core::option::Option<super::Com::IBindCtx>, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()>;
+    fn ParseDisplayName(&mut self, pbc: &::core::option::Option<super::Com::IBindCtx>, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::core::option::Option<super::Com::IMoniker>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IParseDisplayName_Vtbl {
@@ -3216,8 +3216,8 @@ impl IPerPropertyBrowsing_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPersistPropertyBag_Impl: Sized + super::Com::IPersist_Impl {
     fn InitNew(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, ppropbag: ::core::option::Option<super::Com::StructuredStorage::IPropertyBag>, perrorlog: ::core::option::Option<super::Com::IErrorLog>) -> ::windows::core::Result<()>;
-    fn Save(&mut self, ppropbag: ::core::option::Option<super::Com::StructuredStorage::IPropertyBag>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Load(&mut self, ppropbag: &::core::option::Option<super::Com::StructuredStorage::IPropertyBag>, perrorlog: &::core::option::Option<super::Com::IErrorLog>) -> ::windows::core::Result<()>;
+    fn Save(&mut self, ppropbag: &::core::option::Option<super::Com::StructuredStorage::IPropertyBag>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPersistPropertyBag_Vtbl {
@@ -3248,8 +3248,8 @@ impl IPersistPropertyBag_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPersistPropertyBag2_Impl: Sized + super::Com::IPersist_Impl {
     fn InitNew(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, ppropbag: ::core::option::Option<super::Com::StructuredStorage::IPropertyBag2>, perrlog: ::core::option::Option<super::Com::IErrorLog>) -> ::windows::core::Result<()>;
-    fn Save(&mut self, ppropbag: ::core::option::Option<super::Com::StructuredStorage::IPropertyBag2>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Load(&mut self, ppropbag: &::core::option::Option<super::Com::StructuredStorage::IPropertyBag2>, perrlog: &::core::option::Option<super::Com::IErrorLog>) -> ::windows::core::Result<()>;
+    fn Save(&mut self, ppropbag: &::core::option::Option<super::Com::StructuredStorage::IPropertyBag2>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsDirty(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -3297,7 +3297,7 @@ pub trait IPicture_Impl: Sized {
     fn KeepOriginalFormat(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetKeepOriginalFormat(&mut self, keep: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn PictureChanged(&mut self) -> ::windows::core::Result<()>;
-    fn SaveAsFile(&mut self, pstream: ::core::option::Option<super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> ::windows::core::Result<i32>;
+    fn SaveAsFile(&mut self, pstream: &::core::option::Option<super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> ::windows::core::Result<i32>;
     fn Attributes(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -3449,7 +3449,7 @@ pub trait IPicture2_Impl: Sized {
     fn KeepOriginalFormat(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetKeepOriginalFormat(&mut self, keep: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn PictureChanged(&mut self) -> ::windows::core::Result<()>;
-    fn SaveAsFile(&mut self, pstream: ::core::option::Option<super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> ::windows::core::Result<i32>;
+    fn SaveAsFile(&mut self, pstream: &::core::option::Option<super::Com::IStream>, fsavememcopy: super::super::Foundation::BOOL) -> ::windows::core::Result<i32>;
     fn Attributes(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -3640,7 +3640,7 @@ impl IPointerInactive_Vtbl {
 pub trait IPrint_Impl: Sized {
     fn SetInitialPageNum(&mut self, nfirstpage: i32) -> ::windows::core::Result<()>;
     fn GetPageInfo(&mut self, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::core::Result<()>;
-    fn Print(&mut self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: ::core::option::Option<IContinueCallback>, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::Result<()>;
+    fn Print(&mut self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: &::core::option::Option<IContinueCallback>, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPrint_Vtbl {
@@ -3694,7 +3694,7 @@ impl IPropertyNotifySink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPropertyPage_Impl: Sized {
-    fn SetPageSite(&mut self, ppagesite: ::core::option::Option<IPropertyPageSite>) -> ::windows::core::Result<()>;
+    fn SetPageSite(&mut self, ppagesite: &::core::option::Option<IPropertyPageSite>) -> ::windows::core::Result<()>;
     fn Activate(&mut self, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Deactivate(&mut self) -> ::windows::core::Result<()>;
     fn GetPageInfo(&mut self) -> ::windows::core::Result<PROPPAGEINFO>;
@@ -4063,7 +4063,7 @@ pub trait IRecordInfo_Impl: Sized {
     fn PutField(&mut self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PutFieldNoCopy(&mut self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::Foundation::PWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetFieldNames(&mut self, pcnames: *mut u32, rgbstrnames: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsMatchingType(&mut self, precordinfo: ::core::option::Option<IRecordInfo>) -> super::super::Foundation::BOOL;
+    fn IsMatchingType(&mut self, precordinfo: &::core::option::Option<IRecordInfo>) -> super::super::Foundation::BOOL;
     fn RecordCreate(&mut self) -> *mut ::core::ffi::c_void;
     fn RecordCreateCopy(&mut self, pvsource: *const ::core::ffi::c_void, ppvdest: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn RecordDestroy(&mut self, pvrecord: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -4238,8 +4238,8 @@ impl ISpecifyPropertyPages_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITypeChangeEvents_Impl: Sized {
-    fn RequestTypeChange(&mut self, changekind: CHANGEKIND, ptinfobefore: ::core::option::Option<super::Com::ITypeInfo>, pstrname: super::super::Foundation::PWSTR) -> ::windows::core::Result<i32>;
-    fn AfterTypeChange(&mut self, changekind: CHANGEKIND, ptinfoafter: ::core::option::Option<super::Com::ITypeInfo>, pstrname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RequestTypeChange(&mut self, changekind: CHANGEKIND, ptinfobefore: &::core::option::Option<super::Com::ITypeInfo>, pstrname: super::super::Foundation::PWSTR) -> ::windows::core::Result<i32>;
+    fn AfterTypeChange(&mut self, changekind: CHANGEKIND, ptinfoafter: &::core::option::Option<super::Com::ITypeInfo>, pstrname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITypeChangeEvents_Vtbl {
@@ -4270,7 +4270,7 @@ impl ITypeChangeEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITypeFactory_Impl: Sized {
-    fn CreateFromTypeInfo(&mut self, ptypeinfo: ::core::option::Option<super::Com::ITypeInfo>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateFromTypeInfo(&mut self, ptypeinfo: &::core::option::Option<super::Com::ITypeInfo>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITypeFactory_Vtbl {
@@ -4335,7 +4335,7 @@ impl ITypeMarshal_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVBFormat_Impl: Sized {
-    fn Format(&mut self, vdata: *mut super::Com::VARIANT, bstrformat: super::super::Foundation::BSTR, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::Result<()>;
+    fn Format(&mut self, vdata: *mut super::Com::VARIANT, bstrformat: &super::super::Foundation::BSTR, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVBFormat_Vtbl {
@@ -4396,7 +4396,7 @@ pub trait IViewObject_Impl: Sized {
     fn GetColorSet(&mut self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::core::Result<()>;
     fn Freeze(&mut self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::core::Result<()>;
     fn Unfreeze(&mut self, dwfreeze: u32) -> ::windows::core::Result<()>;
-    fn SetAdvise(&mut self, aspects: u32, advf: u32, padvsink: ::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<()>;
+    fn SetAdvise(&mut self, aspects: u32, advf: u32, padvsink: &::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<()>;
     fn GetAdvise(&mut self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::core::option::Option<super::Com::IAdviseSink>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -4467,7 +4467,7 @@ impl IViewObject2_Vtbl {
 pub trait IViewObjectEx_Impl: Sized + IViewObject_Impl + IViewObject2_Impl {
     fn GetRect(&mut self, dwaspect: u32) -> ::windows::core::Result<super::super::Foundation::RECTL>;
     fn GetViewStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn QueryHitPoint(&mut self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: super::super::Foundation::POINT, lclosehint: i32) -> ::windows::core::Result<u32>;
+    fn QueryHitPoint(&mut self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: &super::super::Foundation::POINT, lclosehint: i32) -> ::windows::core::Result<u32>;
     fn QueryHitRect(&mut self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, prectloc: *const super::super::Foundation::RECT, lclosehint: i32) -> ::windows::core::Result<u32>;
     fn GetNaturalExtent(&mut self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, pextentinfo: *const ExtentInfo) -> ::windows::core::Result<super::super::Foundation::SIZE>;
 }

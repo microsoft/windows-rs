@@ -36,7 +36,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStorageFolderHandleAccess_Impl: Sized {
-    fn Create(&mut self, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&mut self, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: &::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IStorageFolderHandleAccess_Vtbl {
@@ -59,7 +59,7 @@ impl IStorageFolderHandleAccess_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStorageItemHandleAccess_Impl: Sized {
-    fn Create(&mut self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&mut self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: &::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IStorageItemHandleAccess_Vtbl {
@@ -96,7 +96,7 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
     }
 }
 pub trait IUnbufferedFileHandleProvider_Impl: Sized {
-    fn OpenUnbufferedFileHandle(&mut self, oplockbreakcallback: ::core::option::Option<IUnbufferedFileHandleOplockCallback>) -> ::windows::core::Result<usize>;
+    fn OpenUnbufferedFileHandle(&mut self, oplockbreakcallback: &::core::option::Option<IUnbufferedFileHandleOplockCallback>) -> ::windows::core::Result<usize>;
     fn CloseUnbufferedFileHandle(&mut self) -> ::windows::core::Result<()>;
 }
 impl IUnbufferedFileHandleProvider_Vtbl {
