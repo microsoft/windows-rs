@@ -408,7 +408,7 @@ impl IDirectSound8_Vtbl {
         Self { base: IDirectSound_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), VerifyCertification: VerifyCertification::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectSound8 as ::windows::core::Interface>::IID
+        iid == &<IDirectSound8 as ::windows::core::Interface>::IID || iid == &<IDirectSound as ::windows::core::Interface>::IID
     }
 }
 pub trait IDirectSoundBuffer_Impl: Sized {
@@ -588,7 +588,7 @@ impl IDirectSoundBuffer8_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectSoundBuffer8 as ::windows::core::Interface>::IID
+        iid == &<IDirectSoundBuffer8 as ::windows::core::Interface>::IID || iid == &<IDirectSoundBuffer as ::windows::core::Interface>::IID
     }
 }
 pub trait IDirectSoundCapture_Impl: Sized {
@@ -726,7 +726,7 @@ impl IDirectSoundCaptureBuffer8_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureBuffer8 as ::windows::core::Interface>::IID
+        iid == &<IDirectSoundCaptureBuffer8 as ::windows::core::Interface>::IID || iid == &<IDirectSoundCaptureBuffer as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

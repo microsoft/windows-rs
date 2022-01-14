@@ -57,7 +57,7 @@ impl IWSMan_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSMan as ::windows::core::Interface>::IID
+        iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -95,7 +95,7 @@ impl IWSManConnectionOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID
+        iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -127,7 +127,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManConnectionOptionsEx as ::windows::core::Interface>::IID
+        iid == &<IWSManConnectionOptionsEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -231,7 +231,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManConnectionOptionsEx2 as ::windows::core::Interface>::IID
+        iid == &<IWSManConnectionOptionsEx2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptionsEx as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -281,7 +281,7 @@ impl IWSManEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManEnumerator as ::windows::core::Interface>::IID
+        iid == &<IWSManEnumerator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -535,7 +535,7 @@ impl IWSManEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManEx as ::windows::core::Interface>::IID
+        iid == &<IWSManEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -561,7 +561,7 @@ impl IWSManEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManEx2 as ::windows::core::Interface>::IID
+        iid == &<IWSManEx2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<IWSManEx as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -659,7 +659,7 @@ impl IWSManEx3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManEx3 as ::windows::core::Interface>::IID
+        iid == &<IWSManEx3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<IWSManEx as ::windows::core::Interface>::IID || iid == &<IWSManEx2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -682,7 +682,7 @@ impl IWSManInternal_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ConfigSDDL: ConfigSDDL::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManInternal as ::windows::core::Interface>::IID
+        iid == &<IWSManInternal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -804,7 +804,7 @@ impl IWSManResourceLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManResourceLocator as ::windows::core::Interface>::IID
+        iid == &<IWSManResourceLocator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IWSManResourceLocatorInternal_Impl: Sized {}
@@ -953,6 +953,6 @@ impl IWSManSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSManSession as ::windows::core::Interface>::IID
+        iid == &<IWSManSession as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

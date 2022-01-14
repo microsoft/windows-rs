@@ -75,7 +75,7 @@ impl IRDPSRAPIApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIApplication as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIApplication as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -131,7 +131,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIApplicationFilter as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIApplicationFilter as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -169,7 +169,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIApplicationList as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIApplicationList as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -267,7 +267,7 @@ impl IRDPSRAPIAttendee_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIAttendee as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIAttendee as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -317,7 +317,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIAttendeeDisconnectInfo as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIAttendeeDisconnectInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -355,7 +355,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIAttendeeManager as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIAttendeeManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IRDPSRAPIAudioStream_Impl: Sized {
@@ -520,7 +520,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIFrameBuffer as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIFrameBuffer as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -606,7 +606,7 @@ impl IRDPSRAPIInvitation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIInvitation as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIInvitation as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -668,7 +668,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIInvitationManager as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIInvitationManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IRDPSRAPIPerfCounterLogger_Impl: Sized {
@@ -738,7 +738,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPISessionProperties as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPISessionProperties as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -872,7 +872,7 @@ impl IRDPSRAPISharingSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPISharingSession as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPISharingSession as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -910,7 +910,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPISharingSession2 as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPISharingSession2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IRDPSRAPISharingSession as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -984,7 +984,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPITcpConnectionInfo as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPITcpConnectionInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IRDPSRAPITransportStream_Impl: Sized {
@@ -1322,7 +1322,7 @@ impl IRDPSRAPIViewer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIViewer as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIViewer as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1384,7 +1384,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIVirtualChannel as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIVirtualChannel as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1434,7 +1434,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIVirtualChannelManager as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIVirtualChannelManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1520,7 +1520,7 @@ impl IRDPSRAPIWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIWindow as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIWindow as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1558,7 +1558,7 @@ impl IRDPSRAPIWindowList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRDPSRAPIWindowList as ::windows::core::Interface>::IID
+        iid == &<IRDPSRAPIWindowList as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IRDPViewerInputSink_Impl: Sized {
@@ -1629,6 +1629,6 @@ impl _IRDPSessionEvents_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<_IRDPSessionEvents as ::windows::core::Interface>::IID
+        iid == &<_IRDPSessionEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

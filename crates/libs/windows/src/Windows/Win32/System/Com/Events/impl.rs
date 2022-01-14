@@ -186,7 +186,7 @@ impl IEventClass_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventClass as ::windows::core::Interface>::IID
+        iid == &<IEventClass as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -272,7 +272,7 @@ impl IEventClass2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventClass2 as ::windows::core::Interface>::IID
+        iid == &<IEventClass2 as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID || iid == &<IEventClass as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -334,7 +334,7 @@ impl IEventControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventControl as ::windows::core::Interface>::IID
+        iid == &<IEventControl as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -466,7 +466,7 @@ impl IEventObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventObjectCollection as ::windows::core::Interface>::IID
+        iid == &<IEventObjectCollection as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -516,7 +516,7 @@ impl IEventProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventProperty as ::windows::core::Interface>::IID
+        iid == &<IEventProperty as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -656,7 +656,7 @@ impl IEventPublisher_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventPublisher as ::windows::core::Interface>::IID
+        iid == &<IEventPublisher as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -976,7 +976,7 @@ impl IEventSubscription_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventSubscription as ::windows::core::Interface>::IID
+        iid == &<IEventSubscription as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -1044,7 +1044,7 @@ impl IEventSystem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventSystem as ::windows::core::Interface>::IID
+        iid == &<IEventSystem as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -1061,7 +1061,7 @@ impl IFiringControl_Vtbl {
         Self { base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), FireSubscription: FireSubscription::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFiringControl as ::windows::core::Interface>::IID
+        iid == &<IFiringControl as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

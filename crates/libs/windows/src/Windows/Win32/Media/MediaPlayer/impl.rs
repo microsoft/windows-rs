@@ -459,7 +459,7 @@ impl IFeed_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeed as ::windows::core::Interface>::IID
+        iid == &<IFeed as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -533,7 +533,7 @@ impl IFeed2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeed2 as ::windows::core::Interface>::IID
+        iid == &<IFeed2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFeed as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -679,7 +679,7 @@ impl IFeedEnclosure_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedEnclosure as ::windows::core::Interface>::IID
+        iid == &<IFeedEnclosure as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -741,7 +741,7 @@ impl IFeedEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedEvents as ::windows::core::Interface>::IID
+        iid == &<IFeedEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -953,7 +953,7 @@ impl IFeedFolder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedFolder as ::windows::core::Interface>::IID
+        iid == &<IFeedFolder as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1063,7 +1063,7 @@ impl IFeedFolderEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedFolderEvents as ::windows::core::Interface>::IID
+        iid == &<IFeedFolderEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1269,7 +1269,7 @@ impl IFeedItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedItem as ::windows::core::Interface>::IID
+        iid == &<IFeedItem as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1292,7 +1292,7 @@ impl IFeedItem2_Vtbl {
         Self { base: IFeedItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), EffectiveId: EffectiveId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedItem2 as ::windows::core::Interface>::IID
+        iid == &<IFeedItem2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFeedItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1342,7 +1342,7 @@ impl IFeedsEnum_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedsEnum as ::windows::core::Interface>::IID
+        iid == &<IFeedsEnum as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1518,7 +1518,7 @@ impl IFeedsManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedsManager as ::windows::core::Interface>::IID
+        iid == &<IFeedsManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1582,7 +1582,7 @@ impl IWMPCdrom_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPCdrom as ::windows::core::Interface>::IID
+        iid == &<IWMPCdrom as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1730,7 +1730,7 @@ impl IWMPCdromCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPCdromCollection as ::windows::core::Interface>::IID
+        iid == &<IWMPCdromCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMPCdromRip_Impl: Sized {
@@ -1828,7 +1828,7 @@ impl IWMPClosedCaption_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPClosedCaption as ::windows::core::Interface>::IID
+        iid == &<IWMPClosedCaption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1872,7 +1872,7 @@ impl IWMPClosedCaption2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPClosedCaption2 as ::windows::core::Interface>::IID
+        iid == &<IWMPClosedCaption2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPClosedCaption as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2390,7 +2390,7 @@ impl IWMPControls_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPControls as ::windows::core::Interface>::IID
+        iid == &<IWMPControls as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2407,7 +2407,7 @@ impl IWMPControls2_Vtbl {
         Self { base: IWMPControls_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), step: step::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPControls2 as ::windows::core::Interface>::IID
+        iid == &<IWMPControls2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPControls as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2481,7 +2481,7 @@ impl IWMPControls3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPControls3 as ::windows::core::Interface>::IID
+        iid == &<IWMPControls3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPControls as ::windows::core::Interface>::IID || iid == &<IWMPControls2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2707,7 +2707,7 @@ impl IWMPCore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPCore as ::windows::core::Interface>::IID
+        iid == &<IWMPCore as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2730,7 +2730,7 @@ impl IWMPCore2_Vtbl {
         Self { base: IWMPCore_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), dvd: dvd::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPCore2 as ::windows::core::Interface>::IID
+        iid == &<IWMPCore2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPCore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2768,7 +2768,7 @@ impl IWMPCore3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPCore3 as ::windows::core::Interface>::IID
+        iid == &<IWMPCore3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPCore as ::windows::core::Interface>::IID || iid == &<IWMPCore2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2818,7 +2818,7 @@ impl IWMPDVD_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPDVD as ::windows::core::Interface>::IID
+        iid == &<IWMPDVD as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2880,7 +2880,7 @@ impl IWMPDownloadCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPDownloadCollection as ::windows::core::Interface>::IID
+        iid == &<IWMPDownloadCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2942,7 +2942,7 @@ impl IWMPDownloadItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPDownloadItem as ::windows::core::Interface>::IID
+        iid == &<IWMPDownloadItem as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2959,7 +2959,7 @@ impl IWMPDownloadItem2_Vtbl {
         Self { base: IWMPDownloadItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), getItemInfo: getItemInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPDownloadItem2 as ::windows::core::Interface>::IID
+        iid == &<IWMPDownloadItem2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPDownloadItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2997,7 +2997,7 @@ impl IWMPDownloadManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPDownloadManager as ::windows::core::Interface>::IID
+        iid == &<IWMPDownloadManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3127,7 +3127,7 @@ impl IWMPEffects2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPEffects2 as ::windows::core::Interface>::IID
+        iid == &<IWMPEffects2 as ::windows::core::Interface>::IID || iid == &<IWMPEffects as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3171,7 +3171,7 @@ impl IWMPError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPError as ::windows::core::Interface>::IID
+        iid == &<IWMPError as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3215,7 +3215,7 @@ impl IWMPErrorItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPErrorItem as ::windows::core::Interface>::IID
+        iid == &<IWMPErrorItem as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3232,7 +3232,7 @@ impl IWMPErrorItem2_Vtbl {
         Self { base: IWMPErrorItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), condition: condition::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPErrorItem2 as ::windows::core::Interface>::IID
+        iid == &<IWMPErrorItem2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPErrorItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3566,7 +3566,7 @@ impl IWMPEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPEvents2 as ::windows::core::Interface>::IID
+        iid == &<IWMPEvents2 as ::windows::core::Interface>::IID || iid == &<IWMPEvents as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3646,7 +3646,7 @@ impl IWMPEvents3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPEvents3 as ::windows::core::Interface>::IID
+        iid == &<IWMPEvents3 as ::windows::core::Interface>::IID || iid == &<IWMPEvents as ::windows::core::Interface>::IID || iid == &<IWMPEvents2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3663,7 +3663,7 @@ impl IWMPEvents4_Vtbl {
         Self { base: IWMPEvents3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), DeviceEstimation: DeviceEstimation::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPEvents4 as ::windows::core::Interface>::IID
+        iid == &<IWMPEvents4 as ::windows::core::Interface>::IID || iid == &<IWMPEvents as ::windows::core::Interface>::IID || iid == &<IWMPEvents2 as ::windows::core::Interface>::IID || iid == &<IWMPEvents3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3834,7 +3834,7 @@ impl IWMPLibrary2_Vtbl {
         Self { base: IWMPLibrary_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), getItemInfo: getItemInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPLibrary2 as ::windows::core::Interface>::IID
+        iid == &<IWMPLibrary2 as ::windows::core::Interface>::IID || iid == &<IWMPLibrary as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMPLibraryServices_Impl: Sized {
@@ -4016,7 +4016,7 @@ impl IWMPMedia_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPMedia as ::windows::core::Interface>::IID
+        iid == &<IWMPMedia as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4039,7 +4039,7 @@ impl IWMPMedia2_Vtbl {
         Self { base: IWMPMedia_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), error: error::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPMedia2 as ::windows::core::Interface>::IID
+        iid == &<IWMPMedia2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPMedia as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4065,7 +4065,7 @@ impl IWMPMedia3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPMedia3 as ::windows::core::Interface>::IID
+        iid == &<IWMPMedia3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPMedia as ::windows::core::Interface>::IID || iid == &<IWMPMedia2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4199,7 +4199,7 @@ impl IWMPMediaCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPMediaCollection as ::windows::core::Interface>::IID
+        iid == &<IWMPMediaCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4261,7 +4261,7 @@ impl IWMPMediaCollection2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPMediaCollection2 as ::windows::core::Interface>::IID
+        iid == &<IWMPMediaCollection2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPMediaCollection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4325,7 +4325,7 @@ impl IWMPMetadataPicture_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPMetadataPicture as ::windows::core::Interface>::IID
+        iid == &<IWMPMetadataPicture as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4351,7 +4351,7 @@ impl IWMPMetadataText_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPMetadataText as ::windows::core::Interface>::IID
+        iid == &<IWMPMetadataText as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4533,7 +4533,7 @@ impl IWMPNetwork_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPNetwork as ::windows::core::Interface>::IID
+        iid == &<IWMPNetwork as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4676,7 +4676,7 @@ impl IWMPNodeWindowless_Vtbl {
         Self { base: IWMPWindowMessageSink_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), OnDraw: OnDraw::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPNodeWindowless as ::windows::core::Interface>::IID
+        iid == &<IWMPNodeWindowless as ::windows::core::Interface>::IID || iid == &<IWMPWindowMessageSink as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4755,7 +4755,7 @@ impl IWMPPlayer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlayer as ::windows::core::Interface>::IID
+        iid == &<IWMPPlayer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPCore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4841,7 +4841,7 @@ impl IWMPPlayer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlayer2 as ::windows::core::Interface>::IID
+        iid == &<IWMPPlayer2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPCore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4927,7 +4927,7 @@ impl IWMPPlayer3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlayer3 as ::windows::core::Interface>::IID
+        iid == &<IWMPPlayer3 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPCore as ::windows::core::Interface>::IID || iid == &<IWMPCore2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5037,7 +5037,7 @@ impl IWMPPlayer4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlayer4 as ::windows::core::Interface>::IID
+        iid == &<IWMPPlayer4 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPCore as ::windows::core::Interface>::IID || iid == &<IWMPCore2 as ::windows::core::Interface>::IID || iid == &<IWMPCore3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5075,7 +5075,7 @@ impl IWMPPlayerApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlayerApplication as ::windows::core::Interface>::IID
+        iid == &<IWMPPlayerApplication as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5127,7 +5127,7 @@ impl IWMPPlayerServices2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlayerServices2 as ::windows::core::Interface>::IID
+        iid == &<IWMPPlayerServices2 as ::windows::core::Interface>::IID || iid == &<IWMPPlayerServices as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5231,7 +5231,7 @@ impl IWMPPlaylist_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlaylist as ::windows::core::Interface>::IID
+        iid == &<IWMPPlaylist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5263,7 +5263,7 @@ impl IWMPPlaylistArray_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlaylistArray as ::windows::core::Interface>::IID
+        iid == &<IWMPPlaylistArray as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5343,7 +5343,7 @@ impl IWMPPlaylistCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPPlaylistCollection as ::windows::core::Interface>::IID
+        iid == &<IWMPPlaylistCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMPPlugin_Impl: Sized {
@@ -5499,7 +5499,7 @@ impl IWMPQuery_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPQuery as ::windows::core::Interface>::IID
+        iid == &<IWMPQuery as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5739,7 +5739,7 @@ impl IWMPSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPSettings as ::windows::core::Interface>::IID
+        iid == &<IWMPSettings as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5771,7 +5771,7 @@ impl IWMPSettings2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPSettings2 as ::windows::core::Interface>::IID
+        iid == &<IWMPSettings2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5814,7 +5814,7 @@ impl IWMPStringCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPStringCollection as ::windows::core::Interface>::IID
+        iid == &<IWMPStringCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5852,7 +5852,7 @@ impl IWMPStringCollection2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPStringCollection2 as ::windows::core::Interface>::IID
+        iid == &<IWMPStringCollection2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPStringCollection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5928,7 +5928,7 @@ impl IWMPSubscriptionService2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPSubscriptionService2 as ::windows::core::Interface>::IID
+        iid == &<IWMPSubscriptionService2 as ::windows::core::Interface>::IID || iid == &<IWMPSubscriptionService as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMPSubscriptionServiceCallback_Impl: Sized {
@@ -6070,7 +6070,7 @@ impl IWMPSyncDevice2_Vtbl {
         Self { base: IWMPSyncDevice_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), setItemInfo: setItemInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPSyncDevice2 as ::windows::core::Interface>::IID
+        iid == &<IWMPSyncDevice2 as ::windows::core::Interface>::IID || iid == &<IWMPSyncDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6096,7 +6096,7 @@ impl IWMPSyncDevice3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMPSyncDevice3 as ::windows::core::Interface>::IID
+        iid == &<IWMPSyncDevice3 as ::windows::core::Interface>::IID || iid == &<IWMPSyncDevice as ::windows::core::Interface>::IID || iid == &<IWMPSyncDevice2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMPSyncServices_Impl: Sized {
@@ -6704,7 +6704,7 @@ impl IXFeed2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXFeed2 as ::windows::core::Interface>::IID
+        iid == &<IXFeed2 as ::windows::core::Interface>::IID || iid == &<IXFeed as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7397,7 +7397,7 @@ impl IXFeedItem2_Vtbl {
         Self { base: IXFeedItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), EffectiveId: EffectiveId::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXFeedItem2 as ::windows::core::Interface>::IID
+        iid == &<IXFeedItem2 as ::windows::core::Interface>::IID || iid == &<IXFeedItem as ::windows::core::Interface>::IID
     }
 }
 pub trait IXFeedsEnum_Impl: Sized {
@@ -7586,6 +7586,6 @@ impl _WMPOCXEvents_Vtbl {
         Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<_WMPOCXEvents as ::windows::core::Interface>::IID
+        iid == &<_WMPOCXEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

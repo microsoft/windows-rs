@@ -437,7 +437,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILanguageExceptionErrorInfo2 as ::windows::core::Interface>::IID
+        iid == &<ILanguageExceptionErrorInfo2 as ::windows::core::Interface>::IID || iid == &<ILanguageExceptionErrorInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait ILanguageExceptionStackBackTrace_Impl: Sized {

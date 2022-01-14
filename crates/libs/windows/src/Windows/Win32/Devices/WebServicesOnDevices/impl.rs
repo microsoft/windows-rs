@@ -500,7 +500,7 @@ impl IWSDHttpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDHttpAddress as ::windows::core::Interface>::IID
+        iid == &<IWSDHttpAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -630,7 +630,7 @@ impl IWSDHttpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDHttpMessageParameters as ::windows::core::Interface>::IID
+        iid == &<IWSDHttpMessageParameters as ::windows::core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
     }
 }
 pub trait IWSDInboundAttachment_Impl: Sized + IWSDAttachment_Impl {
@@ -650,7 +650,7 @@ impl IWSDInboundAttachment_Vtbl {
         Self { base: IWSDAttachment_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Read: Read::<Impl, IMPL_OFFSET>, Close: Close::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDInboundAttachment as ::windows::core::Interface>::IID
+        iid == &<IWSDInboundAttachment as ::windows::core::Interface>::IID || iid == &<IWSDAttachment as ::windows::core::Interface>::IID
     }
 }
 pub trait IWSDMessageParameters_Impl: Sized {
@@ -769,7 +769,7 @@ impl IWSDOutboundAttachment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDOutboundAttachment as ::windows::core::Interface>::IID
+        iid == &<IWSDOutboundAttachment as ::windows::core::Interface>::IID || iid == &<IWSDAttachment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -957,7 +957,7 @@ impl IWSDServiceProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDServiceProxy as ::windows::core::Interface>::IID
+        iid == &<IWSDServiceProxy as ::windows::core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1067,7 +1067,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDServiceProxyEventing as ::windows::core::Interface>::IID
+        iid == &<IWSDServiceProxyEventing as ::windows::core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID || iid == &<IWSDServiceProxy as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1185,7 +1185,7 @@ impl IWSDTransportAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID
+        iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1283,7 +1283,7 @@ impl IWSDUdpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDUdpAddress as ::windows::core::Interface>::IID
+        iid == &<IWSDUdpAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID
     }
 }
 pub trait IWSDUdpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
@@ -1313,7 +1313,7 @@ impl IWSDUdpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDUdpMessageParameters as ::windows::core::Interface>::IID
+        iid == &<IWSDUdpMessageParameters as ::windows::core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -92,7 +92,7 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
         Self { base: ICompositionDrawingSurfaceInterop_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CopySurface: CopySurface::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionDrawingSurfaceInterop2 as ::windows::core::Interface>::IID
+        iid == &<ICompositionDrawingSurfaceInterop2 as ::windows::core::Interface>::IID || iid == &<ICompositionDrawingSurfaceInterop as ::windows::core::Interface>::IID
     }
 }
 pub trait ICompositionGraphicsDeviceInterop_Impl: Sized {

@@ -75,7 +75,7 @@ impl IMXAttributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMXAttributes as ::windows::core::Interface>::IID
+        iid == &<IMXAttributes as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -205,7 +205,7 @@ impl IMXNamespacePrefixes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMXNamespacePrefixes as ::windows::core::Interface>::IID
+        iid == &<IMXNamespacePrefixes as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -237,7 +237,7 @@ impl IMXReaderControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMXReaderControl as ::windows::core::Interface>::IID
+        iid == &<IMXReaderControl as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -257,7 +257,7 @@ impl IMXSchemaDeclHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMXSchemaDeclHandler as ::windows::core::Interface>::IID
+        iid == &<IMXSchemaDeclHandler as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -421,7 +421,7 @@ impl IMXWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMXWriter as ::windows::core::Interface>::IID
+        iid == &<IMXWriter as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -543,7 +543,7 @@ impl IMXXMLFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMXXMLFilter as ::windows::core::Interface>::IID
+        iid == &<IMXXMLFilter as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1000,7 +1000,7 @@ impl ISAXXMLFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISAXXMLFilter as ::windows::core::Interface>::IID
+        iid == &<ISAXXMLFilter as ::windows::core::Interface>::IID || iid == &<ISAXXMLReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1292,7 +1292,7 @@ impl ISchema_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchema as ::windows::core::Interface>::IID
+        iid == &<ISchema as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1330,7 +1330,7 @@ impl ISchemaAny_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaAny as ::windows::core::Interface>::IID
+        iid == &<ISchemaAny as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID || iid == &<ISchemaParticle as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1416,7 +1416,7 @@ impl ISchemaAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaAttribute as ::windows::core::Interface>::IID
+        iid == &<ISchemaAttribute as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1454,7 +1454,7 @@ impl ISchemaAttributeGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaAttributeGroup as ::windows::core::Interface>::IID
+        iid == &<ISchemaAttributeGroup as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1540,7 +1540,7 @@ impl ISchemaComplexType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaComplexType as ::windows::core::Interface>::IID
+        iid == &<ISchemaComplexType as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID || iid == &<ISchemaType as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1686,7 +1686,7 @@ impl ISchemaElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaElement as ::windows::core::Interface>::IID
+        iid == &<ISchemaElement as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID || iid == &<ISchemaParticle as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1736,7 +1736,7 @@ impl ISchemaIdentityConstraint_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaIdentityConstraint as ::windows::core::Interface>::IID
+        iid == &<ISchemaIdentityConstraint as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1834,7 +1834,7 @@ impl ISchemaItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaItem as ::windows::core::Interface>::IID
+        iid == &<ISchemaItem as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1908,7 +1908,7 @@ impl ISchemaItemCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaItemCollection as ::windows::core::Interface>::IID
+        iid == &<ISchemaItemCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1931,7 +1931,7 @@ impl ISchemaModelGroup_Vtbl {
         Self { base: ISchemaParticle_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), particles: particles::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaModelGroup as ::windows::core::Interface>::IID
+        iid == &<ISchemaModelGroup as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID || iid == &<ISchemaParticle as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1969,7 +1969,7 @@ impl ISchemaNotation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaNotation as ::windows::core::Interface>::IID
+        iid == &<ISchemaNotation as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2007,7 +2007,7 @@ impl ISchemaParticle_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaParticle as ::windows::core::Interface>::IID
+        iid == &<ISchemaParticle as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2057,7 +2057,7 @@ impl ISchemaStringCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaStringCollection as ::windows::core::Interface>::IID
+        iid == &<ISchemaStringCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2275,7 +2275,7 @@ impl ISchemaType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaType as ::windows::core::Interface>::IID
+        iid == &<ISchemaType as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISchemaItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2325,7 +2325,7 @@ impl IServerXMLHTTPRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IServerXMLHTTPRequest as ::windows::core::Interface>::IID
+        iid == &<IServerXMLHTTPRequest as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLHTTPRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2351,7 +2351,7 @@ impl IServerXMLHTTPRequest2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IServerXMLHTTPRequest2 as ::windows::core::Interface>::IID
+        iid == &<IServerXMLHTTPRequest2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLHTTPRequest as ::windows::core::Interface>::IID || iid == &<IServerXMLHTTPRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2461,7 +2461,7 @@ impl IVBMXNamespaceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBMXNamespaceManager as ::windows::core::Interface>::IID
+        iid == &<IVBMXNamespaceManager as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2619,7 +2619,7 @@ impl IVBSAXAttributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXAttributes as ::windows::core::Interface>::IID
+        iid == &<IVBSAXAttributes as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2699,7 +2699,7 @@ impl IVBSAXContentHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXContentHandler as ::windows::core::Interface>::IID
+        iid == &<IVBSAXContentHandler as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2725,7 +2725,7 @@ impl IVBSAXDTDHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXDTDHandler as ::windows::core::Interface>::IID
+        iid == &<IVBSAXDTDHandler as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2763,7 +2763,7 @@ impl IVBSAXDeclHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXDeclHandler as ::windows::core::Interface>::IID
+        iid == &<IVBSAXDeclHandler as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2783,7 +2783,7 @@ impl IVBSAXEntityResolver_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXEntityResolver as ::windows::core::Interface>::IID
+        iid == &<IVBSAXEntityResolver as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2815,7 +2815,7 @@ impl IVBSAXErrorHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXErrorHandler as ::windows::core::Interface>::IID
+        iid == &<IVBSAXErrorHandler as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2871,7 +2871,7 @@ impl IVBSAXLexicalHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXLexicalHandler as ::windows::core::Interface>::IID
+        iid == &<IVBSAXLexicalHandler as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2933,7 +2933,7 @@ impl IVBSAXLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXLocator as ::windows::core::Interface>::IID
+        iid == &<IVBSAXLocator as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2965,7 +2965,7 @@ impl IVBSAXXMLFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXXMLFilter as ::windows::core::Interface>::IID
+        iid == &<IVBSAXXMLFilter as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3135,7 +3135,7 @@ impl IVBSAXXMLReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVBSAXXMLReader as ::windows::core::Interface>::IID
+        iid == &<IVBSAXXMLReader as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3173,7 +3173,7 @@ impl IXMLAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLAttribute as ::windows::core::Interface>::IID
+        iid == &<IXMLAttribute as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3205,7 +3205,7 @@ impl IXMLDOMAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMAttribute as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMAttribute as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3216,7 +3216,7 @@ impl IXMLDOMCDATASection_Vtbl {
         Self { base: IXMLDOMText_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMCDATASection as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMCDATASection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID || iid == &<IXMLDOMText as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3278,7 +3278,7 @@ impl IXMLDOMCharacterData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3289,7 +3289,7 @@ impl IXMLDOMComment_Vtbl {
         Self { base: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMComment as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMComment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3591,7 +3591,7 @@ impl IXMLDOMDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMDocument as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMDocument as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3665,7 +3665,7 @@ impl IXMLDOMDocument2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMDocument2 as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMDocument2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMDocument as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3703,7 +3703,7 @@ impl IXMLDOMDocument3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMDocument3 as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMDocument3 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMDocument as ::windows::core::Interface>::IID || iid == &<IXMLDOMDocument2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3714,7 +3714,7 @@ impl IXMLDOMDocumentFragment_Vtbl {
         Self { base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMDocumentFragment as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMDocumentFragment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3758,7 +3758,7 @@ impl IXMLDOMDocumentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMDocumentType as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMDocumentType as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3850,7 +3850,7 @@ impl IXMLDOMElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMElement as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMElement as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3882,7 +3882,7 @@ impl IXMLDOMEntity_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMEntity as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMEntity as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3893,7 +3893,7 @@ impl IXMLDOMEntityReference_Vtbl {
         Self { base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMEntityReference as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMEntityReference as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3913,7 +3913,7 @@ impl IXMLDOMImplementation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMImplementation as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMImplementation as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4035,7 +4035,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMNamedNodeMap as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMNamedNodeMap as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4361,7 +4361,7 @@ impl IXMLDOMNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4423,7 +4423,7 @@ impl IXMLDOMNodeList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMNodeList as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMNodeList as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4449,7 +4449,7 @@ impl IXMLDOMNotation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMNotation as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMNotation as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4505,7 +4505,7 @@ impl IXMLDOMParseError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMParseError as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMParseError as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4567,7 +4567,7 @@ impl IXMLDOMParseError2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMParseError2 as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMParseError2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMParseError as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4635,7 +4635,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMParseErrorCollection as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMParseErrorCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4667,7 +4667,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMProcessingInstruction as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMProcessingInstruction as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4747,7 +4747,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMSchemaCollection as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMSchemaCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4809,7 +4809,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMSchemaCollection2 as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMSchemaCollection2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMSchemaCollection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4931,7 +4931,7 @@ impl IXMLDOMSelection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMSelection as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMSelection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNodeList as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4954,7 +4954,7 @@ impl IXMLDOMText_Vtbl {
         Self { base: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), splitText: splitText::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDOMText as ::windows::core::Interface>::IID
+        iid == &<IXMLDOMText as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5004,7 +5004,7 @@ impl IXMLDSOControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDSOControl as ::windows::core::Interface>::IID
+        iid == &<IXMLDSOControl as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5174,7 +5174,7 @@ impl IXMLDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDocument as ::windows::core::Interface>::IID
+        iid == &<IXMLDocument as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5362,7 +5362,7 @@ impl IXMLDocument2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLDocument2 as ::windows::core::Interface>::IID
+        iid == &<IXMLDocument2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5484,7 +5484,7 @@ impl IXMLElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLElement as ::windows::core::Interface>::IID
+        iid == &<IXMLElement as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5618,7 +5618,7 @@ impl IXMLElement2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLElement2 as ::windows::core::Interface>::IID
+        iid == &<IXMLElement2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5674,7 +5674,7 @@ impl IXMLElementCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLElementCollection as ::windows::core::Interface>::IID
+        iid == &<IXMLElementCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5843,7 +5843,7 @@ impl IXMLHTTPRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLHTTPRequest as ::windows::core::Interface>::IID
+        iid == &<IXMLHTTPRequest as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5996,7 +5996,7 @@ impl IXMLHTTPRequest3_Vtbl {
         Self { base: IXMLHTTPRequest2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetClientCertificate: SetClientCertificate::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLHTTPRequest3 as ::windows::core::Interface>::IID
+        iid == &<IXMLHTTPRequest3 as ::windows::core::Interface>::IID || iid == &<IXMLHTTPRequest2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6022,7 +6022,7 @@ impl IXMLHTTPRequest3Callback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLHTTPRequest3Callback as ::windows::core::Interface>::IID
+        iid == &<IXMLHTTPRequest3Callback as ::windows::core::Interface>::IID || iid == &<IXMLHTTPRequest2Callback as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6174,7 +6174,7 @@ impl IXMLHttpRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXMLHttpRequest as ::windows::core::Interface>::IID
+        iid == &<IXMLHttpRequest as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6320,7 +6320,7 @@ impl IXSLProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXSLProcessor as ::windows::core::Interface>::IID
+        iid == &<IXSLProcessor as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6364,7 +6364,7 @@ impl IXSLTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXSLTemplate as ::windows::core::Interface>::IID
+        iid == &<IXSLTemplate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6432,7 +6432,7 @@ impl IXTLRuntime_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXTLRuntime as ::windows::core::Interface>::IID
+        iid == &<IXTLRuntime as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IXMLDOMNode as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6443,6 +6443,6 @@ impl XMLDOMDocumentEvents_Vtbl {
         Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<XMLDOMDocumentEvents as ::windows::core::Interface>::IID
+        iid == &<XMLDOMDocumentEvents as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

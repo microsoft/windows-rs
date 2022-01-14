@@ -173,7 +173,7 @@ impl IMDSPDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDSPDevice2 as ::windows::core::Interface>::IID
+        iid == &<IMDSPDevice2 as ::windows::core::Interface>::IID || iid == &<IMDSPDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -235,7 +235,7 @@ impl IMDSPDevice3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDSPDevice3 as ::windows::core::Interface>::IID
+        iid == &<IMDSPDevice3 as ::windows::core::Interface>::IID || iid == &<IMDSPDevice as ::windows::core::Interface>::IID || iid == &<IMDSPDevice2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IMDSPDeviceControl_Impl: Sized {
@@ -514,7 +514,7 @@ impl IMDSPObject2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDSPObject2 as ::windows::core::Interface>::IID
+        iid == &<IMDSPObject2 as ::windows::core::Interface>::IID || iid == &<IMDSPObject as ::windows::core::Interface>::IID
     }
 }
 pub trait IMDSPObjectInfo_Impl: Sized {
@@ -763,7 +763,7 @@ impl IMDSPStorage2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDSPStorage2 as ::windows::core::Interface>::IID
+        iid == &<IMDSPStorage2 as ::windows::core::Interface>::IID || iid == &<IMDSPStorage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -789,7 +789,7 @@ impl IMDSPStorage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDSPStorage3 as ::windows::core::Interface>::IID
+        iid == &<IMDSPStorage3 as ::windows::core::Interface>::IID || iid == &<IMDSPStorage as ::windows::core::Interface>::IID || iid == &<IMDSPStorage2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -857,7 +857,7 @@ impl IMDSPStorage4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDSPStorage4 as ::windows::core::Interface>::IID
+        iid == &<IMDSPStorage4 as ::windows::core::Interface>::IID || iid == &<IMDSPStorage as ::windows::core::Interface>::IID || iid == &<IMDSPStorage2 as ::windows::core::Interface>::IID || iid == &<IMDSPStorage3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IMDSPStorageGlobals_Impl: Sized {
@@ -1000,7 +1000,7 @@ impl IMDServiceProvider2_Vtbl {
         Self { base: IMDServiceProvider_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateDevice: CreateDevice::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDServiceProvider2 as ::windows::core::Interface>::IID
+        iid == &<IMDServiceProvider2 as ::windows::core::Interface>::IID || iid == &<IMDServiceProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1020,7 +1020,7 @@ impl IMDServiceProvider3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDServiceProvider3 as ::windows::core::Interface>::IID
+        iid == &<IMDServiceProvider3 as ::windows::core::Interface>::IID || iid == &<IMDServiceProvider as ::windows::core::Interface>::IID || iid == &<IMDServiceProvider2 as ::windows::core::Interface>::IID
     }
 }
 pub trait ISCPSecureAuthenticate_Impl: Sized {
@@ -1062,7 +1062,7 @@ impl ISCPSecureAuthenticate2_Vtbl {
         Self { base: ISCPSecureAuthenticate_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetSCPSession: GetSCPSession::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISCPSecureAuthenticate2 as ::windows::core::Interface>::IID
+        iid == &<ISCPSecureAuthenticate2 as ::windows::core::Interface>::IID || iid == &<ISCPSecureAuthenticate as ::windows::core::Interface>::IID
     }
 }
 pub trait ISCPSecureExchange_Impl: Sized {
@@ -1110,7 +1110,7 @@ impl ISCPSecureExchange2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISCPSecureExchange2 as ::windows::core::Interface>::IID
+        iid == &<ISCPSecureExchange2 as ::windows::core::Interface>::IID || iid == &<ISCPSecureExchange as ::windows::core::Interface>::IID
     }
 }
 pub trait ISCPSecureExchange3_Impl: Sized + ISCPSecureExchange_Impl + ISCPSecureExchange2_Impl {
@@ -1146,7 +1146,7 @@ impl ISCPSecureExchange3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISCPSecureExchange3 as ::windows::core::Interface>::IID
+        iid == &<ISCPSecureExchange3 as ::windows::core::Interface>::IID || iid == &<ISCPSecureExchange as ::windows::core::Interface>::IID || iid == &<ISCPSecureExchange2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1222,7 +1222,7 @@ impl ISCPSecureQuery2_Vtbl {
         Self { base: ISCPSecureQuery_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), MakeDecision2: MakeDecision2::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISCPSecureQuery2 as ::windows::core::Interface>::IID
+        iid == &<ISCPSecureQuery2 as ::windows::core::Interface>::IID || iid == &<ISCPSecureQuery as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1269,7 +1269,7 @@ impl ISCPSecureQuery3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISCPSecureQuery3 as ::windows::core::Interface>::IID
+        iid == &<ISCPSecureQuery3 as ::windows::core::Interface>::IID || iid == &<ISCPSecureQuery as ::windows::core::Interface>::IID || iid == &<ISCPSecureQuery2 as ::windows::core::Interface>::IID
     }
 }
 pub trait ISCPSession_Impl: Sized {
@@ -1459,7 +1459,7 @@ impl IWMDMDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMDevice2 as ::windows::core::Interface>::IID
+        iid == &<IWMDMDevice2 as ::windows::core::Interface>::IID || iid == &<IWMDMDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -1521,7 +1521,7 @@ impl IWMDMDevice3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMDevice3 as ::windows::core::Interface>::IID
+        iid == &<IWMDMDevice3 as ::windows::core::Interface>::IID || iid == &<IWMDMDevice as ::windows::core::Interface>::IID || iid == &<IWMDMDevice2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMDMDeviceControl_Impl: Sized {
@@ -2032,7 +2032,7 @@ impl IWMDMOperation2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMOperation2 as ::windows::core::Interface>::IID
+        iid == &<IWMDMOperation2 as ::windows::core::Interface>::IID || iid == &<IWMDMOperation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2052,7 +2052,7 @@ impl IWMDMOperation3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMOperation3 as ::windows::core::Interface>::IID
+        iid == &<IWMDMOperation3 as ::windows::core::Interface>::IID || iid == &<IWMDMOperation as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMDMProgress_Impl: Sized {
@@ -2097,7 +2097,7 @@ impl IWMDMProgress2_Vtbl {
         Self { base: IWMDMProgress_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), End2: End2::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMProgress2 as ::windows::core::Interface>::IID
+        iid == &<IWMDMProgress2 as ::windows::core::Interface>::IID || iid == &<IWMDMProgress as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMDMProgress3_Impl: Sized + IWMDMProgress_Impl + IWMDMProgress2_Impl {
@@ -2127,7 +2127,7 @@ impl IWMDMProgress3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMProgress3 as ::windows::core::Interface>::IID
+        iid == &<IWMDMProgress3 as ::windows::core::Interface>::IID || iid == &<IWMDMProgress as ::windows::core::Interface>::IID || iid == &<IWMDMProgress2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2268,7 +2268,7 @@ impl IWMDMStorage2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMStorage2 as ::windows::core::Interface>::IID
+        iid == &<IWMDMStorage2 as ::windows::core::Interface>::IID || iid == &<IWMDMStorage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2318,7 +2318,7 @@ impl IWMDMStorage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMStorage3 as ::windows::core::Interface>::IID
+        iid == &<IWMDMStorage3 as ::windows::core::Interface>::IID || iid == &<IWMDMStorage as ::windows::core::Interface>::IID || iid == &<IWMDMStorage2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2386,7 +2386,7 @@ impl IWMDMStorage4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMStorage4 as ::windows::core::Interface>::IID
+        iid == &<IWMDMStorage4 as ::windows::core::Interface>::IID || iid == &<IWMDMStorage as ::windows::core::Interface>::IID || iid == &<IWMDMStorage2 as ::windows::core::Interface>::IID || iid == &<IWMDMStorage3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2453,7 +2453,7 @@ impl IWMDMStorageControl2_Vtbl {
         Self { base: IWMDMStorageControl_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Insert2: Insert2::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMStorageControl2 as ::windows::core::Interface>::IID
+        iid == &<IWMDMStorageControl2 as ::windows::core::Interface>::IID || iid == &<IWMDMStorageControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2470,7 +2470,7 @@ impl IWMDMStorageControl3_Vtbl {
         Self { base: IWMDMStorageControl2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Insert3: Insert3::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDMStorageControl3 as ::windows::core::Interface>::IID
+        iid == &<IWMDMStorageControl3 as ::windows::core::Interface>::IID || iid == &<IWMDMStorageControl as ::windows::core::Interface>::IID || iid == &<IWMDMStorageControl2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMDMStorageGlobals_Impl: Sized {
@@ -2628,7 +2628,7 @@ impl IWMDeviceManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDeviceManager2 as ::windows::core::Interface>::IID
+        iid == &<IWMDeviceManager2 as ::windows::core::Interface>::IID || iid == &<IWMDeviceManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2648,6 +2648,6 @@ impl IWMDeviceManager3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMDeviceManager3 as ::windows::core::Interface>::IID
+        iid == &<IWMDeviceManager3 as ::windows::core::Interface>::IID || iid == &<IWMDeviceManager as ::windows::core::Interface>::IID || iid == &<IWMDeviceManager2 as ::windows::core::Interface>::IID
     }
 }

@@ -242,7 +242,7 @@ impl IOfflineFilesCache2_Vtbl {
         Self { base: IOfflineFilesCache_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), RenameItemEx: RenameItemEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesCache2 as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesCache2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesCache as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -383,7 +383,7 @@ impl IOfflineFilesDirectoryItem_Vtbl {
         Self { base: IOfflineFilesItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesDirectoryItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesDirectoryItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
 pub trait IOfflineFilesDirtyInfo_Impl: Sized {
@@ -689,7 +689,7 @@ impl IOfflineFilesEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -721,7 +721,7 @@ impl IOfflineFilesEvents3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents3 as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEvents3 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -747,7 +747,7 @@ impl IOfflineFilesEvents4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents4 as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesEvents4 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesEvents3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -817,7 +817,7 @@ impl IOfflineFilesFileItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesFileItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesFileItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1093,7 +1093,7 @@ impl IOfflineFilesPinInfo2_Vtbl {
         Self { base: IOfflineFilesPinInfo_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), IsPartlyPinned: IsPartlyPinned::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesPinInfo2 as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesPinInfo2 as ::windows::core::Interface>::IID || iid == &<IOfflineFilesPinInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1148,7 +1148,7 @@ impl IOfflineFilesServerItem_Vtbl {
         Self { base: IOfflineFilesItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesServerItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesServerItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1301,7 +1301,7 @@ impl IOfflineFilesShareItem_Vtbl {
         Self { base: IOfflineFilesItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesShareItem as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesShareItem as ::windows::core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1339,7 +1339,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSimpleProgress as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSimpleProgress as ::windows::core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1476,7 +1476,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncErrorInfo as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSyncErrorInfo as ::windows::core::Interface>::IID || iid == &<IOfflineFilesErrorInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1558,7 +1558,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncProgress as ::windows::core::Interface>::IID
+        iid == &<IOfflineFilesSyncProgress as ::windows::core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

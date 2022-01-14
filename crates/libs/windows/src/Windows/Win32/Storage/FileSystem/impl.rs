@@ -165,7 +165,7 @@ impl IDiskQuotaControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDiskQuotaControl as ::windows::core::Interface>::IID
+        iid == &<IDiskQuotaControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows::core::Interface>::IID
     }
 }
 pub trait IDiskQuotaEvents_Impl: Sized {

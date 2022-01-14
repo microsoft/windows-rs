@@ -21,7 +21,7 @@ impl IMSMQApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQApplication as ::windows::core::Interface>::IID
+        iid == &<IMSMQApplication as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -113,7 +113,7 @@ impl IMSMQApplication2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQApplication2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQApplication2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQApplication as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -223,7 +223,7 @@ impl IMSMQApplication3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQApplication3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQApplication3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQApplication as ::windows::core::Interface>::IID || iid == &<IMSMQApplication2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -273,7 +273,7 @@ impl IMSMQCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQCollection as ::windows::core::Interface>::IID
+        iid == &<IMSMQCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -296,7 +296,7 @@ impl IMSMQCoordinatedTransactionDispenser_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), BeginTransaction: BeginTransaction::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQCoordinatedTransactionDispenser as ::windows::core::Interface>::IID
+        iid == &<IMSMQCoordinatedTransactionDispenser as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -334,7 +334,7 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQCoordinatedTransactionDispenser2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQCoordinatedTransactionDispenser2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -372,7 +372,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQCoordinatedTransactionDispenser3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQCoordinatedTransactionDispenser3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -512,7 +512,7 @@ impl IMSMQDestination_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQDestination as ::windows::core::Interface>::IID
+        iid == &<IMSMQDestination as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -523,7 +523,7 @@ impl IMSMQEvent_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQEvent as ::windows::core::Interface>::IID
+        iid == &<IMSMQEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -546,7 +546,7 @@ impl IMSMQEvent2_Vtbl {
         Self { base: IMSMQEvent_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Properties: Properties::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQEvent2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQEvent as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -557,7 +557,7 @@ impl IMSMQEvent3_Vtbl {
         Self { base: IMSMQEvent2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQEvent3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQEvent3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQEvent as ::windows::core::Interface>::IID || iid == &<IMSMQEvent2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -673,7 +673,7 @@ impl IMSMQManagement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQManagement as ::windows::core::Interface>::IID
+        iid == &<IMSMQManagement as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1149,7 +1149,7 @@ impl IMSMQMessage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQMessage as ::windows::core::Interface>::IID
+        iid == &<IMSMQMessage as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1877,7 +1877,7 @@ impl IMSMQMessage2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQMessage2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQMessage2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2761,7 +2761,7 @@ impl IMSMQMessage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQMessage3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQMessage3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3645,7 +3645,7 @@ impl IMSMQMessage4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQMessage4 as ::windows::core::Interface>::IID
+        iid == &<IMSMQMessage4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3713,7 +3713,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQOutgoingQueueManagement as ::windows::core::Interface>::IID
+        iid == &<IMSMQOutgoingQueueManagement as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQManagement as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3745,7 +3745,7 @@ impl IMSMQPrivateDestination_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQPrivateDestination as ::windows::core::Interface>::IID
+        iid == &<IMSMQPrivateDestination as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3783,7 +3783,7 @@ impl IMSMQPrivateEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQPrivateEvent as ::windows::core::Interface>::IID
+        iid == &<IMSMQPrivateEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3806,7 +3806,7 @@ impl IMSMQQuery_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), LookupQueue: LookupQueue::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQuery as ::windows::core::Interface>::IID
+        iid == &<IMSMQQuery as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3844,7 +3844,7 @@ impl IMSMQQuery2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQuery2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQuery2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3906,7 +3906,7 @@ impl IMSMQQuery3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQuery3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQuery3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3968,7 +3968,7 @@ impl IMSMQQuery4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQuery4 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQuery4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4120,7 +4120,7 @@ impl IMSMQQueue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueue as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueue as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4344,7 +4344,7 @@ impl IMSMQQueue2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueue2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueue2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4718,7 +4718,7 @@ impl IMSMQQueue3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueue3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueue3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5104,7 +5104,7 @@ impl IMSMQQueue4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueue4 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueue4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5394,7 +5394,7 @@ impl IMSMQQueueInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfo as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5726,7 +5726,7 @@ impl IMSMQQueueInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfo2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfo2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6112,7 +6112,7 @@ impl IMSMQQueueInfo3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfo3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfo3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6498,7 +6498,7 @@ impl IMSMQQueueInfo4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfo4 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfo4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6530,7 +6530,7 @@ impl IMSMQQueueInfos_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfos as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfos as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6574,7 +6574,7 @@ impl IMSMQQueueInfos2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfos2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfos2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6618,7 +6618,7 @@ impl IMSMQQueueInfos3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfos3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfos3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6662,7 +6662,7 @@ impl IMSMQQueueInfos4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueInfos4 as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueInfos4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6712,7 +6712,7 @@ impl IMSMQQueueManagement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQQueueManagement as ::windows::core::Interface>::IID
+        iid == &<IMSMQQueueManagement as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQManagement as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6750,7 +6750,7 @@ impl IMSMQTransaction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQTransaction as ::windows::core::Interface>::IID
+        iid == &<IMSMQTransaction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6782,7 +6782,7 @@ impl IMSMQTransaction2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQTransaction2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQTransaction2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6805,7 +6805,7 @@ impl IMSMQTransaction3_Vtbl {
         Self { base: IMSMQTransaction2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ITransaction: ITransaction::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQTransaction3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQTransaction3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction as ::windows::core::Interface>::IID || iid == &<IMSMQTransaction2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6828,7 +6828,7 @@ impl IMSMQTransactionDispenser_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), BeginTransaction: BeginTransaction::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQTransactionDispenser as ::windows::core::Interface>::IID
+        iid == &<IMSMQTransactionDispenser as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6866,7 +6866,7 @@ impl IMSMQTransactionDispenser2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQTransactionDispenser2 as ::windows::core::Interface>::IID
+        iid == &<IMSMQTransactionDispenser2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6904,7 +6904,7 @@ impl IMSMQTransactionDispenser3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSMQTransactionDispenser3 as ::windows::core::Interface>::IID
+        iid == &<IMSMQTransactionDispenser3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6915,6 +6915,6 @@ impl _DMSMQEventEvents_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<_DMSMQEventEvents as ::windows::core::Interface>::IID
+        iid == &<_DMSMQEventEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

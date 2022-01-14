@@ -155,7 +155,7 @@ impl IActiveIME2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveIME2 as ::windows::core::Interface>::IID
+        iid == &<IActiveIME2 as ::windows::core::Interface>::IID || iid == &<IActiveIME as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
@@ -1626,7 +1626,7 @@ impl IFEClassFactory_Vtbl {
         Self { base: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFEClassFactory as ::windows::core::Interface>::IID
+        iid == &<IFEClassFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IClassFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

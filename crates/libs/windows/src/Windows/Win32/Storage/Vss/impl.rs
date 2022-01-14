@@ -79,7 +79,7 @@ impl IVssAdminEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssAdminEx as ::windows::core::Interface>::IID
+        iid == &<IVssAdminEx as ::windows::core::Interface>::IID || iid == &<IVssAdmin as ::windows::core::Interface>::IID
     }
 }
 pub trait IVssAsync_Impl: Sized {
@@ -443,7 +443,7 @@ impl IVssComponentEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssComponentEx as ::windows::core::Interface>::IID
+        iid == &<IVssComponentEx as ::windows::core::Interface>::IID || iid == &<IVssComponent as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -469,7 +469,7 @@ impl IVssComponentEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssComponentEx2 as ::windows::core::Interface>::IID
+        iid == &<IVssComponentEx2 as ::windows::core::Interface>::IID || iid == &<IVssComponent as ::windows::core::Interface>::IID || iid == &<IVssComponentEx as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -766,7 +766,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as ::windows::core::Interface>::IID
+        iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as ::windows::core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -816,7 +816,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as ::windows::core::Interface>::IID
+        iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as ::windows::core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as ::windows::core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IVssEnumMgmtObject_Impl: Sized {
@@ -1112,7 +1112,7 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssHardwareSnapshotProviderEx as ::windows::core::Interface>::IID
+        iid == &<IVssHardwareSnapshotProviderEx as ::windows::core::Interface>::IID || iid == &<IVssHardwareSnapshotProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait IVssProviderCreateSnapshotSet_Impl: Sized {

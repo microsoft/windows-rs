@@ -31,7 +31,7 @@ impl IWICBitmap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmap as ::windows::core::Interface>::IID
+        iid == &<IWICBitmap as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICBitmapClipper_Impl: Sized + IWICBitmapSource_Impl {
@@ -46,7 +46,7 @@ impl IWICBitmapClipper_Vtbl {
         Self { base: IWICBitmapSource_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Initialize: Initialize::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmapClipper as ::windows::core::Interface>::IID
+        iid == &<IWICBitmapClipper as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -168,7 +168,7 @@ impl IWICBitmapCodecInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID
+        iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICBitmapCodecProgressNotification_Impl: Sized {
@@ -358,7 +358,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmapDecoderInfo as ::windows::core::Interface>::IID
+        iid == &<IWICBitmapDecoderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -473,7 +473,7 @@ impl IWICBitmapEncoderInfo_Vtbl {
         Self { base: IWICBitmapCodecInfo_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateInstance: CreateInstance::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmapEncoderInfo as ::windows::core::Interface>::IID
+        iid == &<IWICBitmapEncoderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICBitmapFlipRotator_Impl: Sized + IWICBitmapSource_Impl {
@@ -488,7 +488,7 @@ impl IWICBitmapFlipRotator_Vtbl {
         Self { base: IWICBitmapSource_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Initialize: Initialize::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmapFlipRotator as ::windows::core::Interface>::IID
+        iid == &<IWICBitmapFlipRotator as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICBitmapFrameDecode_Impl: Sized + IWICBitmapSource_Impl {
@@ -530,7 +530,7 @@ impl IWICBitmapFrameDecode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmapFrameDecode as ::windows::core::Interface>::IID
+        iid == &<IWICBitmapFrameDecode as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -679,7 +679,7 @@ impl IWICBitmapScaler_Vtbl {
         Self { base: IWICBitmapSource_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Initialize: Initialize::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICBitmapScaler as ::windows::core::Interface>::IID
+        iid == &<IWICBitmapScaler as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICBitmapSource_Impl: Sized {
@@ -848,7 +848,7 @@ impl IWICColorTransform_Vtbl {
         Self { base: IWICBitmapSource_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Initialize: Initialize::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICColorTransform as ::windows::core::Interface>::IID
+        iid == &<IWICColorTransform as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -946,7 +946,7 @@ impl IWICComponentFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICComponentFactory as ::windows::core::Interface>::IID
+        iid == &<IWICComponentFactory as ::windows::core::Interface>::IID || iid == &<IWICImagingFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1424,7 +1424,7 @@ impl IWICDevelopRaw_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICDevelopRaw as ::windows::core::Interface>::IID
+        iid == &<IWICDevelopRaw as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID || iid == &<IWICBitmapFrameDecode as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICDevelopRawNotificationCallback_Impl: Sized {
@@ -1545,7 +1545,7 @@ impl IWICFormatConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICFormatConverter as ::windows::core::Interface>::IID
+        iid == &<IWICFormatConverter as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1577,7 +1577,7 @@ impl IWICFormatConverterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICFormatConverterInfo as ::windows::core::Interface>::IID
+        iid == &<IWICFormatConverterInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2169,7 +2169,7 @@ impl IWICMetadataBlockWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICMetadataBlockWriter as ::windows::core::Interface>::IID
+        iid == &<IWICMetadataBlockWriter as ::windows::core::Interface>::IID || iid == &<IWICMetadataBlockReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2249,7 +2249,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID
+        iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2325,7 +2325,7 @@ impl IWICMetadataQueryWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICMetadataQueryWriter as ::windows::core::Interface>::IID
+        iid == &<IWICMetadataQueryWriter as ::windows::core::Interface>::IID || iid == &<IWICMetadataQueryReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2443,7 +2443,7 @@ impl IWICMetadataReaderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICMetadataReaderInfo as ::windows::core::Interface>::IID
+        iid == &<IWICMetadataReaderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2481,7 +2481,7 @@ impl IWICMetadataWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICMetadataWriter as ::windows::core::Interface>::IID
+        iid == &<IWICMetadataWriter as ::windows::core::Interface>::IID || iid == &<IWICMetadataReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2513,7 +2513,7 @@ impl IWICMetadataWriterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICMetadataWriterInfo as ::windows::core::Interface>::IID
+        iid == &<IWICMetadataWriterInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2643,7 +2643,7 @@ impl IWICPersistStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICPersistStream as ::windows::core::Interface>::IID
+        iid == &<IWICPersistStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2711,7 +2711,7 @@ impl IWICPixelFormatInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICPixelFormatInfo as ::windows::core::Interface>::IID
+        iid == &<IWICPixelFormatInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2749,7 +2749,7 @@ impl IWICPixelFormatInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICPixelFormatInfo2 as ::windows::core::Interface>::IID
+        iid == &<IWICPixelFormatInfo2 as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICPixelFormatInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICPlanarBitmapFrameEncode_Impl: Sized {
@@ -2831,7 +2831,7 @@ impl IWICPlanarFormatConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICPlanarFormatConverter as ::windows::core::Interface>::IID
+        iid == &<IWICPlanarFormatConverter as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
 pub trait IWICProgressCallback_Impl: Sized {
@@ -2926,7 +2926,7 @@ impl IWICStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICStream as ::windows::core::Interface>::IID
+        iid == &<IWICStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]

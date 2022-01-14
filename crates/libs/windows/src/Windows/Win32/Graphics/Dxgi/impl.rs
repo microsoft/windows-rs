@@ -45,7 +45,7 @@ impl IDXGIAdapter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -68,7 +68,7 @@ impl IDXGIAdapter1_Vtbl {
         Self { base: IDXGIAdapter_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc1: GetDesc1::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -91,7 +91,7 @@ impl IDXGIAdapter2_Vtbl {
         Self { base: IDXGIAdapter1_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc2: GetDesc2::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -159,7 +159,7 @@ impl IDXGIAdapter3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -182,7 +182,7 @@ impl IDXGIAdapter4_Vtbl {
         Self { base: IDXGIAdapter3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc3: GetDesc3::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIAdapter4 as ::windows::core::Interface>::IID
+        iid == &<IDXGIAdapter4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter1 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter2 as ::windows::core::Interface>::IID || iid == &<IDXGIAdapter3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IDXGIDebug_Impl: Sized {
@@ -229,7 +229,7 @@ impl IDXGIDebug1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDebug1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDebug1 as ::windows::core::Interface>::IID || iid == &<IDXGIDebug as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -365,7 +365,7 @@ impl IDXGIDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -397,7 +397,7 @@ impl IDXGIDevice1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -435,7 +435,7 @@ impl IDXGIDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -452,7 +452,7 @@ impl IDXGIDevice3_Vtbl {
         Self { base: IDXGIDevice2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Trim: Trim::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID || iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -484,7 +484,7 @@ impl IDXGIDevice4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDevice4 as ::windows::core::Interface>::IID
+        iid == &<IDXGIDevice4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDevice as ::windows::core::Interface>::IID || iid == &<IDXGIDevice1 as ::windows::core::Interface>::IID || iid == &<IDXGIDevice2 as ::windows::core::Interface>::IID || iid == &<IDXGIDevice3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IDXGIDeviceSubObject_Impl: Sized + IDXGIObject_Impl {
@@ -499,7 +499,7 @@ impl IDXGIDeviceSubObject_Vtbl {
         Self { base: IDXGIObject_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDevice: GetDevice::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
+        iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -593,7 +593,7 @@ impl IDXGIFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -625,7 +625,7 @@ impl IDXGIFactory1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -753,7 +753,7 @@ impl IDXGIFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -770,7 +770,7 @@ impl IDXGIFactory3_Vtbl {
         Self { base: IDXGIFactory2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetCreationFlags: GetCreationFlags::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -796,7 +796,7 @@ impl IDXGIFactory4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -813,7 +813,7 @@ impl IDXGIFactory5_Vtbl {
         Self { base: IDXGIFactory4_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CheckFeatureSupport: CheckFeatureSupport::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -833,7 +833,7 @@ impl IDXGIFactory6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory6 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory6 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -865,7 +865,7 @@ impl IDXGIFactory7_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIFactory7 as ::windows::core::Interface>::IID
+        iid == &<IDXGIFactory7 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIFactory as ::windows::core::Interface>::IID || iid == &<IDXGIFactory1 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory2 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory3 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory4 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory5 as ::windows::core::Interface>::IID || iid == &<IDXGIFactory6 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1163,7 +1163,7 @@ impl IDXGIKeyedMutex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIKeyedMutex as ::windows::core::Interface>::IID
+        iid == &<IDXGIKeyedMutex as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
     }
 }
 pub trait IDXGIObject_Impl: Sized {
@@ -1309,7 +1309,7 @@ impl IDXGIOutput_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1353,7 +1353,7 @@ impl IDXGIOutput1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1370,7 +1370,7 @@ impl IDXGIOutput2_Vtbl {
         Self { base: IDXGIOutput1_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SupportsOverlays: SupportsOverlays::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1393,7 +1393,7 @@ impl IDXGIOutput3_Vtbl {
         Self { base: IDXGIOutput2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CheckOverlaySupport: CheckOverlaySupport::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1419,7 +1419,7 @@ impl IDXGIOutput4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1442,7 +1442,7 @@ impl IDXGIOutput5_Vtbl {
         Self { base: IDXGIOutput4_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), DuplicateOutput1: DuplicateOutput1::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput5 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput5 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1480,7 +1480,7 @@ impl IDXGIOutput6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutput6 as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutput6 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIOutput as ::windows::core::Interface>::IID || iid == &<IDXGIOutput1 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput2 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput3 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput4 as ::windows::core::Interface>::IID || iid == &<IDXGIOutput5 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1548,7 +1548,7 @@ impl IDXGIOutputDuplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIOutputDuplication as ::windows::core::Interface>::IID
+        iid == &<IDXGIOutputDuplication as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1604,7 +1604,7 @@ impl IDXGIResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIResource as ::windows::core::Interface>::IID
+        iid == &<IDXGIResource as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1642,7 +1642,7 @@ impl IDXGIResource1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGIResource1 as ::windows::core::Interface>::IID
+        iid == &<IDXGIResource1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGIResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1680,7 +1680,7 @@ impl IDXGISurface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISurface as ::windows::core::Interface>::IID
+        iid == &<IDXGISurface as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1712,7 +1712,7 @@ impl IDXGISurface1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISurface1 as ::windows::core::Interface>::IID
+        iid == &<IDXGISurface1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISurface as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1729,7 +1729,7 @@ impl IDXGISurface2_Vtbl {
         Self { base: IDXGISurface1_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetResource: GetResource::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISurface2 as ::windows::core::Interface>::IID
+        iid == &<IDXGISurface2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISurface as ::windows::core::Interface>::IID || iid == &<IDXGISurface1 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1827,7 +1827,7 @@ impl IDXGISwapChain_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1943,7 +1943,7 @@ impl IDXGISwapChain1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2011,7 +2011,7 @@ impl IDXGISwapChain2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2055,7 +2055,7 @@ impl IDXGISwapChain3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain3 as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain3 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2072,7 +2072,7 @@ impl IDXGISwapChain4_Vtbl {
         Self { base: IDXGISwapChain3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetHDRMetaData: SetHDRMetaData::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXGISwapChain4 as ::windows::core::Interface>::IID
+        iid == &<IDXGISwapChain4 as ::windows::core::Interface>::IID || iid == &<IDXGIObject as ::windows::core::Interface>::IID || iid == &<IDXGIDeviceSubObject as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain1 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain2 as ::windows::core::Interface>::IID || iid == &<IDXGISwapChain3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IDXGISwapChainMedia_Impl: Sized {

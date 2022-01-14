@@ -297,7 +297,7 @@ impl IXAudio2MasteringVoice_Vtbl {
         Self { base: IXAudio2Voice_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetChannelMask: GetChannelMask::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2MasteringVoice as ::windows::core::Interface>::IID
+        iid == &<IXAudio2MasteringVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -371,7 +371,7 @@ impl IXAudio2SourceVoice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2SourceVoice as ::windows::core::Interface>::IID
+        iid == &<IXAudio2SourceVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -382,7 +382,7 @@ impl IXAudio2SubmixVoice_Vtbl {
         Self { base: IXAudio2Voice_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2SubmixVoice as ::windows::core::Interface>::IID
+        iid == &<IXAudio2SubmixVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

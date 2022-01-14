@@ -101,7 +101,7 @@ impl IEnhancedStorageACT2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID
+        iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -145,7 +145,7 @@ impl IEnhancedStorageACT3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT3 as ::windows::core::Interface>::IID
+        iid == &<IEnhancedStorageACT3 as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation"))]

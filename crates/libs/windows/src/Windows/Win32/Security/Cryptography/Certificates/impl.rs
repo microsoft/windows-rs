@@ -75,7 +75,7 @@ impl IAlternativeName_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAlternativeName as ::windows::core::Interface>::IID
+        iid == &<IAlternativeName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -143,7 +143,7 @@ impl IAlternativeNames_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAlternativeNames as ::windows::core::Interface>::IID
+        iid == &<IAlternativeNames as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -193,7 +193,7 @@ impl IBinaryConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBinaryConverter as ::windows::core::Interface>::IID
+        iid == &<IBinaryConverter as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -231,7 +231,7 @@ impl IBinaryConverter2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBinaryConverter2 as ::windows::core::Interface>::IID
+        iid == &<IBinaryConverter2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IBinaryConverter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -749,7 +749,7 @@ impl ICEnroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICEnroll as ::windows::core::Interface>::IID
+        iid == &<ICEnroll as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -811,7 +811,7 @@ impl ICEnroll2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICEnroll2 as ::windows::core::Interface>::IID
+        iid == &<ICEnroll2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICEnroll as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -957,7 +957,7 @@ impl ICEnroll3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICEnroll3 as ::windows::core::Interface>::IID
+        iid == &<ICEnroll3 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICEnroll as ::windows::core::Interface>::IID || iid == &<ICEnroll2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1253,7 +1253,7 @@ impl ICEnroll4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICEnroll4 as ::windows::core::Interface>::IID
+        iid == &<ICEnroll4 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICEnroll as ::windows::core::Interface>::IID || iid == &<ICEnroll2 as ::windows::core::Interface>::IID || iid == &<ICEnroll3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1357,7 +1357,7 @@ impl ICertAdmin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertAdmin as ::windows::core::Interface>::IID
+        iid == &<ICertAdmin as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1479,7 +1479,7 @@ impl ICertAdmin2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertAdmin2 as ::windows::core::Interface>::IID
+        iid == &<ICertAdmin2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertAdmin as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1541,7 +1541,7 @@ impl ICertConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertConfig as ::windows::core::Interface>::IID
+        iid == &<ICertConfig as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1558,7 +1558,7 @@ impl ICertConfig2_Vtbl {
         Self { base: ICertConfig_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetSharedFolder: SetSharedFolder::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertConfig2 as ::windows::core::Interface>::IID
+        iid == &<ICertConfig2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertConfig as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1638,7 +1638,7 @@ impl ICertEncodeAltName_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeAltName as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeAltName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1688,7 +1688,7 @@ impl ICertEncodeAltName2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeAltName2 as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeAltName2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeAltName as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1744,7 +1744,7 @@ impl ICertEncodeBitString_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeBitString as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeBitString as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1788,7 +1788,7 @@ impl ICertEncodeBitString2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeBitString2 as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeBitString2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeBitString as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1886,7 +1886,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeCRLDistInfo as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeCRLDistInfo as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1918,7 +1918,7 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeCRLDistInfo2 as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeCRLDistInfo2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeCRLDistInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1986,7 +1986,7 @@ impl ICertEncodeDateArray_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeDateArray as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeDateArray as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2018,7 +2018,7 @@ impl ICertEncodeDateArray2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeDateArray2 as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeDateArray2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeDateArray as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2086,7 +2086,7 @@ impl ICertEncodeLongArray_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeLongArray as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeLongArray as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2118,7 +2118,7 @@ impl ICertEncodeLongArray2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeLongArray2 as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeLongArray2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeLongArray as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2198,7 +2198,7 @@ impl ICertEncodeStringArray_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeStringArray as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeStringArray as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2230,7 +2230,7 @@ impl ICertEncodeStringArray2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertEncodeStringArray2 as ::windows::core::Interface>::IID
+        iid == &<ICertEncodeStringArray2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertEncodeStringArray as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2274,7 +2274,7 @@ impl ICertExit_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertExit as ::windows::core::Interface>::IID
+        iid == &<ICertExit as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2297,7 +2297,7 @@ impl ICertExit2_Vtbl {
         Self { base: ICertExit_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetManageModule: GetManageModule::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertExit2 as ::windows::core::Interface>::IID
+        iid == &<ICertExit2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertExit as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2323,7 +2323,7 @@ impl ICertGetConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertGetConfig as ::windows::core::Interface>::IID
+        iid == &<ICertGetConfig as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2361,7 +2361,7 @@ impl ICertManageModule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertManageModule as ::windows::core::Interface>::IID
+        iid == &<ICertManageModule as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2411,7 +2411,7 @@ impl ICertPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPolicy as ::windows::core::Interface>::IID
+        iid == &<ICertPolicy as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2434,7 +2434,7 @@ impl ICertPolicy2_Vtbl {
         Self { base: ICertPolicy_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetManageModule: GetManageModule::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPolicy2 as ::windows::core::Interface>::IID
+        iid == &<ICertPolicy2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertPolicy as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2508,7 +2508,7 @@ impl ICertProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertProperties as ::windows::core::Interface>::IID
+        iid == &<ICertProperties as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2576,7 +2576,7 @@ impl ICertProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertProperty as ::windows::core::Interface>::IID
+        iid == &<ICertProperty as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2608,7 +2608,7 @@ impl ICertPropertyArchived_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyArchived as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyArchived as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2640,7 +2640,7 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyArchivedKeyHash as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyArchivedKeyHash as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2672,7 +2672,7 @@ impl ICertPropertyAutoEnroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyAutoEnroll as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyAutoEnroll as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2722,7 +2722,7 @@ impl ICertPropertyBackedUp_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyBackedUp as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyBackedUp as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2754,7 +2754,7 @@ impl ICertPropertyDescription_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyDescription as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyDescription as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2822,7 +2822,7 @@ impl ICertPropertyEnrollment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyEnrollment as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyEnrollment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2938,7 +2938,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyEnrollmentPolicyServer as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyEnrollmentPolicyServer as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2970,7 +2970,7 @@ impl ICertPropertyFriendlyName_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyFriendlyName as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyFriendlyName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3002,7 +3002,7 @@ impl ICertPropertyKeyProvInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyKeyProvInfo as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyKeyProvInfo as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3040,7 +3040,7 @@ impl ICertPropertyRenewal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyRenewal as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyRenewal as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3078,7 +3078,7 @@ impl ICertPropertyRequestOriginator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertyRequestOriginator as ::windows::core::Interface>::IID
+        iid == &<ICertPropertyRequestOriginator as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3110,7 +3110,7 @@ impl ICertPropertySHA1Hash_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertPropertySHA1Hash as ::windows::core::Interface>::IID
+        iid == &<ICertPropertySHA1Hash as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertProperty as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3208,7 +3208,7 @@ impl ICertRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertRequest as ::windows::core::Interface>::IID
+        iid == &<ICertRequest as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3294,7 +3294,7 @@ impl ICertRequest2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertRequest2 as ::windows::core::Interface>::IID
+        iid == &<ICertRequest2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3350,7 +3350,7 @@ impl ICertRequest3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertRequest3 as ::windows::core::Interface>::IID
+        iid == &<ICertRequest3 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertRequest as ::windows::core::Interface>::IID || iid == &<ICertRequest2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3434,7 +3434,7 @@ impl ICertRequestD2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertRequestD2 as ::windows::core::Interface>::IID
+        iid == &<ICertRequestD2 as ::windows::core::Interface>::IID || iid == &<ICertRequestD as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3562,7 +3562,7 @@ impl ICertServerExit_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertServerExit as ::windows::core::Interface>::IID
+        iid == &<ICertServerExit as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3702,7 +3702,7 @@ impl ICertServerPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertServerPolicy as ::windows::core::Interface>::IID
+        iid == &<ICertServerPolicy as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3776,7 +3776,7 @@ impl ICertView_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertView as ::windows::core::Interface>::IID
+        iid == &<ICertView as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3793,7 +3793,7 @@ impl ICertView2_Vtbl {
         Self { base: ICertView_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetTable: SetTable::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertView2 as ::windows::core::Interface>::IID
+        iid == &<ICertView2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertView as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3837,7 +3837,7 @@ impl ICertificateAttestationChallenge_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertificateAttestationChallenge as ::windows::core::Interface>::IID
+        iid == &<ICertificateAttestationChallenge as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3863,7 +3863,7 @@ impl ICertificateAttestationChallenge2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertificateAttestationChallenge2 as ::windows::core::Interface>::IID
+        iid == &<ICertificateAttestationChallenge2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ICertificateAttestationChallenge as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3931,7 +3931,7 @@ impl ICertificatePolicies_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertificatePolicies as ::windows::core::Interface>::IID
+        iid == &<ICertificatePolicies as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3975,7 +3975,7 @@ impl ICertificatePolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertificatePolicy as ::windows::core::Interface>::IID
+        iid == &<ICertificatePolicy as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4061,7 +4061,7 @@ impl ICertificationAuthorities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertificationAuthorities as ::windows::core::Interface>::IID
+        iid == &<ICertificationAuthorities as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4087,7 +4087,7 @@ impl ICertificationAuthority_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICertificationAuthority as ::windows::core::Interface>::IID
+        iid == &<ICertificationAuthority as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4137,7 +4137,7 @@ impl ICryptAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICryptAttribute as ::windows::core::Interface>::IID
+        iid == &<ICryptAttribute as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4223,7 +4223,7 @@ impl ICryptAttributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICryptAttributes as ::windows::core::Interface>::IID
+        iid == &<ICryptAttributes as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4357,7 +4357,7 @@ impl ICspAlgorithm_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICspAlgorithm as ::windows::core::Interface>::IID
+        iid == &<ICspAlgorithm as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4449,7 +4449,7 @@ impl ICspAlgorithms_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICspAlgorithms as ::windows::core::Interface>::IID
+        iid == &<ICspAlgorithms as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4655,7 +4655,7 @@ impl ICspInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICspInformation as ::windows::core::Interface>::IID
+        iid == &<ICspInformation as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4789,7 +4789,7 @@ impl ICspInformations_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICspInformations as ::windows::core::Interface>::IID
+        iid == &<ICspInformations as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4875,7 +4875,7 @@ impl ICspStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICspStatus as ::windows::core::Interface>::IID
+        iid == &<ICspStatus as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4991,7 +4991,7 @@ impl ICspStatuses_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICspStatuses as ::windows::core::Interface>::IID
+        iid == &<ICspStatuses as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5547,7 +5547,7 @@ impl IEnroll2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnroll2 as ::windows::core::Interface>::IID
+        iid == &<IEnroll2 as ::windows::core::Interface>::IID || iid == &<IEnroll as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5753,7 +5753,7 @@ impl IEnroll4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnroll4 as ::windows::core::Interface>::IID
+        iid == &<IEnroll4 as ::windows::core::Interface>::IID || iid == &<IEnroll as ::windows::core::Interface>::IID || iid == &<IEnroll2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5809,7 +5809,7 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWATTRIBUTE as ::windows::core::Interface>::IID
+        iid == &<IEnumCERTVIEWATTRIBUTE as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5889,7 +5889,7 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWCOLUMN as ::windows::core::Interface>::IID
+        iid == &<IEnumCERTVIEWCOLUMN as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5951,7 +5951,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWEXTENSION as ::windows::core::Interface>::IID
+        iid == &<IEnumCERTVIEWEXTENSION as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6037,7 +6037,7 @@ impl IEnumCERTVIEWROW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumCERTVIEWROW as ::windows::core::Interface>::IID
+        iid == &<IEnumCERTVIEWROW as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6197,7 +6197,7 @@ impl IOCSPAdmin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOCSPAdmin as ::windows::core::Interface>::IID
+        iid == &<IOCSPAdmin as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6445,7 +6445,7 @@ impl IOCSPCAConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOCSPCAConfiguration as ::windows::core::Interface>::IID
+        iid == &<IOCSPCAConfiguration as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6525,7 +6525,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOCSPCAConfigurationCollection as ::windows::core::Interface>::IID
+        iid == &<IOCSPCAConfigurationCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6581,7 +6581,7 @@ impl IOCSPProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOCSPProperty as ::windows::core::Interface>::IID
+        iid == &<IOCSPProperty as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6679,7 +6679,7 @@ impl IOCSPPropertyCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOCSPPropertyCollection as ::windows::core::Interface>::IID
+        iid == &<IOCSPPropertyCollection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6765,7 +6765,7 @@ impl IObjectId_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IObjectId as ::windows::core::Interface>::IID
+        iid == &<IObjectId as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6839,7 +6839,7 @@ impl IObjectIds_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IObjectIds as ::windows::core::Interface>::IID
+        iid == &<IObjectIds as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6907,7 +6907,7 @@ impl IPolicyQualifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPolicyQualifier as ::windows::core::Interface>::IID
+        iid == &<IPolicyQualifier as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6975,7 +6975,7 @@ impl IPolicyQualifiers_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPolicyQualifiers as ::windows::core::Interface>::IID
+        iid == &<IPolicyQualifiers as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7091,7 +7091,7 @@ impl ISignerCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISignerCertificate as ::windows::core::Interface>::IID
+        iid == &<ISignerCertificate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7171,7 +7171,7 @@ impl ISignerCertificates_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISignerCertificates as ::windows::core::Interface>::IID
+        iid == &<ISignerCertificates as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7251,7 +7251,7 @@ impl ISmimeCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISmimeCapabilities as ::windows::core::Interface>::IID
+        iid == &<ISmimeCapabilities as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7295,7 +7295,7 @@ impl ISmimeCapability_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISmimeCapability as ::windows::core::Interface>::IID
+        iid == &<ISmimeCapability as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7345,7 +7345,7 @@ impl IX500DistinguishedName_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX500DistinguishedName as ::windows::core::Interface>::IID
+        iid == &<IX500DistinguishedName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7389,7 +7389,7 @@ impl IX509Attribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509Attribute as ::windows::core::Interface>::IID
+        iid == &<IX509Attribute as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7451,7 +7451,7 @@ impl IX509AttributeArchiveKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509AttributeArchiveKey as ::windows::core::Interface>::IID
+        iid == &<IX509AttributeArchiveKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7489,7 +7489,7 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509AttributeArchiveKeyHash as ::windows::core::Interface>::IID
+        iid == &<IX509AttributeArchiveKeyHash as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7563,7 +7563,7 @@ impl IX509AttributeClientId_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509AttributeClientId as ::windows::core::Interface>::IID
+        iid == &<IX509AttributeClientId as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7625,7 +7625,7 @@ impl IX509AttributeCspProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509AttributeCspProvider as ::windows::core::Interface>::IID
+        iid == &<IX509AttributeCspProvider as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7663,7 +7663,7 @@ impl IX509AttributeExtensions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509AttributeExtensions as ::windows::core::Interface>::IID
+        iid == &<IX509AttributeExtensions as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7701,7 +7701,7 @@ impl IX509AttributeOSVersion_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509AttributeOSVersion as ::windows::core::Interface>::IID
+        iid == &<IX509AttributeOSVersion as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7739,7 +7739,7 @@ impl IX509AttributeRenewalCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509AttributeRenewalCertificate as ::windows::core::Interface>::IID
+        iid == &<IX509AttributeRenewalCertificate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Attribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7807,7 +7807,7 @@ impl IX509Attributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509Attributes as ::windows::core::Interface>::IID
+        iid == &<IX509Attributes as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8049,7 +8049,7 @@ impl IX509CertificateRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8159,7 +8159,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCertificate as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestCertificate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8209,7 +8209,7 @@ impl IX509CertificateRequestCertificate2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCertificate2 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestCertificate2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestCertificate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8457,7 +8457,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCmc as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestCmc as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8519,7 +8519,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestCmc2 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestCmc2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestCmc as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8815,7 +8815,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8871,7 +8871,7 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10V2 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10V2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8987,7 +8987,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10V3 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10V3 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9037,7 +9037,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs10V4 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs10V4 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9111,7 +9111,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9161,7 +9161,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRequestPkcs7V2 as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRequestPkcs7V2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequest as ::windows::core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9463,7 +9463,7 @@ impl IX509CertificateRevocationList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRevocationList as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRevocationList as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9549,7 +9549,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRevocationListEntries as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRevocationListEntries as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9635,7 +9635,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateRevocationListEntry as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateRevocationListEntry as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9661,7 +9661,7 @@ impl IX509CertificateTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateTemplate as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateTemplate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9717,7 +9717,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateTemplateWritable as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateTemplateWritable as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9809,7 +9809,7 @@ impl IX509CertificateTemplates_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509CertificateTemplates as ::windows::core::Interface>::IID
+        iid == &<IX509CertificateTemplates as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9925,7 +9925,7 @@ impl IX509EndorsementKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509EndorsementKey as ::windows::core::Interface>::IID
+        iid == &<IX509EndorsementKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10161,7 +10161,7 @@ impl IX509Enrollment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509Enrollment as ::windows::core::Interface>::IID
+        iid == &<IX509Enrollment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10223,7 +10223,7 @@ impl IX509Enrollment2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509Enrollment2 as ::windows::core::Interface>::IID
+        iid == &<IX509Enrollment2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Enrollment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10267,7 +10267,7 @@ impl IX509EnrollmentHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509EnrollmentHelper as ::windows::core::Interface>::IID
+        iid == &<IX509EnrollmentHelper as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10533,7 +10533,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509EnrollmentPolicyServer as ::windows::core::Interface>::IID
+        iid == &<IX509EnrollmentPolicyServer as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10655,7 +10655,7 @@ impl IX509EnrollmentStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509EnrollmentStatus as ::windows::core::Interface>::IID
+        iid == &<IX509EnrollmentStatus as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10681,7 +10681,7 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509EnrollmentWebClassFactory as ::windows::core::Interface>::IID
+        iid == &<IX509EnrollmentWebClassFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10743,7 +10743,7 @@ impl IX509Extension_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509Extension as ::windows::core::Interface>::IID
+        iid == &<IX509Extension as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10781,7 +10781,7 @@ impl IX509ExtensionAlternativeNames_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionAlternativeNames as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionAlternativeNames as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10819,7 +10819,7 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionAuthorityKeyIdentifier as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionAuthorityKeyIdentifier as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10869,7 +10869,7 @@ impl IX509ExtensionBasicConstraints_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionBasicConstraints as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionBasicConstraints as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10907,7 +10907,7 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionCertificatePolicies as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionCertificatePolicies as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10945,7 +10945,7 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionEnhancedKeyUsage as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionEnhancedKeyUsage as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10983,7 +10983,7 @@ impl IX509ExtensionKeyUsage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionKeyUsage as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionKeyUsage as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11021,7 +11021,7 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionMSApplicationPolicies as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionMSApplicationPolicies as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11059,7 +11059,7 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionSmimeCapabilities as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionSmimeCapabilities as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11097,7 +11097,7 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionSubjectKeyIdentifier as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionSubjectKeyIdentifier as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11159,7 +11159,7 @@ impl IX509ExtensionTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionTemplate as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionTemplate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11197,7 +11197,7 @@ impl IX509ExtensionTemplateName_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509ExtensionTemplateName as ::windows::core::Interface>::IID
+        iid == &<IX509ExtensionTemplateName as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509Extension as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11283,7 +11283,7 @@ impl IX509Extensions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509Extensions as ::windows::core::Interface>::IID
+        iid == &<IX509Extensions as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11309,7 +11309,7 @@ impl IX509MachineEnrollmentFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509MachineEnrollmentFactory as ::windows::core::Interface>::IID
+        iid == &<IX509MachineEnrollmentFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11353,7 +11353,7 @@ impl IX509NameValuePair_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509NameValuePair as ::windows::core::Interface>::IID
+        iid == &<IX509NameValuePair as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11421,7 +11421,7 @@ impl IX509NameValuePairs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509NameValuePairs as ::windows::core::Interface>::IID
+        iid == &<IX509NameValuePairs as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11495,7 +11495,7 @@ impl IX509PolicyServerListManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509PolicyServerListManager as ::windows::core::Interface>::IID
+        iid == &<IX509PolicyServerListManager as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11635,7 +11635,7 @@ impl IX509PolicyServerUrl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509PolicyServerUrl as ::windows::core::Interface>::IID
+        iid == &<IX509PolicyServerUrl as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12165,7 +12165,7 @@ impl IX509PrivateKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509PrivateKey as ::windows::core::Interface>::IID
+        iid == &<IX509PrivateKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12269,7 +12269,7 @@ impl IX509PrivateKey2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509PrivateKey2 as ::windows::core::Interface>::IID
+        iid == &<IX509PrivateKey2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509PrivateKey as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12355,7 +12355,7 @@ impl IX509PublicKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509PublicKey as ::windows::core::Interface>::IID
+        iid == &<IX509PublicKey as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12579,7 +12579,7 @@ impl IX509SCEPEnrollment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509SCEPEnrollment as ::windows::core::Interface>::IID
+        iid == &<IX509SCEPEnrollment as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12659,7 +12659,7 @@ impl IX509SCEPEnrollment2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509SCEPEnrollment2 as ::windows::core::Interface>::IID
+        iid == &<IX509SCEPEnrollment2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IX509SCEPEnrollment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12733,7 +12733,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509SCEPEnrollmentHelper as ::windows::core::Interface>::IID
+        iid == &<IX509SCEPEnrollmentHelper as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12867,6 +12867,6 @@ impl IX509SignatureInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IX509SignatureInformation as ::windows::core::Interface>::IID
+        iid == &<IX509SignatureInformation as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

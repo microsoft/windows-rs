@@ -110,7 +110,7 @@ impl IAudioBass_Vtbl {
         Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioBass as ::windows::core::Interface>::IID
+        iid == &<IAudioBass as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
     }
 }
 pub trait IAudioCaptureClient_Impl: Sized {
@@ -330,7 +330,7 @@ impl IAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClient2 as ::windows::core::Interface>::IID
+        iid == &<IAudioClient2 as ::windows::core::Interface>::IID || iid == &<IAudioClient as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -362,7 +362,7 @@ impl IAudioClient3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioClient3 as ::windows::core::Interface>::IID
+        iid == &<IAudioClient3 as ::windows::core::Interface>::IID || iid == &<IAudioClient as ::windows::core::Interface>::IID || iid == &<IAudioClient2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IAudioClientDuckingControl_Impl: Sized {
@@ -612,7 +612,7 @@ impl IAudioMidrange_Vtbl {
         Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioMidrange as ::windows::core::Interface>::IID
+        iid == &<IAudioMidrange as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -894,7 +894,7 @@ impl IAudioSessionControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionControl2 as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionControl2 as ::windows::core::Interface>::IID || iid == &<IAudioSessionControl as ::windows::core::Interface>::IID
     }
 }
 pub trait IAudioSessionEnumerator_Impl: Sized {
@@ -1072,7 +1072,7 @@ impl IAudioSessionManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSessionManager2 as ::windows::core::Interface>::IID
+        iid == &<IAudioSessionManager2 as ::windows::core::Interface>::IID || iid == &<IAudioSessionManager as ::windows::core::Interface>::IID
     }
 }
 pub trait IAudioSessionNotification_Impl: Sized {
@@ -1277,7 +1277,7 @@ impl IAudioTreble_Vtbl {
         Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioTreble as ::windows::core::Interface>::IID
+        iid == &<IAudioTreble as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1312,7 +1312,7 @@ impl IAudioVolumeLevel_Vtbl {
         Self { base: IPerChannelDbLevel_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioVolumeLevel as ::windows::core::Interface>::IID
+        iid == &<IAudioVolumeLevel as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
     }
 }
 pub trait IChannelAudioVolume_Impl: Sized {
@@ -2339,7 +2339,7 @@ impl ISpatialAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioClient2 as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioClient2 as ::windows::core::Interface>::IID || iid == &<ISpatialAudioClient as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpatialAudioMetadataClient_Impl: Sized {
@@ -2641,7 +2641,7 @@ impl ISpatialAudioObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObject as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObject as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2741,7 +2741,7 @@ impl ISpatialAudioObjectForHrtf_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForHrtf as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectForHrtf as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2761,7 +2761,7 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataCommands as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataCommands as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2787,7 +2787,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataItems as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataItems as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpatialAudioObjectRenderStream_Impl: Sized + ISpatialAudioObjectRenderStreamBase_Impl {
@@ -2811,7 +2811,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStream as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStream as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpatialAudioObjectRenderStreamBase_Impl: Sized {
@@ -2895,7 +2895,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamForHrtf as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamForHrtf as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpatialAudioObjectRenderStreamForMetadata_Impl: Sized + ISpatialAudioObjectRenderStreamBase_Impl {
@@ -2931,7 +2931,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamForMetadata as ::windows::core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamForMetadata as ::windows::core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpatialAudioObjectRenderStreamNotify_Impl: Sized {

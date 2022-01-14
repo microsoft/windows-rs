@@ -205,7 +205,7 @@ impl IVisualTreeService2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVisualTreeService2 as ::windows::core::Interface>::IID
+        iid == &<IVisualTreeService2 as ::windows::core::Interface>::IID || iid == &<IVisualTreeService as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -249,7 +249,7 @@ impl IVisualTreeService3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVisualTreeService3 as ::windows::core::Interface>::IID
+        iid == &<IVisualTreeService3 as ::windows::core::Interface>::IID || iid == &<IVisualTreeService as ::windows::core::Interface>::IID || iid == &<IVisualTreeService2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -286,7 +286,7 @@ impl IVisualTreeServiceCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVisualTreeServiceCallback2 as ::windows::core::Interface>::IID
+        iid == &<IVisualTreeServiceCallback2 as ::windows::core::Interface>::IID || iid == &<IVisualTreeServiceCallback as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

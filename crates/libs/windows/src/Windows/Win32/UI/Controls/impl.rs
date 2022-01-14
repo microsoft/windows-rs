@@ -335,6 +335,6 @@ impl IImageList2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImageList2 as ::windows::core::Interface>::IID
+        iid == &<IImageList2 as ::windows::core::Interface>::IID || iid == &<IImageList as ::windows::core::Interface>::IID
     }
 }

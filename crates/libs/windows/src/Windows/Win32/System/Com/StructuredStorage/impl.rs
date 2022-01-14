@@ -363,7 +363,7 @@ impl IPersistStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistStorage as ::windows::core::Interface>::IID
+        iid == &<IPersistStorage as ::windows::core::Interface>::IID || iid == &<super::IPersist as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]

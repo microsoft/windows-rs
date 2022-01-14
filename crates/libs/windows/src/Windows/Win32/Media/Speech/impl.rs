@@ -135,7 +135,7 @@ impl ISpAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpAudio as ::windows::core::Interface>::IID
+        iid == &<ISpAudio as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID || iid == &<ISpStreamFormat as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -152,7 +152,7 @@ impl ISpContainerLexicon_Vtbl {
         Self { base: ISpLexicon_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), AddLexicon: AddLexicon::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpContainerLexicon as ::windows::core::Interface>::IID
+        iid == &<ISpContainerLexicon as ::windows::core::Interface>::IID || iid == &<ISpLexicon as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -378,7 +378,7 @@ impl ISpEventSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpEventSource as ::windows::core::Interface>::IID
+        iid == &<ISpEventSource as ::windows::core::Interface>::IID || iid == &<ISpNotifySource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -395,7 +395,7 @@ impl ISpEventSource2_Vtbl {
         Self { base: ISpEventSource_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetEventsEx: GetEventsEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpEventSource2 as ::windows::core::Interface>::IID
+        iid == &<ISpEventSource2 as ::windows::core::Interface>::IID || iid == &<ISpNotifySource as ::windows::core::Interface>::IID || iid == &<ISpEventSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -577,7 +577,7 @@ impl ISpMMSysAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpMMSysAudio as ::windows::core::Interface>::IID
+        iid == &<ISpMMSysAudio as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID || iid == &<ISpStreamFormat as ::windows::core::Interface>::IID || iid == &<ISpAudio as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -715,7 +715,7 @@ impl ISpNotifyTranslator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpNotifyTranslator as ::windows::core::Interface>::IID
+        iid == &<ISpNotifyTranslator as ::windows::core::Interface>::IID || iid == &<ISpNotifySink as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -807,7 +807,7 @@ impl ISpObjectToken_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpObjectToken as ::windows::core::Interface>::IID
+        iid == &<ISpObjectToken as ::windows::core::Interface>::IID || iid == &<ISpDataKey as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -881,7 +881,7 @@ impl ISpObjectTokenCategory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpObjectTokenCategory as ::windows::core::Interface>::IID
+        iid == &<ISpObjectTokenCategory as ::windows::core::Interface>::IID || iid == &<ISpDataKey as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -898,7 +898,7 @@ impl ISpObjectTokenInit_Vtbl {
         Self { base: ISpObjectToken_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), InitFromDataKey: InitFromDataKey::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpObjectTokenInit as ::windows::core::Interface>::IID
+        iid == &<ISpObjectTokenInit as ::windows::core::Interface>::IID || iid == &<ISpDataKey as ::windows::core::Interface>::IID || iid == &<ISpObjectToken as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpObjectWithToken_Impl: Sized {
@@ -960,7 +960,7 @@ impl ISpPhoneConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpPhoneConverter as ::windows::core::Interface>::IID
+        iid == &<ISpPhoneConverter as ::windows::core::Interface>::IID || iid == &<ISpObjectWithToken as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1136,7 +1136,7 @@ impl ISpPhrase2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpPhrase2 as ::windows::core::Interface>::IID
+        iid == &<ISpPhrase2 as ::windows::core::Interface>::IID || iid == &<ISpPhrase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1162,7 +1162,7 @@ impl ISpPhraseAlt_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpPhraseAlt as ::windows::core::Interface>::IID
+        iid == &<ISpPhraseAlt as ::windows::core::Interface>::IID || iid == &<ISpPhrase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1352,7 +1352,7 @@ impl ISpRecoContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpRecoContext as ::windows::core::Interface>::IID
+        iid == &<ISpRecoContext as ::windows::core::Interface>::IID || iid == &<ISpNotifySource as ::windows::core::Interface>::IID || iid == &<ISpEventSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1518,7 +1518,7 @@ impl ISpRecoGrammar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpRecoGrammar as ::windows::core::Interface>::IID
+        iid == &<ISpRecoGrammar as ::windows::core::Interface>::IID || iid == &<ISpGrammarBuilder as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_Urlmon"))]
@@ -1648,7 +1648,7 @@ impl ISpRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpRecoResult as ::windows::core::Interface>::IID
+        iid == &<ISpRecoResult as ::windows::core::Interface>::IID || iid == &<ISpPhrase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1686,7 +1686,7 @@ impl ISpRecoResult2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpRecoResult2 as ::windows::core::Interface>::IID
+        iid == &<ISpRecoResult2 as ::windows::core::Interface>::IID || iid == &<ISpPhrase as ::windows::core::Interface>::IID || iid == &<ISpRecoResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
@@ -1826,7 +1826,7 @@ impl ISpRecognizer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpRecognizer as ::windows::core::Interface>::IID
+        iid == &<ISpRecognizer as ::windows::core::Interface>::IID || iid == &<ISpProperties as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1875,7 +1875,7 @@ impl ISpRegDataKey_Vtbl {
         Self { base: ISpDataKey_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetKey: SetKey::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpRegDataKey as ::windows::core::Interface>::IID
+        iid == &<ISpRegDataKey as ::windows::core::Interface>::IID || iid == &<ISpDataKey as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1901,7 +1901,7 @@ impl ISpResourceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpResourceManager as ::windows::core::Interface>::IID
+        iid == &<ISpResourceManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IServiceProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpSerializeState_Impl: Sized {
@@ -2037,7 +2037,7 @@ impl ISpStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpStream as ::windows::core::Interface>::IID
+        iid == &<ISpStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID || iid == &<ISpStreamFormat as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2060,7 +2060,7 @@ impl ISpStreamFormat_Vtbl {
         Self { base: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetFormat: GetFormat::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpStreamFormat as ::windows::core::Interface>::IID
+        iid == &<ISpStreamFormat as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2128,7 +2128,7 @@ impl ISpStreamFormatConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpStreamFormatConverter as ::windows::core::Interface>::IID
+        iid == &<ISpStreamFormatConverter as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID || iid == &<ISpStreamFormat as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2354,7 +2354,7 @@ impl ISpVoice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpVoice as ::windows::core::Interface>::IID
+        iid == &<ISpVoice as ::windows::core::Interface>::IID || iid == &<ISpNotifySource as ::windows::core::Interface>::IID || iid == &<ISpEventSource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2380,7 +2380,7 @@ impl ISpXMLRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpXMLRecoResult as ::windows::core::Interface>::IID
+        iid == &<ISpXMLRecoResult as ::windows::core::Interface>::IID || iid == &<ISpPhrase as ::windows::core::Interface>::IID || iid == &<ISpRecoResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2484,7 +2484,7 @@ impl ISpeechAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechAudio as ::windows::core::Interface>::IID
+        iid == &<ISpeechAudio as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2552,7 +2552,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechAudioBufferInfo as ::windows::core::Interface>::IID
+        iid == &<ISpeechAudioBufferInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2620,7 +2620,7 @@ impl ISpeechAudioFormat_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechAudioFormat as ::windows::core::Interface>::IID
+        iid == &<ISpeechAudioFormat as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2694,7 +2694,7 @@ impl ISpeechAudioStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechAudioStatus as ::windows::core::Interface>::IID
+        iid == &<ISpeechAudioStatus as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2756,7 +2756,7 @@ impl ISpeechBaseStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID
+        iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2788,7 +2788,7 @@ impl ISpeechCustomStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechCustomStream as ::windows::core::Interface>::IID
+        iid == &<ISpeechCustomStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2916,7 +2916,7 @@ impl ISpeechDataKey_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechDataKey as ::windows::core::Interface>::IID
+        iid == &<ISpeechDataKey as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2942,7 +2942,7 @@ impl ISpeechFileStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechFileStream as ::windows::core::Interface>::IID
+        iid == &<ISpeechFileStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3028,7 +3028,7 @@ impl ISpeechGrammarRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechGrammarRule as ::windows::core::Interface>::IID
+        iid == &<ISpeechGrammarRule as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3084,7 +3084,7 @@ impl ISpeechGrammarRuleState_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechGrammarRuleState as ::windows::core::Interface>::IID
+        iid == &<ISpeechGrammarRuleState as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3194,7 +3194,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechGrammarRuleStateTransition as ::windows::core::Interface>::IID
+        iid == &<ISpeechGrammarRuleStateTransition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3244,7 +3244,7 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechGrammarRuleStateTransitions as ::windows::core::Interface>::IID
+        iid == &<ISpeechGrammarRuleStateTransitions as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3342,7 +3342,7 @@ impl ISpeechGrammarRules_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechGrammarRules as ::windows::core::Interface>::IID
+        iid == &<ISpeechGrammarRules as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3416,7 +3416,7 @@ impl ISpeechLexicon_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechLexicon as ::windows::core::Interface>::IID
+        iid == &<ISpeechLexicon as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3490,7 +3490,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechLexiconPronunciation as ::windows::core::Interface>::IID
+        iid == &<ISpeechLexiconPronunciation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3540,7 +3540,7 @@ impl ISpeechLexiconPronunciations_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechLexiconPronunciations as ::windows::core::Interface>::IID
+        iid == &<ISpeechLexiconPronunciations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3602,7 +3602,7 @@ impl ISpeechLexiconWord_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechLexiconWord as ::windows::core::Interface>::IID
+        iid == &<ISpeechLexiconWord as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3652,7 +3652,7 @@ impl ISpeechLexiconWords_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechLexiconWords as ::windows::core::Interface>::IID
+        iid == &<ISpeechLexiconWords as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3714,7 +3714,7 @@ impl ISpeechMMSysAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechMMSysAudio as ::windows::core::Interface>::IID
+        iid == &<ISpeechMMSysAudio as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID || iid == &<ISpeechAudio as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3746,7 +3746,7 @@ impl ISpeechMemoryStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechMemoryStream as ::windows::core::Interface>::IID
+        iid == &<ISpeechMemoryStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3892,7 +3892,7 @@ impl ISpeechObjectToken_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechObjectToken as ::windows::core::Interface>::IID
+        iid == &<ISpeechObjectToken as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3966,7 +3966,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechObjectTokenCategory as ::windows::core::Interface>::IID
+        iid == &<ISpeechObjectTokenCategory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4016,7 +4016,7 @@ impl ISpeechObjectTokens_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechObjectTokens as ::windows::core::Interface>::IID
+        iid == &<ISpeechObjectTokens as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4072,7 +4072,7 @@ impl ISpeechPhoneConverter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhoneConverter as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhoneConverter as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4140,7 +4140,7 @@ impl ISpeechPhraseAlternate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseAlternate as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseAlternate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4190,7 +4190,7 @@ impl ISpeechPhraseAlternates_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseAlternates as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseAlternates as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4360,7 +4360,7 @@ impl ISpeechPhraseElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseElement as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseElement as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4410,7 +4410,7 @@ impl ISpeechPhraseElements_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseElements as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseElements as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4616,7 +4616,7 @@ impl ISpeechPhraseInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseInfo as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4642,7 +4642,7 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseInfoBuilder as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseInfoBuilder as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4692,7 +4692,7 @@ impl ISpeechPhraseProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseProperties as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseProperties as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4814,7 +4814,7 @@ impl ISpeechPhraseProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseProperty as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4876,7 +4876,7 @@ impl ISpeechPhraseReplacement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseReplacement as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseReplacement as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4926,7 +4926,7 @@ impl ISpeechPhraseReplacements_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseReplacements as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseReplacements as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5036,7 +5036,7 @@ impl ISpeechPhraseRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseRule as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseRule as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5086,7 +5086,7 @@ impl ISpeechPhraseRules_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechPhraseRules as ::windows::core::Interface>::IID
+        iid == &<ISpeechPhraseRules as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5328,7 +5328,7 @@ impl ISpeechRecoContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecoContext as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecoContext as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5486,7 +5486,7 @@ impl ISpeechRecoGrammar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecoGrammar as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecoGrammar as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5608,7 +5608,7 @@ impl ISpeechRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecoResult as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecoResult as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5625,7 +5625,7 @@ impl ISpeechRecoResult2_Vtbl {
         Self { base: ISpeechRecoResult_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetTextFeedback: SetTextFeedback::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecoResult2 as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecoResult2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechRecoResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5771,7 +5771,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecoResultDispatch as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecoResultDispatch as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5833,7 +5833,7 @@ impl ISpeechRecoResultTimes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecoResultTimes as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecoResultTimes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6099,7 +6099,7 @@ impl ISpeechRecognizer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecognizer as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecognizer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6185,7 +6185,7 @@ impl ISpeechRecognizerStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechRecognizerStatus as ::windows::core::Interface>::IID
+        iid == &<ISpeechRecognizerStatus as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6217,7 +6217,7 @@ impl ISpeechResourceLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechResourceLoader as ::windows::core::Interface>::IID
+        iid == &<ISpeechResourceLoader as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6303,7 +6303,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechTextSelectionInformation as ::windows::core::Interface>::IID
+        iid == &<ISpeechTextSelectionInformation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6623,7 +6623,7 @@ impl ISpeechVoice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechVoice as ::windows::core::Interface>::IID
+        iid == &<ISpeechVoice as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6781,7 +6781,7 @@ impl ISpeechVoiceStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechVoiceStatus as ::windows::core::Interface>::IID
+        iid == &<ISpeechVoiceStatus as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6921,7 +6921,7 @@ impl ISpeechWaveFormatEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechWaveFormatEx as ::windows::core::Interface>::IID
+        iid == &<ISpeechWaveFormatEx as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6953,7 +6953,7 @@ impl ISpeechXMLRecoResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechXMLRecoResult as ::windows::core::Interface>::IID
+        iid == &<ISpeechXMLRecoResult as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISpeechRecoResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6964,7 +6964,7 @@ impl _ISpeechRecoContextEvents_Vtbl {
         Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<_ISpeechRecoContextEvents as ::windows::core::Interface>::IID
+        iid == &<_ISpeechRecoContextEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6975,6 +6975,6 @@ impl _ISpeechVoiceEvents_Vtbl {
         Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<_ISpeechVoiceEvents as ::windows::core::Interface>::IID
+        iid == &<_ISpeechVoiceEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

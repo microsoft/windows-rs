@@ -18,7 +18,7 @@ impl IWPCGamesSettings_Vtbl {
         Self { base: IWPCSettings_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), IsBlocked: IsBlocked::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCGamesSettings as ::windows::core::Interface>::IID
+        iid == &<IWPCGamesSettings as ::windows::core::Interface>::IID || iid == &<IWPCSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -185,7 +185,7 @@ impl IWPCWebSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCWebSettings as ::windows::core::Interface>::IID
+        iid == &<IWPCWebSettings as ::windows::core::Interface>::IID || iid == &<IWPCSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -211,7 +211,7 @@ impl IWindowsParentalControls_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsParentalControls as ::windows::core::Interface>::IID
+        iid == &<IWindowsParentalControls as ::windows::core::Interface>::IID || iid == &<IWindowsParentalControlsCore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

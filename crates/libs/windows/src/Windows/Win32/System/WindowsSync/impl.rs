@@ -177,7 +177,7 @@ impl IChangeUnitListFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IChangeUnitListFilterInfo as ::windows::core::Interface>::IID
+        iid == &<IChangeUnitListFilterInfo as ::windows::core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IClockVector_Impl: Sized {
@@ -261,7 +261,7 @@ impl ICombinedFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICombinedFilterInfo as ::windows::core::Interface>::IID
+        iid == &<ICombinedFilterInfo as ::windows::core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IConstraintConflict_Impl: Sized {
@@ -483,7 +483,7 @@ impl ICustomFilterInfo_Vtbl {
         Self { base: ISyncFilterInfo_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetSyncFilter: GetSyncFilter::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICustomFilterInfo as ::windows::core::Interface>::IID
+        iid == &<ICustomFilterInfo as ::windows::core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IDataRetrieverCallback_Impl: Sized {
@@ -930,7 +930,7 @@ impl IFeedClockVector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedClockVector as ::windows::core::Interface>::IID
+        iid == &<IFeedClockVector as ::windows::core::Interface>::IID || iid == &<IClockVector as ::windows::core::Interface>::IID
     }
 }
 pub trait IFeedClockVectorElement_Impl: Sized + IClockVectorElement_Impl {
@@ -954,7 +954,7 @@ impl IFeedClockVectorElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFeedClockVectorElement as ::windows::core::Interface>::IID
+        iid == &<IFeedClockVectorElement as ::windows::core::Interface>::IID || iid == &<IClockVectorElement as ::windows::core::Interface>::IID
     }
 }
 pub trait IFilterKeyMap_Impl: Sized {
@@ -1093,7 +1093,7 @@ impl IForgottenKnowledge_Vtbl {
         Self { base: ISyncKnowledge_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ForgetToVersion: ForgetToVersion::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IForgottenKnowledge as ::windows::core::Interface>::IID
+        iid == &<IForgottenKnowledge as ::windows::core::Interface>::IID || iid == &<ISyncKnowledge as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1149,7 +1149,7 @@ impl IKnowledgeSyncProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKnowledgeSyncProvider as ::windows::core::Interface>::IID
+        iid == &<IKnowledgeSyncProvider as ::windows::core::Interface>::IID || iid == &<ISyncProvider as ::windows::core::Interface>::IID
     }
 }
 pub trait ILoadChangeContext_Impl: Sized {
@@ -1522,7 +1522,7 @@ impl ISyncCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncCallback2 as ::windows::core::Interface>::IID
+        iid == &<ISyncCallback2 as ::windows::core::Interface>::IID || iid == &<ISyncCallback as ::windows::core::Interface>::IID
     }
 }
 pub trait ISyncChange_Impl: Sized {
@@ -1650,7 +1650,7 @@ impl ISyncChangeBatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncChangeBatch as ::windows::core::Interface>::IID
+        iid == &<ISyncChangeBatch as ::windows::core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1688,7 +1688,7 @@ impl ISyncChangeBatch2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncChangeBatch2 as ::windows::core::Interface>::IID
+        iid == &<ISyncChangeBatch2 as ::windows::core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows::core::Interface>::IID || iid == &<ISyncChangeBatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1886,7 +1886,7 @@ impl ISyncChangeBatchBase2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncChangeBatchBase2 as ::windows::core::Interface>::IID
+        iid == &<ISyncChangeBatchBase2 as ::windows::core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows::core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatchWithFilterKeyMap_Impl: Sized {
@@ -2026,7 +2026,7 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncChangeBatchWithPrerequisite as ::windows::core::Interface>::IID
+        iid == &<ISyncChangeBatchWithPrerequisite as ::windows::core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows::core::Interface>::IID
     }
 }
 pub trait ISyncChangeBuilder_Impl: Sized {
@@ -2367,7 +2367,7 @@ impl ISyncFilterInfo2_Vtbl {
         Self { base: ISyncFilterInfo_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetFlags: GetFlags::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncFilterInfo2 as ::windows::core::Interface>::IID
+        iid == &<ISyncFilterInfo2 as ::windows::core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait ISyncFullEnumerationChange_Impl: Sized {
@@ -2441,7 +2441,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncFullEnumerationChangeBatch as ::windows::core::Interface>::IID
+        iid == &<ISyncFullEnumerationChangeBatch as ::windows::core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2467,7 +2467,7 @@ impl ISyncFullEnumerationChangeBatch2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncFullEnumerationChangeBatch2 as ::windows::core::Interface>::IID
+        iid == &<ISyncFullEnumerationChangeBatch2 as ::windows::core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows::core::Interface>::IID || iid == &<ISyncFullEnumerationChangeBatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2783,7 +2783,7 @@ impl ISyncKnowledge2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncKnowledge2 as ::windows::core::Interface>::IID
+        iid == &<ISyncKnowledge2 as ::windows::core::Interface>::IID || iid == &<ISyncKnowledge as ::windows::core::Interface>::IID
     }
 }
 pub trait ISyncMergeTombstoneChange_Impl: Sized {
@@ -2891,7 +2891,7 @@ impl ISyncProviderConfigUIInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncProviderConfigUIInfo as ::windows::core::Interface>::IID
+        iid == &<ISyncProviderConfigUIInfo as ::windows::core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -2917,7 +2917,7 @@ impl ISyncProviderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncProviderInfo as ::windows::core::Interface>::IID
+        iid == &<ISyncProviderInfo as ::windows::core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -3232,7 +3232,7 @@ impl ISyncSessionState2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISyncSessionState2 as ::windows::core::Interface>::IID
+        iid == &<ISyncSessionState2 as ::windows::core::Interface>::IID || iid == &<ISyncSessionState as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

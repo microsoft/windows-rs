@@ -354,7 +354,7 @@ impl IFunctionInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionInstance as ::windows::core::Interface>::IID
+        iid == &<IFunctionInstance as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IServiceProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

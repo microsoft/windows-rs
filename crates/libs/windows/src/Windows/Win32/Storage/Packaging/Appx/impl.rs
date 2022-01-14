@@ -2472,7 +2472,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAppxManifestPackageDependency2 as ::windows::core::Interface>::IID
+        iid == &<IAppxManifestPackageDependency2 as ::windows::core::Interface>::IID || iid == &<IAppxManifestPackageDependency as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2628,7 +2628,7 @@ impl IAppxManifestPackageId2_Vtbl {
         Self { base: IAppxManifestPackageId_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetArchitecture2: GetArchitecture2::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAppxManifestPackageId2 as ::windows::core::Interface>::IID
+        iid == &<IAppxManifestPackageId2 as ::windows::core::Interface>::IID || iid == &<IAppxManifestPackageId as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2914,7 +2914,7 @@ impl IAppxManifestReader2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAppxManifestReader2 as ::windows::core::Interface>::IID
+        iid == &<IAppxManifestReader2 as ::windows::core::Interface>::IID || iid == &<IAppxManifestReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2952,7 +2952,7 @@ impl IAppxManifestReader3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAppxManifestReader3 as ::windows::core::Interface>::IID
+        iid == &<IAppxManifestReader3 as ::windows::core::Interface>::IID || iid == &<IAppxManifestReader as ::windows::core::Interface>::IID || iid == &<IAppxManifestReader2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2978,7 +2978,7 @@ impl IAppxManifestReader4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAppxManifestReader4 as ::windows::core::Interface>::IID
+        iid == &<IAppxManifestReader4 as ::windows::core::Interface>::IID || iid == &<IAppxManifestReader as ::windows::core::Interface>::IID || iid == &<IAppxManifestReader2 as ::windows::core::Interface>::IID || iid == &<IAppxManifestReader3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IAppxManifestReader5_Impl: Sized {

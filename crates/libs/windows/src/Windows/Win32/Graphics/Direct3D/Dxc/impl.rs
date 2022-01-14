@@ -57,7 +57,7 @@ impl IDxcBlobEncoding_Vtbl {
         Self { base: IDxcBlob_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetEncoding: GetEncoding::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDxcBlobEncoding as ::windows::core::Interface>::IID
+        iid == &<IDxcBlobEncoding as ::windows::core::Interface>::IID || iid == &<IDxcBlob as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -83,7 +83,7 @@ impl IDxcBlobUtf16_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDxcBlobUtf16 as ::windows::core::Interface>::IID
+        iid == &<IDxcBlobUtf16 as ::windows::core::Interface>::IID || iid == &<IDxcBlob as ::windows::core::Interface>::IID || iid == &<IDxcBlobEncoding as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -109,7 +109,7 @@ impl IDxcBlobUtf8_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDxcBlobUtf8 as ::windows::core::Interface>::IID
+        iid == &<IDxcBlobUtf8 as ::windows::core::Interface>::IID || iid == &<IDxcBlob as ::windows::core::Interface>::IID || iid == &<IDxcBlobEncoding as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -191,7 +191,7 @@ impl IDxcCompiler2_Vtbl {
         Self { base: IDxcCompiler_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CompileWithDebug: CompileWithDebug::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDxcCompiler2 as ::windows::core::Interface>::IID
+        iid == &<IDxcCompiler2 as ::windows::core::Interface>::IID || iid == &<IDxcCompiler as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1058,7 +1058,7 @@ impl IDxcResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDxcResult as ::windows::core::Interface>::IID
+        iid == &<IDxcResult as ::windows::core::Interface>::IID || iid == &<IDxcOperationResult as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1252,7 +1252,7 @@ impl IDxcValidator2_Vtbl {
         Self { base: IDxcValidator_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ValidateWithDebug: ValidateWithDebug::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDxcValidator2 as ::windows::core::Interface>::IID
+        iid == &<IDxcValidator2 as ::windows::core::Interface>::IID || iid == &<IDxcValidator as ::windows::core::Interface>::IID
     }
 }
 pub trait IDxcVersionInfo_Impl: Sized {
@@ -1297,7 +1297,7 @@ impl IDxcVersionInfo2_Vtbl {
         Self { base: IDxcVersionInfo_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetCommitInfo: GetCommitInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDxcVersionInfo2 as ::windows::core::Interface>::IID
+        iid == &<IDxcVersionInfo2 as ::windows::core::Interface>::IID || iid == &<IDxcVersionInfo as ::windows::core::Interface>::IID
     }
 }
 pub trait IDxcVersionInfo3_Impl: Sized {

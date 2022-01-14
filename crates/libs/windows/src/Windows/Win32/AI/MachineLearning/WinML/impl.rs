@@ -212,7 +212,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLOperatorKernelCreationContext as ::windows::core::Interface>::IID
+        iid == &<IMLOperatorKernelCreationContext as ::windows::core::Interface>::IID || iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
     }
 }
 pub trait IMLOperatorKernelFactory_Impl: Sized {
@@ -333,7 +333,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLOperatorShapeInferenceContext as ::windows::core::Interface>::IID
+        iid == &<IMLOperatorShapeInferenceContext as ::windows::core::Interface>::IID || iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
     }
 }
 pub trait IMLOperatorShapeInferrer_Impl: Sized {
@@ -512,7 +512,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLOperatorTypeInferenceContext as ::windows::core::Interface>::IID
+        iid == &<IMLOperatorTypeInferenceContext as ::windows::core::Interface>::IID || iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
     }
 }
 pub trait IMLOperatorTypeInferrer_Impl: Sized {

@@ -6,7 +6,7 @@ impl DIFsrmClassificationEvents_Vtbl {
         Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DIFsrmClassificationEvents as ::windows::core::Interface>::IID
+        iid == &<DIFsrmClassificationEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -29,7 +29,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
         Self { base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Show: Show::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmAccessDeniedRemediationClient as ::windows::core::Interface>::IID
+        iid == &<IFsrmAccessDeniedRemediationClient as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -91,7 +91,7 @@ impl IFsrmAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmAction as ::windows::core::Interface>::IID
+        iid == &<IFsrmAction as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -231,7 +231,7 @@ impl IFsrmActionCommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmActionCommand as ::windows::core::Interface>::IID
+        iid == &<IFsrmActionCommand as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -371,7 +371,7 @@ impl IFsrmActionEmail_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmActionEmail as ::windows::core::Interface>::IID
+        iid == &<IFsrmActionEmail as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -403,7 +403,7 @@ impl IFsrmActionEmail2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmActionEmail2 as ::windows::core::Interface>::IID
+        iid == &<IFsrmActionEmail2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID || iid == &<IFsrmActionEmail as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -453,7 +453,7 @@ impl IFsrmActionEventLog_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmActionEventLog as ::windows::core::Interface>::IID
+        iid == &<IFsrmActionEventLog as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -503,7 +503,7 @@ impl IFsrmActionReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmActionReport as ::windows::core::Interface>::IID
+        iid == &<IFsrmActionReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmAction as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -547,7 +547,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmAutoApplyQuota as ::windows::core::Interface>::IID
+        iid == &<IFsrmAutoApplyQuota as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -837,7 +837,7 @@ impl IFsrmClassificationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmClassificationManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmClassificationManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -854,7 +854,7 @@ impl IFsrmClassificationManager2_Vtbl {
         Self { base: IFsrmClassificationManager_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ClassifyFiles: ClassifyFiles::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmClassificationManager2 as ::windows::core::Interface>::IID
+        iid == &<IFsrmClassificationManager2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmClassificationManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -922,7 +922,7 @@ impl IFsrmClassificationRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmClassificationRule as ::windows::core::Interface>::IID
+        iid == &<IFsrmClassificationRule as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmRule as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -990,7 +990,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmClassifierModuleDefinition as ::windows::core::Interface>::IID
+        iid == &<IFsrmClassifierModuleDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1046,7 +1046,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmClassifierModuleImplementation as ::windows::core::Interface>::IID
+        iid == &<IFsrmClassifierModuleImplementation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1138,7 +1138,7 @@ impl IFsrmCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmCollection as ::windows::core::Interface>::IID
+        iid == &<IFsrmCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1161,7 +1161,7 @@ impl IFsrmCommittableCollection_Vtbl {
         Self { base: IFsrmMutableCollection_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Commit: Commit::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmCommittableCollection as ::windows::core::Interface>::IID
+        iid == &<IFsrmCommittableCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmCollection as ::windows::core::Interface>::IID || iid == &<IFsrmMutableCollection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1199,7 +1199,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmDerivedObjectsResult as ::windows::core::Interface>::IID
+        iid == &<IFsrmDerivedObjectsResult as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1267,7 +1267,7 @@ impl IFsrmExportImport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmExportImport as ::windows::core::Interface>::IID
+        iid == &<IFsrmExportImport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1299,7 +1299,7 @@ impl IFsrmFileCondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileCondition as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileCondition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1403,7 +1403,7 @@ impl IFsrmFileConditionProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileConditionProperty as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileConditionProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmFileCondition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1471,7 +1471,7 @@ impl IFsrmFileGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileGroup as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileGroup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1503,7 +1503,7 @@ impl IFsrmFileGroupImported_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileGroupImported as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileGroupImported as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1577,7 +1577,7 @@ impl IFsrmFileGroupManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileGroupManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileGroupManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2053,7 +2053,7 @@ impl IFsrmFileManagementJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileManagementJob as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileManagementJob as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2127,7 +2127,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileManagementJobManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileManagementJobManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2207,7 +2207,7 @@ impl IFsrmFileScreen_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileScreen as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileScreen as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2281,7 +2281,7 @@ impl IFsrmFileScreenBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2325,7 +2325,7 @@ impl IFsrmFileScreenException_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileScreenException as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileScreenException as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2447,7 +2447,7 @@ impl IFsrmFileScreenManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileScreenManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileScreenManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2497,7 +2497,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileScreenTemplate as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileScreenTemplate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2529,7 +2529,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileScreenTemplateImported as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileScreenTemplateImported as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenBase as ::windows::core::Interface>::IID || iid == &<IFsrmFileScreenTemplate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2603,7 +2603,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmFileScreenTemplateManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmFileScreenTemplateManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2647,7 +2647,7 @@ impl IFsrmMutableCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmMutableCollection as ::windows::core::Interface>::IID
+        iid == &<IFsrmMutableCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmCollection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2703,7 +2703,7 @@ impl IFsrmObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmObject as ::windows::core::Interface>::IID
+        iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2729,7 +2729,7 @@ impl IFsrmPathMapper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPathMapper as ::windows::core::Interface>::IID
+        iid == &<IFsrmPathMapper as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2797,7 +2797,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPipelineModuleConnector as ::windows::core::Interface>::IID
+        iid == &<IFsrmPipelineModuleConnector as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2985,7 +2985,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPipelineModuleDefinition as ::windows::core::Interface>::IID
+        iid == &<IFsrmPipelineModuleDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3017,7 +3017,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPipelineModuleImplementation as ::windows::core::Interface>::IID
+        iid == &<IFsrmPipelineModuleImplementation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3079,7 +3079,7 @@ impl IFsrmProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmProperty as ::windows::core::Interface>::IID
+        iid == &<IFsrmProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3333,7 +3333,7 @@ impl IFsrmPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPropertyBag as ::windows::core::Interface>::IID
+        iid == &<IFsrmPropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3371,7 +3371,7 @@ impl IFsrmPropertyBag2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPropertyBag2 as ::windows::core::Interface>::IID
+        iid == &<IFsrmPropertyBag2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmPropertyBag as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3445,7 +3445,7 @@ impl IFsrmPropertyCondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPropertyCondition as ::windows::core::Interface>::IID
+        iid == &<IFsrmPropertyCondition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3549,7 +3549,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPropertyDefinition as ::windows::core::Interface>::IID
+        iid == &<IFsrmPropertyDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3617,7 +3617,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPropertyDefinition2 as ::windows::core::Interface>::IID
+        iid == &<IFsrmPropertyDefinition2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmPropertyDefinition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3679,7 +3679,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmPropertyDefinitionValue as ::windows::core::Interface>::IID
+        iid == &<IFsrmPropertyDefinitionValue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3741,7 +3741,7 @@ impl IFsrmQuota_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuota as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuota as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3845,7 +3845,7 @@ impl IFsrmQuotaBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3997,7 +3997,7 @@ impl IFsrmQuotaManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuotaManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuotaManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4020,7 +4020,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
         Self { base: IFsrmQuotaManager_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), IsAffectedByQuota: IsAffectedByQuota::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuotaManagerEx as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuotaManagerEx as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4100,7 +4100,7 @@ impl IFsrmQuotaObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuotaObject as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuotaObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4150,7 +4150,7 @@ impl IFsrmQuotaTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuotaTemplate as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuotaTemplate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4182,7 +4182,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuotaTemplateImported as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuotaTemplateImported as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaBase as ::windows::core::Interface>::IID || iid == &<IFsrmQuotaTemplate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4256,7 +4256,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmQuotaTemplateManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmQuotaTemplateManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4354,7 +4354,7 @@ impl IFsrmReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmReport as ::windows::core::Interface>::IID
+        iid == &<IFsrmReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4536,7 +4536,7 @@ impl IFsrmReportJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmReportJob as ::windows::core::Interface>::IID
+        iid == &<IFsrmReportJob as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4652,7 +4652,7 @@ impl IFsrmReportManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmReportManager as ::windows::core::Interface>::IID
+        iid == &<IFsrmReportManager as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4690,7 +4690,7 @@ impl IFsrmReportScheduler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmReportScheduler as ::windows::core::Interface>::IID
+        iid == &<IFsrmReportScheduler as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4818,7 +4818,7 @@ impl IFsrmRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmRule as ::windows::core::Interface>::IID
+        iid == &<IFsrmRule as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4946,7 +4946,7 @@ impl IFsrmSetting_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmSetting as ::windows::core::Interface>::IID
+        iid == &<IFsrmSetting as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5014,7 +5014,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmStorageModuleDefinition as ::windows::core::Interface>::IID
+        iid == &<IFsrmStorageModuleDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmObject as ::windows::core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5046,6 +5046,6 @@ impl IFsrmStorageModuleImplementation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFsrmStorageModuleImplementation as ::windows::core::Interface>::IID
+        iid == &<IFsrmStorageModuleImplementation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as ::windows::core::Interface>::IID
     }
 }

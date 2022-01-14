@@ -6,7 +6,7 @@ impl DRendezvousSessionEvents_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DRendezvousSessionEvents as ::windows::core::Interface>::IID
+        iid == &<DRendezvousSessionEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IRendezvousApplication_Impl: Sized {

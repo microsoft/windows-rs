@@ -52,7 +52,7 @@ impl IMarshal2_Vtbl {
         Self { base: IMarshal_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMarshal2 as ::windows::core::Interface>::IID
+        iid == &<IMarshal2 as ::windows::core::Interface>::IID || iid == &<IMarshal as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -78,6 +78,6 @@ impl IMarshalingStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMarshalingStream as ::windows::core::Interface>::IID
+        iid == &<IMarshalingStream as ::windows::core::Interface>::IID || iid == &<super::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::IStream as ::windows::core::Interface>::IID
     }
 }

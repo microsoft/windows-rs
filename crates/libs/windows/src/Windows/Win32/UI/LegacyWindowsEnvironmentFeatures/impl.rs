@@ -155,7 +155,7 @@ impl IEmptyVolumeCache2_Vtbl {
         Self { base: IEmptyVolumeCache_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), InitializeEx: InitializeEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEmptyVolumeCache2 as ::windows::core::Interface>::IID
+        iid == &<IEmptyVolumeCache2 as ::windows::core::Interface>::IID || iid == &<IEmptyVolumeCache as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

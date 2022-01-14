@@ -15,7 +15,7 @@ impl IAccessibleWinSAT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccessibleWinSAT as ::windows::core::Interface>::IID
+        iid == &<IAccessibleWinSAT as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<super::super::UI::Accessibility::IAccessible as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -97,7 +97,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProvideWinSATAssessmentInfo as ::windows::core::Interface>::IID
+        iid == &<IProvideWinSATAssessmentInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -171,7 +171,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProvideWinSATResultsInfo as ::windows::core::Interface>::IID
+        iid == &<IProvideWinSATResultsInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -217,7 +217,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), AllXML: AllXML::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQueryAllWinSATAssessments as ::windows::core::Interface>::IID
+        iid == &<IQueryAllWinSATAssessments as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IQueryOEMWinSATCustomization_Impl: Sized {
@@ -276,7 +276,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQueryRecentWinSATAssessment as ::windows::core::Interface>::IID
+        iid == &<IQueryRecentWinSATAssessment as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

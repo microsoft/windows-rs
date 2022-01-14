@@ -47,7 +47,7 @@ impl IDesktopWindowXamlSourceNative2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDesktopWindowXamlSourceNative2 as ::windows::core::Interface>::IID
+        iid == &<IDesktopWindowXamlSourceNative2 as ::windows::core::Interface>::IID || iid == &<IDesktopWindowXamlSourceNative as ::windows::core::Interface>::IID
     }
 }
 pub trait IFindReferenceTargetsCallback_Impl: Sized {
@@ -399,7 +399,7 @@ impl ISwapChainPanelNative2_Vtbl {
         Self { base: ISwapChainPanelNative_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetSwapChainHandle: SetSwapChainHandle::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISwapChainPanelNative2 as ::windows::core::Interface>::IID
+        iid == &<ISwapChainPanelNative2 as ::windows::core::Interface>::IID || iid == &<ISwapChainPanelNative as ::windows::core::Interface>::IID
     }
 }
 pub trait ITrackerOwner_Impl: Sized {
@@ -503,7 +503,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVirtualSurfaceImageSourceNative as ::windows::core::Interface>::IID
+        iid == &<IVirtualSurfaceImageSourceNative as ::windows::core::Interface>::IID || iid == &<ISurfaceImageSourceNative as ::windows::core::Interface>::IID
     }
 }
 pub trait IVirtualSurfaceUpdatesCallbackNative_Impl: Sized {

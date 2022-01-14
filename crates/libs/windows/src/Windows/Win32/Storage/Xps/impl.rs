@@ -113,7 +113,7 @@ impl IXpsOMBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -253,7 +253,7 @@ impl IXpsOMCanvas_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMCanvas as ::windows::core::Interface>::IID
+        iid == &<IXpsOMCanvas as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMVisual as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -285,7 +285,7 @@ impl IXpsOMColorProfileResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMColorProfileResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMColorProfileResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -685,7 +685,7 @@ impl IXpsOMCoreProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMCoreProperties as ::windows::core::Interface>::IID
+        iid == &<IXpsOMCoreProperties as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID
     }
 }
 pub trait IXpsOMDashCollection_Impl: Sized {
@@ -947,7 +947,7 @@ impl IXpsOMDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMDocument as ::windows::core::Interface>::IID
+        iid == &<IXpsOMDocument as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID
     }
 }
 pub trait IXpsOMDocumentCollection_Impl: Sized {
@@ -1063,7 +1063,7 @@ impl IXpsOMDocumentSequence_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMDocumentSequence as ::windows::core::Interface>::IID
+        iid == &<IXpsOMDocumentSequence as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -1107,7 +1107,7 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMDocumentStructureResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMDocumentStructureResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -1151,7 +1151,7 @@ impl IXpsOMFontResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMFontResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMFontResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -1329,7 +1329,7 @@ impl IXpsOMGeometry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMGeometry as ::windows::core::Interface>::IID
+        iid == &<IXpsOMGeometry as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1819,7 +1819,7 @@ impl IXpsOMGlyphs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMGlyphs as ::windows::core::Interface>::IID
+        iid == &<IXpsOMGlyphs as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMVisual as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2093,7 +2093,7 @@ impl IXpsOMGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMGradientBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMGradientBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMBrush as ::windows::core::Interface>::IID
     }
 }
 pub trait IXpsOMGradientStop_Impl: Sized {
@@ -2281,7 +2281,7 @@ impl IXpsOMImageBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMImageBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMImageBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMTileBrush as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -2325,7 +2325,7 @@ impl IXpsOMImageResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMImageResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMImageResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -2461,7 +2461,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMLinearGradientBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMLinearGradientBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMGradientBrush as ::windows::core::Interface>::IID
     }
 }
 pub trait IXpsOMMatrixTransform_Impl: Sized + IXpsOMShareable_Impl {
@@ -2503,7 +2503,7 @@ impl IXpsOMMatrixTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMMatrixTransform as ::windows::core::Interface>::IID
+        iid == &<IXpsOMMatrixTransform as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3153,7 +3153,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMObjectFactory1 as ::windows::core::Interface>::IID
+        iid == &<IXpsOMObjectFactory1 as ::windows::core::Interface>::IID || iid == &<IXpsOMObjectFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -3289,7 +3289,7 @@ impl IXpsOMPackage1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMPackage1 as ::windows::core::Interface>::IID
+        iid == &<IXpsOMPackage1 as ::windows::core::Interface>::IID || iid == &<IXpsOMPackage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -3388,7 +3388,7 @@ impl IXpsOMPackageWriter3D_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMPackageWriter3D as ::windows::core::Interface>::IID
+        iid == &<IXpsOMPackageWriter3D as ::windows::core::Interface>::IID || iid == &<IXpsOMPackageWriter as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -3612,7 +3612,7 @@ impl IXpsOMPage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMPage as ::windows::core::Interface>::IID
+        iid == &<IXpsOMPage as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -3644,7 +3644,7 @@ impl IXpsOMPage1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMPage1 as ::windows::core::Interface>::IID
+        iid == &<IXpsOMPage1 as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMPage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4402,7 +4402,7 @@ impl IXpsOMPath_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMPath as ::windows::core::Interface>::IID
+        iid == &<IXpsOMPath as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMVisual as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -4434,7 +4434,7 @@ impl IXpsOMPrintTicketResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMPrintTicketResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMPrintTicketResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4514,7 +4514,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMRadialGradientBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMRadialGradientBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMGradientBrush as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -4546,7 +4546,7 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMRemoteDictionaryResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMRemoteDictionaryResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -4578,7 +4578,7 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMRemoteDictionaryResource1 as ::windows::core::Interface>::IID
+        iid == &<IXpsOMRemoteDictionaryResource1 as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID || iid == &<IXpsOMRemoteDictionaryResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -4663,7 +4663,7 @@ impl IXpsOMResource_Vtbl {
         Self { base: IXpsOMPart_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID
     }
 }
 pub trait IXpsOMShareable_Impl: Sized {
@@ -4743,7 +4743,7 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMSignatureBlockResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMSignatureBlockResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -4853,7 +4853,7 @@ impl IXpsOMSolidColorBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMSolidColorBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMSolidColorBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMBrush as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -4897,7 +4897,7 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMStoryFragmentsResource as ::windows::core::Interface>::IID
+        iid == &<IXpsOMStoryFragmentsResource as ::windows::core::Interface>::IID || iid == &<IXpsOMPart as ::windows::core::Interface>::IID || iid == &<IXpsOMResource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -5036,7 +5036,7 @@ impl IXpsOMTileBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMTileBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMTileBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMBrush as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5284,7 +5284,7 @@ impl IXpsOMVisual_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMVisual as ::windows::core::Interface>::IID
+        iid == &<IXpsOMVisual as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5358,7 +5358,7 @@ impl IXpsOMVisualBrush_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsOMVisualBrush as ::windows::core::Interface>::IID
+        iid == &<IXpsOMVisualBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMShareable as ::windows::core::Interface>::IID || iid == &<IXpsOMBrush as ::windows::core::Interface>::IID || iid == &<IXpsOMTileBrush as ::windows::core::Interface>::IID
     }
 }
 pub trait IXpsOMVisualCollection_Impl: Sized {

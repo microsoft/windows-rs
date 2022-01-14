@@ -62,7 +62,7 @@ impl IReferenceClock2_Vtbl {
         Self { base: IReferenceClock_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReferenceClock2 as ::windows::core::Interface>::IID
+        iid == &<IReferenceClock2 as ::windows::core::Interface>::IID || iid == &<IReferenceClock as ::windows::core::Interface>::IID
     }
 }
 pub trait IReferenceClockTimerControl_Impl: Sized {

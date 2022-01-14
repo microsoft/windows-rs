@@ -36,7 +36,7 @@ impl IWebApplicationAuthoringMode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebApplicationAuthoringMode as ::windows::core::Interface>::IID
+        iid == &<IWebApplicationAuthoringMode as ::windows::core::Interface>::IID || iid == &<super::super::super::Com::IServiceProvider as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]

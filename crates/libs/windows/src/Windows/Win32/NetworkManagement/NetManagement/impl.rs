@@ -427,7 +427,7 @@ impl INetCfgClassSetup2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgClassSetup2 as ::windows::core::Interface>::IID
+        iid == &<INetCfgClassSetup2 as ::windows::core::Interface>::IID || iid == &<INetCfgClassSetup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]

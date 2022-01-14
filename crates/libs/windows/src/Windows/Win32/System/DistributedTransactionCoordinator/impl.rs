@@ -711,7 +711,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig2 as ::windows::core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig2 as ::windows::core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -743,7 +743,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig3 as ::windows::core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig3 as ::windows::core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows::core::Interface>::IID || iid == &<IDtcNetworkAccessConfig2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1086,7 +1086,7 @@ impl IResourceManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManager2 as ::windows::core::Interface>::IID
+        iid == &<IResourceManager2 as ::windows::core::Interface>::IID || iid == &<IResourceManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1126,7 +1126,7 @@ impl IResourceManagerFactory2_Vtbl {
         Self { base: IResourceManagerFactory_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateEx: CreateEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManagerFactory2 as ::windows::core::Interface>::IID
+        iid == &<IResourceManagerFactory2 as ::windows::core::Interface>::IID || iid == &<IResourceManagerFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1149,7 +1149,7 @@ impl IResourceManagerRejoinable_Vtbl {
         Self { base: IResourceManager2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Rejoin: Rejoin::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManagerRejoinable as ::windows::core::Interface>::IID
+        iid == &<IResourceManagerRejoinable as ::windows::core::Interface>::IID || iid == &<IResourceManager as ::windows::core::Interface>::IID || iid == &<IResourceManager2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IResourceManagerSink_Impl: Sized {
@@ -1358,7 +1358,7 @@ impl ITransaction2_Vtbl {
         Self { base: ITransactionCloner_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransaction2 as ::windows::core::Interface>::IID
+        iid == &<ITransaction2 as ::windows::core::Interface>::IID || iid == &<ITransaction as ::windows::core::Interface>::IID || iid == &<ITransactionCloner as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1384,7 +1384,7 @@ impl ITransactionCloner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionCloner as ::windows::core::Interface>::IID
+        iid == &<ITransactionCloner as ::windows::core::Interface>::IID || iid == &<ITransaction as ::windows::core::Interface>::IID
     }
 }
 pub trait ITransactionDispenser_Impl: Sized {
@@ -2026,7 +2026,7 @@ impl ITransactionVoterNotifyAsync2_Vtbl {
         Self { base: ITransactionOutcomeEvents_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), VoteRequest: VoteRequest::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionVoterNotifyAsync2 as ::windows::core::Interface>::IID
+        iid == &<ITransactionVoterNotifyAsync2 as ::windows::core::Interface>::IID || iid == &<ITransactionOutcomeEvents as ::windows::core::Interface>::IID
     }
 }
 pub trait IXAConfig_Impl: Sized {

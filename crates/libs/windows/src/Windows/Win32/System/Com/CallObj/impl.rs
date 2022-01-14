@@ -267,7 +267,7 @@ impl ICallInterceptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICallInterceptor as ::windows::core::Interface>::IID
+        iid == &<ICallInterceptor as ::windows::core::Interface>::IID || iid == &<ICallIndirect as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

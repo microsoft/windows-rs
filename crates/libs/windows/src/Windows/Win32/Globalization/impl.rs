@@ -345,7 +345,7 @@ impl IMLangFontLink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangFontLink as ::windows::core::Interface>::IID
+        iid == &<IMLangFontLink as ::windows::core::Interface>::IID || iid == &<IMLangCodePages as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -425,7 +425,7 @@ impl IMLangFontLink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangFontLink2 as ::windows::core::Interface>::IID
+        iid == &<IMLangFontLink2 as ::windows::core::Interface>::IID || iid == &<IMLangCodePages as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -563,7 +563,7 @@ impl IMLangStringAStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangStringAStr as ::windows::core::Interface>::IID
+        iid == &<IMLangStringAStr as ::windows::core::Interface>::IID || iid == &<IMLangString as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -725,7 +725,7 @@ impl IMLangStringWStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangStringWStr as ::windows::core::Interface>::IID
+        iid == &<IMLangStringWStr as ::windows::core::Interface>::IID || iid == &<IMLangString as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1151,7 +1151,7 @@ impl IMultiLanguage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultiLanguage3 as ::windows::core::Interface>::IID
+        iid == &<IMultiLanguage3 as ::windows::core::Interface>::IID || iid == &<IMultiLanguage2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1560,7 +1560,7 @@ impl ISpellChecker2_Vtbl {
         Self { base: ISpellChecker_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Remove: Remove::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellChecker2 as ::windows::core::Interface>::IID
+        iid == &<ISpellChecker2 as ::windows::core::Interface>::IID || iid == &<ISpellChecker as ::windows::core::Interface>::IID
     }
 }
 pub trait ISpellCheckerChangedEventHandler_Impl: Sized {

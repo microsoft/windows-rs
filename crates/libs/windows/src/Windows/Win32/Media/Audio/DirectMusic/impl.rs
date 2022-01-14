@@ -80,7 +80,7 @@ impl IDirectMusic8_Vtbl {
         Self { base: IDirectMusic_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetExternalMasterClock: SetExternalMasterClock::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectMusic8 as ::windows::core::Interface>::IID
+        iid == &<IDirectMusic8 as ::windows::core::Interface>::IID || iid == &<IDirectMusic as ::windows::core::Interface>::IID
     }
 }
 pub trait IDirectMusicBuffer_Impl: Sized {
@@ -598,7 +598,7 @@ impl IDirectMusicSynth8_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectMusicSynth8 as ::windows::core::Interface>::IID
+        iid == &<IDirectMusicSynth8 as ::windows::core::Interface>::IID || iid == &<IDirectMusicSynth as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]

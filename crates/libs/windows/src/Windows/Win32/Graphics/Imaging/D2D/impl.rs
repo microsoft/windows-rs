@@ -53,6 +53,6 @@ impl IWICImagingFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICImagingFactory2 as ::windows::core::Interface>::IID
+        iid == &<IWICImagingFactory2 as ::windows::core::Interface>::IID || iid == &<super::IWICImagingFactory as ::windows::core::Interface>::IID
     }
 }

@@ -124,7 +124,7 @@ impl IRdcFileWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRdcFileWriter as ::windows::core::Interface>::IID
+        iid == &<IRdcFileWriter as ::windows::core::Interface>::IID || iid == &<IRdcFileReader as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

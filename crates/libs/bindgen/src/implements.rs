@@ -26,9 +26,18 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     }
 
+    let mut matches = quote! { iid == &<#type_ident<#(#generics)*> as ::windows::core::Interface>::IID };
+
     for def in def.vtable_types() {
         if let ElementType::TypeDef(def) = def {
             requires.combine(&gen_required_trait(&def, gen));
+
+            let name = gen_ident(def.name());
+            let namespace = gen.namespace(def.namespace());
+
+            matches.combine(&quote! {
+                || iid == &<#namespace #name as ::windows::core::Interface>::IID
+            })
         }
     }
 
@@ -112,9 +121,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
                 }
             }
             pub fn matches(iid: &windows::core::GUID) -> bool {
-                // TODO: match this vtable's IID as well as any base IIDs for COM interfaces
-
-                iid == &<#type_ident<#(#generics)*> as ::windows::core::Interface>::IID
+                #matches
             }
         }
     }

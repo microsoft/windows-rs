@@ -393,7 +393,7 @@ impl IAudioSystemEffects2_Vtbl {
         Self { base: IAudioSystemEffects_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetEffectsList: GetEffectsList::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -419,7 +419,7 @@ impl IAudioSystemEffects3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffects3 as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffects3 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

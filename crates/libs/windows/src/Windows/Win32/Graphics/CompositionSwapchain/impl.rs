@@ -27,7 +27,7 @@ impl ICompositionFramePresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionFramePresentStatistics as ::windows::core::Interface>::IID
+        iid == &<ICompositionFramePresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -71,7 +71,7 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIndependentFlipFramePresentStatistics as ::windows::core::Interface>::IID
+        iid == &<IIndependentFlipFramePresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
     }
 }
 pub trait IPresentStatistics_Impl: Sized {
@@ -119,7 +119,7 @@ impl IPresentStatusPresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentStatusPresentStatistics as ::windows::core::Interface>::IID
+        iid == &<IPresentStatusPresentStatistics as ::windows::core::Interface>::IID || iid == &<IPresentStatistics as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -392,6 +392,6 @@ impl IPresentationSurface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPresentationSurface as ::windows::core::Interface>::IID
+        iid == &<IPresentationSurface as ::windows::core::Interface>::IID || iid == &<IPresentationContent as ::windows::core::Interface>::IID
     }
 }

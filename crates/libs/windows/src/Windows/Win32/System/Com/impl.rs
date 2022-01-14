@@ -95,7 +95,7 @@ impl AsyncIAdviseSink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIAdviseSink2 as ::windows::core::Interface>::IID
+        iid == &<AsyncIAdviseSink2 as ::windows::core::Interface>::IID || iid == &<AsyncIAdviseSink as ::windows::core::Interface>::IID
     }
 }
 pub trait AsyncIMultiQI_Impl: Sized {
@@ -405,7 +405,7 @@ impl IAdviseSink2_Vtbl {
         Self { base: IAdviseSink_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), OnLinkSrcChange: OnLinkSrcChange::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAdviseSink2 as ::windows::core::Interface>::IID
+        iid == &<IAdviseSink2 as ::windows::core::Interface>::IID || iid == &<IAdviseSink as ::windows::core::Interface>::IID
     }
 }
 pub trait IAgileObject_Impl: Sized {}
@@ -480,7 +480,7 @@ impl IAsyncRpcChannelBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncRpcChannelBuffer as ::windows::core::Interface>::IID
+        iid == &<IAsyncRpcChannelBuffer as ::windows::core::Interface>::IID || iid == &<IRpcChannelBuffer as ::windows::core::Interface>::IID || iid == &<IRpcChannelBuffer2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -514,7 +514,7 @@ impl IAuthenticateEx_Vtbl {
         Self { base: IAuthenticate_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), AuthenticateEx: AuthenticateEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAuthenticateEx as ::windows::core::Interface>::IID
+        iid == &<IAuthenticateEx as ::windows::core::Interface>::IID || iid == &<IAuthenticate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -723,7 +723,7 @@ impl IBindStatusCallbackEx_Vtbl {
         Self { base: IBindStatusCallback_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBindStatusCallbackEx as ::windows::core::Interface>::IID
+        iid == &<IBindStatusCallbackEx as ::windows::core::Interface>::IID || iid == &<IBindStatusCallback as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2430,7 +2430,7 @@ impl IMoniker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMoniker as ::windows::core::Interface>::IID
+        iid == &<IMoniker as ::windows::core::Interface>::IID || iid == &<IPersist as ::windows::core::Interface>::IID || iid == &<IPersistStream as ::windows::core::Interface>::IID
     }
 }
 pub trait IMultiQI_Impl: Sized {
@@ -2581,7 +2581,7 @@ impl IPersistFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistFile as ::windows::core::Interface>::IID
+        iid == &<IPersistFile as ::windows::core::Interface>::IID || iid == &<IPersist as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2631,7 +2631,7 @@ impl IPersistMemory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistMemory as ::windows::core::Interface>::IID
+        iid == &<IPersistMemory as ::windows::core::Interface>::IID || iid == &<IPersist as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2675,7 +2675,7 @@ impl IPersistStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistStream as ::windows::core::Interface>::IID
+        iid == &<IPersistStream as ::windows::core::Interface>::IID || iid == &<IPersist as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2725,7 +2725,7 @@ impl IPersistStreamInit_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistStreamInit as ::windows::core::Interface>::IID
+        iid == &<IPersistStreamInit as ::windows::core::Interface>::IID || iid == &<IPersist as ::windows::core::Interface>::IID
     }
 }
 pub trait IPipeByte_Impl: Sized {
@@ -2934,7 +2934,7 @@ impl IRpcChannelBuffer2_Vtbl {
         Self { base: IRpcChannelBuffer_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetProtocolVersion: GetProtocolVersion::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRpcChannelBuffer2 as ::windows::core::Interface>::IID
+        iid == &<IRpcChannelBuffer2 as ::windows::core::Interface>::IID || iid == &<IRpcChannelBuffer as ::windows::core::Interface>::IID
     }
 }
 pub trait IRpcChannelBuffer3_Impl: Sized + IRpcChannelBuffer_Impl + IRpcChannelBuffer2_Impl {
@@ -2994,7 +2994,7 @@ impl IRpcChannelBuffer3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRpcChannelBuffer3 as ::windows::core::Interface>::IID
+        iid == &<IRpcChannelBuffer3 as ::windows::core::Interface>::IID || iid == &<IRpcChannelBuffer as ::windows::core::Interface>::IID || iid == &<IRpcChannelBuffer2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IRpcHelper_Impl: Sized {
@@ -3453,7 +3453,7 @@ impl IStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStream as ::windows::core::Interface>::IID
+        iid == &<IStream as ::windows::core::Interface>::IID || iid == &<ISequentialStream as ::windows::core::Interface>::IID
     }
 }
 pub trait ISupportErrorInfo_Impl: Sized {
@@ -3619,7 +3619,7 @@ impl ISynchronizeEvent_Vtbl {
         Self { base: ISynchronizeHandle_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetEventHandle: SetEventHandle::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISynchronizeEvent as ::windows::core::Interface>::IID
+        iid == &<ISynchronizeEvent as ::windows::core::Interface>::IID || iid == &<ISynchronizeHandle as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3657,7 +3657,7 @@ impl ISynchronizeMutex_Vtbl {
         Self { base: ISynchronize_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ReleaseMutex: ReleaseMutex::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISynchronizeMutex as ::windows::core::Interface>::IID
+        iid == &<ISynchronizeMutex as ::windows::core::Interface>::IID || iid == &<ISynchronize as ::windows::core::Interface>::IID
     }
 }
 pub trait ITimeAndNoticeControl_Impl: Sized {
@@ -4058,7 +4058,7 @@ impl ITypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITypeInfo2 as ::windows::core::Interface>::IID
+        iid == &<ITypeInfo2 as ::windows::core::Interface>::IID || iid == &<ITypeInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4212,7 +4212,7 @@ impl ITypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITypeLib2 as ::windows::core::Interface>::IID
+        iid == &<ITypeLib2 as ::windows::core::Interface>::IID || iid == &<ITypeLib as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

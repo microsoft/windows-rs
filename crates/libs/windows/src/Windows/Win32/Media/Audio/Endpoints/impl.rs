@@ -347,7 +347,7 @@ impl IAudioEndpointVolumeEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEndpointVolumeEx as ::windows::core::Interface>::IID
+        iid == &<IAudioEndpointVolumeEx as ::windows::core::Interface>::IID || iid == &<IAudioEndpointVolume as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

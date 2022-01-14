@@ -12,7 +12,7 @@ impl IWSCDefaultProduct_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetDefaultProduct: SetDefaultProduct::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSCDefaultProduct as ::windows::core::Interface>::IID
+        iid == &<IWSCDefaultProduct as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -56,7 +56,7 @@ impl IWSCProductList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSCProductList as ::windows::core::Interface>::IID
+        iid == &<IWSCProductList as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -154,7 +154,7 @@ impl IWscProduct_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWscProduct as ::windows::core::Interface>::IID
+        iid == &<IWscProduct as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -240,7 +240,7 @@ impl IWscProduct2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWscProduct2 as ::windows::core::Interface>::IID
+        iid == &<IWscProduct2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWscProduct as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -266,6 +266,6 @@ impl IWscProduct3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWscProduct3 as ::windows::core::Interface>::IID
+        iid == &<IWscProduct3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWscProduct as ::windows::core::Interface>::IID || iid == &<IWscProduct2 as ::windows::core::Interface>::IID
     }
 }

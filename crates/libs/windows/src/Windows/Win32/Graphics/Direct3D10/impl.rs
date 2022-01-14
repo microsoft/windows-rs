@@ -31,7 +31,7 @@ impl ID3D10Asynchronous_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID
+        iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -48,7 +48,7 @@ impl ID3D10BlendState_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10BlendState as ::windows::core::Interface>::IID
+        iid == &<ID3D10BlendState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -65,7 +65,7 @@ impl ID3D10BlendState1_Vtbl {
         Self { base: ID3D10BlendState_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc1: GetDesc1::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10BlendState1 as ::windows::core::Interface>::IID
+        iid == &<ID3D10BlendState1 as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10BlendState as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10Buffer_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
@@ -95,7 +95,7 @@ impl ID3D10Buffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Buffer as ::windows::core::Interface>::IID
+        iid == &<ID3D10Buffer as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Resource as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10Counter_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
@@ -110,7 +110,7 @@ impl ID3D10Counter_Vtbl {
         Self { base: ID3D10Asynchronous_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Counter as ::windows::core::Interface>::IID
+        iid == &<ID3D10Counter as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -189,7 +189,7 @@ impl ID3D10DepthStencilState_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10DepthStencilState as ::windows::core::Interface>::IID
+        iid == &<ID3D10DepthStencilState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -206,7 +206,7 @@ impl ID3D10DepthStencilView_Vtbl {
         Self { base: ID3D10View_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10DepthStencilView as ::windows::core::Interface>::IID
+        iid == &<ID3D10DepthStencilView as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -960,7 +960,7 @@ impl ID3D10Device1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Device1 as ::windows::core::Interface>::IID
+        iid == &<ID3D10Device1 as ::windows::core::Interface>::IID || iid == &<ID3D10Device as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10DeviceChild_Impl: Sized {
@@ -1132,7 +1132,7 @@ impl ID3D10EffectBlendVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectBlendVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectBlendVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1182,7 +1182,7 @@ impl ID3D10EffectConstantBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectConstantBuffer as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectConstantBuffer as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1220,7 +1220,7 @@ impl ID3D10EffectDepthStencilVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectDepthStencilVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectDepthStencilVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1264,7 +1264,7 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectDepthStencilViewVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectDepthStencilViewVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1326,7 +1326,7 @@ impl ID3D10EffectMatrixVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectMatrixVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectMatrixVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1452,7 +1452,7 @@ impl ID3D10EffectRasterizerVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectRasterizerVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectRasterizerVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1496,7 +1496,7 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectRenderTargetViewVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectRenderTargetViewVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1534,7 +1534,7 @@ impl ID3D10EffectSamplerVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectSamplerVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectSamplerVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1638,7 +1638,7 @@ impl ID3D10EffectScalarVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectScalarVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectScalarVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1682,7 +1682,7 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectShaderResourceVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectShaderResourceVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -1768,7 +1768,7 @@ impl ID3D10EffectShaderVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectShaderVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectShaderVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1800,7 +1800,7 @@ impl ID3D10EffectStringVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectStringVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectStringVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2171,7 +2171,7 @@ impl ID3D10EffectVectorVariable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectVectorVariable as ::windows::core::Interface>::IID
+        iid == &<ID3D10EffectVectorVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10GeometryShader_Impl: Sized + ID3D10DeviceChild_Impl {}
@@ -2180,7 +2180,7 @@ impl ID3D10GeometryShader_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10GeometryShader as ::windows::core::Interface>::IID
+        iid == &<ID3D10GeometryShader as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2413,7 +2413,7 @@ impl ID3D10InputLayout_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10InputLayout as ::windows::core::Interface>::IID
+        iid == &<ID3D10InputLayout as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2460,7 +2460,7 @@ impl ID3D10PixelShader_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10PixelShader as ::windows::core::Interface>::IID
+        iid == &<ID3D10PixelShader as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10Predicate_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl + ID3D10Query_Impl {}
@@ -2469,7 +2469,7 @@ impl ID3D10Predicate_Vtbl {
         Self { base: ID3D10Query_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Predicate as ::windows::core::Interface>::IID
+        iid == &<ID3D10Predicate as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D10Query as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10Query_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
@@ -2484,7 +2484,7 @@ impl ID3D10Query_Vtbl {
         Self { base: ID3D10Asynchronous_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Query as ::windows::core::Interface>::IID
+        iid == &<ID3D10Query as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2501,7 +2501,7 @@ impl ID3D10RasterizerState_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10RasterizerState as ::windows::core::Interface>::IID
+        iid == &<ID3D10RasterizerState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2518,7 +2518,7 @@ impl ID3D10RenderTargetView_Vtbl {
         Self { base: ID3D10View_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10RenderTargetView as ::windows::core::Interface>::IID
+        iid == &<ID3D10RenderTargetView as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10Resource_Impl: Sized + ID3D10DeviceChild_Impl {
@@ -2548,7 +2548,7 @@ impl ID3D10Resource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Resource as ::windows::core::Interface>::IID
+        iid == &<ID3D10Resource as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10SamplerState_Impl: Sized + ID3D10DeviceChild_Impl {
@@ -2563,7 +2563,7 @@ impl ID3D10SamplerState_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10SamplerState as ::windows::core::Interface>::IID
+        iid == &<ID3D10SamplerState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -2932,7 +2932,7 @@ impl ID3D10ShaderResourceView_Vtbl {
         Self { base: ID3D10View_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10ShaderResourceView as ::windows::core::Interface>::IID
+        iid == &<ID3D10ShaderResourceView as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2949,7 +2949,7 @@ impl ID3D10ShaderResourceView1_Vtbl {
         Self { base: ID3D10ShaderResourceView_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc1: GetDesc1::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10ShaderResourceView1 as ::windows::core::Interface>::IID
+        iid == &<ID3D10ShaderResourceView1 as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10View as ::windows::core::Interface>::IID || iid == &<ID3D10ShaderResourceView as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10StateBlock_Impl: Sized {
@@ -3049,7 +3049,7 @@ impl ID3D10Texture1D_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Texture1D as ::windows::core::Interface>::IID
+        iid == &<ID3D10Texture1D as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Resource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3087,7 +3087,7 @@ impl ID3D10Texture2D_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Texture2D as ::windows::core::Interface>::IID
+        iid == &<ID3D10Texture2D as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Resource as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3125,7 +3125,7 @@ impl ID3D10Texture3D_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10Texture3D as ::windows::core::Interface>::IID
+        iid == &<ID3D10Texture3D as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Resource as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10VertexShader_Impl: Sized + ID3D10DeviceChild_Impl {}
@@ -3134,7 +3134,7 @@ impl ID3D10VertexShader_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10VertexShader as ::windows::core::Interface>::IID
+        iid == &<ID3D10VertexShader as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
 pub trait ID3D10View_Impl: Sized + ID3D10DeviceChild_Impl {
@@ -3149,6 +3149,6 @@ impl ID3D10View_Vtbl {
         Self { base: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetResource: GetResource::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10View as ::windows::core::Interface>::IID
+        iid == &<ID3D10View as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }

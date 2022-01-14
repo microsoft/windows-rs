@@ -777,7 +777,7 @@ impl IOpcPartUri_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcPartUri as ::windows::core::Interface>::IID
+        iid == &<IOpcPartUri as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows::core::Interface>::IID || iid == &<IOpcUri as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2058,6 +2058,6 @@ impl IOpcUri_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpcUri as ::windows::core::Interface>::IID
+        iid == &<IOpcUri as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows::core::Interface>::IID
     }
 }

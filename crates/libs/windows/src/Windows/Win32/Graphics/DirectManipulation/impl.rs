@@ -64,7 +64,7 @@ impl IDirectManipulationCompositor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationCompositor2 as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationCompositor2 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationCompositor as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -316,7 +316,7 @@ impl IDirectManipulationManager2_Vtbl {
         Self { base: IDirectManipulationManager_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateBehavior: CreateBehavior::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationManager2 as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationManager2 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -333,7 +333,7 @@ impl IDirectManipulationManager3_Vtbl {
         Self { base: IDirectManipulationManager2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetService: GetService::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationManager3 as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationManager3 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager2 as ::windows::core::Interface>::IID
     }
 }
 pub trait IDirectManipulationPrimaryContent_Impl: Sized {
@@ -690,7 +690,7 @@ impl IDirectManipulationViewport2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationViewport2 as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationViewport2 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationViewport as ::windows::core::Interface>::IID
     }
 }
 pub trait IDirectManipulationViewportEventHandler_Impl: Sized {

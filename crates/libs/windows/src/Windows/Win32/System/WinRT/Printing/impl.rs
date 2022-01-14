@@ -191,7 +191,7 @@ impl IPrintWorkflowXpsReceiver2_Vtbl {
         Self { base: IPrintWorkflowXpsReceiver_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Failed: Failed::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintWorkflowXpsReceiver2 as ::windows::core::Interface>::IID
+        iid == &<IPrintWorkflowXpsReceiver2 as ::windows::core::Interface>::IID || iid == &<IPrintWorkflowXpsReceiver as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

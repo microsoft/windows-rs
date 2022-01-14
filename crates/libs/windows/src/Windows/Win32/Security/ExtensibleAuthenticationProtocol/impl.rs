@@ -173,7 +173,7 @@ impl IEAPProviderConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEAPProviderConfig2 as ::windows::core::Interface>::IID
+        iid == &<IEAPProviderConfig2 as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -193,7 +193,7 @@ impl IEAPProviderConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEAPProviderConfig3 as ::windows::core::Interface>::IID
+        iid == &<IEAPProviderConfig3 as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

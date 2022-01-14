@@ -57,6 +57,6 @@ impl IObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IObjectCollection as ::windows::core::Interface>::IID
+        iid == &<IObjectCollection as ::windows::core::Interface>::IID || iid == &<IObjectArray as ::windows::core::Interface>::IID
     }
 }

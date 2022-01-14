@@ -28,7 +28,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDelayedPropertyStoreFactory as ::windows::core::Interface>::IID
+        iid == &<IDelayedPropertyStoreFactory as ::windows::core::Interface>::IID || iid == &<IPropertyStoreFactory as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -208,7 +208,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistSerializedPropStorage2 as ::windows::core::Interface>::IID
+        iid == &<IPersistSerializedPropStorage2 as ::windows::core::Interface>::IID || iid == &<IPersistSerializedPropStorage as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -234,7 +234,7 @@ impl IPropertyChange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyChange as ::windows::core::Interface>::IID
+        iid == &<IPropertyChange as ::windows::core::Interface>::IID || iid == &<IObjectWithPropertyKey as ::windows::core::Interface>::IID
     }
 }
 pub trait IPropertyChangeArray_Impl: Sized {
@@ -556,7 +556,7 @@ impl IPropertyDescription2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyDescription2 as ::windows::core::Interface>::IID
+        iid == &<IPropertyDescription2 as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
@@ -582,7 +582,7 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyDescriptionAliasInfo as ::windows::core::Interface>::IID
+        iid == &<IPropertyDescriptionAliasInfo as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
 pub trait IPropertyDescriptionList_Impl: Sized {
@@ -625,7 +625,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         Self { base: IPropertyDescription_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetRelatedProperty: GetRelatedProperty::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows::core::Interface>::IID
+        iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
@@ -687,7 +687,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyDescriptionSearchInfo as ::windows::core::Interface>::IID
+        iid == &<IPropertyDescriptionSearchInfo as ::windows::core::Interface>::IID || iid == &<IPropertyDescription as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -784,7 +784,7 @@ impl IPropertyEnumType2_Vtbl {
         Self { base: IPropertyEnumType_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetImageReference: GetImageReference::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyEnumType2 as ::windows::core::Interface>::IID
+        iid == &<IPropertyEnumType2 as ::windows::core::Interface>::IID || iid == &<IPropertyEnumType as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -940,7 +940,7 @@ impl IPropertyStoreCache_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyStoreCache as ::windows::core::Interface>::IID
+        iid == &<IPropertyStoreCache as ::windows::core::Interface>::IID || iid == &<IPropertyStore as ::windows::core::Interface>::IID
     }
 }
 pub trait IPropertyStoreCapabilities_Impl: Sized {

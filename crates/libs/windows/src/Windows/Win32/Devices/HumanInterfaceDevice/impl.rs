@@ -12,7 +12,7 @@ impl IDirectInput2A_Vtbl {
         Self { base: IDirectInputA_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), FindDevice: FindDevice::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput2A as ::windows::core::Interface>::IID
+        iid == &<IDirectInput2A as ::windows::core::Interface>::IID || iid == &<IDirectInputA as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -29,7 +29,7 @@ impl IDirectInput2W_Vtbl {
         Self { base: IDirectInputW_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), FindDevice: FindDevice::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput2W as ::windows::core::Interface>::IID
+        iid == &<IDirectInput2W as ::windows::core::Interface>::IID || iid == &<IDirectInputW as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -46,7 +46,7 @@ impl IDirectInput7A_Vtbl {
         Self { base: IDirectInput2A_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput7A as ::windows::core::Interface>::IID
+        iid == &<IDirectInput7A as ::windows::core::Interface>::IID || iid == &<IDirectInputA as ::windows::core::Interface>::IID || iid == &<IDirectInput2A as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -63,7 +63,7 @@ impl IDirectInput7W_Vtbl {
         Self { base: IDirectInput2W_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput7W as ::windows::core::Interface>::IID
+        iid == &<IDirectInput7W as ::windows::core::Interface>::IID || iid == &<IDirectInputW as ::windows::core::Interface>::IID || iid == &<IDirectInput2W as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -299,7 +299,7 @@ impl IDirectInputDevice2A_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice2A as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice2A as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -367,7 +367,7 @@ impl IDirectInputDevice2W_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice2W as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice2W as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -393,7 +393,7 @@ impl IDirectInputDevice7A_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice7A as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice7A as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID || iid == &<IDirectInputDevice2A as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -419,7 +419,7 @@ impl IDirectInputDevice7W_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice7W as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice7W as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID || iid == &<IDirectInputDevice2W as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

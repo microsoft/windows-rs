@@ -576,7 +576,7 @@ impl IPortableDeviceContent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceContent2 as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceContent2 as ::windows::core::Interface>::IID || iid == &<IPortableDeviceContent as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -608,7 +608,7 @@ impl IPortableDeviceDataStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceDataStream as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceDataStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1936,7 +1936,7 @@ impl IPortableDeviceWebControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceWebControl as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceWebControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

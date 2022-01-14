@@ -63,7 +63,7 @@ impl IAutomaticUpdates_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAutomaticUpdates as ::windows::core::Interface>::IID
+        iid == &<IAutomaticUpdates as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -86,7 +86,7 @@ impl IAutomaticUpdates2_Vtbl {
         Self { base: IAutomaticUpdates_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Results: Results::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAutomaticUpdates2 as ::windows::core::Interface>::IID
+        iid == &<IAutomaticUpdates2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAutomaticUpdates as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -124,7 +124,7 @@ impl IAutomaticUpdatesResults_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesResults as ::windows::core::Interface>::IID
+        iid == &<IAutomaticUpdatesResults as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -228,7 +228,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesSettings as ::windows::core::Interface>::IID
+        iid == &<IAutomaticUpdatesSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -272,7 +272,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesSettings2 as ::windows::core::Interface>::IID
+        iid == &<IAutomaticUpdatesSettings2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -322,7 +322,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAutomaticUpdatesSettings3 as ::windows::core::Interface>::IID
+        iid == &<IAutomaticUpdatesSettings3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as ::windows::core::Interface>::IID || iid == &<IAutomaticUpdatesSettings2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -444,7 +444,7 @@ impl ICategory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICategory as ::windows::core::Interface>::IID
+        iid == &<ICategory as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -494,7 +494,7 @@ impl ICategoryCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICategoryCollection as ::windows::core::Interface>::IID
+        iid == &<ICategoryCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -522,7 +522,7 @@ impl IDownloadCompletedCallbackArgs_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDownloadCompletedCallbackArgs as ::windows::core::Interface>::IID
+        iid == &<IDownloadCompletedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -596,7 +596,7 @@ impl IDownloadJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDownloadJob as ::windows::core::Interface>::IID
+        iid == &<IDownloadJob as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -718,7 +718,7 @@ impl IDownloadProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDownloadProgress as ::windows::core::Interface>::IID
+        iid == &<IDownloadProgress as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -758,7 +758,7 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Progress: Progress::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDownloadProgressChangedCallbackArgs as ::windows::core::Interface>::IID
+        iid == &<IDownloadProgressChangedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -808,7 +808,7 @@ impl IDownloadResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDownloadResult as ::windows::core::Interface>::IID
+        iid == &<IDownloadResult as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -870,7 +870,7 @@ impl IImageInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImageInformation as ::windows::core::Interface>::IID
+        iid == &<IImageInformation as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -890,7 +890,7 @@ impl IInstallationAgent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInstallationAgent as ::windows::core::Interface>::IID
+        iid == &<IInstallationAgent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -952,7 +952,7 @@ impl IInstallationBehavior_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInstallationBehavior as ::windows::core::Interface>::IID
+        iid == &<IInstallationBehavior as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -980,7 +980,7 @@ impl IInstallationCompletedCallbackArgs_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInstallationCompletedCallbackArgs as ::windows::core::Interface>::IID
+        iid == &<IInstallationCompletedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1054,7 +1054,7 @@ impl IInstallationJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInstallationJob as ::windows::core::Interface>::IID
+        iid == &<IInstallationJob as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1116,7 +1116,7 @@ impl IInstallationProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInstallationProgress as ::windows::core::Interface>::IID
+        iid == &<IInstallationProgress as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1156,7 +1156,7 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Progress: Progress::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInstallationProgressChangedCallbackArgs as ::windows::core::Interface>::IID
+        iid == &<IInstallationProgressChangedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1218,7 +1218,7 @@ impl IInstallationResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInstallationResult as ::windows::core::Interface>::IID
+        iid == &<IInstallationResult as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1241,7 +1241,7 @@ impl IInvalidProductLicenseException_Vtbl {
         Self { base: IUpdateException_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Product: Product::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInvalidProductLicenseException as ::windows::core::Interface>::IID
+        iid == &<IInvalidProductLicenseException as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateException as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1269,7 +1269,7 @@ impl ISearchCompletedCallbackArgs_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchCompletedCallbackArgs as ::windows::core::Interface>::IID
+        iid == &<ISearchCompletedCallbackArgs as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1319,7 +1319,7 @@ impl ISearchJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchJob as ::windows::core::Interface>::IID
+        iid == &<ISearchJob as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1381,7 +1381,7 @@ impl ISearchResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchResult as ::windows::core::Interface>::IID
+        iid == &<ISearchResult as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1491,7 +1491,7 @@ impl IStringCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStringCollection as ::windows::core::Interface>::IID
+        iid == &<IStringCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1529,7 +1529,7 @@ impl ISystemInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISystemInformation as ::windows::core::Interface>::IID
+        iid == &<ISystemInformation as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2065,7 +2065,7 @@ impl IUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdate as ::windows::core::Interface>::IID
+        iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2121,7 +2121,7 @@ impl IUpdate2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdate2 as ::windows::core::Interface>::IID
+        iid == &<IUpdate2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2144,7 +2144,7 @@ impl IUpdate3_Vtbl {
         Self { base: IUpdate2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), BrowseOnly: BrowseOnly::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdate3 as ::windows::core::Interface>::IID
+        iid == &<IUpdate3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IUpdate2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2167,7 +2167,7 @@ impl IUpdate4_Vtbl {
         Self { base: IUpdate3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), PerUser: PerUser::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdate4 as ::windows::core::Interface>::IID
+        iid == &<IUpdate4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IUpdate2 as ::windows::core::Interface>::IID || iid == &<IUpdate3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2205,7 +2205,7 @@ impl IUpdate5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdate5 as ::windows::core::Interface>::IID
+        iid == &<IUpdate5 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IUpdate2 as ::windows::core::Interface>::IID || iid == &<IUpdate3 as ::windows::core::Interface>::IID || iid == &<IUpdate4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2315,7 +2315,7 @@ impl IUpdateCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateCollection as ::windows::core::Interface>::IID
+        iid == &<IUpdateCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2338,7 +2338,7 @@ impl IUpdateDownloadContent_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), DownloadUrl: DownloadUrl::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateDownloadContent as ::windows::core::Interface>::IID
+        iid == &<IUpdateDownloadContent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2364,7 +2364,7 @@ impl IUpdateDownloadContent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateDownloadContent2 as ::windows::core::Interface>::IID
+        iid == &<IUpdateDownloadContent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateDownloadContent as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2414,7 +2414,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateDownloadContentCollection as ::windows::core::Interface>::IID
+        iid == &<IUpdateDownloadContentCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2452,7 +2452,7 @@ impl IUpdateDownloadResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateDownloadResult as ::windows::core::Interface>::IID
+        iid == &<IUpdateDownloadResult as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2574,7 +2574,7 @@ impl IUpdateDownloader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateDownloader as ::windows::core::Interface>::IID
+        iid == &<IUpdateDownloader as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2624,7 +2624,7 @@ impl IUpdateException_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateException as ::windows::core::Interface>::IID
+        iid == &<IUpdateException as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2674,7 +2674,7 @@ impl IUpdateExceptionCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateExceptionCollection as ::windows::core::Interface>::IID
+        iid == &<IUpdateExceptionCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2856,7 +2856,7 @@ impl IUpdateHistoryEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateHistoryEntry as ::windows::core::Interface>::IID
+        iid == &<IUpdateHistoryEntry as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2879,7 +2879,7 @@ impl IUpdateHistoryEntry2_Vtbl {
         Self { base: IUpdateHistoryEntry_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Categories: Categories::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateHistoryEntry2 as ::windows::core::Interface>::IID
+        iid == &<IUpdateHistoryEntry2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateHistoryEntry as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2929,7 +2929,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateHistoryEntryCollection as ::windows::core::Interface>::IID
+        iid == &<IUpdateHistoryEntryCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2967,7 +2967,7 @@ impl IUpdateIdentity_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateIdentity as ::windows::core::Interface>::IID
+        iid == &<IUpdateIdentity as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3017,7 +3017,7 @@ impl IUpdateInstallationResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateInstallationResult as ::windows::core::Interface>::IID
+        iid == &<IUpdateInstallationResult as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3247,7 +3247,7 @@ impl IUpdateInstaller_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateInstaller as ::windows::core::Interface>::IID
+        iid == &<IUpdateInstaller as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3279,7 +3279,7 @@ impl IUpdateInstaller2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateInstaller2 as ::windows::core::Interface>::IID
+        iid == &<IUpdateInstaller2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3311,7 +3311,7 @@ impl IUpdateInstaller3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateInstaller3 as ::windows::core::Interface>::IID
+        iid == &<IUpdateInstaller3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3328,7 +3328,7 @@ impl IUpdateInstaller4_Vtbl {
         Self { base: IUpdateInstaller3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Commit: Commit::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateInstaller4 as ::windows::core::Interface>::IID
+        iid == &<IUpdateInstaller4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller2 as ::windows::core::Interface>::IID || iid == &<IUpdateInstaller3 as ::windows::core::Interface>::IID
     }
 }
 pub trait IUpdateLockdown_Impl: Sized {
@@ -3537,7 +3537,7 @@ impl IUpdateSearcher_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateSearcher as ::windows::core::Interface>::IID
+        iid == &<IUpdateSearcher as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3569,7 +3569,7 @@ impl IUpdateSearcher2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateSearcher2 as ::windows::core::Interface>::IID
+        iid == &<IUpdateSearcher2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateSearcher as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3601,7 +3601,7 @@ impl IUpdateSearcher3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateSearcher3 as ::windows::core::Interface>::IID
+        iid == &<IUpdateSearcher3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateSearcher as ::windows::core::Interface>::IID || iid == &<IUpdateSearcher2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3771,7 +3771,7 @@ impl IUpdateService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateService as ::windows::core::Interface>::IID
+        iid == &<IUpdateService as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3794,7 +3794,7 @@ impl IUpdateService2_Vtbl {
         Self { base: IUpdateService_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), IsDefaultAUService: IsDefaultAUService::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateService2 as ::windows::core::Interface>::IID
+        iid == &<IUpdateService2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateService as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3844,7 +3844,7 @@ impl IUpdateServiceCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateServiceCollection as ::windows::core::Interface>::IID
+        iid == &<IUpdateServiceCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3918,7 +3918,7 @@ impl IUpdateServiceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateServiceManager as ::windows::core::Interface>::IID
+        iid == &<IUpdateServiceManager as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3974,7 +3974,7 @@ impl IUpdateServiceManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateServiceManager2 as ::windows::core::Interface>::IID
+        iid == &<IUpdateServiceManager2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateServiceManager as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4036,7 +4036,7 @@ impl IUpdateServiceRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateServiceRegistration as ::windows::core::Interface>::IID
+        iid == &<IUpdateServiceRegistration as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4134,7 +4134,7 @@ impl IUpdateSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateSession as ::windows::core::Interface>::IID
+        iid == &<IUpdateSession as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4166,7 +4166,7 @@ impl IUpdateSession2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateSession2 as ::windows::core::Interface>::IID
+        iid == &<IUpdateSession2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateSession as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4204,7 +4204,7 @@ impl IUpdateSession3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUpdateSession3 as ::windows::core::Interface>::IID
+        iid == &<IUpdateSession3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdateSession as ::windows::core::Interface>::IID || iid == &<IUpdateSession2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4338,7 +4338,7 @@ impl IWebProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebProxy as ::windows::core::Interface>::IID
+        iid == &<IWebProxy as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4448,7 +4448,7 @@ impl IWindowsDriverUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate as ::windows::core::Interface>::IID
+        iid == &<IWindowsDriverUpdate as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4504,7 +4504,7 @@ impl IWindowsDriverUpdate2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate2 as ::windows::core::Interface>::IID
+        iid == &<IWindowsDriverUpdate2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4527,7 +4527,7 @@ impl IWindowsDriverUpdate3_Vtbl {
         Self { base: IWindowsDriverUpdate2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), BrowseOnly: BrowseOnly::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate3 as ::windows::core::Interface>::IID
+        iid == &<IWindowsDriverUpdate3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4565,7 +4565,7 @@ impl IWindowsDriverUpdate4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate4 as ::windows::core::Interface>::IID
+        iid == &<IWindowsDriverUpdate4 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4603,7 +4603,7 @@ impl IWindowsDriverUpdate5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdate5 as ::windows::core::Interface>::IID
+        iid == &<IWindowsDriverUpdate5 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as ::windows::core::Interface>::IID || iid == &<IWindowsDriverUpdate4 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4713,7 +4713,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdateEntry as ::windows::core::Interface>::IID
+        iid == &<IWindowsDriverUpdateEntry as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4763,7 +4763,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDriverUpdateEntryCollection as ::windows::core::Interface>::IID
+        iid == &<IWindowsDriverUpdateEntryCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4786,6 +4786,6 @@ impl IWindowsUpdateAgentInfo_Vtbl {
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetInfo: GetInfo::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsUpdateAgentInfo as ::windows::core::Interface>::IID
+        iid == &<IWindowsUpdateAgentInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }

@@ -15,7 +15,7 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageStatusEvent as ::windows::core::Interface>::IID
+        iid == &<IPrintDocumentPackageStatusEvent as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
 pub trait IPrintDocumentPackageTarget_Impl: Sized {
@@ -121,6 +121,6 @@ impl IXpsPrintJobStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsPrintJobStream as ::windows::core::Interface>::IID
+        iid == &<IXpsPrintJobStream as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID
     }
 }

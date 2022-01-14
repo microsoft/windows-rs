@@ -161,7 +161,7 @@ impl IITPropList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IITPropList as ::windows::core::Interface>::IID
+        iid == &<IITPropList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistStreamInit as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
