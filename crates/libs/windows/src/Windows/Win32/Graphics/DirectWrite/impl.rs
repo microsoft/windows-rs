@@ -538,7 +538,7 @@ pub trait IDWriteFactory3Impl: Sized + IDWriteFactoryImpl + IDWriteFactory1Impl 
     fn CreateGlyphRunAnalysis(&mut self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis>;
     fn CreateCustomRenderingParams(&mut self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams3>;
     fn CreateFontFaceReference(&mut self, fontfile: ::core::option::Option<IDWriteFontFile>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference>;
-    fn CreateFontFaceReference(&mut self, filepath: super::super::Foundation::PWSTR, lastwritetime: *const super::super::Foundation::FILETIME, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference>;
+    fn CreateFontFaceReference2(&mut self, filepath: super::super::Foundation::PWSTR, lastwritetime: *const super::super::Foundation::FILETIME, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference>;
     fn GetSystemFontSet(&mut self) -> ::windows::core::Result<IDWriteFontSet>;
     fn CreateFontSetBuilder(&mut self) -> ::windows::core::Result<IDWriteFontSetBuilder>;
     fn CreateFontCollectionFromFontSet(&mut self, fontset: ::core::option::Option<IDWriteFontSet>) -> ::windows::core::Result<IDWriteFontCollection1>;
@@ -578,9 +578,9 @@ impl IDWriteFactory3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFontFaceReference<Impl: IDWriteFactory3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: super::super::Foundation::PWSTR, lastwritetime: *const super::super::Foundation::FILETIME, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFontFaceReference2<Impl: IDWriteFactory3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filepath: super::super::Foundation::PWSTR, lastwritetime: *const super::super::Foundation::FILETIME, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).CreateFontFaceReference(::core::mem::transmute_copy(&filepath), ::core::mem::transmute_copy(&lastwritetime), ::core::mem::transmute_copy(&faceindex), ::core::mem::transmute_copy(&fontsimulations)) {
+            match (*this).CreateFontFaceReference2(::core::mem::transmute_copy(&filepath), ::core::mem::transmute_copy(&lastwritetime), ::core::mem::transmute_copy(&faceindex), ::core::mem::transmute_copy(&fontsimulations)) {
                 ::core::result::Result::Ok(ok__) => {
                     *fontfacereference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -653,7 +653,7 @@ impl IDWriteFactory3Vtbl {
 pub trait IDWriteFactory4Impl: Sized + IDWriteFactoryImpl + IDWriteFactory1Impl + IDWriteFactory2Impl + IDWriteFactory3Impl {
     fn TranslateColorGlyphRun(&mut self, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator1>;
     fn ComputeGlyphOrigins(&mut self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::Result<super::Direct2D::Common::D2D_POINT_2F>;
-    fn ComputeGlyphOrigins(&mut self, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: DWRITE_MEASURING_MODE, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, worldanddpitransform: *const DWRITE_MATRIX) -> ::windows::core::Result<super::Direct2D::Common::D2D_POINT_2F>;
+    fn ComputeGlyphOrigins2(&mut self, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: DWRITE_MEASURING_MODE, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, worldanddpitransform: *const DWRITE_MATRIX) -> ::windows::core::Result<super::Direct2D::Common::D2D_POINT_2F>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDWriteFactory4Vtbl {
@@ -678,9 +678,9 @@ impl IDWriteFactory4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputeGlyphOrigins<Impl: IDWriteFactory4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: DWRITE_MEASURING_MODE, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, worldanddpitransform: *const DWRITE_MATRIX, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputeGlyphOrigins2<Impl: IDWriteFactory4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, measuringmode: DWRITE_MEASURING_MODE, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, worldanddpitransform: *const DWRITE_MATRIX, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).ComputeGlyphOrigins(::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&baselineorigin), ::core::mem::transmute_copy(&worldanddpitransform)) {
+            match (*this).ComputeGlyphOrigins2(::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&baselineorigin), ::core::mem::transmute_copy(&worldanddpitransform)) {
                 ::core::result::Result::Ok(ok__) => {
                     *glyphorigins = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1760,7 +1760,7 @@ impl IDWriteFontFace3Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDWriteFontFace4Impl: Sized + IDWriteFontFaceImpl + IDWriteFontFace1Impl + IDWriteFontFace2Impl + IDWriteFontFace3Impl {
     fn GetGlyphImageFormats(&mut self, glyphid: u16, pixelsperemfirst: u32, pixelsperemlast: u32) -> ::windows::core::Result<DWRITE_GLYPH_IMAGE_FORMATS>;
-    fn GetGlyphImageFormats(&mut self) -> DWRITE_GLYPH_IMAGE_FORMATS;
+    fn GetGlyphImageFormats2(&mut self) -> DWRITE_GLYPH_IMAGE_FORMATS;
     fn GetGlyphImageData(&mut self, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ReleaseGlyphImageData(&mut self, glyphdatacontext: *mut ::core::ffi::c_void);
 }
@@ -1777,9 +1777,9 @@ impl IDWriteFontFace4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGlyphImageFormats<Impl: IDWriteFontFace4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> DWRITE_GLYPH_IMAGE_FORMATS {
+        unsafe extern "system" fn GetGlyphImageFormats2<Impl: IDWriteFontFace4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> DWRITE_GLYPH_IMAGE_FORMATS {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetGlyphImageFormats()
+            (*this).GetGlyphImageFormats2()
         }
         unsafe extern "system" fn GetGlyphImageData<Impl: IDWriteFontFace4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphid: u16, pixelsperem: u32, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, glyphdata: *mut DWRITE_GLYPH_IMAGE_DATA, glyphdatacontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -2616,11 +2616,11 @@ pub trait IDWriteFontSetImpl: Sized {
     fn FindFontFaceReference(&mut self, fontfacereference: ::core::option::Option<IDWriteFontFaceReference>, listindex: *mut u32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn FindFontFace(&mut self, fontface: ::core::option::Option<IDWriteFontFace>, listindex: *mut u32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetPropertyValues(&mut self, propertyid: DWRITE_FONT_PROPERTY_ID) -> ::windows::core::Result<IDWriteStringList>;
-    fn GetPropertyValues(&mut self, propertyid: DWRITE_FONT_PROPERTY_ID, preferredlocalenames: super::super::Foundation::PWSTR) -> ::windows::core::Result<IDWriteStringList>;
-    fn GetPropertyValues(&mut self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::core::option::Option<IDWriteLocalizedStrings>) -> ::windows::core::Result<()>;
+    fn GetPropertyValues2(&mut self, propertyid: DWRITE_FONT_PROPERTY_ID, preferredlocalenames: super::super::Foundation::PWSTR) -> ::windows::core::Result<IDWriteStringList>;
+    fn GetPropertyValues3(&mut self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::core::option::Option<IDWriteLocalizedStrings>) -> ::windows::core::Result<()>;
     fn GetPropertyOccurrenceCount(&mut self, property: *const DWRITE_FONT_PROPERTY) -> ::windows::core::Result<u32>;
     fn GetMatchingFonts(&mut self, familyname: super::super::Foundation::PWSTR, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE) -> ::windows::core::Result<IDWriteFontSet>;
-    fn GetMatchingFonts(&mut self, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::Result<IDWriteFontSet>;
+    fn GetMatchingFonts2(&mut self, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::Result<IDWriteFontSet>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDWriteFontSetVtbl {
@@ -2657,9 +2657,9 @@ impl IDWriteFontSetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValues<Impl: IDWriteFontSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: DWRITE_FONT_PROPERTY_ID, preferredlocalenames: super::super::Foundation::PWSTR, values: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyValues2<Impl: IDWriteFontSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: DWRITE_FONT_PROPERTY_ID, preferredlocalenames: super::super::Foundation::PWSTR, values: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetPropertyValues(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&preferredlocalenames)) {
+            match (*this).GetPropertyValues2(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&preferredlocalenames)) {
                 ::core::result::Result::Ok(ok__) => {
                     *values = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2667,9 +2667,9 @@ impl IDWriteFontSetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValues<Impl: IDWriteFontSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyValues3<Impl: IDWriteFontSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetPropertyValues(::core::mem::transmute_copy(&listindex), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&exists), ::core::mem::transmute_copy(&values)).into()
+            (*this).GetPropertyValues3(::core::mem::transmute_copy(&listindex), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&exists), ::core::mem::transmute_copy(&values)).into()
         }
         unsafe extern "system" fn GetPropertyOccurrenceCount<Impl: IDWriteFontSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: *const DWRITE_FONT_PROPERTY, propertyoccurrencecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -2691,9 +2691,9 @@ impl IDWriteFontSetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMatchingFonts<Impl: IDWriteFontSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, filteredset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMatchingFonts2<Impl: IDWriteFontSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, filteredset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetMatchingFonts(::core::mem::transmute_copy(&properties), ::core::mem::transmute_copy(&propertycount)) {
+            match (*this).GetMatchingFonts2(::core::mem::transmute_copy(&properties), ::core::mem::transmute_copy(&propertycount)) {
                 ::core::result::Result::Ok(ok__) => {
                     *filteredset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2724,12 +2724,12 @@ pub trait IDWriteFontSet1Impl: Sized + IDWriteFontSetImpl {
     fn GetMatchingFonts(&mut self, fontproperty: *const DWRITE_FONT_PROPERTY, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> ::windows::core::Result<IDWriteFontSet1>;
     fn GetFirstFontResources(&mut self) -> ::windows::core::Result<IDWriteFontSet1>;
     fn GetFilteredFonts(&mut self, indices: *const u32, indexcount: u32) -> ::windows::core::Result<IDWriteFontSet1>;
-    fn GetFilteredFonts(&mut self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, selectanyrange: super::super::Foundation::BOOL) -> ::windows::core::Result<IDWriteFontSet1>;
-    fn GetFilteredFonts(&mut self, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL) -> ::windows::core::Result<IDWriteFontSet1>;
+    fn GetFilteredFonts2(&mut self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, selectanyrange: super::super::Foundation::BOOL) -> ::windows::core::Result<IDWriteFontSet1>;
+    fn GetFilteredFonts3(&mut self, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL) -> ::windows::core::Result<IDWriteFontSet1>;
     fn GetFilteredFontIndices(&mut self, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, selectanyrange: super::super::Foundation::BOOL, indices: *mut u32, maxindexcount: u32, actualindexcount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFilteredFontIndices(&mut self, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL, indices: *mut u32, maxindexcount: u32, actualindexcount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFilteredFontIndices2(&mut self, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL, indices: *mut u32, maxindexcount: u32, actualindexcount: *mut u32) -> ::windows::core::Result<()>;
     fn GetFontAxisRanges(&mut self, listindex: u32, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: u32, actualfontaxisrangecount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFontAxisRanges(&mut self, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: u32, actualfontaxisrangecount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFontAxisRanges2(&mut self, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: u32, actualfontaxisrangecount: *mut u32) -> ::windows::core::Result<()>;
     fn GetFontFaceReference(&mut self, listindex: u32) -> ::windows::core::Result<IDWriteFontFaceReference1>;
     fn CreateFontResource(&mut self, listindex: u32) -> ::windows::core::Result<IDWriteFontResource>;
     fn CreateFontFace(&mut self, listindex: u32) -> ::windows::core::Result<IDWriteFontFace5>;
@@ -2768,9 +2768,9 @@ impl IDWriteFontSet1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilteredFonts<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, selectanyrange: super::super::Foundation::BOOL, filteredfontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilteredFonts2<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, selectanyrange: super::super::Foundation::BOOL, filteredfontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetFilteredFonts(::core::mem::transmute_copy(&fontaxisranges), ::core::mem::transmute_copy(&fontaxisrangecount), ::core::mem::transmute_copy(&selectanyrange)) {
+            match (*this).GetFilteredFonts2(::core::mem::transmute_copy(&fontaxisranges), ::core::mem::transmute_copy(&fontaxisrangecount), ::core::mem::transmute_copy(&selectanyrange)) {
                 ::core::result::Result::Ok(ok__) => {
                     *filteredfontset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2778,9 +2778,9 @@ impl IDWriteFontSet1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilteredFonts<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL, filteredfontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilteredFonts3<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL, filteredfontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetFilteredFonts(::core::mem::transmute_copy(&properties), ::core::mem::transmute_copy(&propertycount), ::core::mem::transmute_copy(&selectanyproperty)) {
+            match (*this).GetFilteredFonts3(::core::mem::transmute_copy(&properties), ::core::mem::transmute_copy(&propertycount), ::core::mem::transmute_copy(&selectanyproperty)) {
                 ::core::result::Result::Ok(ok__) => {
                     *filteredfontset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2792,17 +2792,17 @@ impl IDWriteFontSet1Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetFilteredFontIndices(::core::mem::transmute_copy(&fontaxisranges), ::core::mem::transmute_copy(&fontaxisrangecount), ::core::mem::transmute_copy(&selectanyrange), ::core::mem::transmute_copy(&indices), ::core::mem::transmute_copy(&maxindexcount), ::core::mem::transmute_copy(&actualindexcount)).into()
         }
-        unsafe extern "system" fn GetFilteredFontIndices<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL, indices: *mut u32, maxindexcount: u32, actualindexcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilteredFontIndices2<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32, selectanyproperty: super::super::Foundation::BOOL, indices: *mut u32, maxindexcount: u32, actualindexcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetFilteredFontIndices(::core::mem::transmute_copy(&properties), ::core::mem::transmute_copy(&propertycount), ::core::mem::transmute_copy(&selectanyproperty), ::core::mem::transmute_copy(&indices), ::core::mem::transmute_copy(&maxindexcount), ::core::mem::transmute_copy(&actualindexcount)).into()
+            (*this).GetFilteredFontIndices2(::core::mem::transmute_copy(&properties), ::core::mem::transmute_copy(&propertycount), ::core::mem::transmute_copy(&selectanyproperty), ::core::mem::transmute_copy(&indices), ::core::mem::transmute_copy(&maxindexcount), ::core::mem::transmute_copy(&actualindexcount)).into()
         }
         unsafe extern "system" fn GetFontAxisRanges<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listindex: u32, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: u32, actualfontaxisrangecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetFontAxisRanges(::core::mem::transmute_copy(&listindex), ::core::mem::transmute_copy(&fontaxisranges), ::core::mem::transmute_copy(&maxfontaxisrangecount), ::core::mem::transmute_copy(&actualfontaxisrangecount)).into()
         }
-        unsafe extern "system" fn GetFontAxisRanges<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: u32, actualfontaxisrangecount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFontAxisRanges2<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fontaxisranges: *mut DWRITE_FONT_AXIS_RANGE, maxfontaxisrangecount: u32, actualfontaxisrangecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetFontAxisRanges(::core::mem::transmute_copy(&fontaxisranges), ::core::mem::transmute_copy(&maxfontaxisrangecount), ::core::mem::transmute_copy(&actualfontaxisrangecount)).into()
+            (*this).GetFontAxisRanges2(::core::mem::transmute_copy(&fontaxisranges), ::core::mem::transmute_copy(&maxfontaxisrangecount), ::core::mem::transmute_copy(&actualfontaxisrangecount)).into()
         }
         unsafe extern "system" fn GetFontFaceReference<Impl: IDWriteFontSet1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listindex: u32, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -2911,7 +2911,7 @@ impl IDWriteFontSet3Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDWriteFontSetBuilderImpl: Sized {
     fn AddFontFaceReference(&mut self, fontfacereference: ::core::option::Option<IDWriteFontFaceReference>, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::Result<()>;
-    fn AddFontFaceReference(&mut self, fontfacereference: ::core::option::Option<IDWriteFontFaceReference>) -> ::windows::core::Result<()>;
+    fn AddFontFaceReference2(&mut self, fontfacereference: ::core::option::Option<IDWriteFontFaceReference>) -> ::windows::core::Result<()>;
     fn AddFontSet(&mut self, fontset: ::core::option::Option<IDWriteFontSet>) -> ::windows::core::Result<()>;
     fn CreateFontSet(&mut self) -> ::windows::core::Result<IDWriteFontSet>;
 }
@@ -2922,9 +2922,9 @@ impl IDWriteFontSetBuilderVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddFontFaceReference(::core::mem::transmute(&fontfacereference), ::core::mem::transmute_copy(&properties), ::core::mem::transmute_copy(&propertycount)).into()
         }
-        unsafe extern "system" fn AddFontFaceReference<Impl: IDWriteFontSetBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fontfacereference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFontFaceReference2<Impl: IDWriteFontSetBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fontfacereference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).AddFontFaceReference(::core::mem::transmute(&fontfacereference)).into()
+            (*this).AddFontFaceReference2(::core::mem::transmute(&fontfacereference)).into()
         }
         unsafe extern "system" fn AddFontSet<Impl: IDWriteFontSetBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fontset: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -3067,7 +3067,7 @@ impl IDWriteGdiInteropVtbl {
 pub trait IDWriteGdiInterop1Impl: Sized + IDWriteGdiInteropImpl {
     fn CreateFontFromLOGFONT(&mut self, logfont: *const super::Gdi::LOGFONTW, fontcollection: ::core::option::Option<IDWriteFontCollection>) -> ::windows::core::Result<IDWriteFont>;
     fn GetFontSignature(&mut self, fontface: ::core::option::Option<IDWriteFontFace>) -> ::windows::core::Result<super::super::Globalization::FONTSIGNATURE>;
-    fn GetFontSignature(&mut self, font: ::core::option::Option<IDWriteFont>) -> ::windows::core::Result<super::super::Globalization::FONTSIGNATURE>;
+    fn GetFontSignature2(&mut self, font: ::core::option::Option<IDWriteFont>) -> ::windows::core::Result<super::super::Globalization::FONTSIGNATURE>;
     fn GetMatchingFontsByLOGFONT(&mut self, logfont: *const super::Gdi::LOGFONTA, fontset: ::core::option::Option<IDWriteFontSet>) -> ::windows::core::Result<IDWriteFontSet>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -3093,9 +3093,9 @@ impl IDWriteGdiInterop1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFontSignature<Impl: IDWriteGdiInterop1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, font: ::windows::core::RawPtr, fontsignature: *mut super::super::Globalization::FONTSIGNATURE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFontSignature2<Impl: IDWriteGdiInterop1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, font: ::windows::core::RawPtr, fontsignature: *mut super::super::Globalization::FONTSIGNATURE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetFontSignature(::core::mem::transmute(&font)) {
+            match (*this).GetFontSignature2(::core::mem::transmute(&font)) {
                 ::core::result::Result::Ok(ok__) => {
                     *fontsignature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

@@ -77,10 +77,6 @@ pub use bindings::IAgileObject;
 #[doc(hidden)]
 pub type RawPtr = *mut core::ffi::c_void;
 
-// TODO: remove this
-#[cfg(feature = "build")]
-pub use windows_macros::{build, build_legacy, generate, implement, include_bindings};
-
 #[cfg(feature = "implement")]
 pub use windows_macros::implement;
 

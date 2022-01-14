@@ -1859,7 +1859,7 @@ pub trait ITextRangeImpl: Sized {
     fn SetIndex(&mut self, unit: TextRangeUnit, index: i32, extend: bool) -> ::windows::core::Result<()>;
     fn SetPoint(&mut self, point: &super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows::core::Result<()>;
     fn SetRange(&mut self, startposition: i32, endposition: i32) -> ::windows::core::Result<()>;
-    fn SetText(&mut self, options: TextSetOptions, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetText2(&mut self, options: TextSetOptions, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SetTextViaStream(&mut self, options: TextSetOptions, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
     fn StartOf(&mut self, unit: TextRangeUnit, extend: bool) -> ::windows::core::Result<i32>;
 }
@@ -2234,9 +2234,9 @@ impl ITextRangeVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRange(startposition, endposition).into()
         }
-        unsafe extern "system" fn SetText<Impl: ITextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: TextSetOptions, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText2<Impl: ITextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: TextSetOptions, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetText(options, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).SetText2(options, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         unsafe extern "system" fn SetTextViaStream<Impl: ITextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: TextSetOptions, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;

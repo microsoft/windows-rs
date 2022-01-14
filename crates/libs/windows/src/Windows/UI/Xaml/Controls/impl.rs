@@ -26204,7 +26204,7 @@ pub trait IMediaElementImpl: Sized {
     fn Play(&mut self) -> ::windows::core::Result<()>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
     fn CanPlayType(&mut self, r#type: &::windows::core::HSTRING) -> ::windows::core::Result<super::Media::MediaCanPlayResponse>;
-    fn SetSource(&mut self, stream: &::core::option::Option<super::super::super::Storage::Streams::IRandomAccessStream>, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetSource2(&mut self, stream: &::core::option::Option<super::super::super::Storage::Streams::IRandomAccessStream>, mimetype: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn GetAudioStreamLanguage(&mut self, index: &::core::option::Option<super::super::super::Foundation::IReference<i32>>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AddAudioEffect(&mut self, effectid: &::windows::core::HSTRING, effectoptional: bool, effectconfiguration: &::core::option::Option<super::super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
     fn AddVideoEffect(&mut self, effectid: &::windows::core::HSTRING, effectoptional: bool, effectconfiguration: &::core::option::Option<super::super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
@@ -26822,9 +26822,9 @@ impl IMediaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSource<Impl: IMediaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, mimetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSource2<Impl: IMediaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, mimetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetSource(&*(&stream as *const <super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType), &*(&mimetype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
+            (*this).SetSource2(&*(&stream as *const <super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType), &*(&mimetype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
         unsafe extern "system" fn GetAudioStreamLanguage<Impl: IMediaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;

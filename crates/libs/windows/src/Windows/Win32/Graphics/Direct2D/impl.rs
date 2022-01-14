@@ -4643,11 +4643,11 @@ pub trait ID2D1SvgElementImpl: Sized + ID2D1ResourceImpl {
     fn GetTextValue(&mut self, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
     fn GetTextValueLength(&mut self) -> u32;
     fn SetAttributeValue(&mut self, name: super::super::Foundation::PWSTR, value: ::core::option::Option<ID2D1SvgAttribute>) -> ::windows::core::Result<()>;
-    fn SetAttributeValue(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
-    fn SetAttributeValue(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetAttributeValue2(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
+    fn SetAttributeValue3(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn GetAttributeValue(&mut self, name: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetAttributeValue(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
-    fn GetAttributeValue(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR, valuecount: u32) -> ::windows::core::Result<()>;
+    fn GetAttributeValue2(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
+    fn GetAttributeValue3(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR, valuecount: u32) -> ::windows::core::Result<()>;
     fn GetAttributeValueLength(&mut self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4767,25 +4767,25 @@ impl ID2D1SvgElementVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SetAttributeValue<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributeValue2<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
+            (*this).SetAttributeValue2(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
         }
-        unsafe extern "system" fn SetAttributeValue<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributeValue3<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
+            (*this).SetAttributeValue3(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetAttributeValue<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetAttributeValue<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue2<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
+            (*this).GetAttributeValue2(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
         }
-        unsafe extern "system" fn GetAttributeValue<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR, valuecount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue3<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR, valuecount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuecount)).into()
+            (*this).GetAttributeValue3(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuecount)).into()
         }
         unsafe extern "system" fn GetAttributeValueLength<Impl: ID2D1SvgElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, valuelength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -5048,9 +5048,9 @@ impl ID2D1SvgPointCollectionVtbl {
 pub trait ID2D1SvgStrokeDashArrayImpl: Sized + ID2D1ResourceImpl + ID2D1SvgAttributeImpl {
     fn RemoveDashesAtEnd(&mut self, dashescount: u32) -> ::windows::core::Result<()>;
     fn UpdateDashes(&mut self, dashes: *const D2D1_SVG_LENGTH, dashescount: u32, startindex: u32) -> ::windows::core::Result<()>;
-    fn UpdateDashes(&mut self, dashes: *const f32, dashescount: u32, startindex: u32) -> ::windows::core::Result<()>;
+    fn UpdateDashes2(&mut self, dashes: *const f32, dashescount: u32, startindex: u32) -> ::windows::core::Result<()>;
     fn GetDashes(&mut self, dashes: *mut D2D1_SVG_LENGTH, dashescount: u32, startindex: u32) -> ::windows::core::Result<()>;
-    fn GetDashes(&mut self, dashes: *mut f32, dashescount: u32, startindex: u32) -> ::windows::core::Result<()>;
+    fn GetDashes2(&mut self, dashes: *mut f32, dashescount: u32, startindex: u32) -> ::windows::core::Result<()>;
     fn GetDashesCount(&mut self) -> u32;
 }
 impl ID2D1SvgStrokeDashArrayVtbl {
@@ -5063,17 +5063,17 @@ impl ID2D1SvgStrokeDashArrayVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateDashes(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount), ::core::mem::transmute_copy(&startindex)).into()
         }
-        unsafe extern "system" fn UpdateDashes<Impl: ID2D1SvgStrokeDashArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dashes: *const f32, dashescount: u32, startindex: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateDashes2<Impl: ID2D1SvgStrokeDashArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dashes: *const f32, dashescount: u32, startindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).UpdateDashes(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount), ::core::mem::transmute_copy(&startindex)).into()
+            (*this).UpdateDashes2(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount), ::core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetDashes<Impl: ID2D1SvgStrokeDashArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dashes: *mut D2D1_SVG_LENGTH, dashescount: u32, startindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDashes(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount), ::core::mem::transmute_copy(&startindex)).into()
         }
-        unsafe extern "system" fn GetDashes<Impl: ID2D1SvgStrokeDashArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dashes: *mut f32, dashescount: u32, startindex: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDashes2<Impl: ID2D1SvgStrokeDashArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dashes: *mut f32, dashescount: u32, startindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDashes(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount), ::core::mem::transmute_copy(&startindex)).into()
+            (*this).GetDashes2(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount), ::core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetDashesCount<Impl: ID2D1SvgStrokeDashArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;

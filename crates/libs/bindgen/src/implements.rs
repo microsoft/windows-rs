@@ -32,15 +32,18 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let runtime_name = gen_runtime_name(def, &cfg, gen);
     let cfg = cfg.gen(gen);
+    let mut method_names = MethodNames::new();
 
     let method_traits = def.methods().map(|method| {
-        let name = gen_ident(&method.rust_name());
+        let name = method_names.add(&method);
         let signature = gen_impl_signature(def, &method, gen);
         quote! { fn #name #signature; }
     });
 
+    let mut method_names = MethodNames::new();
+
     let method_impls = def.methods().map(|method| {
-        let name = gen_ident(&method.rust_name());
+        let name = method_names.add(&method);
         let signature = method.signature(&def.generics);
         let vtbl_signature = gen_vtbl_signature(&def, &method, gen);
 

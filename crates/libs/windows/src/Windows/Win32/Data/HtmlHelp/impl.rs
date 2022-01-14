@@ -45,13 +45,13 @@ impl IITDatabaseVtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IITPropListImpl: Sized + IPersistImpl + IPersistStreamInitImpl {
     fn Set(&mut self, propid: u32, lpszwstring: super::super::Foundation::PWSTR, dwoperation: u32) -> ::windows::core::Result<()>;
-    fn Set(&mut self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;
-    fn Set(&mut self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;
+    fn Set2(&mut self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;
+    fn Set3(&mut self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;
     fn Add(&mut self, prop: *mut CProperty) -> ::windows::core::Result<()>;
     fn Get(&mut self, propid: u32, property: *mut CProperty) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
     fn SetPersist(&mut self, fpersist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetPersist(&mut self, propid: u32, fpersist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetPersist2(&mut self, propid: u32, fpersist: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetFirst(&mut self, property: *mut CProperty) -> ::windows::core::Result<()>;
     fn GetNext(&mut self, property: *mut CProperty) -> ::windows::core::Result<()>;
     fn GetPropCount(&mut self, cprop: *mut i32) -> ::windows::core::Result<()>;
@@ -70,13 +70,13 @@ impl IITPropListVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Set(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpszwstring), ::core::mem::transmute_copy(&dwoperation)).into()
         }
-        unsafe extern "system" fn Set<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set2<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Set(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpvdata), ::core::mem::transmute_copy(&cbdata), ::core::mem::transmute_copy(&dwoperation)).into()
+            (*this).Set2(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpvdata), ::core::mem::transmute_copy(&cbdata), ::core::mem::transmute_copy(&dwoperation)).into()
         }
-        unsafe extern "system" fn Set<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set3<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Set(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&dwdata), ::core::mem::transmute_copy(&dwoperation)).into()
+            (*this).Set3(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&dwdata), ::core::mem::transmute_copy(&dwoperation)).into()
         }
         unsafe extern "system" fn Add<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prop: *mut CProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -94,9 +94,9 @@ impl IITPropListVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPersist(::core::mem::transmute_copy(&fpersist)).into()
         }
-        unsafe extern "system" fn SetPersist<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, fpersist: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPersist2<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, fpersist: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetPersist(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&fpersist)).into()
+            (*this).SetPersist2(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&fpersist)).into()
         }
         unsafe extern "system" fn GetFirst<Impl: IITPropListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: *mut CProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -170,14 +170,14 @@ pub trait IITResultSetImpl: Sized {
     fn SetColumnHeap(&mut self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()>;
     fn SetKeyProp(&mut self, propid: u32) -> ::windows::core::Result<()>;
     fn Add(&mut self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::core::Result<()>;
-    fn Add(&mut self, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::core::Result<()>;
-    fn Add(&mut self, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::Result<()>;
-    fn Add(&mut self, lpvhdr: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Add2(&mut self, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::core::Result<()>;
+    fn Add3(&mut self, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::Result<()>;
+    fn Add4(&mut self, lpvhdr: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Append(&mut self, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Set(&mut self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()>;
-    fn Set(&mut self, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Set(&mut self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()>;
-    fn Set(&mut self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Set2(&mut self, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Set3(&mut self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()>;
+    fn Set4(&mut self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Copy(&mut self, prscopy: ::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
     fn AppendRows(&mut self, pressrc: ::core::option::Option<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()>;
     fn Get(&mut self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::core::Result<()>;
@@ -186,7 +186,7 @@ pub trait IITResultSetImpl: Sized {
     fn GetRowCount(&mut self, lnumberofrows: *mut i32) -> ::windows::core::Result<()>;
     fn GetColumnCount(&mut self, lnumberofcolumns: *mut i32) -> ::windows::core::Result<()>;
     fn GetColumn(&mut self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut ::core::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> ::windows::core::Result<()>;
-    fn GetColumn(&mut self, lcolumnindex: i32, propid: *mut u32) -> ::windows::core::Result<()>;
+    fn GetColumn2(&mut self, lcolumnindex: i32, propid: *mut u32) -> ::windows::core::Result<()>;
     fn GetColumnFromPropID(&mut self, propid: u32, lcolumnindex: *mut i32) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
     fn ClearRows(&mut self) -> ::windows::core::Result<()>;
@@ -216,17 +216,17 @@ impl IITResultSetVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&dwdefaultdata), ::core::mem::transmute_copy(&priority)).into()
         }
-        unsafe extern "system" fn Add<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add2<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpszwdefault), ::core::mem::transmute_copy(&priority)).into()
+            (*this).Add2(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpszwdefault), ::core::mem::transmute_copy(&priority)).into()
         }
-        unsafe extern "system" fn Add<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add3<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpvdefaultdata), ::core::mem::transmute_copy(&cbdata), ::core::mem::transmute_copy(&priority)).into()
+            (*this).Add3(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpvdefaultdata), ::core::mem::transmute_copy(&cbdata), ::core::mem::transmute_copy(&priority)).into()
         }
-        unsafe extern "system" fn Add<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpvhdr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add4<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpvhdr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&lpvhdr)).into()
+            (*this).Add4(::core::mem::transmute_copy(&lpvhdr)).into()
         }
         unsafe extern "system" fn Append<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -236,17 +236,17 @@ impl IITResultSetVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Set(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&lpvdata), ::core::mem::transmute_copy(&cbdata)).into()
         }
-        unsafe extern "system" fn Set<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set2<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Set(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&lpwstr)).into()
+            (*this).Set2(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&lpwstr)).into()
         }
-        unsafe extern "system" fn Set<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set3<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Set(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&dwdata)).into()
+            (*this).Set3(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&dwdata)).into()
         }
-        unsafe extern "system" fn Set<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set4<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Set(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lpvhdr), ::core::mem::transmute_copy(&lpvdata)).into()
+            (*this).Set4(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lpvhdr), ::core::mem::transmute_copy(&lpvdata)).into()
         }
         unsafe extern "system" fn Copy<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prscopy: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -280,9 +280,9 @@ impl IITResultSetVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetColumn(::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&dwtype), ::core::mem::transmute_copy(&lpvdefaultvalue), ::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&columnpriority)).into()
         }
-        unsafe extern "system" fn GetColumn<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcolumnindex: i32, propid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumn2<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcolumnindex: i32, propid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetColumn(::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&propid)).into()
+            (*this).GetColumn2(::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&propid)).into()
         }
         unsafe extern "system" fn GetColumnFromPropID<Impl: IITResultSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lcolumnindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -366,8 +366,8 @@ pub trait IITWordWheelImpl: Sized {
     fn GetSorterInstance(&mut self, pdwobjinstance: *mut u32) -> ::windows::core::Result<()>;
     fn Count(&mut self, pcentries: *mut i32) -> ::windows::core::Result<()>;
     fn Lookup(&mut self, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: super::super::Foundation::BOOL, plentry: *mut i32) -> ::windows::core::Result<()>;
-    fn Lookup(&mut self, lentry: i32, lpitresult: ::core::option::Option<IITResultSet>, centries: i32) -> ::windows::core::Result<()>;
-    fn Lookup(&mut self, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::Result<()>;
+    fn Lookup2(&mut self, lentry: i32, lpitresult: ::core::option::Option<IITResultSet>, centries: i32) -> ::windows::core::Result<()>;
+    fn Lookup3(&mut self, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::Result<()>;
     fn SetGroup(&mut self, piitgroup: *mut IITGroup) -> ::windows::core::Result<()>;
     fn GetGroup(&mut self, ppiitgroup: *mut *mut IITGroup) -> ::windows::core::Result<()>;
     fn GetDataCount(&mut self, lentry: i32, pdwcount: *mut u32) -> ::windows::core::Result<()>;
@@ -401,13 +401,13 @@ impl IITWordWheelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Lookup(::core::mem::transmute_copy(&lpcvprefix), ::core::mem::transmute_copy(&fexactmatch), ::core::mem::transmute_copy(&plentry)).into()
         }
-        unsafe extern "system" fn Lookup<Impl: IITWordWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lentry: i32, lpitresult: ::windows::core::RawPtr, centries: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Lookup2<Impl: IITWordWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lentry: i32, lpitresult: ::windows::core::RawPtr, centries: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Lookup(::core::mem::transmute_copy(&lentry), ::core::mem::transmute(&lpitresult), ::core::mem::transmute_copy(&centries)).into()
+            (*this).Lookup2(::core::mem::transmute_copy(&lentry), ::core::mem::transmute(&lpitresult), ::core::mem::transmute_copy(&centries)).into()
         }
-        unsafe extern "system" fn Lookup<Impl: IITWordWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Lookup3<Impl: IITWordWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Lookup(::core::mem::transmute_copy(&lentry), ::core::mem::transmute_copy(&lpvkeybuf), ::core::mem::transmute_copy(&cbkeybuf)).into()
+            (*this).Lookup3(::core::mem::transmute_copy(&lentry), ::core::mem::transmute_copy(&lpvkeybuf), ::core::mem::transmute_copy(&cbkeybuf)).into()
         }
         unsafe extern "system" fn SetGroup<Impl: IITWordWheelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piitgroup: *mut IITGroup) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;

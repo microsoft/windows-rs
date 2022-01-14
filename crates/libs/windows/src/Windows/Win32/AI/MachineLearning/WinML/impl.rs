@@ -66,7 +66,7 @@ impl IMLOperatorKernelVtbl {
 pub trait IMLOperatorKernelContextImpl: Sized {
     fn GetInputTensor(&mut self, inputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
     fn GetOutputTensor(&mut self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> ::windows::core::Result<IMLOperatorTensor>;
-    fn GetOutputTensor(&mut self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
+    fn GetOutputTensor2(&mut self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
     fn AllocateTemporaryData(&mut self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetExecutionInterface(&mut self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
@@ -92,9 +92,9 @@ impl IMLOperatorKernelContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputTensor<Impl: IMLOperatorKernelContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutputTensor2<Impl: IMLOperatorKernelContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetOutputTensor(::core::mem::transmute_copy(&outputindex)) {
+            match (*this).GetOutputTensor2(::core::mem::transmute_copy(&outputindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *tensor = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
