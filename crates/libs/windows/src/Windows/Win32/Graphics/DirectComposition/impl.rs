@@ -2679,8 +2679,8 @@ pub trait IDCompositionVisual3_Impl: Sized + IDCompositionVisual_Impl + IDCompos
     fn SetOffsetZ2(&mut self, offsetz: f32) -> ::windows::core::Result<()>;
     fn SetOpacity(&mut self, animation: ::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetOpacity2(&mut self, opacity: f32) -> ::windows::core::Result<()>;
-    fn SetTransform(&mut self, transform: ::core::option::Option<IDCompositionTransform3D>) -> ::windows::core::Result<()>;
-    fn SetTransform2(&mut self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::Result<()>;
+    fn SetTransform3(&mut self, transform: ::core::option::Option<IDCompositionTransform3D>) -> ::windows::core::Result<()>;
+    fn SetTransform4(&mut self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::Result<()>;
     fn SetVisible(&mut self, visible: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -2706,13 +2706,13 @@ impl IDCompositionVisual3_Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpacity2(::core::mem::transmute_copy(&opacity)).into()
         }
-        unsafe extern "system" fn SetTransform<Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransform3<Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetTransform(::core::mem::transmute(&transform)).into()
+            (*this).SetTransform3(::core::mem::transmute(&transform)).into()
         }
-        unsafe extern "system" fn SetTransform2<Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransform4<Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetTransform2(::core::mem::transmute_copy(&matrix)).into()
+            (*this).SetTransform4(::core::mem::transmute_copy(&matrix)).into()
         }
         unsafe extern "system" fn SetVisible<Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visible: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -2725,8 +2725,8 @@ impl IDCompositionVisual3_Vtbl {
             SetOffsetZ2: SetOffsetZ2::<Impl, IMPL_OFFSET>,
             SetOpacity: SetOpacity::<Impl, IMPL_OFFSET>,
             SetOpacity2: SetOpacity2::<Impl, IMPL_OFFSET>,
-            SetTransform: SetTransform::<Impl, IMPL_OFFSET>,
-            SetTransform2: SetTransform2::<Impl, IMPL_OFFSET>,
+            SetTransform3: SetTransform3::<Impl, IMPL_OFFSET>,
+            SetTransform4: SetTransform4::<Impl, IMPL_OFFSET>,
             SetVisible: SetVisible::<Impl, IMPL_OFFSET>,
         }
     }

@@ -41,6 +41,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let runtime_name = gen_runtime_name(def, &cfg, gen);
     let cfg = cfg.gen(gen);
     let mut method_names = MethodNames::new();
+    method_names.add_vtable_types(def);
 
     let method_traits = def.methods().map(|method| {
         let name = method_names.add(&method);
@@ -49,6 +50,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     });
 
     let mut method_names = MethodNames::new();
+    method_names.add_vtable_types(def);
 
     let method_impls = def.methods().map(|method| {
         let name = method_names.add(&method);
@@ -83,6 +85,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     let mut method_names = MethodNames::new();
+    method_names.add_vtable_types(def);
 
     for method in def.methods() {
         let name = method_names.add(&method);

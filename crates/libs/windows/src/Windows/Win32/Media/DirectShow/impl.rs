@@ -14405,15 +14405,15 @@ impl IDvbServiceDescriptor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDvbServiceDescriptor2_Impl: Sized + IDvbServiceDescriptor_Impl {
-    fn GetServiceProviderNameW(&mut self, convmode: DVB_STRCONV_MODE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetServiceProviderNameW2(&mut self, convmode: DVB_STRCONV_MODE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetServiceNameW(&mut self, convmode: DVB_STRCONV_MODE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDvbServiceDescriptor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDvbServiceDescriptor2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDvbServiceDescriptor2_Vtbl {
-        unsafe extern "system" fn GetServiceProviderNameW<Impl: IDvbServiceDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetServiceProviderNameW2<Impl: IDvbServiceDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetServiceProviderNameW(::core::mem::transmute_copy(&convmode)) {
+            match (*this).GetServiceProviderNameW2(::core::mem::transmute_copy(&convmode)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrname = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -14433,7 +14433,7 @@ impl IDvbServiceDescriptor2_Vtbl {
         }
         Self {
             base: IDvbServiceDescriptor_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
-            GetServiceProviderNameW: GetServiceProviderNameW::<Impl, IMPL_OFFSET>,
+            GetServiceProviderNameW2: GetServiceProviderNameW2::<Impl, IMPL_OFFSET>,
             GetServiceNameW: GetServiceNameW::<Impl, IMPL_OFFSET>,
         }
     }
@@ -18829,18 +18829,18 @@ impl IGenericDescriptor_Vtbl {
     }
 }
 pub trait IGenericDescriptor2_Impl: Sized + IGenericDescriptor_Impl {
-    fn Initialize(&mut self, pbdesc: *const u8, wcount: u16) -> ::windows::core::Result<()>;
-    fn GetLength(&mut self) -> ::windows::core::Result<u16>;
+    fn Initialize2(&mut self, pbdesc: *const u8, wcount: u16) -> ::windows::core::Result<()>;
+    fn GetLength2(&mut self) -> ::windows::core::Result<u16>;
 }
 impl IGenericDescriptor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGenericDescriptor2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGenericDescriptor2_Vtbl {
-        unsafe extern "system" fn Initialize<Impl: IGenericDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdesc: *const u8, wcount: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize2<Impl: IGenericDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdesc: *const u8, wcount: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).Initialize(::core::mem::transmute_copy(&pbdesc), ::core::mem::transmute_copy(&wcount)).into()
+            (*this).Initialize2(::core::mem::transmute_copy(&pbdesc), ::core::mem::transmute_copy(&wcount)).into()
         }
-        unsafe extern "system" fn GetLength<Impl: IGenericDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLength2<Impl: IGenericDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetLength() {
+            match (*this).GetLength2() {
                 ::core::result::Result::Ok(ok__) => {
                     *pwval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -18850,8 +18850,8 @@ impl IGenericDescriptor2_Vtbl {
         }
         Self {
             base: IGenericDescriptor_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
-            Initialize: Initialize::<Impl, IMPL_OFFSET>,
-            GetLength: GetLength::<Impl, IMPL_OFFSET>,
+            Initialize2: Initialize2::<Impl, IMPL_OFFSET>,
+            GetLength2: GetLength2::<Impl, IMPL_OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -21842,7 +21842,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
     }
 }
 pub trait IIsdbSiParser2_Impl: Sized + IDvbSiParser_Impl + IDvbSiParser2_Impl {
-    fn GetSDT(&mut self, tableid: u8, pwtransportstreamid: *const u16) -> ::windows::core::Result<IISDB_SDT>;
+    fn GetSDT2(&mut self, tableid: u8, pwtransportstreamid: *const u16) -> ::windows::core::Result<IISDB_SDT>;
     fn GetBIT(&mut self, tableid: u8, pworiginalnetworkid: *const u16) -> ::windows::core::Result<IISDB_BIT>;
     fn GetNBIT(&mut self, tableid: u8, pworiginalnetworkid: *const u16) -> ::windows::core::Result<IISDB_NBIT>;
     fn GetLDT(&mut self, tableid: u8, pworiginalserviceid: *const u16) -> ::windows::core::Result<IISDB_LDT>;
@@ -21852,9 +21852,9 @@ pub trait IIsdbSiParser2_Impl: Sized + IDvbSiParser_Impl + IDvbSiParser2_Impl {
 }
 impl IIsdbSiParser2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsdbSiParser2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsdbSiParser2_Vtbl {
-        unsafe extern "system" fn GetSDT<Impl: IIsdbSiParser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tableid: u8, pwtransportstreamid: *const u16, ppsdt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSDT2<Impl: IIsdbSiParser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tableid: u8, pwtransportstreamid: *const u16, ppsdt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetSDT(::core::mem::transmute_copy(&tableid), ::core::mem::transmute_copy(&pwtransportstreamid)) {
+            match (*this).GetSDT2(::core::mem::transmute_copy(&tableid), ::core::mem::transmute_copy(&pwtransportstreamid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsdt = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -21924,7 +21924,7 @@ impl IIsdbSiParser2_Vtbl {
         }
         Self {
             base: IDvbSiParser2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
-            GetSDT: GetSDT::<Impl, IMPL_OFFSET>,
+            GetSDT2: GetSDT2::<Impl, IMPL_OFFSET>,
             GetBIT: GetBIT::<Impl, IMPL_OFFSET>,
             GetNBIT: GetNBIT::<Impl, IMPL_OFFSET>,
             GetLDT: GetLDT::<Impl, IMPL_OFFSET>,

@@ -13,4 +13,14 @@ impl MethodNames {
         *overload += 1;
         if *overload > 1 { format!("{}{}", name, overload).into() } else { gen_ident(&name) }
     }
+
+    pub fn add_vtable_types(&mut self, def: &TypeDef) {
+        for def in def.vtable_types() {
+            if let ElementType::TypeDef(def) = def {
+                for method in def.methods() {
+                    self.add(&method);
+                }
+            }
+        }
+    }
 }

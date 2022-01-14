@@ -15140,7 +15140,7 @@ pub trait IShellNameSpace_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn SelectedItem(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn SetSelectedItem(&mut self, pitem: ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Root(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetRoot(&mut self, var: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetRoot2(&mut self, var: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Depth(&mut self) -> ::windows::core::Result<i32>;
     fn SetDepth(&mut self, idepth: i32) -> ::windows::core::Result<()>;
     fn Mode(&mut self) -> ::windows::core::Result<u32>;
@@ -15198,9 +15198,9 @@ impl IShellNameSpace_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoot<Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoot2<Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetRoot(::core::mem::transmute_copy(&var)).into()
+            (*this).SetRoot2(::core::mem::transmute_copy(&var)).into()
         }
         unsafe extern "system" fn Depth<Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidepth: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -15311,7 +15311,7 @@ impl IShellNameSpace_Vtbl {
             SelectedItem: SelectedItem::<Impl, IMPL_OFFSET>,
             SetSelectedItem: SetSelectedItem::<Impl, IMPL_OFFSET>,
             Root: Root::<Impl, IMPL_OFFSET>,
-            SetRoot: SetRoot::<Impl, IMPL_OFFSET>,
+            SetRoot2: SetRoot2::<Impl, IMPL_OFFSET>,
             Depth: Depth::<Impl, IMPL_OFFSET>,
             SetDepth: SetDepth::<Impl, IMPL_OFFSET>,
             Mode: Mode::<Impl, IMPL_OFFSET>,

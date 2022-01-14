@@ -822,7 +822,7 @@ pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Put(&mut self, resourceuri: super::Com::VARIANT, resource: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Create(&mut self, resourceuri: super::Com::VARIANT, resource: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Delete(&mut self, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::Result<()>;
-    fn Invoke(&mut self, actionuri: super::super::Foundation::BSTR, resourceuri: super::Com::VARIANT, parameters: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Invoke2(&mut self, actionuri: super::super::Foundation::BSTR, resourceuri: super::Com::VARIANT, parameters: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Enumerate(&mut self, resourceuri: super::Com::VARIANT, filter: super::super::Foundation::BSTR, dialect: super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Identify(&mut self, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -868,9 +868,9 @@ impl IWSManSession_Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn Invoke<Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, parameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, result: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Invoke2<Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, parameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, result: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).Invoke(::core::mem::transmute_copy(&actionuri), ::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&parameters), ::core::mem::transmute_copy(&flags)) {
+            match (*this).Invoke2(::core::mem::transmute_copy(&actionuri), ::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&parameters), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -942,7 +942,7 @@ impl IWSManSession_Vtbl {
             Put: Put::<Impl, IMPL_OFFSET>,
             Create: Create::<Impl, IMPL_OFFSET>,
             Delete: Delete::<Impl, IMPL_OFFSET>,
-            Invoke: Invoke::<Impl, IMPL_OFFSET>,
+            Invoke2: Invoke2::<Impl, IMPL_OFFSET>,
             Enumerate: Enumerate::<Impl, IMPL_OFFSET>,
             Identify: Identify::<Impl, IMPL_OFFSET>,
             Error: Error::<Impl, IMPL_OFFSET>,
