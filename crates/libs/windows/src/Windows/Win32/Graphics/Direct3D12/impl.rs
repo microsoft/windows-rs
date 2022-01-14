@@ -97,7 +97,7 @@ impl ID3D12CommandQueue_Vtbl {
         }
         unsafe extern "system" fn GetDesc<Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_COMMAND_QUEUE_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         Self {
             base: ID3D12Pageable_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -459,15 +459,15 @@ impl ID3D12DescriptorHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DescriptorHeap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DescriptorHeap_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12DescriptorHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_DESCRIPTOR_HEAP_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         unsafe extern "system" fn GetCPUDescriptorHandleForHeapStart<Impl: ID3D12DescriptorHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetCPUDescriptorHandleForHeapStart()
+            *result__ = (*this).GetCPUDescriptorHandleForHeapStart()
         }
         unsafe extern "system" fn GetGPUDescriptorHandleForHeapStart<Impl: ID3D12DescriptorHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_GPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetGPUDescriptorHandleForHeapStart()
+            *result__ = (*this).GetGPUDescriptorHandleForHeapStart()
         }
         Self {
             base: ID3D12Pageable_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -597,11 +597,11 @@ impl ID3D12Device_Vtbl {
         }
         unsafe extern "system" fn GetResourceAllocationInfo<Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetResourceAllocationInfo(::core::mem::transmute_copy(&visiblemask), ::core::mem::transmute_copy(&numresourcedescs), ::core::mem::transmute_copy(&presourcedescs))
+            *result__ = (*this).GetResourceAllocationInfo(::core::mem::transmute_copy(&visiblemask), ::core::mem::transmute_copy(&numresourcedescs), ::core::mem::transmute_copy(&presourcedescs))
         }
         unsafe extern "system" fn GetCustomHeapProperties<Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetCustomHeapProperties(::core::mem::transmute_copy(&nodemask), ::core::mem::transmute_copy(&heaptype))
+            *result__ = (*this).GetCustomHeapProperties(::core::mem::transmute_copy(&nodemask), ::core::mem::transmute_copy(&heaptype))
         }
         unsafe extern "system" fn CreateCommittedResource<Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -681,7 +681,7 @@ impl ID3D12Device_Vtbl {
         }
         unsafe extern "system" fn GetAdapterLuid<Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetAdapterLuid()
+            *result__ = (*this).GetAdapterLuid()
         }
         Self {
             base: ID3D12Object_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -843,7 +843,7 @@ impl ID3D12Device4_Vtbl {
         }
         unsafe extern "system" fn GetResourceAllocationInfo1<Impl: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetResourceAllocationInfo1(::core::mem::transmute_copy(&visiblemask), ::core::mem::transmute_copy(&numresourcedescs), ::core::mem::transmute_copy(&presourcedescs), ::core::mem::transmute_copy(&presourceallocationinfo1))
+            *result__ = (*this).GetResourceAllocationInfo1(::core::mem::transmute_copy(&visiblemask), ::core::mem::transmute_copy(&numresourcedescs), ::core::mem::transmute_copy(&presourcedescs), ::core::mem::transmute_copy(&presourceallocationinfo1))
         }
         Self {
             base: ID3D12Device3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -986,7 +986,7 @@ impl ID3D12Device8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device8_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device8_Vtbl {
         unsafe extern "system" fn GetResourceAllocationInfo2<Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetResourceAllocationInfo2(::core::mem::transmute_copy(&visiblemask), ::core::mem::transmute_copy(&numresourcedescs), ::core::mem::transmute_copy(&presourcedescs), ::core::mem::transmute_copy(&presourceallocationinfo1))
+            *result__ = (*this).GetResourceAllocationInfo2(::core::mem::transmute_copy(&visiblemask), ::core::mem::transmute_copy(&numresourcedescs), ::core::mem::transmute_copy(&presourcedescs), ::core::mem::transmute_copy(&presourceallocationinfo1))
         }
         unsafe extern "system" fn CreateCommittedResource2<Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -1897,7 +1897,7 @@ impl ID3D12Heap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Heap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Heap_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12Heap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_HEAP_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         Self { base: ID3D12Pageable_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
@@ -2401,7 +2401,7 @@ impl ID3D12ProtectedResourceSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ProtectedResourceSession_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12ProtectedResourceSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         Self { base: ID3D12ProtectedSession_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc: GetDesc::<Impl, IMPL_OFFSET> }
     }
@@ -2418,7 +2418,7 @@ impl ID3D12ProtectedResourceSession1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSession1_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ProtectedResourceSession1_Vtbl {
         unsafe extern "system" fn GetDesc1<Impl: ID3D12ProtectedResourceSession1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC1) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc1()
+            *result__ = (*this).GetDesc1()
         }
         Self { base: ID3D12ProtectedResourceSession_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc1: GetDesc1::<Impl, IMPL_OFFSET> }
     }
@@ -2486,7 +2486,7 @@ impl ID3D12Resource_Vtbl {
         }
         unsafe extern "system" fn GetDesc<Impl: ID3D12Resource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         unsafe extern "system" fn GetGPUVirtualAddress<Impl: ID3D12Resource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -2548,7 +2548,7 @@ impl ID3D12Resource2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Resource2_Vtbl {
         unsafe extern "system" fn GetDesc1<Impl: ID3D12Resource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_DESC1) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc1()
+            *result__ = (*this).GetDesc1()
         }
         Self { base: ID3D12Resource1_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetDesc1: GetDesc1::<Impl, IMPL_OFFSET> }
     }
@@ -2623,7 +2623,7 @@ impl ID3D12ShaderCacheSession_Vtbl {
         }
         unsafe extern "system" fn GetDesc<Impl: ID3D12ShaderCacheSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_SHADER_CACHE_SESSION_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         Self {
             base: ID3D12DeviceChild_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3065,7 +3065,7 @@ impl ID3D12SwapChainAssistant_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SwapChainAssistant_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12SwapChainAssistant_Vtbl {
         unsafe extern "system" fn GetLUID<Impl: ID3D12SwapChainAssistant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetLUID()
+            *result__ = (*this).GetLUID()
         }
         unsafe extern "system" fn GetSwapChainObject<Impl: ID3D12SwapChainAssistant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;

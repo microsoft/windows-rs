@@ -1569,7 +1569,7 @@ impl IVssWriterImpl_Vtbl {
         }
         unsafe extern "system" fn GetCurrentSnapshotSetId<Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetCurrentSnapshotSetId()
+            *result__ = (*this).GetCurrentSnapshotSetId()
         }
         unsafe extern "system" fn GetContext<Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> i32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;

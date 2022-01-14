@@ -334,7 +334,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
 
             quote! {
-                #inner(#(#invoke_args,)*)
+                *result__ = #inner(#(#invoke_args,)*)
             }
         }
         _ => {

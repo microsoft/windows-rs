@@ -28,15 +28,15 @@ impl ID2D1Bitmap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Bitmap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID2D1Bitmap_Vtbl {
         unsafe extern "system" fn GetSize<Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetSize()
+            *result__ = (*this).GetSize()
         }
         unsafe extern "system" fn GetPixelSize<Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_SIZE_U) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetPixelSize()
+            *result__ = (*this).GetPixelSize()
         }
         unsafe extern "system" fn GetPixelFormat<Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D1_PIXEL_FORMAT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetPixelFormat()
+            *result__ = (*this).GetPixelFormat()
         }
         unsafe extern "system" fn GetDpi<Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -3292,7 +3292,7 @@ impl ID2D1Ink_Vtbl {
         }
         unsafe extern "system" fn GetStartPoint<Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D2D1_INK_POINT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetStartPoint()
+            *result__ = (*this).GetStartPoint()
         }
         unsafe extern "system" fn AddSegments<Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, segments: *const D2D1_INK_BEZIER_SEGMENT, segmentscount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -3397,7 +3397,7 @@ impl ID2D1Layer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Layer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID2D1Layer_Vtbl {
         unsafe extern "system" fn GetSize<Impl: ID2D1Layer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetSize()
+            *result__ = (*this).GetSize()
         }
         Self { base: ID2D1Resource_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetSize: GetSize::<Impl, IMPL_OFFSET> }
     }
@@ -3426,11 +3426,11 @@ impl ID2D1LinearGradientBrush_Vtbl {
         }
         unsafe extern "system" fn GetStartPoint<Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetStartPoint()
+            *result__ = (*this).GetStartPoint()
         }
         unsafe extern "system" fn GetEndPoint<Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetEndPoint()
+            *result__ = (*this).GetEndPoint()
         }
         unsafe extern "system" fn GetGradientStopCollection<Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gradientstopcollection: *mut ::windows::core::RawPtr) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -3525,7 +3525,7 @@ impl ID2D1OffsetTransform_Vtbl {
         }
         unsafe extern "system" fn GetOffset<Impl: ID2D1OffsetTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::POINT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetOffset()
+            *result__ = (*this).GetOffset()
         }
         Self {
             base: ID2D1TransformNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -3760,11 +3760,11 @@ impl ID2D1RadialGradientBrush_Vtbl {
         }
         unsafe extern "system" fn GetCenter<Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetCenter()
+            *result__ = (*this).GetCenter()
         }
         unsafe extern "system" fn GetGradientOriginOffset<Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetGradientOriginOffset()
+            *result__ = (*this).GetGradientOriginOffset()
         }
         unsafe extern "system" fn GetRadiusX<Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> f32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -4155,7 +4155,7 @@ impl ID2D1RenderTarget_Vtbl {
         }
         unsafe extern "system" fn GetPixelFormat<Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D1_PIXEL_FORMAT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetPixelFormat()
+            *result__ = (*this).GetPixelFormat()
         }
         unsafe extern "system" fn SetDpi<Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dpix: f32, dpiy: f32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -4167,11 +4167,11 @@ impl ID2D1RenderTarget_Vtbl {
         }
         unsafe extern "system" fn GetSize<Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetSize()
+            *result__ = (*this).GetSize()
         }
         unsafe extern "system" fn GetPixelSize<Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_SIZE_U) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetPixelSize()
+            *result__ = (*this).GetPixelSize()
         }
         unsafe extern "system" fn GetMaximumBitmapSize<Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -4303,7 +4303,7 @@ impl ID2D1SolidColorBrush_Vtbl {
         }
         unsafe extern "system" fn GetColor<Impl: ID2D1SolidColorBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D1_COLOR_F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetColor()
+            *result__ = (*this).GetColor()
         }
         Self {
             base: ID2D1Brush_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -4524,7 +4524,7 @@ impl ID2D1SvgDocument_Vtbl {
         }
         unsafe extern "system" fn GetViewportSize<Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetViewportSize()
+            *result__ = (*this).GetViewportSize()
         }
         unsafe extern "system" fn SetRoot<Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, root: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;

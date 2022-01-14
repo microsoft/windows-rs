@@ -43,7 +43,7 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndependentFlipFramePresentStatistics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIndependentFlipFramePresentStatistics_Vtbl {
         unsafe extern "system" fn GetOutputAdapterLUID<Impl: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetOutputAdapterLUID()
+            *result__ = (*this).GetOutputAdapterLUID()
         }
         unsafe extern "system" fn GetOutputVidPnSourceId<Impl: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -55,11 +55,11 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         }
         unsafe extern "system" fn GetDisplayedTime<Impl: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemInterruptTime) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDisplayedTime()
+            *result__ = (*this).GetDisplayedTime()
         }
         unsafe extern "system" fn GetPresentDuration<Impl: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemInterruptTime) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetPresentDuration()
+            *result__ = (*this).GetPresentDuration()
         }
         Self {
             base: IPresentStatistics_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),

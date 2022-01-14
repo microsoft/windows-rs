@@ -375,7 +375,7 @@ impl ID3D12VideoDecoder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12VideoDecoder_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12VideoDecoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         Self {
             base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -415,7 +415,7 @@ impl ID3D12VideoDecoderHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoderHeap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12VideoDecoderHeap_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12VideoDecoderHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         Self {
             base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
@@ -864,7 +864,7 @@ impl ID3D12VideoExtensionCommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoExtensionCommand_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12VideoExtensionCommand_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -890,7 +890,7 @@ impl ID3D12VideoMotionEstimator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoMotionEstimator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12VideoMotionEstimator_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -916,7 +916,7 @@ impl ID3D12VideoMotionVectorHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoMotionVectorHeap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12VideoMotionVectorHeap_Vtbl {
         unsafe extern "system" fn GetDesc<Impl: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetDesc()
+            *result__ = (*this).GetDesc()
         }
         unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
@@ -1103,7 +1103,7 @@ impl ID3D12VideoProcessor_Vtbl {
         }
         unsafe extern "system" fn GetOutputStreamDesc<Impl: ID3D12VideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetOutputStreamDesc()
+            *result__ = (*this).GetOutputStreamDesc()
         }
         Self {
             base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),

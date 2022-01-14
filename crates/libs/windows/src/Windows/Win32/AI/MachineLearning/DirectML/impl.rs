@@ -204,7 +204,7 @@ impl IDMLDispatchable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDispatchable_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDMLDispatchable_Vtbl {
         unsafe extern "system" fn GetBindingProperties<Impl: IDMLDispatchable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).GetBindingProperties()
+            *result__ = (*this).GetBindingProperties()
         }
         Self { base: IDMLPageable_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetBindingProperties: GetBindingProperties::<Impl, IMPL_OFFSET> }
     }
